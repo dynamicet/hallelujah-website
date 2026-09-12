@@ -1,0 +1,2319 @@
+{
+  "generatedAt": "2026-09-12T18:07:16.748Z",
+  "environment": "Local headless Chromium through DevTools Protocol",
+  "method": "Automated semantic/AX-tree, contrast, real keyboard event, state, bilingual stress, forced-colors, emulated touch, reflow-equivalent, no-JavaScript, motion, Save-Data, and constrained-profile checks",
+  "assertions": 17,
+  "passed": 17,
+  "failed": 0,
+  "artifacts": 16,
+  "results": [
+    {
+      "id": "Q11-01",
+      "category": "semantics",
+      "passed": true,
+      "detail": {
+        "cases": 16,
+        "failures": []
+      }
+    },
+    {
+      "id": "Q11-02",
+      "category": "screen-reader-structure",
+      "passed": true,
+      "detail": {
+        "method": "Chromium accessibility tree inspection; not a human screen-reader session",
+        "cases": 16,
+        "failures": []
+      }
+    },
+    {
+      "id": "Q11-03",
+      "category": "contrast",
+      "passed": true,
+      "detail": {
+        "method": "Computed solid-background text contrast; gradients and anti-aliasing excluded",
+        "cases": 16,
+        "minimum": 5.1,
+        "failures": []
+      }
+    },
+    {
+      "id": "Q11-04",
+      "category": "keyboard-focus",
+      "passed": true,
+      "detail": {
+        "method": "Real CDP Tab and Enter key events on every artifact",
+        "cases": 16,
+        "failures": []
+      }
+    },
+    {
+      "id": "Q11-05",
+      "category": "keyboard-focus",
+      "passed": true,
+      "detail": {
+        "menuOpen": {
+          "expanded": "true",
+          "firstFocused": true,
+          "hidden": false
+        },
+        "menuClosed": {
+          "expanded": "false",
+          "returned": true,
+          "hidden": true
+        }
+      }
+    },
+    {
+      "id": "Q11-06",
+      "category": "keyboard-focus",
+      "passed": true,
+      "detail": {
+        "expanded": "false",
+        "returned": true,
+        "visible": false
+      }
+    },
+    {
+      "id": "Q11-07",
+      "category": "forms-feedback",
+      "passed": true,
+      "detail": {
+        "validationFocus": {
+          "summaryFocused": true,
+          "invalid": "true",
+          "valuesRetained": true
+        },
+        "linkedField": true
+      }
+    },
+    {
+      "id": "Q11-08",
+      "category": "error-loading-states",
+      "passed": true,
+      "detail": {
+        "cases": 15,
+        "failures": []
+      }
+    },
+    {
+      "id": "Q11-09",
+      "category": "bilingual-presentation",
+      "passed": true,
+      "detail": {
+        "method": "Controlled geometry/stress fixtures only; no linguistic approval",
+        "cases": 60,
+        "failures": []
+      }
+    },
+    {
+      "id": "Q11-10",
+      "category": "forced-colors",
+      "passed": true,
+      "detail": {
+        "method": "Chromium forced-colors media emulation plus focus/border geometry",
+        "cases": 6,
+        "failures": []
+      }
+    },
+    {
+      "id": "Q11-11",
+      "category": "touch-emergency-safety",
+      "passed": true,
+      "detail": {
+        "method": "Emulated touch tap and moved scroll gesture; no physical dialer/device",
+        "deliberateTouch": {
+          "samePage": true,
+          "noDialer": true,
+          "announced": true
+        },
+        "scrollTouch": {
+          "samePage": true,
+          "announcementHidden": true,
+          "noDialer": true
+        }
+      }
+    },
+    {
+      "id": "Q11-12",
+      "category": "zoom-reflow",
+      "passed": true,
+      "detail": {
+        "method": "Chromium CSS-viewport/device-scale emulation; browser UI zoom controls were not manually operated",
+        "cases": 32,
+        "failures": []
+      }
+    },
+    {
+      "id": "Q11-13",
+      "category": "no-javascript",
+      "passed": true,
+      "detail": {
+        "cases": 16,
+        "failures": []
+      }
+    },
+    {
+      "id": "Q11-14",
+      "category": "motion",
+      "passed": true,
+      "detail": {
+        "standardMotion": {
+          "count": 6,
+          "animations": [
+            {
+              "state": "running",
+              "timing": {
+                "delay": 0,
+                "direction": "normal",
+                "duration": 240,
+                "easing": "linear",
+                "endDelay": 0,
+                "fill": "both",
+                "iterationStart": 0,
+                "iterations": 1
+              },
+              "frames": [
+                {
+                  "transform": "scaleX(0.65)",
+                  "opacity": "0.65"
+                },
+                {
+                  "transform": "scaleX(1)",
+                  "opacity": "1"
+                }
+              ]
+            },
+            {
+              "state": "running",
+              "timing": {
+                "delay": 0,
+                "direction": "normal",
+                "duration": 200,
+                "easing": "linear",
+                "endDelay": 0,
+                "fill": "both",
+                "iterationStart": 0,
+                "iterations": 1
+              },
+              "frames": [
+                {
+                  "transform": "translateY(4px)"
+                },
+                {
+                  "transform": "translateY(0px)"
+                }
+              ]
+            },
+            {
+              "state": "running",
+              "timing": {
+                "delay": 30,
+                "direction": "normal",
+                "duration": 200,
+                "easing": "linear",
+                "endDelay": 0,
+                "fill": "both",
+                "iterationStart": 0,
+                "iterations": 1
+              },
+              "frames": [
+                {
+                  "transform": "translateY(4px)"
+                },
+                {
+                  "transform": "translateY(0px)"
+                }
+              ]
+            },
+            {
+              "state": "running",
+              "timing": {
+                "delay": 60,
+                "direction": "normal",
+                "duration": 200,
+                "easing": "linear",
+                "endDelay": 0,
+                "fill": "both",
+                "iterationStart": 0,
+                "iterations": 1
+              },
+              "frames": [
+                {
+                  "transform": "translateY(4px)"
+                },
+                {
+                  "transform": "translateY(0px)"
+                }
+              ]
+            },
+            {
+              "state": "running",
+              "timing": {
+                "delay": 90,
+                "direction": "normal",
+                "duration": 200,
+                "easing": "linear",
+                "endDelay": 0,
+                "fill": "both",
+                "iterationStart": 0,
+                "iterations": 1
+              },
+              "frames": [
+                {
+                  "transform": "translateY(4px)"
+                },
+                {
+                  "transform": "translateY(0px)"
+                }
+              ]
+            },
+            {
+              "state": "running",
+              "timing": {
+                "delay": 120,
+                "direction": "normal",
+                "duration": 200,
+                "easing": "linear",
+                "endDelay": 0,
+                "fill": "both",
+                "iterationStart": 0,
+                "iterations": 1
+              },
+              "frames": [
+                {
+                  "transform": "translateY(4px)"
+                },
+                {
+                  "transform": "translateY(0px)"
+                }
+              ]
+            }
+          ],
+          "maxDuration": 240,
+          "maxDelay": 120,
+          "layoutShift": false
+        },
+        "emergencyMotion": 0,
+        "reducedMotion": {
+          "animations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "mode": true
+        }
+      }
+    },
+    {
+      "id": "Q11-15",
+      "category": "motion",
+      "passed": true,
+      "detail": {
+        "method": "Navigator Save-Data override before document creation",
+        "conserve": "true",
+        "animations": []
+      }
+    },
+    {
+      "id": "Q11-16",
+      "category": "constrained-performance",
+      "passed": true,
+      "detail": {
+        "method": "Chromium 6× CPU throttle and 400 ms / 400 kbps local HTTP profile",
+        "constrained": {
+          "dcl": 3541.3000000715256,
+          "load": 3547.8000000715256,
+          "resources": [
+            {
+              "name": "http://127.0.0.1:8666/visual-design/pages/critical-journeys/page-compositions.css",
+              "duration": 1128.9000000953674,
+              "initiatorType": "link"
+            },
+            {
+              "name": "http://127.0.0.1:8666/visual-design/pages/responsive/order-9.css",
+              "duration": 617.2999999523163,
+              "initiatorType": "link"
+            },
+            {
+              "name": "http://127.0.0.1:8666/visual-design/pages/critical-journeys/study.js",
+              "duration": 595.1000000238419,
+              "initiatorType": "script"
+            },
+            {
+              "name": "http://127.0.0.1:8666/visual-design/pages/responsive/order-9-fixtures.js",
+              "duration": 924.7000000476837,
+              "initiatorType": "script"
+            },
+            {
+              "name": "http://127.0.0.1:8666/visual-design/prototype/prototype.js",
+              "duration": 1644.2999999523163,
+              "initiatorType": "script"
+            },
+            {
+              "name": "http://127.0.0.1:8666/visual-design/prototype/prototype.css",
+              "duration": 656.3000000715256,
+              "initiatorType": "css"
+            },
+            {
+              "name": "http://127.0.0.1:8666/visual-design/components/component-tokens.css",
+              "duration": 1106.3999999761581,
+              "initiatorType": "css"
+            },
+            {
+              "name": "http://127.0.0.1:8666/visual-design/foundations/tokens.css",
+              "duration": 686.7000000476837,
+              "initiatorType": "css"
+            }
+          ],
+          "external": 0,
+          "vitals": {
+            "cls": 0,
+            "lcp": 3508,
+            "longTasks": []
+          },
+          "usable": true
+        },
+        "requests": [
+          "http://127.0.0.1:8666/visual-design/pages/critical-journeys/home.html",
+          "http://127.0.0.1:8666/visual-design/pages/critical-journeys/page-compositions.css",
+          "http://127.0.0.1:8666/visual-design/pages/responsive/order-9.css",
+          "http://127.0.0.1:8666/visual-design/pages/critical-journeys/study.js",
+          "http://127.0.0.1:8666/visual-design/pages/responsive/order-9-fixtures.js",
+          "http://127.0.0.1:8666/visual-design/prototype/prototype.js",
+          "http://127.0.0.1:8666/visual-design/components/component-tokens.css",
+          "http://127.0.0.1:8666/visual-design/prototype/prototype.css",
+          "http://127.0.0.1:8666/visual-design/foundations/tokens.css"
+        ],
+        "interactionRoundTripMs": 66
+      }
+    },
+    {
+      "id": "Q11-17",
+      "category": "asset-budgets",
+      "passed": true,
+      "detail": {
+        "method": "Initial Home document plus loaded local dependency file sizes, uncompressed (conservative versus compressed limits)",
+        "budgets": {
+          "requests": 9,
+          "totalUncompressedBytes": 120920,
+          "javascriptUncompressedBytes": 41515,
+          "ignoredBrowserRequests": []
+        }
+      }
+    }
+  ],
+  "semanticCases": [
+    {
+      "artifact": "critical-journeys/home.html",
+      "passed": true,
+      "title": "Home — Order 6 critical-journey design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/critical-journeys/home.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "passed": true,
+      "title": "Emergency — Order 6 critical-journey design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/critical-journeys/emergency.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "passed": true,
+      "title": "Request an appointment — Order 6 critical-journey design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/critical-journeys/appointment.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "passed": true,
+      "title": "Find a doctor — Order 7 care-discovery design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/doctor-directory.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "passed": true,
+      "title": "Prototype clinician A — Order 7 care-discovery design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/doctor-profile.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "passed": true,
+      "title": "Services — Order 7 care-discovery design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/services-directory.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "passed": true,
+      "title": "Prototype service A — Order 7 care-discovery design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/service-detail.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "passed": true,
+      "title": "Patient & Visitor Information — Order 8 design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/practical-institutional/patient-information.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "passed": true,
+      "title": "Locations & Contact — Order 8 design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/practical-institutional/locations-contact.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "passed": true,
+      "title": "Search Results — Order 8 design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/practical-institutional/search-results.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "passed": true,
+      "title": "About the Hospital — Order 8 design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/practical-institutional/about.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "passed": true,
+      "title": "Careers — Order 8 Phase 2 design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/practical-institutional/careers.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "passed": true,
+      "title": "Appointment states — Order 6 critical-journey design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/critical-journeys/appointment-states.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "passed": true,
+      "title": "Care-discovery states — Order 7 design",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/care-discovery-states.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "passed": true,
+      "title": "Order 8 state evidence — Practical and institutional pages",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/practical-institutional/practical-institutional-states.html?motion=reduce#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    },
+    {
+      "artifact": "prototype/index.html",
+      "passed": true,
+      "title": "Order 10 connected prototype — journey map",
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "skipTarget": "#main",
+      "prototypeLabel": true,
+      "duplicateIds": [],
+      "brokenReferences": [],
+      "headingJumps": [],
+      "unnamedControls": [],
+      "unnamedImages": [],
+      "positiveTabindex": 0,
+      "badSchemes": [],
+      "activeInertForms": 0,
+      "externalResources": []
+    }
+  ],
+  "contrastCases": [
+    {
+      "artifact": "critical-journeys/home.html",
+      "passed": true,
+      "samples": 129,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "passed": true,
+      "samples": 89,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "passed": true,
+      "samples": 83,
+      "minimum": 5.1,
+      "failures": []
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "passed": true,
+      "samples": 75,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "passed": true,
+      "samples": 81,
+      "minimum": 5.1,
+      "failures": []
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "passed": true,
+      "samples": 76,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "passed": true,
+      "samples": 96,
+      "minimum": 5.1,
+      "failures": []
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "passed": true,
+      "samples": 83,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "passed": true,
+      "samples": 81,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "passed": true,
+      "samples": 74,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "passed": true,
+      "samples": 111,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "passed": true,
+      "samples": 79,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "passed": true,
+      "samples": 92,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "passed": true,
+      "samples": 132,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "passed": true,
+      "samples": 136,
+      "minimum": 5.29,
+      "failures": []
+    },
+    {
+      "artifact": "prototype/index.html",
+      "passed": true,
+      "samples": 52,
+      "minimum": 5.29,
+      "failures": []
+    }
+  ],
+  "axCases": [
+    {
+      "artifact": "critical-journeys/home.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 18,
+      "navigations": 1,
+      "unnamed": []
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 10,
+      "navigations": 1,
+      "unnamed": []
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 8,
+      "navigations": 1,
+      "unnamed": []
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 7,
+      "navigations": 2,
+      "unnamed": []
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 10,
+      "navigations": 2,
+      "unnamed": []
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 7,
+      "navigations": 2,
+      "unnamed": []
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 10,
+      "navigations": 2,
+      "unnamed": []
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 9,
+      "navigations": 1,
+      "unnamed": []
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 9,
+      "navigations": 1,
+      "unnamed": []
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 7,
+      "navigations": 2,
+      "unnamed": []
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 16,
+      "navigations": 2,
+      "unnamed": []
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 8,
+      "navigations": 2,
+      "unnamed": []
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 7,
+      "navigations": 1,
+      "unnamed": []
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 16,
+      "navigations": 2,
+      "unnamed": []
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 16,
+      "navigations": 2,
+      "unnamed": []
+    },
+    {
+      "artifact": "prototype/index.html",
+      "passed": true,
+      "root": true,
+      "main": true,
+      "headings": 5,
+      "navigations": 0,
+      "unnamed": []
+    }
+  ],
+  "keyboardCases": [
+    {
+      "artifact": "critical-journeys/home.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    },
+    {
+      "artifact": "prototype/index.html",
+      "passed": true,
+      "skip": {
+        "isSkip": true,
+        "outline": 3,
+        "visible": true
+      },
+      "targetFocused": true
+    }
+  ],
+  "stateCases": [
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "state": "loading",
+      "passed": true,
+      "panel": true,
+      "role": "status",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "state": "no-match",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "state": "failure",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "state": "offline",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "state": "unavailable",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "state": "loading",
+      "passed": true,
+      "panel": true,
+      "role": "status",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "state": "no-match",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "state": "failure",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "state": "offline",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "state": "unavailable",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "state": "loading",
+      "passed": true,
+      "panel": true,
+      "role": "status",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "state": "no-match",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "state": "failure",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "state": "offline",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "state": "unavailable",
+      "passed": true,
+      "panel": true,
+      "role": "alert",
+      "resultsHidden": true,
+      "recover": true,
+      "external": false
+    }
+  ],
+  "bilingualCases": [
+    {
+      "artifact": "critical-journeys/home.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/home.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/home.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/home.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "fixture": "am",
+      "passed": true,
+      "lang": "am",
+      "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "fixture": "mixed",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 mixed-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "fixture": "long",
+      "passed": true,
+      "lang": "en",
+      "notice": "Order 9 long-content stress fixture — not approved translation or hospital content.",
+      "overflow": false,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "fixture": "unavailable",
+      "passed": true,
+      "lang": "en",
+      "notice": "Requested translation unavailable — this fixture keeps the approved source-language layout visible and does not fabricate translated safety or operational content.",
+      "overflow": false,
+      "external": false
+    }
+  ],
+  "forcedColorCases": [
+    {
+      "artifact": "critical-journeys/home.html",
+      "width": 320,
+      "passed": true,
+      "active": true,
+      "overflow": false,
+      "outline": 3,
+      "border": 1,
+      "color": "rgb(255, 255, 0)",
+      "background": "rgb(0, 0, 0)"
+    },
+    {
+      "artifact": "critical-journeys/home.html",
+      "width": 1280,
+      "passed": true,
+      "active": true,
+      "overflow": false,
+      "outline": 3,
+      "border": 1,
+      "color": "rgb(255, 255, 0)",
+      "background": "rgb(0, 0, 0)"
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "width": 320,
+      "passed": true,
+      "active": true,
+      "overflow": false,
+      "outline": 3,
+      "border": 2,
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "width": 1280,
+      "passed": true,
+      "active": true,
+      "overflow": false,
+      "outline": 3,
+      "border": 2,
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "width": 320,
+      "passed": true,
+      "active": true,
+      "overflow": false,
+      "outline": 3,
+      "border": 1,
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(0, 0, 0)"
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "width": 1280,
+      "passed": true,
+      "active": true,
+      "overflow": false,
+      "outline": 3,
+      "border": 1,
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(0, 0, 0)"
+    }
+  ],
+  "reflowCases": [
+    {
+      "artifact": "critical-journeys/home.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "prototype/index.html",
+      "setting": "200%-equivalent",
+      "passed": true,
+      "viewport": 640,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "critical-journeys/home.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    },
+    {
+      "artifact": "prototype/index.html",
+      "setting": "400%-equivalent",
+      "passed": true,
+      "viewport": 320,
+      "overflow": false,
+      "small": 0
+    }
+  ],
+  "noJsCases": [
+    {
+      "artifact": "critical-journeys/home.html",
+      "passed": true,
+      "mainText": 3941,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 1,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/emergency.html",
+      "passed": true,
+      "mainText": 3078,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment.html",
+      "passed": true,
+      "mainText": 2589,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 1,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-directory.html",
+      "passed": true,
+      "mainText": 1537,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 2,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/doctor-profile.html",
+      "passed": true,
+      "mainText": 2323,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/services-directory.html",
+      "passed": true,
+      "mainText": 1950,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 2,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/service-detail.html",
+      "passed": true,
+      "mainText": 3057,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/patient-information.html",
+      "passed": true,
+      "mainText": 2171,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/locations-contact.html",
+      "passed": true,
+      "mainText": 2740,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/search-results.html",
+      "passed": true,
+      "mainText": 1130,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 2,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/about.html",
+      "passed": true,
+      "mainText": 3636,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/careers.html",
+      "passed": true,
+      "mainText": 2431,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "critical-journeys/appointment-states.html",
+      "passed": true,
+      "mainText": 3748,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "care-discovery/care-discovery-states.html",
+      "passed": true,
+      "mainText": 5364,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "practical-institutional/practical-institutional-states.html",
+      "passed": true,
+      "mainText": 5714,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    },
+    {
+      "artifact": "prototype/index.html",
+      "passed": true,
+      "mainText": 1369,
+      "prototypeLabel": true,
+      "interactiveForms": 0,
+      "forms": 0,
+      "noJsMessage": true,
+      "external": false
+    }
+  ]
+}

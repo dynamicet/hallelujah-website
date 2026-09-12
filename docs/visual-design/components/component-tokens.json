@@ -1,0 +1,99 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "name": "Hallelujah General Hospital non-public prototype components",
+    "order": 5,
+    "prepared": "2026-09-12",
+    "status": "stable-for-non-public-prototype-not-hospital-approved",
+    "extends": "../foundations/tokens.json",
+    "source": "component-tokens.css"
+  },
+  "component": {
+    "shell": {
+      "background": { "$type": "color", "$value": "{semantic.color.surface.raised}" },
+      "foreground": { "$type": "color", "$value": "{semantic.color.text.primary}" },
+      "border": { "$type": "color", "$value": "{primitive.color.mineral.200}" }
+    },
+    "navigation": {
+      "hover-background": { "$type": "color", "$value": "{primitive.color.teal.050}" },
+      "active-background": { "$type": "color", "$value": "{primitive.color.teal.100}" },
+      "current-edge": { "$type": "color", "$value": "{primitive.color.teal.700}" },
+      "target-min": { "$type": "dimension", "$value": "{semantic.size.target-min}" }
+    },
+    "link": {
+      "foreground": { "$type": "color", "$value": "{primitive.color.teal.700}" },
+      "visited-foreground": { "$type": "color", "$value": "{primitive.color.teal.900}" }
+    },
+    "button": {
+      "primary": {
+        "background": { "$type": "color", "$value": "{semantic.color.action.primary}" },
+        "hover-background": { "$type": "color", "$value": "{semantic.color.action.hover}" },
+        "active-background": { "$type": "color", "$value": "{semantic.color.action.active}" },
+        "foreground": { "$type": "color", "$value": "{primitive.color.white}" }
+      },
+      "secondary": {
+        "background": { "$type": "color", "$value": "transparent" },
+        "hover-background": { "$type": "color", "$value": "{primitive.color.teal.050}" },
+        "active-background": { "$type": "color", "$value": "{primitive.color.teal.100}" },
+        "foreground": { "$type": "color", "$value": "{primitive.color.teal.700}" }
+      },
+      "disabled": {
+        "background": { "$type": "color", "$value": "{primitive.color.mineral.050}" },
+        "foreground": { "$type": "color", "$value": "{primitive.color.mineral.600}" }
+      },
+      "radius": { "$type": "dimension", "$value": "{primitive.radius.control}" },
+      "target-min": { "$type": "dimension", "$value": "{semantic.size.target-min}" }
+    },
+    "emergency-action": {
+      "background": { "$type": "color", "$value": "{semantic.color.emergency}" },
+      "active-background": { "$type": "color", "$value": "{primitive.color.red.800}" },
+      "foreground": { "$type": "color", "$value": "{primitive.color.white}" },
+      "motion-level": { "$type": "string", "$value": "level-0" }
+    },
+    "field": {
+      "background": { "$type": "color", "$value": "{semantic.color.surface.raised}" },
+      "foreground": { "$type": "color", "$value": "{semantic.color.text.primary}" },
+      "border": { "$type": "color", "$value": "{primitive.color.mineral.400}" },
+      "focus-border": { "$type": "color", "$value": "{semantic.color.focus}" },
+      "error-border": { "$type": "color", "$value": "{semantic.color.error}" },
+      "disabled-background": { "$type": "color", "$value": "{primitive.color.mineral.050}" },
+      "radius": { "$type": "dimension", "$value": "{primitive.radius.control}" },
+      "target-min": { "$type": "dimension", "$value": "{semantic.size.target-min}" }
+    },
+    "filter-chip": {
+      "background": { "$type": "color", "$value": "{primitive.color.teal.050}" },
+      "border": { "$type": "color", "$value": "{primitive.color.teal.700}" },
+      "radius": { "$type": "dimension", "$value": "{primitive.radius.pill}" },
+      "target-min": { "$type": "dimension", "$value": "{semantic.size.target-min}" }
+    },
+    "record-card": {
+      "background": { "$type": "color", "$value": "{semantic.color.surface.raised}" },
+      "border": { "$type": "color", "$value": "{primitive.color.mineral.200}" },
+      "hover-border": { "$type": "color", "$value": "{primitive.color.teal.700}" },
+      "radius": { "$type": "dimension", "$value": "{primitive.radius.card}" }
+    },
+    "status": {
+      "info": {
+        "background": { "$type": "color", "$value": "{primitive.color.blue.050}" },
+        "foreground": { "$type": "color", "$value": "{semantic.color.info}" }
+      },
+      "success": {
+        "background": { "$type": "color", "$value": "{primitive.color.green.050}" },
+        "foreground": { "$type": "color", "$value": "{semantic.color.success}" }
+      },
+      "warning": {
+        "background": { "$type": "color", "$value": "{primitive.color.amber.050}" },
+        "foreground": { "$type": "color", "$value": "{semantic.color.warning}" }
+      },
+      "error": {
+        "background": { "$type": "color", "$value": "{primitive.color.red.050}" },
+        "foreground": { "$type": "color", "$value": "{semantic.color.error}" }
+      }
+    },
+    "focus": {
+      "color": { "$type": "color", "$value": "{semantic.color.focus}" },
+      "width": { "$type": "dimension", "$value": "3px" },
+      "offset": { "$type": "dimension", "$value": "2px" }
+    }
+  }
+}

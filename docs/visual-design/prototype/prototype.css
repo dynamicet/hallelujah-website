@@ -1,0 +1,129 @@
+/*
+ * Hallelujah General Hospital — Order 10 connected prototype layer
+ * Uses only the fixed Order 4/5 tokens. No production integration is activated.
+ */
+
+.order-10-prototype [hidden] { display: none !important; }
+
+.prototype-tools {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-stack-regular);
+  padding: var(--space-inset-compact) var(--layout-gutter);
+  border-block-end: var(--border-default) solid var(--color-border-default);
+  background: var(--color-surface-subtle);
+  color: var(--color-text-primary);
+}
+
+.prototype-tools__identity {
+  display: grid;
+  gap: var(--primitive-space-1);
+  max-width: 30rem;
+}
+
+.prototype-tools__identity span,
+.prototype-tools__field > span {
+  color: var(--color-text-secondary);
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-line);
+}
+
+.prototype-tools__controls {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  gap: var(--space-control);
+  flex-wrap: wrap;
+}
+
+.prototype-tools__field {
+  display: grid;
+  gap: var(--primitive-space-1);
+  min-width: min(100%, 12rem);
+}
+
+.prototype-tools .select { min-width: min(100%, 12rem); }
+
+.prototype-simulator {
+  display: grid;
+  gap: var(--space-control);
+  margin-block: var(--space-stack-regular);
+  padding: var(--space-inset-regular);
+  border: var(--border-default) solid var(--color-border-default);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-subtle);
+}
+
+.prototype-result-state,
+.prototype-handoff-status,
+.prototype-appointment-state {
+  margin-block: var(--space-stack-large);
+}
+
+.prototype-appointment-state .status__body,
+.prototype-result-state .status__body { width: 100%; }
+
+.prototype-field-error {
+  display: block;
+  color: var(--color-error-strong);
+  font-weight: var(--font-weight-strong);
+}
+
+.prototype-handoff-target {
+  border-color: var(--color-border-selected);
+  transition: border-color var(--motion-duration-feedback) var(--motion-ease-state);
+}
+
+[data-prototype-page="home"].prototype-ready .task-grid .task-card:nth-child(-n + 5) {
+  animation: prototype-task-settle var(--motion-duration-standard) var(--motion-ease-enter) both;
+}
+
+[data-prototype-page="home"].prototype-ready .task-grid .task-card:nth-child(2) { animation-delay: var(--motion-delay-step); }
+[data-prototype-page="home"].prototype-ready .task-grid .task-card:nth-child(3) { animation-delay: calc(var(--motion-delay-step) * 2); }
+[data-prototype-page="home"].prototype-ready .task-grid .task-card:nth-child(4) { animation-delay: calc(var(--motion-delay-step) * 3); }
+[data-prototype-page="home"].prototype-ready .task-grid .task-card:nth-child(5) { animation-delay: calc(var(--motion-delay-step) * 4); }
+
+[data-prototype-conserve="true"] .wayfinding-rule,
+[data-prototype-conserve="true"][data-prototype-page="home"].prototype-ready .task-grid .task-card {
+  animation: none;
+}
+
+@keyframes prototype-task-settle {
+  from { transform: translateY(var(--motion-distance-micro)); }
+  to { transform: translateY(0); }
+}
+
+@media (max-width: 48rem) {
+  .prototype-tools { align-items: stretch; flex-direction: column; }
+  .prototype-tools__controls { display: grid; justify-content: stretch; }
+  .prototype-tools__field,
+  .prototype-tools .select,
+  .prototype-tools .button { width: 100%; }
+  [data-prototype-page="home"].prototype-ready .task-grid .task-card:nth-child(n + 5) { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-prototype-page="home"].prototype-ready .task-grid .task-card { animation: none; }
+  .prototype-handoff-target { transition: none; }
+}
+
+[data-prototype-motion="reduce"] *,
+[data-prototype-motion="reduce"] *::before,
+[data-prototype-motion="reduce"] *::after {
+  scroll-behavior: auto !important;
+  animation-duration: var(--motion-duration-instant) !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: var(--motion-duration-instant) !important;
+}
+
+@media (forced-colors: active) {
+  .prototype-tools,
+  .prototype-simulator { border-color: CanvasText; }
+}
+
+@media print {
+  .prototype-tools,
+  .prototype-simulator,
+  .prototype-result-state { display: none !important; }
+}

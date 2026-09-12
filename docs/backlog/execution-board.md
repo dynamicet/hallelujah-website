@@ -1,0 +1,143 @@
+# Backlog Execution Board
+
+**Status:** Active execution control  
+**Basis date:** 13 September 2026  
+**Publication and collection authority:** Not granted
+
+## Purpose
+
+This board turns the planning baseline into a controlled pull system. It identifies what may start, what must wait, the exact order for M0, and the evidence needed to promote later work. Epic tables remain the scope authority; this board is the temporary status authority until an approved issue tracker replaces it.
+
+`Ready` means work may begin within the stated scope. It never means that hospital facts are approved, personal-data collection is enabled, or a route may be published.
+
+## Current execution verdict
+
+- On 13 September 2026, the client directed that `B00-001`, `B00-002`, `B00-007`, `B00-014`, and `B00-015` be skipped for the current controlled implementation stage and returned to in Phase 2 or before production. Because `Skipped` is not an allowed backlog status, all five are recorded as `Deferred`.
+- The deferral is a sequencing decision, not completion or approval of `GOV-01`, `SEC-01`, infrastructure, publication, collection, migration, DNS, provider activation, or release.
+- Controlled local implementation may use temporary role labels, an isolated clean rebuild that imports no executable/configuration state from legacy WordPress, the provider-neutral infrastructure assumptions already recorded, and the minimum working baselines below for third parties and evidence handling.
+- `B00-017` is complete. The `B00-016` working acceptance matrix is also complete and accepted for controlled development; the ticket is `Deferred` only at its formal production-signature boundary, while `DEL-01` remains unresolved for production. `B00-003` is now the immediate register/governance task and has moved from `Blocked` to `Proposed`; no coding ticket is yet `Ready`.
+- Personal-data collection, external-provider requests, production provisioning, legacy migration, DNS cutover, and publication remain disabled.
+
+## Status authority and update rule
+
+For every promotion, record the ticket ID, old/new status, responsible person, acceptance person, date/timezone, dependency evidence, target environment, and issue/evidence link. Update this board and the issue tracker in the same change. A role name alone cannot promote a delivery ticket to `Ready`.
+
+If this board and an epic disagree, use the epic for scope and this board for live status. If either conflicts with a dated hospital decision, update all affected artifacts through the backlog change-control rule before work continues.
+
+## M0 pull queue
+
+| Order | Ticket | Status | Responsible / acceptance authority | Required before start | Completion evidence / next unlock |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | `B00-001` | **Deferred** | Hospital Project Owner / Executive sponsor; names still required before production | Return before production acceptance or any formal hospital approval | Signed RACI plus sanitized pointer record; required for production governance |
+| 2 | `B00-002` | **Deferred** | Named Security owner / Executive sponsor | Return before production migration, provisioning, DNS cutover, SEO recovery acceptance, or release | Incident closure or signed isolated clean-build decision; current work must use the documented clean-rebuild boundary |
+| 3 | `B00-007` | **Deferred** | Named Delivery lead / Product, Security, and cost authorities | Return before remote staging/production provisioning or provider activation | Dated provider/environment selection; current work remains local and provider-neutral |
+| 4 | `B00-014` | **Deferred** | Privacy and Security roles / Product authority before activation | Return in Phase 2, before any external-provider request or activation, or before production—whichever is earlier | Development baseline: default deny, local/first-party assets and behavior only; unapproved providers make zero requests |
+| 5 | `B00-015` | **Deferred** | QA and Security roles / Product authority before production acceptance | Return in Phase 2, before restricted evidence must be created or moved, or before production—whichever is earlier | Development baseline: sanitized non-sensitive evidence only in repository/approved CI; restricted material stays outside the repository |
+| 6 | `B00-016` | **Deferred** | QA role / Product and Security roles | Working matrix completed on 13 September 2026; return before formal production acceptance or on a documented change trigger | [Working acceptance matrix](../validation/implementation-acceptance-matrix.md) and [completion record](evidence/B00-016-working-acceptance-matrix-2026-09-13.md); `DEL-01` production closure remains open |
+| 7 | `B00-017` | **Done** | Product role / Client executive authority; senior UI/UX architecture review | Complete—93 patterns and 120 candidates reviewed; existing dispositions approved unchanged on 13 September 2026 | [`B00-017` completion record](evidence/B00-017-benchmark-disposition-2026-09-13.md); reopen only on the documented change triggers |
+| 8 | `B00-003` | Proposed | Product and Delivery roles / QA role | Extract the controlled-development issue using the working `B00-016` matrix and `B00-015` baseline; named production authority returns with `B00-001`/`B00-015` before production acceptance | Working decision, risk, exception, dependency, and evidence registers |
+| 9 | `B00-004` | Blocked | Delivery role / Security role | Working `B00-016` matrix and documented isolated clean-rebuild boundary; apply the deferred `B00-014`/`B00-015` development baselines; `B00-002` returns before production | Clean local repository bootstrap with no legacy executable/configuration import |
+| 10 | `B00-005` | Blocked | Named Delivery lead / Security owner | `B00-004` | Pinned supported toolchain and reproducible clean build |
+| 11 | `B00-006` | Blocked | Named DevOps owner / Security owner | `B00-004`, working `B00-016` matrix, and the `B00-015` development baseline; formal `B00-015` returns before production acceptance | Validated local/staging/production configuration contract |
+| 12 | `B00-008`–`B00-010` | Blocked | Named Backend/DevOps owners / Security owner | `B00-006`, `B00-007`; appointment gates where stated | Least-privilege database, migration, backup, and restore evidence |
+| 13 | `B00-011`–`B00-013` | Blocked | Named Delivery/DevOps owners / QA and Security owners | Applicable preceding M0 tickets | Required CI, deployment control, and privacy-safe observability evidence |
+
+The 13 September deferrals remove `B00-001`, `B00-002`, `B00-007`, `B00-014`, and `B00-015` from the current pull queue without closing their Phase 2, provider, restricted-evidence, or production gates. `B00-017` is complete. The working portion of `B00-016` is also complete and its production signature is deferred. Prepare `B00-003` next; orders 9–13 follow their explicit dependencies and the documented non-production baselines, and numeric order does not override them.
+
+## Deferred working baselines and completed benchmark decision
+
+### `B00-014` — third-party register
+
+The formal register decision is deferred to Phase 2 or production. Until it returns, the approved development baseline is **default deny**: local assets and first-party behavior only, with every external integration disabled. No browser, server, build, or CI request may be made to Cloudflare, maps, analytics, chat, replay/pixels, autocomplete, externally hosted fonts/media, email/form/recruitment services, monitoring, or storage providers. Reopen `B00-014` before any provider-specific integration or request is enabled.
+
+### `B00-015` — evidence storage split
+
+The formal storage selection is deferred to Phase 2 or production. Until it returns, the approved development baseline permits sanitized, non-sensitive build, lint, test, accessibility, and screenshot evidence in the repository or approved CI artifacts. Security reports, incident details, signatures, private contacts, credentials, and personal data must not be copied into the repository or public CI artifacts. Keep such material in its already authorized source system, if one exists, and use only a sanitized pointer; if no authorized restricted location exists, do not create or transfer the restricted artifact as part of development. Reopen `B00-015` before a restricted-evidence workflow is required and before production acceptance.
+
+### `B00-016` — implementation acceptance matrix
+
+The [working matrix](../validation/implementation-acceptance-matrix.md) is complete and binding for controlled development. It defines evidence tiers, rolling platform coverage, physical-device targets, viewports/zoom/forced colors, constrained performance, language/comprehension testing, security coverage, defect thresholds, evidence handling, acceptance roles, exceptions, and `BM-*` implementation proof. `B00-016` is deferred only for named production authorities, actual version/device inventory, restricted repository selection, executed release-candidate evidence, and `B07-016` authorization. See the [completion record](evidence/B00-016-working-acceptance-matrix-2026-09-13.md).
+
+### `B00-017` — benchmark disposition
+
+The existing map is approved unchanged as the binding benchmark-use baseline for controlled implementation: 93 cross-site patterns and 120 institution candidates were checked with no missing or duplicate IDs. External examples remain non-authoritative. Adopt/Adapt items guide implementation only within their stated gates; Test items require their listed evidence; Defer items remain outside scope; direct-copy rejections remain binding. Reopen only for a disposition conflict/change, a new benchmark candidate, evidence supporting promotion of a Test/Defer item, or a discovered safety, accessibility, privacy, language, operational, or architectural conflict. See the [completion record](evidence/B00-017-benchmark-disposition-2026-09-13.md).
+
+## `B00-001` deferred production issue brief
+
+Use the [ticket template](ticket-template.md) when creating the issue. The following fields are fixed for the first pull:
+
+| Field | Execution value |
+| --- | --- |
+| Epic / lane / priority | Epic 00 / `DECISION` / `P0` |
+| Phase / milestone | Phase 0 / `M0`; required before any delivery ticket is promoted |
+| Status | `Deferred`; return before production readiness |
+| Responsible owner | Hospital Project Owner / Focal Person; enter the authorized person's full name at task start |
+| Acceptance owner | Hospital General Manager / CEO; enter the authorized person's full name before acceptance |
+| Target environment | Documentation and hospital-controlled approval process only |
+| Allowed repository scope | `hallelujah/docs/README.md`; `hallelujah/docs/validation/stakeholder-low-fidelity-validation.md`; `hallelujah/docs/backlog/`; owner references affected by the approved RACI |
+| Requirements / decisions | `G-014`, `GOV-01` |
+| Evidence destination | Sanitized pointer record under `hallelujah/docs/backlog/evidence/`; signed/contact-bearing source remains outside the repository under the deferred `B00-015` working baseline |
+| Explicit exclusions | No approval of clinical facts, operations, contacts, privacy, security, brand, language, providers, collection, implementation, or release |
+
+Acceptance requires:
+
+1. Every temporary role in the named-participant register has an authorized person's full name, organization side, authority confirmation, and contact or an explicit documented vacancy/escalation.
+2. Delegate/absence behavior, decision scope, review cadence, and approval-evidence format are recorded.
+3. The downstream M0 queue names a responsible and acceptance person; unresolved assignments remain `Blocked`.
+4. The sanitized evidence pointer identifies the approval date, approver, controlled source location, and affected document version without copying private contact/signature data.
+5. `node hallelujah/docs/backlog/audit-backlog.mjs` passes after all affected references are updated.
+
+## `B00-002` preparation state
+
+Preparatory work began on 12 September 2026 against the existing public WordPress site. The [incident closeout package](b00-002-wordpress-incident-closeout.md) records the clean-rebuild boundary, sanitized public-surface comparison, restricted investigation checklist, credential-rotation scope, search-recovery work, and closure evidence required. The current public sitemap is materially cleaner than the 7 September audit baseline, but public checks cannot prove eradication or authorize closure.
+
+The ticket is `Deferred — production gate`: no named Security responsible person or Executive acceptance person is recorded, and authenticated hosting, CMS, database, log, identity, Search Console, and backup evidence is unavailable.
+
+For sequencing only, the client directed on 13 September 2026 that this ticket be skipped during controlled implementation and returned to before production. This permits an isolated clean rebuild; it does not change `B00-002` to `Done`, designate the legacy source as trusted, or authorize legacy migration, production provisioning, collection, DNS cutover, or publication.
+
+## `B00-007` preparation state
+
+The [partial infrastructure selection](b00-007-infrastructure-selection.md) records Linux, a local-provider preference, Cloudflare planning, prototype-local media, no PostgreSQL media extension, and MinIO as a conditional production candidate. Provider, region, exact Linux release, staging, capacity, email, backup, RPO/RTO, costs, and approvals remain open until prototype evidence or operational requirements exist.
+
+The ticket is `Deferred — production gate` and does not authorize remote staging/production provisioning or third-party activation. Its recorded direction is sufficient for local, provider-neutral implementation and avoids prematurely coupling media files to PostgreSQL.
+
+## Promotion checks for delivery tickets
+
+A delivery item may move to `Ready` only when all answers are yes:
+
+- [ ] Responsible and acceptance owners are named people with confirmed authority.
+- [ ] Phase, milestone, target environment, allowed repository scope, and evidence destination are explicit.
+- [ ] Every blocking backlog/decision dependency has a dated evidence link, or the ticket states an approved controlled-fixture/withheld behavior.
+- [ ] Direct requirement, specification, wireframe/design, architecture/content, and validation links are copied into the extracted issue as applicable.
+- [ ] Acceptance criteria identify default plus applicable loading, empty, invalid, failure, timeout/offline, unavailable/expired, no-JavaScript, language, focus, history, and success states.
+- [ ] Exact commands and expected non-sensitive artifacts are known for lint, type, unit, integration, browser, accessibility, security, performance, migration, or content checks that apply.
+- [ ] The change scope does not require an unapproved fact, translation, provider, package, route, personal-data flow, or destructive migration.
+
+Failure of any check keeps the item `Proposed` or `Blocked`; it is not silently delegated to implementation.
+
+## Slice sequencing after M0
+
+| Pull sequence | Work | Earliest controlling gates |
+| ---: | --- | --- |
+| 1 | Platform, CMS skeleton, tokens, shared shell, utility failures | M0 exit; `SEC-01`, `DEL-01`, named delivery owners |
+| 2 | Home, Emergency, Contact, Privacy, Accessibility | `SAFE-01`–`SAFE-04`, `LANG-01`, applicable privacy decisions |
+| 3 | Doctor/service discovery and governed search index | `CARE-01`–`CARE-06`, `SEARCH-01`; approved launch records |
+| 4 | Patient Information, Search UI, About | `ACCESS-01`, `SEARCH-01`–`SEARCH-02`, `INST-01`–`INST-03`, `BRAND-01` as applicable |
+| 5 | Appointment request and isolated intake | `APPT-01`–`APPT-04`, `APPT-03`, `DEL-01`; collection separately enabled |
+| 6 | Integrated release candidate and production | All included-slice gates, release evidence, `B07-016` approval |
+
+Keep at most two delivery slices active. A technically complete slice remains staging-only until its content, collection, and publication gates are separately approved.
+
+## Operating commands
+
+Run the documentation gate before and after backlog changes:
+
+```sh
+node hallelujah/docs/backlog/audit-backlog.mjs
+```
+
+Run repository application commands only after `B00-004` creates and documents them. Do not invent package-manager, build, migration, browser, deployment, or production commands in earlier tickets.
+
+## Handoff to an issue tracker
+
+When an issue tracker is selected, create issues one milestone ahead using the required template. Preserve the stable `Bxx-xxx` ID in every title, copy direct source links rather than relying on epic context, represent each dependency as a link, and keep decision/content/evidence issues separate from delivery issues. After the tracker becomes authoritative, replace this board's row status with tracker links and retain this file as the pull-policy index.

@@ -1,0 +1,597 @@
+{
+  "generatedAt": "2026-09-12T18:07:52.061Z",
+  "method": "Local Chromium CDP; scripted pointer/keyboard-equivalent activation, focus/state assertions, and 320/768/1280 geometry checks",
+  "interactionAssertions": 19,
+  "passed": 19,
+  "failed": 0,
+  "geometryCases": 45,
+  "geometryFailures": 0,
+  "results": [
+    {
+      "id": "P10-01",
+      "passed": true,
+      "detail": {
+        "toolbar": true,
+        "doctors": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/doctor-directory.html",
+        "services": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/services-directory.html",
+        "searchControl": true,
+        "external": []
+      }
+    },
+    {
+      "id": "P10-02",
+      "passed": true,
+      "detail": {
+        "toolbar": true,
+        "doctors": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/doctor-directory.html",
+        "services": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/services-directory.html",
+        "searchControl": true,
+        "external": []
+      }
+    },
+    {
+      "id": "P10-03",
+      "passed": true,
+      "detail": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/doctor-directory.html"
+    },
+    {
+      "id": "P10-04",
+      "passed": true,
+      "detail": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/doctor-profile.html"
+    },
+    {
+      "id": "P10-05",
+      "passed": true,
+      "detail": {
+        "path": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/critical-journeys/appointment.html",
+        "route": "doctor",
+        "doctor": "prototype-a",
+        "notice": "Care context carried safelyControlled handoff retained: Prototype clinician A. This public fixture ID carries no visitor data, schedule, or availability promise."
+      }
+    },
+    {
+      "id": "P10-06",
+      "passed": true,
+      "detail": {
+        "visible": true,
+        "invalid": "true",
+        "focus": "H2",
+        "title": "There is one problem to fix"
+      }
+    },
+    {
+      "id": "P10-07",
+      "passed": true,
+      "detail": {
+        "formHidden": true,
+        "formDisplay": "none",
+        "text": "Order 10 local simulation · no request madeAppointment request received — simulated receiptPrototype reference: PROTO-ONLY-001This demonstrates an authoritative acknowledgement pattern. It is not a real request and not a confirmed appointment.Return homeReview all request states",
+        "focus": "H2"
+      }
+    },
+    {
+      "id": "P10-08",
+      "passed": true,
+      "detail": {
+        "blocked": true,
+        "text": "Order 10 local simulation · no request madeRequest outcome unknown — simulated reconciliationNo success is claimed and a fresh request is blocked until the original intent is reconciled.Simulate existing receipt foundSimulate not created",
+        "recoveryChoices": 2
+      }
+    },
+    {
+      "id": "P10-09",
+      "passed": true,
+      "detail": "Order 10 local simulation · no request madeAppointment request received — simulated receiptPrototype reference: PROTO-ONLY-001This demonstrates an authoritative acknowledgement pattern. It is not a real request and not a confirmed appointment.Return homeReview all request states"
+    },
+    {
+      "id": "P10-10",
+      "passed": true,
+      "detail": {
+        "doctor": {
+          "url": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/doctor-directory.html?q=prototype&specialty=prototype-b",
+          "count": "1 controlled doctor record",
+          "visibleCards": 1
+        },
+        "service": {
+          "url": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/services-directory.html?group=prototype-b",
+          "count": "2 controlled service records",
+          "visibleGroups": 1,
+          "visibleCards": 2
+        }
+      }
+    },
+    {
+      "id": "P10-11",
+      "passed": true,
+      "detail": {
+        "expanded": "false",
+        "focusReturned": true,
+        "visible": false
+      }
+    },
+    {
+      "id": "P10-12",
+      "passed": true,
+      "detail": {
+        "alert": "alert",
+        "resultsHidden": true,
+        "resultsDisplay": "none",
+        "recovery": true
+      }
+    },
+    {
+      "id": "P10-13",
+      "passed": true,
+      "detail": "file:///home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/doctor-directory.html"
+    },
+    {
+      "id": "P10-14",
+      "passed": true,
+      "detail": {
+        "path": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/care-discovery/doctor-directory.html",
+        "fixture": "am",
+        "q": "prototype",
+        "specialty": "prototype-b",
+        "lang": "am",
+        "notice": "የአቀማመጥ ሙከራ ብቻ — ይህ የተፈቀደ ትርጉም ወይም የሆስፒታል መረጃ አይደለም። Layout test only — not approved translation or hospital content."
+      }
+    },
+    {
+      "id": "P10-15",
+      "passed": true,
+      "detail": {
+        "sameLocation": true,
+        "telLinks": 0,
+        "runningAnimations": 0,
+        "external": []
+      }
+    },
+    {
+      "id": "P10-16",
+      "passed": true,
+      "detail": {
+        "mode": "reduce",
+        "durations": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "P10-17",
+      "passed": true,
+      "detail": {
+        "page": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/critical-journeys/home.html",
+        "invalid": "true",
+        "announced": "For privacy, this local prototype accepts only the controlled terms “prototype”, “prototype care”, or “prototype service”. Nothing was sent or added to the URL."
+      }
+    },
+    {
+      "id": "P10-18",
+      "passed": true,
+      "detail": {
+        "path": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/docs/visual-design/pages/practical-institutional/search-results.html",
+        "q": "prototype care"
+      }
+    },
+    {
+      "id": "P10-19",
+      "passed": true,
+      "detail": {
+        "cases": 45,
+        "failures": []
+      }
+    }
+  ],
+  "geometry": [
+    {
+      "page": "critical-journeys/home.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/emergency.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/appointment.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/doctor-directory.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/doctor-profile.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/services-directory.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/service-detail.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/patient-information.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/locations-contact.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/search-results.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/about.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/careers.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/appointment-states.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/care-discovery-states.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/practical-institutional-states.html",
+      "width": 320,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/home.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/emergency.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/appointment.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/doctor-directory.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/doctor-profile.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/services-directory.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/service-detail.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/patient-information.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/locations-contact.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/search-results.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/about.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/careers.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/appointment-states.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/care-discovery-states.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/practical-institutional-states.html",
+      "width": 768,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/home.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/emergency.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/appointment.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/doctor-directory.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/doctor-profile.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/services-directory.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/service-detail.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/patient-information.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/locations-contact.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/search-results.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/about.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/careers.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "critical-journeys/appointment-states.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "care-discovery/care-discovery-states.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    },
+    {
+      "page": "practical-institutional/practical-institutional-states.html",
+      "width": 1280,
+      "overflow": false,
+      "small": [],
+      "toolbar": true,
+      "external": [],
+      "passed": true
+    }
+  ]
+}

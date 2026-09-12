@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <title>Order 5 — Polished responsive component studies</title>
+  <link rel="stylesheet" href="component-tokens.css">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: var(--layout-sticky-offset); }
+    body { margin: 0; overflow-wrap: anywhere; background: var(--page-background); color: var(--page-foreground); font: var(--font-weight-regular) var(--type-body-size)/var(--type-body-line) var(--font-family-ui); }
+    button, input, select, textarea { font: inherit; }
+    h1, h2, h3, p { margin-block-start: 0; }
+    h1 { max-width: 18ch; font-size: var(--type-h1-size); line-height: var(--type-h1-line); letter-spacing: -.015em; }
+    h2 { font-size: var(--type-h2-size); line-height: var(--type-h2-line); letter-spacing: -.01em; }
+    h3 { font-size: var(--type-h3-size); line-height: var(--type-h3-line); }
+    main:focus { outline: 0; }
+    .container { width: min(100% - (2 * var(--layout-gutter)), var(--size-content-standard)); margin-inline: auto; }
+    .reading { max-width: var(--size-content-reading); }
+    .hero { padding-block: var(--space-section-spacious) var(--space-section-regular); }
+    .eyebrow { color: var(--color-text-secondary); font-size: var(--type-small-size); font-weight: var(--font-weight-strong); letter-spacing: .06em; text-transform: uppercase; }
+    .lead { max-width: 62ch; font-size: var(--type-lead-size); line-height: var(--type-lead-line); }
+    .wayfinding-rule { width: 4.5rem; height: var(--border-emphasis); margin-block: var(--space-stack-regular) var(--space-stack-large); background: var(--color-accent-wayfinding); transform-origin: left; animation: orient var(--motion-duration-orient) var(--motion-ease-enter) both; }
+    .meta-row, .button-row, .inline-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-control); }
+    .tag { display: inline-flex; min-height: var(--size-target-min); align-items: center; padding-inline: var(--space-inset-compact); border: var(--border-default) solid var(--color-border-strong); border-radius: var(--radius-pill); background: var(--color-surface-raised); font-size: var(--type-small-size); }
+    .study { padding-block: var(--space-section-regular); border-block-start: var(--border-default) solid var(--color-border-default); }
+    .study-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 30rem); align-items: end; gap: var(--space-stack-large); margin-block-end: var(--space-stack-large); }
+    .study-heading p { margin: 0; color: var(--color-text-secondary); }
+    .grid { display: grid; gap: var(--space-stack-regular); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .specimen { min-width: 0; padding: var(--card-padding); border: var(--border-default) solid var(--color-border-default); border-radius: var(--radius-card); background: var(--color-surface-raised); }
+    .specimen > :last-child { margin-block-end: 0; }
+    .specimen-label { display: block; margin-block-end: var(--space-stack-regular); color: var(--color-text-secondary); font-size: var(--type-small-size); font-weight: var(--font-weight-strong); }
+    .state-grid { display: grid; grid-template-columns: repeat(4, minmax(10rem, 1fr)); gap: var(--space-stack-regular); }
+    .state-cell { min-width: 0; padding: var(--space-inset-regular); border: var(--border-default) solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-subtle); }
+    .state-cell strong { display: block; margin-block-end: var(--space-stack-small); font-size: var(--type-small-size); }
+    .force-focus { outline: var(--focus-width) solid var(--color-focus) !important; outline-offset: var(--focus-offset); }
+    .form-stack { display: grid; gap: var(--space-stack-large); max-width: var(--size-content-form); }
+    .card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-stack-regular); }
+    .record-placeholder { position: relative; overflow: hidden; background: var(--color-surface-subtle); }
+    .record-placeholder::before { content: ""; position: absolute; inset: 28% -10% auto 16%; height: var(--border-emphasis); background: var(--color-border-strong); transform: rotate(-9deg); }
+    .record-placeholder::after { content: ""; position: absolute; width: var(--space-stack-regular); height: var(--space-stack-regular); inset: 40% auto auto 55%; border: var(--border-emphasis) solid var(--color-accent-wayfinding); border-radius: var(--radius-pill); background: var(--color-surface-subtle); }
+    .placeholder-label { position: absolute; inset: auto var(--space-inset-regular) var(--space-inset-regular); margin: 0; color: var(--color-text-secondary); font-size: var(--type-small-size); font-weight: var(--font-weight-emphasis); }
+    .status-stack { display: grid; gap: var(--space-stack-regular); }
+    .demo-note { padding-inline-start: var(--space-inset-regular); border-inline-start: var(--border-emphasis) solid var(--color-accent-wayfinding); color: var(--color-text-secondary); }
+    .amharic-review { display: inline-block; padding: var(--primitive-space-1) var(--space-stack-small); border-radius: var(--radius-control); background: var(--color-warning-surface); color: var(--color-warning-strong); font-size: var(--type-small-size); font-weight: var(--font-weight-emphasis); }
+    .visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
+    .demo-announcement { position: fixed; z-index: var(--primitive-layer-toast); inset: auto var(--layout-gutter) var(--layout-gutter) auto; max-width: min(26rem, calc(100% - (2 * var(--layout-gutter)))); padding: var(--space-inset-regular); border: var(--border-emphasis) solid var(--status-info-border); border-radius: var(--radius-control); background: var(--status-info-background); color: var(--status-info-foreground); box-shadow: var(--elevation-raised); }
+    .demo-announcement[hidden] { display: none; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr repeat(2, 1fr); gap: var(--space-stack-large); }
+    @keyframes orient { from { opacity: .65; transform: scaleX(.65); } to { opacity: 1; transform: scaleX(1); } }
+    @media (max-width: 70rem) { .state-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 54rem) { .study-heading { grid-template-columns: 1fr; gap: var(--space-stack-small); } .grid-3, .footer-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 39.99rem) { .grid-2, .state-grid, .card-grid { grid-template-columns: 1fr; } .hero { padding-block-start: var(--space-section-regular); } .button-row > .button { flex: 1 1 100%; } .chip-row { display: grid; } .chip { width: 100%; justify-content: space-between; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: var(--motion-duration-instant) !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: var(--motion-duration-instant) !important; } .wayfinding-rule { transform: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="prototype-banner">Non-public prototype — content, contacts, brand, and operations are placeholders and are not hospital-approved.</div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-identity" href="#main">Hallelujah General Hospital <small>Prototype identity — authentic logo required</small></a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#shell" aria-current="page">Components</a></li>
+          <li><a href="#discovery">Find care</a></li>
+          <li><a href="#forms">Appointments</a></li>
+          <li><a href="#feedback">Patient information</a></li>
+        </ul>
+      </nav>
+      <div class="utility-actions">
+        <button class="button button--secondary demo-action" type="button" lang="am">አማርኛ</button>
+        <button class="button button--emergency demo-action" type="button">Emergency information</button>
+      </div>
+      <button class="button button--secondary menu-trigger" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        Menu
+      </button>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile primary" hidden>
+        <a class="nav-link" href="#shell" aria-current="page">Components</a>
+        <a class="nav-link" href="#discovery">Find care</a>
+        <a class="nav-link" href="#forms">Request an appointment</a>
+        <a class="nav-link" href="#feedback">Patient information</a>
+        <button class="button button--secondary demo-action" type="button">Search the site</button>
+        <button class="button button--secondary demo-action" type="button" lang="am">አማርኛ</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero container">
+      <p class="eyebrow">Order 5 · Calm Wayfinding components</p>
+      <h1>A clear component language for every patient task</h1>
+      <div class="wayfinding-rule" aria-hidden="true"></div>
+      <p class="lead">This board demonstrates responsive, accessible component anatomy and states without activating hospital contacts, collecting personal data, or implying that placeholder content is approved.</p>
+      <div class="meta-row">
+        <span class="tag">44 px targets</span>
+        <span class="tag">English + Ethiopic geometry</span>
+        <span class="tag">Level 0 safety states</span>
+        <span class="tag">No external requests</span>
+      </div>
+      <noscript><p class="status status--info no-js-note">JavaScript is unavailable. Native links, forms, disclosures, and all essential content remain present.</p></noscript>
+    </section>
+
+    <section class="study" id="shell">
+      <div class="container">
+        <div class="study-heading"><h2>Orientation stays predictable</h2><p>The shell separates routine care tasks from emergency access, wraps rather than truncates, and preserves ordinary links when enhancement is absent.</p></div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol><li><a class="text-link" href="#main">Home</a></li><li><a class="text-link" href="#shell">Design system</a></li><li aria-current="page">Components</li></ol>
+        </nav>
+        <div class="grid grid-2">
+          <div class="specimen">
+            <span class="specimen-label">Navigation and language</span>
+            <div class="button-row">
+              <a class="nav-link" href="#shell" aria-current="page">Current page</a>
+              <a class="nav-link force-focus" href="#controls">Keyboard focus</a>
+              <button class="button button--secondary demo-action" type="button" lang="am">አማርኛ</button>
+            </div>
+            <p lang="am">ሀ ለ ሐ መ ሠ ረ ሰ ሸ ቀ — Ethiopic geometry fixture only.</p>
+            <span class="amharic-review">Professional Amharic language and device review required</span>
+          </div>
+          <div class="specimen">
+            <span class="specimen-label">Missing equivalent language</span>
+            <div class="status status--warning">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 9v5M12 17h.01"/></svg>
+              <div class="status__body"><strong class="status__title">Equivalent page is not yet approved</strong><p>You remain on this page. No consequential form state or route has been changed.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="study" id="controls">
+      <div class="container">
+        <div class="study-heading"><h2>Every action shows its consequence</h2><p>Routine, secondary, local, busy, disabled, and emergency actions use distinct words and structure as well as color.</p></div>
+        <div class="state-grid">
+          <div class="state-cell"><strong>Default</strong><button class="button demo-action" type="button">Request information</button></div>
+          <div class="state-cell"><strong>Hover specimen</strong><button class="button demo-action" type="button" style="background:var(--button-primary-background-hover);border-color:var(--button-primary-background-hover)">Request information</button></div>
+          <div class="state-cell"><strong>Focus specimen</strong><button class="button force-focus demo-action" type="button">Request information</button></div>
+          <div class="state-cell"><strong>Pressed specimen</strong><button class="button is-pressed demo-action" type="button">Request information</button></div>
+          <div class="state-cell"><strong>Secondary</strong><button class="button button--secondary demo-action" type="button">Find a doctor</button></div>
+          <div class="state-cell"><strong>Tertiary</strong><button class="button button--tertiary demo-action" type="button">Read process details</button></div>
+          <div class="state-cell"><strong>Loading</strong><button class="button" type="button" aria-busy="true"><span class="button__spinner" aria-hidden="true"></span><span>Sending request</span></button></div>
+          <div class="state-cell"><strong>Disabled with reason</strong><button class="button" type="button" disabled>Send request</button><p class="field-hint">Submission remains unavailable until operations and privacy approval.</p></div>
+        </div>
+        <div class="grid grid-2" style="margin-block-start:var(--space-stack-large)">
+          <div class="specimen">
+            <span class="specimen-label">Explicit call component · controlled placeholder</span>
+            <p><strong>Emergency hospital route</strong><br><span>[verified number required]</span></p>
+            <button class="button button--emergency demo-action" type="button">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 3.5 9 8l-2 2a15 15 0 0 0 7 7l2-2 4.5 2.4-.8 3.1a2 2 0 0 1-2 1.5C9.2 21.2 2.8 14.8 2 6.3a2 2 0 0 1 1.5-2l3.1-.8Z"/></svg>
+              Call verified emergency route
+            </button>
+            <p class="field-hint">Prototype only: no dialer opens. Final calls require an approved visible number and explicit activation.</p>
+          </div>
+          <div class="specimen">
+            <span class="specimen-label">Links</span>
+            <p><a class="text-link" href="#discovery">Open the doctor directory specimen</a></p>
+            <p><a class="text-link force-focus" href="#forms">Focused appointment link</a></p>
+            <p><span class="text-link" aria-disabled="true">Unavailable destination</span></p>
+            <p class="field-hint">Unavailable destinations are explanatory text, not dead anchors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="study" id="discovery">
+      <div class="container">
+        <div class="study-heading"><h2>Discovery starts with a complete baseline</h2><p>Submitted search, maintained native filters, typed records, a polite count, and ordinary pagination remain useful without autocomplete or JavaScript.</p></div>
+        <form class="search-box demo-form" action="" method="get" role="search">
+          <label class="field-label" for="site-search">Search approved public information</label>
+          <span class="field-hint" id="search-hint">Search by doctor, service, guide, or location. Do not enter a name, phone number, or medical history.</span>
+          <input class="field" id="site-search" name="q" type="search" value="prototype service" maxlength="120" aria-describedby="search-hint">
+          <button class="button" type="submit"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>Search</button>
+        </form>
+
+        <div class="grid grid-2" style="margin-block-start:var(--space-stack-large)">
+          <fieldset class="filter-panel choice-list">
+            <legend>Filter by approved type</legend>
+            <label class="choice"><input type="checkbox" checked> <span><strong>Services</strong><br><span class="field-hint">Controlled records only</span></span></label>
+            <label class="choice"><input type="checkbox"> <span><strong>Doctors</strong><br><span class="field-hint">Approved roster required</span></span></label>
+            <label class="choice"><input type="checkbox" disabled> <span><strong>Guides</strong><br><span class="field-hint">Unavailable until maintained guides exist</span></span></label>
+          </fieldset>
+          <div class="specimen">
+            <span class="specimen-label">Active filters and result status</span>
+            <div class="chip-row"><button class="chip demo-action" type="button"><span>Type: Services</span><span aria-hidden="true">×</span><span class="visually-hidden">Remove filter</span></button><button class="button button--tertiary demo-action" type="button">Clear all</button></div>
+            <p class="result-count" role="status" aria-live="polite">3 controlled prototype results</p>
+          </div>
+        </div>
+
+        <div class="card-grid" style="margin-block-start:var(--space-stack-large)">
+          <article class="record-card">
+            <div class="record-placeholder" role="img" aria-label="Abstract geometry placeholder"><p class="placeholder-label">No approved portrait</p></div>
+            <span class="record-card__type">Doctor · controlled record</span>
+            <h3 class="record-card__title"><a class="text-link" href="#cards">Prototype clinician A</a></h3>
+            <p>Approved specialty summary would appear here. No schedule or live availability is implied.</p>
+            <ul class="record-card__meta"><li>Credentials withheld</li><li>Location withheld</li></ul>
+          </article>
+          <article class="record-card">
+            <span class="record-card__type">Service · controlled record</span>
+            <h3 class="record-card__title"><a class="text-link" href="#cards">Prototype service A</a></h3>
+            <p>Plain-language approved scope would help recognition without diagnosing or promising a capability.</p>
+            <ul class="record-card__meta"><li>Group pending</li><li>Reviewed record required</li></ul>
+          </article>
+          <article class="record-card record-card--unavailable">
+            <span class="record-card__type">Unavailable record</span>
+            <h3 class="record-card__title">This record is not currently available</h3>
+            <p>It is excluded from current results. Return to the maintained directory or use an approved staffed route.</p>
+            <button class="button button--secondary demo-action record-card__action" type="button">Return to directory</button>
+          </article>
+        </div>
+
+        <nav aria-label="Results pages" style="margin-block-start:var(--space-stack-large)">
+          <ul class="pagination"><li><span aria-disabled="true">Previous</span></li><li><span aria-current="page">1</span></li><li><a class="text-link" href="#discovery">2</a></li><li><a class="text-link" href="#discovery">Next</a></li></ul>
+        </nav>
+
+        <div class="grid grid-3" style="margin-block-start:var(--space-stack-large)">
+          <div class="empty-state"><h3>No matching results</h3><p>Your query is retained. Check spelling, clear filters, or use an approved staffed route.</p><button class="button button--secondary demo-action" type="button">Clear filters</button></div>
+          <div class="unavailable-state"><h3>Search is temporarily unavailable</h3><p>No query was sent to a third party. Browse the maintained task links instead.</p><button class="button button--secondary demo-action" type="button">Browse services</button></div>
+          <div class="status status--error"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg><div class="status__body"><strong class="status__title">You’re offline</strong><p>Current results remain visible. Retry when the connection returns.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="study" id="cards">
+      <div class="container">
+        <div class="study-heading"><h2>Governed records fail closed</h2><p>Optional fields collapse. Current status, canonical identity, evidence, privacy, and destination validity determine whether an action renders.</p></div>
+        <div class="card-grid">
+          <article class="record-card">
+            <span class="record-card__type">Location · controlled record</span>
+            <h3 class="record-card__title"><a class="text-link" href="#cards">Prototype hospital location</a></h3>
+            <p>[Verified address and landmark directions required]</p>
+            <p><strong>Purpose-labeled call:</strong> [verified number required]</p>
+            <button class="button button--secondary demo-action record-card__action" type="button">Read text directions</button>
+          </article>
+          <article class="record-card record-card--unavailable">
+            <span class="record-card__type">Vacancy · Phase 2 gated state</span>
+            <h3 class="record-card__title">Application is not available</h3>
+            <p>No current, complete vacancy record and approved privacy/provider route exists. No Apply control is rendered.</p>
+            <ul class="record-card__meta"><li>Lifecycle owner required</li><li>HR/privacy approval required</li></ul>
+          </article>
+          <aside class="review-metadata">
+            <strong>Information last checked</strong>
+            <span>[approved reviewer and role]</span>
+            <span>[review date and next-review rule]</span>
+            <span>Controlled placeholder — not an approved record</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="study" id="forms">
+      <div class="container">
+        <div class="study-heading"><h2>Forms preserve trust through uncertainty</h2><p>Labels and consequences stay visible; errors are linked to fields; pending blocks duplicate intent; success appears only after authoritative acknowledgement.</p></div>
+        <div class="grid grid-2">
+          <form class="specimen form-stack demo-form" action="" method="post" novalidate>
+            <span class="specimen-label">Field, choice, and consent anatomy · no data leaves this file</span>
+            <div class="field-group">
+              <label class="field-label" for="example-name">Full name <span>(prototype requiredness pending approval)</span></label>
+              <span class="field-hint" id="name-hint">Enter the name the receiving team would use to contact you.</span>
+              <input class="field" id="example-name" name="example-name" autocomplete="name" aria-describedby="name-hint" value="Controlled test value">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="example-contact">Contact number <span>(example required)</span></label>
+              <span class="field-hint" id="contact-hint">Prototype format only; do not enter real information.</span>
+              <input class="field" id="example-contact" name="example-contact" type="tel" inputmode="tel" aria-invalid="true" aria-describedby="contact-hint contact-error" value="test">
+              <span class="field-error" id="contact-error" role="alert"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>Enter the approved contact format, or remove the test value.</span>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="example-service">Doctor or service <span>(optional until approved)</span></label>
+              <select class="select" id="example-service" name="example-service"><option>Not sure</option><option>Prototype service A</option></select>
+            </div>
+            <fieldset class="choice-list">
+              <legend>Preferred contact method <span>(prototype options)</span></legend>
+              <label class="choice"><input type="radio" name="method" checked> <span>Phone</span></label>
+              <label class="choice"><input type="radio" name="method"> <span>Approved alternative channel</span></label>
+            </fieldset>
+            <div class="field-group">
+              <label class="field-label" for="example-notes">Brief note <span>(optional and privacy-gated)</span></label>
+              <textarea class="textarea" id="example-notes" name="example-notes" aria-describedby="notes-hint"></textarea>
+              <span class="field-hint" id="notes-hint">Do not enter detailed medical history in this prototype.</span>
+            </div>
+            <label class="choice"><input type="checkbox" name="consent"> <span>I have read the approved privacy explanation <strong>(never preselected)</strong></span></label>
+            <button class="button" type="submit">Send appointment request</button>
+          </form>
+
+          <div class="status-stack">
+            <div class="error-summary force-focus" tabindex="-1">
+              <h3>Check one answer</h3>
+              <p>Your other test values have been kept.</p>
+              <ul><li><a href="#example-contact">Enter an approved contact format</a></li></ul>
+            </div>
+            <div class="specimen"><span class="specimen-label">Pending / duplicate protection</span><button class="button" type="button" aria-busy="true" aria-disabled="true"><span class="button__spinner" aria-hidden="true"></span>Sending appointment request</button><p class="field-hint">The label and focus context remain. A second operational request cannot be sent.</p></div>
+            <div class="status status--warning"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 9v5M12 17h.01"/></svg><div class="status__body"><strong class="status__title">Outcome is not yet known</strong><p>Your test values are preserved. Do not state received or failed until reconciliation completes.</p></div></div>
+            <div class="status status--success" role="status"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><div class="status__body"><strong class="status__title">Request received — authoritative example</strong><p>Reference, response expectation, confirmation channel, next step, and approved fallback are all required here. This specimen is not a real receipt.</p></div></div>
+            <div class="status status--warning"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 9v5M12 17h.01"/></svg><div class="status__body"><strong class="status__title">Request received; notification not delivered</strong><p>Keep the accepted reference visible and explain an approved next step. Do not invite duplicate submission.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="study" id="feedback">
+      <div class="container">
+        <div class="study-heading"><h2>Status is specific, calm, and recoverable</h2><p>Emergency, error, warning, information, and success are different components with different outcomes—not a palette of interchangeable colored boxes.</p></div>
+        <div class="status-stack">
+          <div class="status status--emergency"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 3.5 9 8l-2 2a15 15 0 0 0 7 7l2-2 4.5 2.4-.8 3.1a2 2 0 0 1-2 1.5C9.2 21.2 2.8 14.8 2 6.3a2 2 0 0 1 1.5-2l3.1-.8Z"/></svg><div class="status__body"><strong class="status__title">Emergency route — verified content required</strong><p>Concise route distinction and visible hospital/public numbers must precede ordinary guidance. This placeholder does not activate a call.</p></div></div>
+          <div class="status status--error" role="alert"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg><div class="status__body"><strong class="status__title">We could not complete that action</strong><p>Your valid information remains. Retry only when the approved duplicate-protection state allows it.</p></div></div>
+          <div class="status status--warning"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 9v5M12 17h.01"/></svg><div class="status__body"><strong class="status__title">Temporary entrance information needs review</strong><p>Effective and expiry times, affected entrance, owner, and verified alternative are required.</p></div></div>
+          <div class="status status--info"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></svg><div class="status__body"><strong class="status__title">This is a request, not a confirmed appointment</strong><p>Staff response expectations and approved follow-up channels will appear after operational review.</p></div></div>
+          <div class="status status--success" role="status"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><div class="status__body"><strong class="status__title">Information copied on this device</strong><p>A local completed action may be acknowledged, but it never implies a call connected or care was booked.</p></div></div>
+        </div>
+        <div class="grid grid-2" style="margin-block-start:var(--space-stack-large)">
+          <div class="specimen"><span class="specimen-label">Noncritical repeated-record loading</span><div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div><p role="status">Loading approved directory records…</p></div>
+          <div class="specimen"><span class="specimen-label">Reduced-motion equivalent</span><div class="inline-row"><span class="loading-indicator" aria-hidden="true"></span><strong>Loading status remains in words</strong></div><p class="field-hint">In reduced motion, the indicator is static and the final geometry and announcement remain available.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="study" id="disclosure-map">
+      <div class="container">
+        <div class="study-heading"><h2>Optional detail never blocks the task</h2><p>Disclosures follow complete summaries. The map is an optional provider boundary after a complete text route.</p></div>
+        <div class="grid grid-2">
+          <div>
+            <details class="disclosure" open><summary>What the approved guide would cover</summary><div class="disclosure__body"><p>Complete patient-facing summary first, then optional detail. Essential eligibility, privacy, error, and emergency content never hides here.</p></div></details>
+            <details class="disclosure"><summary>Additional preparation detail</summary><div class="disclosure__body"><p>Only hospital-authored, reviewed guidance may appear. Missing topics are omitted or route to approved help.</p></div></details>
+          </div>
+          <div class="map-launcher">
+            <div><span class="specimen-label">Optional map · idle and inert</span><h3>Arrive without a map</h3><p>[Verified address, entrance, landmarks, transport, parking, and accessible-entry guidance required]</p></div>
+            <button class="button button--secondary demo-action" type="button" aria-describedby="map-note"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2"/></svg>Load approved map provider</button>
+            <p class="field-hint" id="map-note">Would load only after explicit action and privacy/performance approval. Failure leaves the full text route intact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="study">
+      <div class="container reading">
+        <div class="study-heading"><h2>What this board does not prove</h2><p>Rendered evidence is a checkpoint, not a claim of release readiness.</p></div>
+        <p class="demo-note">Screen-reader/browser pairing, Windows High Contrast, touch ergonomics, low-end Android performance, 200%/400% complete-page reflow, professional Amharic review, human comprehension, approved content, and live integrations remain Orders 9–11 and formal stakeholder work.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner footer-grid">
+      <div><strong>Hallelujah General Hospital</strong><p>Prototype identity. No logo, contact, claim, or operation shown here is approved for publication.</p></div>
+      <div><strong>Patient tasks</strong><ul class="footer-links"><li><a href="#discovery">Find care</a></li><li><a href="#forms">Appointment states</a></li><li><a href="#feedback">Help states</a></li></ul></div>
+      <div><strong>Governance</strong><ul class="footer-links"><li><a href="README.md">Order 5 notes</a></li><li><a href="component-specifications.md">Specifications</a></li></ul></div>
+    </div>
+  </footer>
+
+  <div class="demo-announcement" id="demo-announcement" role="status" aria-live="polite" hidden>Prototype only. No live hospital action was activated and no data was sent.</div>
+
+  <script>
+    (() => {
+      const trigger = document.querySelector('.menu-trigger');
+      const menu = document.getElementById('mobile-menu');
+      const announcement = document.getElementById('demo-announcement');
+      let announcementTimer;
+
+      const closeMenu = () => {
+        if (!trigger || !menu || menu.hidden) return;
+        menu.hidden = true;
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus();
+      };
+
+      if (trigger && menu) {
+        trigger.addEventListener('click', () => {
+          const willOpen = menu.hidden;
+          menu.hidden = !willOpen;
+          trigger.setAttribute('aria-expanded', String(willOpen));
+          if (willOpen) menu.querySelector('a, button')?.focus();
+        });
+        menu.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMenu();
+        });
+      }
+
+      document.querySelectorAll('.demo-action').forEach((control) => {
+        control.addEventListener('click', () => {
+          announcement.hidden = false;
+          clearTimeout(announcementTimer);
+          announcementTimer = setTimeout(() => { announcement.hidden = true; }, 4000);
+        });
+      });
+
+      document.querySelectorAll('[aria-disabled="true"]').forEach((control) => {
+        control.addEventListener('click', (event) => event.preventDefault());
+      });
+
+      document.querySelectorAll('.demo-form').forEach((form) => {
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          announcement.hidden = false;
+          clearTimeout(announcementTimer);
+          announcementTimer = setTimeout(() => { announcement.hidden = true; }, 4000);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

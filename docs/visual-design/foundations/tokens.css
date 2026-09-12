@@ -1,0 +1,376 @@
+/*
+ * Hallelujah General Hospital — non-public prototype foundations
+ * Order 4, 12 September 2026
+ * Values are stable for prototype work, not hospital-approved brand assets.
+ */
+
+/* Layer 1: primitives */
+:root {
+  color-scheme: light;
+
+  --primitive-color-white: #ffffff;
+  --primitive-color-black: #101719;
+  --primitive-color-transparent: transparent;
+
+  --primitive-color-mineral-025: #f4faf9;
+  --primitive-color-mineral-050: #eef7f6;
+  --primitive-color-mineral-100: #e4f1ef;
+  --primitive-color-mineral-200: #c7dad7;
+  --primitive-color-mineral-400: #789b9b;
+  --primitive-color-mineral-600: #516a70;
+  --primitive-color-mineral-900: #17323a;
+
+  --primitive-color-teal-050: #e5f4f4;
+  --primitive-color-teal-100: #cbe8e8;
+  --primitive-color-teal-600: #007b83;
+  --primitive-color-teal-700: #006a73;
+  --primitive-color-teal-800: #00565f;
+  --primitive-color-teal-900: #00434a;
+
+  --primitive-color-blue-050: #e8f3fc;
+  --primitive-color-blue-700: #075ea8;
+  --primitive-color-blue-800: #064b86;
+
+  --primitive-color-green-050: #e7f4ec;
+  --primitive-color-green-700: #176b45;
+  --primitive-color-green-800: #105438;
+
+  --primitive-color-amber-050: #fff3d6;
+  --primitive-color-amber-800: #7a4b00;
+  --primitive-color-amber-900: #5f3900;
+
+  --primitive-color-red-050: #fdecea;
+  --primitive-color-red-700: #b42318;
+  --primitive-color-red-800: #8f1c13;
+  --primitive-color-red-900: #71160f;
+
+  --primitive-color-wayfinding-ochre: #d9952f;
+  --primitive-color-wayfinding-cyan: #21a6bd;
+
+  --primitive-font-sans-latin: "Noto Sans", Arial, system-ui, sans-serif;
+  --primitive-font-sans-ethiopic: "Noto Sans Ethiopic", "Noto Sans", Arial, system-ui, sans-serif;
+  --primitive-font-weight-regular: 400;
+  --primitive-font-weight-semibold: 600;
+  --primitive-font-weight-bold: 700;
+
+  --primitive-type-size-14: 0.875rem;
+  --primitive-type-size-16: 1rem;
+  --primitive-type-size-17: 1.0625rem;
+  --primitive-type-size-19: 1.1875rem;
+  --primitive-type-size-20: 1.25rem;
+  --primitive-type-size-24: 1.5rem;
+  --primitive-type-size-32: 2rem;
+  --primitive-type-size-36: 2.25rem;
+  --primitive-type-size-48: 3rem;
+  --primitive-type-size-56: 3.5rem;
+
+  --primitive-space-0: 0;
+  --primitive-space-1: 0.25rem;
+  --primitive-space-2: 0.5rem;
+  --primitive-space-3: 0.75rem;
+  --primitive-space-4: 1rem;
+  --primitive-space-5: 1.25rem;
+  --primitive-space-6: 1.5rem;
+  --primitive-space-8: 2rem;
+  --primitive-space-10: 2.5rem;
+  --primitive-space-12: 3rem;
+  --primitive-space-16: 4rem;
+  --primitive-space-20: 5rem;
+  --primitive-space-24: 6rem;
+
+  --primitive-size-target-min: 2.75rem;
+  --primitive-size-icon-16: 1rem;
+  --primitive-size-icon-20: 1.25rem;
+  --primitive-size-icon-24: 1.5rem;
+  --primitive-size-reading: 45rem;
+  --primitive-size-form: 40rem;
+  --primitive-size-content: 70rem;
+  --primitive-size-wide: 80rem;
+
+  --primitive-radius-0: 0;
+  --primitive-radius-8: 0.5rem;
+  --primitive-radius-12: 0.75rem;
+  --primitive-radius-pill: 999px;
+
+  --primitive-border-1: 1px;
+  --primitive-border-2: 2px;
+  --primitive-border-3: 3px;
+
+  --primitive-shadow-none: none;
+  --primitive-shadow-raised: 0 4px 16px rgb(23 50 58 / 0.10);
+  --primitive-shadow-overlay: 0 16px 40px rgb(23 50 58 / 0.18);
+
+  --primitive-motion-duration-0: 0ms;
+  --primitive-motion-duration-80: 80ms;
+  --primitive-motion-duration-100: 100ms;
+  --primitive-motion-duration-150: 150ms;
+  --primitive-motion-duration-200: 200ms;
+  --primitive-motion-duration-240: 240ms;
+  --primitive-motion-duration-300: 300ms;
+  --primitive-motion-delay-30: 30ms;
+  --primitive-motion-delay-150: 150ms;
+  --primitive-motion-distance-4: 0.25rem;
+  --primitive-motion-distance-8: 0.5rem;
+  --primitive-motion-scale-pressed: 0.99;
+  --primitive-motion-rotate-disclosure: 90deg;
+  --primitive-motion-ease-enter: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --primitive-motion-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --primitive-motion-ease-state: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --primitive-layer-base: 0;
+  --primitive-layer-sticky: 10;
+  --primitive-layer-menu: 20;
+  --primitive-layer-overlay: 30;
+  --primitive-layer-toast: 40;
+}
+
+/* Layer 2: semantic aliases */
+:root {
+  --color-surface-page: var(--primitive-color-mineral-025);
+  --color-surface-raised: var(--primitive-color-white);
+  --color-surface-subtle: var(--primitive-color-mineral-050);
+  --color-surface-inverse: var(--primitive-color-mineral-900);
+  --color-surface-disabled: var(--primitive-color-mineral-050);
+  --color-surface-selection: var(--primitive-color-teal-050);
+
+  --color-text-primary: var(--primitive-color-mineral-900);
+  --color-text-secondary: var(--primitive-color-mineral-600);
+  --color-text-inverse: var(--primitive-color-white);
+  --color-text-disabled: var(--primitive-color-mineral-600);
+  --color-text-link: var(--primitive-color-teal-700);
+
+  --color-border-default: var(--primitive-color-mineral-200);
+  --color-border-strong: var(--primitive-color-mineral-400);
+  --color-border-selected: var(--primitive-color-teal-700);
+
+  --color-action-primary: var(--primitive-color-teal-700);
+  --color-action-primary-hover: var(--primitive-color-teal-800);
+  --color-action-primary-active: var(--primitive-color-teal-900);
+  --color-action-primary-text: var(--primitive-color-white);
+  --color-action-secondary: var(--primitive-color-transparent);
+  --color-action-secondary-hover: var(--primitive-color-teal-050);
+  --color-action-secondary-active: var(--primitive-color-teal-100);
+  --color-action-secondary-text: var(--primitive-color-teal-700);
+
+  --color-focus: var(--primitive-color-blue-700);
+  --color-info-surface: var(--primitive-color-blue-050);
+  --color-info-strong: var(--primitive-color-blue-800);
+  --color-success-surface: var(--primitive-color-green-050);
+  --color-success-strong: var(--primitive-color-green-800);
+  --color-warning-surface: var(--primitive-color-amber-050);
+  --color-warning-strong: var(--primitive-color-amber-900);
+  --color-error-surface: var(--primitive-color-red-050);
+  --color-error-strong: var(--primitive-color-red-800);
+  --color-emergency: var(--primitive-color-red-700);
+  --color-emergency-active: var(--primitive-color-red-800);
+  --color-emergency-text: var(--primitive-color-white);
+
+  --color-accent-wayfinding: var(--primitive-color-wayfinding-ochre);
+  --color-accent-cool: var(--primitive-color-wayfinding-cyan);
+
+  --font-family-ui: var(--primitive-font-sans-latin);
+  --font-family-ethiopic: var(--primitive-font-sans-ethiopic);
+  --font-weight-regular: var(--primitive-font-weight-regular);
+  --font-weight-emphasis: var(--primitive-font-weight-semibold);
+  --font-weight-strong: var(--primitive-font-weight-bold);
+
+  --type-display-size: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);
+  --type-display-line: 1.12;
+  --type-h1-size: clamp(2rem, 1.65rem + 1.75vw, 3rem);
+  --type-h1-line: 1.18;
+  --type-h2-size: clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem);
+  --type-h2-line: 1.24;
+  --type-h3-size: clamp(1.25rem, 1.16rem + 0.45vw, 1.5rem);
+  --type-h3-line: 1.32;
+  --type-lead-size: clamp(1.0625rem, 1.02rem + 0.22vw, 1.1875rem);
+  --type-lead-line: 1.62;
+  --type-body-size: var(--primitive-type-size-16);
+  --type-body-line: 1.6;
+  --type-small-size: var(--primitive-type-size-14);
+  --type-small-line: 1.5;
+  --type-label-size: var(--primitive-type-size-16);
+  --type-label-line: 1.35;
+
+  --space-inline: var(--primitive-space-2);
+  --space-control: var(--primitive-space-3);
+  --space-inset-compact: var(--primitive-space-3);
+  --space-inset-regular: var(--primitive-space-4);
+  --space-inset-card: clamp(var(--primitive-space-4), 3vw, var(--primitive-space-6));
+  --space-stack-small: var(--primitive-space-2);
+  --space-stack-regular: var(--primitive-space-4);
+  --space-stack-large: var(--primitive-space-6);
+  --space-section-compact: var(--primitive-space-8);
+  --space-section-regular: clamp(var(--primitive-space-10), 5vw, var(--primitive-space-16));
+  --space-section-spacious: clamp(var(--primitive-space-12), 7vw, var(--primitive-space-20));
+
+  --size-target-min: var(--primitive-size-target-min);
+  --size-content-reading: var(--primitive-size-reading);
+  --size-content-form: var(--primitive-size-form);
+  --size-content-standard: var(--primitive-size-content);
+  --size-content-wide: var(--primitive-size-wide);
+  --size-icon-control: var(--primitive-size-icon-20);
+  --size-icon-support: var(--primitive-size-icon-24);
+
+  --layout-gutter: var(--primitive-space-4);
+  --layout-header-min: 4rem;
+  --layout-sticky-offset: calc(var(--layout-header-min) + var(--primitive-space-4));
+
+  --radius-control: var(--primitive-radius-8);
+  --radius-card: var(--primitive-radius-12);
+  --radius-media: var(--primitive-radius-12);
+  --radius-pill: var(--primitive-radius-pill);
+  --border-default: var(--primitive-border-1);
+  --border-emphasis: var(--primitive-border-2);
+  --focus-width: var(--primitive-border-3);
+  --focus-offset: var(--primitive-border-2);
+  --elevation-none: var(--primitive-shadow-none);
+  --elevation-raised: var(--primitive-shadow-raised);
+  --elevation-overlay: var(--primitive-shadow-overlay);
+
+  --motion-duration-instant: var(--primitive-motion-duration-0);
+  --motion-duration-feedback: var(--primitive-motion-duration-80);
+  --motion-duration-fast: var(--primitive-motion-duration-150);
+  --motion-duration-standard: var(--primitive-motion-duration-200);
+  --motion-duration-orient: var(--primitive-motion-duration-240);
+  --motion-duration-slow: var(--primitive-motion-duration-300);
+  --motion-delay-none: var(--primitive-motion-duration-0);
+  --motion-delay-step: var(--primitive-motion-delay-30);
+  --motion-delay-max-sequence: var(--primitive-motion-delay-150);
+  --motion-distance-micro: var(--primitive-motion-distance-4);
+  --motion-distance-short: var(--primitive-motion-distance-8);
+  --motion-scale-pressed: var(--primitive-motion-scale-pressed);
+  --motion-rotate-disclosure: var(--primitive-motion-rotate-disclosure);
+  --motion-ease-enter: var(--primitive-motion-ease-enter);
+  --motion-ease-exit: var(--primitive-motion-ease-exit);
+  --motion-ease-state: var(--primitive-motion-ease-state);
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --layout-gutter: var(--primitive-space-6);
+    --layout-header-min: 5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --layout-gutter: var(--primitive-space-8);
+  }
+}
+
+/* Layer 3: foundation-level component aliases. Order 5 extends this layer. */
+:root {
+  --page-background: var(--color-surface-page);
+  --page-foreground: var(--color-text-primary);
+  --page-gutter: var(--layout-gutter);
+  --page-content-max: var(--size-content-standard);
+
+  --prototype-banner-background: var(--color-surface-inverse);
+  --prototype-banner-foreground: var(--color-text-inverse);
+
+  --button-primary-background: var(--color-action-primary);
+  --button-primary-background-hover: var(--color-action-primary-hover);
+  --button-primary-background-active: var(--color-action-primary-active);
+  --button-primary-foreground: var(--color-action-primary-text);
+  --button-secondary-background: var(--color-action-secondary);
+  --button-secondary-background-hover: var(--color-action-secondary-hover);
+  --button-secondary-background-active: var(--color-action-secondary-active);
+  --button-secondary-foreground: var(--color-action-secondary-text);
+  --button-border-width: var(--border-emphasis);
+  --button-radius: var(--radius-control);
+  --button-min-height: var(--size-target-min);
+  --button-padding-inline: var(--primitive-space-4);
+
+  --emergency-action-background: var(--color-emergency);
+  --emergency-action-background-active: var(--color-emergency-active);
+  --emergency-action-foreground: var(--color-emergency-text);
+  --emergency-action-border-width: var(--border-emphasis);
+
+  --field-background: var(--color-surface-raised);
+  --field-foreground: var(--color-text-primary);
+  --field-border: var(--color-border-strong);
+  --field-border-error: var(--color-error-strong);
+  --field-radius: var(--radius-control);
+  --field-min-height: var(--size-target-min);
+
+  --card-background: var(--color-surface-raised);
+  --card-foreground: var(--color-text-primary);
+  --card-border: var(--color-border-default);
+  --card-radius: var(--radius-card);
+  --card-padding: var(--space-inset-card);
+  --card-shadow: var(--elevation-none);
+
+  --status-info-background: var(--color-info-surface);
+  --status-info-foreground: var(--color-info-strong);
+  --status-success-background: var(--color-success-surface);
+  --status-success-foreground: var(--color-success-strong);
+  --status-warning-background: var(--color-warning-surface);
+  --status-warning-foreground: var(--color-warning-strong);
+  --status-error-background: var(--color-error-surface);
+  --status-error-foreground: var(--color-error-strong);
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+}
+
+[lang="am"] {
+  font-family: var(--font-family-ethiopic);
+}
+
+[lang="am"] :where(h1, h2, h3) {
+  line-height: 1.3;
+  letter-spacing: normal;
+}
+
+[lang="am"] :where(p, li, dd) {
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-feedback: var(--primitive-motion-duration-0);
+    --motion-duration-fast: var(--primitive-motion-duration-0);
+    --motion-duration-standard: var(--primitive-motion-duration-0);
+    --motion-duration-orient: var(--primitive-motion-duration-0);
+    --motion-duration-slow: var(--primitive-motion-duration-0);
+    --motion-delay-step: var(--primitive-motion-duration-0);
+    --motion-delay-max-sequence: var(--primitive-motion-duration-0);
+    --motion-distance-micro: 0;
+    --motion-distance-short: 0;
+    --motion-scale-pressed: 1;
+    --motion-rotate-disclosure: 0deg;
+  }
+
+  :focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --color-border-default: CanvasText;
+    --color-border-strong: CanvasText;
+    --color-focus: Highlight;
+    --color-action-primary: ButtonText;
+    --color-action-primary-text: ButtonFace;
+    --color-emergency: ButtonText;
+    --color-emergency-text: ButtonFace;
+  }
+}
+
+@media print {
+  :root {
+    --page-background: var(--primitive-color-white);
+    --page-foreground: var(--primitive-color-black);
+    --layout-gutter: 0;
+    --elevation-raised: none;
+    --elevation-overlay: none;
+    --motion-duration-feedback: 0ms;
+    --motion-duration-fast: 0ms;
+    --motion-duration-standard: 0ms;
+    --motion-duration-orient: 0ms;
+    --motion-duration-slow: 0ms;
+  }
+}

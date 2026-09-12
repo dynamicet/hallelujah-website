@@ -1,0 +1,114 @@
+{
+  "generatedAt": "2026-09-12T22:17:11.223Z",
+  "method": "Local Node documentation-integrity audit; no browser, network, stakeholder, language, device, security, or production validation",
+  "assertions": 9,
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "id": "H12-01",
+      "category": "required-artifacts",
+      "passed": true,
+      "detail": {
+        "checked": 21,
+        "missing": []
+      }
+    },
+    {
+      "id": "H12-02",
+      "category": "local-links",
+      "passed": true,
+      "detail": {
+        "checked": 101,
+        "broken": []
+      }
+    },
+    {
+      "id": "H12-03",
+      "category": "formal-decision-coverage",
+      "passed": true,
+      "detail": {
+        "expected": 32,
+        "covered": 32,
+        "missing": []
+      }
+    },
+    {
+      "id": "H12-04",
+      "category": "page-contract-coverage",
+      "passed": true,
+      "detail": {
+        "expected": 12,
+        "covered": 12,
+        "failures": []
+      }
+    },
+    {
+      "id": "H12-05",
+      "category": "token-integrity",
+      "passed": true,
+      "detail": {
+        "manifestsParsed": 2,
+        "foundationImport": true,
+        "failures": []
+      }
+    },
+    {
+      "id": "H12-06",
+      "category": "prior-evidence-summary",
+      "passed": true,
+      "detail": {
+        "summaries": {
+          "order-9": {
+            "cases": 525,
+            "passed": 525,
+            "failed": 0
+          },
+          "order-10": {
+            "assertions": 19,
+            "passed": 19,
+            "failed": 0,
+            "geometryCases": 45,
+            "geometryFailures": 0
+          },
+          "order-11": {
+            "assertions": 17,
+            "passed": 17,
+            "failed": 0,
+            "artifacts": 16
+          }
+        },
+        "failures": []
+      }
+    },
+    {
+      "id": "H12-07",
+      "category": "release-boundary",
+      "passed": true,
+      "detail": {
+        "checked": 3,
+        "failures": []
+      }
+    },
+    {
+      "id": "H12-08",
+      "category": "canonical-route-consistency",
+      "passed": true,
+      "detail": {
+        "checked": 3,
+        "failures": [],
+        "forbiddenAliasesFound": []
+      }
+    },
+    {
+      "id": "H12-09",
+      "category": "utility-contract-coverage",
+      "passed": true,
+      "detail": {
+        "expected": 3,
+        "covered": 3,
+        "failures": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+/*
+ * Hallelujah General Hospital — Order 9 responsive and bilingual refinement
+ * Non-public prototype. Loaded after the Order 6–8 composition sources.
+ */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body { min-width: 0; }
+
+:where(img, video, canvas, svg) { max-width: 100%; }
+
+:where(a, button, input, select, textarea, summary) {
+  touch-action: manipulation;
+}
+
+:where(.button, .nav-link, .primary-nav a, .site-identity, .controlled-badge) {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.button { text-align: center; }
+.primary-nav a,
+.nav-link,
+.breadcrumb a { min-inline-size: var(--size-target-min); }
+
+.result-type {
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+:where(
+  .directory-layout,
+  .results-region,
+  .results-toolbar,
+  .search-results-list,
+  .search-result,
+  .record-grid,
+  .record-card
+) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.prototype-banner,
+.site-identity,
+.field-label,
+.field-hint,
+.record-card__type,
+.journey-card__step,
+.section-id,
+.eyebrow {
+  overflow-wrap: anywhere;
+}
+
+/* Ethiopic uses its own rhythm; Latin tracking and uppercase treatments do not transfer. */
+html[lang="am"] :where(body, button, input, select, textarea),
+:where([lang="am"]) {
+  font-family: var(--font-family-ethiopic);
+}
+
+html[lang="am"] :where(.eyebrow, .journey-card__step),
+:where([lang="am"].eyebrow, [lang="am"].journey-card__step) {
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+html[lang="am"] :where(
+  .button,
+  .nav-link,
+  .primary-nav a,
+  .site-identity,
+  .field-label,
+  .field-hint,
+  .controlled-badge,
+  .record-card__type,
+  .section-id,
+  summary
+),
+:where([lang="am"].button, [lang="am"].nav-link, [lang="am"].field-label) {
+  line-height: 1.6;
+}
+
+/* A visible test-only label prevents stress fixtures from being mistaken for translation. */
+.order-9-fixture-notice {
+  position: relative;
+  z-index: 20;
+  padding: var(--space-inset-regular) var(--layout-gutter);
+  border-block-end: var(--border-emphasis) solid var(--color-warning-strong);
+  background: var(--color-warning-surface);
+  color: var(--color-warning-strong);
+  font-size: var(--type-small-size);
+  font-weight: var(--font-weight-emphasis);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Locale/content configuration can select the compact shell before labels become crowded. */
+html[lang="am"] .site-header__inner,
+html[data-nav-mode="compact"] .site-header__inner {
+  grid-template-columns: minmax(12rem, 1fr) auto;
+}
+
+html[lang="am"] .primary-nav,
+html[data-nav-mode="compact"] .primary-nav { display: none; }
+
+html[lang="am"] .button.menu-trigger,
+html[data-nav-mode="compact"] .button.menu-trigger {
+  display: inline-flex;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+html[lang="am"] .utility-actions,
+html[data-nav-mode="compact"] .utility-actions {
+  grid-column: 1 / -1;
+  justify-content: stretch;
+}
+
+html[lang="am"] .utility-actions .button,
+html[data-nav-mode="compact"] .utility-actions .button { flex: 1 1 14rem; }
+
+/* 200% reflow from a 1280 CSS-pixel canvas is approximately a 640 CSS-pixel layout. */
+@media (max-width: 47.99rem) {
+  .site-header__inner { grid-template-columns: minmax(0, 1fr) auto; }
+  .button.menu-trigger { grid-column: 2; grid-row: 1; }
+  .utility-actions {
+    grid-column: 1 / -1;
+    justify-content: stretch;
+  }
+  .utility-actions .button { flex: 1 1 12rem; }
+  .section-heading { align-items: start; }
+
+  .task-grid,
+  .card-grid,
+  .record-grid,
+  .record-grid--three { grid-template-columns: 1fr; }
+
+  html[lang="am"] .site-header__inner,
+  html[data-nav-mode="compact"] .site-header__inner { grid-template-columns: 1fr; }
+
+  html[lang="am"] .site-identity,
+  html[data-nav-mode="compact"] .site-identity { grid-column: 1; grid-row: 1; }
+
+  html[lang="am"] .button.menu-trigger,
+  html[data-nav-mode="compact"] .button.menu-trigger {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+  }
+
+  html[lang="am"] .utility-actions,
+  html[data-nav-mode="compact"] .utility-actions { grid-column: 1; grid-row: 3; }
+}
+
+@media (max-width: 63.99rem) {
+  .directory-layout { grid-template-columns: minmax(0, 1fr); }
+  .search-box { grid-template-columns: 1fr; }
+  .search-box .field,
+  .search-box .button { grid-column: 1; width: 100%; }
+}
+
+/* 320–360 px and 400% reflow: remove avoidable width pressure and keep targets separated. */
+@media (max-width: 22.5rem) {
+  :root { --layout-gutter: var(--primitive-space-3); }
+
+  .site-header__inner { gap: var(--primitive-space-2); }
+  .site-identity small { margin-block-start: var(--primitive-space-1); }
+  .prototype-banner,
+  .order-9-fixture-notice { padding-inline: var(--layout-gutter); }
+
+  .button-row,
+  .support-actions,
+  .state-actions,
+  .section-jump,
+  .state-jump,
+  .pagination { gap: var(--primitive-space-2); }
+
+  .pagination a,
+  .pagination span { min-width: var(--size-target-min); }
+
+  .hero__art-card { inset-inline: var(--space-inset-regular); }
+  .map-geometry::before { width: calc(100% - (2 * var(--space-inset-regular))); }
+  .story-media { aspect-ratio: auto; }
+}
+
+@media (forced-colors: active) {
+  .order-9-fixture-notice { border-color: CanvasText; forced-color-adjust: auto; }
+}
+
+@media print {
+  .order-9-fixture-notice { display: none !important; }
+}

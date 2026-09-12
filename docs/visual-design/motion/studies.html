@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en" data-motion="system">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Order 3 Motion Study — Hallelujah General Hospital</title>
+  <style>
+    :root {
+      --page: #f4faf9;
+      --surface: #ffffff;
+      --ink: #17323a;
+      --muted: #516a70;
+      --primary: #006a73;
+      --primary-soft: #e1f2f1;
+      --accent: #d9952f;
+      --boundary: #789b9b;
+      --focus: #075ea8;
+      --emergency: #b42318;
+      --emergency-soft: #fff2f0;
+      --info-soft: #eef6fb;
+      --shadow: 0 12px 32px rgb(23 50 58 / 8%);
+      --radius-control: 8px;
+      --radius-card: 12px;
+      --duration-fast: 150ms;
+      --duration-standard: 200ms;
+      --duration-orient: 240ms;
+      --duration-slow: 300ms;
+      --ease-enter: cubic-bezier(.2, .8, .2, 1);
+      --ease-state: cubic-bezier(.4, 0, .2, 1);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--page); color: var(--ink); }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans", "Noto Sans Ethiopic", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    button, input { font: inherit; }
+
+    button { cursor: pointer; }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .prototype-note {
+      position: relative;
+      z-index: 2;
+      padding: 10px 20px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    header {
+      border-bottom: 1px solid #b7cecc;
+      background: rgb(255 255 255 / 96%);
+    }
+
+    .shell, main {
+      width: min(1120px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 72px;
+    }
+
+    .identity { font-weight: 800; letter-spacing: -.01em; }
+    .identity small { display: block; color: var(--muted); font-size: 12px; font-weight: 600; }
+
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .control, .replay {
+      min-height: 44px;
+      border: 1px solid var(--boundary);
+      border-radius: var(--radius-control);
+      padding: 9px 14px;
+      background: var(--surface);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .control[aria-pressed="true"] {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+    }
+
+    main { padding-block: 56px 80px; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, .7fr);
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 18ch; margin-bottom: 16px; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.08; }
+    h2 { margin-bottom: 8px; font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.2; }
+    h3 { margin-bottom: 6px; font-size: 1.05rem; }
+    p { color: var(--muted); }
+
+    .orientation-rule {
+      width: 72px;
+      height: 3px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      transform-origin: left center;
+    }
+
+    .summary {
+      padding: 20px;
+      border-left: 3px solid var(--accent);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .summary strong { display: block; margin-bottom: 6px; }
+
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .legend article {
+      min-height: 120px;
+      padding: 18px;
+      border: 1px solid #b7cecc;
+      border-radius: var(--radius-card);
+      background: var(--surface);
+    }
+
+    .level {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .level.zero { background: var(--emergency-soft); color: var(--emergency); }
+
+    .board-grid { display: grid; gap: 28px; }
+
+    .study {
+      overflow: hidden;
+      border: 1px solid #b7cecc;
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .study-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid #d8e5e3;
+    }
+
+    .study-head p { margin: 2px 0 0; font-size: 14px; }
+    .study-head strong { display: block; }
+    .study-body { padding: 24px; }
+
+    .demo-home .task-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .task {
+      min-height: 76px;
+      padding: 14px;
+      border: 1px solid var(--boundary);
+      border-radius: var(--radius-control);
+      background: var(--surface);
+      color: var(--ink);
+      text-align: left;
+      font-weight: 750;
+    }
+
+    .task span { display: block; color: var(--muted); font-size: 13px; font-weight: 500; }
+
+    .task.emergency {
+      border: 2px solid var(--emergency);
+      background: var(--emergency-soft);
+      color: var(--emergency);
+    }
+
+    .route-choice {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 720px;
+    }
+
+    .route {
+      padding: 18px;
+      border: 2px solid var(--emergency);
+      border-radius: var(--radius-control);
+      background: var(--emergency-soft);
+    }
+
+    .route p { margin-bottom: 12px; color: var(--ink); }
+
+    .static-action {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 10px 14px;
+      border: 0;
+      border-radius: var(--radius-control);
+      background: var(--emergency);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .static-note {
+      margin: 18px 0 0;
+      padding: 12px 14px;
+      border-left: 3px solid var(--emergency);
+      background: #fff7f5;
+      color: var(--ink);
+      font-weight: 650;
+    }
+
+    .form-study {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .7fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .field-group {
+      padding: 18px;
+      border: 1px solid #b7cecc;
+      border-radius: var(--radius-card);
+      background: #fbfdfd;
+    }
+
+    .choices { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 18px; }
+
+    .choice {
+      min-height: 44px;
+      padding: 8px 12px;
+      border: 1px solid var(--boundary);
+      border-radius: var(--radius-control);
+      background: #fff;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .choice[aria-pressed="true"] { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+
+    .conditional {
+      padding: 14px;
+      border-left: 3px solid var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .conditional label { display: block; margin-bottom: 6px; font-weight: 750; }
+    .conditional input { width: 100%; min-height: 44px; border: 1px solid var(--boundary); border-radius: 6px; padding: 8px 10px; background: #fff; }
+
+    .outcome {
+      min-height: 178px;
+      padding: 18px;
+      border: 1px solid #9ec3c0;
+      border-radius: var(--radius-card);
+      background: var(--primary-soft);
+    }
+
+    .outcome .mark {
+      display: inline-grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .result-demo { display: grid; grid-template-columns: 250px 1fr; gap: 20px; }
+
+    .filters { padding: 16px; border: 1px solid #b7cecc; border-radius: var(--radius-card); }
+    .filters button { width: 100%; margin-top: 10px; }
+
+    .result-count {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--info-soft);
+      color: var(--focus);
+      font-weight: 800;
+    }
+
+    .results { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .record { padding: 16px; border: 1px solid #b7cecc; border-radius: var(--radius-card); }
+    .record p { margin-bottom: 0; font-size: 14px; }
+
+    .story-path {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      max-width: 760px;
+      padding-left: 30px;
+    }
+
+    .story-path::before {
+      content: "";
+      position: absolute;
+      inset: 8px auto 8px 8px;
+      width: 3px;
+      border-radius: 99px;
+      background: var(--boundary);
+      transition: background var(--duration-slow) var(--ease-state);
+    }
+
+    .story-step { position: relative; padding: 15px 16px; border: 1px solid #c8d9d7; border-radius: var(--radius-card); background: #fff; }
+    .story-step::before { content: ""; position: absolute; left: -28px; top: 22px; width: 11px; height: 11px; border: 3px solid var(--page); border-radius: 50%; background: var(--primary); }
+    .story-step p { margin-bottom: 0; }
+
+    .rules {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .rules section { padding: 20px; border: 1px solid #b7cecc; border-radius: var(--radius-card); background: var(--surface); }
+    .rules ul { margin-bottom: 0; padding-left: 20px; }
+
+    .study.replay-standard .orientation-rule { animation: orient var(--duration-orient) var(--ease-enter) both; }
+    .study.replay-standard .task:not(.emergency) { animation: settle 220ms var(--ease-enter) both; }
+    .study.replay-standard .task:nth-child(2) { animation-delay: 30ms; }
+    .study.replay-standard .task:nth-child(3) { animation-delay: 60ms; }
+    .study.replay-standard .task:nth-child(4) { animation-delay: 90ms; }
+    .study.replay-standard .task:nth-child(5) { animation-delay: 120ms; }
+    .study.replay-standard .task:nth-child(6) { animation-delay: 150ms; }
+    .study.replay-standard .conditional { animation: conditional var(--duration-standard) var(--ease-enter) both; }
+    .study.replay-standard .outcome { animation: status var(--duration-fast) var(--ease-state) both; }
+    .study.replay-standard .result-count { animation: count var(--duration-fast) var(--ease-state) both; }
+    .study.replay-standard .story-path::before { background: var(--primary); }
+
+    @keyframes orient { from { opacity: .65; transform: scaleX(.6); } to { opacity: 1; transform: scaleX(1); } }
+    @keyframes settle { from { opacity: .88; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes conditional { from { opacity: .75; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes status { from { opacity: .65; } to { opacity: 1; } }
+    @keyframes count { from { color: var(--muted); background: #edf2f1; } to { color: var(--focus); background: var(--info-soft); } }
+
+    html[data-motion="reduced"] *,
+    html[data-motion="reduced"] *::before,
+    html[data-motion="reduced"] *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.001ms !important;
+      animation-delay: 0ms !important;
+      transition-duration: 0.001ms !important;
+    }
+
+    html[data-motion="reduced"] .orientation-rule { transform: none !important; opacity: 1 !important; }
+    html[data-motion="reduced"] .story-path::before { background: var(--primary); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html[data-motion="system"] *,
+      html[data-motion="system"] *::before,
+      html[data-motion="system"] *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-delay: 0ms !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell, .intro, .study-head { align-items: flex-start; }
+      .shell, .study-head { flex-direction: column; padding-block: 14px; }
+      main { padding-top: 36px; }
+      .intro, .legend, .form-study, .result-demo, .rules { grid-template-columns: 1fr; }
+      .demo-home .task-grid, .results, .route-choice { grid-template-columns: 1fr; }
+      .demo-home .task:nth-child(n+5) { animation: none !important; }
+    }
+
+    @media print {
+      .controls, .replay { display: none; }
+      .study { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="prototype-note">Non-public prototype — content, contacts, brand, and operations are placeholders and are not hospital-approved.</div>
+  <header>
+    <div class="shell">
+      <div class="identity">Hallelujah General Hospital <small>Order 3 motion study · prototype identity</small></div>
+      <div class="controls" aria-label="Motion review mode">
+        <button class="control" id="system-mode" type="button" aria-pressed="true">System preference</button>
+        <button class="control" id="standard-mode" type="button" aria-pressed="false">Standard motion</button>
+        <button class="control" id="reduced-mode" type="button" aria-pressed="false">Reduced motion</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <div class="orientation-rule" aria-hidden="true"></div>
+        <h1 id="page-title">Calm movement for clear wayfinding</h1>
+        <p>This study compares the final visible states and the small transitions permitted by Order 3. Nothing here calls, submits, maps, tracks, or loads third-party content.</p>
+      </div>
+      <aside class="summary">
+        <strong>One governing rule</strong>
+        Essential content is visible before motion. If motion fails or is removed, meaning and action stay exactly where the visitor expects.
+      </aside>
+    </section>
+
+    <section class="legend" aria-label="Motion intensity levels">
+      <article><span class="level zero">0</span><h3>Immediate/static</h3><p>Emergency, urgent guidance, errors, privacy, and unavailable states.</p></article>
+      <article><span class="level">1</span><h3>Functional continuity</h3><p>Fast local feedback for forms, filters, menus, progress, and state.</p></article>
+      <article><span class="level">2</span><h3>Restrained orientation</h3><p>One optional wayfinding cue for Home, visit stages, or approved story content.</p></article>
+    </section>
+
+    <div class="board-grid">
+      <article class="study demo-home" data-study>
+        <div class="study-head">
+          <div><strong>Home · orientation and task settling</strong><p>Level 2 ceiling; Emergency remains static</p></div>
+          <button class="replay" type="button">Replay study</button>
+        </div>
+        <div class="study-body">
+          <div class="orientation-rule" aria-hidden="true"></div>
+          <h2>How can we help?</h2>
+          <p>Controlled labels test route recognition only.</p>
+          <div class="task-grid">
+            <button class="task" type="button">Find a doctor<span>Open approved directory</span></button>
+            <button class="task" type="button">Explore services<span>Browse governed care labels</span></button>
+            <button class="task" type="button">Request an appointment<span>Request, not confirmed booking</span></button>
+            <button class="task" type="button">Plan a visit<span>Approved guidance required</span></button>
+            <button class="task" type="button">Locations &amp; contact<span>Verified facts required</span></button>
+            <button class="task emergency" type="button">Emergency help<span>Inert prototype action</span></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="study" data-study>
+        <div class="study-head">
+          <div><strong>Emergency · no expressive motion</strong><p>Level 0 at every viewport and preference</p></div>
+          <button class="replay" type="button">Replay study</button>
+        </div>
+        <div class="study-body">
+          <h2>Choose the verified route that applies</h2>
+          <p>Real purposes, numbers, applicability, and instructions remain approval gates.</p>
+          <div class="route-choice">
+            <section class="route"><h3>Hospital emergency route</h3><p>Verified hospital purpose and number required.</p><button class="static-action" type="button">Inert call specimen</button></section>
+            <section class="route"><h3>Applicable public route</h3><p>Verified jurisdiction and number required.</p><button class="static-action" type="button">Inert call specimen</button></section>
+          </div>
+          <p class="static-note">This page does not pulse, count down, auto-focus, animate into view, or place a call.</p>
+        </div>
+      </article>
+
+      <article class="study" data-study>
+        <div class="study-head">
+          <div><strong>Appointment · conditional field and receipt</strong><p>Level 1; simulated, non-submitting states</p></div>
+          <button class="replay" type="button">Replay study</button>
+        </div>
+        <div class="study-body form-study">
+          <section class="field-group">
+            <h2>Which care route?</h2>
+            <div class="choices">
+              <button class="choice" type="button" aria-pressed="true">Doctor</button>
+              <button class="choice" type="button" aria-pressed="false">Service</button>
+              <button class="choice" type="button" aria-pressed="false">Not sure</button>
+            </div>
+            <div class="conditional">
+              <label for="prototype-doctor">Prototype doctor selector</label>
+              <input id="prototype-doctor" value="Prototype clinician 01" readonly>
+            </div>
+          </section>
+          <section class="outcome" role="status">
+            <span class="mark" aria-hidden="true">✓</span>
+            <h2>Request received specimen</h2>
+            <p>Shown only after simulated authoritative acknowledgement. This is not a confirmed appointment.</p>
+          </section>
+        </div>
+      </article>
+
+      <article class="study" data-study>
+        <div class="study-head">
+          <div><strong>Discovery · stable records, local status</strong><p>Level 1; no grid reveal or card flight</p></div>
+          <button class="replay" type="button">Replay study</button>
+        </div>
+        <div class="study-body result-demo">
+          <section class="filters">
+            <h2>Refine results</h2>
+            <p>Only approved filters may appear.</p>
+            <button class="control" type="button">Apply prototype filter</button>
+          </section>
+          <section>
+            <span class="result-count" role="status">2 prototype records</span>
+            <div class="results">
+              <article class="record"><h3>Prototype clinician 01</h3><p>Controlled record · current approval required</p></article>
+              <article class="record"><h3>Prototype clinician 02</h3><p>Controlled record · current approval required</p></article>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <article class="study" data-study>
+        <div class="study-head">
+          <div><strong>Institutional story · evidence path</strong><p>Level 2 ceiling; facts never count up</p></div>
+          <button class="replay" type="button">Replay study</button>
+        </div>
+        <div class="study-body">
+          <div class="orientation-rule" aria-hidden="true"></div>
+          <h2>Story follows evidence</h2>
+          <div class="story-path">
+            <article class="story-step"><h3>Approved narrative</h3><p>Hospital story placeholder; executive and content approval required.</p></article>
+            <article class="story-step"><h3>Sourced fact</h3><p>Fact label · owner, source, review date, and expiry required.</p></article>
+            <article class="story-step"><h3>Return to care</h3><p>Care and contact routes remain more prominent than institutional promotion.</p></article>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="rules">
+      <section>
+        <h2>Always preserved</h2>
+        <ul>
+          <li>Visible content and semantic source order</li>
+          <li>Keyboard focus and announced state</li>
+          <li>Browser Back/Forward and deep links</li>
+          <li>Reduced-motion and no-JavaScript equivalence</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Always excluded</h2>
+        <ul>
+          <li>Scroll-jacking, parallax, pinned sections, and loops</li>
+          <li>Pulsing emergency actions and route-exit delays</li>
+          <li>Animated counters, carousels, and confetti</li>
+          <li>Motion that activates or implies gated behavior</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const system = document.querySelector('#system-mode');
+      const standard = document.querySelector('#standard-mode');
+      const reduced = document.querySelector('#reduced-mode');
+      const studies = [...document.querySelectorAll('[data-study]')];
+      const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function setMode(mode) {
+        root.dataset.motion = mode;
+        system.setAttribute('aria-pressed', String(mode === 'system'));
+        standard.setAttribute('aria-pressed', String(mode === 'standard'));
+        reduced.setAttribute('aria-pressed', String(mode === 'reduced'));
+        studies.forEach(replay);
+      }
+
+      function replay(study) {
+        study.classList.remove('replay-standard');
+        void study.offsetWidth;
+        const shouldAnimate = root.dataset.motion === 'standard' || (root.dataset.motion === 'system' && !preference.matches);
+        if (shouldAnimate) study.classList.add('replay-standard');
+      }
+
+      system.addEventListener('click', () => setMode('system'));
+      standard.addEventListener('click', () => setMode('standard'));
+      reduced.addEventListener('click', () => setMode('reduced'));
+      preference.addEventListener('change', () => {
+        if (root.dataset.motion === 'system') studies.forEach(replay);
+      });
+      document.querySelectorAll('.replay').forEach((button) => {
+        button.addEventListener('click', () => replay(button.closest('[data-study]')));
+      });
+
+      const requestedMode = new URLSearchParams(window.location.search).get('motion');
+      setMode(requestedMode === 'standard' || requestedMode === 'reduced' ? requestedMode : 'system');
+    })();
+  </script>
+</body>
+</html>

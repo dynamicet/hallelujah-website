@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hallelujah General Hospital — Order 2 visual direction studies</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { color-scheme: light; scroll-behavior: auto; }
+    body { margin: 0; background: #e9eeee; color: #172b33; font-family: "Noto Sans", Arial, sans-serif; font-size: 16px; line-height: 1.55; }
+    img, svg { display: block; max-width: 100%; }
+    button, input { font: inherit; }
+    .prototype-banner { position: sticky; top: 0; z-index: 20; padding: 10px 20px; border-bottom: 2px solid #172b33; background: #fff4cc; color: #172b33; font-size: 14px; font-weight: 700; text-align: center; }
+    .board-header { padding: 56px max(20px, calc((100vw - 1280px) / 2)); background: #17323a; color: #fff; }
+    .eyebrow { margin: 0 0 10px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .board-header h1 { max-width: 920px; margin: 0; font-size: clamp(34px, 5vw, 68px); line-height: 1.05; letter-spacing: -.035em; }
+    .board-header p { max-width: 760px; margin: 22px 0 0; font-size: 18px; }
+    .direction-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .direction-nav a { min-height: 44px; padding: 10px 16px; border: 1px solid #789b9b; border-radius: 8px; color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+    .direction-nav a:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+    .reference-strip { padding: 44px max(20px, calc((100vw - 1280px) / 2)); background: #f7f9f9; }
+    .reference-strip h2 { margin: 0 0 8px; font-size: 28px; }
+    .reference-strip > p { max-width: 850px; margin: 0 0 24px; }
+    .reference-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    .reference { min-width: 0; margin: 0; border: 1px solid #bcc8cc; background: white; }
+    .reference img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; filter: saturate(.65); }
+    .reference figcaption { min-height: 76px; padding: 10px 12px; font-size: 12px; line-height: 1.35; }
+    .reference strong { display: block; font-size: 13px; }
+    .direction { --page: #f4faf9; --surface: #fff; --ink: #17323a; --muted: #516a70; --primary: #006a73; --accent: #d9952f; --border: #789b9b; --soft: #dcefeb; --focus: #075ea8; --emergency: #b42318; --radius-control: 8px; --radius-card: 12px; --section-gap: 64px; padding: 64px max(20px, calc((100vw - 1280px) / 2)) 84px; background: var(--page); color: var(--ink); scroll-margin-top: 42px; }
+    .direction-b { --page: #fbf8f1; --ink: #2a312d; --muted: #5d675f; --primary: #176b5a; --accent: #d39a45; --border: #8b918b; --soft: #f0e7d5; --focus: #005fcc; --radius-control: 6px; --radius-card: 4px; }
+    .direction-c { --page: #f5f7f7; --ink: #17242b; --muted: #53656d; --primary: #184e77; --accent: #2a7059; --border: #7a8c93; --soft: #dcebe7; --focus: #005ea8; --radius-control: 4px; --radius-card: 4px; --section-gap: 48px; }
+    .direction-head { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr); gap: 48px; align-items: end; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    .direction-index { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-bottom: 18px; border-radius: 50%; background: var(--accent); color: var(--ink); font-weight: 800; }
+    .direction-c .direction-index { border-radius: 4px; background: var(--primary); color: #fff; }
+    .direction h2 { margin: 0; font-size: clamp(34px, 4vw, 58px); line-height: 1.05; letter-spacing: -.035em; }
+    .direction-summary { max-width: 720px; margin: 18px 0 0; font-size: 18px; }
+    .recommended { display: inline-flex; margin-top: 18px; padding: 7px 12px; border: 2px solid var(--primary); border-radius: 999px; color: var(--primary); font-weight: 800; }
+    .mood-words { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .mood-word { padding: 10px 12px; border-left: 4px solid var(--accent); background: var(--surface); font-weight: 700; }
+    .direction-c .mood-word { border-left-color: var(--primary); }
+    .foundation-grid { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 16px; margin-top: 32px; }
+    .foundation-card { min-width: 0; padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-card); background: var(--surface); }
+    .foundation-card h3, .study h3 { margin: 0 0 12px; font-size: 18px; }
+    .swatches { display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-control); }
+    .swatch { min-height: 72px; padding: 8px; font-size: 10px; font-weight: 800; }
+    .swatch.primary { background: var(--primary); color: #fff; }
+    .swatch.accent { background: var(--accent); color: var(--ink); }
+    .swatch.soft { background: var(--soft); color: var(--ink); }
+    .swatch.emergency { background: var(--emergency); color: #fff; }
+    .type-sample p { margin: 0; }
+    .type-sample .latin { font-size: 28px; font-weight: 700; line-height: 1.2; }
+    .type-sample .ethiopic { margin-top: 12px; font-family: "Noto Sans Ethiopic", "Noto Sans", sans-serif; font-size: 25px; font-weight: 700; line-height: 1.35; }
+    .fixture-note { display: inline-block; margin-top: 10px; padding: 3px 7px; border: 1px solid var(--border); color: var(--muted); font-size: 11px; font-weight: 700; }
+    .image-placeholder { position: relative; min-height: 156px; overflow: hidden; border-radius: var(--radius-card); background: var(--soft); }
+    .image-placeholder::before, .image-placeholder::after { content: ""; position: absolute; width: 180px; height: 180px; border: 2px solid var(--primary); border-radius: 50%; opacity: .35; }
+    .image-placeholder::before { left: -60px; top: 38px; }
+    .image-placeholder::after { right: -36px; top: -96px; border-color: var(--accent); }
+    .direction-b .image-placeholder::before, .direction-b .image-placeholder::after { border-radius: 0; transform: rotate(35deg); }
+    .direction-c .image-placeholder::before, .direction-c .image-placeholder::after { border-radius: 0; transform: none; }
+    .image-label { position: absolute; inset: auto 14px 14px; z-index: 1; padding: 8px 10px; background: var(--surface); color: var(--ink); font-size: 12px; font-weight: 700; }
+    .studies-title { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: var(--section-gap) 0 20px; }
+    .studies-title h3 { margin: 0; font-size: 28px; }
+    .studies-title p { max-width: 620px; margin: 0; color: var(--muted); }
+    .studies-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .study { min-width: 0; padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-card); background: var(--surface); }
+    .study-kicker { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 16px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .study h4 { margin: 0 0 8px; font-size: 25px; line-height: 1.15; }
+    .study p { margin: 0 0 14px; }
+    .study .muted { color: var(--muted); font-size: 13px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 9px 14px; border: 2px solid var(--primary); border-radius: var(--radius-control); background: var(--primary); color: #fff; font-weight: 800; }
+    .btn.secondary { background: transparent; color: var(--primary); }
+    .btn.emergency { border-color: var(--emergency); background: var(--emergency); color: #fff; }
+    .focus-demo { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .task-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+    .task { min-height: 62px; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-control); background: var(--surface); font-weight: 700; }
+    .task span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; font-weight: 400; }
+    .route-note { padding: 10px 12px; border-left: 4px solid var(--emergency); background: #fff5f3; color: #5f1c17; font-size: 13px; font-weight: 700; }
+    .call-choice { margin-top: 10px; padding: 12px; border: 2px solid var(--emergency); border-radius: var(--radius-control); }
+    .call-choice.secondary-call { border-color: var(--border); }
+    .call-label { display: block; font-size: 12px; font-weight: 800; }
+    .withheld { display: block; margin: 5px 0 10px; color: var(--muted); font-size: 14px; }
+    .doctor-card { display: grid; grid-template-columns: 76px 1fr; gap: 14px; align-items: start; }
+    .portrait { display: grid; place-items: center; width: 76px; aspect-ratio: 1; border: 1px solid var(--border); border-radius: var(--radius-card); background: var(--soft); color: var(--muted); font-size: 12px; font-weight: 800; }
+    .doctor-card h4 { font-size: 20px; }
+    .record-link { color: var(--primary); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .field-label { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 800; }
+    .field { width: 100%; min-height: 48px; padding: 10px 12px; border: 2px solid var(--emergency); border-radius: var(--radius-control); background: #fff; color: var(--ink); }
+    .error-text { display: flex; gap: 8px; margin-top: 6px; color: var(--emergency); font-size: 13px; font-weight: 800; }
+    .error-dot { display: inline-grid; place-items: center; flex: 0 0 18px; height: 18px; border-radius: 50%; background: var(--emergency); color: #fff; font-size: 11px; }
+    .steps { display: grid; gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; counter-reset: route; }
+    .steps li { position: relative; min-height: 36px; padding-left: 42px; counter-increment: route; }
+    .steps li::before { content: counter(route); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--ink); font-weight: 900; }
+    .direction-c .steps li::before { border-radius: 4px; background: var(--primary); color: #fff; }
+    .fact-row { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 11px 0; border-top: 1px solid var(--border); }
+    .fact-row:first-of-type { margin-top: 10px; }
+    .fact-label { font-weight: 800; }
+    .meta { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+    .direction-footer { margin-top: 32px; padding: 18px 0 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+    .direction-b .study { border-top: 5px solid var(--accent); }
+    .direction-c .study { border-width: 2px; }
+    body:has(.direction:target) .board-header,
+    body:has(.direction:target) .reference-strip,
+    body:has(.direction:target) .direction:not(:target) { display: none; }
+    body:has(.direction:target) .direction:target { scroll-margin-top: 42px; }
+    @media (max-width: 980px) {
+      .reference-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .direction-head, .foundation-grid { grid-template-columns: 1fr; }
+      .studies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 620px) {
+      .prototype-banner { padding: 9px 12px; text-align: left; }
+      .board-header { padding-top: 38px; padding-bottom: 38px; }
+      .reference-grid, .studies-grid { grid-template-columns: 1fr; }
+      .direction { --section-gap: 40px; padding-top: 42px; padding-bottom: 60px; }
+      .direction-head { gap: 28px; }
+      .foundation-card, .study { padding: 16px; }
+      .studies-title { display: block; }
+      .studies-title p { margin-top: 8px; }
+      .task-row, .swatches { grid-template-columns: 1fr 1fr; }
+      .fact-row { grid-template-columns: 1fr; gap: 2px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+    @media print { .prototype-banner { position: static; } .direction { break-before: page; } }
+  </style>
+</head>
+<body>
+  <div class="prototype-banner">Non-public prototype — content, contacts, brand, and operations are placeholders and are not hospital-approved.</div>
+
+  <header class="board-header">
+    <p class="eyebrow">Visual Design · Order 2 · 12 September 2026</p>
+    <h1>Three original directions for a calmer route into care</h1>
+    <p>Benchmark qualities are translated into Hallelujah's accepted task hierarchy. Benchmark screenshots remain research evidence only; every interface fragment below uses controlled placeholders and inert actions.</p>
+    <nav class="direction-nav" aria-label="Direction studies">
+      <a href="#direction-a">A · Calm Wayfinding</a>
+      <a href="#direction-b">B · Warm Civic Care</a>
+      <a href="#direction-c">C · Quiet Clinical Precision</a>
+    </nav>
+  </header>
+
+  <section class="reference-strip" aria-labelledby="reference-title">
+    <h2 id="reference-title">Reference qualities, not reusable assets</h2>
+    <p>These captured homepages informed service qualities such as task prominence, language visibility, search, public-service clarity, and regional human context. No layout, logo, palette, copy, imagery, or unsupported operation is transferred.</p>
+    <div class="reference-grid">
+      <figure class="reference"><img src="../../../../benchmarks/category-2-public-service-accessibility/assets/nhs-homepage-desktop.png" alt="Captured NHS homepage used as research evidence"><figcaption><strong>Public-service clarity</strong>Strong hierarchy and recognizable tasks; identity and national-service model excluded.</figcaption></figure>
+      <figure class="reference"><img src="../../../../benchmarks/category-3-premium-international-multilingual/assets/cleveland-clinic-abu-dhabi-homepage-desktop.png" alt="Captured Cleveland Clinic Abu Dhabi homepage used as research evidence"><figcaption><strong>Language visibility</strong>Explicit language and care routes; premium/international behavior excluded.</figcaption></figure>
+      <figure class="reference"><img src="../../../../benchmarks/category-4-african-regional-relevance/assets/aga-khan-university-hospital-nairobi-homepage-desktop.png" alt="Captured Aga Khan University Hospital Nairobi homepage used as research evidence"><figcaption><strong>Regional humanity</strong>People/place relevance and direct tasks; claims, imagery, and red identity excluded.</figcaption></figure>
+      <figure class="reference"><img src="../../../../benchmarks/category-1-global-academic-authorities/assets/charite-homepage-desktop.png" alt="Captured Charite homepage used as research evidence"><figcaption><strong>Finder separation</strong>Distinct discovery entry points; carousel, side rail, and academic composition excluded.</figcaption></figure>
+      <figure class="reference"><img src="../../../../benchmarks/category-4-african-regional-relevance/assets/mediclinic-southern-africa-homepage-desktop.png" alt="Captured Mediclinic Southern Africa homepage used as research evidence"><figcaption><strong>Prominent search</strong>Search near the front door; hero, slogan, overlays, and brand blue excluded.</figcaption></figure>
+    </div>
+  </section>
+
+  <main>
+    <section class="direction direction-a" id="direction-a" aria-labelledby="direction-a-title">
+      <div class="direction-head">
+        <div>
+          <span class="direction-index" aria-hidden="true">A</span>
+          <p class="eyebrow">Recommended working direction</p>
+          <h2 id="direction-a-title">Calm Wayfinding</h2>
+          <p class="direction-summary">A well-marked path through an unfamiliar place: deep teal actions, mineral quiet surfaces, small sun-warm markers, humane spacing, and text that carries the experience when images or scripts do not.</p>
+          <span class="recommended">Recommended for Orders 3–4</span>
+        </div>
+        <div class="mood-words" aria-label="Direction mood words">
+          <div class="mood-word">Assured</div><div class="mood-word">Breathable</div>
+          <div class="mood-word">Grounded</div><div class="mood-word">Navigable</div>
+          <div class="mood-word">Humane</div><div class="mood-word">Clear</div>
+        </div>
+      </div>
+
+      <div class="foundation-grid">
+        <article class="foundation-card"><h3>Color roles</h3><div class="swatches"><div class="swatch primary">Action<br>#006A73</div><div class="swatch accent">Warm marker<br>#D9952F</div><div class="swatch soft">Quiet field<br>#DCEFEB</div><div class="swatch emergency">Emergency<br>#B42318</div></div></article>
+        <article class="foundation-card type-sample"><h3>Bilingual type geometry</h3><p class="latin">Find the right route into care</p><p class="ethiopic" lang="am">እንኳን ደህና መጡ</p><span class="fixture-note">Unreviewed Ethiopic fixture · Noto candidate</span></article>
+        <article class="foundation-card"><h3>Imagery/shape policy</h3><div class="image-placeholder" role="img" aria-label="Abstract placeholder for future rights-approved staff, place, or wayfinding photography"><span class="image-label">Authentic place/staff image only after rights approval</span></div></article>
+      </div>
+
+      <div class="studies-title"><h3>Representative page fragments</h3><p>Same accepted hierarchy, six visual questions: orientation, urgent choice, governed record, form error, text arrival, and evidence-based trust.</p></div>
+      <div class="studies-grid">
+        <article class="study"><div class="study-kicker"><span>Home · H1/H2</span><span>360 → 1440</span></div><h4>Where do you need to start?</h4><p>Choose a care task. Prototype labels test hierarchy only.</p><div class="actions"><span class="btn focus-demo">Request an appointment</span><span class="btn secondary">Find a doctor</span></div><div class="task-row"><div class="task">Explore services<span>Approved records only</span></div><div class="task">Locations &amp; contact<span>Verified facts required</span></div></div></article>
+        <article class="study"><div class="study-kicker"><span>Emergency · E1</span><span>Static</span></div><h4>Emergency help</h4><div class="route-note">Route distinction and exact wording require clinical and operations approval.</div><div class="call-choice"><span class="call-label">Hospital route · use to be verified</span><span class="withheld">Verified hospital number required</span><span class="btn emergency">Call hospital emergency · not connected</span></div><div class="call-choice secondary-call"><span class="call-label">Public route · applicability to be verified</span><span class="withheld">Verified public number required</span></div></article>
+        <article class="study"><div class="study-kicker"><span>Doctor · D4</span><span>Governed</span></div><div class="doctor-card"><div class="portrait">No portrait</div><div><h4>Prototype clinician 01</h4><p>Approved specialty required</p><p class="muted">No schedule or live availability</p><span class="record-link">View prototype profile</span></div></div><div class="meta">Prototype record · owner and review evidence required</div></article>
+        <article class="study"><div class="study-kicker"><span>Appointment · A3/A4</span><span>Error</span></div><h4>Your contact details</h4><p class="muted">Request, not a confirmed booking. This study does not submit.</p><label class="field-label" for="a-phone">Phone number · requiredness pending</label><input class="field" id="a-phone" readonly value="Fictional test value"><div class="error-text"><span class="error-dot">!</span><span>Approved actionable error wording required</span></div></article>
+        <article class="study"><div class="study-kicker"><span>Arrival · LC3/LC5</span><span>No map</span></div><h4>Arrive using written directions</h4><p class="muted">Address, entrance, and landmarks remain withheld.</p><ol class="steps"><li>Start from a verified landmark.</li><li>Follow approved route steps.</li><li>Use the verified accessible entrance.</li></ol><div class="meta">Dated on-site test required · map remains optional</div></article>
+        <article class="study"><div class="study-kicker"><span>About · AB2/AB4</span><span>Evidence</span></div><h4>Hospital story and facts</h4><p>Structure for an approved narrative; no institutional claim is supplied.</p><div class="fact-row"><span class="fact-label">Fact label</span><span>Approval and definition pending</span></div><div class="fact-row"><span class="fact-label">As of</span><span>Verified date required</span></div><div class="meta">Information last checked · owner/date required</div></article>
+      </div>
+      <div class="direction-footer">A · Candidate palette/type/shape direction only · no identity, content, translation, operation, or release approval.</div>
+    </section>
+
+    <section class="direction direction-b" id="direction-b" aria-labelledby="direction-b-title">
+      <div class="direction-head">
+        <div><span class="direction-index" aria-hidden="true">B</span><p class="eyebrow">Warm alternative</p><h2 id="direction-b-title">Warm Civic Care</h2><p class="direction-summary">A friendly public-service guide: forest-green actions, warm paper surfaces, ochre indexing, editorial rules, and future place-led photography.</p></div>
+        <div class="mood-words"><div class="mood-word">Welcoming</div><div class="mood-word">Communal</div><div class="mood-word">Practical</div><div class="mood-word">Familiar</div><div class="mood-word">Tactile</div><div class="mood-word">Steady</div></div>
+      </div>
+      <div class="foundation-grid">
+        <article class="foundation-card"><h3>Color roles</h3><div class="swatches"><div class="swatch primary">Action<br>#176B5A</div><div class="swatch accent">Index<br>#D39A45</div><div class="swatch soft">Paper field<br>#F0E7D5</div><div class="swatch emergency">Emergency<br>#B42318</div></div></article>
+        <article class="foundation-card type-sample"><h3>Bilingual type geometry</h3><p class="latin">A practical guide for your visit</p><p class="ethiopic" lang="am">እንኳን ደህና መጡ</p><span class="fixture-note">Unreviewed Ethiopic fixture · paired-family risk</span></article>
+        <article class="foundation-card"><h3>Imagery/shape policy</h3><div class="image-placeholder" role="img" aria-label="Abstract placeholder for future rights-approved place and arrival photography"><span class="image-label">Place-led, warm natural light · rights approval required</span></div></article>
+      </div>
+      <div class="studies-title"><h3>Representative page fragments</h3><p>Warmer surfaces and indexed sections support visit preparation, while all emergency and data boundaries remain unchanged.</p></div>
+      <div class="studies-grid">
+        <article class="study"><div class="study-kicker"><span>Home · H1/H2</span><span>01</span></div><h4>How can we help today?</h4><p>Start with a familiar care task.</p><div class="actions"><span class="btn focus-demo">Request an appointment</span><span class="btn secondary">Find a doctor</span></div><div class="task-row"><div class="task">Explore services<span>Approved records only</span></div><div class="task">Plan your visit<span>Approved topics only</span></div></div></article>
+        <article class="study"><div class="study-kicker"><span>Emergency · E1</span><span>02</span></div><h4>Emergency help</h4><div class="route-note">Exact route distinction must precede the choices.</div><div class="call-choice"><span class="call-label">Hospital emergency route</span><span class="withheld">Verified purpose and number required</span><span class="btn emergency">Call · not connected</span></div><div class="call-choice secondary-call"><span class="call-label">Applicable public route</span><span class="withheld">Verification required</span></div></article>
+        <article class="study"><div class="study-kicker"><span>Doctor · D4</span><span>03</span></div><div class="doctor-card"><div class="portrait">Image omitted</div><div><h4>Prototype clinician 01</h4><p>Approved specialty required</p><p class="muted">Optional fields collapse</p><span class="record-link">View prototype profile</span></div></div><div class="meta">Current roster and owner required</div></article>
+        <article class="study"><div class="study-kicker"><span>Appointment · A3/A4</span><span>04</span></div><h4>Tell us how to follow up</h4><p class="muted">No real information is collected.</p><label class="field-label" for="b-phone">Phone number · decision pending</label><input class="field" id="b-phone" readonly value="Fictional test value"><div class="error-text"><span class="error-dot">!</span><span>Specific recovery wording required</span></div></article>
+        <article class="study"><div class="study-kicker"><span>Arrival · LC3/LC5</span><span>05</span></div><h4>Your route to the entrance</h4><p class="muted">Text remains complete when the map fails.</p><ol class="steps"><li>Identify the approved landmark.</li><li>Follow the tested written route.</li><li>Find the approved entrance.</li></ol><div class="meta">Facilities/Operations sign-off required</div></article>
+        <article class="study"><div class="study-kicker"><span>About · AB2/AB4</span><span>06</span></div><h4>Our story, with evidence</h4><p>Warm editorial rhythm without slogan or superlative.</p><div class="fact-row"><span class="fact-label">Milestone</span><span>Source and date required</span></div><div class="fact-row"><span class="fact-label">Patient use</span><span>Meaning must be explicit</span></div><div class="meta">Owner · review · expiry required</div></article>
+      </div>
+      <div class="direction-footer">B · Strong fallback when more place-led warmth is desired; paired-font and emergency/accent separation need extra validation.</div>
+    </section>
+
+    <section class="direction direction-c" id="direction-c" aria-labelledby="direction-c-title">
+      <div class="direction-head">
+        <div><span class="direction-index" aria-hidden="true">C</span><p class="eyebrow">Precision alternative</p><h2 id="direction-c-title">Quiet Clinical Precision</h2><p class="direction-summary">A structured reference system: graphite text, deep blue action, eucalyptus support, square geometry, stronger lines, and explicit governance metadata.</p></div>
+        <div class="mood-words"><div class="mood-word">Exact</div><div class="mood-word">Structured</div><div class="mood-word">Clinical</div><div class="mood-word">Dependable</div><div class="mood-word">Restrained</div><div class="mood-word">Efficient</div></div>
+      </div>
+      <div class="foundation-grid">
+        <article class="foundation-card"><h3>Color roles</h3><div class="swatches"><div class="swatch primary">Action<br>#184E77</div><div class="swatch accent" style="background:#2a7059;color:white">Support<br>#2A7059</div><div class="swatch soft">Data field<br>#DCEBE7</div><div class="swatch emergency">Emergency<br>#B42318</div></div></article>
+        <article class="foundation-card type-sample"><h3>Bilingual type geometry</h3><p class="latin">Reliable information, clear next step</p><p class="ethiopic" lang="am">እንኳን ደህና መጡ</p><span class="fixture-note">Unreviewed fixture · Atkinson/Noto pairing risk</span></article>
+        <article class="foundation-card"><h3>Imagery/shape policy</h3><div class="image-placeholder" role="img" aria-label="Abstract placeholder for infrequent rights-approved documentary detail photography"><span class="image-label">Infrequent documentary detail · content remains primary</span></div></article>
+      </div>
+      <div class="studies-title"><h3>Representative page fragments</h3><p>Sharper grid and denser metadata favor records and forms, with less warmth than the recommended direction.</p></div>
+      <div class="studies-grid">
+        <article class="study"><div class="study-kicker"><span>H1 / H2</span><span>Home</span></div><h4>Start with a care task</h4><p>Direct routes, bounded explanation, no campaign layer.</p><div class="actions"><span class="btn focus-demo">Request an appointment</span><span class="btn secondary">Find a doctor</span></div><div class="task-row"><div class="task">Services<span>Typed records</span></div><div class="task">Contact<span>Verified facts</span></div></div></article>
+        <article class="study"><div class="study-kicker"><span>E1</span><span>Emergency</span></div><h4>Emergency help</h4><div class="route-note">Hospital/public distinction requires approval.</div><div class="call-choice"><span class="call-label">Hospital route</span><span class="withheld">Purpose + number withheld</span><span class="btn emergency">Call · not connected</span></div><div class="call-choice secondary-call"><span class="call-label">Public route</span><span class="withheld">Applicability withheld</span></div></article>
+        <article class="study"><div class="study-kicker"><span>D4</span><span>Record</span></div><div class="doctor-card"><div class="portrait">NO IMAGE</div><div><h4>Prototype clinician 01</h4><p>Approved specialty required</p><p class="muted">ID · current status · owner</p><span class="record-link">View prototype profile</span></div></div><div class="meta">Schedule deliberately omitted</div></article>
+        <article class="study"><div class="study-kicker"><span>A3 / A4</span><span>Validation</span></div><h4>Contact details</h4><p class="muted">Minimum-data decision pending.</p><label class="field-label" for="c-phone">Phone number · requiredness unresolved</label><input class="field" id="c-phone" readonly value="Fictional test value"><div class="error-text"><span class="error-dot">!</span><span>Enter approved valid format</span></div></article>
+        <article class="study"><div class="study-kicker"><span>LC3 / LC5</span><span>Arrival</span></div><h4>Text route</h4><p class="muted">Map is outside the critical path.</p><ol class="steps"><li>Verified landmark</li><li>Tested route step</li><li>Accessible entrance</li></ol><div class="meta">Status · effective date · expiry</div></article>
+        <article class="study"><div class="study-kicker"><span>AB2 / AB4 / AB8</span><span>Governance</span></div><h4>Institutional record</h4><p>No narrative or fact publishes without evidence.</p><div class="fact-row"><span class="fact-label">Definition</span><span>Required</span></div><div class="fact-row"><span class="fact-label">Source/date</span><span>Required</span></div><div class="meta">Owner · review · expiry</div></article>
+      </div>
+      <div class="direction-footer">C · Useful reference for dense records and metadata; not recommended sitewide because it is less locally human and risks an enterprise-system character.</div>
+    </section>
+  </main>
+</body>
+</html>

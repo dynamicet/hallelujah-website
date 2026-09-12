@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <title>Appointment states — Order 6 critical-journey design</title>
+  <link rel="stylesheet" href="page-compositions.css">
+  <link rel="stylesheet" href="../responsive/order-9.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="prototype-banner">Non-public prototype — state copy, references, response expectations, contacts, and operations are controlled placeholders.</div>
+
+  <header class="site-header" data-section="A0">
+    <div class="site-header__inner">
+      <a class="site-identity" href="home.html">Hallelujah General Hospital <small>Prototype identity — authentic logo required</small></a>
+      <nav class="primary-nav" aria-label="Primary"><ul><li><a href="home.html">Home</a></li><li><a href="appointment.html" aria-current="page">Appointment form</a></li><li><a href="emergency.html">Emergency</a></li></ul></nav>
+      <div class="utility-actions"><button class="button button--secondary demo-action" type="button" lang="am" data-demo-message="Equivalent Amharic state copy is not approved; no state or data changed.">አማርኛ</button><a class="button button--emergency" href="emergency.html">Emergency information</a></div>
+      <button class="button button--secondary menu-trigger" type="button" aria-expanded="false" aria-controls="mobile-menu"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile primary" hidden><a class="nav-link" href="home.html">Home</a><a class="nav-link" href="appointment.html" aria-current="page">Appointment form</a><a class="nav-link" href="emergency.html">Emergency</a><button class="button button--secondary demo-action" type="button" lang="am" data-demo-message="Equivalent Amharic state copy is not approved; no state or data changed.">አማርኛ</button></nav>
+    </div>
+  </header>
+  <noscript><nav class="no-js-nav" aria-label="No-JavaScript primary"><a class="text-link" href="home.html">Home</a><a class="text-link" href="appointment.html">Appointment form</a><a class="text-link" href="emergency.html">Emergency</a></nav></noscript>
+
+  <main id="main" tabindex="-1">
+    <section class="state-board-intro">
+      <div class="container">
+        <p class="eyebrow">Order 6 · State composition board</p>
+        <h1>Appointment request states stay truthful</h1>
+        <p class="lead">Each state preserves the difference between editing, sending, uncertain outcome, authoritative receipt, and confirmation delivery. No local interaction is shown as a confirmed appointment.</p>
+        <div class="meta-row"><span class="controlled-badge">Level 0 error, privacy, and unknown states</span><a class="button button--secondary" href="appointment.html">Open default appointment design</a></div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--subtle" data-section="A3" aria-labelledby="validation-heading">
+      <div class="container">
+        <span class="section-id">A3 + A4 · Invalid submission with preserved values</span>
+        <div class="section-heading"><h2 id="validation-heading">Validation and correction</h2><p>The focusable summary precedes the form, links to specific fields, and keeps valid answers and the selected care route unchanged.</p></div>
+        <div class="state-grid">
+          <article class="state-card">
+            <div class="error-summary" tabindex="-1" aria-labelledby="error-summary-title">
+              <h3 id="error-summary-title">Check your answers</h3>
+              <p>We found 2 problems. Your other answers are still here.</p>
+              <ul><li><a href="#state-phone">Enter a phone number in the approved format</a></li><li><a href="#state-consent">Review and respond to the consent statement</a></li></ul>
+            </div>
+            <p class="field-hint">In an implemented response, focus moves to this summary once. Each link then moves focus to its associated control.</p>
+          </article>
+          <article class="state-card">
+            <div class="form-stack">
+              <div class="field-group"><label class="field-label" for="state-doctor">Doctor choice — retained valid answer</label><select class="select" id="state-doctor"><option>Prototype clinician A</option></select></div>
+              <div class="field-group"><label class="field-label" for="state-phone">Phone number (candidate required)</label><input class="field" id="state-phone" type="tel" value="invalid example retained" aria-invalid="true" aria-describedby="state-phone-error"><span class="field-error" id="state-phone-error"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg>Enter a number in the approved Ethiopian or international format.</span></div>
+              <label class="choice"><input id="state-consent" type="checkbox" aria-invalid="true" aria-describedby="state-consent-error"> <span><strong>[Approved consent statement]</strong><br><span class="field-error" id="state-consent-error">Review the approved statement and make an active choice.</span></span></label>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" data-section="A6" aria-labelledby="pending-heading">
+      <div class="container">
+        <span class="section-id">A6 · Pending and duplicate protection</span>
+        <div class="section-heading"><h2 id="pending-heading">One submission intent</h2><p>The consequence label and geometry remain stable. Repeated activation, refresh, recovery, and retry reuse the same intent rather than creating another request.</p></div>
+        <div class="state-grid">
+          <article class="state-card"><p class="eyebrow">Pending</p><button class="button" type="button" aria-busy="true" aria-disabled="true"><span class="button__spinner" aria-hidden="true"></span><span>Sending appointment request</span></button><div class="status status--info" role="status"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><div class="status__body"><strong class="status__title">Sending your request</strong><p>Please wait. Activating the button again will not create another request.</p></div></div></article>
+          <article class="state-card"><p class="eyebrow">Duplicate intent recovered</p><div class="status status--info"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><div class="status__body"><strong class="status__title">Checking the original request</strong><p>The same submission intent was found. The system reconciles its existing status before it offers any retry.</p></div></div><p class="field-hint">No second operational request is created and no new reference is invented.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--subtle" data-section="A6" aria-labelledby="failure-heading">
+      <div class="container">
+        <span class="section-id">A6 · Known failure, offline, and unknown outcome</span>
+        <div class="section-heading"><h2 id="failure-heading">Recovery depends on what the system knows</h2><p>Known rejection may offer a safe retry. Timeout, offline, or lost acknowledgement must reconcile before another create attempt.</p></div>
+        <div class="state-grid">
+          <article class="state-card"><p class="eyebrow">Authoritative recoverable failure</p><div class="status status--error"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg><div class="status__body"><strong class="status__title">The request was not sent</strong><p>[Approved explanation.] Your answers remain on this page. Retrying safely uses the same submission intent.</p></div></div><div class="button-row"><button class="button demo-action" type="button" data-demo-message="Prototype only. No retry or request was sent.">Try again safely</button><button class="button button--secondary demo-action" type="button" data-demo-message="Prototype only. No appointment support call was started.">Call appointment support</button></div></article>
+          <article class="state-card"><p class="eyebrow">Offline before acknowledgement</p><div class="status status--warning"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4l16 16M8.5 8.5A6 6 0 0 0 6 13M12 7a9 9 0 0 1 7 3.3M3 9a13 13 0 0 1 2.4-2M12 17h.01"/></svg><div class="status__body"><strong class="status__title">Connection lost; request status is not yet known</strong><p>Your answers remain here. The original intent must be checked when the connection returns before retry is offered.</p></div></div><button class="button button--secondary demo-action" type="button" data-demo-message="Prototype only. No server status check was made.">Check original request status</button></article>
+          <article class="state-card state-card--wide"><p class="eyebrow">Timeout or acknowledgement lost</p><div class="status status--warning"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 7v5l3 2M12 3a9 9 0 1 0 9 9"/></svg><div class="status__body"><strong class="status__title">We do not yet know whether the request was received</strong><p>Do not resubmit. The system checks the original submission intent first. If an accepted request is found, it restores the same reference. If none exists, it can then offer one safe retry.</p></div></div><p><strong>Your entered answers remain available below this message.</strong></p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" data-section="A6" aria-labelledby="received-heading">
+      <div class="container">
+        <span class="section-id">A6 · Authoritative receipt and delivery distinction</span>
+        <div class="section-heading"><h2 id="received-heading">Receipt is not a confirmed appointment</h2><p>Only authoritative server acknowledgement produces a reference. A separate message-delivery problem never turns receipt into failure or invites resubmission.</p></div>
+        <div class="state-grid">
+          <article class="state-card"><p class="eyebrow">Authoritative success</p><div class="status status--success" tabindex="-1"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><div class="status__body"><strong class="status__title">Appointment request received</strong><p><strong>This is not a confirmed appointment.</strong></p><p>Reference: <strong>[server-generated reference]</strong></p><p>[Verified response expectation, confirmation channel, and next step.]</p></div></div><div class="button-row"><a class="button" href="home.html">Return Home</a><a class="button button--secondary" href="home.html#doctors">Find a doctor</a></div></article>
+          <article class="state-card"><p class="eyebrow">Request received; confirmation delivery failed</p><div class="status status--warning" tabindex="-1"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 9v5M12 17h.01"/></svg><div class="status__body"><strong class="status__title">Your request was received, but the confirmation message was not delivered</strong><p>Reference: <strong>[same server-generated reference]</strong></p><p>Do not resubmit. [Verified next step and staffed telephone fallback.]</p></div></div><button class="button button--secondary demo-action" type="button" data-demo-message="Prototype only. No appointment support call was started.">Call appointment support</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--subtle" data-section="A1 A6 A7" aria-labelledby="unavailable-heading">
+      <div class="container reading">
+        <span class="section-id">A1 + A6 + A7 · Workflow unavailable</span>
+        <h2 id="unavailable-heading">Online appointment requests are not available</h2>
+        <div class="unavailable-state"><p>The form is removed when its workflow, privacy notice, receiving operation, or authoritative acknowledgement cannot be trusted.</p><p><strong>Appointment support</strong><br>[Verified staffed number, purpose, and hours required.]</p><div class="button-row"><button class="button button--secondary demo-action" type="button" data-demo-message="Prototype only. No appointment support call was started.">Call appointment support</button><a class="button button--tertiary" href="home.html">Return Home</a></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-section="A8"><div class="site-footer__inner footer-grid"><div><strong>Hallelujah General Hospital</strong><p>Controlled state study. No request, contact, personal data, or confirmation is live.</p></div><div><strong>Page designs</strong><ul class="footer-links"><li><a href="home.html">Home</a></li><li><a href="emergency.html">Emergency</a></li><li><a href="appointment.html">Appointment form</a></li></ul></div><div><strong>Design record</strong><ul class="footer-links"><li><a href="README.md">Order 6 status</a></li><li><a href="critical-journey-specifications.md">Specifications</a></li></ul></div></div></footer>
+
+  <div class="demo-announcement" id="demo-announcement" role="status" aria-live="polite" hidden>Prototype only. No live hospital action was activated and no data was sent.</div>
+  <script src="study.js"></script>
+  <script src="../responsive/order-9-fixtures.js"></script>
+  <script src="../../prototype/prototype.js"></script>
+</body>
+</html>
