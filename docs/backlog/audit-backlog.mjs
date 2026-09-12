@@ -214,6 +214,76 @@ for (const [file, source] of sources) {
 }
 record('BKL-008-local-links', brokenLinks.length === 0, { checked: checkedLinks, broken: brokenLinks });
 
+const controlRegisterSource = sources.get('b00-003-project-control-registers.md') ?? '';
+const requiredRegisterHeadings = [
+  '## Decision register',
+  '## Dependency register',
+  '## Risk register',
+  '## Assumption register',
+  '## Exception register',
+  '## Evidence register'
+];
+const controlIdPatterns = {
+  dependencies: /^\| `(DEP-\d{3})` \|/gm,
+  risks: /^\| `(RSK-\d{3})` \|/gm,
+  assumptions: /^\| `(ASM-\d{3})` \|/gm,
+  evidence: /^\| `(EVD-\d{3})` \|/gm
+};
+const controlIds = Object.fromEntries(Object.entries(controlIdPatterns).map(([key, pattern]) => [
+  key,
+  [...controlRegisterSource.matchAll(pattern)].map((match) => match[1])
+]));
+const duplicateControlIds = Object.fromEntries(Object.entries(controlIds).map(([key, ids]) => [
+  key,
+  [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))]
+]));
+record('BKL-009-control-register-structure',
+  requiredRegisterHeadings.every((heading) => controlRegisterSource.includes(heading))
+    && Object.values(controlIds).every((ids) => ids.length > 0)
+    && Object.values(duplicateControlIds).every((ids) => ids.length === 0)
+    && /There are \*\*no approved exceptions\*\*/.test(controlRegisterSource)
+    && /next assigned ID is `EXC-001`/.test(controlRegisterSource),
+  {
+    requiredHeadings: requiredRegisterHeadings,
+    presentHeadings: requiredRegisterHeadings.filter((heading) => controlRegisterSource.includes(heading)),
+    counts: Object.fromEntries(Object.entries(controlIds).map(([key, ids]) => [key, ids.length])),
+    duplicates: duplicateControlIds
+  }
+);
+
+const decisionRegisterSection = controlRegisterSource.match(/## Decision register\n([\s\S]*?)\n## Dependency register/)?.[1] ?? '';
+const registeredDecisionRows = [...decisionRegisterSection.matchAll(new RegExp(
+  '^\\| `(' + decisionPattern + ')` \\| ([^\n]+)$',
+  'gm'
+))].map((match) => ({ id: match[1], row: match[0] }));
+const registeredDecisionIds = registeredDecisionRows.map(({ id }) => id).sort();
+const duplicateRegisteredDecisions = [...new Set(registeredDecisionIds.filter(
+  (id, index) => registeredDecisionIds.indexOf(id) !== index
+))];
+const missingRegisteredDecisions = sourceDecisions.filter((id) => !registeredDecisionIds.includes(id));
+const extraRegisteredDecisions = registeredDecisionIds.filter((id) => !sourceDecisions.includes(id));
+const approvedDecisionIds = new Set(['GOV-02', 'GOV-03']);
+const openDecisionRows = registeredDecisionRows.filter(({ id }) => !approvedDecisionIds.has(id));
+const openDecisionsWithoutControl = openDecisionRows
+  .filter(({ row }) => !/`B\d{2}-\d{3}`/.test(row) || !/`M[0-8]`/.test(row))
+  .map(({ id }) => id);
+record('BKL-010-control-decision-coverage',
+  registeredDecisionIds.length === sourceDecisions.length
+    && duplicateRegisteredDecisions.length === 0
+    && missingRegisteredDecisions.length === 0
+    && extraRegisteredDecisions.length === 0
+    && openDecisionsWithoutControl.length === 0,
+  {
+    source: sourceDecisions.length,
+    registered: registeredDecisionIds.length,
+    open: openDecisionRows.length,
+    missing: missingRegisteredDecisions,
+    extra: extraRegisteredDecisions,
+    duplicates: duplicateRegisteredDecisions,
+    openWithoutBacklogOrMilestone: openDecisionsWithoutControl
+  }
+);
+
 const report = {
   method: 'Read-only local backlog integrity audit; no stakeholder, security, browser, language, device, production, or release validation',
   assertions: results.length,
