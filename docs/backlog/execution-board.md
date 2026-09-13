@@ -17,6 +17,7 @@ This board turns the planning baseline into a controlled pull system. It identif
 - Controlled local implementation may use temporary role labels, an isolated clean rebuild that imports no executable/configuration state from legacy WordPress, the provider-neutral infrastructure assumptions already recorded, and the minimum working baselines below for third parties and evidence handling.
 - `B00-017` is complete. The `B00-016` working acceptance matrix is also complete and accepted for controlled development; the ticket is `Deferred` only at its formal production-signature boundary, while `DEL-01` remains unresolved for production. `B00-003`–`B00-006` and `B00-011` are complete for controlled development. `B00-011` has passing local and hosted gates. Because the repository must remain private and a paid GitHub plan is unavailable, current-head CI success is a documented manual merge control; technical branch enforcement remains honestly open under `B00-012`. Named Delivery, DevOps, QA, and Security people still return before production acceptance.
 - Personal-data collection, external-provider requests, production provisioning, legacy migration, DNS cutover, and publication remain disabled.
+- On 14 September 2026, client direction approved the [high-end motion and interactive-media amendment](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md) for production planning. It supersedes the prototype-wide expressive ceiling but does not approve a runtime, footage, rights, third-party media host, implementation, or release. The next applicable design-system/Home pull must include its progressive layers, permanently stable contexts, and media acceptance evidence.
 
 ## Status authority and update rule
 
@@ -149,8 +150,8 @@ Failure of any check keeps the item `Proposed` or `Blocked`; it is not silently 
 
 | Pull sequence | Work | Earliest controlling gates |
 | ---: | --- | --- |
-| 1 | Platform, CMS skeleton, tokens, shared shell, utility failures | M0 exit; `SEC-01`, `DEL-01`, named delivery owners |
-| 2 | Home, Emergency, Contact, Privacy, Accessibility | `SAFE-01`–`SAFE-04`, `LANG-01`, applicable privacy decisions |
+| 1 | Platform, CMS skeleton, tokens, shared shell, utility failures, progressive motion/media capability modes | M0 exit; `SEC-01`, `DEL-01`, named delivery owners; motion/media amendment for `B01-001`, `B01-003`, `B01-012`–`B01-013` |
+| 2 | Home, Emergency, Contact, Privacy, Accessibility | `SAFE-01`–`SAFE-04`, `LANG-01`, applicable privacy decisions; `BRAND-01` and media acceptance for enabled Home media |
 | 3 | Doctor/service discovery and governed search index | `CARE-01`–`CARE-06`, `SEARCH-01`; approved launch records |
 | 4 | Patient Information, Search UI, About | `ACCESS-01`, `SEARCH-01`–`SEARCH-02`, `INST-01`–`INST-03`, `BRAND-01` as applicable |
 | 5 | Appointment request and isolated intake | `APPT-01`–`APPT-04`, `APPT-03`, `DEL-01`; collection separately enabled |

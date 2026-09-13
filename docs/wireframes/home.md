@@ -93,7 +93,8 @@
 ├────────────────────────────────────────────────────────────────────────────────────────────┤
 │ ┌────────────────────────────────────────────────────────────────────────────────────────┐ │
 │ │ H1 [TASK-LED INTRODUCTION]                                                            │ │
-│ │ Concise orientation, no carousel/video                                               │ │
+│ │ Concise orientation; static poster/media plane                                      │ │
+│ │ [Play approved hospital film — optional, user initiated]                            │ │
 │ │ [Request an appointment] [Find a doctor]             [Emergency help →]          {H1} │ │
 │ └────────────────────────────────────────────────────────────────────────────────────────┘ │
 │                                                                                            │
@@ -115,7 +116,8 @@
 │ ┌──────────────────────────────────────┐  ┌──────────────────────────────────────────────┐ │
 │ │ H2 Visit or contact us          {H7} │  │ H2 About the hospital                 {H8} │ │
 │ │ [VERIFY: place/contact/address]      │  │ [APPROVED CLAIMS ONLY; otherwise omit]     │ │
-│ │ [Call] [Text directions]             │  │ [About the hospital →]                     │ │
+│ │ [Call] [Text directions]             │  │ [Optional poster + Play hospital film]     │ │
+│ │                                       │  │ [About the hospital →]                     │ │
 │ └──────────────────────────────────────┘  └──────────────────────────────────────────────┘ │
 ├────────────────────────────────────────────────────────────────────────────────────────────┤
 │ [Need help choosing? VERIFIED STAFFED FALLBACK]                                        {H9} │
@@ -130,14 +132,14 @@ Desktop columns are visual only: `H7` precedes `H8` in the DOM. `H4`, `H5`, and 
 | ID | Purpose and user need | Requirement IDs | Content and owner dependencies |
 | --- | --- | --- | --- |
 | H0 | Identify the hospital and expose every global task predictably. | `G-001`–`G-006`, `G-010`, `S-006`–`S-008`, `H-001` | Approved logo/name and final labels: Brand + Product; canonical call record: Operations; translations: Clinical + Content. |
-| H1 | Orient a stressed visitor and give immediate care, doctor, and separate emergency routes. | `H-001`, `H-002`, `G-001`, `E-001` | Task-led introduction: Content + Product; emergency label/route: Clinical + Operations; no promotional claim without approval. |
+| H1 | Orient a stressed visitor and give immediate care, doctor, and separate emergency routes. | `H-001`, `H-002`, `G-001`, `G-012`, `E-001` | Task-led introduction: Content + Product; emergency label/route: Clinical + Operations; optional poster/video: Brand + Content + Accessibility + Delivery; no promotional claim without approval. |
 | H2 | Make the five routine task categories plus emergency access scannable without knowing hospital departments. | `G-001`, `G-002`, `G-006`, `H-001` | Final patient-task labels: Product + Content; Call and Directions require `C-001`/`C-002` approval. |
 | H3 | Let users directly search approved doctors, services, condition synonyms, and locations. | `H-005`, `G-007`, `G-011`, `S-005` | Governed taxonomy, synonyms, urgent-term list: Clinical + Product; analytics/data-flow decision: Privacy + Security. |
 | H4 | Offer service recognition by patient need using one approved taxonomy. | `H-003`, `V-001`, `V-003`, `G-015` | Approved launch subset, names, groups, summaries, slugs: Clinical + Content. High-consequence claims remain blocked. |
 | H5 | Provide a short route into the current approved clinician roster. | `H-003`, `D-001`–`D-003`, `G-015` | Featured selection and current roster: Medical staff owner + Content; canonical profile URLs: Delivery. |
 | H6 | Reduce visit uncertainty through before/during/after tasks. | `P-001`, `P-002`, `G-015` | Hospital-authored useful topics only: Operations + Content + Privacy/legal. Missing stages are omitted, not fabricated. |
 | H7 | Enable a call or successful arrival without requiring a map. | `C-001`–`C-003`, `G-007`, `G-014` | Canonical numbers/hours: Operations; entrance, landmark, text directions, accessibility: Facilities + Operations; optional map: Privacy + Delivery. |
-| H8 | Build evidence-based institutional trust after care tasks. | `H-004`, `I-001`–`I-003`, `G-014`, `G-015` | Story, facts, leadership, relationships, rights, sources, and dates: Executive + Content; module blocked/omitted until approved. |
+| H8 | Build evidence-based institutional trust after care tasks, with the preferred alternate placement for user-controlled hospital film. | `H-002`, `H-004`, `I-001`–`I-003`, `G-012`, `G-014`, `G-015` | Story, facts, leadership, relationships, rights, sources, dates, and optional footage: Executive + Content + Brand; module/media blocked or omitted until approved. |
 | H9 | Give a human fallback and repeat governance/privacy/access routes. | `G-001`, `G-007`, `S-004`, `C-001` | Staffed support purpose/hours: Operations; privacy notice: Privacy/legal; accessibility route: Product + Delivery. |
 
 ## Section map — layout, components, and outcomes
@@ -145,14 +147,14 @@ Desktop columns are visual only: `H7` precedes `H8` in the DOM. `H4`, `H5`, and 
 | ID | Layout and hierarchy | Reusable components | Interaction and navigation outcome |
 | --- | --- | --- | --- |
 | H0 | Compact shell above content; full task navigation wide. Emergency is separated from routine actions. | Skip link, header, primary navigation, mobile menu, language switcher, search link, call link, emergency action. | Logo → `/`; menu exposes all tasks; Emergency → `/emergency/`; Call → approved `tel:`; Search → `/search/`; language keeps `/`. |
-| H1 | `intro`; one H1, short summary, primary/secondary routine actions, separately styled emergency link. | Page introduction, Primary/Secondary button, Emergency action. | Appointment → `/appointments/`; doctor → `/doctors/`; emergency → `/emergency/`. No auto-rotation. |
+| H1 | `intro`; one H1, short summary, primary/secondary routine actions, separately styled emergency link, and optional static-first media plane. | Page introduction, Primary/Secondary button, Emergency action, approved poster/Play/Pause media controls. | Appointment → `/appointments/`; doctor → `/doctors/`; emergency → `/emergency/`. No auto-rotation or pre-intent video request. |
 | H2 | `action-group`; stacked cards compact, up to five equal task actions wide. | Icon-and-label action or task link; no fully clickable ambiguous container. | Routes to `/doctors/`, `/services/`, `/appointments/`, approved `tel:`, and `/contact/`. |
 | H3 | `content`; visible label, search field and submit; no autocomplete dependency. | Search box, input, button; autocomplete only as progressive enhancement. | GET → `/search/?q=…`; urgent-term handling occurs on results; safe query state survives Back/Forward. |
 | H4 | `collection`; concise cards after heading; no diagnosis language. | Service card, text link. | Card → canonical `/services/{slug}/`; all → `/services/`. |
 | H5 | `collection`; maximum three featured items wide, one column compact. | Doctor card, neutral portrait fallback, text link. | Card → canonical `/doctors/{slug}/`; all → `/doctors/`. |
 | H6 | `action-group`; before/during/after in logical source order. | Icon-and-label links. | → maintained routes under `/patient-information/`; unavailable topics do not create empty pages. |
 | H7 | `support`/location card; text data and actions precede any map. | Location/contact card, call link, optional map launcher. | Call → approved `tel:`; directions → `/contact/` or maintained deep link; map only after explicit approved action. |
-| H8 | `content`; lower priority than patient tasks; simple evidence-dated summary. | Review metadata, text link; governed imagery only if approved. | → `/about/`; no unsupported claim is clickable or shown. |
+| H8 | `content`; lower priority than patient tasks; evidence-dated summary with optional static-first media plane. | Review metadata, text link, governed poster, labeled Play/Pause/Stop controls. | → `/about/`; optional film loads only after Play; no unsupported claim is clickable or shown. |
 | H9 | `support` then footer. | Call link, footer, text links. | Approved support call; routes to privacy, accessibility, contact, and all core tasks. |
 
 ## Section map — responsive states and cross-cutting gates
@@ -160,14 +162,14 @@ Desktop columns are visual only: `H7` precedes `H8` in the DOM. `H4`, `H5`, and 
 | ID | Mobile, tablet, desktop behavior | Applicable states | Accessibility, bilingual, safety, privacy, performance, motion | Open decisions and approval gates |
 | --- | --- | --- | --- | --- |
 | H0 | Compact logo/menu/emergency; tablet wraps before crowding; desktop exposes primary nav. | Menu default/open/close; current route; unavailable translation. | Logical focus; 44 px targets; Amharic labels wrap; no hidden emergency; menu motion ≤200 ms/reduced. | Logo/labels; exact Call behavior; Phase 1 translations. |
-| H1 | Actions stack compact; may align inline wide; media, if later approved, never pushes tasks below first useful view. | Default; image absent/fails; emergency route unavailable blocks release. | One H1; reading order; no text in image; no autoplay; no unverified safety copy. | Final introduction; visual/brand approval; emergency route approval. |
+| H1 | Actions stack compact and may align inline wide. Approved media follows content and never pushes tasks below the first useful view; mobile uses the poster and may open a dedicated player after activation. | Default poster; video available/playing/paused/ended/failed; image/video absent; Emergency route unavailable blocks release. | One H1; stable reading order; no text in media; no autoplay or video request before Play; keyboard/touch/AT controls; complete reduced-motion/Save-Data still; no unverified safety copy. | Final introduction; authentic footage, rights/consent, visual/Brand approval; Emergency route approval; performance/accessibility evidence. |
 | H2 | One column compact, 2–3 tablet, five-item row or balanced grid wide when labels fit. | Default; individual destination unavailable only with truthful useful alternative. | 44/48 px targets; no hover-only affordance; text labels translate and wrap. | Usability-test labels/order. |
 | H3 | Field/button may stack at 320; align wide if both remain ≥44 px and label readable. | Empty query validation; loading only for enhancement; results redirect; service failure on results page. | Semantic GET works without JS; no sensitive query analytics before approval; status not motion-dependent. | Taxonomy, urgent terms, query analytics. |
 | H4 | One compact, two tablet, up to three wide; whole section disappears when empty. | Default; loading only if truly async; empty omitted; data error offers Services/contact routes. | Approved records only; reserve optional media; no inferred care recommendation. | Taxonomy and feature owners. |
 | H5 | Same collection reflow as H4; names never truncate. | Default; loading; empty omitted; record/data error gives directory route. | Current roster only; neutral fallback; no availability claim; lazy media below initial view. | Roster, features, portraits, canonical URLs. |
 | H6 | One compact; may become three equal groups wide. | Default; unavailable topics omitted; all unavailable → staffed fallback only. | Plain links; no false completeness; translated Phase 1 routes disclose scope. | Minimum launch guidance and owners. |
 | H7 | One column compact; may pair with H8 wide but remains first in DOM. | Default; map loading/failure; missing canonical data blocks module/release; temporary status. | Text-first, JS-independent; no third-party map request initially; labels/numbers match canonical record. | Contacts, hours, entrance, directions, map review. |
-| H8 | One compact; paired lower section wide; omitted with no gap when unapproved. | Default or omitted; expired governed content removed. | Evidence dates/owners; approved image rights; no promotional animation. | Executive/claim-ledger/brand approval. |
+| H8 | One compact; paired lower section wide; omitted with no gap when unapproved. Media may open in a dedicated player compact. | Default poster, playing/paused/ended/failed, reduced/Save-Data still, omitted; expired governed content removed. | Evidence dates/owners; approved image/footage rights and consent; zero pre-intent request; accessible controls; no autoplay or motion-led claim. | Executive/claim-ledger/brand/media/accessibility/performance approval. |
 | H9 | Full-width support/footer; link groups stack compact and wrap wide. | Default; contact unavailable is a release gate; translation limitation. | Landmarks, accessible names, language metadata; no personal data; no sticky obstruction. | Staffed fallback, privacy notice, accessibility contact. |
 
 ## Page state inventory

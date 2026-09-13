@@ -144,8 +144,8 @@ Home and flat top-level routes omit breadcrumbs; detail and genuinely nested sec
 - Links navigate; buttons change local state or submit. Call links show purpose and visible number as well as using an approved matching `tel:` value.
 - Essential content and standard form submission have semantic HTML/no-JavaScript paths. Enhancements must not remove the baseline.
 - Loading feedback appears only when delay is perceptible, reserves its space, and retains the initiating label and user context.
-- Motion is state communication only: generally 150–300 ms, with travel/rotation removed and durations reduced to 0–100 ms under `prefers-reduced-motion`.
-- No carousel, autoplay, background video, scroll reveal, parallax, chat, session replay, or map request is in the critical path.
+- Functional motion communicates state within roughly 80–300 ms. Selected non-critical sections may use composed/cinematic 250–1200 ms choreography under the [high-end motion amendment](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md); reduced motion receives an intentional static/direct equivalent.
+- No carousel, autoplay, pre-intent video request, mandatory reveal/pinned sequence, scroll-jacking, chat, session replay, or map request is in the critical path. Bounded decorative depth and user-initiated media remain optional enhancements.
 
 ## English and Amharic assumptions
 

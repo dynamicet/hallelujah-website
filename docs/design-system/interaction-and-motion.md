@@ -4,6 +4,8 @@
 **Requirements:** G-005–G-007, G-011–G-012, G-016, A-004, A-006–A-007, S-008  
 **Benchmark basis:** `BM-05`, `BM-06`, `BM-09`, `BM-10`, and `BM-13` in the [benchmark traceability register](../benchmarks/benchmark-traceability.md)
 
+**Production amendment:** The client-directed [high-end motion and interactive-media direction](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md) supersedes the earlier prototype-wide Level 2/300 ms ceiling for production planning. The functional rules below still govern controls and stable contexts.
+
 The non-public prototype expression that extends this functional baseline is documented in [Order 3 Motion and Storytelling Direction](../visual-design/motion/motion-and-storytelling.md). Order 4 reconciles those candidates in the [prototype foundation specification](../visual-design/foundations/prototype-foundations.md) and [shared CSS token source](../visual-design/foundations/tokens.css). Orders 9–11 still own performed responsive, bilingual, motion, assistive-technology, and device validation; this baseline continues to govern whenever a later visual treatment differs.
 
 ## 1. Motion principle
@@ -15,7 +17,7 @@ Motion exists only to answer one of these questions:
 3. Is the system working?
 4. What should receive attention next?
 
-If motion cannot answer one of them, omit it. Public hospital pages do not need decorative scroll reveals, parallax, continuous ambient animation, bouncing actions, or auto-rotating content.
+If motion cannot answer one of them or deliver a deliberately art-directed storytelling moment, omit it. High-end design comes from choreography and restraint: use a small number of focal movements with quieter supporting interactions. Automatic rotation, scroll-jacking, indiscriminate reveal effects, bouncing actions, and uncontrolled ambient motion remain excluded.
 
 ## 2. Motion tokens
 
@@ -26,7 +28,9 @@ If motion cannot answer one of them, omit it. Public hospital pages do not need 
 | `motion.duration.fast` | 150 ms | Hover, focus-adjacent color, pressed feedback |
 | `motion.duration.standard` | 200 ms | Disclosure, menu, inline status |
 | `motion.duration.orient` | 240 ms | One eligible short orientation rule |
-| `motion.duration.slow` | 300 ms | Evidence-path color change; absolute ceiling |
+| `motion.duration.slow` | 300 ms | Evidence-path color change; functional/repeated-motion ceiling |
+| `motion.duration.composed` | 500 ms | Selected section/media choreography; never functional feedback |
+| `motion.duration.cinematic` | 800 ms | Default Level 3 decorative/media-layer sequence; may extend to 1200 ms with documented art direction and no delayed access |
 | `motion.delay.step` | 30 ms | Home task settling only; total delay capped at 150 ms |
 | `motion.distance.micro` | 4 px | Conditional field/disclosure continuity |
 | `motion.distance.short` | 8 px | Home task settling or mobile menu only |
@@ -36,7 +40,7 @@ If motion cannot answer one of them, omit it. Public hospital pages do not need 
 
 - Animate opacity and transform when spatial motion is needed.
 - Avoid width, height, top, left, or other layout-heavy animation. A disclosure may use a simple, tested height technique only if it does not delay access or cause jank.
-- No essential transition exceeds 300 ms.
+- No essential or frequently repeated transition exceeds 300 ms. Composed/cinematic timing applies only to already-usable decorative or storytelling layers.
 - A pressed state responds immediately; network activity then uses a separate loading state.
 
 ## 3. Approved interaction recipes
@@ -55,6 +59,9 @@ If motion cannot answer one of them, omit it. Public hospital pages do not need 
 | Error summary | Focus moves to summary; no animated scroll requirement | Immediate focus and browser-native movement |
 | Temporary alert | Appears in document flow without pushing content repeatedly | Instant appearance |
 | Image loading | Reserved aspect ratio; subtle opacity only if useful | Instant image display |
+| Selected section entry | One authored 250–500 ms composition; base content is already visible and usable | Final static composition |
+| Cinematic media layer | One 500–1200 ms decorative sequence in an eligible section; no control or content waits | Poster/static art direction |
+| Hero/institutional video | Static poster until a labeled Play control is activated; persistent Pause/Stop/Close as applicable | Poster first; foreground playback remains an explicit user choice |
 
 ## 4. Focus and keyboard behavior
 
@@ -101,7 +108,7 @@ prefers-reduced-motion: reduce
 ```
 
 - Do not disable status feedback when removing animation.
-- Do not autoplay video or animated imagery; if later approved, provide pause/stop controls and a still alternative.
+- Do not autoplay video or animated imagery. Approved video is static-first and user-initiated, makes no media request before intent, provides pause/stop/close as applicable, and retains a still alternative.
 - Test the complete menu, filter, form, alert, and language-switch journey with reduced motion enabled.
 
 ## 7. Scroll and navigation continuity
@@ -114,20 +121,21 @@ prefers-reduced-motion: reduce
 
 ## 8. Motion performance budget
 
-- No animation library is required for Phase 1. Prefer CSS and platform behavior.
-- Animations must not introduce a dependency that threatens the 150 KB compressed first-party JavaScript budget.
+- Prefer CSS and platform behavior for functional motion. A Level 2/3 motion runtime may be proposed only with license, security, bundle, cleanup, reduced-mode, and no-library comparison evidence.
+- Non-essential choreography code loads after or within the eligible section and must not threaten the 150 KB compressed initial first-party JavaScript budget.
 - Reserve all media and async-result dimensions to protect CLS ≤0.1.
-- Do not animate large blurred layers, full-screen filters, background video, or continuous gradients.
+- Larger masks, filters, media planes, background imagery, or bounded scroll-responsive decorative layers require profiling and a static reduced equivalent. Never apply them to text, controls, safety content, or native scrolling.
 - Verify interactions on the agreed low-end Android/constrained-network profile, not only desktop development hardware.
 
 ## 9. Interaction acceptance checklist
 
 - [ ] Every action gives immediate perceivable feedback.
-- [ ] Motion communicates state/orientation and stays within 150–300 ms.
+- [ ] Functional motion communicates state/orientation within 80–300 ms; selected composed/cinematic layers follow the documented 250–1200 ms levels without delaying access.
 - [ ] Reduced-motion removes non-essential travel without removing information.
 - [ ] Keyboard focus is visible, ordered, restored after overlays, and never obscured.
 - [ ] Loading does not cause layout shift or duplicate submission.
 - [ ] Error and timeout states retain valid user data and provide a safe fallback.
 - [ ] Success is announced only after authoritative system acknowledgement.
 - [ ] Browser Back/Forward, deep links, filters, and language context behave predictably.
-- [ ] No auto-playing, looping, or scroll-triggered promotional motion exists.
+- [ ] No autoplay, pre-intent video request, mandatory pinned story, scroll-jacking, or uncontrolled promotional loop exists.
+- [ ] Every Level 3/4 treatment has an authored poster/static state, capability fallback, cleanup behavior, and measured performance evidence.

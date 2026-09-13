@@ -23,7 +23,7 @@ The first deliverable translates the existing audit, content extraction, benchma
 | [Visual foundations](design-system/foundations.md) | Brand direction, accessible token roles, typography, spacing, layout, and media rules | Provisional pending brand approval |
 | [Layout patterns](design-system/layout-patterns.md) | Reusable page-shell, section, directory, detail, form, and emergency compositions | Initial baseline |
 | [Component contracts](design-system/components.md) | Anatomy, variants, states, behavior, content rules, and requirement traceability | Initial baseline |
-| [Interaction and motion](design-system/interaction-and-motion.md) | Feedback, transition, reduced-motion, loading, and failure behavior | Initial baseline |
+| [Interaction and motion](design-system/interaction-and-motion.md) | Feedback, transition, progressive enhancement, reduced-motion, loading, media, and failure behavior | Production direction amended 14 September 2026 |
 
 The second deliverable defines the experience system shared by every page. Candidate colors and fonts are ready for prototype testing, but they are not approved hospital brand assets. Implementation must not encode them as final until the brand owner approves them and contrast is revalidated in the actual interface.
 
@@ -105,8 +105,9 @@ The eighth deliverable prepares the review process across all 12 page types, fou
 | [Order 10 connected prototype](visual-design/prototype/README.md) | Local progressive-enhancement journeys, controlled state transitions, and repeatable interaction/geometry evidence | Complete for non-public browser review |
 | [Order 11 design and motion QA](visual-design/qa/README.md) | Performed semantic, contrast, keyboard, state, motion, resilience, and constrained-profile audit with explicit evidence limits | Complete for performed non-public prototype QA |
 | [Order 12 developer handoff](visual-design/handoff/README.md) | Canonical source map, implementation boundaries, page/gate matrices, asset policy, accessibility checklist, and integrity evidence | Complete for implementation planning; release gates remain open |
+| [High-end motion and interactive-media amendment](visual-design/motion/high-end-motion-and-interactive-media-amendment.md) | Post-handoff production direction for choreographed motion, static-first video, imagery, stable contexts, performance, and acceptance | Approved for production planning; implementation/assets/validation open |
 
-Orders 1–12 complete the non-public blueprint, connected prototype, performed local QA, and developer handoff without approving hospital facts, operations, identity, language, assets, personal-data flows, third parties, production implementation, or publication. The handoff preserves all 12 accepted core page hierarchies, adds implementation contracts for the three Phase 1 utility behaviors, carries all 32 formal decisions forward, and prevents controlled prototype content from being mistaken for approved public content.
+Orders 1–12 complete the non-public blueprint, connected prototype, performed local QA, and developer handoff without approving hospital facts, operations, identity, language, assets, personal-data flows, third parties, production implementation, or publication. The 14 September motion/media amendment changes the production expressive ceiling, not those approval boundaries or the accepted page hierarchies. The handoff preserves all 12 core page hierarchies, adds implementation contracts for the three Phase 1 utility behaviors, carries all 32 formal decisions forward, and prevents controlled prototype content from being mistaken for approved public content.
 
 ## Implementation planning
 

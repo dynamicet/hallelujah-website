@@ -44,7 +44,7 @@ The separate [Epic 0 technical foundation](../../architecture/epic-0-technical-f
 | `INST-01` | Story, mission, values, milestones, capacity/facility claims | Withhold or label fact geometry | Executive claim ledger with source, definitions, as-of date, translation, review/expiry |
 | `INST-02` | Leadership names, biographies, portraits | No real leadership record or portrait | Current leadership register, rights/consent, alt/crop, owner, review/expiry |
 | `INST-03` | Partner/insurer status, meaning, logos | No logo wall or coverage implication | Current relationship register, limitations, rights, owner, review interval |
-| `BRAND-01` | Logo, name/tagline, palette, typography, imagery | Text-only prototype identity and replaceable prototype theme | Original assets and signed brand decision plus contrast/bilingual retest |
+| `BRAND-01` | Logo, name/tagline, palette, typography, imagery/footage, and motion/media art direction | Text-only prototype identity, replaceable prototype theme, and labeled poster/media fixtures | Original assets; authenticity, consent and rights record; signed brand/motion/media decision; contrast, bilingual, reduced-motion, device and performance retest |
 | `HR-01` | Vacancy identity/lifecycle/removal | No-current-role or controlled closed states | Demonstrated owned lifecycle with exact instants, status, cache/search/sitemap removal |
 | `HR-02` | Application route/provider/data/files/privacy | No Apply, email, upload, form, or provider collection | Recruitment data flow and privacy/security/provider assessment |
 | `HR-03` | Equality, accommodation, response, fraud and bilingual wording | Withhold uninvented policy/process language | HR/privacy/legal approval and professional translation evidence |

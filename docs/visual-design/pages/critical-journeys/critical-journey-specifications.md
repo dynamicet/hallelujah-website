@@ -6,6 +6,8 @@
 **Foundation:** [Order 4 prototype foundations](../../foundations/README.md)  
 **Components:** [Order 5 component system](../../components/README.md)
 
+> **Production amendment — 14 September 2026:** The prototype composition and evidence remain historical. Future Home implementation uses the [high-end motion and interactive-media amendment](../../motion/high-end-motion-and-interactive-media-amendment.md), including selected Levels 3–4 and static-first media, while Emergency and consequential Appointment contexts retain their stable ceilings.
+
 ## 1. Composition contract
 
 These designs preserve every accepted section ID and source order: `H0`–`H9`, `E0`–`E8`, and `A0`–`A8`. Desktop columns are presentation only; DOM, heading, keyboard, screen-reader, print, and compact reading order remain the wireframe order.
@@ -21,21 +23,21 @@ Every design study:
 - maintains 44 px minimum targets and visible focus inherited from Order 5;
 - retains essential HTML when scripts, motion, media, or optional providers are absent;
 - uses Level 0 treatment for Emergency, urgent warnings, privacy, errors, unavailable states, and unknown outcomes;
-- treats the Home orientation rule as the only Level 2 entrance detail and removes its drawing treatment under reduced motion.
+- in this historical study, treats the Home orientation rule as the only Level 2 entrance detail and removes its drawing treatment under reduced motion; production may add eligible authored treatments only through the amendment and new evidence.
 
 ## 2. Home section-by-section design
 
 | ID | Polished composition | Responsive behavior | Content/state behavior | Traceability |
 | --- | --- | --- | --- | --- |
 | `H0` | Text identity, five task links, language control, and separated emergency action use the shared shell. | Full task navigation wide; compact Menu plus separate Emergency action below 64 rem. Identity, Menu, and actions wrap at 320 px. | Missing logo stays text-only. Amharic action explains unavailable parity without redirecting. | `G-001`–`G-006`, `G-010`, `S-006`–`S-008`, `H-001`; `BM-01`, `BM-06`, `BM-09`. |
-| `H1` | Asymmetric task-led hero pairs concise orientation/actions with an abstract rights-gated visual field. Routine primary/secondary actions and Emergency remain structurally distinct. | Two columns wide, one column below 54 rem; media field follows content and shrinks without displacing tasks. Actions stack at compact width. | Media failure removes no meaning. Emergency is a real local page-design route; operational actions remain absent. | `H-001`, `H-002`, `G-001`, `E-001`; `BM-01`, `BM-02`, `BM-10`, `BM-12`. |
+| `H1` | Asymmetric task-led hero pairs concise orientation/actions with a static-first, rights-gated media plane. The plane may remain abstract/use approved imagery or expose user-initiated video; routine actions and Emergency remain structurally independent. | Two columns wide, one column below 54 rem; media follows content and shrinks without displacing tasks. Mobile begins with the poster and may open a dedicated player after activation. | Media failure removes no meaning. No video request occurs before Play. Playing/paused/ended/failure/reduced/Save-Data states preserve tasks and geometry. Emergency remains a real local route. | `H-001`, `H-002`, `G-001`, `G-008`–`G-012`, `E-001`; `BM-01`, `BM-02`, `BM-10`, `BM-12`; [media amendment](../../motion/high-end-motion-and-interactive-media-amendment.md). |
 | `H2` | Five equal task cards use local outline icons, explicit labels, and visible outcomes. | Five columns wide, three at intermediate widths, one at compact width. Cards reduce height rather than truncate. | Call remains an inert controlled placeholder until a canonical contact is approved. Other cards route within local design artifacts. | `G-001`, `G-002`, `G-006`, `H-001`; `BM-02`, `BM-03`, `BM-06`. |
 | `H3` | Raised search panel provides label, privacy hint, field, and explicit submit. | Inline field/action when useful width exists; inherited Order 5 search stacks at 320/360 px. | Standard GET is the production baseline. This study prevents submission. Empty, unavailable-index, and results states remain the Search Results page responsibility for Order 8. | `H-005`, `G-007`, `G-011`, `S-005`; `BM-03`, `BM-09`. |
 | `H4` | Three-card service collection demonstrates two controlled records plus the directory route. | Three columns wide, two at intermediate widths, one compact. | Whole section is omitted without spacing if no records are approved. Failure substitutes a scoped explanation plus approved directory/contact routes; it never fabricates cards. | `H-003`, `V-001`, `V-003`, `G-015`; `BM-03`, `BM-04`, `BM-10`. |
 | `H5` | Doctor collection uses two neutral 4:3 portrait fallbacks plus the directory route. | Same content-fit collection behavior as `H4`; names wrap without truncation. | Controlled names are explicitly fictional. Missing portrait is neutral and supplies no identity, gender, schedule, or availability meaning. Empty section is omitted. | `H-003`, `D-001`–`D-003`, `G-015`; `BM-03`–`BM-05`, `BM-09`. |
 | `H6` | Three before/during/after guide cards use an ochre wayfinding edge and hospital-authored-content gate. | Three equal columns wide; one source-ordered column below 54 rem. | Any empty stage is omitted. If all stages are unavailable, only the staffed fallback remains. | `P-001`, `P-002`, `G-015`; `BM-06`, `BM-10`. |
 | `H7` | Text-first contact content leads; abstract arrival geometry is supplementary. Purpose, value, address, entrance, and landmarks have explicit placeholder slots. | Balanced two-column panel wide; single column with text first below 54 rem. | No map loads and no dialer opens. Missing canonical contact/arrival data blocks the module and Phase 1 release rather than selecting among source conflicts. | `C-001`–`C-003`, `G-007`, `G-014`; `BM-02`, `BM-06`, `BM-08`. |
-| `H8` | A restrained institutional panel pairs controlled narrative space with evidence metadata rather than promotional metrics or logos. | Two columns wide; narrative then metadata compact. | In a public build, no approved story means the whole section is omitted. The visible controlled version exists only to review `H8` composition. | `H-004`, `I-001`–`I-003`, `G-014`, `G-015`; `BM-01`, `BM-11`, `BM-12`. |
+| `H8` | An editorial institutional panel pairs controlled narrative space with evidence metadata rather than promotional metrics or logos. It is the preferred Home location for user-controlled film when hero footage would compete with care access. | Two columns wide; narrative then metadata compact; a poster/media plane follows source order and preserves its geometry. | In a public build, no approved story means the whole section is omitted. Approved media is static-first with zero request before Play and carries no unsupported claim. The visible controlled version exists only to review `H8` composition. | `H-002`, `H-004`, `I-001`–`I-003`, `G-012`, `G-014`, `G-015`; `BM-01`, `BM-10`–`BM-12`; [media amendment](../../motion/high-end-motion-and-interactive-media-amendment.md). |
 | `H9` | Human fallback gets a full-width support band before a three-column inverse footer. | Band and footer source-order into single columns at compact widths. | Canonical support, privacy, accessibility, and language records remain gated; the study links only local design artifacts. | `G-001`, `G-007`, `S-004`, `C-001`; `BM-06`, `BM-09`. |
 
 ### Home state composition
@@ -99,7 +101,7 @@ The website cannot know that a call connected. Returning from an unsupported or 
 - Every layout allows at least 35% label expansion, arbitrary wrapping, mixed-script fallback, and long controlled-record labels. No name, contact, heading, button label, error, or status truncates.
 - Wide reference is 1280/1440 px. Collections reflow on content-fit thresholds; tablet is represented by the 54–70 rem rules rather than device names. Compact reference is 320/360 px.
 - At 200% zoom on a 1280 px viewport, layouts return to compact/intermediate composition. At 400% zoom, a 320 CSS px single axis is the acceptance baseline. Fixed-position content is limited to the temporary local study announcement and must not obscure focused content in production.
-- Reduced motion removes Home rule drawing and all component travel/scale/rotation/drawing/stagger/smooth-scroll behavior. State, order, focus, status, and final geometry remain.
+- Reduced motion removes non-essential spatial choreography and renders intentional static compositions. User-initiated foreground media may remain available, but ambient/background playback never starts implicitly. State, order, focus, status, and final geometry remain.
 
 ## 6. No-JavaScript, privacy, and performance baseline
 
@@ -107,7 +109,7 @@ The pages are meaningful semantic HTML before the small local study script runs.
 
 The study script only opens/closes the contained mobile menu and displays a local non-persistent message after an inert demo action. It sends no request, stores no input, reads no URL data, sets no cookie, loads no provider, and contains no analytics, chat, map, replay, font, icon, image, or submission integration.
 
-Production budgets remain inherited from Orders 3–5: no approved animation library, content-first rendering, stable media dimensions, no critical runtime fetch for Emergency/contact, no map on initial load, and no layout-shifting font dependency.
+Production retains content-first rendering, stable media dimensions, no critical runtime fetch for Emergency/contact, no map or video stream on initial load, and no layout-shifting font dependency. A scoped motion runtime and activated media require the [amendment's](../../motion/high-end-motion-and-interactive-media-amendment.md) separate license, bundle, cleanup, fallback, and measured-performance evidence.
 
 ## 7. Acceptance and remaining validation
 

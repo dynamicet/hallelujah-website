@@ -45,7 +45,7 @@
 | Requirement | Phase / priority | Primary backlog coverage | Closure evidence |
 | --- | --- | --- | --- |
 | `H-001` | Phase 1 / P1 | `B03-004`, `B03-007` | Essential tasks precede campaigns at mobile and desktop |
-| `H-002` | Phase 1 / P1 | `B03-004`, `B03-007` | Static task introduction; no auto-rotating critical content |
+| `H-002` | Phase 1 / P1 | `B03-004`, `B03-007` | Static-first task introduction; optional user-initiated media; no auto-rotation, pre-intent request, or critical-path dependency |
 | `H-003` | Phase 1 / P0 | `B02-004`–`B02-006`, `B03-006` | Features resolve to approved canonical records or omit |
 | `H-004` | Phase 1 / P0 | `B02-008`, `B03-006`, `B05-002`–`B05-004` | Claim/relationship/rights ledger matches every visible claim |
 | `H-005` | Phase 1 / P1 | `B06-001`–`B06-006` | Relevance, correction, urgent routing, non-diagnostic review |
@@ -127,7 +127,7 @@
 | `INST-01` | `B05-002` | Story, mission, values, milestones, facts/claims |
 | `INST-02` | `B05-003` | Leadership and portraits |
 | `INST-03` | `B05-004` | Partners/insurers and relationship meaning |
-| `BRAND-01` | `B01-002` | Logo/name, theme, typography, imagery and rights |
+| `BRAND-01` | `B01-002`, `B01-012`, `B03-004`, `B03-007` | Logo/name, theme, typography, imagery/footage, high-end motion/media art direction, consent and rights |
 | `HR-01` | `B08-001` | Vacancy lifecycle |
 | `HR-02` | `B08-002` | Recruitment data flow and application provider |
 | `HR-03` | `B08-003` | Recruitment legal/process/language copy |

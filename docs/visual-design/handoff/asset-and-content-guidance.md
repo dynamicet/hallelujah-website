@@ -46,6 +46,15 @@ The content record referenced by an asset also needs stable public identity, sou
 - Use project-owned or licensed icons on the documented 24 × 24 outline geometry. Pair safety/essential icons with visible labels and never use emoji as the icon system.
 - Include asset bytes and requests in `G-009`; validate LCP/CLS on the compressed production build under `G-008`.
 
+### Interactive and background media
+
+- Treat the poster as the complete initial design. Do not request video before a labeled user activation; `preload="none"` or the delivery equivalent must be verified in the network trace.
+- Background/ambient video is muted and supplementary. It requires visible Play/Pause and Stop/Close behavior as applicable, stable dimensions, tested contrast across representative frames, and a still reduced-motion/Save-Data/mobile composition.
+- If speech, action sequence, or visual detail carries meaning, use a foreground player and provide approved captions, transcript, and an audio-description decision. Do not disguise informative media as decoration.
+- Prefer finite playback and pause off-screen media. Remove listeners, timers, decoders, and retained playback state when the component or route unmounts.
+- Report poster, motion/runtime, and activated video bytes/requests separately. User-initiated transfer does not excuse a slow initial view or an unoptimized poster.
+- See the [High-End Motion and Interactive-Media Amendment](../motion/high-end-motion-and-interactive-media-amendment.md) for eligible sections, motion levels, and acceptance.
+
 ## Subject and claim safeguards
 
 Preferred future photography, after approval, includes the actual entrance, reception, staff at work, neighborhood landmarks, and non-sensitive environments in natural light. Do not use:

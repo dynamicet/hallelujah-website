@@ -23,11 +23,13 @@ The system incorporates benchmark applications `BM-01`, `BM-02`, `BM-06`, and `B
 | Red reserved for emergency and error meaning | Adopt | Brand decoration must never compete with or imitate emergency meaning. |
 | Noto family for Latin and Ethiopic coverage | Provisional | Test Amharic legibility, metrics, loading, and editorial fit on real devices before approval. |
 | 4 px base and 8 px primary spacing rhythm | Adopt | Components and page sections use named tokens, not arbitrary gaps. |
-| Restrained motion with no scroll choreography | Adopt | Motion communicates state or orientation only and always respects reduced-motion preferences. |
+| Choreographed progressive motion | Adopt | Functional motion stays brief; selected non-critical sections may use composed or cinematic treatments while content, focus, and actions remain complete before enhancement. |
 | One coherent SVG icon family | Adopt | Essential actions pair icons with text; emoji and mixed icon styles are excluded. |
-| No automatic carousel, background video, or auto-playing media | Adopt | Safety, comprehension, performance, and motion comfort take precedence. |
+| Static-first, user-controlled interactive media | Adopt | No autoplay or pre-intent video request. Approved hero or institutional media may play only after explicit activation with controls, still/reduced-motion equivalents, and measured budgets. |
 
 The UI/UX reference search returned an “AI-driven dynamic landing” pattern because of a classification mismatch. That pattern is explicitly rejected: this is a public hospital service, not an AI product. The useful accessibility, healthcare palette, form, focus, touch-target, and reduced-motion guidance was retained and reconciled with the project evidence.
+
+The client-directed [high-end motion and interactive-media amendment](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md) supersedes the earlier prototype-wide Level 2/300 ms ceiling for production planning. It preserves Calm Wayfinding, task order, and permanent stable contexts while allowing authored Levels 3–4 in selected storytelling sections.
 
 ## Three-layer token contract
 

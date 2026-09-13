@@ -54,7 +54,7 @@ Every section uses one of five structures:
 
 ```text
 [Header + persistent task access]
-[Static introduction]
+[Static-first introduction]
   H1 + concise promise
   Primary: Request an appointment
   Secondary: Find a doctor
@@ -69,7 +69,8 @@ Every section uses one of five structures:
 [Footer]
 ```
 
-- The introduction uses a stable image only if it strengthens orientation or human trust; it does not become a full-viewport promotional banner.
+- The introduction uses an approved static image/poster or abstract field only when it strengthens orientation or human trust. A user-initiated video may enhance its reserved media plane under the interactive-media contract; it never delays or displaces care and Emergency actions.
+- If approved footage is too narrative, visually busy, long, or claim-bearing for the introduction, place the playable institutional film after essential tasks in Home trust content or About.
 - On compact screens, actions stack in priority order and remain text-labeled.
 - On wide screens, essential actions may form a five-item row or balanced grid; each retains a consistent hit area and description.
 - Requirements: G-001, H-001–H-005, E-001, C-001.

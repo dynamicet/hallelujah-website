@@ -5,6 +5,8 @@
 **Extends:** [Interaction and Motion](../../design-system/interaction-and-motion.md)  
 **Visual basis:** [Direction A — Calm Wayfinding](../direction/visual-directions.md#3-direction-a--calm-wayfinding-recommended)
 
+> **Production supersession — 14 September 2026:** This document remains the truthful Order 3 prototype direction and evidence basis. The client-directed [High-End Motion and Interactive-Media Amendment](high-end-motion-and-interactive-media-amendment.md) supersedes its Level 2 maximum, 300 ms expressive ceiling, no-library rule, and blanket cinematic/background-media exclusions for production planning. Its content-first, stable-context, immediate-navigation, truthful-state, and reduced-motion protections remain binding.
+
 ## 1. Role of this layer
 
 The existing interaction document is the functional baseline: controls respond, focus moves correctly, progress is announced, failure preserves context, and reduced motion removes travel. This document adds only the expressive decisions needed to make Calm Wayfinding feel coherent across pages.

@@ -31,7 +31,7 @@ Review the [requirements matrix](../../requirements/requirements-matrix.md) and 
 | Base interaction contracts | [Shared design system](../../design-system/README.md) | Technology-independent behavior and accessibility baseline. |
 | Prototype values and tokens | [Order 4 foundations](../foundations/README.md) | Provisional theme source; keep replaceable until `BRAND-01`. |
 | Responsive component behavior | [Order 5 components](../components/README.md) | Component anatomy, variants, states, and token aliases. |
-| Motion and storytelling | [Motion guide](../motion/README.md) | Apply intensity ceilings and reduced-motion equivalence. |
+| Motion and storytelling | [Motion guide](../motion/README.md) and [production amendment](../motion/high-end-motion-and-interactive-media-amendment.md) | Treat Orders 3–11 as historical prototype evidence; use the amendment for production intensity, static-first media, protected contexts, and acceptance. |
 | Complete page studies | [Visual workspace](../README.md) | Visual reference after the product and section contracts. |
 | Connected behavior | [Prototype specification](../prototype/prototype-specification.md) | Demonstration of state transitions, never a production data-flow design. |
 | Performed QA and limitations | [Order 11 QA](../qa/README.md) | Regression baseline; do not extend its claims beyond the recorded environment. |
@@ -76,4 +76,4 @@ The prototype must not be deployed as the public website. Its records, contact t
 - [x] a repeatable integrity audit checks local links, page/decision/utility coverage, canonical route agreement, token JSON, CSS inheritance, and prior QA result summaries;
 - [x] no stakeholder, language, content, safety, privacy, security, device, browser, performance, or publication limitation was represented as closed.
 
-Order 12 is complete for documentation review and implementation planning. The next project activity is to close or disposition the applicable gates and turn approved scope into a prioritized implementation backlog with dependencies and testable acceptance criteria.
+Order 12 remains complete as the historical handoff baseline. The 14 September 2026 production amendment is a controlled post-handoff direction change and must be included in the next applicable implementation brief, alongside closure or safe deferral of its brand, media, consent/rights, performance, accessibility, and provider gates.
