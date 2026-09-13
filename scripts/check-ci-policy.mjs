@@ -4,14 +4,20 @@ import path from 'node:path'
 import { repositoryRoot } from './lib/repository-files.mjs'
 
 const workflowPath = path.join(repositoryRoot, '.github/workflows/toolchain-policy.yml')
-const workflow = await readFile(workflowPath, 'utf8')
+const contributingPath = path.join(repositoryRoot, 'CONTRIBUTING.md')
+const pullRequestTemplatePath = path.join(repositoryRoot, '.github/PULL_REQUEST_TEMPLATE.md')
+const [workflow, contributing, pullRequestTemplate] = await Promise.all([
+  readFile(workflowPath, 'utf8'),
+  readFile(contributingPath, 'utf8'),
+  readFile(pullRequestTemplatePath, 'utf8'),
+])
 const failures = []
 const requireText = (label, value) => {
   if (!workflow.includes(value)) failures.push(`${label}: missing ${value}`)
 }
 
 requireText('pull-request trigger', 'pull_request:')
-requireText('protected-branch trigger', 'branches:\n      - main')
+requireText('production-branch trigger', 'branches:\n      - main')
 requireText('least-privilege token', 'permissions:\n  contents: read')
 requireText('bounded execution', 'timeout-minutes: 30')
 requireText('frozen install', 'pnpm install --frozen-lockfile')
@@ -20,6 +26,18 @@ requireText('CI control negative tests', 'pnpm ci:controls:test')
 requireText('history-aware secret scan', 'pnpm secrets:check --history')
 requireText('dependency audit', 'pnpm audit:dependencies')
 requireText('clean reconstruction', 'pnpm rebuild:verify')
+
+const mergeProcedure =
+  'Merge only after `quality-and-security` succeeds for the pull request\'s current head commit.'
+if (!contributing.includes(mergeProcedure)) {
+  failures.push(`merge procedure: missing ${mergeProcedure}`)
+}
+
+const currentHeadConfirmation =
+  '- [ ] The latest pull-request head commit is the revision shown by the successful `quality-and-security` check'
+if (!pullRequestTemplate.includes(currentHeadConfirmation)) {
+  failures.push(`pull-request control: missing ${currentHeadConfirmation}`)
+}
 
 for (const match of workflow.matchAll(/^\s*uses:\s*([^\s#]+)(?:\s+#.*)?$/gmu)) {
   const action = match[1]

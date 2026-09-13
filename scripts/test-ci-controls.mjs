@@ -54,6 +54,16 @@ try {
   await writeFile(workflowPath, workflow)
   completed += 1
 
+  const contributingPath = path.join(fixtureRoot, 'CONTRIBUTING.md')
+  const contributing = await readFile(contributingPath, 'utf8')
+  await writeFile(
+    contributingPath,
+    contributing.replace("pull request's current head commit", "an earlier pull-request commit"),
+  )
+  expectFailure('scripts/check-ci-policy.mjs', 'merge procedure: missing')
+  await writeFile(contributingPath, contributing)
+  completed += 1
+
   const secretPath = path.join(fixtureRoot, 'synthetic-secret-fixture.txt')
   const syntheticToken = ['ghp', '_', 'A'.repeat(40)].join('')
   await writeFile(secretPath, `${syntheticToken}\n`)

@@ -8,7 +8,7 @@ This repository contains the clean, controlled implementation workspace for the 
 | --- | --- | --- |
 | `apps/web/` | Minimal Next.js, Payload CMS, and TypeScript production skeleton | Delivery implementation; currently local bootstrap only |
 | `docs/` | Requirements, decisions, UX, design, backlog, validation, and handoff contracts | Project authority; application code must not import it at runtime |
-| `.github/` | Pull-request CI plus contribution issue and review templates | CI definition active under `B00-011`; hosted proof and branch protection remain open |
+| `.github/` | Pull-request CI plus contribution issue and review templates | `B00-011` CI passes locally and hosted; technical branch enforcement remains `B00-012` |
 
 ## Local commands
 
@@ -39,5 +39,5 @@ Before container work, run `pnpm toolchain:check:containers`. It also requires D
 The default application has no CMS admin/API route, public hospital content, external application integration, or personal-data field. Payload configuration is present as the approved platform skeleton only. Later tickets must add database and CMS capabilities behind their own gates.
 
 See [`B00-004`](docs/backlog/b00-004-clean-application-bootstrap.md) for the application boundary and
-[`B00-011`](docs/backlog/b00-011-ci-quality-security.md) for the active CI contract and remaining
-hosted required-check evidence.
+[`B00-011`](docs/backlog/b00-011-ci-quality-security.md) for the completed controlled-development CI
+contract. The private/free-plan merge-enforcement limitation remains explicit under `B00-012`.

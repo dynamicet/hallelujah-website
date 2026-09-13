@@ -13,6 +13,7 @@
 
 ## Verification
 
+- [ ] The latest pull-request head commit is the revision shown by the successful `quality-and-security` check
 - [ ] Exact lint command and result recorded
 - [ ] Exact typecheck command and result recorded
 - [ ] Exact test command and result recorded
@@ -27,3 +28,7 @@ Evidence link or sanitized summary:
 - Responsible owner:
 - Acceptance owner:
 - Defect / exception / retest status:
+
+Until private-repository branch protection is available, the contributor and reviewer must follow
+the manual merge control in `CONTRIBUTING.md`. A green check is required by project procedure, but
+is not represented as a GitHub-enforced merge block.

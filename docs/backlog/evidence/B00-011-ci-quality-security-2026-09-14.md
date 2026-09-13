@@ -1,14 +1,14 @@
-# `B00-011` CI Quality and Security Interim Record — 14 September 2026
+# `B00-011` CI Quality and Security Completion Record — 14 September 2026
 
 **Classification:** Sanitized, non-sensitive controlled-development evidence
 
-**State:** Repository implementation and hosted `T1` run pass; required-check enforcement is blocked
-by the current private-repository plan
+**State:** Done for controlled development; repository implementation and hosted `T1` run pass.
+Technical merge enforcement remains a separate `B00-012` control.
 
 **Responsible:** Client workspace identity `befikadusata` directing Codex in the temporary Delivery role
 
-**Acceptance:** Same identity for repository-local implementation; named Delivery, QA, and Security
-acceptance plus required-check enforcement evidence remain open
+**Acceptance:** Same identity for controlled-development implementation and hosted execution; named
+Delivery, QA, and Security acceptance remains open at the production boundary
 
 ## Artifact and boundary
 
@@ -20,6 +20,9 @@ acceptance plus required-check enforcement evidence remain open
 - The stable hosted run passed. A read-only branch-protection request returned HTTP 403 with GitHub's
   plan requirement to upgrade or make the private repository public. No protection setting, billing,
   visibility, deployment, or remote artifact-retention setting was changed.
+- On 14 September 2026 the client confirmed that paying for a GitHub plan and making the repository
+  public are both unavailable. GitHub's documented capability boundary was rechecked. `B00-011` was
+  normalized to own CI execution and evidence; `B00-012` continues to own branch enforcement.
 - No real credential, personal data, database connection, provider activation, legacy state,
   hospital content, migration, container, DNS/TLS change, or publication authority was introduced.
 
@@ -29,7 +32,7 @@ acceptance plus required-check enforcement evidence remain open
 | --- | --- | --- |
 | Runtime/toolchain | Pinned command session | Passed: Node.js `24.21.0`, pnpm `10.27.0` |
 | Full local gate | `pnpm verify` | Passed format/JSON, CI policy and negative controls, repository links, current-tree secret scan, backlog integrity, introduction gates, lint, strict types, application tests, build, accessibility, budgets, and runtime checks |
-| CI control negative cases | Included in `pnpm verify` | Five isolated mutations proved read-only workflow policy, secret detection/redaction, local links, JSON format, and migration introduction fail closed |
+| CI control negative cases | Included in `pnpm verify` | Six isolated mutations proved read-only workflow policy, merge-procedure retention, secret detection/redaction, local links, JSON format, and migration introduction fail closed |
 | Backlog audit | Included in `pnpm verify` | Passed 10/10; 264 clone-contained backlog links checked and 22 inherited workspace links reported separately |
 | Repository links | Included in `pnpm verify` | Passed 820 clone-contained links; 77 inherited workspace references reported outside the clean-repository boundary |
 | Static analysis | Included in `pnpm verify` | ESLint passed for application source, CI/audit scripts, and ESLint configuration with zero warnings |
@@ -69,11 +72,15 @@ seconds.
   required-check enforcement;
 - no artifact upload and no restricted evidence workflow.
 
-## Honest residual gates
+## Honest residual gates and compensating control
 
-- Enable branch protection for the private repository through an approved plan change, then configure
-  and demonstrate merge blocking with the stable check. Making the hospital repository public is not
-  authorized. Branch protection and review/deployment controls remain governed by `B00-012`.
+- During controlled development, every change follows a pull request and may merge only after the
+  `quality-and-security` result succeeds for its current head commit. A direct push, bypassed check,
+  or failing `main` run stops dependent work and is corrected or reverted through a checked pull
+  request. This procedure is recorded in `CONTRIBUTING.md` and the pull-request template.
+- This control cannot technically prevent an authorized GitHub administrator from bypassing it on
+  the current private/free plan. Branch protection and review/deployment controls remain governed by
+  `B00-012`; no paid-plan, public-repository, or merge-protection claim is made.
 - Add real migration validation only after `B00-008`/`B00-009`; add an approved container scanner,
   SBOM, and image tests only when the container implementation is authorized.
 - Expand the current static semantic check to browser/axe, keyboard, responsive, preference,
@@ -86,14 +93,14 @@ seconds.
 | Field | Value |
 | --- | --- |
 | Ticket | `B00-011` |
-| Old / new status | Proposed / unblocked → In progress |
-| Responsible / acceptance | Temporary client workspace identity / same identity for local and hosted implementation; enforcement and named acceptance open |
+| Old / new status | Proposed / unblocked → In progress → Done for controlled development |
+| Responsible / acceptance | Temporary client workspace identity / same identity for controlled-development implementation; named production acceptance open |
 | Date / timezone | 14 September 2026 / Africa/Addis_Ababa (`UTC+03:00`) |
 | Dependency evidence | `B00-004`–`B00-006`; working `B00-015`/`B00-016`; `ARCH-04` |
 | Target | `T0` local and private-repository `T1` hosted execution |
-| Remaining completion evidence | Controlled required-check blocking result after private-repository protection becomes available |
-| Next unlock | None yet; `B00-012` remains blocked until `B00-011` completes and its own ownership gates are met |
+| Remaining completion evidence | None for the `B00-011` controlled-development boundary; named production acceptance remains a later gate |
+| Next unlock | `B00-011` dependency is satisfied; `B00-012` remains blocked by its own ownership and technical-control constraints |
 
-This is interim technical evidence and a hosted-CI pass. It is not merge-protection proof,
-production readiness, provider approval, personal-data authority, security certification, or release
-approval.
+This is controlled-development completion evidence and a hosted-CI pass. It is not merge-protection
+proof, production readiness, provider approval, personal-data authority, security certification, or
+release approval.

@@ -49,7 +49,7 @@ The following are implementation selections, not permission to abandon the appro
 
 Each selection needs an owner, rationale, cost/security/privacy assessment where applicable, test evidence, and rollback or migration path in its Epic 0 ticket.
 
-`B00-005` closed the controlled-development software-version selection on 13 September 2026. The exact Node.js, pnpm, Next.js, Payload, TypeScript, PostgreSQL, Docker, and base-image pins, support dates, security overrides, enforcement, and update policy are recorded in the [pinned toolchain brief](../backlog/b00-005-pinned-toolchain.md). Named production acceptance, a conforming Docker host, remote required-check evidence, and all provider/environment decisions remain open under their own tickets.
+`B00-005` closed the controlled-development software-version selection on 13 September 2026. The exact Node.js, pnpm, Next.js, Payload, TypeScript, PostgreSQL, Docker, and base-image pins, support dates, security overrides, enforcement, and update policy are recorded in the [pinned toolchain brief](../backlog/b00-005-pinned-toolchain.md). Hosted CI evidence subsequently passed under `B00-011`; named production acceptance, a conforming Docker host, technical repository enforcement under `B00-012`, and all provider/environment decisions remain open under their own tickets.
 
 `B00-006` closed the controlled-development environment-contract implementation on 13 September
 2026. Its [execution brief](../backlog/b00-006-environment-configuration.md) and
@@ -59,12 +59,13 @@ names-only source configuration, rotation, rollback, and emergency access. No re
 production mechanism, value, provider, database, deployment, or production acceptance is selected
 or authorized by that completion.
 
-`B00-011` started on 14 September 2026. Its [execution brief](../backlog/b00-011-ci-quality-security.md)
-defines a least-privilege, immutable-action GitHub workflow and matching local gates for source
-quality, dependencies, secrets, reproducibility, the current application, bounded accessibility and
-asset budgets, and runtime headers. The repository/local implementation passes, while the ticket
-remains In progress because this checkout has no configured Git remote and therefore cannot yet
-provide a hosted run or required-check enforcement evidence. Migrations and containers remain
+`B00-011` completed its controlled-development boundary on 14 September 2026. Its
+[execution brief](../backlog/b00-011-ci-quality-security.md) defines a least-privilege,
+immutable-action GitHub workflow and matching local gates for source quality, dependencies, secrets,
+reproducibility, the current application, bounded accessibility and asset budgets, and runtime
+headers. Local and hosted execution pass. The repository must remain private and a paid GitHub plan
+is unavailable, so current-head CI success is required through the documented merge procedure;
+technical branch enforcement remains `B00-012` and is not claimed. Migrations and containers remain
 absent and fail closed pending their own authorized implementations.
 
 `B00-007` now has a [partial infrastructure selection](../backlog/b00-007-infrastructure-selection.md): Linux is selected at the operating-system-family level; a local/Ethiopia-region VPS is preferred but not selected; Cloudflare is selected for planning subject to `SEC-02`; prototype media uses persistent local storage with metadata in PostgreSQL; MinIO is a conditional production candidate; and provider, capacity, staging, email, off-host backup, and RPO/RTO decisions remain open pending prototype evidence.
