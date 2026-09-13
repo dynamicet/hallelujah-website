@@ -15,10 +15,16 @@ const environment = {
   NEXT_TELEMETRY_DISABLED: '1',
   PERSONAL_DATA_COLLECTION: 'disabled',
 }
+const usesProcessGroup = process.platform !== 'win32'
 const server = spawn(
   'pnpm',
   ['--dir', 'apps/web', 'start', '--hostname', host, '--port', String(port)],
-  { cwd: repositoryRoot, env: environment, stdio: ['ignore', 'pipe', 'pipe'] },
+  {
+    cwd: repositoryRoot,
+    detached: usesProcessGroup,
+    env: environment,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  },
 )
 let output = ''
 server.stdout.on('data', (chunk) => { output += chunk.toString() })
@@ -41,6 +47,27 @@ async function waitForServer() {
 function expectHeader(response, name, expected) {
   const actual = response.headers.get(name)
   if (actual !== expected) throw new Error(`${name}: expected ${expected}, received ${actual ?? 'missing'}`)
+}
+
+function signalServer(signal) {
+  try {
+    if (usesProcessGroup && server.pid) process.kill(-server.pid, signal)
+    else server.kill(signal)
+  } catch (error) {
+    if (error.code !== 'ESRCH') throw error
+  }
+}
+
+async function expectServerStopped() {
+  for (let attempt = 0; attempt < 20; attempt += 1) {
+    try {
+      await fetch(`${origin}/health`, { signal: AbortSignal.timeout(100) })
+    } catch {
+      return
+    }
+    await new Promise((resolve) => setTimeout(resolve, 100))
+  }
+  throw new Error('runtime smoke left a loopback server listening after cleanup')
 }
 
 try {
@@ -67,10 +94,11 @@ try {
   if (output.trim()) console.error('Server output was captured without environment values.')
   process.exitCode = 1
 } finally {
-  server.kill('SIGTERM')
+  signalServer('SIGTERM')
   await Promise.race([
     new Promise((resolve) => server.once('exit', resolve)),
     new Promise((resolve) => setTimeout(resolve, 2000)),
   ])
-  if (server.exitCode === null) server.kill('SIGKILL')
+  signalServer('SIGKILL')
+  await expectServerStopped()
 }
