@@ -2,21 +2,24 @@
 
 **Classification:** Sanitized, non-sensitive controlled-development evidence
 
-**State:** Repository implementation verified locally; hosted `T1` run and required-check evidence pending
+**State:** Repository implementation and hosted `T1` run pass; required-check enforcement is blocked
+by the current private-repository plan
 
 **Responsible:** Client workspace identity `befikadusata` directing Codex in the temporary Delivery role
 
 **Acceptance:** Same identity for repository-local implementation; named Delivery, QA, and Security
-acceptance plus hosted required-check evidence remain open
+acceptance plus required-check enforcement evidence remain open
 
 ## Artifact and boundary
 
 - Preparation baseline: commit `249e2a4` (`chore: complete B00-006 environment boundary`).
-- Implementation artifact: the future commit containing this interim record, prepared from the
-  controlled working tree based on `249e2a4`.
-- Target: local `T0` verification and a committed definition for clean GitHub Actions `T1` execution.
-- No Git remote is configured in this checkout; no push, hosted run, status-check configuration,
-  branch protection, deployment, or remote artifact was created or tested.
+- Hosted implementation artifact: commit `f84b3eb` on pull request
+  [`#1`](https://github.com/dynamicet/hallelujah-website/pull/1), based on `249e2a4` on remote `main`.
+- Target: local `T0` verification and clean GitHub Actions `T1` execution in the selected private
+  repository.
+- The stable hosted run passed. A read-only branch-protection request returned HTTP 403 with GitHub's
+  plan requirement to upgrade or make the private repository public. No protection setting, billing,
+  visibility, deployment, or remote artifact-retention setting was changed.
 - No real credential, personal data, database connection, provider activation, legacy state,
   hospital content, migration, container, DNS/TLS change, or publication authority was introduced.
 
@@ -39,6 +42,8 @@ acceptance plus hosted required-check evidence remain open
 | Dependency audit | `pnpm audit:dependencies` | Full dependency graph: no known vulnerabilities found at the moderate-or-higher blocking threshold |
 | Migration/container gate | Included in `pnpm verify` | Neither capability exists; unauthorized introduction remains fail-closed and no scan capability is claimed |
 | Clean reconstruction | `pnpm rebuild:verify` | Passed with 543 cached packages and zero downloads; full lockfile SHA-256 `02377eceb46d753972dd52453b007b992626e54d443995a2044e7ce4406f784f`; workspace importer SHA-256 `05665f37f00b97a0173a35343b11f77ec7f61b092ee0e82903c5aa9a6b3ff1d0` |
+| Hosted `T1` pull-request run | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34784880797) on `f84b3eb` | Passed every step in 1 minute 37 seconds, including frozen install, fail-closed controls, reachable-history secret scan, dependency audit, full verification, and clean reconstruction |
+| Required-check availability | Read-only GitHub branch-protection API request for private `main` | Blocked: HTTP 403 states that GitHub Pro or public repository visibility is required; no repository setting was changed |
 
 The first dependency-audit attempt could not reach the registry from the restricted sandbox; its
 warning-only output was not accepted as evidence. The audit was rerun with approved network access
@@ -46,22 +51,29 @@ and returned `No known vulnerabilities found`. The first runtime smoke could not
 the restricted sandbox; it passed with explicit loopback permission. These were execution-sandbox
 constraints, not application failures.
 
-## Workflow controls prepared for hosted execution
+The first hosted run on `4d2c182` completed all assertions but remained active because the runtime
+smoke terminated only the package-manager parent and left the Next.js child alive. It was cancelled
+through the workflow concurrency policy after `f84b3eb` changed cleanup to terminate the complete
+process group and verify that the loopback listener stops. A pinned local regression run exited in
+3.91 seconds, the complete local gate passed, and the corrected hosted run passed in 1 minute 37
+seconds.
+
+## Workflow controls observed in hosted execution
 
 - pull-request and `main` push triggers only;
 - read-only `contents` token permission, no repository secret reference, no privileged trigger;
 - commit-SHA-pinned checkout/setup actions and exact Node.js/pnpm activation;
 - full history credential scan, full dependency audit, complete local-equivalent verification, and
   isolated clean reconstruction;
-- one stable `quality-and-security` job name for later required-check enforcement;
+- one stable `quality-and-security` job name, observed on the successful hosted run, for later
+  required-check enforcement;
 - no artifact upload and no restricted evidence workflow.
 
 ## Honest residual gates
 
-- Commit the implementation into the selected GitHub repository and record a successful hosted
-  `quality-and-security` run for that exact revision.
-- Configure and demonstrate merge blocking with the stable check. Branch protection and review/
-  deployment controls remain governed by `B00-012`.
+- Enable branch protection for the private repository through an approved plan change, then configure
+  and demonstrate merge blocking with the stable check. Making the hospital repository public is not
+  authorized. Branch protection and review/deployment controls remain governed by `B00-012`.
 - Add real migration validation only after `B00-008`/`B00-009`; add an approved container scanner,
   SBOM, and image tests only when the container implementation is authorized.
 - Expand the current static semantic check to browser/axe, keyboard, responsive, preference,
@@ -75,12 +87,13 @@ constraints, not application failures.
 | --- | --- |
 | Ticket | `B00-011` |
 | Old / new status | Proposed / unblocked → In progress |
-| Responsible / acceptance | Temporary client workspace identity / same identity for local implementation; hosted and named acceptance open |
+| Responsible / acceptance | Temporary client workspace identity / same identity for local and hosted implementation; enforcement and named acceptance open |
 | Date / timezone | 14 September 2026 / Africa/Addis_Ababa (`UTC+03:00`) |
 | Dependency evidence | `B00-004`–`B00-006`; working `B00-015`/`B00-016`; `ARCH-04` |
-| Target | `T0` local and committed `T1` definition |
-| Remaining completion evidence | Hosted run URL/check identity and controlled required-check blocking result |
+| Target | `T0` local and private-repository `T1` hosted execution |
+| Remaining completion evidence | Controlled required-check blocking result after private-repository protection becomes available |
 | Next unlock | None yet; `B00-012` remains blocked until `B00-011` completes and its own ownership gates are met |
 
-This is interim technical evidence. It is not a hosted-CI pass, merge-protection proof, production
-readiness, provider approval, personal-data authority, security certification, or release approval.
+This is interim technical evidence and a hosted-CI pass. It is not merge-protection proof,
+production readiness, provider approval, personal-data authority, security certification, or release
+approval.

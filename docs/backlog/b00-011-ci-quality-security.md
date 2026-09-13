@@ -1,7 +1,7 @@
 # `B00-011` — CI Quality and Security Gates
 
-**Status:** In progress; repository implementation and `T0` verification pass, while hosted `T1`
-execution and required-check enforcement remain open
+**Status:** In progress; repository implementation, `T0` verification, and hosted `T1` execution
+pass, while required-check enforcement remains blocked by the current private-repository plan
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -15,18 +15,19 @@ execution and required-check enforcement remain open
 | Phase / milestone | Phase 0 / `M0`–`M1` |
 | Old / new status | Proposed / unblocked → In progress |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Delivery role |
-| Acceptance owner | Same client identity for repository-local implementation; named Delivery, QA, and Security people plus hosted required-check evidence remain required for completion |
-| Target environment | `T0` isolated local validation and committed definition for clean `T1` GitHub Actions |
+| Acceptance owner | Same client identity for repository-local implementation and hosted execution; named Delivery, QA, and Security people plus required-check evidence remain required for completion |
+| Target environment | `T0` isolated local validation and private-repository `T1` GitHub Actions execution |
 | Requirements / decisions | `G-003`, `G-005`–`G-013`, `S-002`; `ARCH-04`; working `DEL-01` baseline |
 | Dependencies | Completed `B00-004`–`B00-006`; working `B00-015` and `B00-016` development baselines |
 | Allowed repository scope | GitHub Actions workflow, root command/configuration surface, bounded CI validation scripts, contributor/architecture/backlog documentation, control registers, and sanitized evidence |
 | Benchmark applications | None — this ticket provides delivery controls rather than a page, user flow, content pattern, or benchmark-derived behavior |
-| Evidence destination | [Sanitized interim record](evidence/B00-011-ci-quality-security-2026-09-14.md); hosted run URL/check identity must be added before completion |
+| Evidence destination | [Sanitized interim record](evidence/B00-011-ci-quality-security-2026-09-14.md), including the hosted run and remaining enforcement blocker |
 
-The client's direction to start the next execution authorizes this controlled repository and CI
-definition. It does not authorize pushing to or administering a remote repository, changing branch
-protection, retaining restricted reports, introducing a database migration or container, enabling an
-application provider, deploying, collecting personal data, or publishing the site.
+The client's direction to start the execution, subsequent remote selection, and explicit remote-action
+approvals authorize the private repository baseline, feature branch, pull request, hosted run, and a
+read-only protection check recorded here. They do not authorize making the repository public,
+changing billing, retaining restricted reports, introducing a database migration or container,
+enabling an application provider, deploying, collecting personal data, or publishing the site.
 
 ## Outcome
 
@@ -60,8 +61,11 @@ regressions, and runtime-header regressions.
 
 ## Explicit exclusions and remaining work
 
-- No Git remote is configured in this checkout. No hosted workflow run, status-check URL, artifact
-  retention result, or merge-blocking observation can therefore be recorded yet.
+- The selected private GitHub repository, pull request, and hosted run are recorded in the interim
+  evidence. GitHub rejected the read-only branch-protection inspection with HTTP 403 because the
+  current plan does not enable protection for this private repository. No protection or merge-blocking
+  observation can be recorded until the plan changes; public visibility is not an acceptable implicit
+  workaround.
 - Branch protection, review ownership, dependency-update automation, build provenance, deployment,
   and rollback remain `B00-012`; this ticket must still prove its stable check is required when that
   control is configured.
@@ -123,10 +127,11 @@ regressions, and runtime-header regressions.
   pass locally with sanitized output.
 - [x] Unsupported migration/container introduction fails closed.
 - [x] No application provider, personal-data path, deployment, or publication boundary changed.
-- [ ] The committed revision runs successfully on GitHub-hosted `T1` infrastructure.
+- [x] The committed revision runs successfully on GitHub-hosted `T1` infrastructure.
 - [ ] The stable `quality-and-security` status is configured and observed to block a controlled
   failing pull request.
 - [ ] Named Delivery, QA, and Security acceptance replaces the temporary development assignment at
   the applicable production boundary.
 
-Until the two hosted checks pass, `B00-011` remains `In progress` and does not unlock `B00-012`.
+Until required-check enforcement is configured and observed, `B00-011` remains `In progress` and
+does not unlock `B00-012`.
