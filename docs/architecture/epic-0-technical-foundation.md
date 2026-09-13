@@ -59,6 +59,14 @@ names-only source configuration, rotation, rollback, and emergency access. No re
 production mechanism, value, provider, database, deployment, or production acceptance is selected
 or authorized by that completion.
 
+`B00-011` started on 14 September 2026. Its [execution brief](../backlog/b00-011-ci-quality-security.md)
+defines a least-privilege, immutable-action GitHub workflow and matching local gates for source
+quality, dependencies, secrets, reproducibility, the current application, bounded accessibility and
+asset budgets, and runtime headers. The repository/local implementation passes, while the ticket
+remains In progress because this checkout has no configured Git remote and therefore cannot yet
+provide a hosted run or required-check enforcement evidence. Migrations and containers remain
+absent and fail closed pending their own authorized implementations.
+
 `B00-007` now has a [partial infrastructure selection](../backlog/b00-007-infrastructure-selection.md): Linux is selected at the operating-system-family level; a local/Ethiopia-region VPS is preferred but not selected; Cloudflare is selected for planning subject to `SEC-02`; prototype media uses persistent local storage with metadata in PostgreSQL; MinIO is a conditional production candidate; and provider, capacity, staging, email, off-host backup, and RPO/RTO decisions remain open pending prototype evidence.
 
 ## Recorded evidence

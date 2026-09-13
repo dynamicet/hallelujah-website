@@ -2,7 +2,7 @@
 
 This folder contains the implementation-facing product, UX, content, and delivery documentation for the Hallelujah General Hospital website rebuild.
 
-For current progress, remaining work, and the exact starting task for a new Codex session, see [Project status and next Codex session](NEXT-CODEX-SESSION.md).
+For current progress, remaining work, and the next controlled pull, see the [backlog execution board](backlog/execution-board.md).
 
 ## First deliverable
 

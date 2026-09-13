@@ -1,4 +1,4 @@
-name: Toolchain policy
+name: CI quality and security
 
 on:
   pull_request:
@@ -13,16 +13,18 @@ env:
   NEXT_TELEMETRY_DISABLED: '1'
 
 concurrency:
-  group: toolchain-policy-${{ github.ref }}
+  group: ci-quality-security-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  verify:
+  quality-and-security:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - name: Check out the repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
 
       - name: Install the pinned Node.js runtime
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -38,11 +40,17 @@ jobs:
       - name: Install the frozen dependency graph
         run: pnpm install --frozen-lockfile
 
-      - name: Verify policy and application
+      - name: Prove fail-closed CI controls
+        run: pnpm ci:controls:test
+
+      - name: Scan the reachable history for credential signatures
+        run: pnpm secrets:check --history
+
+      - name: Audit the complete dependency graph
+        run: pnpm audit:dependencies
+
+      - name: Verify policy, source, application, build, accessibility, budgets, and runtime
         run: pnpm verify
 
       - name: Reproduce the clean dependency graph and build
         run: pnpm rebuild:verify
-
-      - name: Verify backlog integrity
-        run: node docs/backlog/audit-backlog.mjs

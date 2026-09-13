@@ -6,7 +6,7 @@ All changes must follow the authority order and scope controls in [the implement
 
 1. Confirm the ticket is `Ready` or `In progress` on the execution board.
 2. Create the smallest scoped change from a clean branch.
-3. Run `pnpm verify` and `node docs/backlog/audit-backlog.mjs` when application and documentation are affected.
+3. Run `pnpm verify`; run `pnpm audit:dependencies` and `pnpm secrets:check --history` for the full local equivalent of the hosted security gate.
 4. Complete the pull-request template, including gates that remain closed.
 5. Keep restricted security, privacy, incident, approval, credential, and personal-data evidence outside the repository.
 

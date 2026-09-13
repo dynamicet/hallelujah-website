@@ -8,7 +8,7 @@ This repository contains the clean, controlled implementation workspace for the 
 | --- | --- | --- |
 | `apps/web/` | Minimal Next.js, Payload CMS, and TypeScript production skeleton | Delivery implementation; currently local bootstrap only |
 | `docs/` | Requirements, decisions, UX, design, backlog, validation, and handoff contracts | Project authority; application code must not import it at runtime |
-| `.github/` | Contribution issue and pull-request templates | Delivery workflow support; branch protection remains later work |
+| `.github/` | Pull-request CI plus contribution issue and review templates | CI definition active under `B00-011`; hosted proof and branch protection remain open |
 
 ## Local commands
 
@@ -30,11 +30,14 @@ Run all current checks with:
 ```sh
 pnpm verify
 pnpm rebuild:verify
-node docs/backlog/audit-backlog.mjs
+pnpm audit:dependencies
+pnpm secrets:check --history
 ```
 
 Before container work, run `pnpm toolchain:check:containers`. It also requires Docker 29.8.0 and PostgreSQL client 18.6; a mismatch fails closed. Application development does not require containers at the current bootstrap boundary.
 
 The default application has no CMS admin/API route, public hospital content, external application integration, or personal-data field. Payload configuration is present as the approved platform skeleton only. Later tickets must add database and CMS capabilities behind their own gates.
 
-See [`B00-004`](docs/backlog/b00-004-clean-application-bootstrap.md) for the complete boundary and acceptance contract.
+See [`B00-004`](docs/backlog/b00-004-clean-application-bootstrap.md) for the application boundary and
+[`B00-011`](docs/backlog/b00-011-ci-quality-security.md) for the active CI contract and remaining
+hosted required-check evidence.
