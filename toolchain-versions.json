@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "selectedAt": "2026-09-13",
+  "reviewDue": "2026-10-13",
+  "runtime": {
+    "node": {
+      "version": "24.21.0",
+      "releaseLine": "24",
+      "supportStatus": "Active LTS",
+      "supportUntil": "2028-04-30"
+    },
+    "pnpm": {
+      "version": "10.27.0",
+      "releaseLine": "10"
+    },
+    "docker": {
+      "version": "29.8.0",
+      "releaseLine": "29"
+    }
+  },
+  "application": {
+    "next": "16.3.5",
+    "payload": "3.89.0",
+    "typescript": "5.9.3"
+  },
+  "database": {
+    "postgresql": {
+      "version": "18.6",
+      "releaseLine": "18",
+      "supportUntil": "2030-11-14"
+    }
+  },
+  "images": {
+    "node": "node:24.21.0-bookworm-slim@sha256:2fe369e969550cde8e867afc3fe370b260140cab4a23d467074295b42163d553",
+    "postgresql": "postgres:18.6-bookworm@sha256:1c59e2c3c818eaa0f0628f695b36e7c9e362d6b219b36a54a32df645cbd7e1af"
+  },
+  "securityOverrides": {
+    "@esbuild-kit/core-utils>esbuild": "0.25.12",
+    "dompurify": "3.4.15"
+  }
+}

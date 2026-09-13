@@ -13,3 +13,5 @@ All changes must follow the authority order and scope controls in [the implement
 Do not introduce hospital facts, translations, brand assets, providers, personal-data collection, public routes, legacy WordPress state, or prototype runtime imports without the corresponding approved ticket and decision evidence.
 
 Temporary development routing uses the Delivery and Security roles recorded on the execution board. Named production ownership and acceptance remain mandatory before production approval.
+
+Dependency or toolchain changes must update [`toolchain-versions.json`](toolchain-versions.json), exact manifests, the lockfile, checks, and dated evidence together. Run `pnpm rebuild:verify` after any such change. The policy review date fails closed when overdue; do not bypass it by weakening the checker.

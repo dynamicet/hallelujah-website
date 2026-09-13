@@ -40,7 +40,6 @@ Epic 0 must turn the approved direction into tested, reviewable infrastructure:
 
 The following are implementation selections, not permission to abandon the approved boundaries:
 
-- exact supported software versions and package manager;
 - VPS provider, region/data location, operating system, capacity, and staging placement;
 - media/object storage, email delivery, backup destination, and recovery targets;
 - monitoring products and retention periods;
@@ -49,6 +48,8 @@ The following are implementation selections, not permission to abandon the appro
 - when appointment storage should move to a physically separate host or managed database.
 
 Each selection needs an owner, rationale, cost/security/privacy assessment where applicable, test evidence, and rollback or migration path in its Epic 0 ticket.
+
+`B00-005` closed the controlled-development software-version selection on 13 September 2026. The exact Node.js, pnpm, Next.js, Payload, TypeScript, PostgreSQL, Docker, and base-image pins, support dates, security overrides, enforcement, and update policy are recorded in the [pinned toolchain brief](../backlog/b00-005-pinned-toolchain.md). Named production acceptance, a conforming Docker host, remote required-check evidence, and all provider/environment decisions remain open under their own tickets.
 
 `B00-007` now has a [partial infrastructure selection](../backlog/b00-007-infrastructure-selection.md): Linux is selected at the operating-system-family level; a local/Ethiopia-region VPS is preferred but not selected; Cloudflare is selected for planning subject to `SEC-02`; prototype media uses persistent local storage with metadata in PostgreSQL; MinIO is a conditional production candidate; and provider, capacity, staging, email, off-host backup, and RPO/RTO decisions remain open pending prototype evidence.
 

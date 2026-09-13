@@ -12,7 +12,7 @@ This repository contains the clean, controlled implementation workspace for the 
 
 ## Local commands
 
-Prerequisites: Node.js 24.21.0 LTS and pnpm 10. `.nvmrc` and the package manifests pin the tested Node.js release; pnpm rejects an unsupported Node.js runtime. The remaining toolchain and update policy are finalized by `B00-005`.
+Prerequisites: Node.js 24.21.0 LTS and pnpm 10.27.0. The canonical [`toolchain-versions.json`](toolchain-versions.json), `.nvmrc`, package manifests, lockfile, and automated policy check pin and enforce the tested baseline. See [`B00-005`](docs/backlog/b00-005-pinned-toolchain.md) for compatibility, support, security, container-image, and update policy.
 
 ```sh
 pnpm install --frozen-lockfile
@@ -25,8 +25,11 @@ Run all current checks with:
 
 ```sh
 pnpm verify
+pnpm rebuild:verify
 node docs/backlog/audit-backlog.mjs
 ```
+
+Before container work, run `pnpm toolchain:check:containers`. It also requires Docker 29.8.0 and PostgreSQL client 18.6; a mismatch fails closed. Application development does not require containers at the current bootstrap boundary.
 
 The default application has no CMS admin/API route, public hospital content, external application integration, or personal-data field. Payload configuration is present as the approved platform skeleton only. Later tickets must add database and CMS capabilities behind their own gates.
 
