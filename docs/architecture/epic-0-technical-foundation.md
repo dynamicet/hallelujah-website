@@ -51,6 +51,14 @@ Each selection needs an owner, rationale, cost/security/privacy assessment where
 
 `B00-005` closed the controlled-development software-version selection on 13 September 2026. The exact Node.js, pnpm, Next.js, Payload, TypeScript, PostgreSQL, Docker, and base-image pins, support dates, security overrides, enforcement, and update policy are recorded in the [pinned toolchain brief](../backlog/b00-005-pinned-toolchain.md). Named production acceptance, a conforming Docker host, remote required-check evidence, and all provider/environment decisions remain open under their own tickets.
 
+`B00-006` closed the controlled-development environment-contract implementation on 13 September
+2026. Its [execution brief](../backlog/b00-006-environment-configuration.md) and
+[environment/secrets runbook](environment-and-secrets.md) define distinct local, staging, and
+production credential scopes, redacted fail-closed validation, disabled collection/provider gates,
+names-only source configuration, rotation, rollback, and emergency access. No real staging or
+production mechanism, value, provider, database, deployment, or production acceptance is selected
+or authorized by that completion.
+
 `B00-007` now has a [partial infrastructure selection](../backlog/b00-007-infrastructure-selection.md): Linux is selected at the operating-system-family level; a local/Ethiopia-region VPS is preferred but not selected; Cloudflare is selected for planning subject to `SEC-02`; prototype media uses persistent local storage with metadata in PostgreSQL; MinIO is a conditional production candidate; and provider, capacity, staging, email, off-host backup, and RPO/RTO decisions remain open pending prototype evidence.
 
 ## Recorded evidence

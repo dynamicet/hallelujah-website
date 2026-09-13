@@ -16,10 +16,14 @@ Prerequisites: Node.js 24.21.0 LTS and pnpm 10.27.0. The canonical [`toolchain-v
 
 ```sh
 pnpm install --frozen-lockfile
+pnpm --dir apps/web config:check
 pnpm dev
 ```
 
 The local bootstrap surface is available at `http://localhost:3000`; its health endpoint is `http://localhost:3000/health`.
+Configure an ignored `apps/web/.env.local` from the names-only example before starting the
+application. Environment-scoped credentials, disabled data/provider gates, and operational
+handling are defined in the [environment and secrets runbook](docs/architecture/environment-and-secrets.md).
 
 Run all current checks with:
 

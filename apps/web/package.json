@@ -9,10 +9,11 @@
   },
   "scripts": {
     "build": "NEXT_TELEMETRY_DISABLED=1 next build",
-    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
+    "config:check": "node --env-file-if-exists=.env.local scripts/check-runtime-environment.mjs",
+    "dev": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next dev",
     "lint": "eslint . --max-warnings=0",
-    "start": "NEXT_TELEMETRY_DISABLED=1 next start",
-    "test": "node scripts/check-boundaries.mjs",
+    "start": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next start",
+    "test": "node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

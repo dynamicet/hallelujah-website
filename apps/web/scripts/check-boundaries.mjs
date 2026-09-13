@@ -34,13 +34,48 @@ const failures = []
 
 for (const file of files) {
   const contents = await readFile(file, 'utf8')
+  const relativeFile = path.relative(applicationRoot, file)
 
   for (const rule of prohibited) {
     if (rule.pattern.test(contents)) {
-      failures.push(`${path.relative(applicationRoot, file)}: ${rule.label}`)
+      failures.push(`${relativeFile}: ${rule.label}`)
     }
   }
+
+  const environmentReaders = new Set([
+    path.join('src', 'instrumentation.ts'),
+    path.join('src', 'server', 'environment.ts'),
+  ])
+  if (!environmentReaders.has(relativeFile) && /process\.env/u.test(contents)) {
+    failures.push(`${relativeFile}: environment access must use the server environment contract`)
+  }
 }
+
+const exampleEnvironment = await readFile(path.join(applicationRoot, '.env.example'), 'utf8')
+const exampleAssignments = exampleEnvironment
+  .split(/\r?\n/u)
+  .filter((line) => line.trim() && !line.trimStart().startsWith('#'))
+
+for (const assignment of exampleAssignments) {
+  if (!/^[A-Z][A-Z0-9_]*=$/u.test(assignment)) {
+    failures.push('.env.example: assignments must contain names only')
+  }
+}
+
+const requiredEnvironmentNames = [
+  'APP_ENVIRONMENT',
+  'PERSONAL_DATA_COLLECTION',
+  'EXTERNAL_SERVICES',
+  'LOCAL_DATABASE_URL',
+  'LOCAL_PAYLOAD_SECRET',
+  'STAGING_DATABASE_URL',
+  'STAGING_PAYLOAD_SECRET',
+  'PRODUCTION_DATABASE_URL',
+  'PRODUCTION_PAYLOAD_SECRET',
+]
+
+const exampleNames = exampleAssignments.map((assignment) => assignment.slice(0, -1))
+assertSameMembers(exampleNames, requiredEnvironmentNames, '.env.example')
 
 if (failures.length > 0) {
   console.error('Bootstrap boundary check failed:')
@@ -48,4 +83,13 @@ if (failures.length > 0) {
   process.exitCode = 1
 } else {
   console.log(`Bootstrap boundary check passed (${files.length} source/config files inspected).`)
+}
+
+function assertSameMembers(actual, expected, label) {
+  const actualSorted = [...actual].sort()
+  const expectedSorted = [...expected].sort()
+
+  if (JSON.stringify(actualSorted) !== JSON.stringify(expectedSorted)) {
+    failures.push(`${label}: environment names do not match the server contract`)
+  }
 }
