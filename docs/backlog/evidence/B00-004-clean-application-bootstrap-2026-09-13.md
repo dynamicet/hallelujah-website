@@ -13,7 +13,7 @@
 - Preparation commit: `19fea5e` (`docs: prepare B00-004 clean bootstrap`).
 - Implementation artifact: the commit containing this evidence record, built from the working tree based on `19fea5e` before commit.
 - Controlled workspace: Linux `x86_64`, Node.js `v25.2.1`, pnpm `10.27.0`.
-- Declared runtime contract: Node.js `>=20.9.0 <26`, pnpm `>=10 <11`; `.nvmrc` selects the Node.js 20 line. Final support/update rationale remains `B00-005`.
+- Runtime at initial execution: Node.js `v25.2.1`, subsequently identified as EOL by the `B00-005` follow-up. The repository now pins Node.js `24.21.0` LTS in both package manifests and `.nvmrc`; the original result remains recorded here rather than rewritten as if it ran on Node.js 24. Final support/update policy remains `B00-005`.
 - Clean reconstruction: an isolated temporary copy containing no `.git`, `node_modules`, or `.next` from the controlled workspace.
 
 ## Executed evidence
@@ -47,6 +47,16 @@
 The application-only clean copy omitted the authorized sibling `../resources` and `../audit` directories. Its backlog audit therefore reported 22 missing pre-existing cross-repository links, while the same audit passed 10/10 in the controlled workspace where those directories exist. This did not affect the clean dependency installation, source boundary test, or production build. Repository-wide documentation portability is not claimed by this application reconstruction and should be reconsidered if the sibling evidence layout changes.
 
 No approved exception was used. The only command corrections were the named ESLint export, explicit pnpm-workspace Turbopack root, and selection of Next.js's in-process TypeScript validation. All affected checks passed on retest.
+
+## Supported-runtime follow-up
+
+The installation was rechecked on 13 September 2026 after the original Node.js 25 runtime was found to be EOL. Node.js `24.21.0` is an LTS release; its official Linux `x64` archive was verified against the published SHA-256 checksum before use. Both package manifests and `.nvmrc` now require that exact release, and the workspace enables pnpm's strict engine enforcement.
+
+Under Node.js `24.21.0`, a forced frozen-lockfile reinstall completed all dependency lifecycle scripts, followed by a successful offline frozen-lockfile install with strict peer-dependency enforcement. `pnpm verify` passed lint, strict type checking, the source-boundary test, and the production build. The production server then returned HTTP `200` for both `/` and `/health`, with the expected security and cache-control headers. The workspace package graph was present, no broken dependency symlinks were found, and all three installed esbuild executables returned their declared versions (`0.18.20`, `0.25.12`, and `0.28.2`).
+
+`pnpm store status` continues to label those three esbuild packages as modified after installation. This matches pnpm's documented issue where esbuild's post-install process changes its store-backed executable; the successful clean reinstall, direct executable checks, and full verification do not indicate a broken install. This signal must therefore be interpreted as an esbuild-specific pnpm store-status limitation, not silently discarded for other packages.
+
+The production dependency audit reported no high or critical vulnerabilities. It did report three moderate and two low transitive advisories: an older esbuild used through Drizzle tooling and DOMPurify used through the currently unmounted Payload/Monaco administration UI. Those paths are not exposed by this bootstrap, but the advisories remain open for supported dependency selection and security disposition under `B00-005`; this follow-up does not claim a zero-advisory dependency graph.
 
 ## Authority boundary
 

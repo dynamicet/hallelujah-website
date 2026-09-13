@@ -12,7 +12,7 @@ This repository contains the clean, controlled implementation workspace for the 
 
 ## Local commands
 
-Prerequisites: Node.js 20.9 or later (below 26) and pnpm 10. The exact supported toolchain and update policy are finalized by `B00-005`.
+Prerequisites: Node.js 24.21.0 LTS and pnpm 10. `.nvmrc` and the package manifests pin the tested Node.js release; pnpm rejects an unsupported Node.js runtime. The remaining toolchain and update policy are finalized by `B00-005`.
 
 ```sh
 pnpm install --frozen-lockfile
