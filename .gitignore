@@ -5,10 +5,13 @@
 
 # Dependencies and generated build output
 node_modules/
+.next/
+.pnpm-store/
 vendor/
 dist/
 build/
 coverage/
+*.tsbuildinfo
 
 # Runtime and temporary files
 *.log
@@ -17,6 +20,13 @@ coverage/
 *.swo
 .cache/
 tmp/
+
+# Local databases and generated Payload artifacts
+*.db
+*.db-shm
+*.db-wal
+src/payload-types.ts
+src/payload-generated-schema.ts
 
 # Editor and operating-system metadata
 .idea/

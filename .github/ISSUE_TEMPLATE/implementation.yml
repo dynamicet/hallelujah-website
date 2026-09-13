@@ -1,0 +1,47 @@
+name: Implementation ticket
+description: Extract a controlled delivery ticket from the approved backlog.
+title: "[BXX-XXX] "
+labels:
+  - delivery
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Do not use this form to approve publication, personal-data collection,
+        providers, production, or hospital facts.
+  - type: input
+    id: outcome
+    attributes:
+      label: Outcome
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Allowed repository scope
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Authoritative sources and gates
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria and states
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Exact verification commands and evidence destination
+    validations:
+      required: true
+  - type: textarea
+    id: exclusions
+    attributes:
+      label: Explicit exclusions
+    validations:
+      required: true

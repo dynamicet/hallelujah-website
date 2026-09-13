@@ -85,7 +85,7 @@ Allowed work is documentation and isolated, provider-neutral local implementatio
 | `DEP-002` | Evidence handling depends on `B00-015` / `DEL-01` | Deferred production selection; working baseline active | QA + Security | Before restricted evidence / production | Sanitized evidence only; restricted artifacts remain outside repository or are not created |
 | `DEP-003` | `B00-004` depends on `B00-002` / `SEC-01` trusted source | Satisfied only for isolated local clean rebuild | Delivery + Security | Before `B00-004`; reopen before production | Import no legacy executable/configuration state; production remains blocked |
 | `DEP-004` | Any external request depends on `B00-014` / `SEC-02` | Deferred; default-deny baseline active | Privacy + Security | Before any provider activation | Local/first-party behavior only; zero browser, server, build, or CI provider requests |
-| `DEP-005` | `B00-005` pinned toolchain depends on the `B00-004` repository skeleton | Waiting | Delivery | `M0`/`M1` | Complete clean bootstrap first; do not pin an invented application shape |
+| `DEP-005` | `B00-005` pinned toolchain depends on the `B00-004` repository skeleton | Satisfied for controlled development | Delivery | `M0`/`M1` | Clean bootstrap completed; production support/security acceptance remains within `B00-005` and deferred owner gates |
 | `DEP-006` | `B00-006` environment contract depends on `B00-004` plus `DEP-002` | Waiting | DevOps + Security | `M0`/`M1` | Define names only and fail closed; no real secrets or production data |
 | `DEP-007` | `B00-008`–`B00-010` database/backup controls depend on `B00-006`, provider decision, and appointment gates | Blocked | Backend + DevOps + Security | Before `M5` collection | Use no real appointment data; do not provision production under deferred `B00-007` |
 | `DEP-008` | `B00-011`–`B00-013` CI, deployment, and observability depend on preceding M0 controls | Blocked | Delivery + DevOps + QA/Security | `M0`/`M1` | Local sanitized checks may be designed; no provider integration or production claim |
@@ -141,6 +141,7 @@ Before an exception can be active, its row must record: affected requirement/dec
 | `EVD-005` | Benchmark disposition approval | Product + Executive | Sanitized: [`B00-017` record](evidence/B00-017-benchmark-disposition-2026-09-13.md) | Done; reopen only on disposition change trigger |
 | `EVD-006` | `B00-003` register implementation and integrity result | Delivery + QA | Sanitized: [`B00-003` completion record](evidence/B00-003-project-control-registers-2026-09-13.md) | Passed for controlled development; production acceptance deferred |
 | `EVD-007` | Structural backlog audit | Delivery + QA | Sanitized machine output from `node docs/backlog/audit-backlog.mjs`; summary recorded in `EVD-006` | Passed 10/10 on 13 September 2026; rerun on backlog/control change |
+| `EVD-008` | `B00-004` clean local application bootstrap | Delivery + Security | Sanitized: [`B00-004` completion record](evidence/B00-004-clean-application-bootstrap-2026-09-13.md) | Passed for controlled local development on 13 September 2026; production acceptance deferred |
 
 Each future evidence item must record the fields in the [evidence record format](../visual-design/handoff/accessibility-and-validation-checklist.md#evidence-record-format). An evidence link establishes traceability, not stakeholder approval.
 

@@ -1,0 +1,19 @@
+{
+  "name": "hallelujah-hospital-website",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.27.0",
+  "engines": {
+    "node": ">=20.9.0 <26",
+    "pnpm": ">=10 <11"
+  },
+  "scripts": {
+    "build": "pnpm --dir apps/web build",
+    "dev": "pnpm --dir apps/web dev",
+    "lint": "pnpm --dir apps/web lint",
+    "start": "pnpm --dir apps/web start",
+    "test": "pnpm --dir apps/web test",
+    "typecheck": "pnpm --dir apps/web typecheck",
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+  }
+}

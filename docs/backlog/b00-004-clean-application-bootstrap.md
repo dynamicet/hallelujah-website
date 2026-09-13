@@ -1,7 +1,7 @@
 # `B00-004` Clean Application Bootstrap
 
-**Preparation state:** Proposed — execution brief prepared 13 September 2026, Africa/Addis_Ababa  
-**Execution authority:** Not yet granted; named responsible and acceptance people plus the exact package-manager command are required before promotion to `Ready`  
+**Preparation state:** Done for controlled local development on 13 September 2026, Africa/Addis_Ababa
+**Execution authority:** Client workspace identity `befikadusata`; Codex acted as the scoped implementation agent, while named production responsibility and acceptance remain deferred
 **Publication, production, personal-data collection, provider activation, legacy migration, and DNS authority:** Not granted
 
 | Field | Value |
@@ -10,9 +10,9 @@
 | Lane | `DELIVERY` |
 | Priority | `P0` |
 | Phase / milestone | Phase 0 / `M0` |
-| Status | `Proposed` |
-| Responsible owner | Pending named person — Delivery Lead role |
-| Acceptance owner | Pending named person — Security role |
+| Status | `Done` for controlled local development; production acceptance deferred |
+| Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Delivery role |
+| Acceptance owner | Client workspace identity `befikadusata` at the temporary controlled-development boundary; named Security acceptance remains required before production |
 | Target environment | `T0` isolated local checkout; clean `T1` CI only after its execution path is approved |
 | Routes / sections | No public route or page slice is authorized; bootstrap health/startup surface only |
 | Requirements | `S-001`; repository-level support for `G-003`, `G-005`–`G-013` is prepared but not claimed complete |
@@ -25,18 +25,19 @@
 
 Create the smallest clean production-application skeleton for the approved Next.js, Payload CMS, and TypeScript platform while retaining this documentation as the authority. A fresh isolated checkout must be able to install, build, and start without importing executable or configuration state from the legacy WordPress system, enabling an external provider, accepting personal data, or shipping prototype fixtures.
 
-## Readiness blockers
+## Execution authorization and remaining owner gate
 
-The following fields must be resolved in one dated execution-board update before this ticket may move to `Ready` or application files may be generated:
+The client directed the prepared brief to be committed and execution to proceed on 13 September 2026. This dated instruction authorizes only the `T0` local clean-bootstrap scope and records the authenticated workspace identity instead of inventing a personal name. The following fields still return before production acceptance:
 
 1. Record the full name and confirmed authority of the responsible Delivery person.
 2. Record the full name and confirmed authority of the accepting Security person.
-3. Record the exact bootstrap package-manager command. The initial choice may be made for bootstrapping, but version pinning, compatibility/security rationale, drift enforcement, and update policy remain `B00-005` scope.
-4. Confirm the allowed application layout and exact generated-file boundary in the AI-assisted coding brief below.
+3. Complete `B00-005` version compatibility/security rationale, clean-install reproduction, drift enforcement, and update policy.
+
+The authorized layout is `apps/web/` with root pnpm workspace/command manifests and repository contribution metadata. The command set is `pnpm install --frozen-lockfile`, `pnpm dev`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm build`, `pnpm start`, `pnpm verify`, and `node docs/backlog/audit-backlog.mjs`.
 
 ## Scope
 
-Once promoted to `Ready`, this ticket may change only:
+The client-authorized execution changed only:
 
 - root application and workspace manifests, lockfile, supported-runtime declaration, ignore rules, and contributor-facing repository metadata;
 - a bounded production application directory containing the minimal Next.js, Payload CMS, and TypeScript skeleton;
@@ -84,47 +85,47 @@ If implementation requires an unapproved package beyond the minimal Next.js/Payl
 
 Page and journey states are outside this bootstrap ticket. The following repository/runtime states apply:
 
-- [ ] Clean install from a fresh isolated checkout
-- [ ] Successful initial build
-- [ ] Successful local startup with empty or synthetic local state
-- [ ] Missing required local configuration fails closed
-- [ ] Optional/unapproved provider configuration is absent and creates zero requests
-- [ ] No JavaScript does not expose invented public content or a false readiness claim
-- [ ] Stop/restart leaves the minimal local environment recoverable
+- [x] Clean install from a fresh isolated application copy
+- [x] Successful initial build
+- [x] Successful local startup with empty state
+- [x] Missing application/provider configuration preserves the bounded bootstrap without connecting or collecting
+- [x] Optional/unapproved provider configuration is absent and creates zero runtime requests
+- [x] No JavaScript does not expose invented public content or a false readiness claim
+- [x] Start/stop leaves the minimal local environment recoverable
 
 ## Quality and security checks
 
-- [ ] TypeScript strictness is enabled without suppressing bootstrap errors.
-- [ ] Production source has no dependency or import path into prototype studies.
-- [ ] Lockfile is committed; deeper version policy and drift enforcement remain `B00-005`.
-- [ ] Example configuration contains names and safe local defaults only—no secrets or production values.
-- [ ] Dependency install/build/start completes without contacting application-level third-party services; package-registry access during dependency installation is recorded separately and is not application runtime authority.
-- [ ] Secret and sensitive-fixture scan passes on the changed source and sanitized output.
-- [ ] Initial production build output is inspected for prototype fixtures, remote origins, source maps containing restricted values, and accidental environment disclosure.
-- [ ] `docs/` remains intact and local Markdown links pass the backlog audit.
+- [x] TypeScript strictness is enabled without suppressing bootstrap errors.
+- [x] Production source has no dependency or import path into prototype studies.
+- [x] Lockfile is committed; deeper version policy and drift enforcement remain `B00-005`.
+- [x] Example configuration contains names and safe local defaults only—no secrets or production values.
+- [x] Dependency install/build/start completes without contacting application-level third-party services; package-registry access during dependency installation is recorded separately and is not application runtime authority.
+- [x] Secret and sensitive-fixture boundary scan passes on the changed source and sanitized output.
+- [x] Initial production build output is inspected for prototype fixtures, remote origins, restricted values, and accidental environment disclosure.
+- [x] `docs/` remains intact and local Markdown links pass the backlog audit in the controlled workspace.
 
 ## Verification plan
 
-The final command strings are a readiness field, not an implementation-time invention. Replace each `<package-manager>` placeholder in the same change that promotes the ticket to `Ready`.
+The client-directed execution records pnpm 10 and the following exact command interface. `B00-005` remains responsible for the final supported-version rationale and drift policy.
 
 | Method | Exact command/session before `Ready` | Expected artifact | Evidence location |
 | --- | --- | --- | --- |
 | Backlog integrity | `node docs/backlog/audit-backlog.mjs` | All assertions pass | Sanitized terminal result in the `B00-004` completion record |
-| Clean dependency install | `<package-manager> clean-install-command` | Successful install from committed lockfile | Sanitized `T0`/`T1` log or summary |
-| Static/lint/type | `<package-manager> lint-command` and `<package-manager> typecheck-command` | Zero errors | Sanitized `T0`/`T1` summary |
-| Production build | `<package-manager> build-command` | Successful production build | Sanitized `T0`/`T1` summary |
-| Local startup | `<package-manager> start-command` plus documented local service command(s) | Healthy minimal bootstrap surface | Sanitized manual session record |
+| Clean dependency install | `pnpm install --frozen-lockfile` | Successful install from committed lockfile | Sanitized `T0`/`T1` log or summary |
+| Static/lint/type | `pnpm lint` and `pnpm typecheck` | Zero errors | Sanitized `T0`/`T1` summary |
+| Production build | `pnpm build` | Successful production build | Sanitized `T0`/`T1` summary |
+| Local startup | `pnpm dev` for development; `pnpm start` after `pnpm build` | Healthy minimal bootstrap surface and `/health` response | Sanitized manual session record |
 | Boundary scan | Repository import, fixture, remote-origin, secret, and sensitive-value checks defined during implementation | No prohibited material or unapproved runtime request | Sanitized `B00-004` completion record |
 | Browser/accessibility | Minimal semantic smoke only; route-level conformance is not claimed | No serious/critical automated finding on the bootstrap surface | Sanitized `T0`/`T1` summary |
 
 ## AI-assisted coding brief
 
 ```text
-Implement B00-004 only after the execution board records it as Ready.
+Implement B00-004 only within the client-directed In progress scope recorded on the execution board.
 
 Allowed repository scope:
 - Root application/workspace manifests, lockfile, runtime declaration, ignore rules, and contributor metadata explicitly listed in the Ready promotion.
-- The approved minimal production application directory.
+- apps/web/ as the approved minimal production application directory.
 - Local-only service orchestration required by the minimal bootstrap.
 - Repository ownership, contribution, issue, and pull-request guidance.
 - docs/backlog/b00-004-clean-application-bootstrap.md
@@ -147,7 +148,12 @@ Required behavior:
 
 Run and report:
 - node docs/backlog/audit-backlog.mjs
-- [replace with exact clean-install, lint, typecheck, build, start, boundary-scan, and smoke commands before Ready]
+- pnpm install --frozen-lockfile
+- pnpm lint
+- pnpm typecheck
+- pnpm test
+- pnpm build
+- pnpm start
 
 Evidence to produce:
 - Sanitized non-sensitive command summaries and a completion record under docs/backlog/evidence/.
@@ -177,13 +183,18 @@ When implementation finishes, add `docs/backlog/evidence/B00-004-clean-applicati
 
 | Field | Required value before `Ready` |
 | --- | --- |
-| Responsible person | Pending |
-| Acceptance person | Pending |
-| Authority confirmation | Pending |
-| Promotion date / timezone | Pending |
-| Exact allowed application layout | Pending |
-| Exact command set | Pending |
+| Responsible person | Client workspace identity `befikadusata`, directing Codex as scoped implementer; full production name pending |
+| Acceptance person | Client workspace identity `befikadusata` for controlled development; named Security production acceptance pending |
+| Authority confirmation | Client instruction: “commit and proceed” in the project workspace |
+| Promotion date / timezone | 13 September 2026, Africa/Addis_Ababa |
+| Exact allowed application layout | `apps/web/`; root pnpm manifests; root repository/contribution metadata; scoped backlog/evidence updates |
+| Exact command set | `pnpm install --frozen-lockfile`; `pnpm dev`; `pnpm lint`; `pnpm typecheck`; `pnpm test`; `pnpm build`; `pnpm start`; `pnpm verify`; backlog audit |
 | Dependency evidence | `DEP-003` isolated clean-rebuild boundary plus working `B00-016` matrix |
 | Target environment | `T0` isolated local; approved clean `T1` CI only |
 | Issue / evidence link | This brief; completion record added after implementation |
 
+## Completion
+
+The clean local application skeleton passed frozen-lockfile reconstruction, lint, strict type-checking, boundary checks, production build, startup, HTTP smoke checks, security-header inspection, and the controlled-workspace backlog audit. See the [13 September 2026 completion record](evidence/B00-004-clean-application-bootstrap-2026-09-13.md).
+
+`B00-005` is now unblocked for the pinned-toolchain compatibility, security, drift, and update-policy work. This completion does not cross any production or publication boundary.
