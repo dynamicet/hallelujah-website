@@ -18,6 +18,8 @@
     "ci:controls:test": "node scripts/test-ci-controls.mjs",
     "dev": "pnpm --dir apps/web dev",
     "format:check": "node scripts/check-format.mjs",
+    "foundations:check": "pnpm --dir apps/web foundations:check",
+    "foundations:smoke": "node scripts/check-rendered-foundations.mjs",
     "introduction:check": "node scripts/check-introduction-gates.mjs",
     "lint": "node apps/web/node_modules/eslint/bin/eslint.js apps/web scripts docs/backlog/audit-backlog.mjs eslint.config.mjs --max-warnings=0",
     "links:check": "node scripts/check-local-links.mjs",
@@ -31,7 +33,7 @@
     "tokens:check": "pnpm --dir apps/web tokens:check",
     "tokens:generate": "pnpm --dir apps/web tokens:generate",
     "typecheck": "pnpm --dir apps/web typecheck",
-    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm brand:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke"
+    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm brand:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke && pnpm foundations:smoke"
   },
   "pnpm": {
     "overrides": {

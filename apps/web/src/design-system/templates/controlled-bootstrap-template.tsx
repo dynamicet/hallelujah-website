@@ -1,9 +1,12 @@
+import type { ReactNode } from 'react'
+
 import { StatusSummary, type StatusSummaryItem } from '../components'
 import { ContentSurface, PageFrame } from '../primitives'
 
 import styles from './controlled-bootstrap-template.module.css'
 
 export interface ControlledBootstrapTemplateProps {
+  readonly children?: ReactNode
   readonly description: string
   readonly eyebrow: string
   readonly statuses: readonly StatusSummaryItem[]
@@ -11,6 +14,7 @@ export interface ControlledBootstrapTemplateProps {
 }
 
 export function ControlledBootstrapTemplate({
+  children,
   description,
   eyebrow,
   statuses,
@@ -31,6 +35,7 @@ export function ControlledBootstrapTemplate({
             <div className={styles.statusSummary}>
               <StatusSummary items={statuses} />
             </div>
+            {children}
           </ContentSurface>
         </div>
       </div>

@@ -1,6 +1,6 @@
 # Visual Foundations
 
-**Status:** Brand values approved for project use by `B01-002`; responsive implementation and production validation remain required
+**Status:** Brand values approved by `B01-002`; `B01-004` local foundation implementation and rendered smoke pass, hosted and production validation remain required
 **Requirements:** G-003–G-006, G-008–G-012, G-015, G-016, S-006–S-008, H-002, D-006  
 **Benchmark basis:** Task-first hierarchy, restrained trust, bilingual boundaries, low-bandwidth access, and evidence-gated imagery/claims from `BM-01`, `BM-09`, `BM-10`, and `BM-12` in the [benchmark traceability register](../benchmarks/benchmark-traceability.md)
 
@@ -238,8 +238,8 @@ Prefer borders and surface contrast over shadows. Do not use shadows to make non
 - [x] Project authority has approved source-traceable logo use, palette roles, and type direction under `B01-002`.
 - [ ] Normal text, large text, UI boundaries, icons, and focus indicators pass contrast in every state.
 - [ ] English and Amharic samples have comparable hierarchy without clipping or truncation.
-- [ ] Layout passes at 320 px, 360 px, 200% zoom, 400% zoom, and long-content fixtures.
-- [ ] Controls measure at least 44 × 44 CSS px with usable separation.
-- [ ] Essential content works without images, custom fonts, or non-essential JavaScript.
+- [x] Local controlled fixture passes at 320 px, 360 px, 200%/400% viewport equivalents, 200% enlarged text, and long content under `B01-004`; final physical-device evidence remains a production gate.
+- [x] The local representative control measures at least 44 × 44 CSS px; component-wide evidence remains under `B01-005`–`B01-010`.
+- [x] The controlled fixture keeps essential content without images, custom fonts, or non-essential JavaScript; production asset ingestion remains under `B02-011`.
 - [ ] Photography has source, consent/rights, owner, crop variants, and alt-text decision.
-- [ ] No unapproved visual treatment presents a clinical or operational claim.
+- [x] The implemented controlled fixture contains no hospital clinical or operational claim.
