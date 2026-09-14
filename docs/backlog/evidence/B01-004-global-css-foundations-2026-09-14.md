@@ -2,7 +2,7 @@
 
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
-**Result:** Local `T0` passed; hosted `T1` pending GitHub authentication
+**Result:** Local `T0` passed and branch published; pull-request-triggered hosted `T1` pending
 
 ## Evidence summary
 
@@ -52,8 +52,8 @@ with zero moderate, high, or critical known vulnerabilities.
 
 - The screenshots contain only controlled-development fixture text and no personal, clinical,
   operational, credential, or restricted evidence.
-- The `gh` client reported an invalid configured credential, so no issue, push, pull request, or
-  hosted current-head run is claimed in this record.
+- Git credentials published `b01-004-global-css-foundations`; the `gh` API credential remains
+  invalid, so no issue, pull request, or hosted current-head run is claimed in this record.
 - The local browser is Chromium 152 from the installed Snap payload. This is implementation smoke,
   not the final physical-device/browser matrix required for production acceptance.
 - Approved Noto and logo binaries remain outside the repository until verified ingestion under
