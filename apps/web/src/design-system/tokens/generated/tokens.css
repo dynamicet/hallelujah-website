@@ -67,6 +67,7 @@
   --primitive-size-wide: 80rem;
   --primitive-size-form: 40rem;
   --primitive-size-touch: 2.75rem;
+  --primitive-size-icon: 1.5rem;
   --primitive-size-bootstrap: 46rem;
   --primitive-radius-control: 0.5rem;
   --primitive-radius-card: 0.75rem;
@@ -115,6 +116,8 @@
   --semantic-color-action-primary-hover: var(--primitive-color-teal-800);
   --semantic-color-action-primary-active: var(--primitive-color-teal-900);
   --semantic-color-action-emergency: var(--primitive-color-red-700);
+  --semantic-color-action-emergency-hover: var(--primitive-color-red-800);
+  --semantic-color-action-emergency-active: var(--primitive-color-red-800);
   --semantic-color-action-on-solid: var(--primitive-color-white);
   --semantic-color-focus: var(--primitive-color-blue-700);
   --semantic-font-family-ui: var(--primitive-font-family-latin);
@@ -155,6 +158,7 @@
   --semantic-size-wide: var(--primitive-size-wide);
   --semantic-size-form: var(--primitive-size-form);
   --semantic-size-touch: var(--primitive-size-touch);
+  --semantic-size-icon: var(--primitive-size-icon);
   --semantic-size-bootstrap: var(--primitive-size-bootstrap);
   --semantic-radius-control: var(--primitive-radius-control);
   --semantic-radius-card: var(--primitive-radius-card);
@@ -182,6 +186,43 @@
 
 /* Component tokens */
 :root {
+  --component-action-target-minimum: var(--semantic-size-touch);
+  --component-action-icon-size: var(--semantic-size-icon);
+  --component-action-content-gap: var(--semantic-space-compact);
+  --component-action-group-gap: var(--semantic-space-regular);
+  --component-action-padding-block: var(--semantic-space-compact);
+  --component-action-padding-inline: var(--semantic-space-page);
+  --component-action-radius: var(--semantic-radius-control);
+  --component-action-border-width: var(--semantic-border-emphasis);
+  --component-action-font-weight: var(--semantic-font-weight-emphasis);
+  --component-action-max-width: var(--semantic-size-full);
+  --component-action-reason-max-width: var(--semantic-size-form);
+  --component-action-reason-font-size: var(--semantic-type-small-size);
+  --component-action-reason-line-height: var(--semantic-type-small-line);
+  --component-action-underline-width: var(--semantic-border-default);
+  --component-action-underline-width-hover: var(--semantic-border-emphasis);
+  --component-action-underline-offset: var(--semantic-space-fine);
+  --component-action-feedback-duration: var(--semantic-motion-functional-duration);
+  --component-action-feedback-easing: var(--semantic-motion-functional-easing);
+  --component-action-primary-background: var(--semantic-color-action-primary);
+  --component-action-primary-background-hover: var(--semantic-color-action-primary-hover);
+  --component-action-primary-background-active: var(--semantic-color-action-primary-active);
+  --component-action-primary-foreground: var(--semantic-color-action-on-solid);
+  --component-action-secondary-background: var(--semantic-color-surface-raised);
+  --component-action-secondary-background-hover: var(--semantic-color-surface-subtle);
+  --component-action-secondary-foreground: var(--semantic-color-action-primary);
+  --component-action-secondary-border-color: var(--semantic-color-action-primary);
+  --component-action-tertiary-background: var(--semantic-color-surface-raised);
+  --component-action-tertiary-background-hover: var(--semantic-color-surface-subtle);
+  --component-action-tertiary-foreground: var(--semantic-color-action-primary);
+  --component-action-emergency-background: var(--semantic-color-action-emergency);
+  --component-action-emergency-background-hover: var(--semantic-color-action-emergency-hover);
+  --component-action-emergency-background-active: var(--semantic-color-action-emergency-active);
+  --component-action-emergency-foreground: var(--semantic-color-action-on-solid);
+  --component-action-emergency-motion-duration: var(--semantic-motion-static-duration);
+  --component-action-disabled-background: var(--semantic-color-surface-subtle);
+  --component-action-disabled-foreground: var(--semantic-color-text-secondary);
+  --component-action-disabled-border-color: var(--semantic-color-border-strong);
   --component-bootstrap-frame-min-height: var(--semantic-size-viewport);
   --component-bootstrap-frame-padding: var(--semantic-space-page);
   --component-bootstrap-surface-background: var(--semantic-color-surface-raised);

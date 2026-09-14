@@ -8,6 +8,8 @@
     "pnpm": "10.27.0"
   },
   "scripts": {
+    "actions:check": "pnpm --dir apps/web actions:check",
+    "actions:smoke": "node scripts/check-rendered-foundations.mjs --capture-prefix b01-005-essential-actions",
     "accessibility:smoke": "node scripts/check-built-accessibility.mjs",
     "audit:dependencies": "node scripts/check-dependency-audit.mjs",
     "backlog:check": "node docs/backlog/audit-backlog.mjs",

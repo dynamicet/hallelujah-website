@@ -1,0 +1,210 @@
+.group {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--component-action-group-gap);
+  min-width: 0;
+}
+
+.controlStack {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--component-action-content-gap);
+  max-inline-size: var(--component-action-max-width);
+  min-width: 0;
+}
+
+.action {
+  align-items: center;
+  appearance: none;
+  border: var(--component-action-border-width) solid transparent;
+  border-radius: var(--component-action-radius);
+  cursor: pointer;
+  display: inline-flex;
+  flex-wrap: wrap;
+  font-weight: var(--component-action-font-weight);
+  gap: var(--component-action-content-gap);
+  justify-content: center;
+  line-height: inherit;
+  max-inline-size: var(--component-action-max-width);
+  min-block-size: var(--component-action-target-minimum);
+  min-inline-size: var(--component-action-target-minimum);
+  overflow-wrap: anywhere;
+  padding: var(--component-action-padding-block) var(--component-action-padding-inline);
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition:
+    background-color var(--component-action-feedback-duration)
+      var(--component-action-feedback-easing),
+    border-color var(--component-action-feedback-duration)
+      var(--component-action-feedback-easing),
+    color var(--component-action-feedback-duration) var(--component-action-feedback-easing);
+}
+
+.action:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+.primary {
+  background: var(--component-action-primary-background);
+  color: var(--component-action-primary-foreground);
+}
+
+.primary:hover {
+  background: var(--component-action-primary-background-hover);
+  color: var(--component-action-primary-foreground);
+}
+
+.primary:active {
+  background: var(--component-action-primary-background-active);
+}
+
+.secondary {
+  background: var(--component-action-secondary-background);
+  border-color: var(--component-action-secondary-border-color);
+  color: var(--component-action-secondary-foreground);
+}
+
+.secondary:hover,
+.secondary:active {
+  background: var(--component-action-secondary-background-hover);
+  color: var(--component-action-secondary-foreground);
+}
+
+.tertiary {
+  background: var(--component-action-tertiary-background);
+  color: var(--component-action-tertiary-foreground);
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--component-action-underline-width);
+  text-underline-offset: var(--component-action-underline-offset);
+}
+
+.tertiary:hover,
+.tertiary:active {
+  background: var(--component-action-tertiary-background-hover);
+  color: var(--component-action-tertiary-foreground);
+  text-decoration-thickness: var(--component-action-underline-width-hover);
+}
+
+.emergency {
+  background: var(--component-action-emergency-background);
+  color: var(--component-action-emergency-foreground);
+  transition-duration: var(--component-action-emergency-motion-duration);
+}
+
+.emergency:hover {
+  background: var(--component-action-emergency-background-hover);
+  color: var(--component-action-emergency-foreground);
+}
+
+.emergency:active {
+  background: var(--component-action-emergency-background-active);
+}
+
+.action:disabled {
+  background: var(--component-action-disabled-background);
+  border-color: var(--component-action-disabled-border-color);
+  color: var(--component-action-disabled-foreground);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.textLink {
+  align-items: center;
+  display: inline-flex;
+  min-block-size: var(--component-action-target-minimum);
+  overflow-wrap: anywhere;
+}
+
+.icon {
+  block-size: var(--component-action-icon-size);
+  flex: 0 0 auto;
+  inline-size: var(--component-action-icon-size);
+}
+
+.actionCopy,
+.callCopy {
+  min-width: 0;
+}
+
+.callCopy {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.purpose,
+.emergencyWord {
+  font-weight: var(--component-action-font-weight);
+}
+
+.number,
+.availability,
+.disabledReason {
+  overflow-wrap: anywhere;
+}
+
+.number {
+  font-variant-numeric: tabular-nums;
+}
+
+.availability,
+.disabledReason {
+  color: var(--component-action-disabled-foreground);
+  font-size: var(--component-action-reason-font-size);
+  line-height: var(--component-action-reason-line-height);
+  margin: 0;
+  max-inline-size: var(--component-action-reason-max-width);
+}
+
+.emergencyWord {
+  border-inline-end: var(--component-action-border-width) solid currentColor;
+  padding-inline-end: var(--component-action-content-gap);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action {
+    transition-duration: var(--component-action-emergency-motion-duration);
+  }
+}
+
+@media (forced-colors: active) {
+  .action {
+    border-color: ButtonText;
+  }
+
+  .primary,
+  .secondary,
+  .tertiary,
+  .emergency {
+    background: ButtonFace;
+    color: ButtonText;
+    forced-color-adjust: auto;
+  }
+
+  .action:disabled {
+    border-style: dashed;
+    color: GrayText;
+  }
+
+  .emergencyWord {
+    border-inline-end-color: currentColor;
+  }
+}
+
+@media print {
+  .action {
+    background: transparent;
+    border-color: CanvasText;
+    color: CanvasText;
+    transition: none;
+  }
+
+  .textLink {
+    color: CanvasText;
+  }
+}

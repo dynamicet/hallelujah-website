@@ -274,6 +274,16 @@ async function validateConsumers(tokens) {
       ),
       requiredPrefix: '--component-',
     },
+    {
+      path: path.join(
+        applicationRoot,
+        'src',
+        'design-system',
+        'components',
+        'essential-actions.module.css',
+      ),
+      requiredPrefix: '--component-',
+    },
   ]
   const available = new Set([...tokens.keys()].map(toCssName))
   const failures = []

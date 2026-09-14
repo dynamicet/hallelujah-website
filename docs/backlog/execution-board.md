@@ -54,6 +54,7 @@ The 13 September deferrals remove `B00-001`, `B00-002`, `B00-007`, `B00-014`, an
 | 2 | `B01-003` | **Done** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and Designer roles / same identity for controlled-development acceptance; named production roles return at their gates | `T0` local and private-repository implementation `T1` pass; provisional canonical source, generated CSS/typed output, drift and policy checks, bootstrap alias migration, documentation, and sanitized evidence only | [Execution brief](b01-003-canonical-design-tokens.md), [evidence](evidence/B01-003-canonical-design-tokens-2026-09-14.md), [issue `#4`](https://github.com/dynamicet/hallelujah-website/issues/4), and [hosted run](https://github.com/dynamicet/hallelujah-website/actions/runs/34818265645) |
 | 3 | `B01-002` | **Done** | Client workspace identity `befikadusata` directing Codex in delegated Brand Strategist, UI/UX Architect, and Marketing roles / same identity for project acceptance; production specialists return at their gates | Project brand guide, fingerprinted public-source logo records, accessible extended palette, Noto Sans/Noto Sans Ethiopic selection and audit, voice, imagery/video and asset lifecycle policy, approved token values, visual and automated evidence | [Execution brief](b01-002-project-brand-system.md) and [evidence](evidence/B01-002-project-brand-system-2026-09-14.md) |
 | 4 | `B01-004` | **Done** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles / same identity for controlled-development acceptance; named production roles return at their gates | `T0` local and hosted implementation `T1` pass for foundation tokens/CSS, controlled fixture, responsive/reflow, enlarged text, focus, reduced-motion, print, forced colors, visual evidence, and static/application gates | [Execution brief](b01-004-global-css-foundations.md), [evidence](evidence/B01-004-global-css-foundations-2026-09-14.md), [issue `#6`](https://github.com/dynamicet/hallelujah-website/issues/6), [pull request `#7`](https://github.com/dynamicet/hallelujah-website/pull/7), and [hosted run](https://github.com/dynamicet/hallelujah-website/actions/runs/34837389038) |
+| 5 | `B01-005` | **In review** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles / same identity for controlled-development acceptance; named production roles return at their gates | `T0` local implementation passes for native action semantics, controlled phone invariant, target/gap geometry, keyboard and moved-touch behavior, Level 0 emergency meaning, modes, and sanitized visual evidence; pull-request review and hosted `T1` pending | [Execution brief](b01-005-essential-actions.md), [local evidence](evidence/B01-005-essential-actions-2026-09-14.md), and [issue `#8`](https://github.com/dynamicet/hallelujah-website/issues/8) |
 
 `B01-001` was promoted Proposed → Ready → In progress → In review → Done for controlled development on 14 September 2026, Africa/Addis_Ababa,
 after the client directed execution of steps 1–4. `B00-004` and `B00-005` are complete, the motion
@@ -85,10 +86,17 @@ fixture, and local static/rendered checks now pass across the required viewport/
 375 px, landscape, enlarged text, reduced motion, print, and forced colors. A first enlarged-text
 run exposed and drove correction of a real 40 px intrinsic-size overflow. Hosted Chrome then exposed
 a separate 16 px status-summary overflow and an Ubuntu runner browser-selection weakness; both were
-corrected with matching static/rendered checks. GitHub issue `#6`, pull request `#7`, and hosted run
-`34837389038` carry the repository review and implementation evidence. The documentation closeout
-head must still pass before merge under the manual current-head control. `B01-005` unlocks after
-pull request `#7` merges.
+corrected with matching static/rendered checks. GitHub issue `#6`, pull request `#7`, hosted run
+`34837389038`, and the final cleanup correction carry the repository review and implementation
+evidence. Pull request `#7` merged as `6162e9c`; that merge unlocked `B01-005`.
+
+`B01-005` was promoted Proposed → Ready → In progress → In review on 14 September 2026 after the
+client directed the next execution and pull request `#7` had merged. The production component API,
+generated action aliases, controlled fixture, static contracts, and local Chromium matrix pass.
+The visible controlled number and `tel:` value derive from one source; real hospital contacts remain
+withheld under `SAFE-01`. Native keyboard activation succeeds and moved touch does not activate.
+Repository review and exact-head hosted `T1` remain before controlled-development closure; named
+operations, clinical, accessibility, language, and release roles return at their production gates.
 
 ### `B00-005` — pinned toolchain
 
