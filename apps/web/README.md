@@ -18,6 +18,11 @@ pnpm dev
 pnpm verify
 ```
 
+The production design-token source is `src/design-system/tokens/tokens.json`. Run
+`pnpm tokens:generate` after an authorized source change and `pnpm tokens:check` to verify generated
+CSS/TypeScript parity and the layer, contrast-metadata, reduced-motion, protected-context, and
+consumer policies. Current values are provisional until the brand and language gates close.
+
 Before `dev` or `start`, provide the required local-only values in an ignored
 `apps/web/.env.local`. The committed `.env.example` intentionally contains names only.
 The runtime rejects missing values, cross-environment credential scopes, a database name

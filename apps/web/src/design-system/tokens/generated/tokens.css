@@ -1,0 +1,165 @@
+/* This file is generated from tokens.json. Run pnpm tokens:generate; do not edit it. */
+
+/* Primitive tokens */
+:root {
+  --primitive-color-white: #ffffff;
+  --primitive-color-mineral-200: #c7dad7;
+  --primitive-color-mineral-600: #516a70;
+  --primitive-color-mineral-900: #17323a;
+  --primitive-color-mineral-025: #f4faf9;
+  --primitive-color-mineral-050: #eef7f6;
+  --primitive-color-teal-700: #006a73;
+  --primitive-color-blue-700: #075ea8;
+  --primitive-color-red-800: #8f1c13;
+  --primitive-font-family-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --primitive-font-weight-regular: 400;
+  --primitive-font-weight-emphasis: 600;
+  --primitive-font-weight-strong: 700;
+  --primitive-type-size-14: 0.875rem;
+  --primitive-type-size-16: 1rem;
+  --primitive-type-size-32: 2rem;
+  --primitive-type-size-56: 3.5rem;
+  --primitive-type-line-tight: 1.05;
+  --primitive-type-line-body: 1.5;
+  --primitive-type-tracking-tight: -0.035em;
+  --primitive-type-tracking-eyebrow: 0.08em;
+  --primitive-space-0: 0;
+  --primitive-space-1: 0.25rem;
+  --primitive-space-2: 0.5rem;
+  --primitive-space-3: 0.75rem;
+  --primitive-space-4: 1rem;
+  --primitive-space-5: 1.25rem;
+  --primitive-space-6: 1.5rem;
+  --primitive-space-8: 2rem;
+  --primitive-space-12: 3rem;
+  --primitive-size-full: 100%;
+  --primitive-size-viewport: 100vh;
+  --primitive-size-reading: 65ch;
+  --primitive-size-bootstrap: 46rem;
+  --primitive-radius-card: 0.75rem;
+  --primitive-border-default: 1px;
+  --primitive-shadow-raised: 0 0.75rem 2rem rgb(23 50 58 / 10%);
+  --primitive-shadow-none: none;
+  --primitive-motion-duration-instant: 0ms;
+  --primitive-motion-duration-feedback: 80ms;
+  --primitive-motion-duration-composed: 300ms;
+  --primitive-motion-duration-cinematic: 480ms;
+  --primitive-motion-duration-immersive: 700ms;
+  --primitive-motion-distance-none: 0;
+  --primitive-motion-distance-micro: 0.25rem;
+  --primitive-motion-distance-composed: 0.75rem;
+  --primitive-motion-distance-cinematic: 1.5rem;
+  --primitive-motion-easing-direct: linear;
+  --primitive-motion-easing-functional: cubic-bezier(0.4, 0, 0.2, 1);
+  --primitive-motion-easing-composed: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --primitive-motion-easing-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Semantic tokens */
+:root {
+  --semantic-color-surface-page: var(--primitive-color-mineral-025);
+  --semantic-color-surface-raised: var(--primitive-color-white);
+  --semantic-color-surface-subtle: var(--primitive-color-mineral-050);
+  --semantic-color-text-primary: var(--primitive-color-mineral-900);
+  --semantic-color-text-secondary: var(--primitive-color-mineral-600);
+  --semantic-color-text-accent: var(--primitive-color-teal-700);
+  --semantic-color-text-error: var(--primitive-color-red-800);
+  --semantic-color-border-default: var(--primitive-color-mineral-200);
+  --semantic-color-focus: var(--primitive-color-blue-700);
+  --semantic-font-family-ui: var(--primitive-font-family-system);
+  --semantic-font-weight-regular: var(--primitive-font-weight-regular);
+  --semantic-font-weight-emphasis: var(--primitive-font-weight-emphasis);
+  --semantic-font-weight-strong: var(--primitive-font-weight-strong);
+  --semantic-type-body-size: var(--primitive-type-size-16);
+  --semantic-type-body-line: var(--primitive-type-line-body);
+  --semantic-type-small-size: var(--primitive-type-size-14);
+  --semantic-type-title-size: clamp(var(--primitive-type-size-32), 6vw, var(--primitive-type-size-56));
+  --semantic-type-title-line: var(--primitive-type-line-tight);
+  --semantic-type-title-tracking: var(--primitive-type-tracking-tight);
+  --semantic-type-eyebrow-tracking: var(--primitive-type-tracking-eyebrow);
+  --semantic-space-page: var(--primitive-space-4);
+  --semantic-space-compact: var(--primitive-space-2);
+  --semantic-space-regular: var(--primitive-space-3);
+  --semantic-space-section: var(--primitive-space-8);
+  --semantic-space-surface: clamp(var(--primitive-space-5), 4vw, var(--primitive-space-12));
+  --semantic-size-full: var(--primitive-size-full);
+  --semantic-size-viewport: var(--primitive-size-viewport);
+  --semantic-size-reading: var(--primitive-size-reading);
+  --semantic-size-bootstrap: var(--primitive-size-bootstrap);
+  --semantic-radius-card: var(--primitive-radius-card);
+  --semantic-border-default: var(--primitive-border-default);
+  --semantic-shadow-raised: var(--primitive-shadow-raised);
+  --semantic-shadow-none: var(--primitive-shadow-none);
+  --semantic-motion-static-duration: var(--primitive-motion-duration-instant);
+  --semantic-motion-static-distance: var(--primitive-motion-distance-none);
+  --semantic-motion-static-easing: var(--primitive-motion-easing-direct);
+  --semantic-motion-functional-duration: var(--primitive-motion-duration-feedback);
+  --semantic-motion-functional-distance: var(--primitive-motion-distance-micro);
+  --semantic-motion-functional-easing: var(--primitive-motion-easing-functional);
+  --semantic-motion-composed-duration: var(--primitive-motion-duration-composed);
+  --semantic-motion-composed-distance: var(--primitive-motion-distance-composed);
+  --semantic-motion-composed-easing: var(--primitive-motion-easing-composed);
+  --semantic-motion-cinematic-duration: var(--primitive-motion-duration-cinematic);
+  --semantic-motion-cinematic-distance: var(--primitive-motion-distance-cinematic);
+  --semantic-motion-cinematic-easing: var(--primitive-motion-easing-cinematic);
+  --semantic-motion-immersive-duration: var(--primitive-motion-duration-immersive);
+  --semantic-motion-immersive-easing: var(--primitive-motion-easing-cinematic);
+}
+
+/* Component tokens */
+:root {
+  --component-bootstrap-frame-min-height: var(--semantic-size-viewport);
+  --component-bootstrap-frame-padding: var(--semantic-space-page);
+  --component-bootstrap-surface-background: var(--semantic-color-surface-raised);
+  --component-bootstrap-surface-border-color: var(--semantic-color-border-default);
+  --component-bootstrap-surface-border-width: var(--semantic-border-default);
+  --component-bootstrap-surface-radius: var(--semantic-radius-card);
+  --component-bootstrap-surface-shadow: var(--semantic-shadow-raised);
+  --component-bootstrap-surface-max-width: var(--semantic-size-bootstrap);
+  --component-bootstrap-surface-padding: var(--semantic-space-surface);
+  --component-bootstrap-surface-width: var(--semantic-size-full);
+  --component-bootstrap-eyebrow-color: var(--semantic-color-text-accent);
+  --component-bootstrap-eyebrow-font-size: var(--semantic-type-small-size);
+  --component-bootstrap-eyebrow-font-weight: var(--semantic-font-weight-strong);
+  --component-bootstrap-eyebrow-letter-spacing: var(--semantic-type-eyebrow-tracking);
+  --component-bootstrap-eyebrow-margin-bottom: var(--semantic-space-compact);
+  --component-bootstrap-title-font-size: var(--semantic-type-title-size);
+  --component-bootstrap-title-letter-spacing: var(--semantic-type-title-tracking);
+  --component-bootstrap-title-line-height: var(--semantic-type-title-line);
+  --component-bootstrap-description-max-width: var(--semantic-size-reading);
+  --component-bootstrap-status-gap: var(--semantic-space-regular);
+  --component-bootstrap-status-margin-top: var(--semantic-space-section);
+  --component-bootstrap-status-border-color: var(--semantic-color-border-default);
+  --component-bootstrap-status-border-width: var(--semantic-border-default);
+  --component-bootstrap-status-item-gap: var(--semantic-space-compact);
+  --component-bootstrap-status-item-padding-top: var(--semantic-space-regular);
+  --component-bootstrap-status-term-weight: var(--semantic-font-weight-emphasis);
+  --component-bootstrap-status-value-color: var(--semantic-color-text-error);
+  --component-protected-context-emergency-motion-duration: var(--semantic-motion-static-duration);
+  --component-protected-context-urgent-guidance-motion-duration: var(--semantic-motion-static-duration);
+  --component-protected-context-appointment-consequence-motion-duration: var(--semantic-motion-static-duration);
+  --component-protected-context-error-motion-duration: var(--semantic-motion-static-duration);
+  --component-protected-context-privacy-consent-motion-duration: var(--semantic-motion-static-duration);
+  --component-protected-context-unavailable-expired-motion-duration: var(--semantic-motion-static-duration);
+  --component-protected-context-unknown-outcome-motion-duration: var(--semantic-motion-static-duration);
+  --component-storytelling-motion-duration: var(--semantic-motion-cinematic-duration);
+  --component-storytelling-motion-distance: var(--semantic-motion-cinematic-distance);
+  --component-storytelling-motion-easing: var(--semantic-motion-cinematic-easing);
+}
+
+/* Enhanced roles resolve to intentional static equivalents when motion is reduced. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --semantic-motion-functional-duration: var(--semantic-motion-static-duration);
+    --semantic-motion-functional-distance: var(--semantic-motion-static-distance);
+    --semantic-motion-functional-easing: var(--semantic-motion-static-easing);
+    --semantic-motion-composed-duration: var(--semantic-motion-static-duration);
+    --semantic-motion-composed-distance: var(--semantic-motion-static-distance);
+    --semantic-motion-composed-easing: var(--semantic-motion-static-easing);
+    --semantic-motion-cinematic-duration: var(--semantic-motion-static-duration);
+    --semantic-motion-cinematic-distance: var(--semantic-motion-static-distance);
+    --semantic-motion-cinematic-easing: var(--semantic-motion-static-easing);
+    --semantic-motion-immersive-duration: var(--semantic-motion-static-duration);
+    --semantic-motion-immersive-easing: var(--semantic-motion-static-easing);
+  }
+}
