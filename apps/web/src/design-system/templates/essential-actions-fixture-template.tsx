@@ -13,6 +13,7 @@ import {
 import { ControlledBootstrapTemplate } from './controlled-bootstrap-template'
 import { FormPrimitivesFixtureTemplate } from './form-primitives-fixture-template'
 import { SearchControlsFixtureTemplate } from './search-controls-fixture-template'
+import { SystemStatesFixtureTemplate } from './system-states-fixture-template'
 
 export interface EssentialActionsFixtureTemplateProps {
   readonly searchParameters: Readonly<
@@ -220,6 +221,7 @@ export function EssentialActionsFixtureTemplate({
       </section>
       <SearchControlsFixtureTemplate searchParameters={searchParameters} />
       <FormPrimitivesFixtureTemplate />
+      <SystemStatesFixtureTemplate />
       </ControlledBootstrapTemplate>
     </SiteShell>
   )

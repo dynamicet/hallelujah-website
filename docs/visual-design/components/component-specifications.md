@@ -15,9 +15,9 @@ Every specimen carries the persistent non-public label. Controlled records use e
 | Priority | State | Required treatment |
 | ---: | --- | --- |
 | 1 | Unavailable, expired, safety-blocked | Remove unsafe action; name what is unavailable; retain a safe approved route. |
-| 2 | Disabled | Use native semantics where possible; preserve legibility; explain why when expectation exists. |
-| 3 | Loading/busy | Retain action label and dimensions; announce once; prevent duplicate intent. |
-| 4 | Validation/error/offline | State cause and recovery in words; preserve valid data and static alternatives. |
+| 2 | Validation/error/offline | State cause and recovery in words; preserve valid data and static alternatives. |
+| 3 | Disabled | Use native semantics where possible; preserve legibility; explain why when expectation exists. |
+| 4 | Loading/busy | Retain action label and dimensions; announce once; prevent duplicate intent. |
 | 5 | Pressed | Immediate stable color feedback; optional 0.99 routine-action scale only. |
 | 6 | Focus | Immediate 3 px blue outline with 2 px offset; never hidden by sticky content. |
 | 7 | Hover | Subtle surface/border change; never the only affordance. |

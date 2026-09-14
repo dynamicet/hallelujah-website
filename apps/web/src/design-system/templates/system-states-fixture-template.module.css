@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  gap: var(--component-system-state-space-page);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  margin-block-start: var(--component-system-state-space-section);
+  min-inline-size: 0;
+}
+
+.group {
+  display: grid;
+  gap: var(--component-system-state-space-page);
+  min-inline-size: 0;
+}

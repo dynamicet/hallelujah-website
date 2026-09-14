@@ -18,6 +18,7 @@ const capturePrefix =
 const shellMode = process.argv.includes('--shell')
 const searchControlsMode = process.argv.includes('--search-controls')
 const formPrimitivesMode = process.argv.includes('--form-primitives')
+const systemStatesMode = process.argv.includes('--system-states')
 const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
 const environment = {
@@ -116,6 +117,12 @@ try {
       assertFormPrimitivesViewport(
         viewport.label,
         await evaluate(client, sessionId, renderedFormPrimitivesChecksSource()),
+      )
+    }
+    if (systemStatesMode) {
+      assertSystemStatesViewport(
+        viewport.label,
+        await evaluate(client, sessionId, renderedSystemStatesChecksSource()),
       )
     }
     if (captureDirectory && (viewport.width === 320 || viewport.width === 1440)) {
@@ -518,6 +525,76 @@ try {
     }
   }
 
+  if (systemStatesMode) {
+    const semanticResult = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const fixture = document.querySelector('[data-system-states-fixture]')
+        const blockingError = document.getElementById('controlled-error-alert')
+        const success = document.getElementById('controlled-success-alert')
+        const staticWarning = document.getElementById('controlled-warning-alert')
+        const temporary = document.getElementById('controlled-temporary-notice')
+        const skeleton = document.querySelector('[data-skeleton-placeholder]')
+        const unavailable = document.getElementById('controlled-unavailable-state')
+        unavailable.focus()
+        const focus = getComputedStyle(unavailable)
+        return {
+          alertCount: fixture.querySelectorAll('[data-system-feedback="alert"]').length,
+          blockingErrorLive: blockingError.getAttribute('aria-live'),
+          blockingErrorRole: blockingError.getAttribute('role'),
+          focusStyle: focus.outlineStyle,
+          focusWidth: Number.parseFloat(focus.outlineWidth),
+          stateCount: fixture.querySelectorAll('[data-system-feedback="system-state"]').length,
+          staticWarningLive: staticWarning.getAttribute('aria-live'),
+          staticWarningRole: staticWarning.getAttribute('role'),
+          successLive: success.getAttribute('aria-live'),
+          successRole: success.getAttribute('role'),
+          successAuthoritative: success.dataset.authoritativeCompletion,
+          skeletonHidden: skeleton.getAttribute('aria-hidden'),
+          skeletonBoundary: skeleton.closest('[data-loading-boundary]')?.dataset.loadingBoundary,
+          temporaryMetadata: temporary.querySelectorAll('[data-status-metadata] time').length,
+          temporaryScope: temporary.querySelector('[data-status-metadata] div:first-child dd')?.textContent.trim(),
+          temporaryOwner: temporary.querySelector('[data-status-metadata] div:last-child dd')?.textContent.trim(),
+        }
+      })()`,
+    )
+    if (
+      semanticResult.alertCount !== 5
+      || semanticResult.blockingErrorLive !== 'assertive'
+      || semanticResult.blockingErrorRole !== 'alert'
+      || semanticResult.focusStyle === 'none'
+      || semanticResult.focusWidth < 3
+      || semanticResult.stateCount !== 5
+      || semanticResult.staticWarningLive !== null
+      || semanticResult.staticWarningRole !== null
+      || semanticResult.successLive !== 'polite'
+      || semanticResult.successRole !== 'status'
+      || semanticResult.successAuthoritative !== 'true'
+      || semanticResult.skeletonHidden !== 'true'
+      || semanticResult.skeletonBoundary !== 'non-critical-records'
+      || semanticResult.temporaryMetadata !== 2
+      || semanticResult.temporaryScope !== 'Controlled fixture only'
+      || semanticResult.temporaryOwner !== 'Synthetic fixture owner'
+    ) {
+      fail(`system-state semantics or focus are incorrect: ${JSON.stringify(semanticResult)}`)
+    }
+
+    const noScriptResponse = await fetch(origin)
+    const noScriptHtml = await noScriptResponse.text()
+    const noScriptChecks = {
+      boundary: noScriptHtml.includes('data-loading-boundary="non-critical-records"'),
+      criticalFacts: noScriptHtml.includes('data-preserved-critical-facts'),
+      fixture: noScriptHtml.includes('data-system-states-fixture'),
+      recovery: noScriptHtml.includes('controlled-state-recovery'),
+      response: noScriptResponse.ok,
+      temporary: noScriptHtml.includes('data-system-feedback="temporary-notice"'),
+    }
+    if (Object.values(noScriptChecks).some((passed) => !passed)) {
+      fail(`no-JavaScript system states are incomplete: ${JSON.stringify(noScriptChecks)}`)
+    }
+  }
+
   await client.send(
     'Emulation.setDeviceMetricsOverride',
     {
@@ -632,6 +709,18 @@ try {
   if (!reducedMotionResult.active || Number.parseFloat(reducedMotionResult.duration) !== 0) {
     fail(`reduced-motion equivalent: ${JSON.stringify(reducedMotionResult)}`)
   }
+  if (systemStatesMode) {
+    const reducedStateResult = await evaluate(
+      client,
+      sessionId,
+      `(() => ({
+        animationName: getComputedStyle(document.querySelector('[data-loading-indicator]')).animationName,
+      }))()`,
+    )
+    if (reducedStateResult.animationName !== 'none') {
+      fail(`reduced-motion loading indicator still animates: ${JSON.stringify(reducedStateResult)}`)
+    }
+  }
 
   await client.send('Emulation.setEmulatedMedia', { media: 'print' }, sessionId)
   const printResult = await evaluate(
@@ -645,6 +734,19 @@ try {
   )
   if (printResult.background !== 'rgb(255, 255, 255)') fail(`print background: ${printResult.background}`)
   if (printResult.shadow !== 'none') fail(`print surface shadow: ${printResult.shadow}`)
+  if (systemStatesMode) {
+    const printStateResult = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const panel = getComputedStyle(document.querySelector('[data-system-feedback]'))
+        return { background: panel.backgroundColor, color: panel.color }
+      })()`,
+    )
+    if (printStateResult.background !== 'rgba(0, 0, 0, 0)') {
+      fail(`print system-state background: ${printStateResult.background}`)
+    }
+  }
 
   await client.send(
     'Emulation.setEmulatedMedia',
@@ -672,11 +774,26 @@ try {
     fail(`forced-colors focus indicator: ${forcedColorsResult.outlineStyle} ${forcedColorsResult.outlineWidth}`)
   }
   if (forcedColorsResult.shadow !== 'none') fail(`forced-colors surface shadow: ${forcedColorsResult.shadow}`)
+  if (systemStatesMode) {
+    const forcedStateResult = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const panel = getComputedStyle(document.getElementById('controlled-unavailable-state'))
+        return { borderStyle: panel.borderLeftStyle, borderWidth: panel.borderLeftWidth }
+      })()`,
+    )
+    if (forcedStateResult.borderStyle === 'none' || Number.parseFloat(forcedStateResult.borderWidth) < 2) {
+      fail(`forced-colors system-state boundary: ${JSON.stringify(forcedStateResult)}`)
+    }
+  }
 
   client.close()
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
-    formPrimitivesMode
+    systemStatesMode
+      ? 'Rendered foundation/action/shell/search/form/system-state smoke passed (responsive state panels, alert/status timing, recovery targets, focus, dated temporary metadata, loading boundaries, critical-fact preservation, no-JavaScript output, zoom, reduced motion, print, and forced colors).'
+      : formPrimitivesMode
       ? 'Rendered foundation/action/shell/search/form smoke passed (responsive fields and choices, help/error relationships, invalid-summary focus, pending semantics, value retention, false-success prevention, no-JavaScript fail-closed behavior, zoom, reduced motion, print, and forced colors).'
       : searchControlsMode
       ? 'Rendered foundation/action/shell/search-control smoke passed (responsive controls, GET filtering and pagination, Back restoration, count semantics, compact Escape focus, bounded URLs, no-JavaScript state, targets, zoom, reduced motion, print, and forced colors).'
@@ -962,6 +1079,24 @@ function assertFormPrimitivesViewport(label, result) {
   }
 }
 
+function assertSystemStatesViewport(label, result) {
+  if (result.alertKinds.length !== 5 || result.stateKinds.length !== 5) {
+    fail(`${label}: system-state fixture coverage is incomplete ${JSON.stringify(result)}`)
+  }
+  if (result.panelsWithoutHeading.length > 0 || result.panelsWithoutAction.length > 0) {
+    fail(`${label}: state anatomy is incomplete ${JSON.stringify(result)}`)
+  }
+  if (!result.criticalFactsVisible || result.skeletonContainsText) {
+    fail(`${label}: loading boundary hides critical facts or invents record text ${JSON.stringify(result)}`)
+  }
+  for (const target of result.visibleTargets) {
+    if (target.width < 44 || target.height < 44) {
+      fail(`${label}: state recovery target ${target.name} is ${target.width}×${target.height}`)
+    }
+    if (!target.name) fail(`${label}: visible state recovery target has no name`)
+  }
+}
+
 function fail(message) {
   console.error(`- ${message}`)
   process.exitCode = 1
@@ -1199,6 +1334,41 @@ function renderedFormPrimitivesChecksSource() {
     invalidDescriptionIds,
     requiredCopyCount: [...form.querySelectorAll('label, legend')]
       .filter((element) => element.textContent.includes('Required')).length,
+    visibleTargets,
+  }
+})()`
+}
+
+function renderedSystemStatesChecksSource() {
+  return `(() => {
+  const fixture = document.querySelector('[data-system-states-fixture]')
+  const panels = [...fixture.querySelectorAll('[data-system-feedback]')]
+  const visibleTargets = [...fixture.querySelectorAll('[data-system-feedback] a[href]')]
+    .filter((target) => {
+      const rect = target.getBoundingClientRect()
+      const style = getComputedStyle(target)
+      return style.display !== 'none' && rect.width > 0 && rect.height > 0
+    })
+    .map((target) => {
+      const rect = target.getBoundingClientRect()
+      return { height: rect.height, name: target.textContent.trim(), width: rect.width }
+    })
+  return {
+    alertKinds: [...fixture.querySelectorAll('[data-system-feedback="alert"]')]
+      .map((panel) => panel.dataset.feedbackKind),
+    criticalFactsVisible: document.querySelector('[data-preserved-critical-facts]')
+      .getBoundingClientRect().height > 0,
+    panelsWithoutAction: panels
+      .filter((panel) => !panel.querySelector('a[href], button'))
+      .map((panel) => panel.id),
+    panelsWithoutHeading: panels
+      .filter((panel) => !document.getElementById(panel.getAttribute('aria-labelledby')))
+      .map((panel) => panel.id),
+    skeletonContainsText: Boolean(
+      document.querySelector('[data-skeleton-placeholder]').textContent.trim(),
+    ),
+    stateKinds: [...fixture.querySelectorAll('[data-system-feedback="system-state"]')]
+      .map((panel) => panel.dataset.feedbackKind),
     visibleTargets,
   }
 })()`
