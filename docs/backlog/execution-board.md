@@ -55,6 +55,7 @@ The 13 September deferrals remove `B00-001`, `B00-002`, `B00-007`, `B00-014`, an
 | 3 | `B01-002` | **Done** | Client workspace identity `befikadusata` directing Codex in delegated Brand Strategist, UI/UX Architect, and Marketing roles / same identity for project acceptance; production specialists return at their gates | Project brand guide, fingerprinted public-source logo records, accessible extended palette, Noto Sans/Noto Sans Ethiopic selection and audit, voice, imagery/video and asset lifecycle policy, approved token values, visual and automated evidence | [Execution brief](b01-002-project-brand-system.md) and [evidence](evidence/B01-002-project-brand-system-2026-09-14.md) |
 | 4 | `B01-004` | **Done** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles / same identity for controlled-development acceptance; named production roles return at their gates | `T0` local and hosted implementation `T1` pass for foundation tokens/CSS, controlled fixture, responsive/reflow, enlarged text, focus, reduced-motion, print, forced colors, visual evidence, and static/application gates | [Execution brief](b01-004-global-css-foundations.md), [evidence](evidence/B01-004-global-css-foundations-2026-09-14.md), [issue `#6`](https://github.com/dynamicet/hallelujah-website/issues/6), [pull request `#7`](https://github.com/dynamicet/hallelujah-website/pull/7), and [hosted run](https://github.com/dynamicet/hallelujah-website/actions/runs/34837389038) |
 | 5 | `B01-005` | **Done** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles / same identity for controlled-development acceptance; named production roles return at their gates | `T0` local and hosted implementation `T1` pass for native action semantics, controlled phone invariant, target/gap geometry, keyboard and moved-touch behavior, Level 0 emergency meaning, modes, and sanitized visual evidence; final documentation head must pass before merge | [Execution brief](b01-005-essential-actions.md), [local evidence](evidence/B01-005-essential-actions-2026-09-14.md), [issue `#8`](https://github.com/dynamicet/hallelujah-website/issues/8), [pull request `#9`](https://github.com/dynamicet/hallelujah-website/pull/9), and [hosted run](https://github.com/dynamicet/hallelujah-website/actions/runs/34869074953) |
+| 6 | `B01-006` | **In review** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles / same identity for controlled-development acceptance; named production roles return at their gates | Local `T0` passes for server-rendered header/shell APIs, one responsive navigation order, native compact disclosure, same-origin focus enhancement, skip/breadcrumb/language/footer behavior, modes, and sanitized visual evidence; hosted `T1` pending | [Execution brief](b01-006-global-shell-navigation.md), [local evidence](evidence/B01-006-global-shell-navigation-2026-09-14.md), and [issue `#10`](https://github.com/dynamicet/hallelujah-website/issues/10) |
 
 `B01-001` was promoted Proposed → Ready → In progress → In review → Done for controlled development on 14 September 2026, Africa/Addis_Ababa,
 after the client directed execution of steps 1–4. `B00-004` and `B00-005` are complete, the motion
@@ -100,6 +101,14 @@ Pull request `#9` and hosted run `34869074953` carry repository review and the p
 `T1`; the final documentation head must pass before merge. Named operations, clinical,
 accessibility, language, and release roles return at their production gates. `B01-006` unlocks after
 pull request `#9` merges.
+
+`B01-006` was promoted Proposed → Ready → In progress → In review on 14 September 2026 after the
+client directed the next execution and pull request `#9` had merged. The production shell API,
+285 generated tokens, one responsive primary-navigation order, native compact popover, additive
+same-origin focus enhancement, breadcrumb, explicit language-unavailable state, footer, and
+controlled fixture pass the local static and rendered matrix. The strict CSP and static route were
+preserved without `unsafe-inline` or nonce-driven dynamic rendering. Hosted `T1`, repository review,
+and the named production accessibility/language/content/operations gates remain open.
 
 ### `B00-005` — pinned toolchain
 

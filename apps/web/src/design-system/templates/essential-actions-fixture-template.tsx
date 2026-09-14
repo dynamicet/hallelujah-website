@@ -4,6 +4,8 @@ import {
   ActionLink,
   CallAction,
   EmergencyAction,
+  LanguageSwitcher,
+  SiteShell,
   TextLink,
   type StatusSummaryItem,
 } from '../components'
@@ -18,12 +20,99 @@ export function EssentialActionsFixtureTemplate({
   statuses,
 }: EssentialActionsFixtureTemplateProps) {
   return (
-    <ControlledBootstrapTemplate
-      description="The clean Next.js, Payload CMS, and TypeScript foundation is running. No hospital content is published from this build."
-      eyebrow="Local development only"
-      statuses={statuses}
-      title="Controlled application bootstrap"
+    <SiteShell
+      breadcrumbs={{
+        items: [
+          { href: '#main-content', label: 'Controlled home' },
+          { current: true, href: '#shell-evidence', label: 'Global shell evidence fixture' },
+        ],
+        label: 'Breadcrumb',
+      }}
+      footer={{
+        brandName: 'Hallelujah Hospital — controlled identity',
+        description:
+          'Local shell evidence only. No hospital route, contact, translation, or publication is approved from this build.',
+        groups: [
+          {
+            label: 'Controlled core tasks',
+            links: [
+              { href: '#action-evidence', label: 'Review essential actions' },
+              { href: '#foundation-evidence', label: 'Review foundation evidence' },
+            ],
+          },
+          {
+            label: 'Access and governance',
+            links: [
+              { href: '#language-availability', label: 'Language scope' },
+              { href: '#controlled-emergency-explanation', label: 'Safety boundary' },
+            ],
+          },
+        ],
+        navigationLabel: 'Footer',
+      }}
+      header={{
+        brandName: 'Hallelujah Hospital — controlled identity',
+        emergencyAction: (
+          <EmergencyAction
+            href="#controlled-emergency-explanation"
+            label="View controlled urgent guidance"
+          />
+        ),
+        homeHref: '#main-content',
+        languageSwitcher: (
+          <LanguageSwitcher
+            alternate={{
+              available: false,
+              label: 'አማርኛ',
+              lang: 'am',
+              reason: 'Approved Amharic shell labels are not available in this controlled build.',
+            }}
+            currentLabel="English"
+            currentLang="en"
+            label="Language"
+          />
+        ),
+        menuLabel: 'Menu',
+        navigationItems: [
+          { current: true, href: '#main-content', label: 'Controlled home' },
+          { href: '#foundation-evidence', label: 'Foundation evidence' },
+          { href: '#action-evidence', label: 'Essential actions' },
+          { href: '#controlled-emergency-explanation', label: 'Safety boundary' },
+        ],
+        primaryNavigationLabel: 'Primary',
+        routineAction: (
+          <ActionLink href="#action-evidence" label="Review appointment action" />
+        ),
+        searchItem: { href: '#shell-evidence', label: 'Search' },
+      }}
+      skipLinkLabel="Skip to main content"
     >
+      <ControlledBootstrapTemplate
+        description="The clean Next.js, Payload CMS, and TypeScript foundation is running. No hospital content is published from this build."
+        eyebrow="Local development only"
+        statuses={statuses}
+        title="Controlled application bootstrap"
+        withinShell
+      >
+      <section
+        aria-labelledby="shell-evidence-title"
+        className="ds-flow ds-section"
+        data-global-shell-fixture
+        id="shell-evidence"
+      >
+        <div className="ds-flow ds-reading">
+          <h2 id="shell-evidence-title">Global shell evidence fixture</h2>
+          <p>
+            The header, one responsive navigation order, breadcrumb, language status, skip link,
+            and footer use controlled labels. They do not mount or publish the proposed routes.
+          </p>
+          <p id="language-availability">
+            The Amharic language name is a shaping and availability specimen, not an approved
+            translation or selectable route.
+          </p>
+        </div>
+      </section>
+
       <section
         aria-labelledby="foundation-evidence-title"
         className="ds-flow ds-section"
@@ -123,6 +212,7 @@ export function EssentialActionsFixtureTemplate({
           </div>
         </div>
       </section>
-    </ControlledBootstrapTemplate>
+      </ControlledBootstrapTemplate>
+    </SiteShell>
   )
 }

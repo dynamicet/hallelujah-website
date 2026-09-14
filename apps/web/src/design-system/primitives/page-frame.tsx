@@ -5,5 +5,9 @@ export interface PageFrameProps {
 }
 
 export function PageFrame({ children }: PageFrameProps) {
-  return <main id="main-content">{children}</main>
+  return (
+    <main id="main-content" tabIndex={-1}>
+      {children}
+    </main>
+  )
 }
