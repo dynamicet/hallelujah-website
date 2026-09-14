@@ -1,6 +1,6 @@
 # Canonical Design Token System
 
-**Backlog authority:** `B01-003`
+**Backlog authority:** `B01-003` canonical pipeline; `B01-002` values; `B01-004` global foundation roles
 
 **Execution boundary:** Controlled local and private-repository development only
 
@@ -55,9 +55,10 @@ global and bootstrap styles.
 
 Every checked foreground/background pair records its semantic token paths, intended usage, and
 minimum ratio. The check resolves aliases to canonical six-digit color values and calculates WCAG
-relative luminance. This is token-level evidence only: rendered text, borders, states, gradients,
-images, forced colors, and approved bilingual typography still require the evidence assigned to
-`B01-002`, `B01-004`, and release QA.
+relative luminance. `B01-004` expands this metadata to 13 global text, action, status, focus, and
+meaningful-boundary pairs and supplies a local rendered foundation smoke. Full component states,
+images, ingested fonts, and production bilingual/device evidence still belong to later component,
+asset, language, and release QA work.
 
 ## Motion and protected contexts
 
@@ -71,11 +72,13 @@ unavailable/expired, and unknown-outcome contexts each have a component binding 
 may reference cinematic roles, but this ticket introduces no animation, media, runtime, provider,
 or client boundary; those capabilities remain `B01-012`–`B01-013`.
 
-## Provisional-value boundary
+## Project-approved value boundary
 
-The source metadata is deliberately
-`provisional-until-brand-and-language-approval`. Current values preserve the controlled bootstrap
-and provide replaceable production plumbing. They do not approve a hospital logo, palette,
-tagline, English/Amharic font, asset, footage, or expressive treatment. `B01-002` must close before
-those values can be marked final, followed by rendered contrast, language, device, and motion-mode
-retesting.
+`B01-002` advances the source metadata to `project-approved-brand-foundation` and records its value
+gate closed. The manifest now includes the exact public-logo cyan/orange, accessible interface
+roles, and approved Noto Latin/Ethiopic stacks. Values remain centrally replaceable if a trusted
+hospital master or material validation finding triggers change. `B01-004` adds global foundation
+roles and verifies the immediate fallback stack, responsive geometry, enlarged text, focus, reduced
+motion, forced colors, and print locally. This does not ingest logo/font binaries, approve public
+Amharic copy or rights-dependent media, or replace full component, language, physical-device, and
+release testing under `B01-005`–`B01-013`, `B02-011`, and release QA.

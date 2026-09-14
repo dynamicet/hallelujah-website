@@ -52,7 +52,12 @@ primitive values
 - [Component JSON](../components/component-tokens.json) describes that extension.
 - Page CSS, the Order 9 correction layer, and prototype CSS are review implementations downstream of those contracts.
 
-For production, choose one canonical token source and generate the other format. Add a parity test so CSS and platform tokens cannot drift. Preserve primitive → semantic → component references; template styles should consume semantic or component aliases and must not introduce a second palette. The Calm Wayfinding values remain a replaceable prototype theme until `BRAND-01`, professional English/Amharic typography review, font licensing, and rendered contrast retesting close.
+Production now has one generated canonical token source with parity checks. `B01-002` approves the
+[project brand values](../../brand/README.md), exact logo accents, accessible extension, Noto font
+families/licenses, and media policy. Preserve primitive → semantic → component references;
+templates consume aliases and must not introduce a second palette. Values remain centrally
+replaceable, while `B01-004` owns rendered component/contrast/reflow evidence, `B02-011` owns binary
+intake, and actual Amharic copy remains language-gated.
 
 The review studies use chained page imports to minimize duplicated prototype CSS. Production templates should depend on shared foundation/component layers and their own bounded composition module, not on another page template or `prototype.css`.
 

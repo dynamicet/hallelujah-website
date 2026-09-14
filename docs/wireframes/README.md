@@ -154,7 +154,7 @@ Home and flat top-level routes omit breadcrumbs; detail and genuinely nested sec
 - Reserve at least 35% expansion for labels and instructions, allow wrapping, and never truncate navigation, phone purpose, warnings, consent, errors, names, or calls to action.
 - Phase 1 requires reviewed Amharic primary navigation, emergency content, appointment warnings/instructions/system messages, contacts, landmark directions, and privacy/consent copy (`S-006`). Full essential-journey parity remains a Phase 2 gate (`S-007`).
 - A switch retains route, safe query/context, and entered form data only where field meanings and consent remain valid. If no equivalent exists, it explains the limitation in place and offers translated nearby routes; it never silently redirects Home (`S-008`).
-- Font direction remains the provisional Noto Sans/Noto Sans Ethiopic system and requires real-device legibility and loading tests before brand approval.
+- Font direction is now project-approved as Noto Sans/Noto Sans Ethiopic by `B01-002`; it still requires `B01-004` loading/render evidence and real-device legibility testing before release.
 
 ## Shared state interpretation
 

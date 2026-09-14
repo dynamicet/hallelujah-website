@@ -44,7 +44,7 @@ The separate [Epic 0 technical foundation](../../architecture/epic-0-technical-f
 | `INST-01` | Story, mission, values, milestones, capacity/facility claims | Withhold or label fact geometry | Executive claim ledger with source, definitions, as-of date, translation, review/expiry |
 | `INST-02` | Leadership names, biographies, portraits | No real leadership record or portrait | Current leadership register, rights/consent, alt/crop, owner, review/expiry |
 | `INST-03` | Partner/insurer status, meaning, logos | No logo wall or coverage implication | Current relationship register, limitations, rights, owner, review interval |
-| `BRAND-01` | Logo, name/tagline, palette, typography, imagery/footage, and motion/media art direction | Text-only prototype identity, replaceable prototype theme, and labeled poster/media fixtures | Original assets; authenticity, consent and rights record; signed brand/motion/media decision; contrast, bilingual, reduced-motion, device and performance retest |
+| `BRAND-01` | **Approved for project use by `B01-002`:** logo-source treatment, name/tagline, palette, typography, voice, imagery/footage, and motion/media art direction | Fingerprinted public-source rasters and centrally replaceable project theme; no rights-dependent binary ships by this decision | `B02-011` binary intake plus per-asset authenticity/consent/rights; `B01-004` rendered component evidence; language/device/performance release testing |
 | `HR-01` | Vacancy identity/lifecycle/removal | No-current-role or controlled closed states | Demonstrated owned lifecycle with exact instants, status, cache/search/sitemap removal |
 | `HR-02` | Application route/provider/data/files/privacy | No Apply, email, upload, form, or provider collection | Recruitment data flow and privacy/security/provider assessment |
 | `HR-03` | Equality, accommodation, response, fraud and bilingual wording | Withhold uninvented policy/process language | HR/privacy/legal approval and professional translation evidence |
@@ -70,6 +70,6 @@ The separate [Epic 0 technical foundation](../../architecture/epic-0-technical-f
 
 ## Gate application rule
 
-A decision blocks only the affected capability, but no implementation may route around it. Safe independent work may proceed when the gated behavior stays omitted, inert, or clearly non-public. For example, component primitives can be engineered with replaceable tokens while `BRAND-01` is open; a live emergency number cannot be inferred or selected while `SAFE-01` is open.
+A decision blocks only the affected capability, but no implementation may route around it. Safe independent work may proceed when the gated behavior stays omitted, inert, or clearly non-public. For example, project-approved brand values may be implemented while rights-dependent media remains behind `B02-011`; a live emergency number cannot be inferred or selected while `SAFE-01` is open.
 
 For a Changed or Rejected outcome, follow the [validation change-control procedure](../../validation/stakeholder-low-fidelity-validation.md#change-control-procedure) before implementation continues. Record exceptions with owner, rationale, affected requirements, risk, compensating control, expiry, and retest date.

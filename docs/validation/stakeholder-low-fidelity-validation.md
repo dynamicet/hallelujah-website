@@ -1,9 +1,9 @@
 # Stakeholder Low-Fidelity Validation and Decision Pass
 
 **Prepared:** 11 September 2026  
-**Status:** Recommended safe baselines conditionally accepted; `GOV-02` and `GOV-03` approved for controlled implementation planning; 30 formal hospital outcomes unresolved  
+**Status:** Recommended safe baselines conditionally accepted; `GOV-02`, `GOV-03`, and project `BRAND-01` direction approved; 29 formal hospital outcomes unresolved
 **Scope:** All 12 low-fidelity page types, the four flow packages, and the benchmark disposition register  
-**Decision authority:** Named hospital owners only
+**Decision authority:** Named hospital owners, with recorded client-delegated project exceptions that do not grant public-release authority
 
 ## Purpose
 
@@ -11,7 +11,7 @@ Use this document to validate the proposed structure, benchmark-informed pattern
 
 All decisions begin as **Unresolved**. Extracted website content is evidence to investigate, not authority to approve it. A decision becomes **Approved**, **Changed**, or **Rejected** when an accountable owner supplies a date and a durable evidence link. Under the client's temporary-owner instruction, a role-based placeholder may record a planning decision until the person's name is supplied; it does not authorize public release, live data collection, or approval of safety-, clinical-, privacy-, or security-critical facts.
 
-An AI-convened multidisciplinary review has assessed all 32 decisions, 12 page structures, four flow packages, and seven scenarios. Its recommendations, safe defaults, blockers, and two incorporated blueprint corrections are recorded in the [stakeholder team desk review](stakeholder-team-desk-review.md). That review is advisory and does not replace the named hospital participants, sessions, evidence, or signatures required below. `GOV-02` is approved as a planning-scope decision, and `GOV-03` is approved as the benchmark-use boundary, through the client directions recorded below; the other 30 formal outcomes remain Unresolved.
+An AI-convened multidisciplinary review has assessed all 32 decisions, 12 page structures, four flow packages, and seven scenarios. Its recommendations, safe defaults, blockers, and two incorporated blueprint corrections are recorded in the [stakeholder team desk review](stakeholder-team-desk-review.md). That review is advisory and does not replace the named hospital participants, sessions, evidence, or signatures required below. `GOV-02` is approved as a planning-scope decision, `GOV-03` is approved as the benchmark-use boundary, and `BRAND-01` is approved as a project brand direction through the client directions recorded below; the other 29 formal outcomes remain Unresolved.
 
 ## Conditional working-baseline acceptance
 
@@ -23,7 +23,7 @@ On 12 September 2026, the project stakeholder direction accepted all recommended
 | Emergency and hospital access | `SAFE-01`–`SAFE-04` | Withhold unverified contact, arrival, and consequential capability claims; keep emergency routing clear and non-diagnostic. |
 | Appointment requests | `APPT-01`–`APPT-04` | Treat the journey as a request rather than confirmed booking; collect nothing until the operating and privacy models are approved; minimize fields and preserve safe recovery. |
 | Care, search, access, and language | `CARE-01`–`CARE-06`, `ACCESS-01`, `SEARCH-01`–`SEARCH-02`, `LANG-01`–`LANG-02` | Publish only governed records; keep search non-diagnostic and privacy-preserving; require professionally reviewed bilingual consequential content. |
-| Institution, brand, and careers | `INST-01`–`INST-03`, `BRAND-01`, `HR-01`–`HR-03` | Withhold unverified claims and rights-dependent assets; use provisional branding only in labeled prototypes; keep Careers Phase 2 and non-collecting. |
+| Institution, brand, and careers | `INST-01`–`INST-03`, `BRAND-01`, `HR-01`–`HR-03` | Withhold unverified claims and rights-dependent assets; use the `B01-002` project brand system without implying binary/media approval; keep Careers Phase 2 and non-collecting. |
 | Security, testing, and release | `SEC-01`–`SEC-02`, `DEL-01` | Keep the known incident as a release gate, default-deny optional third parties, and require risk-proportionate test evidence. |
 
 The direction is intentionally flexible where flexibility is safe and useful. Apply the following exception policy:
@@ -35,7 +35,7 @@ The direction is intentionally flexible where flexibility is safe and useful. Ap
 5. Record every material exception with its decision ID, rationale, affected pages/flows, owner, evidence, risk controls, validation method, review date, and expiry or rollback condition.
 6. If evidence is incomplete, omit or disable only the affected claim, record, field, relationship, or integration when the remaining journey is still truthful and useful. Escalate to a full route or release block only when the missing item is essential to safety, comprehension, legality, or reliable operation.
 
-This is a working-baseline approval, not formal hospital approval of unresolved facts, operational readiness, live data collection, or public release. Except for the planning-scope decision `GOV-02` and benchmark-use decision `GOV-03`, the approvers' names, authority confirmation, and durable evidence links have not yet been entered. Therefore the remaining 30 formal outcome cells below stay **Unresolved** until those records are supplied.
+This is a working-baseline approval, not formal hospital approval of unresolved facts, operational readiness, live data collection, or public release. Except for `GOV-02`, `GOV-03`, and the client-delegated project brand direction `BRAND-01`, the approvers' names, authority confirmation, and durable evidence links have not yet been entered. Therefore the remaining 29 formal outcome cells below stay **Unresolved** until those records are supplied.
 
 ## Recorded approval: GOV-02
 
@@ -127,7 +127,7 @@ Use these role placeholders to route questions and prepare backlog dependencies 
 | `SEARCH-01`–`SEARCH-02` | Hospital Project Owner + Medical Director + Content Manager; Legal / Compliance and Information Security for query data |
 | `LANG-01`–`LANG-02` | Professional Amharic Language Reviewer + Medical Director + Communications / Content Manager |
 | `INST-01`–`INST-03` | Hospital General Manager / CEO + Communications / Content Manager + Operations or Brand owner as applicable |
-| `BRAND-01` | Marketing / Communications Manager |
+| `BRAND-01` | Client workspace identity `befikadusata` for the recorded project decision; Marketing / Communications, Language, Accessibility, and asset/content owners return for applicable production exceptions and assets |
 | `HR-01`–`HR-03` | Human Resources Manager + Legal / Compliance Officer + Information Security Manager |
 | `SEC-01`–`SEC-02` | Hospital IT / Information Security Manager + External Delivery Lead |
 | `DEL-01` | External Project / Delivery Lead + External QA / Accessibility Lead, accepted by the Hospital Project Owner |
@@ -199,7 +199,7 @@ Create one row per meeting or asynchronous approval round.
 | INST-01 | Resolve the conflicting mission sources and approve the hospital story, mission, vision, values, milestones, and every capacity/facility/superlative claim, including the 115/96-bed figures. | `H-004`, `I-001`, `G-014` | Home and About; institutional flows I1–I3 | Executive-approved claim ledger with authoritative sources, definitions, as-of dates, wording, translations, review interval, and expiry | Unresolved | — |
 | INST-02 | Approve current leadership names, roles, tenure/status, biographies, portraits, and review ownership. | `I-002`, `D-006`, `G-014` | About and any Home trust excerpt; institutional flows I1–I3 | Leadership register plus image source, consent/rights, crop/alt decision, review date, and expiry | Unresolved | — |
 | INST-03 | Approve each partner/insurer's active status, exact patient-relevant meaning and limitations, name/logo rights, owner, and review interval. | `I-003`, `H-004`, `S-005` | About and any Home trust excerpt; institutional flows I1–I3 | Partner register and rights evidence; no logo or coverage implication without approval | Unresolved | — |
-| BRAND-01 | Approve the authentic logo source, hospital name/tagline treatment, palette direction, English/Amharic typography, imagery policy, and asset-rights workflow. | `G-004`, `G-010`, `H-002`, `D-006`, `I-002` | Shared shell and all 12 pages; polished design remains blocked | Original brand assets and signed decision against [visual foundations](../design-system/foundations.md), followed by contrast and bilingual legibility testing | Unresolved | — |
+| BRAND-01 | Approve the authentic logo source, hospital name/tagline treatment, palette direction, English/Amharic typography, imagery policy, and asset-rights workflow. | `G-004`, `G-010`, `H-002`, `D-006`, `I-002` | Shared shell and all 12 pages; binary assets and rights-dependent media still use their intake/content gates | Project-adopted first-party logo records and signed decision against [visual foundations](../design-system/foundations.md), with source fingerprints, contrast, glyph/weight/license and bilingual render evidence; replace on authenticated-master conflict | **Approved for project use** | Client workspace identity `befikadusata`, 14 September 2026; [decision](../backlog/b01-002-project-brand-system.md), [evidence](../backlog/evidence/B01-002-project-brand-system-2026-09-14.md) |
 
 ### HR, recruitment, privacy, and legal
 

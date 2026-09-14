@@ -37,7 +37,8 @@ pnpm secrets:check --history
 The canonical production design-token source is
 `apps/web/src/design-system/tokens/tokens.json`. Use `pnpm tokens:generate` after an authorized
 source change and `pnpm tokens:check` to prove generated CSS/TypeScript parity and policy checks.
-Its current values remain provisional pending `B01-002` brand and language approval.
+Its identity, color, and bilingual type direction are project-approved by `B01-002`; `B01-004`
+owns rendered global-foundation implementation, and binary logo/font intake remains `B02-011`.
 
 Before container work, run `pnpm toolchain:check:containers`. It also requires Docker 29.8.0 and PostgreSQL client 18.6; a mismatch fails closed. Application development does not require containers at the current bootstrap boundary.
 

@@ -115,7 +115,7 @@ Order 3 is complete as truthful evidence of the restrained non-public prototype.
 
 The original signature rule remains available, but production expression is no longer limited to it. High-end design comes from choreography and restraint: content remains visible before enhancement, route changes never wait for an exit animation, user-controlled media starts from a complete poster, and reduced motion preserves focus, status, and meaning. A scoped motion runtime may be evaluated only through the amendment's license, bundle, cleanup, fallback, and measured-performance gate.
 
-The [critical-experience storyboards](motion/storyboards.md) and [interactive study](motion/studies.html) were consumed by Order 4 when reconciling the candidate palette, typography, spacing, shape, imagery, icon, and motion values. `BRAND-01`, content/language approvals, performed accessibility and device validation, and every affected production gate remain open.
+The [critical-experience storyboards](motion/storyboards.md) and [interactive study](motion/studies.html) were consumed by Order 4 when reconciling the candidate palette, typography, spacing, shape, imagery, icon, and motion values. `B01-002` subsequently approved the [project brand foundation](../brand/README.md); content/language approvals, binary asset intake, performed production accessibility/device validation, and every affected release gate remain open.
 
 ## Order 4 decision
 

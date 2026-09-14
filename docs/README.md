@@ -20,12 +20,16 @@ The first deliverable translates the existing audit, content extraction, benchma
 | Document | Purpose | Status |
 | --- | --- | --- |
 | [Design-system index](design-system/README.md) | Scope, decision status, implementation order, and approval gates | Initial baseline |
-| [Visual foundations](design-system/foundations.md) | Brand direction, accessible token roles, typography, spacing, layout, and media rules | Provisional pending brand approval |
+| [Visual foundations](design-system/foundations.md) | Brand direction, accessible token roles, typography, spacing, layout, and media rules | Brand values project-approved by `B01-002`; implementation validation pending |
+| [Brand system](brand/README.md) | Identity, logo provenance, palette, bilingual typography, voice, imagery/video, and asset lifecycle | Project-approved by `B01-002` |
 | [Layout patterns](design-system/layout-patterns.md) | Reusable page-shell, section, directory, detail, form, and emergency compositions | Initial baseline |
 | [Component contracts](design-system/components.md) | Anatomy, variants, states, behavior, content rules, and requirement traceability | Initial baseline |
 | [Interaction and motion](design-system/interaction-and-motion.md) | Feedback, transition, progressive enhancement, reduced-motion, loading, media, and failure behavior | Production direction amended 14 September 2026 |
 
-The second deliverable defines the experience system shared by every page. Candidate colors and fonts are ready for prototype testing, but they are not approved hospital brand assets. Implementation must not encode them as final until the brand owner approves them and contrast is revalidated in the actual interface.
+The second deliverable defines the experience system shared by every page. `B01-002` converts the
+candidate direction into a source-traceable, project-approved brand foundation. This is not public
+release authority: `B01-004` must still validate rendered foundations, `B02-011` must ingest binary
+assets, and named language/content/release gates remain binding.
 
 ## Third deliverable
 
@@ -115,7 +119,7 @@ Orders 1–12 complete the non-public blueprint, connected prototype, performed 
 | --- | --- | --- |
 | [Epic 0 — Initial production architecture](architecture/epic-0-technical-foundation.md) | Records the approved Payload/Next.js/PostgreSQL/GitHub/VPS foundation, same-VPS logical data separation, delivery controls, observability, evidence model, and remaining selections | Approved implementation-planning baseline; security, privacy, acceptance, and release gates remain open |
 | [Implementation acceptance matrix](validation/implementation-acceptance-matrix.md) | Defines evidence tiers, supported platforms/devices, responsive and language coverage, security/performance tests, defect thresholds, evidence/authority rules, exceptions, and per-ticket benchmark proof | Accepted for controlled development; formal `DEL-01` production closure deferred |
-| [Implementation backlog](backlog/README.md) | Execution-controlled delivery backlog with live pull order, operating rules, roadmap, traceability, acceptance criteria, evidence, and AI-assisted coding controls | `B00-003`–`B00-006`, `B00-011`, `B01-001`, and `B01-003` are complete for controlled development; `B01-004` is the next delivery preparation |
+| [Implementation backlog](backlog/README.md) | Execution-controlled delivery backlog with live pull order, operating rules, roadmap, traceability, acceptance criteria, evidence, and AI-assisted coding controls | `B00-003`–`B00-006`, `B00-011`, `B01-001`–`B01-003` are complete for controlled development; `B01-004` local implementation is in review pending GitHub/hosted closure |
 
 The architecture and acceptance baselines assign technical implementation to the external development entity while preserving hospital approval of business, privacy, security, cost, operational, and release constraints. `B00-016` supplies the working development matrix and is deferred only at the formal production-signature/evidence boundary. `B00-011` supplies the passing local and hosted CI baseline; technical merge enforcement remains a separate `B00-012` concern under the private/free-plan constraint. `B01-001` supplies the production UI boundaries, and `B01-003` supplies the generated provisional token pipeline without approving final brand values. None of these baselines authorizes appointment-data collection or production publication.
 

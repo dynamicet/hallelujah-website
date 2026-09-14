@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hallelujah General Hospital — brand review board</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --cyan: #1eaee2;
+        --orange: #ef5c28;
+        --page: #f4faf9;
+        --subtle: #eef7f6;
+        --border: #c7dad7;
+        --secondary: #516a70;
+        --ink: #17323a;
+        --action: #006a73;
+        --focus: #075ea8;
+        --error: #8f1c13;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--page);
+        color: var(--ink);
+        font: 400 1rem/1.6 "Noto Sans", system-ui, sans-serif;
+      }
+      main { width: min(72rem, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0 5rem; }
+      header, section { background: white; border: 1px solid var(--border); border-radius: 1rem; padding: clamp(1.25rem, 4vw, 3rem); }
+      section { margin-top: 1rem; }
+      h1, h2, p { margin-top: 0; }
+      h1 { max-width: 16ch; font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.1; letter-spacing: -.03em; }
+      h2 { font-size: clamp(1.35rem, 4vw, 2rem); line-height: 1.25; }
+      .eyebrow { color: var(--action); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      .tagline { max-width: 38rem; color: var(--secondary); font-size: 1.125rem; }
+      .rule { width: 7rem; height: .35rem; margin-top: 2rem; background: linear-gradient(90deg, var(--cyan) 0 70%, var(--orange) 70%); border-radius: 999px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: .75rem; }
+      .swatch { min-height: 9rem; border: 1px solid var(--border); border-radius: .75rem; padding: 1rem; display: flex; flex-direction: column; justify-content: end; }
+      .swatch strong, .swatch span { background: white; color: var(--ink); width: fit-content; padding: 0 .25rem; }
+      .cyan { background: var(--cyan); }
+      .orange { background: var(--orange); }
+      .ink { background: var(--ink); }
+      .action { background: var(--action); }
+      .focus { background: var(--focus); }
+      .error { background: var(--error); }
+      .type-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr)); gap: 1rem; }
+      .specimen { background: var(--subtle); border-radius: .75rem; padding: 1.25rem; }
+      .specimen[lang="am"] { font-family: "Noto Sans Ethiopic", "Noto Sans", system-ui, sans-serif; letter-spacing: 0; }
+      .weights { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; }
+      .w400 { font-weight: 400; }
+      .w600 { font-weight: 600; }
+      .w700 { font-weight: 700; }
+      .button { display: inline-flex; min-height: 44px; align-items: center; margin-top: .75rem; padding: .65rem 1rem; border-radius: .5rem; background: var(--action); color: white; font-weight: 700; text-decoration: none; }
+      .note { border-left: .35rem solid var(--orange); padding-left: 1rem; }
+      @media (max-width: 30rem) { main { padding-top: 1rem; } header, section { border-radius: .75rem; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Project brand foundation</p>
+        <h1>Hallelujah General Hospital</h1>
+        <p class="tagline">Bringing Quality Care Home</p>
+        <div class="rule" aria-hidden="true"></div>
+      </header>
+      <section>
+        <h2>Identity and interface palette</h2>
+        <div class="grid">
+          <div class="swatch cyan"><strong>Logo cyan</strong><span>#1EAEE2 · decorative</span></div>
+          <div class="swatch orange"><strong>Logo orange</strong><span>#EF5C28 · decorative</span></div>
+          <div class="swatch ink"><strong>Primary text</strong><span>#17323A · 13.52:1</span></div>
+          <div class="swatch action"><strong>Action</strong><span>#006A73 · 6.35:1</span></div>
+          <div class="swatch focus"><strong>Focus</strong><span>#075EA8 · 6.61:1</span></div>
+          <div class="swatch error"><strong>Error</strong><span>#8F1C13 · reserved</span></div>
+        </div>
+      </section>
+      <section>
+        <h2>Bilingual type direction</h2>
+        <div class="type-grid">
+          <div class="specimen" lang="en">
+            <p class="weights"><span class="w400">Regular 400</span><span class="w600">Semibold 600</span><span class="w700">Bold 700</span></p>
+            <p>Clear care information, practical next steps, and respectful reassurance.</p>
+            <a class="button" href="#english-action">Find a service</a>
+          </div>
+          <div class="specimen" lang="am">
+            <p class="weights"><span class="w400">መደበኛ 400</span><span class="w600">መካከለኛ 600</span><span class="w700">ደማቅ 700</span></p>
+            <p>ይህ ጽሑፍ የፊደል፣ የክብደት እና የመስመር ሙከራ ብቻ ነው።</p>
+            <a class="button" href="#amharic-action">አገልግሎት ይፈልጉ</a>
+          </div>
+        </div>
+        <p class="note">Amharic strings on this review board are typography fixtures, not approved public hospital copy.</p>
+      </section>
+    </main>
+  </body>
+</html>

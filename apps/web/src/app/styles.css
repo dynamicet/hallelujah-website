@@ -4,14 +4,243 @@
   color-scheme: light;
   font-family: var(--semantic-font-family-ui);
   line-height: var(--semantic-type-body-line);
+  text-size-adjust: 100%;
+}
+
+html {
+  background: var(--semantic-color-surface-page);
+  min-width: 0;
 }
 
 * {
   box-sizing: border-box;
 }
 
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
   background: var(--semantic-color-surface-page);
   color: var(--semantic-color-text-primary);
+  font-size: var(--semantic-type-body-size);
+  font-weight: var(--semantic-font-weight-regular);
   margin: 0;
+  min-height: var(--semantic-size-viewport);
+  min-width: 0;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+}
+
+:where([lang="am"]) {
+  font-family: var(--semantic-font-family-ethiopic);
+}
+
+:where(button, input, select, textarea) {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+:where(h1, h2, h3) {
+  font-weight: var(--semantic-font-weight-strong);
+  letter-spacing: var(--semantic-type-title-tracking);
+  margin-block: 0;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--semantic-type-h1-size);
+  line-height: var(--semantic-type-h1-line);
+}
+
+h2 {
+  font-size: var(--semantic-type-h2-size);
+  line-height: var(--semantic-type-h2-line);
+}
+
+h3 {
+  font-size: var(--semantic-type-h3-size);
+  line-height: var(--semantic-type-h3-line);
+}
+
+:where(p, ul, ol, dl, blockquote, figure) {
+  margin-block: 0;
+}
+
+:where(ul, ol) {
+  padding-inline-start: var(--semantic-space-section);
+}
+
+:where(p, li, dd, figcaption) {
+  text-wrap: pretty;
+}
+
+:where(a) {
+  color: var(--semantic-color-action-primary);
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--semantic-border-default);
+  text-underline-offset: var(--semantic-space-fine);
+}
+
+:where(a):hover {
+  color: var(--semantic-color-action-primary-hover);
+  text-decoration-thickness: var(--semantic-border-emphasis);
+}
+
+:where(a):active {
+  color: var(--semantic-color-action-primary-active);
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: var(--semantic-border-focus) solid var(--semantic-color-focus);
+  outline-offset: var(--semantic-space-fine);
+}
+
+:where(button, input, select, textarea) {
+  min-block-size: var(--semantic-size-touch);
+}
+
+:where(img, picture, svg, video, canvas, iframe) {
+  display: block;
+  max-inline-size: var(--semantic-size-full);
+}
+
+:where(img, video, canvas) {
+  block-size: auto;
+}
+
+:where(hr) {
+  border: 0;
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  margin-block: var(--semantic-space-section);
+}
+
+:where(code, pre, kbd, samp) {
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+}
+
+:where(pre) {
+  max-inline-size: var(--semantic-size-full);
+  overflow-x: auto;
+}
+
+::selection {
+  background: var(--semantic-color-action-primary);
+  color: var(--semantic-color-action-on-solid);
+}
+
+.ds-container {
+  inline-size: var(--semantic-size-full);
+  margin-inline: auto;
+  max-inline-size: calc(var(--semantic-size-wide) + 2 * var(--semantic-space-page));
+  padding-inline: var(--semantic-space-page);
+}
+
+.ds-reading {
+  max-inline-size: var(--semantic-size-reading);
+}
+
+.ds-section {
+  padding-block: var(--semantic-space-section);
+}
+
+.ds-form-width {
+  max-inline-size: var(--semantic-size-form);
+}
+
+.ds-flow > * + * {
+  margin-block-start: var(--semantic-space-regular);
+}
+
+.ds-stack {
+  display: grid;
+  gap: var(--semantic-space-regular);
+}
+
+.ds-grid {
+  display: grid;
+  gap: var(--semantic-space-section);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.ds-touch-target {
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-inline-size: var(--semantic-size-full);
+  min-block-size: var(--semantic-size-touch);
+  min-inline-size: var(--semantic-size-touch);
+  overflow-wrap: anywhere;
+  padding: var(--semantic-space-compact) var(--semantic-space-page);
+  text-align: center;
+}
+
+.ds-visually-hidden:not(:focus):not(:active) {
+  block-size: var(--semantic-border-default);
+  clip-path: inset(50%);
+  inline-size: var(--semantic-border-default);
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+@media (min-width: 48rem) {
+  .ds-container {
+    max-inline-size: calc(var(--semantic-size-wide) + 2 * var(--semantic-space-gutter-regular));
+    padding-inline: var(--semantic-space-gutter-regular);
+  }
+}
+
+@media (min-width: 64rem) {
+  .ds-container {
+    max-inline-size: calc(var(--semantic-size-wide) + 2 * var(--semantic-space-gutter-wide));
+    padding-inline: var(--semantic-space-gutter-wide);
+  }
+}
+
+@media (forced-colors: active) {
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline-color: Highlight;
+  }
+
+  :where(a) {
+    color: LinkText;
+  }
+
+  :where([disabled], [aria-disabled="true"]) {
+    opacity: 1;
+  }
+}
+
+@media print {
+  @page {
+    margin: 15mm;
+  }
+
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background: var(--semantic-color-surface-raised);
+    color: var(--semantic-color-text-primary);
+    min-height: auto;
+  }
+
+  :where(a) {
+    color: var(--semantic-color-text-primary);
+    text-decoration-thickness: var(--semantic-border-default);
+  }
+
+  :where(img, svg, video, iframe) {
+    break-inside: avoid;
+  }
+
+  :where(.ds-no-print, video, iframe) {
+    display: none;
+  }
 }

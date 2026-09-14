@@ -1,6 +1,6 @@
 # Epic 01 — Design System and Global Experience
 
-**Outcome:** A production-grade, accessible, responsive, bilingual-ready interface system and global shell that faithfully implements the Calm Wayfinding contracts while keeping provisional brand choices replaceable.  
+**Outcome:** A production-grade, accessible, responsive, bilingual-ready interface system and global shell that faithfully implements the Calm Wayfinding contracts while keeping approved brand choices centrally replaceable.
 **Priority:** P0/P1  
 **Milestone:** M1  
 **Primary owners:** Product Designer, Frontend Lead, QA/Accessibility Lead, Brand Owner, Language Reviewer
@@ -37,7 +37,7 @@
 - All production templates can use the system without importing another page implementation.
 - Token generation/parity, accessibility smoke, responsive geometry, motion-mode, media-request, and cleanup tests run in CI.
 - Component states are demonstrable in English and Amharic fixtures without being publishable content.
-- Provisional brand values can be replaced centrally after `BRAND-01` without template rework.
+- `B01-002` project-approved brand values remain centrally replaceable on a recorded change trigger without template rework.
 
 ## Explicit exclusions
 

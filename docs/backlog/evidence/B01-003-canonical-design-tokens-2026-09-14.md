@@ -1,5 +1,9 @@
 # `B01-003` Canonical Generated Design Tokens Evidence — 14 September 2026
 
+> **Current value note:** `B01-002` subsequently approved the project brand foundation and advanced
+> the manifest to version 0.2.0. The evidence below remains the accurate historical result at
+> `B01-003` closeout; see the [B01-002 evidence](B01-002-project-brand-system-2026-09-14.md).
+
 **Classification:** Sanitized, non-sensitive controlled-development evidence
 
 **State:** Done for controlled development; local `T0` and hosted implementation `T1` gates pass
