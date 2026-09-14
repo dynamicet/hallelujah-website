@@ -11,6 +11,7 @@ import {
 } from '../components'
 
 import { ControlledBootstrapTemplate } from './controlled-bootstrap-template'
+import { FormPrimitivesFixtureTemplate } from './form-primitives-fixture-template'
 import { SearchControlsFixtureTemplate } from './search-controls-fixture-template'
 
 export interface EssentialActionsFixtureTemplateProps {
@@ -218,6 +219,7 @@ export function EssentialActionsFixtureTemplate({
         </div>
       </section>
       <SearchControlsFixtureTemplate searchParameters={searchParameters} />
+      <FormPrimitivesFixtureTemplate />
       </ControlledBootstrapTemplate>
     </SiteShell>
   )

@@ -16,6 +16,32 @@ export type {
   RoutineActionVariant,
   TextLinkProps,
 } from './essential-actions'
+export {
+  ChoiceGroup,
+  ErrorSummary,
+  FormActions,
+  FormPrimitiveForm,
+  FormStatus,
+  FormSubmitButton,
+  SelectField,
+  TextAreaField,
+  TextField,
+} from './form-primitives'
+export type {
+  ChoiceGroupProps,
+  ChoiceOption,
+  ErrorSummaryItem,
+  ErrorSummaryProps,
+  FieldError,
+  FormActionsProps,
+  FormPrimitiveFormProps,
+  FormStatusProps,
+  FormSubmitButtonProps,
+  SelectFieldProps,
+  SelectOption,
+  TextAreaFieldProps,
+  TextFieldProps,
+} from './form-primitives'
 export { Icon, iconNames } from './icon'
 export type { IconName, IconProps } from './icon'
 export {

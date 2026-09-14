@@ -1,0 +1,20 @@
+.noScriptReason {
+  color: var(--component-form-text-secondary);
+  font-size: var(--component-form-small-font-size);
+  line-height: var(--component-form-small-line-height);
+  max-inline-size: var(--component-form-width-form);
+  overflow-wrap: anywhere;
+}
+
+.noScriptReason[hidden] {
+  display: none;
+}
+
+.stateGrid {
+  display: grid;
+  gap: var(--component-form-space-page);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  margin-block-start: var(--component-form-space-section);
+  max-inline-size: var(--component-form-width-full);
+  min-inline-size: 0;
+}

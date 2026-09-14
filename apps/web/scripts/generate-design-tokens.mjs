@@ -309,8 +309,28 @@ async function validateConsumers(tokens) {
         applicationRoot,
         'src',
         'design-system',
+        'components',
+        'form-primitives.module.css',
+      ),
+      requiredPrefix: '--component-',
+    },
+    {
+      path: path.join(
+        applicationRoot,
+        'src',
+        'design-system',
         'templates',
         'search-controls-fixture-template.module.css',
+      ),
+      requiredPrefix: '--component-',
+    },
+    {
+      path: path.join(
+        applicationRoot,
+        'src',
+        'design-system',
+        'templates',
+        'form-primitives-fixture-template.module.css',
       ),
       requiredPrefix: '--component-',
     },
