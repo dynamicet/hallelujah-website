@@ -54,6 +54,7 @@ including native keyboard activation and moved-touch cancellation.
   switch-control, or professional Amharic review required for production acceptance.
 - Real emergency, ambulance, switchboard, appointment, and hours data remain withheld under
   `SAFE-01`; direct emergency calling is not activated by this evidence.
-- GitHub [issue `#8`](https://github.com/dynamicet/hallelujah-website/issues/8) carries the scoped
-  repository record. Pull-request review and hosted exact-head CI remain pending; publication,
-  providers, personal-data collection, deployment, DNS, and production authority remain unchanged.
+- GitHub [issue `#8`](https://github.com/dynamicet/hallelujah-website/issues/8) and [pull request
+  `#9`](https://github.com/dynamicet/hallelujah-website/pull/9) carry the scoped repository review.
+  Hosted exact-head CI and merge remain pending; publication, providers, personal-data collection,
+  deployment, DNS, and production authority remain unchanged.

@@ -19,7 +19,7 @@
 | Requirements / decisions | `G-001`, `G-004`–`G-006`, `G-011`, `E-001`–`E-005`, `A-002`, `A-007`; real contact data remains gated by `SAFE-01` |
 | Dependencies | Completed `B01-003` and merged `B01-004`; working `B00-015` and `B00-016` development baselines |
 | Allowed repository scope | Essential action components and icons, component token aliases and generated outputs, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
-| Repository review | [Issue `#8`](https://github.com/dynamicet/hallelujah-website/issues/8); branch and pull-request review pending |
+| Repository review | [Issue `#8`](https://github.com/dynamicet/hallelujah-website/issues/8) and [pull request `#9`](https://github.com/dynamicet/hallelujah-website/pull/9); exact-head hosted review pending |
 | Evidence destination | [Sanitized local evidence](evidence/B01-005-essential-actions-2026-09-14.md) |
 
 The client's 14 September 2026 direction to start the next execution authorized readiness
@@ -76,7 +76,7 @@ production, or publication.
 - [x] Static semantics, name, icon, telephone, target, spacing, emergency, mode, and source-boundary checks pass.
 - [x] Required responsive, zoom, keyboard, moved-touch, focus, reduced-motion, print, and forced-colors browser checks pass locally.
 - [x] Sanitized 320 px and 1440 px screenshots were visually reviewed.
-- [ ] Pull-request review and exact-head hosted `T1` verification are recorded; issue `#8` is open.
+- [ ] Pull request `#9` exact-head hosted `T1` verification passes and the review merges.
 - [ ] Named production roles accept verified hospital contact data, physical-device/assistive-technology behavior, final language, and release evidence.
 
 The first open checkbox controls controlled-development closure. The final checkbox remains an
