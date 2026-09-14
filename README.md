@@ -34,6 +34,11 @@ pnpm audit:dependencies
 pnpm secrets:check --history
 ```
 
+The canonical production design-token source is
+`apps/web/src/design-system/tokens/tokens.json`. Use `pnpm tokens:generate` after an authorized
+source change and `pnpm tokens:check` to prove generated CSS/TypeScript parity and policy checks.
+Its current values remain provisional pending `B01-002` brand and language approval.
+
 Before container work, run `pnpm toolchain:check:containers`. It also requires Docker 29.8.0 and PostgreSQL client 18.6; a mismatch fails closed. Application development does not require containers at the current bootstrap boundary.
 
 The default application has no CMS admin/API route, public hospital content, external application integration, or personal-data field. Payload configuration is present as the approved platform skeleton only. Later tickets must add database and CMS capabilities behind their own gates.

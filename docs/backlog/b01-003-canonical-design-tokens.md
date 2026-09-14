@@ -1,6 +1,6 @@
 # `B01-003` — Canonical Generated Design Tokens
 
-**Status:** In progress for controlled development
+**Status:** Done for controlled development; local and hosted implementation gates pass
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -12,7 +12,7 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P0` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress |
+| Old / new status | Proposed → Ready → In progress → In review → Done for controlled development |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and Designer roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Delivery, Frontend, Design, QA, Accessibility, Brand, and Language people return at their production gates |
 | Target environment | `T0` isolated local validation and private-repository `T1` GitHub Actions execution |
@@ -20,7 +20,7 @@
 | Dependencies | Completed `B01-001`; working `B00-015` and `B00-016` development baselines |
 | Allowed repository scope | Canonical production token source, generator and outputs, token/consumer tests, controlled bootstrap style migration, architecture/backlog documentation, and sanitized evidence |
 | Issue tracker | [GitHub issue `#4`](https://github.com/dynamicet/hallelujah-website/issues/4) |
-| Evidence destination | Sanitized completion record under `evidence/` after exact-head verification |
+| Evidence destination | [Sanitized completion record](evidence/B01-003-canonical-design-tokens-2026-09-14.md) |
 
 The client's 14 September 2026 direction to proceed authorizes readiness promotion, the scoped
 branch and implementation, local and hosted verification, and the repository pull-request flow. It
@@ -67,12 +67,12 @@ personal-data collection, deployment, DNS, production, or publication.
 
 ## Completion boundary
 
-- [ ] Canonical source, generated CSS, typed platform output, and stable public API are present.
-- [ ] Layer/reference/type, drift, contrast-metadata, reduced-equivalent, protected-context, and
+- [x] Canonical source, generated CSS, typed platform output, and stable public API are present.
+- [x] Layer/reference/type, drift, contrast-metadata, reduced-equivalent, protected-context, and
   consumer negative controls pass.
-- [ ] The controlled bootstrap consumes aliases and retains its existing safety and accessibility
+- [x] The controlled bootstrap consumes aliases and retains its existing safety and accessibility
   behavior.
-- [ ] Full local, history-secret, dependency-audit, and hosted implementation checks pass with
+- [x] Full local, history-secret, dependency-audit, and hosted implementation checks pass with
   sanitized evidence.
 - [ ] Named production roles approve final brand/language values and production acceptance.
 

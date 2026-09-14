@@ -51,7 +51,7 @@ The 13 September deferrals remove `B00-001`, `B00-002`, `B00-007`, `B00-014`, an
 | Pull order | Ticket | Status | Responsible / acceptance authority | Allowed scope and target | Evidence / issue |
 | ---: | --- | --- | --- | --- | --- |
 | 1 | `B01-001` | **Done** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead role / same identity for controlled-development acceptance; named Delivery, Frontend, QA, and Accessibility people return before production | `T0` local and private-repository implementation `T1` pass; production design-system boundaries, unchanged bootstrap composition, automated boundary checks, architecture/backlog documentation, and sanitized evidence only | [Execution brief](b01-001-production-component-architecture.md), [evidence](evidence/B01-001-production-component-architecture-2026-09-14.md), [issue `#2`](https://github.com/dynamicet/hallelujah-website/issues/2), and [hosted run](https://github.com/dynamicet/hallelujah-website/actions/runs/34815766577) |
-| 2 | `B01-003` | **In progress** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and Designer roles / same identity for controlled-development acceptance; named production roles return at their gates | `T0` local and private-repository `T1`; provisional canonical source, generated CSS/typed output, drift and policy checks, bootstrap alias migration, documentation, and sanitized evidence only | [Execution brief](b01-003-canonical-design-tokens.md) and [issue `#4`](https://github.com/dynamicet/hallelujah-website/issues/4) |
+| 2 | `B01-003` | **Done** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and Designer roles / same identity for controlled-development acceptance; named production roles return at their gates | `T0` local and private-repository implementation `T1` pass; provisional canonical source, generated CSS/typed output, drift and policy checks, bootstrap alias migration, documentation, and sanitized evidence only | [Execution brief](b01-003-canonical-design-tokens.md), [evidence](evidence/B01-003-canonical-design-tokens-2026-09-14.md), [issue `#4`](https://github.com/dynamicet/hallelujah-website/issues/4), and [hosted run](https://github.com/dynamicet/hallelujah-website/actions/runs/34818265645) |
 
 `B01-001` was promoted Proposed → Ready → In progress → In review → Done for controlled development on 14 September 2026, Africa/Addis_Ababa,
 after the client directed execution of steps 1–4. `B00-004` and `B00-005` are complete, the motion
@@ -61,11 +61,13 @@ brand assets, public routes, CMS capability, providers, motion/media runtime imp
 personal-data collection, deployment, DNS, production, and publication remain outside scope. The
 implementation revision and exact closeout head passed hosted CI, and pull request `#3` merged.
 
-`B01-003` was promoted Proposed → Ready → In progress for controlled development on 14 September
-2026, Africa/Addis_Ababa, after the client directed execution. Its scope is the provisional
-canonical token source, deterministic CSS and typed output, policy/drift checks, and controlled
-bootstrap alias migration. `B01-002` continues to gate authentic identity, typography, media
-policy, licensing, and final token values; no runtime motion/media or public capability is included.
+`B01-003` was promoted Proposed → Ready → In progress → In review → Done for controlled development
+on 14 September 2026, Africa/Addis_Ababa, after the client directed execution. Its provisional
+canonical source generates 135 CSS and typed platform tokens; automated checks enforce layer/type
+integrity, output parity, four token contrast pairs, reduced equivalents, seven Level 0 protected
+contexts, and consumer alias use. The controlled bootstrap consumes the generated aliases, and the
+local plus hosted implementation gates pass. `B01-002` continues to gate authentic identity,
+typography, media policy, licensing, and final values; `B01-004` is the next delivery preparation.
 
 ### `B00-005` — pinned toolchain
 
