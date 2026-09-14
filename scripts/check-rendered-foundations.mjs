@@ -295,7 +295,7 @@ async function evaluate(client, sessionId, expression) {
 
 function assertViewport(label, result) {
   if (result.viewportOverflow > 1) fail(`${label}: page overflows by ${result.viewportOverflow}px`)
-  if (result.clipped.length > 0) fail(`${label}: clipped content ${result.clipped.join(', ')}`)
+  if (result.clipped.length > 0) fail(`${label}: clipped content ${JSON.stringify(result.clipped)}`)
   if (result.control.width < 44 || result.control.height < 44) {
     fail(`${label}: control is ${result.control.width}×${result.control.height}`)
   }
@@ -357,7 +357,16 @@ function renderedChecksSource() {
       return element.scrollWidth > element.clientWidth + 1 && !excludedOverflow.has(style.overflowX)
     })
     .slice(0, 8)
-    .map((element) => element.tagName.toLowerCase() + (element.id ? '#' + element.id : ''))
+    .map((element) => ({
+      clientWidth: element.clientWidth,
+      element: element.tagName.toLowerCase()
+        + (element.id ? '#' + element.id : '')
+        + (typeof element.className === 'string' && element.className
+          ? '.' + element.className.trim().replaceAll(/\s+/g, '.')
+          : ''),
+      overflowX: getComputedStyle(element).overflowX,
+      scrollWidth: element.scrollWidth,
+    }))
   const controlRect = control.getBoundingClientRect()
   return {
     amharicFont: getComputedStyle(amharic).fontFamily,
