@@ -11,12 +11,17 @@ import {
 } from '../components'
 
 import { ControlledBootstrapTemplate } from './controlled-bootstrap-template'
+import { SearchControlsFixtureTemplate } from './search-controls-fixture-template'
 
 export interface EssentialActionsFixtureTemplateProps {
+  readonly searchParameters: Readonly<
+    Record<string, string | readonly string[] | undefined>
+  >
   readonly statuses: readonly StatusSummaryItem[]
 }
 
 export function EssentialActionsFixtureTemplate({
+  searchParameters,
   statuses,
 }: EssentialActionsFixtureTemplateProps) {
   return (
@@ -212,6 +217,7 @@ export function EssentialActionsFixtureTemplate({
           </div>
         </div>
       </section>
+      <SearchControlsFixtureTemplate searchParameters={searchParameters} />
       </ControlledBootstrapTemplate>
     </SiteShell>
   )

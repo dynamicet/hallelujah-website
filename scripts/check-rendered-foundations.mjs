@@ -16,6 +16,7 @@ const capturePrefixFlag = process.argv.indexOf('--capture-prefix')
 const capturePrefix =
   capturePrefixFlag >= 0 ? process.argv[capturePrefixFlag + 1] : 'b01-004-foundations'
 const shellMode = process.argv.includes('--shell')
+const searchControlsMode = process.argv.includes('--search-controls')
 const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
 const environment = {
@@ -68,6 +69,7 @@ try {
   await client.send('Page.navigate', { url: origin }, sessionId)
   await waitForDocument(client, sessionId)
   if (shellMode) await waitForShellEnhancement(client, sessionId)
+  if (searchControlsMode) await waitForSearchControlsEnhancement(client, sessionId)
 
   const viewports = [
     { height: 900, label: 320, width: 320 },
@@ -99,6 +101,13 @@ try {
         viewport.label,
         viewport.width,
         await evaluate(client, sessionId, renderedShellChecksSource()),
+      )
+    }
+    if (searchControlsMode) {
+      assertSearchControlsViewport(
+        viewport.label,
+        viewport.width,
+        await evaluate(client, sessionId, renderedSearchControlsChecksSource()),
       )
     }
     if (captureDirectory && (viewport.width === 320 || viewport.width === 1440)) {
@@ -211,6 +220,147 @@ try {
     )
     if (skipResult.hash !== '#main-content' || skipResult.activeId !== 'main-content') {
       fail(`skip link did not land and focus main: ${JSON.stringify(skipResult)}`)
+    }
+  }
+
+  if (searchControlsMode) {
+    await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const disclosure = document.querySelector('[data-filter-disclosure]')
+        const summary = disclosure.querySelector('summary')
+        summary.click()
+        disclosure.querySelector('input').focus()
+      })()`,
+    )
+    await client.send(
+      'Input.dispatchKeyEvent',
+      { code: 'Escape', key: 'Escape', type: 'rawKeyDown', windowsVirtualKeyCode: 27 },
+      sessionId,
+    )
+    await client.send(
+      'Input.dispatchKeyEvent',
+      { code: 'Escape', key: 'Escape', type: 'keyUp', windowsVirtualKeyCode: 27 },
+      sessionId,
+    )
+    await settleLayout()
+    const disclosureResult = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const disclosure = document.querySelector('[data-filter-disclosure]')
+        return {
+          activeIsSummary: document.activeElement === disclosure.querySelector('summary'),
+          open: disclosure.open,
+        }
+      })()`,
+    )
+    if (disclosureResult.open || !disclosureResult.activeIsSummary) {
+      fail(`Escape did not close the compact filters and restore focus: ${JSON.stringify(disclosureResult)}`)
+    }
+
+    await evaluate(client, sessionId, "document.documentElement.dataset.searchControlsEnhanced = 'waiting'")
+    await evaluate(
+      client,
+      sessionId,
+      `document.querySelector('[data-pagination] a[aria-label="Go to page 2"]').click()`,
+    )
+    await waitForPathAndSearch(client, sessionId, '/?page=2')
+    await waitForDocument(client, sessionId)
+    await waitForSearchControlsEnhancement(client, sessionId)
+    const pagedResult = await evaluate(
+      client,
+      sessionId,
+      `(() => ({
+        count: document.querySelector('[data-result-count]').textContent.trim(),
+        currentPage: document.querySelector('[data-pagination] [aria-current="page"]')?.textContent.trim(),
+        visibleResults: document.querySelectorAll('[data-search-controls-fixture] article').length,
+      }))()`,
+    )
+    if (
+      pagedResult.count !== '5 controlled results'
+      || pagedResult.currentPage !== '2'
+      || pagedResult.visibleResults !== 2
+    ) {
+      fail(`paginated GET state was not restored: ${JSON.stringify(pagedResult)}`)
+    }
+
+    await evaluate(client, sessionId, "document.documentElement.dataset.searchControlsEnhanced = 'waiting'")
+    await evaluate(client, sessionId, 'history.back()')
+    await waitForPathAndSearch(client, sessionId, '/')
+    await waitForDocument(client, sessionId)
+    await waitForSearchControlsEnhancement(client, sessionId)
+    const backResult = await evaluate(
+      client,
+      sessionId,
+      `(() => ({
+        count: document.querySelector('[data-result-count]').textContent.trim(),
+        page: document.querySelector('[data-pagination] [aria-current="page"]')?.textContent.trim(),
+      }))()`,
+    )
+    if (backResult.count !== '5 controlled results' || backResult.page !== '1') {
+      fail(`Back did not restore initial search state: ${JSON.stringify(backResult)}`)
+    }
+
+    const submittedParameters = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const form = document.querySelector('[data-search-controls-form]')
+        const query = form.querySelector('input[name="q"]')
+        query.value = 'service'
+        form.querySelector('input[name="type"][value="service"]').checked = true
+        query.focus()
+        return new URLSearchParams(new FormData(form)).toString()
+      })()`,
+    )
+    if (submittedParameters !== 'q=service&type=service') {
+      fail(`native GET controls serialized unexpected state: ${submittedParameters}`)
+    }
+    await evaluate(client, sessionId, "document.documentElement.dataset.searchControlsEnhanced = 'waiting'")
+    await evaluate(
+      client,
+      sessionId,
+      `document.querySelector('[data-search-box] button[type="submit"]').click()`,
+    )
+    await waitForPathAndSearch(client, sessionId, '/?q=service&type=service')
+    await waitForDocument(client, sessionId)
+    await waitForSearchControlsEnhancement(client, sessionId)
+    const filteredResult = await evaluate(
+      client,
+      sessionId,
+      `(() => ({
+        activeFilters: document.querySelectorAll('[data-active-filters] li').length,
+        count: document.querySelector('[data-result-count]').textContent.trim(),
+        query: document.querySelector('input[name="q"]').value,
+        selected: document.querySelector('input[name="type"][value="service"]').checked,
+        visibleResults: document.querySelectorAll('[data-search-controls-fixture] article').length,
+      }))()`,
+    )
+    if (
+      filteredResult.activeFilters !== 1
+      || filteredResult.count !== '2 controlled results'
+      || filteredResult.query !== 'service'
+      || !filteredResult.selected
+      || filteredResult.visibleResults !== 2
+    ) {
+      fail(`submitted GET search/filter state is incorrect: ${JSON.stringify(filteredResult)}`)
+    }
+
+    const noScriptResponse = await fetch(`${origin}/?q=location&type=location`)
+    const noScriptHtml = await noScriptResponse.text()
+    const noScriptChecks = {
+      count: /1(?:<!-- -->)? controlled (?:<!-- -->)?result/u.test(noScriptHtml),
+      query: /name="q"[^>]*value="location"/u.test(noScriptHtml),
+      record: noScriptHtml.includes('Controlled location record Alpha'),
+      response: noScriptResponse.ok,
+      selected: /checked=""[^>]*value="location"|value="location"[^>]*checked=""/u.test(noScriptHtml),
+    }
+    if (Object.values(noScriptChecks).some((passed) => !passed)) {
+      fail(
+        `no-JavaScript GET response did not retain the bounded search/filter state: ${JSON.stringify(noScriptChecks)}`,
+      )
     }
   }
 
@@ -372,7 +522,9 @@ try {
   client.close()
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
-    shellMode
+    searchControlsMode
+      ? 'Rendered foundation/action/shell/search-control smoke passed (responsive controls, GET filtering and pagination, Back restoration, count semantics, compact Escape focus, bounded URLs, no-JavaScript state, targets, zoom, reduced motion, print, and forced colors).'
+      : shellMode
       ? 'Rendered foundation/action/shell smoke passed (responsive single-order navigation, compact disclosure, Escape and skip-link focus, current state, breadcrumbs, language availability, targets, zoom, reduced motion, print, and forced colors).'
       : 'Rendered foundation/action smoke passed (responsive, zoom, enlarged text, names, targets, gaps, native keyboard and moved-touch behavior, phone invariant, protected emergency, focus, bilingual type, reduced motion, print, and forced colors).',
   )
@@ -489,6 +641,31 @@ async function waitForShellEnhancement(client, sessionId) {
   throw new Error('first-party global shell enhancement did not load')
 }
 
+async function waitForSearchControlsEnhancement(client, sessionId) {
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    const enhanced = await evaluate(
+      client,
+      sessionId,
+      "document.documentElement.dataset.searchControlsEnhanced === 'true'",
+    )
+    if (enhanced) return
+    await pause(100)
+  }
+  throw new Error('first-party search-control enhancement did not load')
+}
+
+async function waitForPathAndSearch(client, sessionId, expectedValue) {
+  let currentValue = ''
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    currentValue = await evaluate(client, sessionId, 'location.pathname + location.search')
+    if (currentValue === expectedValue) return
+    await pause(100)
+  }
+  throw new Error(
+    `navigation did not reach expected controlled path and state ${expectedValue}; received ${currentValue}`,
+  )
+}
+
 async function evaluate(client, sessionId, expression) {
   const { exceptionDetails, result } = await client.send(
     'Runtime.evaluate',
@@ -562,6 +739,36 @@ function assertShellViewport(label, width, result) {
   }
 }
 
+function assertSearchControlsViewport(label, width, result) {
+  if (!result.formLabel || result.formMethod !== 'get') {
+    fail(`${label}: search form is not a labeled GET landmark`)
+  }
+  if (
+    result.countAtomic !== 'true'
+    || result.countLive !== 'polite'
+    || result.countRole !== 'status'
+  ) {
+    fail(`${label}: result count is not one atomic polite status`)
+  }
+  if (result.invalidUrlKeys.length > 0) {
+    fail(`${label}: non-allowlisted URL keys ${result.invalidUrlKeys.join(', ')}`)
+  }
+  if (width < 1024 && (result.filterSummaryDisplay === 'none' || result.filterPanelHeight !== 0)) {
+    fail(
+      `${label}: compact filter disclosure baseline is incorrect ${JSON.stringify(result.filterDisclosure)}`,
+    )
+  }
+  if (width >= 1024 && (result.filterSummaryDisplay !== 'none' || result.filterPanelHeight === 0)) {
+    fail(`${label}: wide filter panel is not persistently visible`)
+  }
+  for (const target of result.visibleTargets) {
+    if (target.width < 44 || target.height < 44) {
+      fail(`${label}: search target ${target.name} is ${target.width}×${target.height}`)
+    }
+    if (!target.name) fail(`${label}: visible search target has no name`)
+  }
+}
+
 function fail(message) {
   console.error(`- ${message}`)
   process.exitCode = 1
@@ -620,6 +827,7 @@ function renderedChecksSource() {
   const clipped = [...document.body.querySelectorAll('*')]
     .filter((element) => {
       const style = getComputedStyle(element)
+      if (element.matches('input, textarea, select')) return false
       return element.scrollWidth > element.clientWidth + 1 && !excludedOverflow.has(style.overflowX)
     })
     .slice(0, 8)
@@ -705,6 +913,54 @@ function renderedShellChecksSource() {
     panelHeight: panel.getBoundingClientRect().height,
     primaryNavigationCount: header.querySelectorAll('[data-primary-navigation]').length,
     triggerDisplay: getComputedStyle(trigger).display,
+    visibleTargets,
+  }
+})()`
+}
+
+function renderedSearchControlsChecksSource() {
+  return `(() => {
+  const fixture = document.querySelector('[data-search-controls-fixture]')
+  const form = fixture.querySelector('[data-search-controls-form]')
+  const count = fixture.querySelector('[data-result-count]')
+  const disclosure = fixture.querySelector('[data-filter-disclosure]')
+  const allowedUrlKeys = new Set(['q', 'type', 'page'])
+  const invalidUrlKeys = [...fixture.querySelectorAll('a[href]')]
+    .flatMap((link) => [...new URL(link.href).searchParams.keys()])
+    .filter((key) => !allowedUrlKeys.has(key))
+  const visibleTargets = [
+    ...form.querySelectorAll('a[href], button, input[type="search"], summary, [data-filter-group] label'),
+    ...fixture.querySelectorAll('[data-active-filters] a[href], [data-pagination] a[href], [data-pagination] [aria-current="page"]'),
+  ]
+    .filter((target) => {
+      const rect = target.getBoundingClientRect()
+      const style = getComputedStyle(target)
+      return style.display !== 'none' && rect.width > 0 && rect.height > 0
+    })
+    .map((target) => {
+      const rect = target.getBoundingClientRect()
+      const input = target.matches('input') ? target : null
+      return {
+        height: rect.height,
+        name: input?.labels?.[0]?.textContent.trim() ?? target.textContent.trim(),
+        width: rect.width,
+      }
+    })
+  return {
+    countAtomic: count.getAttribute('aria-atomic'),
+    countLive: count.getAttribute('aria-live'),
+    countRole: count.getAttribute('role'),
+    filterDisclosure: {
+      open: disclosure.open,
+      panelDisplay: getComputedStyle(disclosure.querySelector('div')).display,
+      panelHeight: disclosure.querySelector('div').getBoundingClientRect().height,
+      summaryDisplay: getComputedStyle(disclosure.querySelector('summary')).display,
+    },
+    filterPanelHeight: disclosure.querySelector('div').getBoundingClientRect().height,
+    filterSummaryDisplay: getComputedStyle(disclosure.querySelector('summary')).display,
+    formLabel: form.getAttribute('aria-label'),
+    formMethod: form.method.toLowerCase(),
+    invalidUrlKeys,
     visibleTargets,
   }
 })()`

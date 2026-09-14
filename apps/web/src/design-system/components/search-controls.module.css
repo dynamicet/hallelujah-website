@@ -1,0 +1,276 @@
+.form {
+  display: grid;
+  gap: var(--component-search-controls-space-page);
+  max-inline-size: var(--component-search-controls-width-full);
+  min-inline-size: 0;
+}
+
+.searchBox {
+  display: grid;
+  gap: var(--component-search-controls-space-compact);
+  inline-size: var(--component-search-controls-width-full);
+  max-inline-size: var(--component-search-controls-width-form);
+  min-inline-size: 0;
+}
+
+.label,
+.filterGroup legend,
+.resultCount {
+  color: var(--component-search-controls-text-primary);
+  font-weight: var(--component-search-controls-font-weight-strong);
+}
+
+.searchBox > :where(label, p) {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.hint {
+  color: var(--component-search-controls-text-secondary);
+  font-size: var(--component-search-controls-small-font-size);
+  line-height: var(--component-search-controls-small-line-height);
+}
+
+.searchRow {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--component-search-controls-space-regular);
+}
+
+.searchRow input {
+  background: var(--component-search-controls-surface-raised);
+  border: var(--component-search-controls-border-emphasis) solid
+    var(--component-search-controls-border-strong);
+  border-radius: var(--component-search-controls-radius);
+  flex: 1 1 14rem;
+  inline-size: var(--component-search-controls-width-full);
+  min-inline-size: 0;
+  padding: var(--component-search-controls-space-compact)
+    var(--component-search-controls-space-page);
+}
+
+.searchRow button,
+.searchRow a,
+.filterPanel > button,
+.activeFilters a,
+.pagination :where(a, span) {
+  align-items: center;
+  border-radius: var(--component-search-controls-radius);
+  display: inline-flex;
+  justify-content: center;
+  min-block-size: var(--component-search-controls-target-minimum);
+  min-inline-size: var(--component-search-controls-target-minimum);
+  max-inline-size: var(--component-search-controls-width-full);
+  overflow-wrap: anywhere;
+  padding: var(--component-search-controls-space-compact)
+    var(--component-search-controls-space-page);
+  text-align: center;
+}
+
+.searchRow button,
+.filterPanel > button {
+  appearance: none;
+  background: var(--component-search-controls-action);
+  border: var(--component-search-controls-border-emphasis) solid
+    var(--component-search-controls-action);
+  color: var(--component-search-controls-action-on-solid);
+  cursor: pointer;
+  font-weight: var(--component-search-controls-font-weight-emphasis);
+  transition:
+    background-color var(--component-search-controls-feedback-duration)
+      var(--component-search-controls-feedback-easing),
+    border-color var(--component-search-controls-feedback-duration)
+      var(--component-search-controls-feedback-easing);
+}
+
+.searchRow button:hover,
+.filterPanel > button:hover {
+  background: var(--component-search-controls-action-hover);
+  border-color: var(--component-search-controls-action-hover);
+}
+
+.filterDisclosure {
+  border: var(--component-search-controls-border-width) solid
+    var(--component-search-controls-border-default);
+  border-radius: var(--component-search-controls-radius);
+  inline-size: var(--component-search-controls-width-full);
+  max-inline-size: var(--component-search-controls-width-form);
+  min-inline-size: 0;
+}
+
+.filterDisclosure > summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-weight: var(--component-search-controls-font-weight-strong);
+  min-block-size: var(--component-search-controls-target-minimum);
+  padding: var(--component-search-controls-space-compact)
+    var(--component-search-controls-space-page);
+}
+
+.filterDisclosure > summary > span {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.filterPanel {
+  border-block-start: var(--component-search-controls-border-width) solid
+    var(--component-search-controls-border-default);
+  display: grid;
+  gap: var(--component-search-controls-space-page);
+  min-inline-size: 0;
+  padding: var(--component-search-controls-space-page);
+}
+
+.filterDisclosure:not([open]) > .filterPanel {
+  display: none;
+}
+
+.filterGroup {
+  border: 0;
+  display: grid;
+  gap: var(--component-search-controls-space-compact);
+  margin: 0;
+  max-inline-size: var(--component-search-controls-width-full);
+  min-inline-size: 0;
+  padding: 0;
+}
+
+.filterGroup legend {
+  margin-block-end: var(--component-search-controls-space-compact);
+  padding: 0;
+}
+
+.filterGroup label {
+  align-items: center;
+  cursor: pointer;
+  display: grid;
+  gap: var(--component-search-controls-space-compact);
+  grid-template-columns: auto minmax(0, 1fr);
+  min-block-size: var(--component-search-controls-target-minimum);
+  min-inline-size: 0;
+}
+
+.filterGroup label > span {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.filterGroup input {
+  block-size: var(--component-search-controls-space-page);
+  inline-size: var(--component-search-controls-space-page);
+  margin: 0;
+}
+
+.optionCount {
+  color: var(--component-search-controls-text-secondary);
+  font-variant-numeric: tabular-nums;
+  grid-column: 2;
+}
+
+.activeFilters,
+.activeFilters ul,
+.pagination ul {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--component-search-controls-space-regular);
+}
+
+.activeFilters ul,
+.pagination ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.activeFilters a,
+.pagination a,
+.pagination [aria-current='page'] {
+  border: var(--component-search-controls-border-width) solid
+    var(--component-search-controls-border-strong);
+}
+
+.activeFilters li a {
+  background: var(--component-search-controls-surface-subtle);
+  gap: var(--component-search-controls-space-compact);
+  text-decoration: none;
+}
+
+.activeFilters li a:hover {
+  background: var(--component-search-controls-surface-raised);
+  color: var(--component-search-controls-action-hover);
+}
+
+.clearAll {
+  border-color: transparent;
+}
+
+.resultCount {
+  margin-block-start: var(--component-search-controls-space-section);
+}
+
+.pagination {
+  margin-block-start: var(--component-search-controls-space-page);
+}
+
+.pagination [aria-current='page'] {
+  background: var(--component-search-controls-text-primary);
+  color: var(--component-search-controls-surface-raised);
+  font-weight: var(--component-search-controls-font-weight-strong);
+}
+
+@media (min-width: 64rem) {
+  .filterDisclosure {
+    border: 0;
+  }
+
+  .filterDisclosure > summary {
+    display: none;
+  }
+
+  .filterDisclosure:not([open]) > .filterPanel,
+  .filterDisclosure > .filterPanel {
+    border: 0;
+    display: grid;
+    padding: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .searchRow button,
+  .filterPanel > button {
+    transition-duration: var(--component-search-controls-static-duration);
+  }
+}
+
+@media (forced-colors: active) {
+  .searchRow button,
+  .filterPanel > button,
+  .activeFilters a,
+  .pagination :where(a, span),
+  .searchRow input,
+  .filterDisclosure {
+    border-color: ButtonText;
+  }
+
+  .pagination [aria-current='page'] {
+    background: Highlight;
+    color: HighlightText;
+  }
+}
+
+@media print {
+  .searchRow button,
+  .filterPanel > button,
+  .activeFilters a,
+  .pagination :where(a, span),
+  .searchRow input,
+  .filterDisclosure {
+    background: transparent;
+    border-color: CanvasText;
+    color: CanvasText;
+    transition: none;
+  }
+}
