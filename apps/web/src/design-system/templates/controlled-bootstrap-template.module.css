@@ -1,59 +1,61 @@
 .frame {
   display: grid;
-  min-height: 100vh;
-  padding: 1rem;
+  min-height: var(--component-bootstrap-frame-min-height);
+  padding: var(--component-bootstrap-frame-padding);
   place-items: center;
 }
 
 .surface {
-  background: #ffffff;
-  border: 1px solid #b7c9c3;
-  border-radius: 0.75rem;
-  box-shadow: 0 0.75rem 2rem rgb(23 51 44 / 10%);
-  max-width: 46rem;
-  padding: clamp(1.25rem, 4vw, 3rem);
-  width: 100%;
+  background: var(--component-bootstrap-surface-background);
+  border: var(--component-bootstrap-surface-border-width) solid
+    var(--component-bootstrap-surface-border-color);
+  border-radius: var(--component-bootstrap-surface-radius);
+  box-shadow: var(--component-bootstrap-surface-shadow);
+  max-width: var(--component-bootstrap-surface-max-width);
+  padding: var(--component-bootstrap-surface-padding);
+  width: var(--component-bootstrap-surface-width);
 }
 
 .eyebrow {
-  color: #286353;
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  margin: 0 0 0.5rem;
+  color: var(--component-bootstrap-eyebrow-color);
+  font-size: var(--component-bootstrap-eyebrow-font-size);
+  font-weight: var(--component-bootstrap-eyebrow-font-weight);
+  letter-spacing: var(--component-bootstrap-eyebrow-letter-spacing);
+  margin: 0 0 var(--component-bootstrap-eyebrow-margin-bottom);
   text-transform: uppercase;
 }
 
 .title {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  letter-spacing: -0.035em;
-  line-height: 1.05;
+  font-size: var(--component-bootstrap-title-font-size);
+  letter-spacing: var(--component-bootstrap-title-letter-spacing);
+  line-height: var(--component-bootstrap-title-line-height);
   margin: 0;
 }
 
 .description {
-  max-width: 65ch;
+  max-width: var(--component-bootstrap-description-max-width);
 }
 
 .statusSummary {
   display: grid;
-  gap: 0.75rem;
-  margin: 2rem 0 0;
+  gap: var(--component-bootstrap-status-gap);
+  margin: var(--component-bootstrap-status-margin-top) 0 0;
 }
 
 .statusSummary > div {
-  border-top: 1px solid #d7e1de;
+  border-top: var(--component-bootstrap-status-border-width) solid
+    var(--component-bootstrap-status-border-color);
   display: grid;
-  gap: 0.25rem;
-  padding-top: 0.75rem;
+  gap: var(--component-bootstrap-status-item-gap);
+  padding-top: var(--component-bootstrap-status-item-padding-top);
 }
 
 .statusSummary dt {
-  font-weight: 650;
+  font-weight: var(--component-bootstrap-status-term-weight);
 }
 
 .statusSummary dd {
-  color: #7a2b24;
+  color: var(--component-bootstrap-status-value-color);
   margin: 0;
 }
 
@@ -65,7 +67,7 @@
 
 @media (forced-colors: active) {
   .surface {
-    border: 1px solid CanvasText;
+    border-color: CanvasText;
     box-shadow: none;
   }
 }

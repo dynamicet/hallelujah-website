@@ -13,7 +13,9 @@
     "dev": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next dev",
     "lint": "eslint . --max-warnings=0",
     "start": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next start",
-    "test": "node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
+    "test": "pnpm tokens:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
+    "tokens:check": "node scripts/generate-design-tokens.mjs --check",
+    "tokens:generate": "node scripts/generate-design-tokens.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

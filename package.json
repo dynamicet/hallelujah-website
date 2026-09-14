@@ -27,6 +27,8 @@
     "test": "pnpm --dir apps/web test",
     "toolchain:check": "node scripts/check-toolchain.mjs",
     "toolchain:check:containers": "node scripts/check-toolchain.mjs --include-container-tools",
+    "tokens:check": "pnpm --dir apps/web tokens:check",
+    "tokens:generate": "pnpm --dir apps/web tokens:generate",
     "typecheck": "pnpm --dir apps/web typecheck",
     "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke"
   },
