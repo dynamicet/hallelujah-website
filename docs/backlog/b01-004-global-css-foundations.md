@@ -1,6 +1,6 @@
 # `B01-004` — Global CSS Foundations
 
-**Status:** In review; local `T0` passes and the branch is published, while pull-request review and hosted `T1` remain pending
+**Status:** In review; local `T0` passes and pull request `#7` is open, while hosted `T1` and merge remain pending
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -15,11 +15,11 @@
 | Old / current status | Proposed → Ready → In progress → In review |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Delivery, Frontend, QA, Accessibility, Language, and Brand people return at their production gates |
-| Target environment | `T0` isolated local application and headless Chromium; branch published for private-repository `T1`, which requires a pull request |
+| Target environment | `T0` isolated local application and headless Chromium; private-repository pull request `#7` for hosted `T1` |
 | Requirements / decisions | `G-003`–`G-005`, `G-007`, `G-010`; project brand direction approved under `B01-002` |
 | Dependencies | Completed `B01-003`; working `B00-015` and `B00-016` development baselines |
 | Allowed repository scope | Canonical foundation token roles and generated outputs, global CSS, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
-| Repository review | [Published branch](https://github.com/dynamicet/hallelujah-website/tree/b01-004-global-css-foundations); issue/pull request pending because the configured `gh` API credential is invalid |
+| Repository review | [Issue `#6`](https://github.com/dynamicet/hallelujah-website/issues/6), [pull request `#7`](https://github.com/dynamicet/hallelujah-website/pull/7), and [published branch](https://github.com/dynamicet/hallelujah-website/tree/b01-004-global-css-foundations); hosted current-head result and merge pending |
 | Evidence destination | [Sanitized local evidence](evidence/B01-004-global-css-foundations-2026-09-14.md) |
 
 The client's 14 September 2026 direction to proceed authorized readiness promotion, the scoped

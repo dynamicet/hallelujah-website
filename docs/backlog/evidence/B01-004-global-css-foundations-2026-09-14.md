@@ -2,7 +2,7 @@
 
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
-**Result:** Local `T0` passed and branch published; pull-request-triggered hosted `T1` pending
+**Result:** Local `T0` passed; issue `#6` and pull request `#7` are open; current-head hosted `T1` pending
 
 ## Evidence summary
 
@@ -52,8 +52,9 @@ with zero moderate, high, or critical known vulnerabilities.
 
 - The screenshots contain only controlled-development fixture text and no personal, clinical,
   operational, credential, or restricted evidence.
-- Git credentials published `b01-004-global-css-foundations`; the `gh` API credential remains
-  invalid, so no issue, pull request, or hosted current-head run is claimed in this record.
+- GitHub [issue `#6`](https://github.com/dynamicet/hallelujah-website/issues/6) and
+  [pull request `#7`](https://github.com/dynamicet/hallelujah-website/pull/7) now carry the
+  repository review; no hosted current-head success or merge is claimed until that run completes.
 - The local browser is Chromium 152 from the installed Snap payload. This is implementation smoke,
   not the final physical-device/browser matrix required for production acceptance.
 - Approved Noto and logo binaries remain outside the repository until verified ingestion under
