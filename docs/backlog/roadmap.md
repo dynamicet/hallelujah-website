@@ -57,7 +57,7 @@ GOV-01 + SEC-01 + DEL-01
 | --- | --- | --- | --- | --- |
 | Governance and decision closeout | Immediately | None | All controlled implementation | Named/date/evidence outcomes required before affected publication |
 | Platform, environments, CI | Immediately | Architecture baseline | Decision closeout, schema design | Trusted source and environment boundaries required |
-| Design-system productionization | After repository skeleton | Token-source selection | CMS modeling | Brand theme remains replaceable until `BRAND-01` |
+| Design-system productionization | After repository skeleton | Token-source selection and `B01-002` project brand approval | CMS modeling | Approved values remain centrally replaceable; binary intake and rendered release evidence retain their gates |
 | CMS/content model | After repository skeleton | Content lifecycle contract | Design-system work | Records cannot publish without required approvals/metadata |
 | Shared shell/utilities | After tokens + route model | `LANG-01` inventory for final copy | CMS modeling | Safety actions use canonical approved data only |
 | Page slices | After shell and relevant collections | Applicable decision gates for real content | Other independent slices | Controlled fixtures only until content gates close |
@@ -117,7 +117,7 @@ The Appointment feature uses a separate enablement control from page visibility.
 | Contact/emergency facts conflict | Unsafe or misleading critical journeys | Operations/Clinical | `B03-001`–`B03-003`; withhold facts until tested |
 | Appointment model is unresolved | Cannot safely collect or route requests | Operations/Privacy/Security | `B03-010`–`B03-015`; keep collection disabled |
 | Content and Amharic approvals arrive late | Page acceptance and publication slip | Content/Language owners | `B02-001`–`B02-014`, `B06-007`–`B06-010`; prioritize safety inventory first |
-| Brand assets/rights are absent | Visual polish cannot be treated as approved identity | Brand owner | `B01-002`, `B02-011`; retain replaceable provisional theme |
+| Project brand direction is approved; production binaries and per-media rights remain absent | Global foundations may use approved values, but no logo/font/photo/video binary ships before governed intake | Brand + asset/content owners | `B01-002` complete; `B02-011` scans/ingests binaries and each media record proves rights/consent/lifecycle |
 | Same-VPS logical isolation is misconfigured | Appointment confidentiality and recovery risk | Delivery/Security | `B00-008`–`B00-010`; least privilege and restore evidence |
 | Prototype is copied as production code | Fragile architecture and fixture leakage | Delivery Lead | PR checklist and `B01-001`; contract-driven rebuild |
 

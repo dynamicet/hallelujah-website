@@ -29,7 +29,7 @@ Review the [requirements matrix](../../requirements/requirements-matrix.md) and 
 | Page purpose, order, and states | [Core page specifications](../../ux/page-specifications.md) and [utility specifications](../../ux/utility-page-specifications.md) | Product contract for each template and Phase 1 utility behavior. |
 | Section order and cross-cutting detail | [Wireframe index](../../wireframes/README.md) and linked page/flow files, including [utility wireframes](../../wireframes/utility-pages.md) | Preserve stable section IDs and documented recovery paths. |
 | Base interaction contracts | [Shared design system](../../design-system/README.md) | Technology-independent behavior and accessibility baseline. |
-| Prototype values and tokens | [Order 4 foundations](../foundations/README.md) | Provisional theme source; keep replaceable until `BRAND-01`. |
+| Project brand values and production tokens | [Brand system](../../brand/README.md) and [canonical token architecture](../../architecture/canonical-design-token-system.md) | `B01-002` project-approved direction; centrally replaceable; rendered implementation and binary intake remain gated. |
 | Responsive component behavior | [Order 5 components](../components/README.md) | Component anatomy, variants, states, and token aliases. |
 | Motion and storytelling | [Motion guide](../motion/README.md) and [production amendment](../motion/high-end-motion-and-interactive-media-amendment.md) | Treat Orders 3–11 as historical prototype evidence; use the amendment for production intensity, static-first media, protected contexts, and acceptance. |
 | Complete page studies | [Visual workspace](../README.md) | Visual reference after the product and section contracts. |

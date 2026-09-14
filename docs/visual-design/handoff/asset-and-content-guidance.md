@@ -2,7 +2,17 @@
 
 ## Current boundary
 
-There are no approved production logo/vector assets, bundled fonts, icon library, or hospital photographs. The extracted [media manifest](../../../../resources/data/media-manifest.json) contains remote references with missing source alternative text; it is an audit input, not an asset library. Audit screenshots, benchmark captures, generated evidence images, abstract prototype media, and remote source URLs must not ship as hospital product assets.
+`B01-002` approves the [project brand system](../../brand/README.md), two fingerprinted public-source
+raster logo records, the accessible color direction, and Noto Sans/Noto Sans Ethiopic selection.
+This is design and provenance authority, not binary ingestion: there is still no approved vector,
+bundled production font, icon library, or hospital photography in the application. `B02-011` must
+scan, ingest, fingerprint, derive, and lifecycle-control any binary before it ships; hotlinking is
+forbidden.
+
+The extracted [media manifest](../../../../resources/data/media-manifest.json) contains remote
+references with missing source alternative text; it is an audit input, not an asset library. Audit
+screenshots, benchmark captures, generated evidence images, abstract prototype media, and remote
+source URLs must not ship as hospital product assets.
 
 Structured content in [resources](../../../../resources/README.md) preserves public-site claims and quality flags. Fields ending in `_as_published` are source evidence, not independently verified facts.
 

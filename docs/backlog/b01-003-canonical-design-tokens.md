@@ -6,6 +6,10 @@
 
 **Publication, provider activation, production, deployment, final-brand, and personal-data authority:** Not granted
 
+> **Current value note:** `B01-002` subsequently approved the project brand foundation and advanced
+> the canonical manifest to version 0.2.0. The contract below preserves `B01-003`'s status at its own
+> execution; current brand authority is recorded in the [B01-002 decision](b01-002-project-brand-system.md).
+
 ## Execution contract
 
 | Field | Controlled execution value |

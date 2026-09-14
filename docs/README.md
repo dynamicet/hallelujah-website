@@ -20,12 +20,16 @@ The first deliverable translates the existing audit, content extraction, benchma
 | Document | Purpose | Status |
 | --- | --- | --- |
 | [Design-system index](design-system/README.md) | Scope, decision status, implementation order, and approval gates | Initial baseline |
-| [Visual foundations](design-system/foundations.md) | Brand direction, accessible token roles, typography, spacing, layout, and media rules | Provisional pending brand approval |
+| [Visual foundations](design-system/foundations.md) | Brand direction, accessible token roles, typography, spacing, layout, and media rules | Brand values project-approved by `B01-002`; implementation validation pending |
+| [Brand system](brand/README.md) | Identity, logo provenance, palette, bilingual typography, voice, imagery/video, and asset lifecycle | Project-approved by `B01-002` |
 | [Layout patterns](design-system/layout-patterns.md) | Reusable page-shell, section, directory, detail, form, and emergency compositions | Initial baseline |
 | [Component contracts](design-system/components.md) | Anatomy, variants, states, behavior, content rules, and requirement traceability | Initial baseline |
 | [Interaction and motion](design-system/interaction-and-motion.md) | Feedback, transition, progressive enhancement, reduced-motion, loading, media, and failure behavior | Production direction amended 14 September 2026 |
 
-The second deliverable defines the experience system shared by every page. Candidate colors and fonts are ready for prototype testing, but they are not approved hospital brand assets. Implementation must not encode them as final until the brand owner approves them and contrast is revalidated in the actual interface.
+The second deliverable defines the experience system shared by every page. `B01-002` converts the
+candidate direction into a source-traceable, project-approved brand foundation. This is not public
+release authority: `B01-004` must still validate rendered foundations, `B02-011` must ingest binary
+assets, and named language/content/release gates remain binding.
 
 ## Third deliverable
 

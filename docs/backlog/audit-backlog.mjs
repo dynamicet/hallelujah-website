@@ -273,7 +273,7 @@ const duplicateRegisteredDecisions = [...new Set(registeredDecisionIds.filter(
 ))];
 const missingRegisteredDecisions = sourceDecisions.filter((id) => !registeredDecisionIds.includes(id));
 const extraRegisteredDecisions = registeredDecisionIds.filter((id) => !sourceDecisions.includes(id));
-const approvedDecisionIds = new Set(['GOV-02', 'GOV-03']);
+const approvedDecisionIds = new Set(['GOV-02', 'GOV-03', 'BRAND-01']);
 const openDecisionRows = registeredDecisionRows.filter(({ id }) => !approvedDecisionIds.has(id));
 const openDecisionsWithoutControl = openDecisionRows
   .filter(({ row }) => !/`B\d{2}-\d{3}`/.test(row) || !/`M[0-8]`/.test(row))

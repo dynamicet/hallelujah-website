@@ -34,8 +34,11 @@ function validateManifest(candidate) {
   const layers = ['primitive', 'semantic', 'component']
   const tokens = new Map()
 
-  if (candidate.meta?.status !== 'provisional-until-brand-and-language-approval') {
-    failures.push('meta.status must preserve the provisional brand and language gate')
+  if (candidate.meta?.status !== 'project-approved-brand-foundation') {
+    failures.push('meta.status must preserve the project-approved brand foundation')
+  }
+  if (candidate.meta?.valueGate !== 'B01-002-closed') {
+    failures.push('meta.valueGate must record B01-002 closure')
   }
 
   for (const layer of layers) {

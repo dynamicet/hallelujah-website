@@ -1,10 +1,13 @@
 # Visual Foundations
 
-**Status:** Order 4 values fixed for non-public prototyping; hospital brand approval and performed validation required for public use  
+**Status:** Brand values approved for project use by `B01-002`; responsive implementation and production validation remain required
 **Requirements:** G-003–G-006, G-008–G-012, G-015, G-016, S-006–S-008, H-002, D-006  
 **Benchmark basis:** Task-first hierarchy, restrained trust, bilingual boundaries, low-bandwidth access, and evidence-gated imagery/claims from `BM-01`, `BM-09`, `BM-10`, and `BM-12` in the [benchmark traceability register](../benchmarks/benchmark-traceability.md)
 
-The exact prototype token names and values are maintained in the [Order 4 foundation package](../visual-design/foundations/README.md), [CSS token source](../visual-design/foundations/tokens.css), and [portable manifest](../visual-design/foundations/tokens.json). This document remains the upstream visual and accessibility contract. If an older candidate value below differs from the token source, the Order 4 value governs non-public prototype rendering; neither source implies hospital brand approval.
+The [project brand system](../brand/README.md) now governs identity, color, typography, voice,
+imagery, and asset lifecycle. The application [token manifest](../../apps/web/src/design-system/tokens/tokens.json)
+is the canonical production value source. The Order 4 foundation package remains historical
+prototype evidence and must not override these approved project values.
 
 ## 1. Experience character
 
@@ -31,23 +34,22 @@ Selected Home, About, Patient Information, and arrival/storytelling sections may
 
 ## 2. Brand asset rules
 
-The current public logo uses a cyan-led wordmark with small orange and multicolor details. It is evidence of the existing identity, not a complete brand standard.
+The public horizontal and square raster marks are adopted as source-traceable project assets. Their
+URLs, dimensions, fingerprints, usage boundary, clear-space method, and replacement triggers are in
+the [brand system](../brand/README.md#2-logo-system). They are not misrepresented as original vectors.
 
-Before production:
-
-1. Obtain the original vector mark from the hospital; do not trace the website screenshot.
-2. Confirm the correct hospital name, capitalization, tagline, color values, clear space, and minimum size.
-3. Create approved horizontal and compact variants only if the source system supports them.
-4. Test the mark on white and permitted quiet surfaces; never place it over busy photography.
-5. Keep the logo readable and never use its small decorative colors as status meanings by default.
-
-If no approved compact mark exists, mobile uses the full mark at a legible size rather than inventing a symbol.
+Production must ingest a verified copy through `B02-011`; it must not hotlink, trace, recolor, or
+upscale the public file. Use the full mark on white or a quiet near-white surface. Until a trusted
+compact master exists, do not invent a symbol; accessible text naming the hospital is the safe
+fallback when the raster cannot remain legible.
 
 ## 3. Color system
 
-### Prototype primitive palette
+### Approved primitive palette
 
-These values create the Order 4 prototype accessibility baseline. They are stable for non-public prototypes and are not final hospital brand approval.
+The bright public-logo accents are preserved for identity while deeper accessible roles carry text,
+actions, focus, and status. This palette is approved for project use; rendered component/state
+testing remains part of `B01-004` and release QA.
 
 | Primitive | Value | Intended role |
 | --- | --- | --- |
@@ -58,8 +60,8 @@ These values create the Order 4 prototype accessibility baseline. They are stabl
 | `mineral.400` | `#789B9B` | Meaningful control boundaries |
 | `mineral.600` | `#516A70` | Secondary text |
 | `mineral.900` | `#17323A` | Primary text |
-| `wayfinding.cyan` | `#21A6BD` | Cool identity detail; not a white-text action fill |
-| `wayfinding.ochre` | `#D9952F` | Small orientation accent; not status color |
+| `brand.cyan` | `#1EAEE2` | Public-logo identity detail; decorative only outside the artwork |
+| `brand.orange` | `#EF5C28` | Public-logo warm detail; decorative only outside the artwork |
 | `teal.700` | `#006A73` | Primary non-emergency action and link |
 | `teal.800` | `#00565F` | Hover |
 | `teal.900` | `#00434A` | Active/pressed |
@@ -90,12 +92,12 @@ These values create the Order 4 prototype accessibility baseline. They are stabl
 | `color.error` | `red.800` | Validation/system error text on tint, always with words/icon |
 | `color.success` | `green.800` | Completed/success text on tint, always with words/icon |
 | `color.warning` | `amber.900` | Caution, always with words/icon |
-| `color.brand.accent.cool` | `wayfinding.cyan` | Decorative identity detail |
-| `color.brand.accent.warm` | `wayfinding.ochre` | Decorative orientation detail |
+| `color.brand.accent.cool` | `brand.cyan` | Decorative identity detail; never normal text on white |
+| `color.brand.accent.warm` | `brand.orange` | Decorative identity detail; never normal text on white |
 
 Emergency and validation errors may share a red primitive but must use different component language and icons. An emergency action says what route it opens; an error explains what failed and how to recover.
 
-### Checked prototype contrast pairs
+### Checked palette contrast pairs
 
 The following ratios were calculated from the listed prototype values. Re-test rendered fonts, borders, focus, and all states after implementation.
 
@@ -111,20 +113,26 @@ The following ratios were calculated from the listed prototype values. Re-test r
 | `#5F3900` / `#FFF3D6` | 9.19:1 | Warning text on tint |
 | `#8F1C13` / `#FDECEA` | 7.84:1 | Error text on tint |
 | `#789B9B` / `#FFFFFF` | 3.02:1 | Meaningful control boundary, not text |
+| `#1EAEE2` / `#FFFFFF` | 2.56:1 | Logo/decorative only; fails normal-text contrast |
+| `#EF5C28` / `#FFFFFF` | 3.37:1 | Logo/decorative only; fails normal-text contrast |
 
 Never infer compliance from a palette swatch alone. A 1 px border, disabled state, text over images, gradient, opacity, or neighboring color can change the effective result.
 
 ## 4. Typography
 
-### Prototype family
+### Approved family
 
-| Context | Candidate stack | Rule |
+| Context | Approved stack | Rule |
 | --- | --- | --- |
 | English/Latin UI | `"Noto Sans", system-ui, sans-serif` | Use 400, 600, and 700 only. |
 | Amharic/Ethiopic UI | `"Noto Sans Ethiopic", "Noto Sans", sans-serif` | Apply from the document or component `lang="am"` context. |
 | Numbers and telephone values | Same active language family | Use tabular numerals only where comparison benefits. |
 
-This unified Noto direction is preferred over a decorative English-only heading font because the experience must retain comparable authority and hierarchy in both scripts. Font files should be self-hosted, subset only with language-owner approval, and never hide essential text while loading.
+This unified Noto direction is approved because both scripts retain comparable authority and
+hierarchy. `B01-002` verified official SIL OFL 1.1 releases, 400/600/700 files, declared Amharic
+coverage, and representative Latin/Ethiopic shaping. See the [brand typography record](../brand/README.md#4-typography).
+Font files must be self-hosted through `B02-011`, subset only after language-owner review, use
+immediate fallbacks, and never hide essential text while loading.
 
 ### Responsive type tokens
 
@@ -227,7 +235,7 @@ Prefer borders and surface contrast over shadows. Do not use shadows to make non
 
 ## 9. Foundation acceptance checklist
 
-- [ ] Brand owner has approved logo sources, palette roles, and type direction.
+- [x] Project authority has approved source-traceable logo use, palette roles, and type direction under `B01-002`.
 - [ ] Normal text, large text, UI boundaries, icons, and focus indicators pass contrast in every state.
 - [ ] English and Amharic samples have comparable hierarchy without clipping or truncation.
 - [ ] Layout passes at 320 px, 360 px, 200% zoom, 400% zoom, and long-content fixtures.

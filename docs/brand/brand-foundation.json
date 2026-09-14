@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "decision": {
+    "ticket": "B01-002",
+    "gate": "BRAND-01",
+    "status": "project-approved",
+    "effectiveDate": "2026-09-14",
+    "timezone": "Africa/Addis_Ababa",
+    "authority": "Client workspace identity befikadusata delegating brand strategy, UI/UX architecture, and marketing direction to Codex",
+    "boundary": "Project authority; not represented as a hospital-issued original brand manual or publication approval"
+  },
+  "identity": {
+    "name": "Hallelujah General Hospital",
+    "tagline": "Bringing Quality Care Home",
+    "character": ["calm", "capable", "human", "clinical"]
+  },
+  "sources": {
+    "homepage": {
+      "url": "https://hallelujahhospital.com/",
+      "retrieved": "2026-09-14",
+      "use": "First-party public evidence for English name, tagline, and linked logo assets; not authority for clinical or operational facts"
+    },
+    "logos": [
+      {
+        "id": "logo-horizontal-public-raster-v1",
+        "url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/cropped-Group-5.png",
+        "retrieved": "2026-09-14",
+        "mime": "image/png",
+        "width": 200,
+        "height": 50,
+        "sha256": "2aaf6bc2d9c59fc3bb94ff7ca39ce771606a9582e89aa520060bb45e53d7f9ef",
+        "classification": "project-adopted-public-source-raster",
+        "productionRule": "Ingest through B02-011; do not hotlink, trace, upscale, or call an original vector"
+      },
+      {
+        "id": "logo-square-public-raster-v1",
+        "url": "https://hallelujahhospital.com/wp-content/uploads/2025/04/cropped-1630668860423-1.png",
+        "retrieved": "2026-09-14",
+        "mime": "image/png",
+        "width": 200,
+        "height": 200,
+        "sha256": "9386e02f37390ccb3dd7a0909041f10ee92c0bf794c4baa47b6e883f180b13f3",
+        "classification": "project-adopted-public-source-raster",
+        "productionRule": "Ingest through B02-011; verify legibility before any compact or metadata use"
+      }
+    ]
+  },
+  "colors": {
+    "sourceIdentity": {
+      "cyan": {"hex": "#1EAEE2", "contrastOnWhite": 2.56, "usage": "decorative-and-logo-only"},
+      "orange": {"hex": "#EF5C28", "contrastOnWhite": 3.37, "usage": "decorative-and-logo-only"}
+    },
+    "interface": {
+      "surfaceRaised": "#FFFFFF",
+      "surfacePage": "#F4FAF9",
+      "surfaceSubtle": "#EEF7F6",
+      "borderDefault": "#C7DAD7",
+      "textSecondary": "#516A70",
+      "textPrimary": "#17323A",
+      "actionPrimary": "#006A73",
+      "focus": "#075EA8",
+      "error": "#8F1C13"
+    }
+  },
+  "typography": {
+    "license": "SIL Open Font License 1.1",
+    "weights": [400, 600, 700],
+    "families": [
+      {
+        "family": "Noto Sans",
+        "script": "Latin",
+        "version": "2.015",
+        "releaseUrl": "https://github.com/notofonts/latin-greek-cyrillic/releases/tag/NotoSans-v2.015",
+        "archiveSha256": "0c34df072a3fa7efbb7cbf34950e1f971a4447cffe365d3a359e2d4089b958f5",
+        "fileSha256": {
+          "400": "f5f552c8c5edb61fe6efb824baf4d4de47b1a8689ab4925ff43f7bd6a4ebece5",
+          "600": "bfcab863fec70318e9af8ead5266176a5231a77e693dacfc10f572754f9463a6",
+          "700": "3a08a47daa00cade516425c15c57615aef2fd418ec9811a7b9f465088f92cc05"
+        },
+        "audit": "Representative English hospital name, punctuation, and Latin numerals shaped without missing glyphs"
+      },
+      {
+        "family": "Noto Sans Ethiopic",
+        "script": "Ethiopic",
+        "version": "2.102",
+        "releaseUrl": "https://github.com/notofonts/ethiopic/releases/tag/NotoSansEthiopic-v2.102",
+        "archiveSha256": "4e3e53aa1586344ba842f310ab35c65281fa11e8cc2d259613ad06a9ae994d52",
+        "fileSha256": {
+          "400": "d401ccb799f90bd2ed953c098551ac6232f62fc84ccb0f3ebb8dfbafb530cf74",
+          "600": "ac85f3f57f2e16aae2fcf95d700bcdf8ac6c02bde7e76443141ba571696ad06e",
+          "700": "8099fe1fb27b793fb27e8416fc20c46fb171009d0308489c64133a7d67e88aca"
+        },
+        "auditedLanguages": ["am", "gez", "ti-er", "ti-et", "tig", "byn", "sid", "wal"],
+        "audit": "Representative Amharic hospital/care text and Ethiopic numerals shaped without missing glyphs"
+      }
+    ],
+    "delivery": "Self-host after B02-011 intake; immediate system fallback; no browser CDN request; no Ethiopic subsetting before language review"
+  },
+  "mediaPolicy": {
+    "authenticityRequired": true,
+    "rightsAndConsentRequired": true,
+    "patientConsentUseSpecific": true,
+    "aiPeopleMayRepresentRealPeople": false,
+    "posterFirst": true,
+    "videoPreIntentRequests": 0,
+    "protectedContextsMaximumMotionLevel": 0,
+    "requiredLifecycle": ["proposed", "quarantined", "reviewed", "approved", "published", "expired-or-withdrawn", "purged"]
+  },
+  "renderEvidence": [
+    {
+      "path": "docs/brand/evidence/b01-002-brand-review-1440.png",
+      "viewport": "1440x1600",
+      "sha256": "046b2b22aa5e8d2072123d620730904ccd4696b966d8a3c9baa1b3a6287e8c36"
+    },
+    {
+      "path": "docs/brand/evidence/b01-002-brand-review-360.png",
+      "viewport": "360x2500",
+      "sha256": "c4ecf41b9a31693663518a93edb865daff8a44b11b8da62a2a52efdf8e4adcdd"
+    }
+  ],
+  "changeTriggers": [
+    "authenticated master conflicts with adopted source",
+    "hospital supplies a formal brand standard",
+    "trademark or license challenge",
+    "professional Amharic review finds material font-treatment failure",
+    "rendered accessibility or legibility failure",
+    "hospital name or tagline changes"
+  ]
+}

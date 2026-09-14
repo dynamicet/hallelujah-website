@@ -60,6 +60,7 @@ teal-700 (#006A73)
 | File | Questions it answers |
 | --- | --- |
 | [Foundations](foundations.md) | What visual language, scales, constraints, and accessibility roles do all screens share? |
+| [Project brand system](../brand/README.md) | Which identity, logo provenance, color, bilingual type, voice, imagery, and lifecycle rules are approved? |
 | [Layout patterns](layout-patterns.md) | How are shells and page sections composed across viewport sizes? |
 | [Components](components.md) | What reusable controls and content patterns exist, and how must each behave? |
 | [Interaction and motion](interaction-and-motion.md) | What moves, how feedback works, and what happens when motion or runtime support is limited? |
@@ -70,7 +71,7 @@ teal-700 (#006A73)
 ## Implementation order
 
 1. Start with the [Order 12 developer handoff](../visual-design/handoff/developer-handoff.md) and confirm the applicable formal decisions before estimating an affected production capability.
-2. Establish one generated three-layer token source; keep the Calm Wayfinding values replaceable until `BRAND-01` and bilingual/contrast retesting close.
+2. Use the generated three-layer token source and `B01-002` project-approved values; keep them centrally replaceable and complete rendered bilingual/contrast testing under `B01-004`.
 3. Implement and test shared semantics, shell, typography, links, buttons, alerts, fields, and recovery states before composing templates.
 4. Assemble only approved route/section scope and governed records. Preserve the accepted section IDs and safe omission/withheld behavior.
 5. Apply the [accessibility and validation checklist](../visual-design/handoff/accessibility-and-validation-checklist.md) in CI and the approved human/device/browser release matrix.
@@ -81,7 +82,7 @@ teal-700 (#006A73)
 
 The design system is ready for implementation only when:
 
-- A named brand owner approves the logo source, palette, and type direction.
+- The project brand authority is recorded and any production-specific brand exception has a named owner.
 - All default and interactive color pairs pass required contrast in rendered components.
 - English and Amharic samples pass legibility and expansion review on representative devices.
 - Core component states cover default, hover, focus, active, disabled, loading, error, success, empty, unavailable, and no-JavaScript behavior where applicable.
