@@ -48,6 +48,12 @@ for (const { html, label } of documents) {
     }
   }
 
+  for (const match of rendered.matchAll(/\baria-describedby=["']([^"']+)["']/giu)) {
+    for (const reference of match[1].split(/\s+/u)) {
+      if (!ids.includes(reference)) failures.push(`${label}: aria-describedby references missing id ${reference}`)
+    }
+  }
+
   for (const match of rendered.matchAll(/<img\b([^>]*)>/giu)) {
     if (!/\balt=["'][^"']*["']/iu.test(match[1])) failures.push(`${label}: image is missing alt`)
   }

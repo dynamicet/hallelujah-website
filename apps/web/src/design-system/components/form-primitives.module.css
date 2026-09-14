@@ -1,0 +1,279 @@
+.form {
+  display: grid;
+  gap: var(--component-form-space-page);
+  inline-size: var(--component-form-width-full);
+  max-inline-size: var(--component-form-width-form);
+  min-inline-size: 0;
+}
+
+.field,
+.choiceGroup {
+  display: grid;
+  gap: var(--component-form-space-compact);
+  margin: 0;
+  max-inline-size: var(--component-form-width-full);
+  min-inline-size: 0;
+}
+
+.choiceGroup {
+  border: 0;
+  padding: 0;
+}
+
+.label,
+.choiceGroup legend {
+  color: var(--component-form-text-primary);
+  font-weight: var(--component-form-font-weight-strong);
+  padding: 0;
+}
+
+.label,
+.choiceGroup legend > span:first-child {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--component-form-space-compact);
+}
+
+.requirement {
+  color: var(--component-form-text-secondary);
+  font-size: var(--component-form-small-font-size);
+  font-weight: var(--component-form-font-weight-emphasis);
+  line-height: var(--component-form-small-line-height);
+}
+
+.hint,
+.choiceDescription {
+  color: var(--component-form-text-secondary);
+  font-size: var(--component-form-small-font-size);
+  line-height: var(--component-form-small-line-height);
+}
+
+.label,
+.hint,
+.fieldError,
+.choiceGroup legend,
+.choiceLabel,
+.choiceDescription,
+.errorSummary,
+.status,
+.reference {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.control {
+  background: var(--component-form-surface-raised);
+  border: var(--component-form-border-emphasis) solid var(--component-form-border-strong);
+  border-radius: var(--component-form-radius);
+  inline-size: var(--component-form-width-full);
+  max-inline-size: var(--component-form-width-full);
+  min-inline-size: 0;
+  padding: var(--component-form-space-compact) var(--component-form-space-page);
+}
+
+.control[aria-invalid='true'],
+.choiceGroup[aria-invalid='true'] {
+  border-color: var(--component-form-text-error);
+}
+
+.control[aria-invalid='true'] {
+  border-inline-start-width: var(--component-form-space-fine);
+}
+
+.textarea {
+  min-block-size: calc(var(--component-form-target-minimum) * 3);
+  resize: vertical;
+}
+
+.choices {
+  display: grid;
+  gap: var(--component-form-space-compact);
+}
+
+.choice {
+  align-items: start;
+  cursor: pointer;
+  display: grid;
+  gap: var(--component-form-space-regular);
+  grid-template-columns: auto minmax(0, 1fr);
+  min-block-size: var(--component-form-target-minimum);
+  min-inline-size: 0;
+  padding-block: var(--component-form-space-compact);
+}
+
+.choice input {
+  block-size: var(--component-form-space-page);
+  inline-size: var(--component-form-space-page);
+  margin: var(--component-form-space-fine) 0 0;
+}
+
+.choice > span {
+  display: grid;
+  gap: var(--component-form-space-fine);
+  min-inline-size: 0;
+}
+
+.choiceLabel {
+  font-weight: var(--component-form-font-weight-emphasis);
+}
+
+.fieldError {
+  color: var(--component-form-text-error);
+  font-size: var(--component-form-small-font-size);
+  line-height: var(--component-form-small-line-height);
+}
+
+.errorSummary,
+.status {
+  border: var(--component-form-border-width) solid currentColor;
+  border-inline-start-width: var(--component-form-space-fine);
+  border-radius: var(--component-form-radius);
+  display: grid;
+  gap: var(--component-form-space-regular);
+  padding: var(--component-form-space-page);
+}
+
+.errorSummary[hidden],
+.status[hidden] {
+  display: none;
+}
+
+.errorSummary {
+  background: var(--component-form-surface-error);
+  color: var(--component-form-text-error);
+}
+
+.errorSummary:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+.errorSummary ul {
+  display: grid;
+  gap: var(--component-form-space-compact);
+  margin: 0;
+  padding-inline-start: var(--component-form-space-page);
+}
+
+.errorSummary a {
+  color: currentColor;
+}
+
+.errorSummaryLabel,
+.reference span {
+  font-weight: var(--component-form-font-weight-strong);
+}
+
+.status h3,
+.status p {
+  margin: 0;
+}
+
+.pending {
+  background: var(--component-form-surface-information);
+  color: var(--component-form-text-information);
+}
+
+.receipt {
+  background: var(--component-form-surface-success);
+  color: var(--component-form-text-success);
+}
+
+.warning {
+  background: var(--component-form-surface-warning);
+  color: var(--component-form-text-warning);
+}
+
+.failure {
+  background: var(--component-form-surface-error);
+  color: var(--component-form-text-error);
+}
+
+.reference {
+  border-block-start: var(--component-form-border-width) solid currentColor;
+  padding-block-start: var(--component-form-space-compact);
+}
+
+.actions {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--component-form-space-regular);
+  min-inline-size: 0;
+}
+
+.submit {
+  appearance: none;
+  background: var(--component-form-action);
+  border: var(--component-form-border-emphasis) solid var(--component-form-action);
+  border-radius: var(--component-form-radius);
+  color: var(--component-form-action-on-solid);
+  cursor: pointer;
+  font-weight: var(--component-form-font-weight-emphasis);
+  max-inline-size: var(--component-form-width-full);
+  min-block-size: var(--component-form-target-minimum);
+  min-inline-size: var(--component-form-target-minimum);
+  overflow-wrap: anywhere;
+  padding: var(--component-form-space-compact) var(--component-form-space-page);
+  text-align: center;
+  transition:
+    background-color var(--component-form-feedback-duration)
+      var(--component-form-feedback-easing),
+    border-color var(--component-form-feedback-duration)
+      var(--component-form-feedback-easing);
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--component-form-action-hover);
+  border-color: var(--component-form-action-hover);
+}
+
+.submit:disabled {
+  background: var(--component-form-surface-subtle);
+  border-color: var(--component-form-border-strong);
+  color: var(--component-form-text-secondary);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submit {
+    transition-duration: var(--component-form-protected-duration);
+  }
+}
+
+@media (forced-colors: active) {
+  .control,
+  .choiceGroup[aria-invalid='true'],
+  .errorSummary,
+  .status,
+  .submit {
+    border-color: ButtonText;
+  }
+
+  .control[aria-invalid='true'],
+  .choiceGroup[aria-invalid='true'],
+  .errorSummary,
+  .warning,
+  .failure {
+    border-style: double;
+  }
+
+  .submit:disabled {
+    border-style: dashed;
+    color: GrayText;
+  }
+}
+
+@media print {
+  .control,
+  .errorSummary,
+  .status,
+  .submit {
+    background: transparent;
+    border-color: CanvasText;
+    color: CanvasText;
+    transition: none;
+  }
+}

@@ -17,6 +17,7 @@ const capturePrefix =
   capturePrefixFlag >= 0 ? process.argv[capturePrefixFlag + 1] : 'b01-004-foundations'
 const shellMode = process.argv.includes('--shell')
 const searchControlsMode = process.argv.includes('--search-controls')
+const formPrimitivesMode = process.argv.includes('--form-primitives')
 const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
 const environment = {
@@ -70,6 +71,7 @@ try {
   await waitForDocument(client, sessionId)
   if (shellMode) await waitForShellEnhancement(client, sessionId)
   if (searchControlsMode) await waitForSearchControlsEnhancement(client, sessionId)
+  if (formPrimitivesMode) await waitForFormPrimitivesEnhancement(client, sessionId)
 
   const viewports = [
     { height: 900, label: 320, width: 320 },
@@ -108,6 +110,12 @@ try {
         viewport.label,
         viewport.width,
         await evaluate(client, sessionId, renderedSearchControlsChecksSource()),
+      )
+    }
+    if (formPrimitivesMode) {
+      assertFormPrimitivesViewport(
+        viewport.label,
+        await evaluate(client, sessionId, renderedFormPrimitivesChecksSource()),
       )
     }
     if (captureDirectory && (viewport.width === 320 || viewport.width === 1440)) {
@@ -364,6 +372,152 @@ try {
     }
   }
 
+  if (formPrimitivesMode) {
+    const initialPath = await evaluate(client, sessionId, 'location.pathname + location.search')
+    await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const form = document.querySelector('[data-form-primitives-fixture] form')
+        form.elements.controlledReference.value = 'WRONG'
+        form.elements.reviewContext.value = 'responsive'
+        form.elements.controlledNote.value = 'Synthetic retained wording'
+        form.querySelector('[data-form-submit]').click()
+      })()`,
+    )
+    const invalidPending = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const form = document.querySelector('[data-form-primitives-fixture] form')
+        return {
+          busy: form.getAttribute('aria-busy'),
+          pendingVisible: !form.querySelector('[data-form-status="pending"]').hidden,
+          submitDisabled: form.querySelector('[data-form-submit]').disabled,
+        }
+      })()`,
+    )
+    if (
+      invalidPending.busy !== 'true'
+      || !invalidPending.pendingVisible
+      || !invalidPending.submitDisabled
+    ) {
+      fail(`controlled invalid submit did not expose truthful pending state: ${JSON.stringify(invalidPending)}`)
+    }
+    await pause(120)
+    const invalidResult = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const fixture = document.querySelector('[data-form-primitives-fixture]')
+        const form = fixture.querySelector('form')
+        const summary = fixture.querySelector('[data-error-summary]')
+        const reference = form.elements.controlledReference
+        const channel = fixture.querySelector('[data-choice-group]')
+        return {
+          activeIsSummary: document.activeElement === summary,
+          channelErrorVisible: !document.getElementById('controlled-channel-error').hidden,
+          channelInvalid: channel.getAttribute('aria-invalid'),
+          context: form.elements.reviewContext.value,
+          firstErrorHref: summary.querySelector('a').getAttribute('href'),
+          note: form.elements.controlledNote.value,
+          path: location.pathname + location.search,
+          referenceErrorVisible: !document.getElementById('controlled-reference-error').hidden,
+          referenceInvalid: reference.getAttribute('aria-invalid'),
+          referenceValue: reference.value,
+          summaryVisible: !summary.hidden,
+        }
+      })()`,
+    )
+    if (
+      !invalidResult.activeIsSummary
+      || !invalidResult.channelErrorVisible
+      || invalidResult.channelInvalid !== 'true'
+      || invalidResult.context !== 'responsive'
+      || invalidResult.firstErrorHref !== '#controlled-reference'
+      || invalidResult.note !== 'Synthetic retained wording'
+      || invalidResult.path !== initialPath
+      || !invalidResult.referenceErrorVisible
+      || invalidResult.referenceInvalid !== 'true'
+      || invalidResult.referenceValue !== 'WRONG'
+      || !invalidResult.summaryVisible
+    ) {
+      fail(`controlled invalid state or value retention is incorrect: ${JSON.stringify(invalidResult)}`)
+    }
+
+    await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const form = document.querySelector('[data-form-primitives-fixture] form')
+        form.elements.controlledReference.value = 'CONTROLLED'
+        form.querySelector('input[name="reviewChannel"][value="rendered"]').checked = true
+        form.querySelector('[data-form-submit]').click()
+      })()`,
+    )
+    const validPending = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const form = document.querySelector('[data-form-primitives-fixture] form')
+        return {
+          busy: form.getAttribute('aria-busy'),
+          pendingVisible: !form.querySelector('[data-form-status="pending"]').hidden,
+          submitDisabled: form.querySelector('[data-form-submit]').disabled,
+        }
+      })()`,
+    )
+    if (
+      validPending.busy !== 'true'
+      || !validPending.pendingVisible
+      || !validPending.submitDisabled
+    ) {
+      fail(`controlled valid submit did not expose truthful pending state: ${JSON.stringify(validPending)}`)
+    }
+    await pause(120)
+    const validResult = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const fixture = document.querySelector('[data-form-primitives-fixture]')
+        const form = fixture.querySelector('form')
+        return {
+          failureVisible: !form.querySelector('[data-form-status="failure"]').hidden,
+          interactiveReceiptCount: form.querySelectorAll('[data-form-status="receipt"]').length,
+          note: form.elements.controlledNote.value,
+          path: location.pathname + location.search,
+          referenceValue: form.elements.controlledReference.value,
+          selectedChannel: form.querySelector('input[name="reviewChannel"]:checked')?.value,
+          summaryHidden: form.querySelector('[data-error-summary]').hidden,
+        }
+      })()`,
+    )
+    if (
+      !validResult.failureVisible
+      || validResult.interactiveReceiptCount !== 0
+      || validResult.note !== 'Synthetic retained wording'
+      || validResult.path !== initialPath
+      || validResult.referenceValue !== 'CONTROLLED'
+      || validResult.selectedChannel !== 'rendered'
+      || !validResult.summaryHidden
+    ) {
+      fail(`controlled accepted-looking state was not blocked truthfully: ${JSON.stringify(validResult)}`)
+    }
+
+    const noScriptResponse = await fetch(origin)
+    const noScriptHtml = await noScriptResponse.text()
+    const noScriptForm = noScriptHtml.match(/<form[^>]*data-form-primitive[^>]*>[\s\S]*?<\/form>/u)?.[0] ?? ''
+    const noScriptChecks = {
+      disabled: /<button[^>]*disabled=""[^>]*data-form-submit|<button[^>]*data-form-submit[^>]*disabled=""/u.test(noScriptForm),
+      method: /method="post"/u.test(noScriptForm),
+      reason: noScriptForm.includes('submission stays') && noScriptForm.includes('no values leave'),
+      response: noScriptResponse.ok,
+    }
+    if (Object.values(noScriptChecks).some((passed) => !passed)) {
+      fail(`no-JavaScript form did not fail closed before collection: ${JSON.stringify(noScriptChecks)}`)
+    }
+  }
+
   await client.send(
     'Emulation.setDeviceMetricsOverride',
     {
@@ -522,7 +676,9 @@ try {
   client.close()
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
-    searchControlsMode
+    formPrimitivesMode
+      ? 'Rendered foundation/action/shell/search/form smoke passed (responsive fields and choices, help/error relationships, invalid-summary focus, pending semantics, value retention, false-success prevention, no-JavaScript fail-closed behavior, zoom, reduced motion, print, and forced colors).'
+      : searchControlsMode
       ? 'Rendered foundation/action/shell/search-control smoke passed (responsive controls, GET filtering and pagination, Back restoration, count semantics, compact Escape focus, bounded URLs, no-JavaScript state, targets, zoom, reduced motion, print, and forced colors).'
       : shellMode
       ? 'Rendered foundation/action/shell smoke passed (responsive single-order navigation, compact disclosure, Escape and skip-link focus, current state, breadcrumbs, language availability, targets, zoom, reduced motion, print, and forced colors).'
@@ -654,6 +810,19 @@ async function waitForSearchControlsEnhancement(client, sessionId) {
   throw new Error('first-party search-control enhancement did not load')
 }
 
+async function waitForFormPrimitivesEnhancement(client, sessionId) {
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    const enhanced = await evaluate(
+      client,
+      sessionId,
+      "document.documentElement.dataset.formPrimitivesEnhanced === 'true'",
+    )
+    if (enhanced) return
+    await pause(100)
+  }
+  throw new Error('first-party form primitive enhancement did not load')
+}
+
 async function waitForPathAndSearch(client, sessionId, expectedValue) {
   let currentValue = ''
   for (let attempt = 0; attempt < 60; attempt += 1) {
@@ -766,6 +935,30 @@ function assertSearchControlsViewport(label, width, result) {
       fail(`${label}: search target ${target.name} is ${target.width}×${target.height}`)
     }
     if (!target.name) fail(`${label}: visible search target has no name`)
+  }
+}
+
+function assertFormPrimitivesViewport(label, result) {
+  if (!result.formLabel || result.formMethod !== 'post') {
+    fail(`${label}: controlled form is not a labeled POST form`)
+  }
+  if (!result.descriptionExists || result.invalidDescriptionIds.length > 0) {
+    fail(`${label}: form help/error relationships are incomplete ${JSON.stringify(result.invalidDescriptionIds)}`)
+  }
+  if (result.requiredCopyCount < 3) {
+    fail(`${label}: persistent required copy is missing`)
+  }
+  if (result.choiceGroupCount < 1 || result.fieldLabelCount < 4) {
+    fail(`${label}: native field or choice labels are missing`)
+  }
+  if (!result.authoritativeReceipt || result.interactiveReceiptCount !== 0) {
+    fail(`${label}: authoritative receipt boundary is incorrect`)
+  }
+  for (const target of result.visibleTargets) {
+    if (target.width < 44 || target.height < 44) {
+      fail(`${label}: form target ${target.name} is ${target.width}×${target.height}`)
+    }
+    if (!target.name) fail(`${label}: visible form target has no name`)
   }
 }
 
@@ -961,6 +1154,51 @@ function renderedSearchControlsChecksSource() {
     formLabel: form.getAttribute('aria-label'),
     formMethod: form.method.toLowerCase(),
     invalidUrlKeys,
+    visibleTargets,
+  }
+})()`
+}
+
+function renderedFormPrimitivesChecksSource() {
+  return `(() => {
+  const fixture = document.querySelector('[data-form-primitives-fixture]')
+  const form = fixture.querySelector('[data-form-primitive]')
+  const descriptionId = form.getAttribute('aria-describedby')
+  const describedElements = [...fixture.querySelectorAll('[aria-describedby]')]
+  const invalidDescriptionIds = describedElements.flatMap((element) =>
+    element.getAttribute('aria-describedby').split(/\\s+/)
+      .filter((id) => !document.getElementById(id)),
+  )
+  const visibleTargets = [
+    ...form.querySelectorAll(
+      'input:not([type="radio"]):not([type="checkbox"]), select, textarea, button, [data-choice-group] label',
+    ),
+  ]
+    .filter((target) => {
+      const rect = target.getBoundingClientRect()
+      const style = getComputedStyle(target)
+      return style.display !== 'none' && rect.width > 0 && rect.height > 0
+    })
+    .map((target) => {
+      const rect = target.getBoundingClientRect()
+      const control = target.matches('input, select, textarea') ? target : null
+      return {
+        height: rect.height,
+        name: control?.labels?.[0]?.textContent.trim() ?? target.textContent.trim(),
+        width: rect.width,
+      }
+    })
+  return {
+    authoritativeReceipt: fixture.querySelector('[data-form-status="receipt"]')?.dataset.authoritativeAcceptance === 'true',
+    choiceGroupCount: form.querySelectorAll('fieldset[data-choice-group] legend').length,
+    descriptionExists: Boolean(descriptionId && document.getElementById(descriptionId)),
+    fieldLabelCount: form.querySelectorAll('label[for]').length,
+    formLabel: form.getAttribute('aria-label'),
+    formMethod: form.method.toLowerCase(),
+    interactiveReceiptCount: form.querySelectorAll('[data-form-status="receipt"]').length,
+    invalidDescriptionIds,
+    requiredCopyCount: [...form.querySelectorAll('label, legend')]
+      .filter((element) => element.textContent.includes('Required')).length,
     visibleTargets,
   }
 })()`

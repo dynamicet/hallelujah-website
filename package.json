@@ -21,6 +21,8 @@
     "dev": "pnpm --dir apps/web dev",
     "format:check": "node scripts/check-format.mjs",
     "foundations:check": "pnpm --dir apps/web foundations:check",
+    "form-primitives:check": "pnpm --dir apps/web form-primitives:check",
+    "form-primitives:smoke": "node scripts/check-rendered-foundations.mjs --shell --search-controls --form-primitives --capture-prefix b01-009-form-primitives",
     "foundations:smoke": "node scripts/check-rendered-foundations.mjs",
     "introduction:check": "node scripts/check-introduction-gates.mjs",
     "lint": "node apps/web/node_modules/eslint/bin/eslint.js apps/web scripts docs/backlog/audit-backlog.mjs eslint.config.mjs --max-warnings=0",
