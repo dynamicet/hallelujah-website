@@ -46,6 +46,19 @@ If this board and an epic disagree, use the epic for scope and this board for li
 
 The 13 September deferrals remove `B00-001`, `B00-002`, `B00-007`, `B00-014`, and `B00-015` from the current pull queue without closing their Phase 2, provider, restricted-evidence, or production gates. `B00-017`, `B00-003`–`B00-006`, and `B00-011` are complete at their recorded controlled-development boundaries. The working portion of `B00-016` is also complete and its production signature is deferred. `B00-011` records its repository gates, local evidence, successful hosted execution, and honest private/free-plan limitation. Technical merge enforcement is not claimed and remains in `B00-012`. Later orders follow their explicit dependencies and the documented non-production baselines; numeric order does not override them.
 
+## Active M1 delivery queue
+
+| Pull order | Ticket | Status | Responsible / acceptance authority | Allowed scope and target | Evidence / issue |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | `B01-001` | **In review** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead role / same identity for controlled-development acceptance; named Delivery, Frontend, QA, and Accessibility people return before production | `T0` local pass and private-repository `T1` pending; production design-system boundaries, unchanged bootstrap composition, automated boundary checks, architecture/backlog documentation, and sanitized evidence only | [Execution brief](b01-001-production-component-architecture.md), [evidence](evidence/B01-001-production-component-architecture-2026-09-14.md), and [issue `#2`](https://github.com/dynamicet/hallelujah-website/issues/2) |
+
+`B01-001` was promoted Proposed → Ready → In progress → In review on 14 September 2026, Africa/Addis_Ababa,
+after the client directed execution of steps 1–4. `B00-004` and `B00-005` are complete, the motion
+and interactive-media amendment is approved for planning, and the issue records the exact scope,
+state applicability, verification commands, and evidence destination. Hospital facts, translations,
+brand assets, public routes, CMS capability, providers, motion/media runtime implementation,
+personal-data collection, deployment, DNS, production, and publication remain outside scope.
+
 ### `B00-005` — pinned toolchain
 
 The [canonical toolchain policy](../../toolchain-versions.json) pins Node.js, pnpm, Next.js, Payload, TypeScript, PostgreSQL, Docker, official-image digests, and patched security overrides. Repository checks reject drift, expired support/review dates, non-exact application dependencies, mutable image references, and an incompatible active runtime. The isolated frozen reconstruction produced the same lockfile and workspace importer graph and repeated the full build. The current local Docker `29.2.1` does not meet the selected `29.8.0` baseline and remains fail-closed before container work. Remote workflow execution passed under `B00-011`; technical repository enforcement remains `B00-012`. See the [completion record](evidence/B00-005-pinned-toolchain-2026-09-13.md).
