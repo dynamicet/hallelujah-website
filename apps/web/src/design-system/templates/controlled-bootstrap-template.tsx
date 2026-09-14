@@ -11,6 +11,7 @@ export interface ControlledBootstrapTemplateProps {
   readonly eyebrow: string
   readonly statuses: readonly StatusSummaryItem[]
   readonly title: string
+  readonly withinShell?: boolean
 }
 
 export function ControlledBootstrapTemplate({
@@ -19,26 +20,26 @@ export function ControlledBootstrapTemplate({
   eyebrow,
   statuses,
   title,
+  withinShell = false,
 }: ControlledBootstrapTemplateProps) {
   const titleId = 'bootstrap-title'
-
-  return (
-    <PageFrame>
-      <div className={styles.frame}>
-        <div className={styles.surface}>
-          <ContentSurface labelledBy={titleId}>
-            <p className={styles.eyebrow}>{eyebrow}</p>
-            <h1 className={styles.title} id={titleId}>
-              {title}
-            </h1>
-            <p className={styles.description}>{description}</p>
-            <div className={styles.statusSummary}>
-              <StatusSummary items={statuses} />
-            </div>
-            {children}
-          </ContentSurface>
-        </div>
+  const content = (
+    <div className={styles.frame}>
+      <div className={styles.surface}>
+        <ContentSurface labelledBy={titleId}>
+          <p className={styles.eyebrow}>{eyebrow}</p>
+          <h1 className={styles.title} id={titleId}>
+            {title}
+          </h1>
+          <p className={styles.description}>{description}</p>
+          <div className={styles.statusSummary}>
+            <StatusSummary items={statuses} />
+          </div>
+          {children}
+        </ContentSurface>
       </div>
-    </PageFrame>
+    </div>
   )
+
+  return withinShell ? content : <PageFrame>{content}</PageFrame>
 }

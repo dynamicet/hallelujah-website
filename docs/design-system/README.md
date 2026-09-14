@@ -2,7 +2,7 @@
 
 **Version:** 0.4 Order 12 developer handoff  
 **Prepared:** 12 September 2026  
-**Status:** Project brand values, `B01-004` foundations, and `B01-005` essential actions are complete for controlled development; listed human/production validation remains open
+**Status:** Project brand values and `B01-004`–`B01-006` production foundations, actions, and global shell are complete for controlled development; listed human/production validation remains open
 **Related:** [Requirements matrix](../requirements/requirements-matrix.md) · [Page specifications](../ux/page-specifications.md) · [Sitemap](../ux/sitemap.md) · [Benchmark traceability](../benchmarks/benchmark-traceability.md) · [Developer handoff](../visual-design/handoff/README.md)
 
 ## Purpose
@@ -71,7 +71,7 @@ teal-700 (#006A73)
 ## Implementation order
 
 1. Start with the [Order 12 developer handoff](../visual-design/handoff/developer-handoff.md) and confirm the applicable formal decisions before estimating an affected production capability.
-2. Use the generated three-layer token source, `B01-002` project-approved values, `B01-004` global foundation roles, and `B01-005` essential action APIs; keep them centrally replaceable and complete full component/language/device evidence at the assigned later gates.
+2. Use the generated three-layer token source, `B01-002` project-approved values, `B01-004` global foundation roles, `B01-005` essential action APIs, and the `B01-006` one-order shell/navigation API; keep them centrally replaceable and complete full component/language/device evidence at the assigned later gates.
 3. Implement and test shared semantics, shell, typography, links, buttons, alerts, fields, and recovery states before composing templates.
 4. Assemble only approved route/section scope and governed records. Preserve the accepted section IDs and safe omission/withheld behavior.
 5. Apply the [accessibility and validation checklist](../visual-design/handoff/accessibility-and-validation-checklist.md) in CI and the approved human/device/browser release matrix.

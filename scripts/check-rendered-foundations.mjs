@@ -1,6 +1,6 @@
 import { spawn, spawnSync } from 'node:child_process'
 import { randomBytes } from 'node:crypto'
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 
@@ -9,11 +9,13 @@ import { repositoryRoot } from './lib/repository-files.mjs'
 const host = '127.0.0.1'
 const appPort = 3212
 const origin = `http://${host}:${appPort}`
+const browserPort = 20_000 + (randomBytes(2).readUInt16BE(0) % 30_000)
 const captureFlag = process.argv.indexOf('--capture-dir')
 const captureDirectory = captureFlag >= 0 ? path.resolve(process.argv[captureFlag + 1] ?? '') : undefined
 const capturePrefixFlag = process.argv.indexOf('--capture-prefix')
 const capturePrefix =
   capturePrefixFlag >= 0 ? process.argv[capturePrefixFlag + 1] : 'b01-004-foundations'
+const shellMode = process.argv.includes('--shell')
 const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
 const environment = {
@@ -42,7 +44,7 @@ const browser = spawn(
     '--no-first-run',
     '--no-default-browser-check',
     '--remote-debugging-address=127.0.0.1',
-    '--remote-debugging-port=0',
+    `--remote-debugging-port=${browserPort}`,
     `--user-data-dir=${browserProfile}`,
     'about:blank',
   ],
@@ -65,6 +67,7 @@ try {
   await client.send('Runtime.enable', {}, sessionId)
   await client.send('Page.navigate', { url: origin }, sessionId)
   await waitForDocument(client, sessionId)
+  if (shellMode) await waitForShellEnhancement(client, sessionId)
 
   const viewports = [
     { height: 900, label: 320, width: 320 },
@@ -91,7 +94,23 @@ try {
     await settleLayout()
     const result = await evaluate(client, sessionId, renderedChecksSource())
     assertViewport(viewport.label, result)
+    if (shellMode) {
+      assertShellViewport(
+        viewport.label,
+        viewport.width,
+        await evaluate(client, sessionId, renderedShellChecksSource()),
+      )
+    }
     if (captureDirectory && (viewport.width === 320 || viewport.width === 1440)) {
+      await evaluate(
+        client,
+        sessionId,
+        `(() => {
+          if (document.activeElement instanceof HTMLElement) document.activeElement.blur()
+          window.scrollTo(0, 0)
+        })()`,
+      )
+      await settleLayout()
       await mkdir(captureDirectory, { recursive: true })
       const { data } = await client.send(
         'Page.captureScreenshot',
@@ -103,6 +122,95 @@ try {
         data,
         'base64',
       )
+    }
+  }
+
+  if (shellMode) {
+    await client.send(
+      'Emulation.setDeviceMetricsOverride',
+      {
+        deviceScaleFactor: 1,
+        height: 900,
+        mobile: false,
+        screenHeight: 900,
+        screenWidth: 320,
+        width: 320,
+      },
+      sessionId,
+    )
+    await settleLayout()
+    await evaluate(client, sessionId, "document.querySelector('[data-menu-trigger]').click()")
+    await settleLayout()
+    const openMenu = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const trigger = document.querySelector('[data-menu-trigger]')
+        const panel = document.querySelector('[data-navigation-panel]')
+        return {
+          open: panel.matches(':popover-open'),
+          panelHeight: panel.getBoundingClientRect().height,
+        }
+      })()`,
+    )
+    if (!openMenu.open || openMenu.panelHeight === 0) {
+      fail(`compact menu did not expose its controlled panel: ${JSON.stringify(openMenu)}`)
+    }
+
+    await evaluate(
+      client,
+      sessionId,
+      "document.querySelector('[data-primary-navigation] a').focus()",
+    )
+    await client.send(
+      'Input.dispatchKeyEvent',
+      { code: 'Escape', key: 'Escape', type: 'rawKeyDown', windowsVirtualKeyCode: 27 },
+      sessionId,
+    )
+    await client.send(
+      'Input.dispatchKeyEvent',
+      { code: 'Escape', key: 'Escape', type: 'keyUp', windowsVirtualKeyCode: 27 },
+      sessionId,
+    )
+    await settleLayout()
+    const closedMenu = await evaluate(
+      client,
+      sessionId,
+      `(() => {
+        const trigger = document.querySelector('[data-menu-trigger]')
+        const panel = document.querySelector('[data-navigation-panel]')
+        return {
+          activeIsTrigger: document.activeElement === trigger,
+          open: panel.matches(':popover-open'),
+        }
+      })()`,
+    )
+    if (closedMenu.open || !closedMenu.activeIsTrigger) {
+      fail(`Escape did not close the compact menu and restore focus: ${JSON.stringify(closedMenu)}`)
+    }
+
+    await evaluate(client, sessionId, "document.querySelector('[data-skip-link]').focus()")
+    await client.send(
+      'Input.dispatchKeyEvent',
+      { code: 'Enter', key: 'Enter', type: 'rawKeyDown', windowsVirtualKeyCode: 13 },
+      sessionId,
+    )
+    await client.send(
+      'Input.dispatchKeyEvent',
+      { code: 'Enter', key: 'Enter', type: 'keyUp', windowsVirtualKeyCode: 13 },
+      sessionId,
+    )
+    await settleLayout()
+    const skipResult = await evaluate(
+      client,
+      sessionId,
+      `({
+        activeId: document.activeElement?.id,
+        hash: location.hash,
+      })`,
+    )
+    if (skipResult.hash !== '#main-content' || skipResult.activeId !== 'main-content') {
+      fail(`skip link did not land and focus main: ${JSON.stringify(skipResult)}`)
     }
   }
 
@@ -264,7 +372,9 @@ try {
   client.close()
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
-    'Rendered foundation/action smoke passed (responsive, zoom, enlarged text, names, targets, gaps, native keyboard and moved-touch behavior, phone invariant, protected emergency, focus, bilingual type, reduced motion, print, and forced colors).',
+    shellMode
+      ? 'Rendered foundation/action/shell smoke passed (responsive single-order navigation, compact disclosure, Escape and skip-link focus, current state, breadcrumbs, language availability, targets, zoom, reduced motion, print, and forced colors).'
+      : 'Rendered foundation/action smoke passed (responsive, zoom, enlarged text, names, targets, gaps, native keyboard and moved-touch behavior, phone invariant, protected emergency, focus, bilingual type, reduced motion, print, and forced colors).',
   )
 } catch (error) {
   console.error(`Rendered foundation smoke failed: ${error.message}`)
@@ -311,14 +421,18 @@ async function waitForServer() {
 }
 
 async function waitForDevTools() {
-  const activePortPath = path.join(browserProfile, 'DevToolsActivePort')
   for (let attempt = 0; attempt < 60; attempt += 1) {
     if (browser.exitCode !== null) throw new Error('browser exited before DevTools became ready')
     try {
-      const [port, webSocketPath] = (await readFile(activePortPath, 'utf8')).trim().split('\n')
-      if (port && webSocketPath) return `ws://${host}:${port}${webSocketPath}`
+      const response = await fetch(`http://${host}:${browserPort}/json/version`, {
+        signal: AbortSignal.timeout(500),
+      })
+      if (response.ok) {
+        const version = await response.json()
+        if (version.webSocketDebuggerUrl) return version.webSocketDebuggerUrl
+      }
     } catch {
-      // Chromium has not written its endpoint yet.
+      // Chromium has not exposed its endpoint yet.
     }
     await pause(250)
   }
@@ -360,6 +474,19 @@ async function waitForDocument(client, sessionId) {
     await pause(100)
   }
   throw new Error('foundation document did not finish loading')
+}
+
+async function waitForShellEnhancement(client, sessionId) {
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    const enhanced = await evaluate(
+      client,
+      sessionId,
+      "document.documentElement.dataset.shellNavigationEnhanced === 'true'",
+    )
+    if (enhanced) return
+    await pause(100)
+  }
+  throw new Error('first-party global shell enhancement did not load')
 }
 
 async function evaluate(client, sessionId, expression) {
@@ -405,6 +532,34 @@ function assertViewport(label, result) {
   }
   if (result.readingWidth > 721) fail(`${label}: reading measure is ${result.readingWidth}px`)
   if (result.bodyLineRatio < 1.5) fail(`${label}: body line-height ratio is ${result.bodyLineRatio}`)
+}
+
+function assertShellViewport(label, width, result) {
+  if (result.primaryNavigationCount !== 1) {
+    fail(`${label}: found ${result.primaryNavigationCount} primary navigation regions, expected one`)
+  }
+  if (!result.currentPage || result.currentMarkerWidth < 3) {
+    fail(`${label}: current navigation item lacks semantic or non-color state`)
+  }
+  if (result.breadcrumbOverflow > 1) {
+    fail(`${label}: breadcrumb overflows by ${result.breadcrumbOverflow}px`)
+  }
+  if (!result.languageUnavailable || !result.languageReason) {
+    fail(`${label}: unavailable language lacks explicit state or explanation`)
+  }
+  if (!result.footerPresent) fail(`${label}: semantic footer is missing`)
+  if (width < 1024 && (result.triggerDisplay === 'none' || result.panelHeight !== 0)) {
+    fail(`${label}: compact navigation disclosure state is incorrect`)
+  }
+  if (width >= 1024 && (result.triggerDisplay !== 'none' || result.panelHeight === 0)) {
+    fail(`${label}: wide navigation state is incorrect`)
+  }
+  for (const target of result.visibleTargets) {
+    if (target.width < 44 || target.height < 44) {
+      fail(`${label}: shell target ${target.name} is ${target.width}×${target.height}`)
+    }
+    if (!target.name) fail(`${label}: visible shell target has no name`)
+  }
 }
 
 function fail(message) {
@@ -513,6 +668,44 @@ function renderedChecksSource() {
     focus,
     readingWidth: reading.getBoundingClientRect().width,
     viewportOverflow: root.scrollWidth - root.clientWidth,
+  }
+})()`
+}
+
+function renderedShellChecksSource() {
+  return `(() => {
+  const header = document.querySelector('[data-site-header]')
+  const trigger = header.querySelector('[data-menu-trigger]')
+  const panel = header.querySelector('[data-navigation-panel]')
+  const current = header.querySelector('[data-primary-navigation] [aria-current="page"]')
+  const currentStyle = getComputedStyle(current)
+  const breadcrumb = document.querySelector('[data-breadcrumbs]')
+  const unavailableLanguage = header.querySelector('[data-language-switcher] [aria-disabled="true"]')
+  const reasonId = unavailableLanguage?.getAttribute('aria-describedby')
+  const visibleTargets = [...header.querySelectorAll('a[href], summary')]
+    .filter((target) => {
+      const rect = target.getBoundingClientRect()
+      const style = getComputedStyle(target)
+      return style.display !== 'none' && rect.width > 0 && rect.height > 0
+    })
+    .map((target) => {
+      const rect = target.getBoundingClientRect()
+      return { height: rect.height, name: target.textContent.trim(), width: rect.width }
+    })
+  return {
+    breadcrumbOverflow: breadcrumb.scrollWidth - breadcrumb.clientWidth,
+    currentMarkerWidth: Math.max(
+      Number.parseFloat(currentStyle.borderInlineStartWidth),
+      Number.parseFloat(currentStyle.borderBlockEndWidth),
+    ),
+    currentPage: current.getAttribute('aria-current') === 'page',
+    footerPresent: Boolean(document.querySelector('footer[data-site-footer]')),
+    languageReason: Boolean(reasonId && document.getElementById(reasonId)?.textContent.trim()),
+    languageUnavailable: unavailableLanguage?.getAttribute('aria-disabled') === 'true',
+    panelHeight: panel.getBoundingClientRect().height,
+    primaryNavigationCount: header.querySelectorAll('[data-primary-navigation]').length,
+    triggerDisplay: getComputedStyle(trigger).display,
+    visibleTargets,
   }
 })()`
 }

@@ -80,7 +80,7 @@ try {
 
   const home = await fetch(origin)
   const body = await home.text()
-  if (home.status !== 200 || !body.includes('<main id="main-content">')) {
+  if (home.status !== 200 || !/<main\b[^>]*\bid="main-content"/u.test(body)) {
     throw new Error('bootstrap page did not return its main content')
   }
   expectHeader(home, 'content-security-policy', "default-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; object-src 'none'")
