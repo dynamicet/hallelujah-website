@@ -2,7 +2,7 @@
 
 **Classification:** Sanitized, non-sensitive controlled-development evidence
 
-**State:** In review; local `T0` implementation and verification pass, hosted `T1` execution pending
+**State:** Done for controlled development; local `T0` and hosted implementation `T1` gates pass
 
 **Responsible:** Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead role
 
@@ -13,6 +13,8 @@
 - Starting point: merge commit `b6445f3` on remote `main`.
 - Working branch: `b01-001-production-component-architecture`.
 - Tracking issue: [GitHub issue `#2`](https://github.com/dynamicet/hallelujah-website/issues/2).
+- Pull request: [GitHub pull request `#3`](https://github.com/dynamicet/hallelujah-website/pull/3).
+- Hosted implementation artifact: commit `309f96f`.
 - Target: local `T0` verification and private-repository `T1` GitHub Actions execution.
 - Scope is limited to production UI layer boundaries, the unchanged controlled bootstrap
   composition, automated boundary enforcement, documentation, and sanitized evidence.
@@ -32,7 +34,7 @@
 | Runtime smoke | Included in `pnpm verify` | Loopback health, bootstrap HTML, and fail-closed security headers passed |
 | Reachable-history secret scan | `pnpm secrets:check --history` | Passed: 206 current text files plus reachable history; match output remains redacted |
 | Dependency audit | `pnpm audit:dependencies` | Passed: 650 dependencies; zero moderate, high, or critical known vulnerabilities |
-| Hosted current-head gate | Pull-request `quality-and-security` run | Pending |
+| Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34815766577) on `309f96f` | Passed every step in 1 minute 37 seconds, including frozen install, fail-closed controls, history scan, dependency audit, full verify, and clean reconstruction |
 
 The shell initially exposed Node.js `25.2.1`; strict engine enforcement rejected the command before
 tests ran. The complete evidence uses the installed pinned Node.js `24.21.0` runtime. The first full
@@ -46,13 +48,26 @@ application pass or defect.
 | Field | Value |
 | --- | --- |
 | Ticket | `B01-001` |
-| Old / new status | Proposed → Ready → In progress → In review |
+| Old / new status | Proposed → Ready → In progress → In review → Done for controlled development |
 | Responsible / acceptance | Client workspace identity `befikadusata` / same identity for controlled development; named production acceptance open |
 | Date / timezone | 14 September 2026 / Africa/Addis_Ababa (`UTC+03:00`) |
 | Dependency evidence | `B00-004`, `B00-005`, working `B00-015`/`B00-016`, and the approved motion/media amendment |
 | Target | `T0` local and private-repository `T1` hosted execution |
 | Allowed scope | Production design-system architecture, bootstrap composition, boundary tests, documentation, and sanitized evidence |
 | Issue / evidence | [Issue `#2`](https://github.com/dynamicet/hallelujah-website/issues/2) / this record |
+| Next unlock | `B01-003` may be prepared against this architecture; final token values remain gated by `B01-002` |
+
+## Residual gates and merge control
+
+- The hosted implementation run proves the implementation revision. The documentation closeout
+  revision must also receive a successful `quality-and-security` result for its exact head before
+  pull request `#3` merges; that final run is retained on the pull request and issue under the
+  current-head procedure in `CONTRIBUTING.md`.
+- `B01-002` still gates authentic identity, palette, typography, and media values. `B01-003` owns the
+  canonical generated token source. `B01-012`–`B01-013` own motion/media runtime behavior and full
+  capability evidence.
+- Named Delivery, Frontend, QA, and Accessibility people remain required before production
+  acceptance. The private/free GitHub plan limitation remains governed by `B00-012`.
 
 This is controlled-development implementation evidence, not a release, design-token completion,
 motion/media implementation, production readiness, provider approval, personal-data authority,

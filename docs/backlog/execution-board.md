@@ -50,14 +50,17 @@ The 13 September deferrals remove `B00-001`, `B00-002`, `B00-007`, `B00-014`, an
 
 | Pull order | Ticket | Status | Responsible / acceptance authority | Allowed scope and target | Evidence / issue |
 | ---: | --- | --- | --- | --- | --- |
-| 1 | `B01-001` | **In review** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead role / same identity for controlled-development acceptance; named Delivery, Frontend, QA, and Accessibility people return before production | `T0` local pass and private-repository `T1` pending; production design-system boundaries, unchanged bootstrap composition, automated boundary checks, architecture/backlog documentation, and sanitized evidence only | [Execution brief](b01-001-production-component-architecture.md), [evidence](evidence/B01-001-production-component-architecture-2026-09-14.md), and [issue `#2`](https://github.com/dynamicet/hallelujah-website/issues/2) |
+| 1 | `B01-001` | **Done** | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead role / same identity for controlled-development acceptance; named Delivery, Frontend, QA, and Accessibility people return before production | `T0` local and private-repository implementation `T1` pass; production design-system boundaries, unchanged bootstrap composition, automated boundary checks, architecture/backlog documentation, and sanitized evidence only | [Execution brief](b01-001-production-component-architecture.md), [evidence](evidence/B01-001-production-component-architecture-2026-09-14.md), [issue `#2`](https://github.com/dynamicet/hallelujah-website/issues/2), and [hosted run](https://github.com/dynamicet/hallelujah-website/actions/runs/34815766577) |
 
-`B01-001` was promoted Proposed → Ready → In progress → In review on 14 September 2026, Africa/Addis_Ababa,
+`B01-001` was promoted Proposed → Ready → In progress → In review → Done for controlled development on 14 September 2026, Africa/Addis_Ababa,
 after the client directed execution of steps 1–4. `B00-004` and `B00-005` are complete, the motion
 and interactive-media amendment is approved for planning, and the issue records the exact scope,
 state applicability, verification commands, and evidence destination. Hospital facts, translations,
 brand assets, public routes, CMS capability, providers, motion/media runtime implementation,
-personal-data collection, deployment, DNS, production, and publication remain outside scope.
+personal-data collection, deployment, DNS, production, and publication remain outside scope. The
+implementation revision passed hosted CI; the pull request closeout revision still follows the
+documented exact-current-head CI merge procedure. `B01-003` is the next delivery preparation and
+remains gated by its own readiness record and `B01-002` for final values.
 
 ### `B00-005` — pinned toolchain
 

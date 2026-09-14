@@ -1,6 +1,6 @@
 # `B01-001` — Production Component Architecture
 
-**Status:** In review for controlled development; local gates pass and hosted current-head execution is pending
+**Status:** Done for controlled development; local and hosted implementation gates pass
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -12,7 +12,7 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P0` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress → In review |
+| Old / new status | Proposed → Ready → In progress → In review → Done for controlled development |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead role |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Delivery, Frontend, QA, and Accessibility people return before production acceptance |
 | Target environment | `T0` isolated local validation and private-repository `T1` GitHub Actions execution |
@@ -64,6 +64,24 @@ publication.
 | History credential scan | `pnpm secrets:check --history` | Reachable history passes with redacted failure behavior |
 | Dependency audit | `pnpm audit:dependencies` | No moderate-or-higher known advisory; registry failure is not a pass |
 | Hosted `T1` | Pull-request `quality-and-security` run | Green result belongs to the current pull-request head before merge |
+
+## Completion boundary
+
+- [x] App, template, component, primitive, and typed-contract responsibilities are documented and
+  implemented through bounded public APIs.
+- [x] The bootstrap route exercises the production composition path without adding or publishing a
+  route or changing its controlled-development meaning.
+- [x] Import direction, public API, template CSS, prototype/reviewer/fixture, remote-origin, legacy,
+  and environment boundaries fail closed in the application test.
+- [x] Levels 0–4 and permanent protected contexts are modeled without selecting a runtime or media.
+- [x] Full local, history-secret, dependency-audit, and hosted implementation checks pass with
+  sanitized evidence.
+- [ ] Named Delivery, Frontend, QA, and Accessibility acceptance replaces the temporary development
+  assignment at the applicable production boundary.
+
+The unchecked named-acceptance item is a production gate, not an incomplete `B01-001`
+controlled-development capability. Final design-token values remain `B01-002`/`B01-003`; motion and
+media implementation remains `B01-012`–`B01-013`.
 
 ## References
 
