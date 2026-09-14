@@ -33,6 +33,8 @@
     "search-controls:smoke": "node scripts/check-rendered-foundations.mjs --shell --search-controls --capture-prefix b01-007-search-controls",
     "shell:check": "pnpm --dir apps/web shell:check",
     "shell:smoke": "node scripts/check-rendered-foundations.mjs --shell --capture-prefix b01-006-global-shell",
+    "system-states:check": "pnpm --dir apps/web system-states:check",
+    "system-states:smoke": "node scripts/check-rendered-foundations.mjs --shell --search-controls --form-primitives --system-states --capture-prefix b01-010-system-states",
     "secrets:check": "node scripts/check-secrets.mjs",
     "start": "pnpm --dir apps/web start",
     "test": "pnpm --dir apps/web test",

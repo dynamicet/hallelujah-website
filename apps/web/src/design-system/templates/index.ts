@@ -5,3 +5,4 @@ export type { EssentialActionsFixtureTemplateProps } from './essential-actions-f
 export { FormPrimitivesFixtureTemplate } from './form-primitives-fixture-template'
 export { SearchControlsFixtureTemplate } from './search-controls-fixture-template'
 export type { SearchControlsFixtureTemplateProps } from './search-controls-fixture-template'
+export { SystemStatesFixtureTemplate } from './system-states-fixture-template'

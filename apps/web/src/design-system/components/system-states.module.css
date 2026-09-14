@@ -1,0 +1,213 @@
+.panel {
+  border: var(--component-system-state-border-width) solid currentColor;
+  border-inline-start-width: var(--component-system-state-border-emphasis);
+  border-radius: var(--component-system-state-radius);
+  display: grid;
+  gap: var(--component-system-state-space-regular);
+  inline-size: var(--component-system-state-width-full);
+  max-inline-size: var(--component-system-state-width-reading);
+  min-inline-size: 0;
+  padding: var(--component-system-state-space-page);
+}
+
+.panel:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+.headingRow {
+  align-items: start;
+  display: grid;
+  gap: var(--component-system-state-space-compact);
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.headingRow h3,
+.message,
+.message p,
+.action,
+.metadata,
+.metadata div,
+.metadata dt,
+.metadata dd,
+.preservedFacts,
+.boundaryCopy {
+  margin: 0;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.message,
+.preservedFacts,
+.boundaryCopy {
+  display: grid;
+  gap: var(--component-system-state-space-compact);
+}
+
+.icon,
+.spinner {
+  block-size: var(--component-system-state-icon-size);
+  flex: 0 0 auto;
+  inline-size: var(--component-system-state-icon-size);
+}
+
+.information,
+.empty,
+.loading,
+.offline {
+  background: var(--component-system-state-surface-information);
+  color: var(--component-system-state-text-information);
+}
+
+.success {
+  background: var(--component-system-state-surface-success);
+  color: var(--component-system-state-text-success);
+}
+
+.warning,
+.temporary {
+  background: var(--component-system-state-surface-warning);
+  color: var(--component-system-state-text-warning);
+}
+
+.emergency,
+.error,
+.expired,
+.unavailable {
+  background: var(--component-system-state-surface-error);
+  color: var(--component-system-state-text-error);
+}
+
+.action {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--component-system-state-space-regular);
+}
+
+.action :where(a, button) {
+  min-block-size: var(--component-system-state-target-minimum);
+  min-inline-size: var(--component-system-state-target-minimum);
+}
+
+.metadata {
+  border-block-start: var(--component-system-state-border-width) solid currentColor;
+  display: grid;
+  font-size: var(--component-system-state-small-font-size);
+  gap: var(--component-system-state-space-compact);
+  line-height: var(--component-system-state-small-line-height);
+  padding-block-start: var(--component-system-state-space-regular);
+}
+
+.metadata div {
+  display: grid;
+  gap: var(--component-system-state-space-fine);
+  grid-template-columns: minmax(7rem, 0.4fr) minmax(0, 1fr);
+}
+
+.metadata dt,
+.preservedFacts strong {
+  font-weight: var(--component-system-state-font-weight-strong);
+}
+
+.spinner {
+  border: var(--component-system-state-border-emphasis) solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  animation: system-state-spin var(--component-system-state-loading-duration) linear infinite;
+}
+
+.preservedFacts {
+  background: var(--component-system-state-surface-raised);
+  border: var(--component-system-state-border-width) solid currentColor;
+  border-radius: var(--component-system-state-radius);
+  color: var(--component-system-state-text-primary);
+  padding: var(--component-system-state-space-regular);
+}
+
+.skeleton {
+  display: grid;
+  gap: var(--component-system-state-space-compact);
+}
+
+.skeleton span {
+  background: var(--component-system-state-surface-subtle);
+  border: var(--component-system-state-border-width) solid var(--component-system-state-border-strong);
+  border-radius: var(--component-system-state-radius);
+  block-size: var(--component-system-state-space-page);
+  inline-size: 100%;
+}
+
+.skeleton span:last-child {
+  inline-size: 70%;
+}
+
+.boundaryCopy {
+  color: var(--component-system-state-text-secondary);
+  font-size: var(--component-system-state-small-font-size);
+  line-height: var(--component-system-state-small-line-height);
+}
+
+@keyframes system-state-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (max-width: 30rem) {
+  .panel {
+    padding: var(--component-system-state-space-compact);
+  }
+
+  .headingRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .metadata div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-style: double;
+  }
+}
+
+@media (forced-colors: active) {
+  .panel,
+  .preservedFacts,
+  .skeleton span {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+
+  .emergency,
+  .error,
+  .expired,
+  .unavailable,
+  .warning,
+  .temporary {
+    border-style: double;
+  }
+
+  .spinner {
+    border-inline-end-color: Canvas;
+  }
+}
+
+@media print {
+  .panel,
+  .preservedFacts,
+  .skeleton span {
+    background: transparent;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+
+  .spinner {
+    animation: none;
+  }
+}

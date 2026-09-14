@@ -18,7 +18,8 @@
     "shell:check": "node scripts/check-global-shell.mjs",
     "lint": "eslint . --max-warnings=0",
     "start": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next start",
-    "test": "pnpm tokens:check && pnpm foundations:check && pnpm actions:check && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
+    "system-states:check": "node scripts/check-system-states.mjs",
+    "test": "pnpm tokens:check && pnpm foundations:check && pnpm actions:check && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && pnpm system-states:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
     "tokens:check": "node scripts/generate-design-tokens.mjs --check",
     "tokens:generate": "node scripts/generate-design-tokens.mjs",
     "typecheck": "tsc --noEmit"
