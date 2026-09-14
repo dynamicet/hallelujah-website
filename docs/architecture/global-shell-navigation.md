@@ -1,7 +1,7 @@
 # Global Shell and Navigation Architecture
 
 **Backlog authority:** `B01-006`  
-**Status:** Implemented for controlled local review; production and publication gates remain open
+**Status:** Complete for controlled development; production and publication gates remain open
 
 ## Boundary
 

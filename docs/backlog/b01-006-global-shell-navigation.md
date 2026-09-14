@@ -1,6 +1,6 @@
 # `B01-006` — Global Shell and Navigation
 
-**Status:** In review for controlled development; local `T0` implementation gates pass
+**Status:** Done for controlled development; local `T0` and hosted implementation `T1` gates pass
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -12,14 +12,14 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P1` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress → In review |
+| Old / new status | Proposed → Ready → In progress → In review → Done for controlled development |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Delivery, Frontend, QA, Accessibility, Language, Content, Operations, and Security people return at their production gates |
-| Target environment | `T0` isolated local application and headless Chromium; private-repository hosted `T1` pending |
+| Target environment | `T0` isolated local application and headless Chromium; private-repository hosted `T1` pass |
 | Requirements / decisions | `G-001`–`G-003`, `G-005`, `G-013`, `S-006`–`S-008`; final labels and equivalents remain gated by `LANG-01`; real contacts remain gated by `SAFE-01` |
 | Dependencies | Completed `B01-004`, merged `B01-005`, working `B00-015` and `B00-016` development baselines |
 | Allowed repository scope | Shell/navigation components and first-party enhancement, component token aliases and generated outputs, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
-| Repository review | [Issue `#10`](https://github.com/dynamicet/hallelujah-website/issues/10); pull request and hosted implementation run pending |
+| Repository review | [Issue `#10`](https://github.com/dynamicet/hallelujah-website/issues/10), [pull request `#11`](https://github.com/dynamicet/hallelujah-website/pull/11), and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/34879240044) on `fc672b8` |
 | Evidence destination | [Sanitized local evidence](evidence/B01-006-global-shell-navigation-2026-09-14.md) |
 
 The client's 14 September 2026 direction to proceed authorized readiness promotion, a scoped branch,
@@ -77,7 +77,7 @@ personal-data collection, deployment, DNS, production, or publication.
 - [x] Static semantics, one-order navigation, current state, breadcrumb, language, target, mode, and source-boundary checks pass.
 - [x] Required responsive, zoom, enlarged-text, compact/wide, Escape, skip-link, reduced-motion, print, and forced-colors browser checks pass locally.
 - [x] Sanitized 320 px and 1440 px screenshots were visually reviewed.
-- [ ] Pull-request current head passes hosted `T1` and repository review.
+- [x] Pull request `#11` implementation head passed hosted `T1`; this documentation closeout head must repeat the gate before merge.
 - [ ] Named production roles accept final routes/labels, physical-device and assistive-technology behavior, professional Amharic, governed contacts, and release evidence.
 
 The final checkbox remains an external production gate. `LANG-01` owns final language decisions;

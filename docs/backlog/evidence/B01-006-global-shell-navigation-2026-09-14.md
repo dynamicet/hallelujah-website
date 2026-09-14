@@ -2,7 +2,7 @@
 
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
-**Result:** In review for controlled development; local `T0` passes and hosted `T1` is pending
+**Result:** Done for controlled development; local `T0` and hosted implementation `T1` pass
 
 ## Evidence summary
 
@@ -18,7 +18,7 @@
 | Interaction | Visible targets measure at least 44 × 44 CSS px; the compact popover opens natively; Escape closes it and restores focus; the skip link moves focus to main. |
 | Resilience | Navigation, links, popover, breadcrumb, language status, and footer are server-rendered. The enhancement makes no request and stores no state. Reduced motion, forced colors, and print have explicit treatments. |
 | Visual review | [320px](b01-006-rendered/b01-006-global-shell-320.png) and [1440px](b01-006-rendered/b01-006-global-shell-1440.png) captures were inspected for hierarchy, wrapping, action separation, current state, controlled-language status, and footer fallback. |
-| Hosted implementation gate | Pending pull-request `quality-and-security` run on the exact review head. |
+| Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34879240044) passed in 2m00s on implementation commit `fc672b8`. |
 
 ## Performed commands
 
@@ -58,7 +58,9 @@ request, persistent storage, or visitor-data path was introduced.
   switch-control, or professional Amharic review.
 - Public routes remain unmounted. Real contacts remain withheld under `SAFE-01`; final route and
   language labels remain gated by `LANG-01` and the consuming page/content tickets.
-- GitHub [issue `#10`](https://github.com/dynamicet/hallelujah-website/issues/10) carries the scoped
-  repository record; pull-request and exact-head hosted evidence are pending.
+- GitHub [issue `#10`](https://github.com/dynamicet/hallelujah-website/issues/10) and [pull request
+  `#11`](https://github.com/dynamicet/hallelujah-website/pull/11) carry the scoped repository review.
+  Hosted run `34879240044` proves implementation commit `fc672b8`; this documentation-closeout
+  revision must repeat the exact-head gate before merge.
 - Publication, providers, personal-data collection, deployment, DNS, and production authority
   remain unchanged.

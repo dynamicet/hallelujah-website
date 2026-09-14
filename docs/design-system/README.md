@@ -2,7 +2,7 @@
 
 **Version:** 0.4 Order 12 developer handoff  
 **Prepared:** 12 September 2026  
-**Status:** Project brand values, `B01-004` foundations, and `B01-005` essential actions are complete; `B01-006` global shell is in controlled-development review; listed human/production validation remains open
+**Status:** Project brand values and `B01-004`–`B01-006` production foundations, actions, and global shell are complete for controlled development; listed human/production validation remains open
 **Related:** [Requirements matrix](../requirements/requirements-matrix.md) · [Page specifications](../ux/page-specifications.md) · [Sitemap](../ux/sitemap.md) · [Benchmark traceability](../benchmarks/benchmark-traceability.md) · [Developer handoff](../visual-design/handoff/README.md)
 
 ## Purpose
