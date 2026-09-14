@@ -1,6 +1,6 @@
 # `B01-004` — Global CSS Foundations
 
-**Status:** In review; local `T0` passes and pull request `#7` is open, while hosted `T1` and merge remain pending
+**Status:** Done for controlled development; local `T0` and hosted implementation `T1` gates pass
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -12,14 +12,14 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P1` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / current status | Proposed → Ready → In progress → In review |
+| Old / new status | Proposed → Ready → In progress → In review → Done for controlled development |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Delivery, Frontend, QA, Accessibility, Language, and Brand people return at their production gates |
 | Target environment | `T0` isolated local application and headless Chromium; private-repository pull request `#7` for hosted `T1` |
 | Requirements / decisions | `G-003`–`G-005`, `G-007`, `G-010`; project brand direction approved under `B01-002` |
 | Dependencies | Completed `B01-003`; working `B00-015` and `B00-016` development baselines |
 | Allowed repository scope | Canonical foundation token roles and generated outputs, global CSS, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
-| Repository review | [Issue `#6`](https://github.com/dynamicet/hallelujah-website/issues/6), [pull request `#7`](https://github.com/dynamicet/hallelujah-website/pull/7), and [published branch](https://github.com/dynamicet/hallelujah-website/tree/b01-004-global-css-foundations); hosted current-head result and merge pending |
+| Repository review | [Issue `#6`](https://github.com/dynamicet/hallelujah-website/issues/6), [pull request `#7`](https://github.com/dynamicet/hallelujah-website/pull/7), and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/34837389038) on `b3868f4` |
 | Evidence destination | [Sanitized local evidence](evidence/B01-004-global-css-foundations-2026-09-14.md) |
 
 The client's 14 September 2026 direction to proceed authorized readiness promotion, the scoped
@@ -42,7 +42,7 @@ collection, deployment, DNS, production, or publication.
 4. A server-rendered, local-only fixture covers long English labels, an explicitly unreviewed
    Ethiopic shaping sample, a focusable 44 px control, readable measure, no-image/custom-font
    fallback, and no-JavaScript content.
-5. Headless Chromium measures 320, 360, 375, phone landscape, tablet, 1280, and 1440 layouts plus
+5. Headless Chromium/Chrome measures 320, 360, 375, phone landscape, tablet, 1280, and 1440 layouts plus
    200%/400% viewport equivalents and 200% root-text enlargement without page overflow or clipped
    consequential content.
 
@@ -73,10 +73,10 @@ collection, deployment, DNS, production, or publication.
 - [x] Global typography, layout, focus, border, elevation, media, print, and forced-color behavior is implemented.
 - [x] Required responsive, zoom-equivalent, enlarged-text, bilingual-stack, and modality checks pass locally.
 - [x] Sanitized compact and wide Chromium screenshots were visually reviewed.
-- [ ] GitHub issue/pull request and current-head hosted `T1` verification are recorded.
+- [x] GitHub issue/pull request and hosted implementation `T1` verification are recorded.
 - [ ] Named production roles accept real devices, ingested fonts/assets, final language, and production release evidence.
 
-The final two checkboxes remain external/production gates. `B02-011` owns verified font/logo binary
+The final checkbox remains an external/production gate. `B02-011` owns verified font/logo binary
 ingestion; `LANG-01`/`LANG-02` own public language; `B01-005`–`B01-010` own component behavior and
 states; `B01-012`–`B01-013` own enhanced motion/media and the full evidence harness.
 

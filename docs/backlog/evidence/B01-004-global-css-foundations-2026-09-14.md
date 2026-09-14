@@ -2,7 +2,7 @@
 
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
-**Result:** Local `T0` passed; issue `#6` and pull request `#7` are open; current-head hosted `T1` pending
+**Result:** Done for controlled development; local `T0` and hosted implementation `T1` pass
 
 ## Evidence summary
 
@@ -17,6 +17,7 @@
 | Media modes | Enhanced motion duration computes to zero for reduced motion; print uses a white shadow-free surface; forced colors uses system focus/link colors and no decorative shadow. |
 | Performance | Production build remains one static application page, zero external origins, 8 initial requests, and within existing compressed JavaScript/transfer budgets. |
 | Visual review | [320px](b01-004-rendered/b01-004-foundations-320.png) and [1440px](b01-004-rendered/b01-004-foundations-1440.png) screenshots were inspected after the enlarged-text overflow correction. |
+| Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34837389038) passed on commit `b3868f405c1e9ce7a0b174ff3bb1ed64837acd3c`. |
 
 ## Performed commands
 
@@ -43,6 +44,14 @@ surface contracts were corrected with explicit minimum-width, maximum-width, and
 the expanded rendered matrix then passed. Chromium reports a zero duration as `0s`, so the check
 correctly tests numeric zero instead of requiring the authored `0ms` serialization.
 
+The first hosted run selected the Ubuntu runner's Chromium command and timed out before its
+DevTools endpoint became ready. Browser selection was corrected to prefer the runner's supported
+Google Chrome executable while retaining Chromium fallback locally. Chrome then exposed a 16 px
+200%-text overflow in the status summary: its CSS row selector did not match the rendered
+`div > dl > div` structure. The selector, minimum sizing, and term/value wrapping were corrected;
+static contract coverage was added, screenshots were refreshed, and hosted run `34837389038`
+passed the full exact-head implementation gate.
+
 The complete `pnpm verify` sequence passed in its production order. Reachable-history secret
 scanning passed. The first dependency-audit attempt was denied complete registry access by the
 restricted network boundary; the approved network-enabled rerun passed across 650 dependencies
@@ -53,8 +62,9 @@ with zero moderate, high, or critical known vulnerabilities.
 - The screenshots contain only controlled-development fixture text and no personal, clinical,
   operational, credential, or restricted evidence.
 - GitHub [issue `#6`](https://github.com/dynamicet/hallelujah-website/issues/6) and
-  [pull request `#7`](https://github.com/dynamicet/hallelujah-website/pull/7) now carry the
-  repository review; no hosted current-head success or merge is claimed until that run completes.
+  [pull request `#7`](https://github.com/dynamicet/hallelujah-website/pull/7) carry the repository
+  review. Hosted implementation run `34837389038` proves `b3868f4`; this documentation closeout
+  revision must also pass `quality-and-security` at its exact head before pull request `#7` merges.
 - The local browser is Chromium 152 from the installed Snap payload. This is implementation smoke,
   not the final physical-device/browser matrix required for production acceptance.
 - Approved Noto and logo binaries remain outside the repository until verified ingestion under
