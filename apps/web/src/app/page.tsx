@@ -6,6 +6,15 @@ const statuses = [
   { description: 'Not mounted', term: 'CMS routes and content models' },
 ] as const
 
-export default function BootstrapPage() {
-  return <EssentialActionsFixtureTemplate statuses={statuses} />
+interface BootstrapPageProps {
+  readonly searchParams: Promise<Record<string, string | string[] | undefined>>
+}
+
+export default async function BootstrapPage({ searchParams }: BootstrapPageProps) {
+  return (
+    <EssentialActionsFixtureTemplate
+      searchParameters={await searchParams}
+      statuses={statuses}
+    />
+  )
 }

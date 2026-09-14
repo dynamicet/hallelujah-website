@@ -1,20 +1,33 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
+import { withBuiltApplication } from './lib/built-application.mjs'
 import { collectFilesUnder, repositoryRelative, repositoryRoot } from './lib/repository-files.mjs'
 
 const appOutputRoot = path.join(repositoryRoot, 'apps/web/.next/server/app')
 const pages = (await collectFilesUnder(appOutputRoot, (file) => file.endsWith('.html')))
   .filter((file) => !file.includes(`${path.sep}_global-error.html`) && !file.includes(`${path.sep}_not-found.html`))
+const documents = await Promise.all(
+  pages.map(async (page) => ({ html: await readFile(page, 'utf8'), label: repositoryRelative(page) })),
+)
 const failures = []
+
+if (documents.length === 0) {
+  await withBuiltApplication(async (origin) => {
+    const response = await fetch(origin)
+    if (!response.ok) {
+      failures.push(`built runtime /: expected 200, received ${response.status}`)
+      return
+    }
+    documents.push({ html: await response.text(), label: 'built runtime /' })
+  })
+}
 
 function count(source, pattern) {
   return [...source.matchAll(pattern)].length
 }
 
-for (const page of pages) {
-  const label = repositoryRelative(page)
-  const html = await readFile(page, 'utf8')
+for (const { html, label } of documents) {
   const rendered = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/giu, '')
 
   if (!/^<!DOCTYPE html>/iu.test(rendered)) failures.push(`${label}: HTML5 doctype is required`)
@@ -48,12 +61,12 @@ for (const page of pages) {
   }
 }
 
-if (pages.length === 0) failures.push('no built application HTML pages were found')
+if (documents.length === 0) failures.push('no built application HTML documents were found')
 
 if (failures.length > 0) {
   console.error('Built accessibility smoke failed:')
   failures.forEach((failure) => console.error(`- ${failure}`))
   process.exitCode = 1
 } else {
-  console.log(`Built accessibility smoke passed (${pages.length} implemented static template; semantic checks only, not a conformance claim).`)
+  console.log(`Built accessibility smoke passed (${documents.length} implemented template; semantic checks only, not a conformance claim).`)
 }

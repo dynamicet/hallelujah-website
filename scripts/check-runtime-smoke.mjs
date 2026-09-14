@@ -83,7 +83,7 @@ try {
   if (home.status !== 200 || !/<main\b[^>]*\bid="main-content"/u.test(body)) {
     throw new Error('bootstrap page did not return its main content')
   }
-  expectHeader(home, 'content-security-policy', "default-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; object-src 'none'")
+  expectHeader(home, 'content-security-policy', "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'")
   expectHeader(home, 'referrer-policy', 'no-referrer')
   expectHeader(home, 'x-content-type-options', 'nosniff')
   if (home.headers.has('x-powered-by')) throw new Error('x-powered-by must remain disabled')

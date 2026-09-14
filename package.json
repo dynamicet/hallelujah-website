@@ -27,6 +27,8 @@
     "links:check": "node scripts/check-local-links.mjs",
     "rebuild:verify": "node scripts/verify-clean-rebuild.mjs",
     "runtime:smoke": "node scripts/check-runtime-smoke.mjs",
+    "search-controls:check": "pnpm --dir apps/web search-controls:check",
+    "search-controls:smoke": "node scripts/check-rendered-foundations.mjs --shell --search-controls --capture-prefix b01-007-search-controls",
     "shell:check": "pnpm --dir apps/web shell:check",
     "shell:smoke": "node scripts/check-rendered-foundations.mjs --shell --capture-prefix b01-006-global-shell",
     "secrets:check": "node scripts/check-secrets.mjs",

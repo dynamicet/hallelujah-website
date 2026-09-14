@@ -1,0 +1,47 @@
+.results {
+  display: grid;
+  gap: var(--component-bootstrap-status-gap);
+  list-style: none;
+  max-inline-size: var(--component-bootstrap-surface-width);
+  min-inline-size: 0;
+  padding: 0;
+}
+
+.results li {
+  min-inline-size: 0;
+}
+
+.result,
+.emptyState {
+  background: var(--component-bootstrap-surface-background);
+  border: var(--component-bootstrap-surface-border-width) solid
+    var(--component-bootstrap-surface-border-color);
+  border-radius: var(--component-bootstrap-surface-radius);
+  display: grid;
+  gap: var(--component-bootstrap-status-item-gap);
+  max-inline-size: var(--component-bootstrap-surface-width);
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  padding: var(--component-bootstrap-status-item-padding-top);
+}
+
+.resultType {
+  color: var(--component-bootstrap-eyebrow-color);
+  font-size: var(--component-bootstrap-eyebrow-font-size);
+  font-weight: var(--component-bootstrap-eyebrow-font-weight);
+  text-transform: capitalize;
+}
+
+@media (forced-colors: active) {
+  .result,
+  .emptyState {
+    border-color: CanvasText;
+  }
+}
+
+@media print {
+  .result,
+  .emptyState {
+    border-color: CanvasText;
+  }
+}
