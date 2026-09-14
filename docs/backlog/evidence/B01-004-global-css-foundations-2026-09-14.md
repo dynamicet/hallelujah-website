@@ -52,6 +52,11 @@ Google Chrome executable while retaining Chromium fallback locally. Chrome then 
 static contract coverage was added, screenshots were refreshed, and hosted run `34837389038`
 passed the full exact-head implementation gate.
 
+The first documentation-closeout run passed the application and rendered assertions but exposed a
+browser-profile cleanup race while Chrome was still exiting. Cleanup now waits after forced
+termination and uses bounded recursive-removal retries; this lifecycle correction must pass again
+on the final pull-request head and is not treated as an application assertion failure.
+
 The complete `pnpm verify` sequence passed in its production order. Reachable-history secret
 scanning passed. The first dependency-audit attempt was denied complete registry access by the
 restricted network boundary; the approved network-enabled rerun passed across 650 dependencies

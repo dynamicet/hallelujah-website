@@ -199,7 +199,8 @@ try {
   await Promise.all([waitForExit(server), waitForExit(browser)])
   stopProcess(server, 'SIGKILL')
   stopProcess(browser, 'SIGKILL')
-  await rm(browserProfile, { force: true, recursive: true })
+  await Promise.all([waitForExit(server), waitForExit(browser)])
+  await rm(browserProfile, { force: true, maxRetries: 5, recursive: true, retryDelay: 100 })
 }
 
 function findBrowser() {
