@@ -1,6 +1,6 @@
 # `B01-005` — Essential Actions
 
-**Status:** In review; local `T0` implementation and browser gates pass, hosted `T1` pending
+**Status:** Done for controlled development; local `T0` and hosted implementation `T1` gates pass
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -12,14 +12,14 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P0` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress → In review |
+| Old / new status | Proposed → Ready → In progress → In review → Done for controlled development |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Delivery, Frontend, QA, Accessibility, Operations, Clinical, and Language people return at their production gates |
-| Target environment | `T0` isolated local application and headless Chromium; private-repository hosted `T1` after review publication |
+| Target environment | `T0` isolated local application and headless Chromium; private-repository hosted `T1` |
 | Requirements / decisions | `G-001`, `G-004`–`G-006`, `G-011`, `E-001`–`E-005`, `A-002`, `A-007`; real contact data remains gated by `SAFE-01` |
 | Dependencies | Completed `B01-003` and merged `B01-004`; working `B00-015` and `B00-016` development baselines |
 | Allowed repository scope | Essential action components and icons, component token aliases and generated outputs, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
-| Repository review | [Issue `#8`](https://github.com/dynamicet/hallelujah-website/issues/8) and [pull request `#9`](https://github.com/dynamicet/hallelujah-website/pull/9); exact-head hosted review pending |
+| Repository review | [Issue `#8`](https://github.com/dynamicet/hallelujah-website/issues/8), [pull request `#9`](https://github.com/dynamicet/hallelujah-website/pull/9), and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/34869074953) on `c8491ef` |
 | Evidence destination | [Sanitized local evidence](evidence/B01-005-essential-actions-2026-09-14.md) |
 
 The client's 14 September 2026 direction to start the next execution authorized readiness
@@ -76,13 +76,12 @@ production, or publication.
 - [x] Static semantics, name, icon, telephone, target, spacing, emergency, mode, and source-boundary checks pass.
 - [x] Required responsive, zoom, keyboard, moved-touch, focus, reduced-motion, print, and forced-colors browser checks pass locally.
 - [x] Sanitized 320 px and 1440 px screenshots were visually reviewed.
-- [ ] Pull request `#9` exact-head hosted `T1` verification passes and the review merges.
+- [x] Pull request `#9` implementation head passed hosted `T1`; this documentation closeout head must repeat the gate before merge.
 - [ ] Named production roles accept verified hospital contact data, physical-device/assistive-technology behavior, final language, and release evidence.
 
-The first open checkbox controls controlled-development closure. The final checkbox remains an
-external production gate. `SAFE-01` owns canonical real contact data; `B01-006` may consume these
-actions in the shell after this ticket merges; `B01-009`–`B01-010` own asynchronous and failure
-states.
+The final checkbox remains an external production gate. `SAFE-01` owns canonical real contact
+data; `B01-006` may consume these actions in the shell after pull request `#9` merges;
+`B01-009`–`B01-010` own asynchronous and failure states.
 
 ## References
 

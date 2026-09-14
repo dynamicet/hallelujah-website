@@ -2,7 +2,7 @@
 
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
-**Result:** In review; local `T0` implementation and browser gates pass, hosted `T1` pending
+**Result:** Done for controlled development; local `T0` and hosted implementation `T1` pass
 
 ## Evidence summary
 
@@ -19,6 +19,7 @@
 | Resilience | Server-rendered actions require no client JavaScript, provider, external request, remote asset, custom font, personal data, or approved hospital facts. Reduced motion, forced colors, and print have explicit treatments. |
 | Security and dependencies | Current source plus reachable Git history secret scanning passes; 650 dependencies report zero moderate, high, or critical known vulnerabilities. |
 | Visual review | [320px](b01-005-rendered/b01-005-essential-actions-320.png) and [1440px](b01-005-rendered/b01-005-essential-actions-1440.png) captures were inspected for hierarchy, wrapping, separation, focus, disabled reasoning, and non-color emergency meaning. |
+| Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34869074953) passed in 2m06s on commit `c8491ef`. |
 
 ## Performed commands
 
@@ -56,5 +57,6 @@ including native keyboard activation and moved-touch cancellation.
   `SAFE-01`; direct emergency calling is not activated by this evidence.
 - GitHub [issue `#8`](https://github.com/dynamicet/hallelujah-website/issues/8) and [pull request
   `#9`](https://github.com/dynamicet/hallelujah-website/pull/9) carry the scoped repository review.
-  Hosted exact-head CI and merge remain pending; publication, providers, personal-data collection,
-  deployment, DNS, and production authority remain unchanged.
+  Hosted run `34869074953` proves `c8491ef`; this documentation-closeout revision must repeat the
+  exact-head gate before merge. Publication, providers, personal-data collection, deployment, DNS,
+  and production authority remain unchanged.
