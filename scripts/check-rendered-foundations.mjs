@@ -204,10 +204,10 @@ try {
 
 function findBrowser() {
   const candidates = [
+    'google-chrome-stable',
+    'google-chrome',
     'chromium',
     'chromium-browser',
-    'google-chrome',
-    'google-chrome-stable',
     '/snap/chromium/current/usr/lib/chromium-browser/chrome',
   ]
   for (const candidate of candidates) {
