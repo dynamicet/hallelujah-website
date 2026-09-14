@@ -49,6 +49,12 @@ if (!/@media \(forced-colors: active\)[\s\S]*box-shadow:\s*none/u.test(templateS
 if (!/@media print[\s\S]*box-shadow:\s*none/u.test(templateStyles)) {
   failures.push('template styles: print mode must remove the surface shadow')
 }
+if (!/\.statusSummary\s*>\s*dl\s*>\s*div/u.test(templateStyles)) {
+  failures.push('template styles: status rows must match the rendered definition-list structure')
+}
+if (!/\.statusSummary\s+:where\(dt, dd\)[\s\S]*overflow-wrap:\s*anywhere/u.test(templateStyles)) {
+  failures.push('template styles: status terms and values must wrap at enlarged text sizes')
+}
 
 if (failures.length > 0) {
   console.error('Foundation contract check failed:')

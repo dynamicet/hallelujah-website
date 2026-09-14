@@ -39,17 +39,29 @@
 }
 
 .statusSummary {
-  display: grid;
-  gap: var(--component-bootstrap-status-gap);
   margin: var(--component-bootstrap-status-margin-top) 0 0;
+  min-width: 0;
 }
 
-.statusSummary > div {
+.statusSummary > dl {
+  display: grid;
+  gap: var(--component-bootstrap-status-gap);
+  margin: 0;
+  min-width: 0;
+}
+
+.statusSummary > dl > div {
   border-top: var(--component-bootstrap-status-border-width) solid
     var(--component-bootstrap-status-border-color);
   display: grid;
   gap: var(--component-bootstrap-status-item-gap);
+  min-width: 0;
   padding-top: var(--component-bootstrap-status-item-padding-top);
+}
+
+.statusSummary :where(dt, dd) {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .statusSummary dt {
@@ -62,7 +74,7 @@
 }
 
 @media (min-width: 40rem) {
-  .statusSummary > div {
+  .statusSummary > dl > div {
     grid-template-columns: minmax(0, 1fr) auto;
   }
 }

@@ -362,7 +362,7 @@ function renderedChecksSource() {
       element: element.tagName.toLowerCase()
         + (element.id ? '#' + element.id : '')
         + (typeof element.className === 'string' && element.className
-          ? '.' + element.className.trim().replaceAll(/\s+/g, '.')
+          ? '.' + element.className.trim().replaceAll(/\\s+/g, '.')
           : ''),
       overflowX: getComputedStyle(element).overflowX,
       scrollWidth: element.scrollWidth,
