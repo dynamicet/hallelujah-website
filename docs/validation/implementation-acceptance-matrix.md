@@ -50,8 +50,9 @@ An equivalent physical device may replace `P6` or `P7` only through the exceptio
 | Browser zoom | Manual 200% and 400% on desktop; explicit 320 CSS px test remains separate | Content, focus, status, validation, and completion remain available; browser zoom is not claimed from resized screenshots |
 | Text/content stress | English, approved Amharic, mixed script, long names/labels, 200% text where supported, missing equivalent | Consequential text wraps; controls and relationships remain understandable; no silent fallback or invented translation |
 | Input | Keyboard only, pointer, touch; voice-control spot checks on essential labeled actions where available | No trap, hover-only action, focus loss, drag-only interaction, accidental call, or gesture-only completion |
-| Preferences | Reduced motion, forced colors/Windows High Contrast, Save-Data, default and increased contrast settings where available | Meaning and state remain perceivable; focus remains visible; motion removal does not remove outcome |
+| Preferences | Default/enhanced motion, reduced motion, forced colors/Windows High Contrast, Save-Data, default and increased contrast settings where available | Meaning and state remain perceivable; focus remains visible; motion/media removal produces an intentional composition and does not remove an outcome |
 | Dependency loss | No JavaScript, images blocked, custom fonts blocked, offline/timeout, optional provider failure | Essential facts, routes, validation recovery, and staffed alternatives remain usable according to the page contract |
+| Interactive media | Poster before intent; keyboard/touch/voice/AT Play and Pause/Stop/Close; playing, paused, ended, failed, off-screen/unmounted, compact/mobile, reduced-motion, and Save-Data | Zero video request before activation; stable geometry and contrast; focus is retained; informative media has approved captions/transcript and audio-description decision; background media carries no unique meaning |
 
 ## 5. Network, hardware, and performance profile
 
@@ -65,8 +66,11 @@ Use a repeatable network shaper for lab evidence and record its tool/version. Th
 | Largest Contentful Paint | ≤ 2.5 s | Production-like lab on constrained profile and post-release field 75th percentile |
 | Interaction to Next Paint | ≤ 200 ms | Production-like interaction lab where measurable and post-release field 75th percentile |
 | Cumulative Layout Shift | ≤ 0.1 | Route/state lab and post-release field 75th percentile |
+| Motion/media main-thread work | No long task over 50 ms attributable to a treatment on the agreed profile | Trace selected Level 2–4 treatments and activated media; degrade or remove a failing treatment |
 
 The Android physical-device run must identify actual model, RAM, free storage range, OS/browser version, battery/power mode, and connection. Field monitoring must be privacy-safe and template-level; insufficient traffic is reported as insufficient evidence, never converted into a pass.
+
+User-initiated media bytes and requests are reported separately from the initial transfer, but do not relax the initial budgets. Record poster bytes, motion/runtime bytes, activated video bytes, codec/variant, start latency, playback failures, and whether a provider was contacted. The static-first page and poster must pass before activated-media evidence is considered.
 
 ## 6. Language and comprehension acceptance
 

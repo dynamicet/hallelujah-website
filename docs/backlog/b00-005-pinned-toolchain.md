@@ -56,7 +56,7 @@ This ticket changes no application route, CMS collection, database connection, e
 - `pnpm toolchain:check` validates the policy schema, support/review dates, `.nvmrc`, exact engines, direct application pins, Payload parity, security overrides, lockfile entries, immutable image references, workflow pins, and active Node.js/pnpm versions.
 - `pnpm toolchain:check:containers` additionally verifies the local Docker CLI, Docker Engine, and PostgreSQL client. The current host PostgreSQL `18.6` passes; Docker CLI and Engine `29.2.1` are intentionally rejected until both are upgraded to `29.8.0`. No container packaging or provisioning may claim acceptance before that gate passes.
 - `pnpm verify` begins with the policy check, so ordinary lint/type/test/build execution fails on repository or active-runtime drift.
-- The minimal [toolchain policy workflow](../../.github/workflows/toolchain-policy.yml) uses immutable GitHub Action SHAs, exact Node.js and pnpm versions, a frozen install, the full application verification command, the isolated rebuild verifier, and the backlog audit. Its first remote run and required-check enforcement remain part of `B00-011`; committing the workflow does not activate a third-party application integration.
+- The minimal [toolchain policy workflow](../../.github/workflows/toolchain-policy.yml) uses immutable GitHub Action SHAs, exact Node.js and pnpm versions, a frozen install, the full application verification command, the isolated rebuild verifier, and the backlog audit. Its remote run subsequently passed under `B00-011`; technical repository enforcement remains `B00-012`. Committing the workflow does not activate a third-party application integration.
 - `pnpm rebuild:verify` reconstructs an isolated temporary copy without `.git`, `node_modules`, `.next`, or TypeScript build output. It verifies the full lockfile graph hash, compares the linked workspace importer graph, and repeats lint, types, tests, and production build.
 - Next.js telemetry is disabled in development, build, start, clean-rebuild, and workflow commands.
 
@@ -79,9 +79,9 @@ This ticket changes no application route, CMS collection, database connection, e
 - [x] Moderate-or-higher dependency audit is clean after tested scoped overrides.
 - [x] An isolated frozen install reproduces the same full lockfile and workspace importer graph, then passes the complete production build.
 - [x] Current host Docker client/engine drift or inaccessibility is disclosed and fail-closed; it is not represented as accepted container capability.
-- [x] The workflow definition rejects repository/runtime drift; remote required-check evidence remains explicitly assigned to `B00-011`.
+- [x] The workflow definition rejects repository/runtime drift; its remote execution subsequently passed under `B00-011`.
 - [x] No publication, collection, provider activation, migration, production provisioning, or release boundary changed.
 
 ## Completion
 
-The controlled-development acceptance result and exact hashes are in the [13 September 2026 completion record](evidence/B00-005-pinned-toolchain-2026-09-13.md). `B00-006` is now the next dependency-unblocked item, subject to its own extracted scope and temporary execution authority. Named Delivery and Security acceptance, a passing Docker `29.8.0` host check before container work, and remote required-check evidence return before production acceptance.
+The controlled-development acceptance result and exact hashes are in the [13 September 2026 completion record](evidence/B00-005-pinned-toolchain-2026-09-13.md). `B00-006` subsequently completed, followed by the local and hosted `B00-011` CI gates. Named Delivery and Security acceptance, a passing Docker `29.8.0` host check before container work, and `B00-012` repository enforcement remain later boundaries.

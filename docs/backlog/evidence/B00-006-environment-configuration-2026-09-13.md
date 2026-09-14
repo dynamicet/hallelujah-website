@@ -70,7 +70,7 @@ and are retained so ordinary development startup does not repeatedly dirty the w
   rotation cadence, identity/emergency-access mechanism, and evidence before production acceptance.
 - `B00-007` remains deferred; no provider, staging placement, secret store, or host is selected here.
 - `B00-008` must define and prove separate least-privilege database roles before provisioning or data use.
-- `B00-011` must run the checks remotely and establish required CI gates; this record is local evidence.
+- `B00-011` subsequently ran the checks remotely and completed its controlled-development CI boundary; this record remains local environment evidence.
 - `B00-012` controls protected deployment and production approval. `B00-014`/`SEC-02` and all personal-data
   decisions remain closed to activation.
 

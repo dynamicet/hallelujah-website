@@ -19,13 +19,15 @@ The interface should feel:
 
 ### Visual anti-patterns
 
-- Automatic carousels, background video, parallax, scroll-jacking, and decorative entrance choreography
+- Automatic carousels; autoplaying or pre-intent video; uncontrolled background motion; scroll-jacking; and generic entrance choreography applied to every section
 - Glassmorphism, low-contrast translucent controls, neon accents, or AI-style purple gradients
 - Oversized promotional heroes that push essential actions below the first useful view
 - Red brand decoration or large warning-colored surfaces with no urgent meaning
 - Generic stock scenes that imply a service, facility, patient outcome, or technology the hospital has not approved
 - A card around every paragraph, excessive shadows, or inconsistent corner radii
 - Critical text baked into images or icons used without visible labels
+
+Selected Home, About, Patient Information, and arrival/storytelling sections may use approved medical/place imagery, bounded decorative depth, composed entrances, and static-first user-controlled video under the [high-end motion and interactive-media amendment](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md). This permission does not extend expressive motion into Emergency, consequential appointment states, errors, privacy/consent, unavailable/expired content, or clinical/operational facts.
 
 ## 2. Brand asset rules
 

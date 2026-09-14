@@ -5,6 +5,8 @@
 **Selected prototype direction:** Direction A — Calm Wayfinding  
 **Scope:** Non-public design studies only
 
+> **Production amendment — 14 September 2026:** Calm Wayfinding remains the spatial and semantic direction, but its earlier restrained-motion interpretation is no longer the production ceiling. The [high-end motion and interactive-media amendment](../motion/high-end-motion-and-interactive-media-amendment.md) adds choreographed Levels 3–4 and static-first, user-controlled media to eligible storytelling sections while preserving permanently stable critical contexts.
+
 ## Outcome
 
 Order 2 translates the approved benchmark dispositions into three original visual directions without copying another institution's brand, composition, content, imagery, or operating model. Direction A — Calm Wayfinding is recommended for Orders 3 and 4 because it best balances urgent clarity, bilingual parity, practical arrival, human warmth, and constrained-device performance.
@@ -24,7 +26,7 @@ The recommendation is a prototype decision, not approval under `BRAND-01`. Every
 2. Compare the three directions in the rendered board; judge task recognition and safety before stylistic preference.
 3. Review English and unapproved Amharic fixtures at 320/360 px and wide layouts.
 4. Confirm Direction A as the working prototype direction or record a change under `BRAND-01` and `GOV-03`.
-5. Carry the selected character into Order 3 motion/storytelling without animating emergency or other safety-critical content.
+5. Use Order 3 as truthful prototype evidence, then apply the production amendment for high-end choreography and interactive media without animating Emergency or destabilizing other protected critical contexts.
 
 ## Binding boundaries
 
@@ -33,4 +35,3 @@ The recommendation is a prototype decision, not approval under `BRAND-01`. Every
 - The Amharic copy is an unreviewed geometry fixture, never approved safety, clinical, privacy, or operational copy.
 - The text-only hospital identifier is not a logo and must be replaced only from authentic approved brand assets.
 - Palette and type values are candidate inputs to Order 4, where rendered contrast, language, loading, and fallback behavior must be finalized.
-

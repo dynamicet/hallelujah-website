@@ -32,7 +32,7 @@ The existing [design-system foundations](../../design-system/foundations.md) and
 - Controls use 8 px radii, content surfaces and media use 12 px, and borders/surface contrast carry hierarchy before shadow.
 - Icons use a project-owned, small inline SVG subset following a 24 px grid, 2 px round stroke, and visible-label rule. No remote icon package is required by the prototype.
 - Photography remains text-independent and rights-gated. Abstract line-and-field placeholders indicate crop geometry without simulating people, facilities, equipment, or outcomes.
-- Order 3's motion candidates are reconciled into the shared token source. Level 0 exclusions, content-first rendering, the 300 ms ceiling, and reduced-motion equivalence are unchanged.
+- Order 3's motion candidates are reconciled into the shared token source. This remains the tested prototype baseline; the [14 September 2026 production amendment](../motion/high-end-motion-and-interactive-media-amendment.md) preserves Level 0 exclusions, content-first rendering, and reduced-motion equivalence while replacing the prototype-wide 300 ms expressive ceiling for future implementation.
 - Print defaults remove navigation, actions, prototype decoration, motion, and optional embeds while retaining the prototype warning, source/review status, link destinations, and essential guidance.
 
 ## Review sequence

@@ -155,6 +155,8 @@ Keep Direction B as the fallback if hospital review asks for more warmth and pla
 
 Order 3 should explore a restrained wayfinding motion language for Direction A: short path continuity, focus/state transitions, and section orientation. Emergency `E1` and other safety-critical content must render immediately, remain static, and be fully understandable with no animation. Reduced motion removes spatial travel and preserves direct state changes. The Order 3 study must not turn the line motif into scroll-drawn decoration that delays content or increases initial transfer materially.
 
+**Production amendment — 14 September 2026:** Order 3 remains the historical prototype brief. The client-directed [High-End Motion and Interactive-Media Amendment](../motion/high-end-motion-and-interactive-media-amendment.md) retains Direction A's task hierarchy and safety boundaries while expanding selected non-critical storytelling sections to composed/cinematic motion and static-first user-controlled media.
+
 ## 9. Remaining visual decisions and gates
 
 Order 2 recommends direction; it does not close accountable approvals.
@@ -165,7 +167,7 @@ Order 2 recommends direction; it does not close accountable approvals.
 | `VD-02` | Direction A recommended for prototypes. | Named Product/Brand confirmation and later user evidence; record any change through `BRAND-01`/`GOV-03`. |
 | `VD-03` | Direction A candidate palette selected. | Order 4 semantic scale plus rendered contrast and Brand approval. |
 | `VD-04` | Unified Noto candidate selected. | Font files/license/weights, loading strategy, numeral/date behavior, professional Amharic and device review. |
-| `VD-05` | Authentic staff/place/wayfinding imagery brief defined; placeholders remain abstract. | Consent, rights, authenticity, crops, alt purpose, owner, expiry. |
+| `VD-05` | Authentic staff/place/wayfinding still and moving imagery brief defined; placeholders remain abstract. | Consent, rights, authenticity/claim review, responsive crops/posters, captions/transcript where informative, owner, expiry, and removal evidence. |
 | `VD-06` | Neutral rounded 2 px outline direction selected. | Final family/license/assets, metaphor review, directional behavior, accessibility checks. |
 | `VD-07` | Quiet surface alternation, 8/12 px radii, borders over shadows, 32/64 px section rhythm. | Cross-page rendered validation in Orders 4–8. |
 | `VD-08` | Logo/menu/labeled Emergency retain compact-header priority. | Approved logo geometry and 320/360/400% bilingual wrapping evidence. |
@@ -177,7 +179,7 @@ Order 2 recommends direction; it does not close accountable approvals.
 | `VD-14` | Plain sourced fact rows and narrative; no counters/logo wall. | `INST-01`–`INST-03`, rights and expiry evidence. |
 | `VD-15` | No map is loaded; text arrival is complete first. | Need/provider/coordinates/privacy/failure approval through `SAFE-03`, `SEC-02`. |
 | `VD-16` | Direction establishes color roles only. | Order 4/5 full alert/status grammar with icons, headings, actions, and metadata. |
-| `VD-17` | Functional motion baseline only. | Order 3 expressive-motion direction and reduced-motion/performance evidence. |
+| `VD-17` | Amended 14 September 2026: high-end progressive motion is approved for production planning; selected Home/About/Patient Information/arrival/story sections may use Levels 3–4 while protected contexts stay stable. | Implement the [motion/media amendment](../motion/high-end-motion-and-interactive-media-amendment.md); provide default/reduced/Save-Data, device, performance, and human review evidence. |
 | `VD-18` | Utility routes remain linked placeholders. | Coordinated Privacy, Accessibility, legal/cookie, and 404/410 page specifications/pattern. |
 | `VD-19` | English and visibly unreviewed Ethiopic geometry specimens included. | Approved content, professional language review, mixed-script/long-content testing in Order 9. |
 | `VD-20` | Not decided in this order. | Patient-guidance print/download pattern in Orders 4/8 with Operations/Content evidence. |
@@ -193,4 +195,3 @@ Order 2 recommends direction; it does not close accountable approvals.
 - `CARE-01`–`CARE-06`, `SEARCH-01`–`SEARCH-02`, `ACCESS-01`: all records, taxonomy, search behavior, guidance, and fallback contacts remain controlled or withheld.
 - `INST-01`–`INST-03`, `HR-01`–`HR-03`: no claims, leaders, relationships, vacancies, or rights-dependent assets are activated.
 - `SEC-01`–`SEC-02`, `DEL-01`: production remains release-blocked; optional providers are default-deny and no test pass is claimed.
-

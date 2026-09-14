@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const backlogRoot = path.dirname(fileURLToPath(import.meta.url));
 const docsRoot = path.resolve(backlogRoot, '..');
+const repositoryRoot = path.resolve(docsRoot, '..');
 
 const epicFiles = (await readdir(backlogRoot))
   .filter((name) => /^epic-\d{2}-.+\.md$/.test(name))
@@ -190,16 +191,22 @@ const githubAnchors = (markdown) => {
 
 const brokenLinks = [];
 let checkedLinks = 0;
+let inheritedWorkspaceLinks = 0;
 for (const [file, source] of sources) {
   const absolute = path.join(backlogRoot, file);
   for (const match of source.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
     const href = match[1].trim().replace(/^<|>$/g, '');
     if (/^(?:https?:|mailto:|tel:)/.test(href)) continue;
-    checkedLinks += 1;
     const hashIndex = href.indexOf('#');
     const filePart = decodeURIComponent(hashIndex < 0 ? href : href.slice(0, hashIndex));
     const fragment = hashIndex < 0 ? '' : decodeURIComponent(href.slice(hashIndex + 1));
     const target = filePart ? path.resolve(path.dirname(absolute), filePart) : absolute;
+    const repositoryRelativeTarget = path.relative(repositoryRoot, target);
+    if (repositoryRelativeTarget === '..' || repositoryRelativeTarget.startsWith(`..${path.sep}`)) {
+      inheritedWorkspaceLinks += 1;
+      continue;
+    }
+    checkedLinks += 1;
     if (!(await exists(target))) {
       brokenLinks.push({ file, href, reason: 'missing file' });
       continue;
@@ -212,7 +219,11 @@ for (const [file, source] of sources) {
     }
   }
 }
-record('BKL-008-local-links', brokenLinks.length === 0, { checked: checkedLinks, broken: brokenLinks });
+record('BKL-008-local-links', brokenLinks.length === 0, {
+  checked: checkedLinks,
+  inheritedWorkspaceLinks,
+  broken: brokenLinks
+});
 
 const controlRegisterSource = sources.get('b00-003-project-control-registers.md') ?? '';
 const requiredRegisterHeadings = [

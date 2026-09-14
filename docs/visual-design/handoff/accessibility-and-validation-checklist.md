@@ -12,7 +12,8 @@ This checklist turns the [cross-template test matrix](../../ux/page-specificatio
 - [ ] Text meets 4.5:1 and large text/meaningful boundaries/focus meet 3:1 in every applicable state; meaning never depends on color alone.
 - [ ] English, Amharic, mixed-script, long-content, and unavailable-equivalent fixtures wrap without truncating consequential text.
 - [ ] The page has no two-dimensional scrolling at 320 CSS px or the tested 400% reflow equivalent.
-- [ ] Reduced motion preserves content, focus, status, and outcome while removing travel, scale, rotation, drawing, stagger, and smooth scrolling.
+- [ ] Reduced motion preserves content, focus, status, and outcome through an intentional static/direct composition; Level 3/4 ambience never starts implicitly.
+- [ ] Every motion treatment records its purpose, level, trigger, duration, animated properties, fallback, cleanup, and eligible/protected contexts; content is never stranded invisible before JavaScript or an observer.
 - [ ] Essential content and recovery remain usable without JavaScript, images, custom fonts, optional embeds, analytics, or a failed third party.
 - [ ] Loading, empty, error, offline, unavailable/expired, validation, and success states use accurate words and an appropriate next action.
 - [ ] No controlled fixture, unapproved record, personal data, secret, internal ID, or consequential state enters a URL, log, snapshot, or analytics event.
@@ -36,6 +37,8 @@ This checklist turns the [cross-template test matrix](../../ux/page-specificatio
 - [ ] Search labels its navigational scope, warns against sensitive input, preserves explicit wording/corrections, and never diagnoses or estimates urgency.
 - [ ] Directories and detail pages expose only approved current canonical records; retirement/expiry removes them from related lists, search, and sitemaps.
 - [ ] Every optional third party is blocked by default, user-initiated where appropriate, privacy/security reviewed, and tested unavailable.
+- [ ] Interactive video starts from a complete poster, makes zero media request before activation, retains focus on persistent Play/Pause/Stop/Close controls, and preserves stable geometry/contrast in playing, paused, ended, failure, reduced-motion, and compact states.
+- [ ] Background/ambient media is silent and carries no unique meaning; informative media has approved captions/transcript and a recorded audio-description decision.
 
 ## CI evidence
 
@@ -46,6 +49,7 @@ This checklist turns the [cross-template test matrix](../../ux/page-specificatio
 - [ ] Contrast tests sample text, boundaries, icons, focus, hover, pressed, disabled, error, warning, and success states; manual review covers gradients/images/anti-aliasing exclusions.
 - [ ] No-JavaScript, blocked-image/font, offline/timeout, Save-Data, reduced-motion, forced-color, and optional-provider-failure cases pass.
 - [ ] Production asset/report checks enforce the approved compressed transfer, first-party JavaScript, and request budgets.
+- [ ] Performance evidence reports poster, motion/runtime, and activated-media bytes/requests separately and traces selected Level 2–4 treatments for long tasks, cleanup, layout shift, and off-screen work.
 - [ ] Security tests cover validation/encoding, CSRF, authorization, rate/abuse controls, headers/CSP, caching/referrers, secrets, dependency/configuration risks, and logging redaction.
 
 ## Human and device evidence before release

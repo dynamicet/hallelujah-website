@@ -40,7 +40,7 @@ Next.js telemetry is disabled in all repository commands and the policy workflow
 ## Honest residual gates
 
 - Upgrade the local Docker CLI/Engine to selected `29.8.0` and pass `pnpm toolchain:check:containers` before container packaging, Compose, or provisioning work is accepted.
-- Execute the committed toolchain workflow remotely and make it a required check under `B00-011`; this local record does not claim a GitHub-hosted run.
+- The later `B00-011` record supplies the passing GitHub-hosted run. Technical repository enforcement remains separately governed by `B00-012`; this earlier local record does not claim it.
 - Replace temporary roles with named authorized Delivery and Security people before production acceptance.
 - Re-review the machine-readable baseline no later than 13 October 2026 and immediately on any security/EOL/compatibility trigger.
 

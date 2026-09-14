@@ -28,7 +28,7 @@ The package demonstrates the complete default Home, Emergency, and Appointment p
 
 - The accepted page and section hierarchy is unchanged: 10 Home sections, 9 Emergency sections, and 9 Appointment sections.
 - Home care access and search precede governed collections, practical access, and institutional storytelling.
-- The Home hero uses one rights-independent abstract geometry field. It cannot contain critical text and disappears safely in print or media failure.
+- The tested prototype Home hero uses one rights-independent abstract geometry field. Production may retain it, replace it with approved imagery, or progressively enhance a complete poster with user-initiated video under the [high-end motion amendment](../../motion/high-end-motion-and-interactive-media-amendment.md). Critical text/actions remain independent and media disappears safely in print or failure.
 - Optional Home collections use controlled records for design review and must be omitted in public output when their approved set is empty.
 - Emergency is Level 0 from entry to footer. The hospital/public distinction appears before the two purpose-labeled call actions.
 - Emergency call controls are inert in this study. No source-candidate or invented number is rendered, and no surrounding card is clickable.

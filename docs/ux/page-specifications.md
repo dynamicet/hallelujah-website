@@ -79,7 +79,7 @@ Move a stressed or time-constrained visitor into the correct essential journey q
 
 ### States and rules
 
-- No autoplay carousel, background video, or critical text embedded in an image.
+- No autoplay carousel, pre-intent video request, or critical text embedded in media. Approved user-initiated video may enhance the reserved `H1` media plane or appear after essential tasks in `H8`/About under the [interactive-media amendment](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md).
 - If no doctors/services are approved for featuring, omit the module without leaving a visual gap.
 - Do not publish extracted statistics, partner logos, leadership, technology, “first,” or airport-proximity claims until approved.
 - Emergency access remains visually distinct from the page's ordinary primary action.
@@ -88,7 +88,7 @@ Move a stressed or time-constrained visitor into the correct essential journey q
 
 - A first-time visitor can identify the essential routes to emergency help, doctors, services, appointment requests, call/directions, and search from mobile and desktop without interpreting internal hospital structure.
 - Heading order and keyboard sequence match the visual reading order.
-- The initial view does not download an interactive map, video, chat, or session-replay script.
+- The initial view does not download an interactive map, video stream, chat, or session-replay script. An optimized hero poster may load as the measured LCP asset; video begins only after explicit activation.
 
 ## 2. Emergency
 

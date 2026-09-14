@@ -1,12 +1,14 @@
 # Order 2 Benchmark-Inspiration Matrix
 
-**Prepared:** 12 September 2026  
-**Status:** Design translation complete; benchmark and hospital approval states are unchanged  
+**Prepared:** 12 September 2026; motion/media interpretation amended 14 September 2026
+**Status:** Design translation complete; benchmark dispositions and hospital approval states are unchanged
 **Source of truth:** [Benchmark traceability and local incorporation](../../benchmarks/benchmark-traceability.md)
 
 ## Translation rule
 
 This matrix translates the 17 existing local applications into visual and experiential qualities. It does not reassess their product dispositions. “Adopt” and “Adapt” mean that the local blueprint already expresses the underlying pattern; they do not authorize copied brand expression, content, workflows, or assets. “Test” and “Defer” remain gated.
+
+The [high-end motion and interactive-media amendment](../motion/high-end-motion-and-interactive-media-amendment.md) changes one earlier visual interpretation without changing any `BM-*` disposition: cinematic treatment is no longer rejected as a category. What remains rejected is copied benchmark art direction, autoplay or pre-intent media, a hero that owns the critical path, uncontrolled motion, and any treatment that obscures, delays, or reorders patient tasks.
 
 ## Local application translation
 
@@ -38,9 +40,9 @@ The screenshots listed below were inspected as time-bound research evidence. The
 | --- | --- | --- | --- |
 | [Charité homepage](../../../../benchmarks/category-1-global-academic-authorities/assets/charite-homepage-desktop.png) | Two high-priority finders are visually separated from institutional material. | Pair doctor/service discovery within a task-led system and keep deep information at reading width. | No carousel, fixed side rail, multicolor section identity, or copied academic composition. |
 | [NHS homepage](../../../../benchmarks/category-2-public-service-accessibility/assets/nhs-homepage-desktop.png) | Strong headings, familiar links, high contrast, and public-service directness. | Plain-language task labels, visible underlines, strong focus/error states, and quiet content surfaces. | No NHS blue identity, national-service content model, account behavior, or cookie treatment by imitation. |
-| [Singapore General Hospital homepage](../../../../benchmarks/category-2-public-service-accessibility/assets/sgh-homepage-desktop.png) | Emergency/appointment actions remain visible and a task prompt follows the hero. | Keep essential actions persistent and support patient-language choices. | No video/cinematic hero, excellence slogan, dense dual navigation, or audience selector that hides direct routes. |
+| [Singapore General Hospital homepage](../../../../benchmarks/category-2-public-service-accessibility/assets/sgh-homepage-desktop.png) | Emergency/appointment actions remain visible and a task prompt follows the hero. | Keep essential actions persistent and support patient-language choices; any local hero media is static-first, user-initiated, original, and independent of those actions. | No copied cinematic composition, autoplay/pre-intent media, excellence slogan, dense dual navigation, or audience selector that hides direct routes. |
 | [Cleveland Clinic Abu Dhabi homepage](../../../../benchmarks/category-3-premium-international-multilingual/assets/cleveland-clinic-abu-dhabi-homepage-desktop.png) | Language is explicit; care routes use strong labeled panels. | Use text language names and direct care cards with stable context. | No premium positioning, international-service promise, chat bubble, hero dependency, or brand-blue copying. |
-| [Sidra Medicine homepage](../../../../benchmarks/category-3-premium-international-multilingual/assets/sidra-medicine-homepage-desktop.png) | Bilingual identity and care segmentation are visible. | Give both scripts comparable visual authority and keep care categories scannable. | No outcome claim, cinematic campus hero, age/service scope, large-image dependence, or copied organic mark. |
+| [Sidra Medicine homepage](../../../../benchmarks/category-3-premium-international-multilingual/assets/sidra-medicine-homepage-desktop.png) | Bilingual identity and care segmentation are visible. | Give both scripts comparable visual authority, keep care categories scannable, and use only original rights-cleared place/medical imagery or footage. | No copied cinematic campus treatment, autoplay/pre-intent media, outcome claim, age/service scope, large-image dependency, or copied organic mark. |
 | [Aga Khan University Hospital Nairobi homepage](../../../../benchmarks/category-4-african-regional-relevance/assets/aga-khan-university-hospital-nairobi-homepage-desktop.png) | Regionally relevant people/place context and direct task tiles. | Plan for authentic Addis Ababa staff/place imagery after rights approval; keep task choices immediate. | No copied red identity, campaign banner, staff/patient imagery, numerical scale claims, or neighboring-country operating model. |
 | [Mediclinic Southern Africa homepage](../../../../benchmarks/category-4-african-regional-relevance/assets/mediclinic-southern-africa-homepage-desktop.png) | Search is prominent and task suggestions are close to it. | Keep a labeled, bounded site search near the public front door. | No generic doctor hero, promotional trust slogan, cookie/support overlays, or blue identity. |
 | [Great Ormond Street Hospital homepage](../../../../benchmarks/category-5-specialized-integrated-care/assets/great-ormond-street-hospital-homepage-desktop.png) | Audience boundaries and a distinctive human tone are visible. | Allow warmth and humanity without weakening stable task/navigation conventions. | No specialist-child scope, proprietary character/logo expression, campaign hero, or dominant cookie overlay. |
@@ -50,4 +52,3 @@ The screenshots listed below were inspected as time-bound research evidence. The
 ## Cross-reference qualities used in the moodboards
 
 The three moodboards share six qualities because the blueprint already adopts them: task recognition, urgent separation, plain language, bounded content width, honest states, and low-bandwidth resilience. The directions vary only reversible visual expression—temperature, density, shape, imagery emphasis, and typography pairing. This keeps visual preference from silently changing the accepted information architecture or gated behavior.
-

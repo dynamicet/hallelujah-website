@@ -5,6 +5,8 @@
 **Requirements:** `G-003`–`G-012`, `G-015`–`G-016`, `S-006`–`S-008`, `H-002`, `D-006`  
 **Decision inputs:** `VD-01`–`VD-08`, `VD-10`, `VD-12`–`VD-17`, `VD-19`–`VD-22`, `BRAND-01`, `LANG-01`–`LANG-02`
 
+> **Production supersession — 14 September 2026:** The [High-End Motion and Interactive-Media Amendment](../motion/high-end-motion-and-interactive-media-amendment.md) preserves these values as historical prototype evidence but supersedes the prototype-wide motion ceiling and media exclusions for production planning. New composed/cinematic tokens and media behavior must be added through `B01-003`/`B01-012`; they are not silently inferred from this prototype source.
+
 ## 1. Foundation contract
 
 This package promotes Calm Wayfinding from a recommended direction to the consistent visual baseline for non-public prototypes. It preserves the source hierarchy, component contracts, state semantics, safe placeholders, and motion ceilings. Later orders may compose or specialize these tokens; they may not silently change their meaning.

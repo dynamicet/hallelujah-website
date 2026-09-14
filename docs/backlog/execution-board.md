@@ -1,7 +1,7 @@
 # Backlog Execution Board
 
 **Status:** Active execution control  
-**Basis date:** 13 September 2026  
+**Basis date:** 14 September 2026
 **Publication and collection authority:** Not granted
 
 ## Purpose
@@ -15,8 +15,9 @@ This board turns the planning baseline into a controlled pull system. It identif
 - On 13 September 2026, the client directed that `B00-001`, `B00-002`, `B00-007`, `B00-014`, and `B00-015` be skipped for the current controlled implementation stage and returned to in Phase 2 or before production. Because `Skipped` is not an allowed backlog status, all five are recorded as `Deferred`.
 - The deferral is a sequencing decision, not completion or approval of `GOV-01`, `SEC-01`, infrastructure, publication, collection, migration, DNS, provider activation, or release.
 - Controlled local implementation may use temporary role labels, an isolated clean rebuild that imports no executable/configuration state from legacy WordPress, the provider-neutral infrastructure assumptions already recorded, and the minimum working baselines below for third parties and evidence handling.
-- `B00-017` is complete. The `B00-016` working acceptance matrix is also complete and accepted for controlled development; the ticket is `Deferred` only at its formal production-signature boundary, while `DEL-01` remains unresolved for production. `B00-003`–`B00-006` are complete for controlled development. The environment contract now fails closed across local, staging, and production credential scopes, while keeping collection and providers disabled. `B00-011` is the next dependency-unblocked controlled-development item; named Delivery, DevOps, QA, and Security people still return before production acceptance.
+- `B00-017` is complete. The `B00-016` working acceptance matrix is also complete and accepted for controlled development; the ticket is `Deferred` only at its formal production-signature boundary, while `DEL-01` remains unresolved for production. `B00-003`–`B00-006` and `B00-011` are complete for controlled development. `B00-011` has passing local and hosted gates. Because the repository must remain private and a paid GitHub plan is unavailable, current-head CI success is a documented manual merge control; technical branch enforcement remains honestly open under `B00-012`. Named Delivery, DevOps, QA, and Security people still return before production acceptance.
 - Personal-data collection, external-provider requests, production provisioning, legacy migration, DNS cutover, and publication remain disabled.
+- On 14 September 2026, client direction approved the [high-end motion and interactive-media amendment](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md) for production planning. It supersedes the prototype-wide expressive ceiling but does not approve a runtime, footage, rights, third-party media host, implementation, or release. The next applicable design-system/Home pull must include its progressive layers, permanently stable contexts, and media acceptance evidence.
 
 ## Status authority and update rule
 
@@ -40,14 +41,14 @@ If this board and an epic disagree, use the epic for scope and this board for li
 | 10 | `B00-005` | **Done** | Client workspace identity `befikadusata` directing Codex / same identity at the controlled-development boundary; named Delivery and Security people return before production | Completed within the [extracted controlled-development scope](b00-005-pinned-toolchain.md) | [Completion record](evidence/B00-005-pinned-toolchain-2026-09-13.md); exact policy, frozen graph, advisory scan, application checks, and isolated rebuild passed; Docker host mismatch remains fail-closed before container work |
 | 11 | `B00-006` | **Done** | Client workspace identity `befikadusata` directing Codex / same identity at the controlled-development boundary; named DevOps and Security people return before production | Completed within the [extracted controlled-development scope](b00-006-environment-configuration.md) | [Completion record](evidence/B00-006-environment-configuration-2026-09-13.md); environment-scoped values, startup/Payload validation, disabled gates, names-only example, and runbook passed local checks |
 | 12 | `B00-008`–`B00-010` | Blocked | Named Backend/DevOps owners / Security owner | `B00-006`, `B00-007`; appointment gates where stated | Least-privilege database, migration, backup, and restore evidence |
-| 13 | `B00-011` | Proposed / unblocked | Named Delivery/QA/Security owners; temporary controlled-development assignment still required before start | `B00-004`–`B00-006`, working `B00-015`/`B00-016`, and local sanitized checks are satisfied; extract exact scope and authority | Required CI quality/security checks and remote execution evidence |
-| 14 | `B00-012`–`B00-013` | Blocked | Named Delivery/DevOps owners / QA and Security owners | `B00-011`; deferred ownership/infrastructure/provider gates where stated | Deployment control and privacy-safe observability evidence |
+| 13 | `B00-011` | **Done** | Client workspace identity `befikadusata` directing Codex / same identity for controlled-development implementation; named Delivery/QA/Security return before production | Complete—repository/local gates and hosted execution pass; manual current-head CI procedure records the private/free-plan constraint without claiming technical enforcement | [Execution brief](b00-011-ci-quality-security.md) and [completion evidence](evidence/B00-011-ci-quality-security-2026-09-14.md); branch enforcement remains `B00-012` |
+| 14 | `B00-012`–`B00-013` | Blocked | Named Delivery/DevOps owners / QA and Security owners | `B00-011` is satisfied; deferred ownership/infrastructure/provider gates and an available `B00-012` enforcement approach remain | Deployment control and privacy-safe observability evidence |
 
-The 13 September deferrals remove `B00-001`, `B00-002`, `B00-007`, `B00-014`, and `B00-015` from the current pull queue without closing their Phase 2, provider, restricted-evidence, or production gates. `B00-017` and `B00-003`–`B00-006` are complete at their recorded controlled-development boundaries. The working portion of `B00-016` is also complete and its production signature is deferred. `B00-011` is the next dependency-unblocked item, but still requires its exact controlled-development scope and temporary authority to be recorded before execution. Orders 12–14 follow their explicit dependencies and the documented non-production baselines, and numeric order does not override them.
+The 13 September deferrals remove `B00-001`, `B00-002`, `B00-007`, `B00-014`, and `B00-015` from the current pull queue without closing their Phase 2, provider, restricted-evidence, or production gates. `B00-017`, `B00-003`–`B00-006`, and `B00-011` are complete at their recorded controlled-development boundaries. The working portion of `B00-016` is also complete and its production signature is deferred. `B00-011` records its repository gates, local evidence, successful hosted execution, and honest private/free-plan limitation. Technical merge enforcement is not claimed and remains in `B00-012`. Later orders follow their explicit dependencies and the documented non-production baselines; numeric order does not override them.
 
 ### `B00-005` — pinned toolchain
 
-The [canonical toolchain policy](../../toolchain-versions.json) pins Node.js, pnpm, Next.js, Payload, TypeScript, PostgreSQL, Docker, official-image digests, and patched security overrides. Repository checks reject drift, expired support/review dates, non-exact application dependencies, mutable image references, and an incompatible active runtime. The isolated frozen reconstruction produced the same lockfile and workspace importer graph and repeated the full build. The current local Docker `29.2.1` does not meet the selected `29.8.0` baseline and remains fail-closed before container work; remote workflow execution and required-check enforcement remain `B00-011`. See the [completion record](evidence/B00-005-pinned-toolchain-2026-09-13.md).
+The [canonical toolchain policy](../../toolchain-versions.json) pins Node.js, pnpm, Next.js, Payload, TypeScript, PostgreSQL, Docker, official-image digests, and patched security overrides. Repository checks reject drift, expired support/review dates, non-exact application dependencies, mutable image references, and an incompatible active runtime. The isolated frozen reconstruction produced the same lockfile and workspace importer graph and repeated the full build. The current local Docker `29.2.1` does not meet the selected `29.8.0` baseline and remains fail-closed before container work. Remote workflow execution passed under `B00-011`; technical repository enforcement remains `B00-012`. See the [completion record](evidence/B00-005-pinned-toolchain-2026-09-13.md).
 
 ### `B00-006` — environment and secrets boundary
 
@@ -60,6 +61,19 @@ fail-closed boundary. The committed example contains names only, while the
 rollback, and emergency access. Local full verification, runtime smoke, and isolated reconstruction
 passed; actual staging/production mechanisms and named acceptance remain deferred. See the
 [completion record](evidence/B00-006-environment-configuration-2026-09-13.md).
+
+### `B00-011` — CI quality and security gates
+
+The [CI execution brief](b00-011-ci-quality-security.md) defines one read-only, bounded
+`quality-and-security` job for pull requests and `main`. Local verification now covers the pinned
+toolchain, formatting, immutable workflow policy, repository/backlog links, source and reachable
+history secret signatures, lint/types/tests/build, bounded accessibility and asset budgets, runtime
+health/security headers, the full dependency graph, and isolated reconstruction. Migration and
+container introduction remain fail-closed because neither authorized capability exists. The
+[completion evidence](evidence/B00-011-ci-quality-security-2026-09-14.md) records the successful
+hosted run. The repository must remain private and the approved boundary excludes a paid GitHub
+plan, so the current-head CI merge procedure is the controlled-development fallback. Technical
+branch and review enforcement remains in `B00-012` and is not falsely claimed here.
 
 ## Deferred working baselines and completed benchmark decision
 
@@ -136,8 +150,8 @@ Failure of any check keeps the item `Proposed` or `Blocked`; it is not silently 
 
 | Pull sequence | Work | Earliest controlling gates |
 | ---: | --- | --- |
-| 1 | Platform, CMS skeleton, tokens, shared shell, utility failures | M0 exit; `SEC-01`, `DEL-01`, named delivery owners |
-| 2 | Home, Emergency, Contact, Privacy, Accessibility | `SAFE-01`–`SAFE-04`, `LANG-01`, applicable privacy decisions |
+| 1 | Platform, CMS skeleton, tokens, shared shell, utility failures, progressive motion/media capability modes | M0 exit; `SEC-01`, `DEL-01`, named delivery owners; motion/media amendment for `B01-001`, `B01-003`, `B01-012`–`B01-013` |
+| 2 | Home, Emergency, Contact, Privacy, Accessibility | `SAFE-01`–`SAFE-04`, `LANG-01`, applicable privacy decisions; `BRAND-01` and media acceptance for enabled Home media |
 | 3 | Doctor/service discovery and governed search index | `CARE-01`–`CARE-06`, `SEARCH-01`; approved launch records |
 | 4 | Patient Information, Search UI, About | `ACCESS-01`, `SEARCH-01`–`SEARCH-02`, `INST-01`–`INST-03`, `BRAND-01` as applicable |
 | 5 | Appointment request and isolated intake | `APPT-01`–`APPT-04`, `APPT-03`, `DEL-01`; collection separately enabled |

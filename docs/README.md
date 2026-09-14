@@ -2,7 +2,7 @@
 
 This folder contains the implementation-facing product, UX, content, and delivery documentation for the Hallelujah General Hospital website rebuild.
 
-For current progress, remaining work, and the exact starting task for a new Codex session, see [Project status and next Codex session](NEXT-CODEX-SESSION.md).
+For current progress, remaining work, and the next controlled pull, see the [backlog execution board](backlog/execution-board.md).
 
 ## First deliverable
 
@@ -23,7 +23,7 @@ The first deliverable translates the existing audit, content extraction, benchma
 | [Visual foundations](design-system/foundations.md) | Brand direction, accessible token roles, typography, spacing, layout, and media rules | Provisional pending brand approval |
 | [Layout patterns](design-system/layout-patterns.md) | Reusable page-shell, section, directory, detail, form, and emergency compositions | Initial baseline |
 | [Component contracts](design-system/components.md) | Anatomy, variants, states, behavior, content rules, and requirement traceability | Initial baseline |
-| [Interaction and motion](design-system/interaction-and-motion.md) | Feedback, transition, reduced-motion, loading, and failure behavior | Initial baseline |
+| [Interaction and motion](design-system/interaction-and-motion.md) | Feedback, transition, progressive enhancement, reduced-motion, loading, media, and failure behavior | Production direction amended 14 September 2026 |
 
 The second deliverable defines the experience system shared by every page. Candidate colors and fonts are ready for prototype testing, but they are not approved hospital brand assets. Implementation must not encode them as final until the brand owner approves them and contrast is revalidated in the actual interface.
 
@@ -105,8 +105,9 @@ The eighth deliverable prepares the review process across all 12 page types, fou
 | [Order 10 connected prototype](visual-design/prototype/README.md) | Local progressive-enhancement journeys, controlled state transitions, and repeatable interaction/geometry evidence | Complete for non-public browser review |
 | [Order 11 design and motion QA](visual-design/qa/README.md) | Performed semantic, contrast, keyboard, state, motion, resilience, and constrained-profile audit with explicit evidence limits | Complete for performed non-public prototype QA |
 | [Order 12 developer handoff](visual-design/handoff/README.md) | Canonical source map, implementation boundaries, page/gate matrices, asset policy, accessibility checklist, and integrity evidence | Complete for implementation planning; release gates remain open |
+| [High-end motion and interactive-media amendment](visual-design/motion/high-end-motion-and-interactive-media-amendment.md) | Post-handoff production direction for choreographed motion, static-first video, imagery, stable contexts, performance, and acceptance | Approved for production planning; implementation/assets/validation open |
 
-Orders 1–12 complete the non-public blueprint, connected prototype, performed local QA, and developer handoff without approving hospital facts, operations, identity, language, assets, personal-data flows, third parties, production implementation, or publication. The handoff preserves all 12 accepted core page hierarchies, adds implementation contracts for the three Phase 1 utility behaviors, carries all 32 formal decisions forward, and prevents controlled prototype content from being mistaken for approved public content.
+Orders 1–12 complete the non-public blueprint, connected prototype, performed local QA, and developer handoff without approving hospital facts, operations, identity, language, assets, personal-data flows, third parties, production implementation, or publication. The 14 September motion/media amendment changes the production expressive ceiling, not those approval boundaries or the accepted page hierarchies. The handoff preserves all 12 core page hierarchies, adds implementation contracts for the three Phase 1 utility behaviors, carries all 32 formal decisions forward, and prevents controlled prototype content from being mistaken for approved public content.
 
 ## Implementation planning
 
@@ -114,9 +115,9 @@ Orders 1–12 complete the non-public blueprint, connected prototype, performed 
 | --- | --- | --- |
 | [Epic 0 — Initial production architecture](architecture/epic-0-technical-foundation.md) | Records the approved Payload/Next.js/PostgreSQL/GitHub/VPS foundation, same-VPS logical data separation, delivery controls, observability, evidence model, and remaining selections | Approved implementation-planning baseline; security, privacy, acceptance, and release gates remain open |
 | [Implementation acceptance matrix](validation/implementation-acceptance-matrix.md) | Defines evidence tiers, supported platforms/devices, responsive and language coverage, security/performance tests, defect thresholds, evidence/authority rules, exceptions, and per-ticket benchmark proof | Accepted for controlled development; formal `DEL-01` production closure deferred |
-| [Implementation backlog](backlog/README.md) | Execution-controlled delivery backlog with live pull order, operating rules, roadmap, traceability, acceptance criteria, evidence, and AI-assisted coding controls | Structurally execution-ready; `B00-003`–`B00-006` are complete for controlled development; `B00-011` is the immediate next task |
+| [Implementation backlog](backlog/README.md) | Execution-controlled delivery backlog with live pull order, operating rules, roadmap, traceability, acceptance criteria, evidence, and AI-assisted coding controls | Structurally execution-ready; `B00-003`–`B00-006` and `B00-011` are complete for controlled development; the next pull requires board promotion |
 
-The architecture and acceptance baselines assign technical implementation to the external development entity while preserving hospital approval of business, privacy, security, cost, operational, and release constraints. `B00-016` supplies the working development matrix and is deferred only at the formal production-signature/evidence boundary; after controlled-development completion of `B00-003`–`B00-006`, `B00-011` is the immediate next CI task. Neither baseline authorizes appointment-data collection or production publication.
+The architecture and acceptance baselines assign technical implementation to the external development entity while preserving hospital approval of business, privacy, security, cost, operational, and release constraints. `B00-016` supplies the working development matrix and is deferred only at the formal production-signature/evidence boundary. `B00-011` supplies the passing local and hosted CI baseline; technical merge enforcement remains a separate `B00-012` concern under the private/free-plan constraint. Neither baseline authorizes appointment-data collection or production publication.
 
 ## Source hierarchy
 
