@@ -2,7 +2,7 @@
 
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
-**Result:** In review; full local `T0` passes and hosted implementation `T1` is pending
+**Result:** Done for controlled development; full local `T0` and hosted implementation `T1` pass
 
 ## Evidence summary
 
@@ -18,6 +18,7 @@
 | Built and runtime gates | Request-rendered accessibility, asset-budget, and runtime checks pass. The final local run measured 139,428 compressed JavaScript bytes, 161,014 initial compressed bytes, 13 requests, and zero external origins. |
 | Visual review | [320px](b01-009-rendered/b01-009-form-primitives-320.png) and [1440px](b01-009-rendered/b01-009-form-primitives-1440.png) captures were inspected for hierarchy, label/help association, wrapping, target size, disabled state, and distinct receipt/warning/failure presentation. |
 | External boundary | Synthetic fixture text only; no hospital content, personal data, appointment route, server action, provider, analytics, storage, authoritative outcome, deployment, or publication capability was introduced. |
+| Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34892559476) passed in 2m25s on implementation commit `a921e61`, including frozen install, reachable-history secret scan, dependency audit, full verification, and clean rebuild. |
 
 ## Performed commands
 
@@ -44,10 +45,11 @@ were copied from that passing run without modification.
 
 The full local repository verification and reachable-history secret scan pass. `B01-009` changes
 neither `pnpm-lock.yaml` nor any dependency declaration, so the zero-vulnerability dependency audit
-recorded for the same graph under `B01-007` remains applicable. A fresh registry refresh returned an
-incomplete JSON response in the restricted environment; its approved external retry was stopped
-after the registry call stalled. This is recorded as an unavailable refresh, not as a fresh audit
-pass. Hosted `T1` repeats the audit against the unchanged graph before merge.
+recorded for the same graph under `B01-007` remained applicable during implementation. A fresh local
+registry refresh returned an incomplete JSON response in the restricted environment; its approved
+external retry was stopped after the registry call stalled. This is recorded as an unavailable
+local refresh, not as a local pass. Hosted `T1` subsequently audited the unchanged complete graph:
+650 dependencies with zero moderate, high, or critical known vulnerabilities.
 
 ## Evidence boundary and residual gates
 
@@ -55,8 +57,10 @@ pass. Hosted `T1` repeats the audit against the unchanged graph before merge.
   contain no personal, clinical, operational, credential, contact, or restricted evidence.
 - The browser run is implementation smoke, not final physical-device, browser, screen-reader,
   switch-control, comprehension, or professional Amharic review.
-- GitHub [issue `#14`](https://github.com/dynamicet/hallelujah-website/issues/14) carries the scoped
-  repository record. The pull request and hosted `quality-and-security` run are added at closeout.
+- GitHub [issue `#14`](https://github.com/dynamicet/hallelujah-website/issues/14), [pull request
+  `#15`](https://github.com/dynamicet/hallelujah-website/pull/15), and hosted run
+  `34892559476` carry the scoped repository review and passing implementation evidence. This
+  documentation-closeout head must repeat the exact-head gate before merge.
 - Appointment use remains gated by `APPT-01`–`APPT-04` and the later backend, privacy, security,
   operations, language, and release tickets.
 - Personal-data collection, deployment, DNS, production, publication, and release authority remain

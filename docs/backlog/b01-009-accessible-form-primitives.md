@@ -1,6 +1,6 @@
 # `B01-009` — Accessible Form Primitives
 
-**Status:** In review for controlled development
+**Status:** Done for controlled development
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -12,14 +12,14 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P0` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress → In review |
+| Old / new status | Proposed → Ready → In progress → In review → Done |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Product, Frontend, Backend, QA, Accessibility, Privacy, Security, Operations, Clinical, Content, and Language people return at their production gates |
 | Target environment | `T0` isolated local application and headless Chromium; private-repository hosted implementation `T1` required before controlled-development closure |
 | Requirements / decisions | `A-004`, `A-006`; appointment use remains gated by `APPT-01`–`APPT-04`; production acceptance remains under `DEL-01` |
 | Dependencies | Completed `B01-004`, merged `B01-007`, and working `B00-014`–`B00-016` controlled-development baselines |
 | Allowed repository scope | Form components and first-party enhancement, component token aliases and generated outputs, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
-| Repository review | [Issue `#14`](https://github.com/dynamicet/hallelujah-website/issues/14); pull request and hosted implementation run pending |
+| Repository review | [Issue `#14`](https://github.com/dynamicet/hallelujah-website/issues/14), [pull request `#15`](https://github.com/dynamicet/hallelujah-website/pull/15), and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/34892559476) |
 | Evidence destination | `evidence/B01-009-accessible-form-primitives-2026-09-14.md` and sanitized captures under `evidence/b01-009-rendered/` |
 
 The client's 14 September 2026 correction and instruction to start `B01-009` authorized readiness
@@ -83,7 +83,7 @@ notifications, providers, analytics, deployment, DNS, production, or publication
 - [x] Full local `pnpm verify` and reachable-history secret scan pass.
 - [x] Dependency declarations and `pnpm-lock.yaml` are unchanged from the successful `B01-007`
       audit; the stalled fresh-registry refresh is recorded without claiming a new pass.
-- [ ] Pull request implementation head passes hosted `T1`; the documentation closeout head repeats the gate before merge.
+- [x] Pull request implementation head passes hosted `T1`; the documentation closeout head repeats the gate before merge.
 - [ ] Named production roles accept real fields/copy, backend validation, authentication/authorization, CSRF and abuse controls, idempotency/reconciliation, operations, privacy/security, physical-device and assistive-technology behavior, language, and release evidence.
 
 The last item is an external production gate. The controlled implementation may close independently
