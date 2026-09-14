@@ -11,6 +11,9 @@ const appPort = 3212
 const origin = `http://${host}:${appPort}`
 const captureFlag = process.argv.indexOf('--capture-dir')
 const captureDirectory = captureFlag >= 0 ? path.resolve(process.argv[captureFlag + 1] ?? '') : undefined
+const capturePrefixFlag = process.argv.indexOf('--capture-prefix')
+const capturePrefix =
+  capturePrefixFlag >= 0 ? process.argv[capturePrefixFlag + 1] : 'b01-004-foundations'
 const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
 const environment = {
@@ -96,11 +99,86 @@ try {
         sessionId,
       )
       await writeFile(
-        path.join(captureDirectory, `b01-004-foundations-${viewport.width}.png`),
+        path.join(captureDirectory, `${capturePrefix}-${viewport.width}.png`),
         data,
         'base64',
       )
     }
+  }
+
+  await client.send(
+    'Emulation.setDeviceMetricsOverride',
+    {
+      deviceScaleFactor: 1,
+      height: 900,
+      mobile: true,
+      screenHeight: 900,
+      screenWidth: 320,
+      width: 320,
+    },
+    sessionId,
+  )
+  await client.send('Emulation.setTouchEmulationEnabled', { enabled: true }, sessionId)
+  const touchTarget = await evaluate(
+    client,
+    sessionId,
+    `(() => {
+      const target = document.querySelector('[data-action-link]')
+      target.scrollIntoView({ block: 'center' })
+      window.__actionActivationCount = 0
+      target.addEventListener('click', (event) => {
+        event.preventDefault()
+        window.__actionActivationCount += 1
+      })
+      const rect = target.getBoundingClientRect()
+      return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
+    })()`,
+  )
+  await client.send(
+    'Input.dispatchTouchEvent',
+    {
+      touchPoints: [{ id: 1, x: touchTarget.x, y: touchTarget.y }],
+      type: 'touchStart',
+    },
+    sessionId,
+  )
+  await client.send(
+    'Input.dispatchTouchEvent',
+    {
+      touchPoints: [{ id: 1, x: touchTarget.x, y: touchTarget.y - 80 }],
+      type: 'touchMove',
+    },
+    sessionId,
+  )
+  await client.send('Input.dispatchTouchEvent', { touchPoints: [], type: 'touchEnd' }, sessionId)
+  await settleLayout()
+  const movedTouchActivations = await evaluate(
+    client,
+    sessionId,
+    'window.__actionActivationCount',
+  )
+  if (movedTouchActivations !== 0) {
+    fail(`moved touch activated an action ${movedTouchActivations} time(s)`)
+  }
+  await client.send('Emulation.setTouchEmulationEnabled', { enabled: false }, sessionId)
+  await evaluate(client, sessionId, "document.querySelector('[data-action-link]').focus()")
+  await client.send(
+    'Input.dispatchKeyEvent',
+    { code: 'Enter', key: 'Enter', type: 'rawKeyDown', windowsVirtualKeyCode: 13 },
+    sessionId,
+  )
+  await client.send(
+    'Input.dispatchKeyEvent',
+    { code: 'Enter', key: 'Enter', type: 'keyUp', windowsVirtualKeyCode: 13 },
+    sessionId,
+  )
+  const keyboardActivations = await evaluate(
+    client,
+    sessionId,
+    'window.__actionActivationCount',
+  )
+  if (keyboardActivations !== 1) {
+    fail(`keyboard activation count is ${keyboardActivations}, expected 1`)
   }
 
   await client.send(
@@ -186,7 +264,7 @@ try {
   client.close()
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
-    'Rendered foundation smoke passed (320/360/375/landscape/tablet/1280/1440, zoom and enlarged-text equivalents, focus, touch target, bilingual type, reduced motion, print, and forced colors).',
+    'Rendered foundation/action smoke passed (responsive, zoom, enlarged text, names, targets, gaps, native keyboard and moved-touch behavior, phone invariant, protected emergency, focus, bilingual type, reduced motion, print, and forced colors).',
   )
 } catch (error) {
   console.error(`Rendered foundation smoke failed: ${error.message}`)
@@ -303,6 +381,25 @@ function assertViewport(label, result) {
   if (result.focus.style === 'none' || result.focus.width < 3) {
     fail(`${label}: focus indicator is ${result.focus.style} ${result.focus.width}px`)
   }
+  for (const target of result.actionTargets) {
+    if (target.width < 44 || target.height < 44) {
+      fail(`${label}: ${target.name} target is ${target.width}×${target.height}`)
+    }
+    if (!target.name) fail(`${label}: action target has no visible accessible name`)
+  }
+  for (const gap of result.actionGroupGaps) {
+    if (gap < 8) fail(`${label}: action group gap is ${gap}px`)
+  }
+  if (!result.call.matches) fail(`${label}: visible call number and tel value diverge`)
+  if (!result.emergency.explicit || !result.emergency.hasIcon) {
+    fail(`${label}: emergency action lacks explicit text or its supporting icon`)
+  }
+  if (result.emergency.experienceLevel !== '0' || result.emergency.duration !== 0) {
+    fail(`${label}: emergency action is not protected at motion Level 0`)
+  }
+  if (result.actionFocus.style === 'none' || result.actionFocus.width < 3) {
+    fail(`${label}: action focus indicator is ${result.actionFocus.style} ${result.actionFocus.width}px`)
+  }
   if (!result.amharicFont.toLowerCase().includes('noto sans ethiopic')) {
     fail(`${label}: Amharic font stack is ${result.amharicFont}`)
   }
@@ -348,8 +445,21 @@ function renderedChecksSource() {
   const control = document.querySelector('[data-foundation-control]')
   const reading = document.querySelector('.ds-reading')
   const amharic = document.querySelector('[lang="am"]')
+  const actionsFixture = document.querySelector('[data-essential-actions-fixture]')
+  const emergency = actionsFixture.querySelector('[data-emergency-action]')
+  const call = actionsFixture.querySelector('[data-call-action]')
   control.focus()
-  const focus = getComputedStyle(control)
+  const controlFocusStyle = getComputedStyle(control)
+  const focus = {
+    style: controlFocusStyle.outlineStyle,
+    width: Number.parseFloat(controlFocusStyle.outlineWidth),
+  }
+  emergency.focus()
+  const emergencyFocusStyle = getComputedStyle(emergency)
+  const actionFocus = {
+    style: emergencyFocusStyle.outlineStyle,
+    width: Number.parseFloat(emergencyFocusStyle.outlineWidth),
+  }
   const body = getComputedStyle(document.body)
   const excludedOverflow = new Set(['auto', 'scroll'])
   const clipped = [...document.body.querySelectorAll('*')]
@@ -369,12 +479,38 @@ function renderedChecksSource() {
       scrollWidth: element.scrollWidth,
     }))
   const controlRect = control.getBoundingClientRect()
+  const actionTargets = [...actionsFixture.querySelectorAll('a[href], button')].map((target) => {
+    const rect = target.getBoundingClientRect()
+    return {
+      height: rect.height,
+      name: target.innerText.trim(),
+      tag: target.tagName.toLowerCase(),
+      width: rect.width,
+    }
+  })
+  const actionGroupGaps = [...actionsFixture.querySelectorAll('[data-action-group]')]
+    .map((group) => Number.parseFloat(getComputedStyle(group).gap))
+  const callNumber = call.querySelector('[data-call-number]').textContent.replace(/[\\s().-]/g, '')
+  const emergencyStyle = getComputedStyle(emergency)
   return {
+    actionFocus,
+    actionGroupGaps,
+    actionTargets,
     amharicFont: getComputedStyle(amharic).fontFamily,
     bodyLineRatio: Number.parseFloat(body.lineHeight) / Number.parseFloat(body.fontSize),
     clipped,
     control: { height: controlRect.height, width: controlRect.width },
-    focus: { style: focus.outlineStyle, width: Number.parseFloat(focus.outlineWidth) },
+    call: {
+      matches: call.getAttribute('href') === 'tel:' + call.dataset.callValue
+        && call.dataset.callValue === callNumber,
+    },
+    emergency: {
+      duration: Number.parseFloat(emergencyStyle.transitionDuration),
+      experienceLevel: emergency.dataset.experienceLevel,
+      explicit: emergency.innerText.includes('Emergency'),
+      hasIcon: Boolean(emergency.querySelector('[data-icon="emergency"]')),
+    },
+    focus,
     readingWidth: reading.getBoundingClientRect().width,
     viewportOverflow: root.scrollWidth - root.clientWidth,
   }

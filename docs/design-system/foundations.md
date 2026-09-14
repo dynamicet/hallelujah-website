@@ -239,7 +239,7 @@ Prefer borders and surface contrast over shadows. Do not use shadows to make non
 - [ ] Normal text, large text, UI boundaries, icons, and focus indicators pass contrast in every state.
 - [ ] English and Amharic samples have comparable hierarchy without clipping or truncation.
 - [x] Local controlled fixture passes at 320 px, 360 px, 200%/400% viewport equivalents, 200% enlarged text, and long content under `B01-004`; final physical-device evidence remains a production gate.
-- [x] The local representative control measures at least 44 × 44 CSS px; component-wide evidence remains under `B01-005`–`B01-010`.
+- [x] The local representative control and `B01-005` essential actions measure at least 44 × 44 CSS px; remaining component-wide evidence stays under `B01-006`–`B01-010`.
 - [x] The controlled fixture keeps essential content without images, custom fonts, or non-essential JavaScript; production asset ingestion remains under `B02-011`.
 - [ ] Photography has source, consent/rights, owner, crop variants, and alt-text decision.
 - [x] The implemented controlled fixture contains no hospital clinical or operational claim.

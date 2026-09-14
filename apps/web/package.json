@@ -8,13 +8,14 @@
     "pnpm": "10.27.0"
   },
   "scripts": {
+    "actions:check": "node scripts/check-essential-actions.mjs",
     "build": "NEXT_TELEMETRY_DISABLED=1 next build",
     "config:check": "node --env-file-if-exists=.env.local scripts/check-runtime-environment.mjs",
     "dev": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next dev",
     "foundations:check": "node scripts/check-foundations.mjs",
     "lint": "eslint . --max-warnings=0",
     "start": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next start",
-    "test": "pnpm tokens:check && pnpm foundations:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
+    "test": "pnpm tokens:check && pnpm foundations:check && pnpm actions:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
     "tokens:check": "node scripts/generate-design-tokens.mjs --check",
     "tokens:generate": "node scripts/generate-design-tokens.mjs",
     "typecheck": "tsc --noEmit"

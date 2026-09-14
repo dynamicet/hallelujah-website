@@ -4,7 +4,13 @@ import { fileURLToPath } from 'node:url'
 
 const applicationRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const globalStyles = await readFile(path.join(applicationRoot, 'src/app/styles.css'), 'utf8')
-const fixture = await readFile(path.join(applicationRoot, 'src/app/page.tsx'), 'utf8')
+const fixture = await readFile(
+  path.join(
+    applicationRoot,
+    'src/design-system/templates/essential-actions-fixture-template.tsx',
+  ),
+  'utf8',
+)
 const templateStyles = await readFile(
   path.join(applicationRoot, 'src/design-system/templates/controlled-bootstrap-template.module.css'),
   'utf8',
