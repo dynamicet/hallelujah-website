@@ -1,6 +1,6 @@
 # `B01-007` — Search and Filter Primitives
 
-**Status:** In review for controlled development; full local `T0` gates pass
+**Status:** Done for controlled development; full local `T0` and hosted implementation `T1` gates pass
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -12,14 +12,14 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P1` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress → In review |
+| Old / new status | Proposed → Ready → In progress → In review → Done for controlled development |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Product, Frontend, Backend, QA, Accessibility, Privacy, Security, Clinical, Content, and Language people return at their production gates |
-| Target environment | `T0` isolated local application and headless Chromium; private-repository hosted `T1` required before controlled-development closure |
+| Target environment | `T0` isolated local application and headless Chromium; private-repository hosted implementation `T1` pass |
 | Requirements / decisions | `D-002`, `H-005`, `S-005`; real behavior remains gated by `SEARCH-01`, query handling by `SEARCH-02`, and providers by `SEC-02` |
 | Dependencies | Completed `B01-004` and merged `B01-006`; working `B00-014`–`B00-016` controlled-development baselines |
 | Allowed repository scope | Search/filter components and first-party enhancement, URL-state adapter, component token aliases and generated outputs, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
-| Repository review | [Issue `#12`](https://github.com/dynamicet/hallelujah-website/issues/12); pull request and hosted implementation run pending |
+| Repository review | [Issue `#12`](https://github.com/dynamicet/hallelujah-website/issues/12), [pull request `#13`](https://github.com/dynamicet/hallelujah-website/pull/13), and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/34884990666) on `eb58db6` |
 | Evidence destination | [Sanitized local evidence](evidence/B01-007-search-filter-primitives-2026-09-14.md) |
 
 The client's 14 September 2026 instruction to start the next execution authorized readiness
@@ -81,13 +81,15 @@ providers, personal-data collection, deployment, DNS, production, or publication
   Escape-focus, reduced-motion, print, and forced-colors browser checks pass locally.
 - [x] Sanitized 320 px and 1440 px screenshots were visually reviewed.
 - [x] Full local `pnpm verify`, history secret scan, and dependency audit pass.
-- [ ] Current-head hosted `T1` and repository review pass.
+- [x] Pull request `#13` implementation head passes hosted `T1`; this documentation closeout head
+  must repeat the gate before merge.
 - [ ] Named production roles accept searchable records/vocabulary, real filters, query handling,
   physical-device and assistive-technology behavior, language, security/privacy, and release evidence.
 
 The final checkbox is an external production gate. `SEARCH-01` owns search vocabulary, ranking,
 correction, and urgent behavior; `SEARCH-02` owns query handling; later directory/search tickets own
-real data and route publication.
+real data and route publication. `B01-008` remains dependency-blocked by `B02-001`; `B01-009` is the
+next dependency-satisfied Epic 01 delivery primitive after pull request `#13` merges.
 
 ## References
 

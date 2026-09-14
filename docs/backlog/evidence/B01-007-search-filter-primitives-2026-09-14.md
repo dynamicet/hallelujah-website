@@ -2,7 +2,7 @@
 
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
-**Result:** In review for controlled development; full local `T0` pass
+**Result:** Done for controlled development; full local `T0` and hosted implementation `T1` pass
 
 ## Evidence summary
 
@@ -19,6 +19,7 @@
 | Built and runtime gates | Request-rendered accessibility and asset-budget checks pass through the bounded built-application harness; initial transfer is 154,645 compressed bytes across 12 requests with 138,632 compressed JavaScript bytes and zero external origins. Runtime headers permit same-origin form submission while retaining default-self, frame, object, referrer, MIME, and powered-by protections. |
 | Visual review | [320px](b01-007-rendered/b01-007-search-controls-320.png) and [1440px](b01-007-rendered/b01-007-search-controls-1440.png) captures were inspected for hierarchy, wrapping, disclosure, filter readability, clear controls, count/result association, pagination labels, and controlled-data/privacy boundaries. |
 | External boundary | Five synthetic records only; no real hospital record, route, contact, taxonomy, translation, provider, request, analytics, query log, personal data, or publication authority was introduced. |
+| Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34884990666) passed in 1m45s on implementation commit `eb58db6`. |
 
 ## Performed commands
 
@@ -58,7 +59,9 @@ reports 650 dependencies with zero moderate, high, or critical known vulnerabili
 - Public search/directory routes remain unmounted. Searchable records, taxonomy, ranking,
   corrections, and urgent-term behavior remain gated by `SEARCH-01`; query handling remains gated
   by `SEARCH-02`; providers remain gated by `SEC-02`.
-- GitHub [issue `#12`](https://github.com/dynamicet/hallelujah-website/issues/12) carries the scoped
-  repository review. Pull-request and hosted current-head evidence remain pending.
+- GitHub [issue `#12`](https://github.com/dynamicet/hallelujah-website/issues/12) and [pull request
+  `#13`](https://github.com/dynamicet/hallelujah-website/pull/13) carry the scoped repository review.
+  Hosted run `34884990666` proves implementation commit `eb58db6`; this documentation-closeout
+  revision must repeat the exact-head gate before merge.
 - Publication, providers, personal-data collection, deployment, DNS, production, and release
   authority remain unchanged.
