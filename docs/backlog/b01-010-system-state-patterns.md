@@ -1,6 +1,6 @@
 # `B01-010` — System State and Recovery Patterns
 
-**Status:** In review for controlled development; full local `T0` passes and hosted implementation `T1` remains required
+**Status:** Done for controlled development; full local `T0` and hosted implementation `T1` gates pass
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -12,14 +12,14 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P1` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress → In review |
+| Old / new status | Proposed → Ready → In progress → In review → Done for controlled development |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Product, Frontend, QA, Accessibility, Operations, Clinical, Content, Language, Privacy, Security, and Release people return at their production gates |
-| Target environment | `T0` isolated local application and headless Chromium; private-repository hosted implementation `T1` required before controlled-development closure |
+| Target environment | `T0` isolated local application and headless Chromium; private-repository hosted implementation `T1` pass |
 | Requirements / decisions | `G-006`, `G-011`; real emergency, operational, workflow, language, privacy/security, and publication behavior remains under its domain gates |
 | Dependencies | Completed `B01-004`, merged `B01-009`, and working `B00-014`–`B00-016` controlled-development baselines |
 | Allowed repository scope | Alert/status and state components, canonical precedence resolver, component token aliases and generated outputs, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
-| Repository review | [Issue `#16`](https://github.com/dynamicet/hallelujah-website/issues/16); pull request and hosted run required before controlled-development closure |
+| Repository review | [Issue `#16`](https://github.com/dynamicet/hallelujah-website/issues/16), [pull request `#17`](https://github.com/dynamicet/hallelujah-website/pull/17), and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/34896169521) on `3774c0c` |
 | Evidence destination | [Sanitized local evidence](evidence/B01-010-system-state-patterns-2026-09-14.md) and captures under `evidence/b01-010-rendered/` |
 
 The client's 14 September 2026 instruction to start the next execution authorized readiness
@@ -83,14 +83,15 @@ analytics, public routes, deployment, DNS, production, or publication.
       and forced-colors browser checks pass.
 - [x] Sanitized 320 px and 1440 px screenshots were visually reviewed.
 - [x] Full local `pnpm verify`, reachable-history secret scan, and dependency audit pass.
-- [ ] Pull-request implementation head passes hosted `T1`; the documentation-closeout head repeats
+- [x] Pull-request implementation head passes hosted `T1`; the documentation-closeout head repeats
       the exact-head gate before merge.
 - [ ] Named production roles accept real state vocabulary, lifecycle/expiry, owners, announcement
       timing, actions/retry rules, physical-device and assistive-technology behavior, language,
       security/privacy, operations, and release evidence.
 
 The final checkbox is an external production gate and does not block controlled-development
-closure after the local and hosted implementation matrices pass.
+closure. The implementation head passed hosted `T1` on 15 September 2026; this documentation
+closeout head must repeat the exact-head gate before merge.
 
 ## References
 
