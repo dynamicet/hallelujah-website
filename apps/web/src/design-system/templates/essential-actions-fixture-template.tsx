@@ -15,6 +15,7 @@ import { FormPrimitivesFixtureTemplate } from './form-primitives-fixture-templat
 import { SearchControlsFixtureTemplate } from './search-controls-fixture-template'
 import { SystemStatesFixtureTemplate } from './system-states-fixture-template'
 import { MotionMediaFixtureTemplate } from './motion-media-fixture-template'
+import { GovernedCardsFixtureTemplate } from './governed-cards-fixture-template'
 
 export interface EssentialActionsFixtureTemplateProps {
   readonly searchParameters: Readonly<
@@ -224,6 +225,7 @@ export function EssentialActionsFixtureTemplate({
       <FormPrimitivesFixtureTemplate />
       <SystemStatesFixtureTemplate />
       <MotionMediaFixtureTemplate />
+      <GovernedCardsFixtureTemplate />
       </ControlledBootstrapTemplate>
     </SiteShell>
   )

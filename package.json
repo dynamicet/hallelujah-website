@@ -18,6 +18,7 @@
     "budgets:smoke": "node scripts/check-built-budgets.mjs",
     "ci:policy": "node scripts/check-ci-policy.mjs",
     "ci:controls:test": "node scripts/test-ci-controls.mjs",
+    "governed-cards:smoke": "node scripts/check-rendered-foundations.mjs --governed-cards --capture-prefix b01-008-governed-cards",
     "dev": "pnpm --dir apps/web dev",
     "format:check": "node scripts/check-format.mjs",
     "foundations:check": "pnpm --dir apps/web foundations:check",
@@ -47,7 +48,7 @@
     "tokens:check": "pnpm --dir apps/web tokens:check",
     "tokens:generate": "pnpm --dir apps/web tokens:generate",
     "typecheck": "pnpm --dir apps/web typecheck",
-    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm brand:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke && pnpm foundations:smoke"
+    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm brand:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke && pnpm foundations:smoke && pnpm governed-cards:smoke"
   },
   "pnpm": {
     "overrides": {

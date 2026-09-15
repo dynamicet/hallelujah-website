@@ -1,0 +1,6 @@
+.grid {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  min-inline-size: 0;
+}

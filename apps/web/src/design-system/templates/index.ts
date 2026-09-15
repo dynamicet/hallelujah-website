@@ -7,3 +7,4 @@ export { SearchControlsFixtureTemplate } from './search-controls-fixture-templat
 export type { SearchControlsFixtureTemplateProps } from './search-controls-fixture-template'
 export { SystemStatesFixtureTemplate } from './system-states-fixture-template'
 export { MotionMediaFixtureTemplate } from './motion-media-fixture-template'
+export { GovernedCardsFixtureTemplate } from './governed-cards-fixture-template'
