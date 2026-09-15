@@ -3,7 +3,8 @@
 **Execution date:** 16 September 2026, Africa/Addis_Ababa
 
 **Scope:** Controlled local and private-repository implementation only
-**Hosted review:** Implementation `T1` passed on `f0e8dcb`; final documentation head must repeat the gate
+**Status:** Done for controlled development; production acceptance remains gated
+**Hosted review:** Implementation `T1` passed on `f0e8dcb`; documentation head `b62d65b` passed; final acceptance head must repeat the gate
 
 ## Execution contract
 
@@ -17,7 +18,7 @@
 | Target | Local `T0` and private-repository hosted implementation `T1`; no public route or production environment |
 | Allowed scope | Governed card component, neutral media fallback, typed display fields, synthetic fixture, responsive/semantic browser checks, documentation, and sanitized evidence |
 | Evidence | [Local result](evidence/B01-008-governed-content-cards-2026-09-16.md) and [captures](evidence/b01-008-rendered/) |
-| Repository review | [Issue `#22`](https://github.com/dynamicet/hallelujah-website/issues/22), [draft pull request `#23`](https://github.com/dynamicet/hallelujah-website/pull/23), and [hosted implementation run `35030463614`](https://github.com/dynamicet/hallelujah-website/actions/runs/35030463614) |
+| Repository review | [Issue `#22`](https://github.com/dynamicet/hallelujah-website/issues/22), [pull request `#23`](https://github.com/dynamicet/hallelujah-website/pull/23), [hosted implementation run `35030463614`](https://github.com/dynamicet/hallelujah-website/actions/runs/35030463614), and [documentation-head run `35030914802`](https://github.com/dynamicet/hallelujah-website/actions/runs/35030914802) |
 
 The client's instruction to start the next execution permits this controlled implementation and
 review. It grants no authority for real hospital records, contact values, clinical claims,
@@ -51,7 +52,7 @@ are approved under `B02-003`–`B02-005` and Phase 2 careers work.
 | Visual/browser matrix | `pnpm governed-cards:smoke --capture-dir docs/backlog/evidence/b01-008-rendered` | Passed; 320 and 1440 px sanitized captures |
 | Reachable-history secrets | `pnpm secrets:check --history` | Passed |
 | Dependency audit | `pnpm audit:dependencies` | Passed outside restricted network sandbox |
-| Hosted exact-head implementation `T1` | Pull-request quality/security gate | Passed on `f0e8dcb`; final documentation head must repeat before review closure |
+| Hosted exact-head implementation `T1` | Pull-request quality/security gate | Passed on `f0e8dcb`; documentation head `b62d65b` also passed; final acceptance head must repeat before merge |
 
 ## Remaining gates
 
