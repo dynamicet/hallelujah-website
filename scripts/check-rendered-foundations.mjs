@@ -20,6 +20,7 @@ const searchControlsMode = process.argv.includes('--search-controls')
 const formPrimitivesMode = process.argv.includes('--form-primitives')
 const systemStatesMode = process.argv.includes('--system-states')
 const motionMediaMode = process.argv.includes('--motion-media')
+const governedCardsMode = process.argv.includes('--governed-cards')
 const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
 const environment = {
@@ -126,6 +127,39 @@ try {
         viewport.label,
         await evaluate(client, sessionId, renderedSystemStatesChecksSource()),
       )
+    }
+    if (governedCardsMode) {
+      const cards = await evaluate(client, sessionId, `(() => {
+        const fixture = document.querySelector('[data-governed-cards-fixture]')
+        const current = [...fixture.querySelectorAll('[data-card-state="current"]')]
+        const retired = [...fixture.querySelectorAll('[data-card-retired]')]
+        const cards = [...fixture.querySelectorAll('[data-card-kind]')]
+        return {
+          count: cards.length,
+          publicGateClosed: !fixture.querySelector('[data-public-gate-fixture]')?.textContent.trim(),
+          kinds: current.map((card) => card.dataset.cardKind),
+          noOptionalPlaceholders: !fixture.textContent.includes('Credentials:')
+            && !fixture.textContent.includes('Also known as:'),
+          reviewShape: fixture.querySelectorAll('[data-card-review]').length === 1
+            && fixture.textContent.includes('Synthetic review specimen')
+            && !fixture.textContent.includes('Medically reviewed'),
+          retiredWithoutActions: retired.length === 3 && retired.every((state) =>
+            !state.closest('[data-card-kind]').querySelector('a[href]')),
+          noPortraitImpersonation: fixture.querySelectorAll('img').length === 0,
+          links: [...fixture.querySelectorAll('a[href]')].map((link) => ({
+            href: link.getAttribute('href'), height: link.getBoundingClientRect().height,
+          })),
+          overflow: cards.some((card) => card.getBoundingClientRect().right
+            > document.documentElement.clientWidth + 1),
+        }
+      })()`)
+      if (cards.count !== 7 || !cards.publicGateClosed || JSON.stringify(cards.kinds)
+        !== JSON.stringify(['doctor', 'service', 'location', 'vacancy'])
+        || !cards.noOptionalPlaceholders || !cards.reviewShape || !cards.retiredWithoutActions
+        || !cards.noPortraitImpersonation || cards.overflow
+        || cards.links.some((link) => !link.href.startsWith('#') || link.height < 44)) {
+        fail(`governed cards viewport ${viewport.label}: ${JSON.stringify(cards)}`)
+      }
     }
     if (motionMediaMode) {
       const motionResult = await evaluate(client, sessionId, `(() => {
@@ -632,6 +666,17 @@ try {
     }
   }
 
+  if (governedCardsMode) {
+    const response = await fetch(origin)
+    const html = await response.text()
+    if (!response.ok || !html.includes('data-governed-cards-fixture')
+      || !html.includes('data-card-state="expired"')
+      || !html.includes('Synthetic, non-public specimen')
+      || html.includes('Must never render publicly')) {
+      fail('no-JavaScript governed cards or synthetic public gate are incomplete')
+    }
+  }
+
   if (motionMediaMode) {
     const noScriptResponse = await fetch(origin)
     const noScriptHtml = await noScriptResponse.text()
@@ -962,6 +1007,15 @@ try {
       fail(`print system-state background: ${printStateResult.background}`)
     }
   }
+  if (governedCardsMode) {
+    const printCard = await evaluate(client, sessionId, `(() => {
+      const card = getComputedStyle(document.querySelector('[data-card-kind]'))
+      return { background: card.backgroundColor, border: card.borderLeftStyle }
+    })()`)
+    if (printCard.background !== 'rgba(0, 0, 0, 0)' || printCard.border === 'none') {
+      fail(`print governed card boundary: ${JSON.stringify(printCard)}`)
+    }
+  }
 
   await client.send(
     'Emulation.setEmulatedMedia',
@@ -1002,11 +1056,25 @@ try {
       fail(`forced-colors system-state boundary: ${JSON.stringify(forcedStateResult)}`)
     }
   }
+  if (governedCardsMode) {
+    const forcedCard = await evaluate(client, sessionId, `(() => {
+      const retired = getComputedStyle(document.querySelector('[data-card-state="expired"]'))
+      const link = document.querySelector('[data-card-kind="doctor"] a')
+      link.focus()
+      const focus = getComputedStyle(link)
+      return { border: retired.borderLeftStyle, focus: focus.outlineStyle }
+    })()`)
+    if (forcedCard.border === 'none' || forcedCard.focus === 'none') {
+      fail(`forced-colors governed card boundary: ${JSON.stringify(forcedCard)}`)
+    }
+  }
 
   client.close()
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
-    motionMediaMode
+    governedCardsMode
+      ? 'Rendered governed-card smoke passed (four synthetic variants, omission, unavailable and retired actions, public fail-closed gate, responsive targets, no-JavaScript output, print, and forced colors).'
+      : motionMediaMode
       ? 'Rendered motion/media smoke passed (responsive static regions, protected and area ceilings, zero pre-intent requests, keyboard Play/Pause/Stop, focus, Save-Data and blocked-media recovery, no-JavaScript content, reduced motion, print, and forced colors).'
       : systemStatesMode
       ? 'Rendered foundation/action/shell/search/form/system-state smoke passed (responsive state panels, alert/status timing, recovery targets, focus, dated temporary metadata, loading boundaries, critical-fact preservation, no-JavaScript output, zoom, reduced motion, print, and forced colors).'

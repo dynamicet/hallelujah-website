@@ -130,3 +130,7 @@ export type {
   SearchParamValue,
   SearchStatePolicy,
 } from './search-state'
+export { GovernedCard } from './governed-cards'
+export type {
+  GovernedCardContent, GovernedCardKind, GovernedCardProps, GovernedCardReview,
+} from './governed-cards'
