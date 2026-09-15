@@ -26,6 +26,7 @@
     "foundations:smoke": "node scripts/check-rendered-foundations.mjs",
     "introduction:check": "node scripts/check-introduction-gates.mjs",
     "lint": "node apps/web/node_modules/eslint/bin/eslint.js apps/web scripts docs/backlog/audit-backlog.mjs eslint.config.mjs --max-warnings=0",
+    "motion-media:smoke": "node scripts/check-rendered-foundations.mjs --motion-media --capture-prefix b01-012-motion-media",
     "links:check": "node scripts/check-local-links.mjs",
     "rebuild:verify": "node scripts/verify-clean-rebuild.mjs",
     "runtime:smoke": "node scripts/check-runtime-smoke.mjs",

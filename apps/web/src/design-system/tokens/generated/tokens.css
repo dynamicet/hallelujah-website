@@ -79,8 +79,8 @@
   --primitive-shadow-overlay: 0 1.25rem 3rem rgb(23 50 58 / 18%);
   --primitive-motion-duration-instant: 0ms;
   --primitive-motion-duration-feedback: 80ms;
-  --primitive-motion-duration-composed: 300ms;
-  --primitive-motion-duration-cinematic: 480ms;
+  --primitive-motion-duration-composed: 500ms;
+  --primitive-motion-duration-cinematic: 800ms;
   --primitive-motion-duration-immersive: 700ms;
   --primitive-motion-distance-none: 0;
   --primitive-motion-distance-micro: 0.25rem;
