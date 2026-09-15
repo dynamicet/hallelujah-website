@@ -1,6 +1,6 @@
 # `B02-001` — Controlled Local Governed-Record Contract
 
-**Status:** In review for controlled development on 16 September 2026, Africa/Addis_Ababa. The client directed completion, permitting Proposed → Ready → In progress → In review after local `T0`, full repository verification, history secret scan, and dependency audit passed. Hosted exact-head `T1` remains required before Done.
+**Status:** Done for controlled development on 16 September 2026, Africa/Addis_Ababa. The client directed completion, permitting Proposed → Ready → In progress → In review → Done after local `T0`, full repository verification, history secret scan, dependency audit, and hosted exact implementation-head `T1` passed. The documentation-closeout head must repeat CI before merge.
 
 ## Execution boundary
 
