@@ -3,7 +3,7 @@
 **Recorded:** 16 September 2026, Africa/Addis_Ababa
 
 **Environment:** Local Next.js build, pinned Node.js 24.21.0 and pnpm 10.27.0, headless Chromium
-**Result:** Local `T0` passed; hosted `T1` and named production acceptance pending
+**Result:** Local `T0` and hosted implementation `T1` passed; final documentation-head gate and named production acceptance pending
 
 The exported `GovernedCard` uses the validated `B02-001` record as its identity and lifecycle
 boundary. Four kind-specific typed display contracts supply only explicitly provided fields.
@@ -26,9 +26,11 @@ public vacancy contract requires explicit privacy and application approvals befo
 | Security and dependency | Reachable-history scan passed; dependency audit returned 650 dependencies and zero moderate, high, or critical known vulnerabilities. |
 | Built budget | 145,350 compressed JavaScript bytes, 178,289 compressed initial bytes, 14 requests, zero external origins. |
 | Visual review | [320 px](b01-008-rendered/b01-008-governed-cards-320.png) and [1440 px](b01-008-rendered/b01-008-governed-cards-1440.png) screenshots show readable stacked/column layouts, visible synthetic labels, neutral media, and distinct retired wording. |
+| Hosted implementation | [`quality-and-security` run `35030463614`](https://github.com/dynamicet/hallelujah-website/actions/runs/35030463614) passed on exact implementation commit `f0e8dcb`, including frozen install, history secret scan, dependency audit, `pnpm verify`, and clean rebuild. Draft [PR `#23`](https://github.com/dynamicet/hallelujah-website/pull/23) carries review. |
 
 The default shell exposed Node.js 25.2.1 and correctly failed the engine guard. Accepted checks
 used the installed 24.21.0 pin. The restricted sandbox prevented localhost binding and returned
-an incomplete registry audit; approved reruns succeeded. These checks are local implementation
-evidence, not hosted `T1`, real content approval, professional Amharic review, physical-device or
-assistive-technology acceptance, or publication authority.
+an incomplete registry audit; approved reruns succeeded. The hosted implementation run is
+private-repository `T1` evidence. This documentation closeout changes the review head and must
+repeat the exact-head gate. Neither run is real content approval, professional Amharic review,
+physical-device or assistive-technology acceptance, or publication authority.
