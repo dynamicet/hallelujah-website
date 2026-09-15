@@ -65,6 +65,12 @@ export type {
   SiteShellProps,
 } from './global-shell'
 export { StatusSummary } from './status-summary'
+export { ExperienceRegion } from './experience-region'
+export type { ExperienceRegionProps } from './experience-region'
+export { MotionAccent } from './motion-accent'
+export type { MotionAccentProps } from './motion-accent'
+export { isFirstPartyMediaPath, OptInMedia } from './opt-in-media'
+export type { MediaAuthority, OptInMediaProps, OptInMediaSource } from './opt-in-media'
 export type { StatusSummaryItem, StatusSummaryProps } from './status-summary'
 export {
   ActiveFilterList,

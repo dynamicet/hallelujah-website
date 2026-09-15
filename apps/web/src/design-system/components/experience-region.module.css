@@ -1,0 +1,48 @@
+.region {
+  min-inline-size: 0;
+}
+
+.accent {
+  background: var(--semantic-color-action-primary);
+  border-radius: var(--semantic-radius-control);
+  display: block;
+  inline-size: min(100%, 8rem);
+  block-size: var(--semantic-border-emphasis);
+  margin-block: var(--semantic-space-regular);
+  transform-origin: left center;
+}
+
+.accent[data-motion-enabled="true"][data-motion-level="2"] {
+  animation: composed var(--semantic-motion-composed-duration) var(--semantic-motion-composed-easing) 1 both;
+}
+
+.accent[data-motion-enabled="true"][data-motion-level="3"] {
+  animation: cinematic var(--semantic-motion-cinematic-duration) var(--semantic-motion-cinematic-easing) 1 both;
+}
+
+.region[data-experience-level="0"] .accent,
+.region[data-experience-level="1"] .accent {
+  animation: none;
+}
+
+@keyframes composed {
+  from { opacity: 0.65; transform: translateX(var(--semantic-motion-composed-distance)); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes cinematic {
+  from { opacity: 0.65; transform: translateX(var(--semantic-motion-cinematic-distance)); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accent { animation: none !important; transform: none; }
+}
+
+@media (forced-colors: active) {
+  .accent { background: CanvasText; }
+}
+
+@media print {
+  .accent { animation: none; }
+}

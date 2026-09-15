@@ -1,0 +1,27 @@
+.grid {
+  display: grid;
+  gap: var(--semantic-space-section);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  margin-block-start: var(--semantic-space-section);
+}
+
+.grid > * {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  min-inline-size: 0;
+  padding: var(--semantic-space-page);
+}
+
+.grid > * > * + * { margin-block-start: var(--semantic-space-compact); }
+
+.media {
+  max-inline-size: var(--semantic-size-reading);
+  margin-block-start: var(--semantic-space-section);
+}
+
+.media > * + * { margin-block-start: var(--semantic-space-regular); }
+
+@media (forced-colors: active) {
+  .grid > * { border-color: CanvasText; }
+}

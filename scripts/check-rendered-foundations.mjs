@@ -19,6 +19,7 @@ const shellMode = process.argv.includes('--shell')
 const searchControlsMode = process.argv.includes('--search-controls')
 const formPrimitivesMode = process.argv.includes('--form-primitives')
 const systemStatesMode = process.argv.includes('--system-states')
+const motionMediaMode = process.argv.includes('--motion-media')
 const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
 const environment = {
@@ -73,6 +74,7 @@ try {
   if (shellMode) await waitForShellEnhancement(client, sessionId)
   if (searchControlsMode) await waitForSearchControlsEnhancement(client, sessionId)
   if (formPrimitivesMode) await waitForFormPrimitivesEnhancement(client, sessionId)
+  if (motionMediaMode) await waitForMotionMediaEnhancement(client, sessionId)
 
   const viewports = [
     { height: 900, label: 320, width: 320 },
@@ -124,6 +126,41 @@ try {
         viewport.label,
         await evaluate(client, sessionId, renderedSystemStatesChecksSource()),
       )
+    }
+    if (motionMediaMode) {
+      const motionResult = await evaluate(client, sessionId, `(() => {
+        const fixture = document.querySelector('[data-motion-media-fixture]')
+        const regions = [...fixture.querySelectorAll('[data-experience-area]')].map((region) => ({
+          area: region.dataset.experienceArea,
+          level: region.dataset.experienceLevel,
+          protected: region.dataset.protectedContext ?? null,
+        }))
+        const media = fixture.querySelector('[data-media-state]')
+        const video = media.querySelector('video')
+        const button = media.querySelector('button')
+        const allMedia = [...fixture.querySelectorAll('[data-media-state]')]
+        const rect = button.getBoundingClientRect()
+        return {
+          buttonHeight: rect.height,
+          content: fixture.textContent.includes('complete static statement'),
+          mediaState: media.dataset.mediaState,
+          mediaSrc: video.getAttribute('src'),
+          mediaCount: allMedia.length,
+          allInitialSourcesAbsent: allMedia.every((frame) =>
+            !frame.querySelector('video').hasAttribute('src')
+            && !frame.querySelector('track')?.hasAttribute('src')),
+          posterVisible: !media.querySelector('[data-media-poster]').hidden,
+          regions,
+          resourceCount: performance.getEntriesByType('resource').filter((entry) => entry.name.includes('b01-012-abstract-motion.webm')).length,
+        }
+      })()`)
+      if (
+        motionResult.buttonHeight < 44 || !motionResult.content || motionResult.mediaState !== 'poster'
+        || motionResult.mediaCount !== 2 || !motionResult.allInitialSourcesAbsent
+        || motionResult.mediaSrc !== null || !motionResult.posterVisible || motionResult.resourceCount !== 0
+        || motionResult.regions.find((region) => region.protected === 'emergency')?.level !== '0'
+        || motionResult.regions.find((region) => region.area === 'appointment')?.level !== '1'
+      ) fail(`motion/media viewport ${viewport.label}: ${JSON.stringify(motionResult)}`)
     }
     if (captureDirectory && (viewport.width === 320 || viewport.width === 1440)) {
       await evaluate(
@@ -595,6 +632,171 @@ try {
     }
   }
 
+  if (motionMediaMode) {
+    const noScriptResponse = await fetch(origin)
+    const noScriptHtml = await noScriptResponse.text()
+    if (!noScriptResponse.ok || !noScriptHtml.includes('data-motion-media-fixture')
+      || !noScriptHtml.includes('Controlled urgent meaning remains stable')
+      || /<video[^>]*src=/u.test(noScriptHtml)) {
+      fail('no-JavaScript motion/media foundation is incomplete or preloads video')
+    }
+    await evaluate(client, sessionId, `(() => {
+      const button = document.querySelector('[data-media-state] button')
+      button.scrollIntoView({ block: 'center' })
+      button.focus()
+    })()`)
+    await client.send('Input.dispatchKeyEvent',
+      { code: 'Space', key: ' ', type: 'rawKeyDown', windowsVirtualKeyCode: 32 }, sessionId)
+    await client.send('Input.dispatchKeyEvent',
+      { code: 'Space', key: ' ', type: 'keyUp', windowsVirtualKeyCode: 32 }, sessionId)
+    let playing = false
+    let lastMediaResult
+    for (let attempt = 0; attempt < 40; attempt += 1) {
+      const result = await evaluate(client, sessionId, `(() => {
+        const media = document.querySelector('[data-media-state]')
+        const video = media.querySelector('video')
+        return {
+          focusedPlay: document.activeElement === media.querySelector('button'),
+          posterHidden: media.querySelector('[data-media-poster]').hidden,
+          readyState: video.readyState,
+          paused: video.paused,
+          errorCode: video.error?.code ?? null,
+          sourceAttached: video.getAttribute('src'),
+          state: media.dataset.mediaState,
+        }
+      })()`)
+      lastMediaResult = result
+      if (result.state === 'playing' && result.readyState >= 2 && !result.paused) {
+        if (!result.focusedPlay || !result.posterHidden
+          || result.sourceAttached !== '/fixtures/b01-012-abstract-motion.webm') {
+          fail(`media activation did not preserve focus or plane: ${JSON.stringify(result)}`)
+        }
+        playing = true
+        break
+      }
+      await pause(50)
+    }
+    if (!playing) fail(`controlled media did not begin playback after keyboard intent: ${JSON.stringify(lastMediaResult)}`)
+    await evaluate(client, sessionId, `document.querySelector('[data-media-state] button').click()`)
+    await settleLayout()
+    const paused = await evaluate(client, sessionId,
+      `document.querySelector('[data-media-state]').dataset.mediaState`)
+    if (paused !== 'paused') fail(`controlled media did not pause: ${paused}`)
+    await evaluate(client, sessionId,
+      `document.querySelector('[data-media-state] button:last-of-type').click()`)
+    await settleLayout()
+    const stopped = await evaluate(client, sessionId, `(() => {
+      const media = document.querySelector('[data-media-state]')
+      return {
+        focusedPlay: document.activeElement === media.querySelector('button'),
+        posterVisible: !media.querySelector('[data-media-poster]').hidden,
+        sourceDetached: !media.querySelector('video').hasAttribute('src'),
+        state: media.dataset.mediaState,
+      }
+    })()`)
+    if (stopped.state !== 'poster' || !stopped.focusedPlay || !stopped.posterVisible
+      || !stopped.sourceDetached) fail(`media Stop did not restore static plane: ${JSON.stringify(stopped)}`)
+
+    await evaluate(client, sessionId,
+      `document.querySelectorAll('[data-media-play]')[1].click()`)
+    let informative
+    for (let attempt = 0; attempt < 40; attempt += 1) {
+      informative = await evaluate(client, sessionId, `(() => {
+        const frame = document.querySelectorAll('[data-media-state]')[1]
+        const video = frame.querySelector('video')
+        return {
+          captionsAttached: frame.querySelector('track').getAttribute('src'),
+          captionsMode: frame.querySelector('track').track.mode,
+          nativeControls: video.controls,
+          readyState: video.readyState,
+          state: frame.dataset.mediaState,
+          transcript: frame.querySelector('a')?.getAttribute('href'),
+        }
+      })()`)
+      if (informative.state === 'playing' && informative.readyState >= 2) break
+      await pause(50)
+    }
+    if (informative?.state !== 'playing' || informative.readyState < 2
+      || informative.captionsAttached !== '/fixtures/b01-012-abstract-motion.vtt'
+      || informative.captionsMode !== 'showing' || !informative.nativeControls
+      || informative.transcript !== '#controlled-media-transcript') {
+      fail(`informative media did not attach captions and transcript after intent: ${JSON.stringify(informative)}`)
+    }
+    await evaluate(client, sessionId,
+      `document.querySelectorAll('[data-media-video]')[1].pause()`)
+    await settleLayout()
+    const nativePaused = await evaluate(client, sessionId,
+      `document.querySelectorAll('[data-media-state]')[1].dataset.mediaState`)
+    if (nativePaused !== 'paused') fail(`informative native Pause was not reflected: ${nativePaused}`)
+    await evaluate(client, sessionId,
+      `document.querySelectorAll('[data-media-play]')[1].click()`)
+    await settleLayout()
+    const informativeResumed = await evaluate(client, sessionId,
+      `document.querySelectorAll('[data-media-state]')[1].dataset.mediaState`)
+    if (informativeResumed !== 'playing') fail(`informative Resume was not reflected: ${informativeResumed}`)
+    await evaluate(client, sessionId,
+      `document.querySelectorAll('[data-media-stop]')[1].click()`)
+    const informativeStopped = await evaluate(client, sessionId, `(() => {
+      const frame = document.querySelectorAll('[data-media-state]')[1]
+      return !frame.querySelector('video').hasAttribute('src')
+        && !frame.querySelector('track').hasAttribute('src')
+        && !frame.querySelector('[data-media-poster]').hidden
+    })()`)
+    if (!informativeStopped) fail('informative Stop retained a video or caption source')
+
+    const { identifier } = await client.send('Page.addScriptToEvaluateOnNewDocument', {
+      source: `Object.defineProperty(navigator, 'connection', { configurable: true, value: { saveData: true } })`,
+    }, sessionId)
+    await client.send('Network.enable', {}, sessionId)
+    await client.send('Network.setCacheDisabled', { cacheDisabled: true }, sessionId)
+    await client.send('Network.setBlockedURLs',
+      { urls: ['*b01-012-abstract-motion.webm*'] }, sessionId)
+    await client.send('Page.navigate', { url: origin }, sessionId)
+    await waitForDocument(client, sessionId)
+    await waitForMotionMediaEnhancement(client, sessionId)
+    await settleLayout()
+    const saveData = await evaluate(client, sessionId, `(() => {
+      const accent = document.querySelector('[data-motion-accent]')
+      const media = document.querySelector('[data-media-state]')
+      return {
+        accentEnabled: accent.dataset.motionEnabled,
+        posterVisible: !media.querySelector('[data-media-poster]').hidden,
+        resourceCount: performance.getEntriesByType('resource').filter((entry) => entry.name.includes('b01-012-abstract-motion.webm')).length,
+        saveData: navigator.connection?.saveData,
+      }
+    })()`)
+    if (!saveData.saveData || saveData.accentEnabled !== 'false'
+      || !saveData.posterVisible || saveData.resourceCount !== 0) {
+      fail(`Save-Data static foundation or pre-intent request: ${JSON.stringify(saveData)}`)
+    }
+    await evaluate(client, sessionId,
+      `document.querySelector('[data-media-play]').click()`)
+    let failureState
+    for (let attempt = 0; attempt < 40; attempt += 1) {
+      failureState = await evaluate(client, sessionId, `(() => {
+        const media = document.querySelector('[data-media-state]')
+        return {
+          posterVisible: !media.querySelector('[data-media-poster]').hidden,
+          sourceDetached: !media.querySelector('video').hasAttribute('src'),
+          state: media.dataset.mediaState,
+          statusVisible: !media.querySelector('[data-media-status]').hidden,
+        }
+      })()`)
+      if (failureState.state === 'failed') break
+      await pause(50)
+    }
+    if (failureState?.state !== 'failed' || !failureState.posterVisible
+      || !failureState.sourceDetached || !failureState.statusVisible) {
+      fail(`blocked media did not retain its static recovery: ${JSON.stringify(failureState)}`)
+    }
+    await client.send('Network.setBlockedURLs', { urls: [] }, sessionId)
+    await client.send('Network.setCacheDisabled', { cacheDisabled: false }, sessionId)
+    await client.send('Page.removeScriptToEvaluateOnNewDocument', { identifier }, sessionId)
+    await client.send('Page.navigate', { url: origin }, sessionId)
+    await waitForDocument(client, sessionId)
+    await waitForMotionMediaEnhancement(client, sessionId)
+  }
+
   await client.send(
     'Emulation.setDeviceMetricsOverride',
     {
@@ -721,6 +923,19 @@ try {
       fail(`reduced-motion loading indicator still animates: ${JSON.stringify(reducedStateResult)}`)
     }
   }
+  if (motionMediaMode) {
+    const accent = await evaluate(client, sessionId, `(() => {
+      const protectedAccent = document.querySelector('[data-protected-context="emergency"] [data-motion-accent]')
+      const eligibleAccent = document.querySelector('[data-experience-area="home-hero"] > [data-motion-accent]')
+      return {
+        eligible: getComputedStyle(eligibleAccent).animationName,
+        protected: getComputedStyle(protectedAccent).animationName,
+      }
+    })()`)
+    if (accent.eligible !== 'none' || accent.protected !== 'none') {
+      fail(`reduced-motion accent did not become static: ${JSON.stringify(accent)}`)
+    }
+  }
 
   await client.send('Emulation.setEmulatedMedia', { media: 'print' }, sessionId)
   const printResult = await evaluate(
@@ -791,7 +1006,9 @@ try {
   client.close()
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
-    systemStatesMode
+    motionMediaMode
+      ? 'Rendered motion/media smoke passed (responsive static regions, protected and area ceilings, zero pre-intent requests, keyboard Play/Pause/Stop, focus, Save-Data and blocked-media recovery, no-JavaScript content, reduced motion, print, and forced colors).'
+      : systemStatesMode
       ? 'Rendered foundation/action/shell/search/form/system-state smoke passed (responsive state panels, alert/status timing, recovery targets, focus, dated temporary metadata, loading boundaries, critical-fact preservation, no-JavaScript output, zoom, reduced motion, print, and forced colors).'
       : formPrimitivesMode
       ? 'Rendered foundation/action/shell/search/form smoke passed (responsive fields and choices, help/error relationships, invalid-summary focus, pending semantics, value retention, false-success prevention, no-JavaScript fail-closed behavior, zoom, reduced motion, print, and forced colors).'
@@ -938,6 +1155,22 @@ async function waitForFormPrimitivesEnhancement(client, sessionId) {
     await pause(100)
   }
   throw new Error('first-party form primitive enhancement did not load')
+}
+
+async function waitForMotionMediaEnhancement(client, sessionId) {
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    const enabled = await evaluate(client, sessionId,
+      "document.documentElement.dataset.motionMediaEnhanced === 'true'")
+    if (enabled) return
+    await pause(100)
+  }
+  const state = await evaluate(client, sessionId, `(() => ({
+    accent: document.querySelector('[data-motion-accent]')?.dataset.motionEnabled,
+    visibility: document.visibilityState,
+    reduced: matchMedia('(prefers-reduced-motion: reduce)').matches,
+    saveData: navigator.connection?.saveData,
+  }))()`)
+  throw new Error(`first-party motion enhancement did not load: ${JSON.stringify(state)}`)
 }
 
 async function waitForPathAndSearch(client, sessionId, expectedValue) {
