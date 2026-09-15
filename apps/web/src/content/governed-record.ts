@@ -8,6 +8,14 @@ export type GovernedKind = (typeof governedKinds)[number]
 export type GovernedStatus = (typeof governedStatuses)[number]
 export type GovernedLocale = (typeof governedLocales)[number]
 
+const governanceDomain: Record<GovernedKind, string> = {
+  doctor: 'medical',
+  service: 'clinical',
+  location: 'operations',
+  vacancy: 'human-resources',
+  page: 'content',
+}
+
 export type GovernedRecord = Readonly<{
   publicId: string
   kind: GovernedKind
@@ -18,6 +26,7 @@ export type GovernedRecord = Readonly<{
   owner: string | null
   reviewer: string | null
   approval: Readonly<{ actor: string; at: string }> | null
+  domainApproval: Readonly<{ domain: string; actor: string; at: string; reference: string }> | null
   relationships: readonly string[]
   publishAt: string | null
   reviewAt: string | null
@@ -112,6 +121,14 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
   if (raw.approval !== null && (!approvalRaw || !nonempty(approvalRaw.actor)
     || !instant(approvalRaw.at))) issues.push('approval requires actor and at UTC instant')
 
+  const domainApprovalRaw = raw.domainApproval === null ? null : object(raw.domainApproval)
+  if (raw.domainApproval !== null && (!domainApprovalRaw
+    || !nonempty(domainApprovalRaw.actor) || !instant(domainApprovalRaw.at)
+    || !nonempty(domainApprovalRaw.reference)
+    || domainApprovalRaw.domain !== governanceDomain[kind as GovernedKind])) {
+    issues.push('domainApproval must match the record kind and identify actor, time, and source')
+  }
+
   const relationshipsRaw = raw.relationships
   const relationships = Array.isArray(relationshipsRaw) ? relationshipsRaw : []
   if (!Array.isArray(relationshipsRaw) || relationships.some((id) =>
@@ -149,8 +166,8 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
 
   if (status === 'published' || status === 'scheduled') {
     if (!owner || !reviewer || !approvalRaw || !publishAt || !reviewAt || !expiresAt
-      || !sourceRaw || audit.length === 0) {
-      issues.push('publishable status requires owner, reviewer, approval, source, dates, and audit')
+      || !sourceRaw || !domainApprovalRaw || audit.length === 0) {
+      issues.push('publishable status requires owner, reviewer, approval, domainApproval, source, dates, and audit')
     }
     if (consequentialKinds.includes(kind as GovernedKind) && !localized.en) {
       issues.push('consequential publishable records require an English canonical entry')
@@ -176,6 +193,12 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
       owner,
       reviewer,
       approval: approvalRaw ? { actor: approvalRaw.actor as string, at: approvalRaw.at as string } : null,
+      domainApproval: domainApprovalRaw ? {
+        domain: domainApprovalRaw.domain as string,
+        actor: domainApprovalRaw.actor as string,
+        at: domainApprovalRaw.at as string,
+        reference: domainApprovalRaw.reference as string,
+      } : null,
       relationships: relationships as string[],
       publishAt,
       reviewAt,
@@ -231,11 +254,11 @@ export function publicEligibility(input: unknown, now: Date): Readonly<{
 
 export function validateRecordSet(records: readonly GovernedRecord[]): readonly string[] {
   const issues: string[] = []
-  const ids = new Set<string>()
+  const ids = new Map<string, GovernedRecord>()
   const paths = new Set<string>()
   for (const record of records) {
     if (ids.has(record.publicId)) issues.push('duplicate publicId')
-    ids.add(record.publicId)
+    ids.set(record.publicId, record)
     for (const [locale, entry] of Object.entries(record.localized)) {
       const key = `${record.kind}:${locale}:${entry.slug}`
       if (paths.has(key)) issues.push('duplicate canonical slug')
@@ -244,7 +267,19 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
   }
   for (const record of records) {
     for (const relatedId of record.relationships) {
-      if (!ids.has(relatedId)) issues.push('relationship has no matching public record')
+      const related = ids.get(relatedId)
+      if (!related) issues.push('relationship has no matching public record')
+      else if (related.status === 'expired' || related.status === 'withdrawn') {
+        issues.push('relationship points to a retired public record')
+      }
+    }
+    const successorId = record.withdrawal?.successorPublicId
+    if (successorId) {
+      const successor = ids.get(successorId)
+      if (!successor || successor.kind !== record.kind
+        || successor.status === 'expired' || successor.status === 'withdrawn') {
+        issues.push('redirect successor must be a current record of the same kind')
+      }
     }
   }
   return Object.freeze(issues)

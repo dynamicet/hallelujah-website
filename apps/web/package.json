@@ -15,6 +15,7 @@
     "foundations:check": "node scripts/check-foundations.mjs",
     "form-primitives:check": "node scripts/check-form-primitives.mjs",
     "governed-records:check": "node scripts/check-governed-records.mjs",
+    "governed-records:db-smoke": "node scripts/check-governed-cms-db.mjs",
     "local-db-isolation:check": "node scripts/check-local-db-isolation.mjs",
     "search-controls:check": "node scripts/check-search-controls.mjs",
     "shell:check": "node scripts/check-global-shell.mjs",

@@ -5,6 +5,10 @@ import {
   validateGovernedRecord,
   validateRecordSet,
 } from '../src/content/governed-record.ts'
+import {
+  governedRecordsCollection,
+  validateStoredRecordChange,
+} from '../src/content/governed-collection.ts'
 
 const syntheticRecord = {
   publicId: 'pub_0123456789ab',
@@ -19,6 +23,10 @@ const syntheticRecord = {
   owner: 'Temporary content role',
   reviewer: 'Temporary review role',
   approval: { actor: 'Temporary acceptance role', at: '2026-09-15T10:00:00Z' },
+  domainApproval: {
+    domain: 'clinical', actor: 'Temporary clinical role',
+    at: '2026-09-15T10:00:00Z', reference: 'synthetic-domain-review',
+  },
   relationships: [],
   publishAt: '2026-09-15T11:00:00Z',
   reviewAt: '2026-10-15T11:00:00Z',
@@ -49,6 +57,10 @@ rejected({ ...syntheticRecord, publicId: 'internal-12' }, 'publicId')
 rejected({ ...syntheticRecord, source: null }, 'source')
 rejected({ ...syntheticRecord, owner: null }, 'publishable status')
 rejected({ ...syntheticRecord, approval: null }, 'publishable status')
+rejected({ ...syntheticRecord, domainApproval: null }, 'domainApproval')
+rejected({ ...syntheticRecord, domainApproval: {
+  ...syntheticRecord.domainApproval, domain: 'operations',
+} }, 'domainApproval')
 rejected({ ...syntheticRecord, localized: { am: syntheticRecord.localized.am } }, 'English')
 rejected({ ...syntheticRecord, reviewAt: '2026-09-15T10:00:00Z' }, 'reviewAt')
 rejected({ ...syntheticRecord, expiresAt: '2026-09-15T10:00:00Z' }, 'expiresAt')
@@ -75,5 +87,53 @@ const missingRelationship = accepted({
   relationships: ['pub_aaaaaaaaaaaa'],
 })
 assert.deepEqual(validateRecordSet([missingRelationship]), ['relationship has no matching public record'])
+const retiredWithMissingSuccessor = accepted({
+  ...syntheticRecord,
+  status: 'withdrawn',
+  withdrawal: { reason: 'synthetic retirement', successorPublicId: 'pub_aaaaaaaaaaaa' },
+})
+assert.deepEqual(validateRecordSet([retiredWithMissingSuccessor]), [
+  'redirect successor must be a current record of the same kind',
+])
+const linkedRetired = accepted({
+  ...syntheticRecord,
+  publicId: 'pub_bbbbbbbbbbbb',
+  localized: { en: { slug: 'linked-retired', title: 'Linked retired fixture' } },
+  relationships: [retiredWithMissingSuccessor.publicId],
+})
+assert.ok(validateRecordSet([linkedRetired, retiredWithMissingSuccessor]).includes(
+  'relationship points to a retired public record'))
+
+assert.equal(governedRecordsCollection.endpoints, false)
+assert.equal(governedRecordsCollection.access.read(), false)
+assert.equal(governedRecordsCollection.access.create(), false)
+assert.equal(governedRecordsCollection.access.update(), false)
+assert.equal(governedRecordsCollection.access.delete(), false)
+accepted(validateStoredRecordChange(syntheticRecord, undefined, []))
+assert.throws(() => validateStoredRecordChange(productionShape, undefined, []), /Authentic/)
+assert.throws(() => validateStoredRecordChange(syntheticRecord, undefined, [record]), /duplicate/)
+assert.throws(() => validateStoredRecordChange(missingRelationship, undefined, []), /relationship/)
+
+const updated = {
+  ...syntheticRecord,
+  status: 'expired',
+  withdrawal: { reason: 'synthetic retirement', successorPublicId: null },
+  audit: [...syntheticRecord.audit, {
+    actor: 'Temporary content role', at: '2026-09-16T09:00:00Z', change: 'fixture retired',
+  }],
+}
+assert.equal(validateStoredRecordChange(updated, syntheticRecord, []).status, 'expired')
+assert.throws(() => validateStoredRecordChange({ ...updated, publicId: 'pub_aaaaaaaaaaaa' },
+  syntheticRecord, []), /Stable public ID/)
+assert.throws(() => validateStoredRecordChange({ ...updated, audit: syntheticRecord.audit },
+  syntheticRecord, []), /append one later audit/)
+assert.throws(() => validateStoredRecordChange({ ...updated, status: 'draft', withdrawal: null },
+  syntheticRecord, []), /status transition/)
+
+const beforeChange = governedRecordsCollection.hooks.beforeChange[0]
+const request = { payload: { find: async () => ({ docs: [], totalDocs: 0 }) } }
+const stored = await beforeChange({ data: { record: syntheticRecord }, req: request })
+assert.equal(stored.publicId, syntheticRecord.publicId)
+assert.throws(() => governedRecordsCollection.hooks.beforeDelete[0](), /withdrawn/)
 
 process.stdout.write('Governed-record controlled contract checks passed.\n')

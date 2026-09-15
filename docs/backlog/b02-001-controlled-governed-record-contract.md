@@ -1,6 +1,6 @@
 # `B02-001` — Controlled Local Governed-Record Contract
 
-**Status:** Proposed with controlled technical preparation on 15 September 2026, Africa/Addis_Ababa. Schema, disposable local role-isolation, and full local repository checks pass; formal Ready promotion, CMS integration, and hosted implementation acceptance remain pending.
+**Status:** In review for controlled development on 16 September 2026, Africa/Addis_Ababa. The client directed completion, permitting Proposed → Ready → In progress → In review after local `T0`, full repository verification, history secret scan, and dependency audit passed. Hosted exact-head `T1` remains required before Done.
 
 ## Execution boundary
 
@@ -18,7 +18,7 @@ The client directed that unknown VPS-provider, region, capacity, and production 
 
 ## Observable controlled acceptance
 
-1. The shared contract validates opaque stable public IDs, localized canonical slugs and titles, provenance, draft/review/approval status, temporary owner/reviewer labels, approval metadata, relationships, publish/review/expiry times, withdrawal reasons, and redirect decisions. Type-specific required governance blocks publish; unknown, invalid, expired, or withdrawn records fail closed.
+1. The shared contract validates opaque stable public IDs, localized canonical slugs and titles, provenance, draft/review/approval status, temporary owner/reviewer labels, general and kind-matched domain approval metadata, relationships, publish/review/expiry times, withdrawal reasons, and redirect decisions. Type-specific required governance blocks publish; unknown, invalid, expired, or withdrawn records fail closed.
 2. Synthetic tests cover uniqueness, missing optional fields, unapproved facts, invalid status transitions, localization gaps, expiry/withdrawal, redirect validity, and search/sitemap/cache eligibility. Fixtures cannot be mistaken for approved hospital content.
 3. Schema and fixture work may be reviewed before a database is available. Integrated `T0/T1` acceptance additionally requires separate local public-content and appointment PostgreSQL databases, users, credentials, and permissions, with negative tests proving neither role can read or mutate the other's records and no public network exposure. No real appointment records are created.
 4. Local verification records exact configuration and test commands without secrets, identifies the build/environment and expected versus actual denial, and uses sanitized evidence only. Repository application gates and hosted exact-head CI pass before controlled-development closure.
@@ -26,9 +26,13 @@ The client directed that unknown VPS-provider, region, capacity, and production 
 
 ## Implemented local checks
 
-The pure TypeScript contract and [negative fixture checks](../../apps/web/scripts/check-governed-records.mjs) cover governed IDs, source, status, locales, owner/reviewer/approval, dates, withdrawal, transitions, public eligibility, canonical uniqueness, and relationship integrity. The [disposable SQL setup](../../apps/web/scripts/sql/b02-001-local-isolation.sql) and [cross-role checker](../../apps/web/scripts/check-local-db-isolation.mjs) use synthetic rows only. PostgreSQL 18.6 was initialized with Unix-socket access and no TCP listener; the checker verified own-database access and denied cross-database reads/connections/mutations. This is local `T0` evidence, not initial-VPS provisioning or CMS workflow acceptance. See the [sanitized execution record](evidence/B02-001-controlled-local-contract-2026-09-15.md).
+The pure TypeScript contract and [negative fixture checks](../../apps/web/scripts/check-governed-records.mjs) cover governed IDs, source, status, locales, owner/reviewer/approval, kind-matched domain approval, dates, withdrawal, transitions, public eligibility, canonical uniqueness, relationship and successor integrity, immutable identity, and append-only audit history. The closed [Payload collection](../../apps/web/src/content/governed-collection.ts) validates every local write, keeps an indexed stable public ID, denies unauthenticated access and API endpoints, blocks deletion, and rejects authentic records while production governance remains open. The [disposable CMS smoke](../../apps/web/scripts/check-governed-cms-db.mjs) persists and retires a visibly synthetic record in a separate clean local PostgreSQL cluster. It is collection persistence evidence, not `B02-002` CMS role/workflow acceptance.
+
+The [disposable role-isolation setup](../../apps/web/scripts/sql/b02-001-local-isolation.sql) and [cross-role checker](../../apps/web/scripts/check-local-db-isolation.mjs) use synthetic rows only. PostgreSQL 18.6 was initialized with Unix-socket access and no TCP listener; the checker verified own-database access and denied cross-database reads/connections/mutations. Both local checks use sanitized evidence in the [15 September preparation record](evidence/B02-001-controlled-local-contract-2026-09-15.md) and [16 September integration record](evidence/B02-001-controlled-cms-integration-2026-09-16.md). Neither is initial-VPS provisioning or authentic CMS workflow acceptance.
 
 Run the pure contract check with `pnpm governed-records:check`. To repeat the database check, create a fresh disposable PostgreSQL 18 instance, apply the SQL setup as a local administrative role, set `B02_001_PGHOST` to its Unix-socket directory and `B02_001_PGPORT` to its port, then run `pnpm local-db-isolation:check`. The script refuses to run without those explicit local coordinates. Never use production credentials or data for this check.
+
+For the CMS smoke, use a separate fresh socket-only cluster, apply [its role/database setup](../../apps/web/scripts/sql/b02-001-cms-smoke.sql), set the same two disposable coordinates, and run `pnpm governed-records:db-smoke`. The command supplies placeholder local credentials internally and exits after synthetic create/retire assertions. Never point it at a shared, staging, or production database: Payload development schema push can remove unrelated tables.
 
 ## Review triggers
 

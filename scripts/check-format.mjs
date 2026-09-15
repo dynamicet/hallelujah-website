@@ -22,7 +22,8 @@ const textExtensions = new Set([
 ])
 const textNames = new Set(['.gitignore', '.npmrc', '.nvmrc'])
 const files = await collectRepositoryFiles({
-  include: (file) => textExtensions.has(path.extname(file)) || textNames.has(path.basename(file)),
+  include: (file) => (textExtensions.has(path.extname(file)) || textNames.has(path.basename(file)))
+    && !file.endsWith(path.join('apps', 'web', 'src', 'payload-types.ts')),
 })
 const failures = []
 

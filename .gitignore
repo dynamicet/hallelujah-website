@@ -25,8 +25,8 @@ tmp/
 *.db
 *.db-shm
 *.db-wal
-src/payload-types.ts
-src/payload-generated-schema.ts
+apps/web/src/payload-types.ts
+apps/web/src/payload-generated-schema.ts
 
 # Editor and operating-system metadata
 .idea/

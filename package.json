@@ -24,6 +24,7 @@
     "form-primitives:check": "pnpm --dir apps/web form-primitives:check",
     "form-primitives:smoke": "node scripts/check-rendered-foundations.mjs --shell --search-controls --form-primitives --capture-prefix b01-009-form-primitives",
     "governed-records:check": "pnpm --dir apps/web governed-records:check",
+    "governed-records:db-smoke": "pnpm --dir apps/web governed-records:db-smoke",
     "local-db-isolation:check": "pnpm --dir apps/web local-db-isolation:check",
     "foundations:smoke": "node scripts/check-rendered-foundations.mjs",
     "introduction:check": "node scripts/check-introduction-gates.mjs",
