@@ -140,7 +140,7 @@
 | Decision | Backlog coverage | Verification |
 | --- | --- | --- |
 | `ARCH-01` Application platform | `B00-004`–`B00-005`, `B01-001` | Pinned build and contract-driven production architecture |
-| `ARCH-02` Data separation | `B00-008`–`B00-010`, `B03-015` | Cross-role denial, migrations, backup/restore, threat tests |
+| `ARCH-02` Data separation | `B00-008`–`B00-010`, `B02-001`, `B03-015` | Local cross-role denial for controlled `B02-001`; VPS cross-role denial, migrations, backup/restore, threat tests before staging/production |
 | `ARCH-03` Repo/hosting/environments | `B00-006`–`B00-007`, `B00-012` | Environment isolation, approved VPS/DNS/TLS decisions |
 | `ARCH-04` CI/package/deployment | `B00-011`–`B00-012`, `B07-011`–`B07-012` | Required checks, immutable artifact, rollback rehearsal |
 | `ARCH-05` First-party minimum | `B00-014`, `B01-011`, `B06-002`, `B07-009` | Zero unapproved provider requests and failure tests |

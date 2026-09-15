@@ -1,0 +1,18 @@
+# `B02-001` Controlled CMS Integration Evidence — 16 September 2026
+
+| Field | Record |
+| --- | --- |
+| Ticket / state | `B02-001` Proposed → Ready → In progress → In review → Done for controlled development on 16 September 2026, Africa/Addis_Ababa; formal production acceptance remains open |
+| Direction / temporary responsible and acceptance | Client workspace identity `befikadusata` directed completion on 16 September 2026, Africa/Addis_Ababa; Codex implemented and checked in temporary Backend, Content, and QA roles. Named production owners remain due. |
+| Target | Isolated local `T0`; disposable PostgreSQL 18.6 Unix-socket clusters; private-repository implementation `T1` |
+| Build and issue | Branch `b02-001-controlled-governed-records` after pull request `#19` merged; [issue `#20`](https://github.com/dynamicet/hallelujah-website/issues/20) and [pull request `#21`](https://github.com/dynamicet/hallelujah-website/pull/21) |
+| Method | Payload collection write hook over pure governed-record validator; synthetic create and retirement through Payload Local API; separate negative role/database checks over `psql`; no TCP listener or real records |
+| Expected / actual | Synthetic record saved and retired but remained public-ineligible; unauthenticated collection access and endpoints disabled by config; stable public ID and append-only audit enforced; cross-role database connections/read/mutations denied. Local checks passed. |
+| Defect / retest | First CMS schema push proposed deleting the role-isolation fixture table and was declined. A fresh cluster kept the role evidence intact. PostgreSQL JSON key reordering exposed an audit comparison defect; field-wise comparison passed on retest. Payload's PostgreSQL adapter retains one reconnect client, so the one-shot smoke exits after its assertions. |
+| Evidence handling | Repository contains only synthetic source/test data and this sanitized record. Temporary clusters remain under `/tmp`; no credentials, appointment data, authentic content, or restricted output captured. |
+| Full repository verification | Pinned Node.js 24.21.0 `pnpm verify` passed on 16 September 2026 after rerunning local loopback checks outside the sandbox: toolchain, formatting, CI controls, links, secrets, backlog, brand, introduction gates, lint, types, application tests/build, accessibility, asset budgets, runtime, and rendered foundations. |
+| Security/dependency check | Reachable-history `pnpm secrets:check --history` passed. Escalated package-registry advisory check covered 650 dependencies with zero moderate, high, or critical known vulnerabilities. |
+| Hosted implementation gate | [`quality-and-security` run `35027072222`](https://github.com/dynamicet/hallelujah-website/actions/runs/35027072222) completed successfully for exact pull-request head `0d16b2cd8b412bedc91498a1be39dc51e4cb5ff0` on 16 September 2026, Africa/Addis_Ababa. Hosted policy, history secret scan, dependency audit, verification, and clean rebuild passed. |
+| Acceptance / remaining | The same client workspace identity accepted the controlled-development `T0/T1` evidence in temporary Backend, Content, and QA roles. The documentation-closeout head must repeat hosted CI before merge. Named production owners, `B02-002` workflow, VPS provisioning, authentic content, and publication remain gated. |
+
+The local role checker passed again on 16 September 2026 against the original isolated fixture cluster. The CMS persistence smoke passed against a second clean cluster after Payload created its own tables. The installed adapter warns that no email adapter is configured; the controlled smoke sends no email and external services remain disabled.

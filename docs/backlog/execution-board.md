@@ -1,7 +1,7 @@
 # Backlog Execution Board
 
 **Status:** Active execution control  
-**Basis date:** 15 September 2026
+**Basis date:** 16 September 2026
 **Publication and collection authority:** Not granted
 
 ## Purpose
@@ -22,6 +22,8 @@ This board turns the planning baseline into a controlled pull system. It identif
 - On 14 September 2026, the client corrected the requested ticket and directed `B01-009`. It is **Done** for controlled development after its full local matrix, sanitized evidence, and hosted implementation gate passed on branch `b01-009-accessible-form-primitives` under [issue `#14`](https://github.com/dynamicet/hallelujah-website/issues/14) and [pull request `#15`](https://github.com/dynamicet/hallelujah-website/pull/15). The documentation-closeout head must repeat CI before merge. Appointment routes/backends, personal-data collection, real receipts, providers, production, and publication remain disabled.
 - On 14 September 2026, the client directed the next execution after pull request `#15` merged. `B01-010` is **Done** for controlled development after its full local matrix, history secret scan, dependency audit, sanitized visual evidence, and hosted implementation `T1` passed on 15 September under [issue `#16`](https://github.com/dynamicet/hallelujah-website/issues/16), [pull request `#17`](https://github.com/dynamicet/hallelujah-website/pull/17), and [hosted run](https://github.com/dynamicet/hallelujah-website/actions/runs/34896169521). The documentation-closeout head must repeat CI before merge. Real hospital states, operations, personal data, providers, public routes, production, and publication remain disabled.
 - On 15 September 2026, the client directed `B01-012`. It is **Done** for controlled development after its full local and hosted implementation `T1` passed under [issue `#18`](https://github.com/dynamicet/hallelujah-website/issues/18), [pull request `#19`](https://github.com/dynamicet/hallelujah-website/pull/19), and [hosted run](https://github.com/dynamicet/hallelujah-website/actions/runs/35006070614). The documentation-closeout head must repeat CI before merge. Authentic hospital media, external providers, public routes, production, and publication remain gated.
+- On 15 September 2026, the client directed a controlled-development sequencing amendment for `B02-001`: record-schema and controlled-fixture work may start without the deferred VPS selection. Integrated local acceptance requires evidence that separate local public-content and appointment PostgreSQL roles deny cross-role access. `B00-008` retains its initial-VPS provisioning outcome and remains Blocked until `B00-007` and named production owners return. This amendment does not promote `B02-001` to Ready or Done, authorize real appointment data, or change production gates. The [extracted boundary](b02-001-controlled-governed-record-contract.md) governs the local pull; [issue `#20`](https://github.com/dynamicet/hallelujah-website/issues/20) tracks hosted review and remaining integration.
+- On 16 September 2026, the client directed completion of `B02-001`. It is **Done** for controlled development after its Payload write boundary, synthetic CMS persistence/retirement smoke, kind-matched approval, immutable ID/audit checks, repeat local cross-role denial, full repository verification, reachable-history secret scan, dependency audit, and [hosted exact-head run `35027072222`](https://github.com/dynamicet/hallelujah-website/actions/runs/35027072222) passed for commit `0d16b2c`. The documentation-closeout head must repeat CI before [pull request `#21`](https://github.com/dynamicet/hallelujah-website/pull/21) merges. `B00-008`, `GOV-01`, authentic records, CMS role/workflow approval, remote provisioning, collection, and publication remain gated. Once `#21` merges, `B01-008` is the next controlled pull.
 
 ## Status authority and update rule
 
@@ -130,7 +132,7 @@ application, and rendered checks. No public search route, real record/taxonomy, 
 query logging, remote suggestion, provider, personal-data flow, or publication authority is added.
 Issue `#12`, pull request `#13`, and hosted run `34884990666` carry repository review and the passing
 implementation `T1`; the documentation closeout head must repeat the gate before merge. `B01-008`
-remains blocked by `B02-001`; `B01-009` unlocks after pull request `#13` merges.
+waits for the controlled `B02-001` contract; `B01-009` unlocks after pull request `#13` merges.
 
 `B01-009` was promoted Proposed → Ready → In progress → In review → Done on 14 September 2026 after the client
 corrected the requested ticket and directed execution, with pull request `#13` already merged. Its
