@@ -1,6 +1,6 @@
 # `B01-012` — Progressive Motion and Opt-In Media Architecture
 
-**Status:** In review for controlled development; local `T0` passes, hosted `T1` remains open
+**Status:** Done for controlled development; local `T0` and hosted implementation `T1` pass
 
 **Execution date:** 15 September 2026, Africa/Addis_Ababa
 
@@ -10,7 +10,7 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P1` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress → In review on client instruction to start `B01-012` and passing local evidence; Done requires exact-head hosted `T1` |
+| Old / new status | Proposed → Ready → In progress → In review → Done on client instruction to start `B01-012`, passing local evidence, and hosted implementation `T1` for `ef3d85f` |
 | Responsible / acceptance | Client workspace identity `befikadusata` directing Codex in temporary Frontend Lead, Designer, and QA roles / same identity for controlled-development acceptance; named Product, Brand, Accessibility, Content, Privacy, Security, Language, Delivery, QA, and Release people return at production gates |
 | Target | Isolated local `T0` application and Chromium; private-repository implementation `T1` after pull-request review |
 | Dependencies | `B01-003`–`B01-004` Done; `B01-002` project brand approved for planning; authentic media stays gated by `B02-011`; providers stay disabled under `B00-014` and `SEC-02` |
@@ -18,7 +18,7 @@
 | Explicit exclusions | No hospital footage, photography, claims, provider, new public route, personal-data collection, real appointment/media content, deployment, production, DNS, or publication |
 | Sources | [Epic 01 scope](epic-01-design-system-global.md); [production motion amendment](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md); [motion contract](../design-system/interaction-and-motion.md); [developer handoff](../visual-design/handoff/developer-handoff.md) |
 | Evidence destination | [Local completion evidence](evidence/B01-012-progressive-motion-media-2026-09-15.md) and sanitized captures under `evidence/b01-012-rendered/` |
-| Repository review | [Issue `#18`](https://github.com/dynamicet/hallelujah-website/issues/18); pull request and hosted exact-head run pending |
+| Repository review | [Issue `#18`](https://github.com/dynamicet/hallelujah-website/issues/18), [pull request `#19`](https://github.com/dynamicet/hallelujah-website/pull/19), and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/35006070614) passing on `ef3d85f`; documentation-closeout head must repeat CI before merge |
 
 ## Observable acceptance
 
