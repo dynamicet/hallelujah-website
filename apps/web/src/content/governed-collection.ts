@@ -30,6 +30,9 @@ export function validateStoredRecordChange(
     if (record.publicId !== old.publicId || record.kind !== old.kind) {
       throw new Error('Stable public ID and record kind cannot change')
     }
+    if (record.clinician?.identityKey !== old.clinician?.identityKey) {
+      throw new Error('Stable clinician roster identity cannot change')
+    }
     if (record.status !== old.status && !canTransition(old.status, record.status)) {
       throw new Error('Governed status transition is not allowed')
     }
@@ -45,7 +48,12 @@ export function validateStoredRecordChange(
   }
 
   const checkedPeers = peers.map(requireRecord)
-  const issues = validateRecordSet([...checkedPeers, record])
+  const issues = [...validateRecordSet([...checkedPeers, record])]
+  const successor = record.withdrawal?.successorPublicId
+    && checkedPeers.find((peer) => peer.publicId === record.withdrawal?.successorPublicId)
+  if (record.kind === 'doctor' && successor && !['approved', 'scheduled', 'published'].includes(successor.status)) {
+    issues.push('clinician successor must be approved and current')
+  }
   if (issues.length > 0) throw new Error(`Governed record set rejected: ${issues.join('; ')}`)
   return record
 }

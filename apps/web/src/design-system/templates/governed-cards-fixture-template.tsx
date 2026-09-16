@@ -15,6 +15,14 @@ function syntheticRecord(kind: Exclude<GovernedKind, 'site-settings'>, status: G
     kind,
     status,
     synthetic: true,
+    ...(kind === 'doctor' ? { clinician: {
+      identityKey: `clin_${suffix.padEnd(12, '0')}`, rosterStatus: 'current' as const,
+      localized: { en: { name: `Synthetic ${kind} specimen`, professionalTitle: null,
+        credentials: [], specialties: ['Synthetic specialty only'], interests: [], languages: [], availabilityGuidance: null } },
+      locationPublicIds: [], portrait: null,
+      schedule: { state: 'withheld' as const, reason: 'Synthetic schedule is withheld', entries: [] },
+      appointment: { state: 'withheld' as const, reason: 'Synthetic appointment is withheld' },
+    } } : {}),
     localized: {
       en: { slug: `synthetic-${kind}-${suffix}`, title: `Synthetic ${kind} specimen` },
     },

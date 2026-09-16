@@ -55,3 +55,9 @@ English/unreviewed Amharic shaping and byte reporting. See the
 [`B01-013` execution brief](docs/backlog/b01-013-component-review-harness.md).
 
 The internal canonical settings record uses the existing authenticated CMS Local API. Run `pnpm site-settings:check` for schema, safety/lifecycle negatives and bilingual inert-render consistency. The [B02-003 execution brief](docs/backlog/b02-003-canonical-site-settings.md) and [architecture](docs/architecture/canonical-site-settings.md) define its synthetic-only boundary; public contact values remain withheld pending hospital safety approval.
+
+Controlled clinician records use that same authenticated CMS boundary. Run `pnpm clinicians:check`
+for schema, medical approval, duplicate/canonical/lifecycle negatives and bilingual inert rendering.
+The [B02-004 execution brief](docs/backlog/b02-004-governed-clinician-records.md) and
+[architecture](docs/architecture/governed-clinician-records.md) define its synthetic-only scope.
+Public clinicians, schedules, portraits and appointment actions remain withheld.

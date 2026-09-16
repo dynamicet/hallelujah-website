@@ -3,9 +3,9 @@ import { spawnSync } from 'node:child_process'
 
 const host = process.env.B02_001_PGHOST
 const port = process.env.B02_001_PGPORT
-if (!host?.startsWith('/tmp/hallelujah-b02-001-pg.') || !/^\d{2,5}$/.test(port ?? '')
+if (!/^\/(?:var\/)?tmp\/hallelujah-b02-001-pg\.[a-zA-Z0-9]+$/.test(host ?? '') || !/^\d{2,5}$/.test(port ?? '')
   || process.env.PGPASSWORD) {
-  process.stderr.write('Use a disposable /tmp/hallelujah-b02-001-pg.* Unix socket and port, without PGPASSWORD.\n')
+  process.stderr.write('Use a disposable /tmp or /var/tmp hallelujah-b02-001-pg.* Unix socket and port, without PGPASSWORD.\n')
   process.exit(2)
 }
 
