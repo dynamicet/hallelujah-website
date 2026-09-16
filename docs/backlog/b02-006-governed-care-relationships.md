@@ -1,6 +1,6 @@
 # B02-006 — Governed Care Relationships
 
-**Status:** In review for controlled development; local T0 and hosted implementation T1 passed; client acceptance pending.
+**Status:** Done for controlled development; client acceptance recorded on 16 September 2026, Africa/Addis_Ababa. Final closeout CI and merge results are tracked in PR #41.
 **Date/timezone:** 16 September 2026, Africa/Addis_Ababa.
 
 The client directed “proceed with steps” after the proposed B02-006 execution.
@@ -48,10 +48,19 @@ Run `pnpm care-relationships:check`, `pnpm governed-records:db-smoke`,
 
 No authentic relationship, hospital content, approved translation, public/CMS route, personal-data
 collection, external provider, asset intake, legacy migration, provisioning or publication is authorized.
-CARE-06 and all production gates remain open. Implementation review does not constitute client acceptance.
+CARE-06 and all production gates remain open. Controlled-development acceptance does not authorize production.
 
 [Issue #40](https://github.com/dynamicet/hallelujah-website/issues/40) tracks the controlled execution.
 
 [PR #41](https://github.com/dynamicet/hallelujah-website/pull/41) records review. [hosted implementation run 35133605026](https://github.com/dynamicet/hallelujah-website/actions/runs/35133605026) passed all steps, including clean reconstruction, for
 `78aabb244a67d01b3b3330c40e423334cff9d27e`. The final documentation head must repeat CI
 before merge; its matching SHA/run is tracked in issue #40 and PR #41.
+
+On 16 September 2026, Africa/Addis_Ababa, the client directed “close it”. Workspace identity
+`befikadusata` accepts the synthetic local scope under the same temporary Backend/CMS,
+Content/Clinical-contract and QA responsibility and controlled-development review authority.
+B02-006 moves In review → Done. Documentation [run 35134533900](https://github.com/dynamicet/hallelujah-website/actions/runs/35134533900)
+passed all steps for `b6e2d6bf5aafd028d0c9d03d04e258ab6906a744`. The final acceptance
+commit must repeat hosted CI before merge; issue #40 and PR #41 retain its matching SHA/run,
+merge and exact-main result. Authentic affiliations, hospital approvals, appointment collection
+and publication remain gated.

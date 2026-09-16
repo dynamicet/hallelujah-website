@@ -452,3 +452,15 @@ clean reconstruction, for exact head `78aabb244a67d01b3b3330c40e423334cff9d27e` 
 The ticket remains In review pending client controlled-development acceptance. The final
 documentation head must repeat CI before merge; issue #40 and PR #41 track its matching SHA/run.
 CARE-06, authentic affiliations, hospital approval, collection and publication remain gated.
+
+On 16 September 2026, Africa/Addis_Ababa, the client directed “close it”. B02-006 moves
+In review → **Done** for controlled development under workspace identity `befikadusata`
+directing Codex in the same temporary Backend/CMS, Content/Clinical-contract and QA roles,
+with the same identity as controlled-development acceptance authority and the same synthetic
+local T0/private hosted T1 target. Dependencies B02-004/B02-005 are Done. [Completion evidence](evidence/B02-006-governed-care-relationships-2026-09-16.md)
+and [issue #40](https://github.com/dynamicet/hallelujah-website/issues/40) retain passing local
+verification and acceptance. Documentation [run 35134533900](https://github.com/dynamicet/hallelujah-website/actions/runs/35134533900)
+passed all steps, including clean reconstruction, for `b6e2d6bf5aafd028d0c9d03d04e258ab6906a744`.
+The final acceptance commit must repeat hosted CI before [PR #41](https://github.com/dynamicet/hallelujah-website/pull/41)
+merges; issue #40 and PR #41 record its matching SHA/run, merge and exact-main result.
+CARE-06, authentic affiliations, hospital approval, collection and publication remain gated.

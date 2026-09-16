@@ -1,6 +1,6 @@
 # B02-006 — Execution Evidence
 
-**Status:** Proposed → Ready → In progress → In review for controlled development.
+**Status:** Proposed → Ready → In progress → In review → Done for controlled development; client acceptance recorded on 16 September 2026, Africa/Addis_Ababa. Final closeout CI and merge results are tracked in PR #41.
 **Date/timezone:** 16 September 2026, Africa/Addis_Ababa.
 **Responsible/review authority:** `befikadusata` directing Codex in temporary Backend/CMS,
 Content/Clinical-contract and QA roles; same identity for controlled-development review.
@@ -59,8 +59,21 @@ Handoff candidates contain doctor/service/location public IDs only and remain in
 
 No implementation defect remains open. Hosted implementation T1 passed all steps, including clean
 reconstruction, for `78aabb244a67d01b3b3330c40e423334cff9d27e` under [hosted implementation run 35133605026](https://github.com/dynamicet/hallelujah-website/actions/runs/35133605026).
-Client controlled-development acceptance is pending. CARE-06, authentic affiliations, hospital clinical/operations approval,
+The client subsequently accepted controlled development and directed closure. CARE-06, authentic affiliations, hospital clinical/operations approval,
 appointment collection, providers, public routes, production and publication remain gated.
 
 [PR #41](https://github.com/dynamicet/hallelujah-website/pull/41) retains hosted review and the final documentation head SHA/run. The documentation
 head must repeat CI before merge. Implementation acceptance does not authorize production.
+
+## Review and acceptance boundary
+
+On 16 September 2026, Africa/Addis_Ababa, the client directed “close it”. Workspace identity
+`befikadusata` accepts the synthetic local scope under the same temporary Backend/CMS,
+Content/Clinical-contract and QA responsibility and controlled-development review authority.
+Local T0 and hosted implementation T1 passed; documentation [run 35134533900](https://github.com/dynamicet/hallelujah-website/actions/runs/35134533900)
+passed full verification and clean reconstruction for exact head
+`b6e2d6bf5aafd028d0c9d03d04e258ab6906a744`. No implementation defect remains open.
+This direction promotes In review → Done for controlled development. The acceptance commit
+must repeat hosted CI before merge; issue #40 and PR #41 retain its matching SHA/run, merge
+and exact-main result. CARE-06, authentic affiliations, hospital clinical/operations approval,
+appointment collection, providers, public routes, production and publication remain gated.
