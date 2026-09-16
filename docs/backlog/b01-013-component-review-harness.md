@@ -19,7 +19,7 @@
 | Fixtures / languages | Existing visibly synthetic component specimens; English source meaning plus repeated, explicitly unreviewed Amharic shaping/mixed-script stress. No translation is approved or invented. |
 | Exclusions | No public route, hospital claim, authentic media/font/logo intake, personal-data flow, provider, package, CMS workflow, appointment outcome, migration, deployment, production, DNS, or publication |
 | Branch | `b01-013-component-review-harness` |
-| Review tracker | [issue `#26`](https://github.com/dynamicet/hallelujah-website/issues/26) tracks execution; pull-request submission follows local closeout; exact-head hosted result is tracked there before merge; client acceptance remains pending |
+| Review tracker | [issue `#26`](https://github.com/dynamicet/hallelujah-website/issues/26) tracks execution; [draft PR `#27`](https://github.com/dynamicet/hallelujah-website/pull/27) contains implementation and exact-head hosted review; successful current-head CI is required before merge; client acceptance remains pending |
 | Evidence destination | [Local evidence](evidence/B01-013-component-review-harness-2026-09-16.md), sanitized captures and JSON under `evidence/b01-013-rendered/` |
 | Sources | [Epic 01](epic-01-design-system-global.md), [component evidence baseline](../visual-design/components/README.md), [motion/media acceptance](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md#9-acceptance-before-production), [working matrix](../validation/implementation-acceptance-matrix.md), [architecture](../architecture/component-review-harness.md) |
 

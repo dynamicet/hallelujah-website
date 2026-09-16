@@ -76,3 +76,9 @@ plus wide static media and the review overview. Consequential labels wrap; nativ
 neutral fallbacks, written posters, protected urgent content and retired-action omission remain
 complete. No open local defect remains. Physical devices, human AT, actual zoom, consequential
 Amharic meaning and production performance are not certified by these local automated cases.
+
+**Repository review:** [Issue `#26`](https://github.com/dynamicet/hallelujah-website/issues/26) and
+[draft PR `#27`](https://github.com/dynamicet/hallelujah-website/pull/27) track the scoped implementation
+commit `610a3cb` and exact-head hosted `T1`. The latest successful run and matching SHA are recorded
+in the tracker before merge; this local narrative does not substitute for that current-head gate.
+Client controlled-development acceptance remains pending.
