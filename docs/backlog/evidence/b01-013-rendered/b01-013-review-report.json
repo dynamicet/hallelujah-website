@@ -1,0 +1,957 @@
+{
+  "ticket": "B01-013",
+  "environment": "local T0",
+  "groups": [
+    {
+      "id": "foundation-evidence",
+      "marker": "data-foundation-fixture",
+      "ticket": "B01-004",
+      "components": [
+        "StatusSummary"
+      ],
+      "states": [
+        "system font fallback",
+        "long English",
+        "Ethiopic shaping",
+        "mixed script",
+        "focus",
+        "print"
+      ]
+    },
+    {
+      "id": "action-evidence",
+      "marker": "data-essential-actions-fixture",
+      "ticket": "B01-005",
+      "components": [
+        "ActionButton",
+        "ActionGroup",
+        "ActionLink",
+        "CallAction",
+        "EmergencyAction",
+        "TextLink",
+        "Icon"
+      ],
+      "states": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "disabled with reason",
+        "controlled call",
+        "protected emergency"
+      ]
+    },
+    {
+      "id": "shell-evidence",
+      "marker": "data-global-shell-fixture",
+      "ticket": "B01-006",
+      "components": [
+        "Breadcrumbs",
+        "LanguageSwitcher",
+        "PrimaryNavigation",
+        "SiteFooter",
+        "SiteHeader",
+        "SiteShell",
+        "SkipLink"
+      ],
+      "states": [
+        "wide",
+        "compact",
+        "open",
+        "closed",
+        "current",
+        "language unavailable",
+        "skip target",
+        "Escape focus restoration"
+      ]
+    },
+    {
+      "id": "search-controls-evidence",
+      "marker": "data-search-controls-fixture",
+      "ticket": "B01-007",
+      "components": [
+        "ActiveFilterList",
+        "FilterDisclosure",
+        "FilterGroup",
+        "Pagination",
+        "ResultCount",
+        "SearchBox",
+        "SearchControlsForm"
+      ],
+      "states": [
+        "default",
+        "filtered",
+        "empty",
+        "reset",
+        "pagination",
+        "compact disclosure",
+        "deep link",
+        "Back/Forward"
+      ]
+    },
+    {
+      "id": "form-primitives-evidence",
+      "marker": "data-form-primitives-fixture",
+      "ticket": "B01-009",
+      "components": [
+        "ChoiceGroup",
+        "ErrorSummary",
+        "FormActions",
+        "FormPrimitiveForm",
+        "FormStatus",
+        "FormSubmitButton",
+        "SelectField",
+        "TextAreaField",
+        "TextField"
+      ],
+      "states": [
+        "required",
+        "optional",
+        "help",
+        "validation error",
+        "summary focus",
+        "pending",
+        "synthetic receipt",
+        "delivery warning",
+        "known failure",
+        "collection disabled",
+        "retained values"
+      ]
+    },
+    {
+      "id": "system-states-evidence",
+      "marker": "data-system-states-fixture",
+      "ticket": "B01-010",
+      "components": [
+        "LoadingStatus",
+        "NonCriticalSkeleton",
+        "SystemAlert",
+        "SystemState",
+        "TemporaryNotice"
+      ],
+      "states": [
+        "information",
+        "warning",
+        "success specimen",
+        "blocking error",
+        "temporary notice",
+        "loading",
+        "empty",
+        "error",
+        "offline",
+        "unavailable",
+        "expired",
+        "state precedence"
+      ]
+    },
+    {
+      "id": "motion-media-evidence",
+      "marker": "data-motion-media-fixture",
+      "ticket": "B01-012",
+      "components": [
+        "ExperienceRegion",
+        "MotionAccent",
+        "OptInMedia"
+      ],
+      "states": [
+        "Level 0 protected",
+        "Level 1 ceiling",
+        "Level 2 composed",
+        "Level 3 decorative",
+        "Level 4 explicit media",
+        "poster",
+        "playing",
+        "paused",
+        "stopped",
+        "ended",
+        "failed",
+        "captions",
+        "transcript",
+        "route exit",
+        "history restoration"
+      ]
+    },
+    {
+      "id": "governed-cards-evidence",
+      "marker": "data-governed-cards-fixture",
+      "ticket": "B01-008",
+      "components": [
+        "GovernedCard"
+      ],
+      "states": [
+        "doctor",
+        "service",
+        "location",
+        "vacancy",
+        "optional omission",
+        "review metadata",
+        "neutral media fallback",
+        "unavailable",
+        "expired",
+        "retired",
+        "public gate closed"
+      ]
+    },
+    {
+      "id": "optional-map-evidence",
+      "marker": "data-optional-map-fixture",
+      "ticket": "B01-011",
+      "components": [
+        "OptionalMap"
+      ],
+      "states": [
+        "idle",
+        "blocked",
+        "loading",
+        "failure",
+        "local acknowledgement",
+        "local placeholder active",
+        "removed",
+        "revoked",
+        "route exit",
+        "provider disabled"
+      ]
+    }
+  ],
+  "capabilities": [
+    "default",
+    "reduced-motion",
+    "save-data",
+    "forced-colors",
+    "no-javascript",
+    "images-fonts-blocked",
+    "coarse-pointer",
+    "print",
+    "200%-text"
+  ],
+  "languages": [
+    "en",
+    "am"
+  ],
+  "protectedContexts": [
+    {
+      "context": "emergency",
+      "requestedLevel": 3,
+      "resolvedLevel": 0
+    },
+    {
+      "context": "urgent-guidance",
+      "requestedLevel": 3,
+      "resolvedLevel": 0
+    },
+    {
+      "context": "consequential-appointment",
+      "requestedLevel": 3,
+      "resolvedLevel": 0
+    },
+    {
+      "context": "error",
+      "requestedLevel": 3,
+      "resolvedLevel": 0
+    },
+    {
+      "context": "privacy-consent",
+      "requestedLevel": 3,
+      "resolvedLevel": 0
+    },
+    {
+      "context": "unavailable-expired",
+      "requestedLevel": 3,
+      "resolvedLevel": 0
+    },
+    {
+      "context": "unknown-outcome",
+      "requestedLevel": 3,
+      "resolvedLevel": 0
+    }
+  ],
+  "samples": {
+    "en": {
+      "htmlGzipBytes": 12426,
+      "javascriptGzipBytes": 3626,
+      "initialGzipBytes": 28107,
+      "initialRequests": 9,
+      "externalOrigins": 0,
+      "basis": "largest initial specimen observed for this language"
+    },
+    "am": {
+      "htmlGzipBytes": 13068,
+      "javascriptGzipBytes": 3626,
+      "initialGzipBytes": 28749,
+      "initialRequests": 9,
+      "externalOrigins": 0,
+      "basis": "largest initial specimen observed for this language"
+    }
+  },
+  "motionRuntime": {
+    "bytes": 3608,
+    "gzipBytes": 982,
+    "externalRuntimeBytes": 0
+  },
+  "activatedMedia": {
+    "bytes": 1196,
+    "codec": "WebM/VP9",
+    "durationSeconds": 2,
+    "captions": "WebVTT",
+    "captionBytes": 82,
+    "posterAssetBytes": 0,
+    "poster": "server-rendered written still",
+    "provider": "none",
+    "initialVideoBytes": 0
+  },
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/152.0.7977.64",
+    "revision": "@506c834ecceaa943c5f41e6cfe7f68acb5c45346",
+    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+    "jsVersion": "15.2.124.18"
+  },
+  "results": [
+    {
+      "language": "en",
+      "capability": "default",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "default",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "default",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "default",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "default",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "reduced-motion",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "reduced-motion",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "reduced-motion",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "reduced-motion",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "reduced-motion",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "save-data",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "save-data",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "save-data",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "save-data",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "save-data",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "forced-colors",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "forced-colors",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "forced-colors",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "forced-colors",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "forced-colors",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "no-javascript",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "no-javascript",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "no-javascript",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "no-javascript",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "no-javascript",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "images-fonts-blocked",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "images-fonts-blocked",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "images-fonts-blocked",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "images-fonts-blocked",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "images-fonts-blocked",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "coarse-pointer",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "coarse-pointer",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "coarse-pointer",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "coarse-pointer",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "coarse-pointer",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "print",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "print",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "print",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "print",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "print",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "200%-text",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "200%-text",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "200%-text",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "200%-text",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "200%-text",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "default",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "default",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "default",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "default",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "default",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "reduced-motion",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "reduced-motion",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "reduced-motion",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "reduced-motion",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "reduced-motion",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "save-data",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "save-data",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "save-data",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "save-data",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "save-data",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "forced-colors",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "forced-colors",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "forced-colors",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "forced-colors",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "forced-colors",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "no-javascript",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "no-javascript",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "no-javascript",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "no-javascript",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "no-javascript",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "images-fonts-blocked",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "images-fonts-blocked",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "images-fonts-blocked",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "images-fonts-blocked",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "images-fonts-blocked",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "coarse-pointer",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "coarse-pointer",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "coarse-pointer",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "coarse-pointer",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "coarse-pointer",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "print",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "print",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "print",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "print",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "print",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "200%-text",
+      "width": 320,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "200%-text",
+      "width": 360,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "200%-text",
+      "width": 768,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "200%-text",
+      "width": 1280,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "am",
+      "capability": "200%-text",
+      "width": 1440,
+      "result": "pass",
+      "groups": 9
+    },
+    {
+      "language": "en",
+      "capability": "keyboard-menu-form-map-media-actual-end-page-exit-deep-link-back-forward",
+      "result": "pass"
+    },
+    {
+      "language": "am",
+      "capability": "keyboard-menu-form-map-media-actual-end-page-exit-deep-link-back-forward",
+      "result": "pass"
+    }
+  ],
+  "coverage": {
+    "viewportCapabilityCases": 90,
+    "interactionCases": 2,
+    "lowerTier": "local T0 Chromium emulation",
+    "fullInteractionSuite": "shared renderer checks run all B01-005–B01-012 modes before this matrix",
+    "productionAcceptance": "pending named language, browser/AT and physical-device T3 evidence"
+  }
+}
