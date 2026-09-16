@@ -56,7 +56,8 @@
     "review-harness:smoke": "node scripts/check-rendered-foundations.mjs --review-harness --capture-prefix b01-013-review-harness",
     "cms-workflow:check": "pnpm --dir apps/web cms-workflow:check",
     "site-settings:check": "pnpm --dir apps/web site-settings:check",
-    "clinicians:check": "pnpm --dir apps/web clinicians:check"
+    "clinicians:check": "pnpm --dir apps/web clinicians:check",
+    "services:check": "pnpm --dir apps/web services:check"
   },
   "pnpm": {
     "overrides": {

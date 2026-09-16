@@ -3,6 +3,8 @@ import { randomBytes } from 'node:crypto'
 import { getPayload } from 'payload'
 import { publicEligibility } from '../src/content/governed-record.ts'
 import { canonicalContactView } from '../src/content/canonical-contact-view.ts'
+import { serviceFixture } from './lib/service-fixture.mjs'
+import { controlledServiceIndex, controlledServiceResolution, controlledServiceTaxonomy } from '../src/content/service-view.ts'
 import { clinicianFixture } from './lib/clinician-fixture.mjs'
 import { controlledClinicianIndex, controlledClinicianResolution } from '../src/content/clinician-view.ts'
 import { siteSettingsFixture } from './lib/site-settings-fixture.mjs'
@@ -31,7 +33,7 @@ const { advanceDueCmsRecords } = await import('../src/content/cms-lifecycle.ts')
 const instant = (offset) => new Date(Date.now() + offset).toISOString().replace(/\.\d{3}Z$/, 'Z')
 const fixture = {
   publicId: `pub_${fixtureSuffix}`,
-  kind: 'service', status: 'draft', synthetic: true,
+  kind: 'page', status: 'draft', synthetic: true,
   localized: { en: { slug: `controlled-cms-${fixtureSuffix}`, title: 'Synthetic CMS workflow fixture' } },
   source: { reference: 'synthetic-cms-smoke', recordedAt: instant(-86400000) },
   owner: null, reviewer: null, approval: null, domainApproval: null, relationships: [],
@@ -60,10 +62,10 @@ async function denied(operation, pattern) {
 }
 
 try {
-  const author = await identity('author', ['author', 'reviewer', 'clinical', 'operations', 'publisher'])
+  const author = await identity('author', ['author', 'reviewer', 'content', 'operations', 'publisher'])
   const otherAuthor = await identity('other-author', ['author'])
   const reviewer = await identity('reviewer', ['reviewer'])
-  const domain = await identity('domain', ['clinical', 'operations', 'reviewer'])
+  const domain = await identity('domain', ['content', 'operations', 'reviewer'])
   const publisher = await identity('publisher', ['publisher'])
   const manager = await identity('manager', ['identity-manager'])
   process.stdout.write('Synthetic CMS identities authenticated.\n')
@@ -109,12 +111,12 @@ try {
 
   doc = await command(doc, author, 'submit')
   await denied(() => command(doc, author, 'approve'), /self-approve/)
-  await denied(() => command(doc, reviewer, 'review-domain', { domain: 'clinical', reference: 'synthetic review' }),
-    /clinical role/)
-  await denied(() => command(doc, { ...reviewer, roles: ['clinical'] }, 'review-domain',
-    { domain: 'clinical', reference: 'synthetic forged-role review' }), /clinical role/)
+  await denied(() => command(doc, reviewer, 'review-domain', { domain: 'content', reference: 'synthetic review' }),
+    /content role/)
+  await denied(() => command(doc, { ...reviewer, roles: ['content'] }, 'review-domain',
+    { domain: 'content', reference: 'synthetic forged-role review' }), /content role/)
   await denied(() => command(doc, reviewer, 'approve'), /domain reviews/)
-  doc = await command(doc, domain, 'review-domain', { domain: 'clinical', reference: 'synthetic clinical review' })
+  doc = await command(doc, domain, 'review-domain', { domain: 'content', reference: 'synthetic content review' })
   doc = await command(doc, domain, 'review-domain', { domain: 'operations', reference: 'synthetic safety review' })
   await denied(() => command(doc, domain, 'approve'), /two distinct approval/)
   doc = await command(doc, reviewer, 'approve')
@@ -161,7 +163,7 @@ try {
     } },
   })
   timed = await command(timed, author, 'submit')
-  timed = await command(timed, domain, 'review-domain', { domain: 'clinical', reference: 'synthetic timed review' })
+  timed = await command(timed, domain, 'review-domain', { domain: 'content', reference: 'synthetic timed review' })
   timed = await command(timed, reviewer, 'approve')
   timed = await command(timed, publisher, 'schedule')
   assert.equal(timed.record.status, 'scheduled')
@@ -284,6 +286,71 @@ try {
   assert.equal(controlledClinicianResolution(clinicianSet, clinician.publicId, 'en', new Date(), 'controlled-fixture').state, 'redirect')
   await denied(() => payload.delete({ collection: 'governed-records', id: clinician.id, overrideAccess: true }), /withdrawn/)
   process.stdout.write('Clinician PostgreSQL persistence, immutable/duplicate identity, medical role revocation, withheld schedule, canonical projection and successor retirement passed.\n')
+  // B02-005: claim approval belongs to the persisted clinical reviewer, never the author.
+  const clinical = await identity('service-clinical', ['clinical'])
+  const serviceInput = serviceFixture(new Date(), `${fixtureSuffix}08`)
+  let service = await payload.create({ collection: 'governed-records', user: author, overrideAccess: false,
+    data: { record: serviceInput, contentClass: 'general' } })
+  const persistedService = await payload.findByID({ collection: 'governed-records', id: service.id,
+    user: author, overrideAccess: false })
+  assert.deepEqual(persistedService.record.service, serviceInput.service)
+  assert.equal(controlledServiceIndex([persistedService.record], 'en', new Date(), 'controlled-fixture').length, 0)
+  const duplicateService = serviceFixture(new Date(), `${fixtureSuffix}09`)
+  duplicateService.service.identityKey = serviceInput.service.identityKey
+  await denied(() => payload.create({ collection: 'governed-records', user: otherAuthor, overrideAccess: false,
+    data: { record: duplicateService, contentClass: 'general' } }), /duplicate service identity/)
+  const copiedService = serviceFixture(new Date(), `${fixtureSuffix}10`)
+  copiedService.service.claims[0].localized = serviceInput.service.claims[0].localized
+  await denied(() => payload.create({ collection: 'governed-records', user: otherAuthor, overrideAccess: false,
+    data: { record: copiedService, contentClass: 'general' } }), /copied cross-service/)
+  await denied(() => command(service, author, 'edit', {}, { record: { ...service.record,
+    service: { ...service.record.service, identityKey: `svc_${fixtureSuffix}11` } } }), /service identity cannot change/)
+  const preapproved = structuredClone(serviceInput)
+  preapproved.publicId = `pub_${fixtureSuffix}12`
+  preapproved.service.identityKey = `svc_${fixtureSuffix}12`
+  preapproved.service.claims[0].state = 'approved'
+  preapproved.service.claims[0].evidence.reviewer = `cms:${clinical.id}`
+  preapproved.service.claims[0].evidence.reviewedAt = instant(-3600000)
+  await denied(() => payload.create({ collection: 'governed-records', user: author, overrideAccess: false,
+    data: { record: preapproved, contentClass: 'general' } }), /cannot supply clinical approval/)
+  service = await command(service, author, 'submit')
+  await denied(() => command(service, medical, 'review-domain', { domain: 'clinical', reference: 'wrong medical role' }), /clinical role/)
+  await denied(() => command(service, reviewer, 'approve'), /claim approval evidence|domain reviews/)
+  service = await command(service, clinical, 'review-domain', { domain: 'clinical', reference: 'Synthetic persisted clinical review' })
+  assert.equal(service.record.service.claims[0].evidence.reviewer, `cms:${clinical.id}`)
+  service = await command(service, reviewer, 'approve')
+  await denied(() => command(service, publisher, 'publish', {}, { record: { ...service.record,
+    service: { ...service.record.service, dispositionReason: 'Changed after approval' } } }), /Content cannot change/)
+  await payload.update({ collection: 'users', id: clinical.id, user: manager, overrideAccess: false, data: { roles: ['medical'] } })
+  await denied(() => command(service, publisher, 'publish'), /Domain approval identity is inactive/)
+  await payload.update({ collection: 'users', id: clinical.id, user: manager, overrideAccess: false, data: { roles: ['clinical'] } })
+  service = await command(service, publisher, 'publish')
+  assert.equal(publicEligibility({ ...service.record, synthetic: false }, new Date()).reason, 'care-gated')
+  assert.deepEqual(controlledServiceIndex([service.record], 'en', new Date()), [])
+  assert.equal(controlledServiceIndex([service.record], 'en', new Date(), 'controlled-fixture')[0].appointment.servicePublicId, service.publicId)
+  assert.deepEqual(controlledServiceTaxonomy([service.record], 'en', new Date(), 'controlled-fixture')[0].services[0].vocabulary,
+    [serviceInput.service.localized.en.name, ...serviceInput.service.localized.en.synonyms])
+  let serviceSuccessor = await payload.create({ collection: 'governed-records', user: author, overrideAccess: false,
+    data: { record: serviceFixture(new Date(), `${fixtureSuffix}13`), contentClass: 'general' } })
+  await denied(() => command(service, publisher, 'withdraw', { reason: 'Synthetic successor not approved',
+    successorPublicId: serviceSuccessor.publicId }), /successor must be approved/)
+  serviceSuccessor = await command(serviceSuccessor, author, 'submit')
+  serviceSuccessor = await command(serviceSuccessor, clinical, 'review-domain', { domain: 'clinical', reference: 'Synthetic successor clinical review' })
+  serviceSuccessor = await command(serviceSuccessor, reviewer, 'approve')
+  serviceSuccessor = await command(serviceSuccessor, publisher, 'publish')
+  const serviceAudit = service.record.audit
+  service = await command(service, publisher, 'withdraw', { reason: 'Synthetic service successor',
+    successorPublicId: serviceSuccessor.publicId })
+  const retiredService = await payload.findByID({ collection: 'governed-records', id: service.id,
+    user: clinical, overrideAccess: false })
+  assert.equal(retiredService.publicId, serviceInput.publicId)
+  assert.equal(retiredService.record.service.identityKey, serviceInput.service.identityKey)
+  assert.deepEqual(retiredService.record.audit.slice(0, -1), serviceAudit)
+  const serviceSet = [retiredService.record, serviceSuccessor.record]
+  assert.deepEqual(controlledServiceIndex(serviceSet, 'en', new Date(), 'controlled-fixture').map((view) => view.publicId), [serviceSuccessor.publicId])
+  assert.equal(controlledServiceResolution(serviceSet, service.publicId, 'en', new Date(), 'controlled-fixture').state, 'redirect')
+  await denied(() => payload.delete({ collection: 'governed-records', id: service.id, overrideAccess: true }), /withdrawn/)
+  process.stdout.write('Service PostgreSQL persistence, duplicate/copy/immutable identity denials, clinical claim stamping and role revocation, taxonomy and successor retirement passed.\n')
   process.stdout.write('Disposable Payload/PostgreSQL authenticated workflow, timed lifecycle and retirement integration passed.\n')
 } catch (error) {
   process.stderr.write(`Disposable CMS smoke failed: ${error.message}\n`)

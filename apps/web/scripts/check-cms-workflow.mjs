@@ -12,7 +12,7 @@ process.env.LOCAL_PAYLOAD_SECRET = 'controlled-local-cms-fixture-secret-only'
 process.env.LOCAL_DATABASE_URL = 'postgresql://synthetic:placeholder@localhost:5432/hallelujah_content_local'
 
 export const draftFixture = {
-  publicId: 'pub_020202020202', kind: 'service', status: 'draft', synthetic: true,
+  publicId: 'pub_020202020202', kind: 'page', status: 'draft', synthetic: true,
   localized: { en: { slug: 'synthetic-workflow', title: 'Synthetic workflow fixture' } },
   source: { reference: 'synthetic-workflow-check', recordedAt: '2026-09-16T00:00:00Z' },
   owner: null, reviewer: null, approval: null, domainApproval: null, relationships: [],
@@ -20,9 +20,9 @@ export const draftFixture = {
   expiresAt: '2026-11-16T09:00:00Z', withdrawal: null, audit: [],
 }
 
-const author = { id: 'cms:1', roles: ['author', 'reviewer', 'clinical', 'operations', 'publisher'] }
+const author = { id: 'cms:1', roles: ['author', 'reviewer', 'content', 'operations', 'publisher'] }
 const reviewer = { id: 'cms:2', roles: ['reviewer'] }
-const domain = { id: 'cms:3', roles: ['clinical', 'operations'] }
+const domain = { id: 'cms:3', roles: ['content', 'operations'] }
 const publisher = { id: 'cms:4', roles: ['publisher'] }
 const now = new Date('2026-09-16T12:00:00Z')
 const created = createWorkflow(draftFixture, 'general', author, now)
@@ -49,14 +49,14 @@ rejects(created, author, 'invented-action', /Unsupported/)
 
 const submitted = action(created, author, 'submit')
 rejects(submitted, author, 'approve', /self-approve/)
-rejects(submitted, author, 'review-domain', /independent/, { domain: 'clinical', reference: 'test' })
-rejects(submitted, reviewer, 'review-domain', /clinical role/, { domain: 'clinical', reference: 'test' })
+rejects(submitted, author, 'review-domain', /independent/, { domain: 'content', reference: 'test' })
+rejects(submitted, reviewer, 'review-domain', /content role/, { domain: 'content', reference: 'test' })
 rejects(submitted, domain, 'review-domain', /matching reviewer/, { domain: 'operations', reference: 'test' })
-rejects(submitted, domain, 'review-domain', /reference/, { domain: 'clinical', reference: '' })
+rejects(submitted, domain, 'review-domain', /reference/, { domain: 'content', reference: '' })
 rejects(submitted, reviewer, 'approve', /matching domain reviews/)
 rejects(submitted, author, 'edit', /draft/, {}, submitted.record)
 
-const reviewed = action(submitted, domain, 'review-domain', { domain: 'clinical', reference: 'synthetic clinical review' })
+const reviewed = action(submitted, domain, 'review-domain', { domain: 'content', reference: 'synthetic content review' })
 const approved = action(reviewed, reviewer, 'approve')
 assert.equal(approved.record.status, 'approved')
 assert.equal(approved.record.approval.actor, reviewer.id)
@@ -95,7 +95,7 @@ assert.ok(Date.parse(edited.record.audit.at(-1).at) > Date.parse(drafting.record
 
 const future = createWorkflow({ ...draftFixture, publishAt: '2026-09-17T09:00:00Z' }, 'general', author, now)
 const futureApproved = action(action(action(future, author, 'submit'), domain, 'review-domain',
-  { domain: 'clinical', reference: 'future synthetic review' }), reviewer, 'approve')
+  { domain: 'content', reference: 'future synthetic review' }), reviewer, 'approve')
 rejects(futureApproved, publisher, 'publish', /not effective/)
 const scheduled = action(futureApproved, publisher, 'schedule')
 assert.equal(scheduled.record.status, 'scheduled')
@@ -107,9 +107,9 @@ assert.throws(() => createWorkflow({ ...draftFixture, publishAt: '2026-09-17T12:
 
 for (const contentClass of ['contact', 'emergency']) {
   const safety = action(createWorkflow(draftFixture, contentClass, author, now), author, 'submit')
-  const clinical = action(safety, domain, 'review-domain', { domain: 'clinical', reference: 'safety clinical review' })
-  rejects(clinical, reviewer, 'approve', /domain reviews/)
-  const operations = action(clinical, domain, 'review-domain', { domain: 'operations', reference: 'safety operations review' })
+  const content = action(safety, domain, 'review-domain', { domain: 'content', reference: 'safety content review' })
+  rejects(content, reviewer, 'approve', /domain reviews/)
+  const operations = action(content, domain, 'review-domain', { domain: 'operations', reference: 'safety operations review' })
   rejects(operations, { ...domain, roles: [...domain.roles, 'reviewer'] }, 'approve', /two distinct/)
   const safetyPublished = action(action(operations, reviewer, 'approve'), publisher, 'publish')
   assert.equal(safetyPublished.workflow.verification, null)

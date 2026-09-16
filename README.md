@@ -61,3 +61,9 @@ for schema, medical approval, duplicate/canonical/lifecycle negatives and biling
 The [B02-004 execution brief](docs/backlog/b02-004-governed-clinician-records.md) and
 [architecture](docs/architecture/governed-clinician-records.md) define its synthetic-only scope.
 Public clinicians, schedules, portraits and appointment actions remain withheld.
+
+Controlled service records use the same authenticated CMS boundary. Run `pnpm services:check`
+for taxonomy, claim-level clinical approval, duplicate/lifecycle negatives and bilingual inert rendering.
+The [B02-005 execution brief](docs/backlog/b02-005-governed-service-records.md) and
+[architecture](docs/architecture/governed-service-records.md) define its synthetic-only scope.
+Authentic services, care claims, availability and publication remain withheld.

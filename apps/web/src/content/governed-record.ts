@@ -1,5 +1,6 @@
 import { siteSettingsReadiness, validateSiteSettings, type SiteSettings } from './site-settings.ts'
 import { clinicianReadiness, validateClinician, type Clinician } from './clinician.ts'
+import { serviceReadiness, serviceTextKey, validateService, type Service } from './service.ts'
 
 export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page', 'site-settings'] as const
 export const governedStatuses = [
@@ -42,6 +43,7 @@ export type GovernedRecord = Readonly<{
   audit: readonly Readonly<{ actor: string; at: string; change: string }>[]
   siteSettings?: SiteSettings
   clinician?: Clinician
+  service?: Service
 }>
 
 export type ValidationResult =
@@ -214,6 +216,24 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
       issues.push(...clinicianReadiness(clinician.clinician, new Date(publishAt)))
     }
   }
+  const service = kind === 'service' ? validateService(raw.service) : null
+  if (service && !service.ok) issues.push(...service.issues)
+  if (kind !== 'service' && raw.service !== undefined) issues.push('service is only allowed on service records')
+  if (service?.service) {
+    for (const locale of new Set([...Object.keys(localized), ...Object.keys(service.service.localized)])) {
+      if (!localized[locale as GovernedLocale] || localized[locale as GovernedLocale]?.title
+        !== service.service.localized[locale as GovernedLocale]?.name) issues.push('service name must match canonical localized title and locales')
+    }
+    if (service.service.locationPublicIds.some((id) => !relationships.includes(id))) issues.push('service locations must be explicit governed relationships')
+    if (['approved', 'scheduled', 'published'].includes(status as string)) {
+      if (service.service.claims.some((claim) => claim.state === 'approved'
+        && claim.evidence?.reviewer !== domainApprovalRaw?.actor)) issues.push('service claim reviewer must match independent clinical approval')
+    }
+    if (['scheduled', 'published'].includes(status as string) && publishAt) {
+      const effective = Math.max(Date.parse(publishAt), Date.parse(domainApprovalRaw?.at as string) || 0)
+      issues.push(...serviceReadiness(service.service, new Date(effective)))
+    }
+  }
   if (issues.length > 0) return { ok: false, issues: Object.freeze(issues) }
   return {
     ok: true,
@@ -244,6 +264,7 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
       audit: audit as GovernedRecord['audit'],
       ...(settings?.settings ? { siteSettings: settings.settings } : {}),
       ...(clinician?.clinician ? { clinician: clinician.clinician } : {}),
+      ...(service?.service ? { service: service.service } : {}),
     },
   }
 }
@@ -273,7 +294,7 @@ export function publicEligibility(input: unknown, now: Date): Readonly<{
   const record = validated.record
   if (record.synthetic) return { eligible: false, reason: 'synthetic' }
   if (record.kind === 'site-settings') return { eligible: false, reason: 'safety-gated' }
-  if (record.kind === 'doctor') return { eligible: false, reason: 'care-gated' }
+  if (record.kind === 'doctor' || record.kind === 'service') return { eligible: false, reason: 'care-gated' }
   if (record.status !== 'published' || !record.approval || !record.owner || !record.reviewer) {
     return { eligible: false, reason: 'status' }
   }
@@ -300,9 +321,44 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
   const paths = new Set<string>()
   const clinicianIdentities = new Set<string>()
   const clinicianNames = new Set<string>()
+  const serviceIdentities = new Set<string>()
+  const serviceNames = new Set<string>()
+  const serviceCopies = new Map<string, string>()
+  const serviceGroups = new Map<string, string>()
+  const groupNames = new Map<string, string>()
   for (const record of records) {
     if (ids.has(record.publicId)) issues.push('duplicate publicId')
     ids.set(record.publicId, record)
+    if (record.service) {
+      const service = record.service
+      if (serviceIdentities.has(service.identityKey)) issues.push('duplicate service identity')
+      serviceIdentities.add(service.identityKey)
+      if (!['expired', 'withdrawn'].includes(record.status)) {
+        for (const [locale, details] of Object.entries(service.localized)) {
+          for (const name of [details.name, ...details.synonyms]) {
+            const key = `${locale}:${serviceTextKey(name)}`
+            if (serviceNames.has(key)) issues.push('overlapping service names or synonyms require taxonomy reconciliation')
+            serviceNames.add(key)
+          }
+        }
+        for (const [locale, name] of Object.entries(service.group.localized)) {
+          const key = `${service.group.publicId}:${locale}`
+          const normalized = serviceTextKey(name)
+          if (serviceGroups.has(key) && serviceGroups.get(key) !== normalized) issues.push('service group has conflicting localized labels')
+          serviceGroups.set(key, normalized)
+          const labelKey = `${locale}:${normalized}`
+          if (groupNames.has(labelKey) && groupNames.get(labelKey) !== service.group.publicId) issues.push('duplicate service group labels require taxonomy reconciliation')
+          groupNames.set(labelKey, service.group.publicId)
+        }
+        for (const claim of service.claims) {
+          for (const [locale, text] of Object.entries(claim.localized)) {
+            const key = `${locale}:${serviceTextKey(text)}`
+            if (serviceCopies.has(key) && serviceCopies.get(key) !== record.publicId) issues.push('copied cross-service claim text requires editorial reconciliation')
+            serviceCopies.set(key, record.publicId)
+          }
+        }
+      }
+    }
     if (record.clinician) {
       if (clinicianIdentities.has(record.clinician.identityKey)) issues.push('duplicate clinician roster identity')
       clinicianIdentities.add(record.clinician.identityKey)
@@ -319,6 +375,15 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
     }
   }
   for (const record of records) {
+    for (const id of record.service?.locationPublicIds ?? []) {
+      const location = ids.get(id)
+      if (!location || location.kind !== 'location') issues.push('service location must resolve to a location record')
+      else if (['approved', 'scheduled', 'published'].includes(record.status)
+        && (!['approved', 'scheduled', 'published'].includes(location.status)
+          || !location.reviewAt || !location.expiresAt || !record.publishAt
+          || Date.parse(location.reviewAt) <= Date.parse(record.publishAt)
+          || Date.parse(location.expiresAt) <= Date.parse(record.publishAt))) issues.push('approved service location must be approved and current')
+    }
     for (const id of record.clinician?.locationPublicIds ?? []) {
       const location = ids.get(id)
       if (!location || location.kind !== 'location') issues.push('clinician location must resolve to a location record')

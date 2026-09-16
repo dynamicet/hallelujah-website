@@ -396,3 +396,26 @@ passed full verification and clean reconstruction for exact head
 repeat CI before merge; issue #36 and PR #37 retain its matching SHA/run, merge and exact-main
 result. Authentic clinicians, hospital medical approval, `CARE-01`–`CARE-03`, schedules,
 portraits, appointments, production and publication remain gated.
+
+On 16 September 2026, Africa/Addis_Ababa, the client directed “start” following the proposed
+B02-005 synthetic local pull. B02-004 PR #37 merged as
+`1a6a2c8c3314794e74a142d59e68629c53ede448`; exact-main
+[run 35123369970](https://github.com/dynamicet/hallelujah-website/actions/runs/35123369970) passed.
+B02-005 moves Proposed → Ready → In progress under `befikadusata` directing Codex in temporary
+Backend/CMS, Clinical-contract and QA roles, with the same identity as controlled-development
+review authority. B02-001/B02-002 are Done. The
+[execution brief](b02-005-governed-service-records.md) records a controlled sequencing exception to
+unresolved CARE-04/CARE-05 for synthetic schemas, local persistence, claim review and inert internal
+projections. [Issue #38](https://github.com/dynamicet/hallelujah-website/issues/38) and
+[execution evidence](evidence/B02-005-governed-service-records-2026-09-16.md) track checks.
+Authentic taxonomy/services, clinical/operations approval, routes, collection and publication remain gated.
+
+B02-005 moves In progress → In review after passing local T0 on 16 September 2026,
+Africa/Addis_Ababa, under the same responsible/review identity `befikadusata` and synthetic local
+target. [Issue #38](https://github.com/dynamicet/hallelujah-website/issues/38) and
+[completion evidence](evidence/B02-005-governed-service-records-2026-09-16.md) record fresh PostgreSQL
+service/claim/clinical-role/duplicate/copy/retirement assertions, cross-role denial, full repository
+verification, the 92-case bilingual browser matrix, history secret scan and dependency audit.
+Controlled-development acceptance remains pending. Exact-head hosted T1 and clean reconstruction
+are tracked in issue #38 and its draft PR and must pass before merge. No authentic services,
+hospital clinical/operations approval, CARE-04/CARE-05, production or publication gate is promoted.

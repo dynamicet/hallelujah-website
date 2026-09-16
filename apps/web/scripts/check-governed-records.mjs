@@ -12,7 +12,7 @@ import {
 
 const syntheticRecord = {
   publicId: 'pub_0123456789ab',
-  kind: 'service',
+  kind: 'location',
   status: 'published',
   synthetic: true,
   localized: {
@@ -24,7 +24,7 @@ const syntheticRecord = {
   reviewer: 'Temporary review role',
   approval: { actor: 'Temporary acceptance role', at: '2026-09-15T10:00:00Z' },
   domainApproval: {
-    domain: 'clinical', actor: 'Temporary clinical role',
+    domain: 'operations', actor: 'Temporary clinical role',
     at: '2026-09-15T10:00:00Z', reference: 'synthetic-domain-review',
   },
   relationships: [],
@@ -59,7 +59,7 @@ rejected({ ...syntheticRecord, owner: null }, 'publishable status')
 rejected({ ...syntheticRecord, approval: null }, 'publishable status')
 rejected({ ...syntheticRecord, domainApproval: null }, 'domainApproval')
 rejected({ ...syntheticRecord, domainApproval: {
-  ...syntheticRecord.domainApproval, domain: 'operations',
+  ...syntheticRecord.domainApproval, domain: 'clinical',
 } }, 'domainApproval')
 rejected({ ...syntheticRecord, localized: { am: syntheticRecord.localized.am } }, 'English')
 rejected({ ...syntheticRecord, reviewAt: '2026-09-15T10:00:00Z' }, 'reviewAt')
