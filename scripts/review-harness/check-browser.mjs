@@ -3,6 +3,13 @@ import path from 'node:path'
 
 import { reviewCapabilities, reviewGroups, reviewLanguages } from './manifest.mjs'
 
+export function reviewRequestIsAllowed(url, origin) {
+  // Chromium may report its embedded native-control images as request events after
+  // preference changes. Data images perform no external transfer; every network
+  // destination must still be this exact loopback origin.
+  return url.startsWith(`${origin}/`) || url.startsWith('data:image/') || url === 'about:blank'
+}
+
 export async function checkReviewHarness({ client, sessionId, origin, captureDirectory }) {
   const results = []
   const requests = []
@@ -99,7 +106,7 @@ export async function checkReviewHarness({ client, sessionId, origin, captureDir
           }
         })()`)
         const unexpectedRequests = requests.slice(requestStart).filter((url) =>
-          !url.startsWith(`${origin}/`) || /b01-012-abstract-motion\.(?:webm|vtt)/u.test(url))
+          !reviewRequestIsAllowed(url, origin) || /b01-012-abstract-motion\.(?:webm|vtt)/u.test(url))
         if (specimen.groups.some((group) => !group.present || !group.linked)
           || specimen.missingReferences.length || specimen.duplicateIds.length || specimen.overflow
           || specimen.language !== language || (language === 'am' && specimen.shapingCount < 100)
@@ -110,7 +117,11 @@ export async function checkReviewHarness({ client, sessionId, origin, captureDir
           || (capability === 'coarse-pointer' && !specimen.coarsePointer)
           || (capability === 'reduced-motion' && specimen.accentAnimations.some((name) => name !== 'none'))
           || (capability === 'print' && !specimen.printDirections)) {
-          throw new Error(`review ${language}/${capability}/${width}: ${JSON.stringify(specimen)}; unexpected requests ${unexpectedRequests.length}`)
+          const destinations = unexpectedRequests.map((url) => {
+            const parsed = new URL(url)
+            return { protocol: parsed.protocol, origin: parsed.origin, pathname: parsed.pathname.slice(0, 160) }
+          })
+          throw new Error(`review ${language}/${capability}/${width}: ${JSON.stringify(specimen)}; unexpected requests ${JSON.stringify(destinations)}`)
         }
         results.push({ language, capability, width, result: 'pass', groups: specimen.groups.length })
         if (captureDirectory && capability === 'default' && [320, 1440].includes(width)) {
@@ -231,7 +242,8 @@ export async function checkReviewHarness({ client, sessionId, origin, captureDir
     results.push({ language, capability: 'keyboard-menu-form-map-media-actual-end-page-exit-deep-link-back-forward', result: 'pass' })
   }
   const report = await (await fetch(`${origin}/review-report.json`)).json()
-  if (requests.some((url) => !url.startsWith(`${origin}/`))) throw new Error('review interactions requested an external origin')
+  if (requests.some((url) => !reviewRequestIsAllowed(url, origin))) throw new Error('review interactions requested an external origin')
+  report.embeddedBrowserResourceEvents = requests.filter((url) => url.startsWith('data:image/')).length
   report.browser = await client.send('Browser.getVersion')
   report.results = results
   report.coverage = { viewportCapabilityCases: 90, interactionCases: 2, lowerTier: 'local T0 Chromium emulation', fullInteractionSuite: 'shared renderer checks run all B01-005–B01-012 modes before this matrix', productionAcceptance: 'pending named language, browser/AT and physical-device T3 evidence' }

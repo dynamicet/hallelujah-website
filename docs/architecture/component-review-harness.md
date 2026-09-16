@@ -43,7 +43,8 @@ preserves literal input values, and tests negative HTTP boundaries against a syn
 then 90 language/capability/viewport cases and bilingual actual-media-end/page-exit/history checks.
 It validates group anchors, duplicate IDs, label/description relationships, shaping coverage,
 reflow, static media, no-JavaScript collection locks, preferences and zero external/pre-intent media
-requests. Optional captures cover each group plus the actual shell header/footer at 320 and 1440 in both modes; JSON records browser
+requests. Embedded browser data-image events carry no network transfer and are counted
+separately; other-origin HTTP, files, blobs and non-image data are rejected. Optional captures cover each group plus the actual shell header/footer at 320 and 1440 in both modes; JSON records browser
 version, results, initial gzip budgets, motion-runtime bytes and separately activated media.
 
 Blocked image/font coverage tests dependency loss. No custom font or authentic image is present

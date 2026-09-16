@@ -7,10 +7,16 @@ import { collectFilesUnder, repositoryRoot } from './lib/repository-files.mjs'
 import { reviewGroups } from './review-harness/manifest.mjs'
 import { createReviewHarnessServer, prepareReviewDocument } from './review-harness/server.mjs'
 import { experienceAreas, protectedExperienceContexts, resolveExperienceLevel } from '../apps/web/src/design-system/contracts/experience.ts'
+import { reviewRequestIsAllowed } from './review-harness/check-browser.mjs'
 
 const appRoot = path.join(repositoryRoot, 'apps/web')
 const componentFiles = await collectFilesUnder(path.join(appRoot, 'src/design-system/components'), (file) => file.endsWith('.tsx'))
 const inventoried = new Set(reviewGroups.flatMap((group) => group.components))
+for (const url of ['https://example.invalid/', 'http://127.0.0.1:2/', 'file:///private', 'blob:http://127.0.0.1:1/value', 'data:text/html,CONTROLLED']) {
+  assert.equal(reviewRequestIsAllowed(url, 'http://127.0.0.1:1'), false)
+}
+assert.equal(reviewRequestIsAllowed('http://127.0.0.1:1/motion-media.js', 'http://127.0.0.1:1'), true)
+assert.equal(reviewRequestIsAllowed('data:image/svg+xml,CONTROLLED', 'http://127.0.0.1:1'), true)
 for (const area of experienceAreas) {
   for (const context of protectedExperienceContexts) {
     for (const level of [0, 1, 2, 3]) assert.equal(resolveExperienceLevel(area, level, context), 0)

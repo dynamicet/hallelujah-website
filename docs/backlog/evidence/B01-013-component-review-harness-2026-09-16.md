@@ -82,3 +82,12 @@ Amharic meaning and production performance are not certified by these local auto
 commit `610a3cb` and exact-head hosted `T1`. The latest successful run and matching SHA are recorded
 in the tracker before merge; this local narrative does not substitute for that current-head gate.
 Client controlled-development acceptance remains pending.
+
+**Hosted reconstruction retest:** [Run `35072820457`](https://github.com/dynamicet/hallelujah-website/actions/runs/35072820457)
+passed the full hosted implementation verification for `817653c`, but its isolated clean rebuild
+failed the no-JavaScript browser request assertion while every semantic/state/collection lock
+passed. Request diagnostics now show protocol/origin/path without query values, and the checker
+classifies embedded data-image/about-blank events separately from actual transfers. Negative
+cases continue to reject external HTTP, other loopback ports, files, blobs and non-image data.
+The corrected clean-build gate must pass on the new exact head before merge; no hosted pass or
+client acceptance is inferred from the earlier implementation-only success.
