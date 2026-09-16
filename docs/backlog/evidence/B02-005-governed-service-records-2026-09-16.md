@@ -1,13 +1,15 @@
 # B02-005 — Execution Evidence
 
-**Status:** In review; local T0 passed, controlled-development acceptance pending.
+**Status:** Proposed → Ready → In progress → In review → Done for controlled development; client acceptance recorded on 16 September 2026, Africa/Addis_Ababa. Final closeout CI and merge results are tracked in PR #39.
 **Date/timezone:** 16 September 2026, Africa/Addis_Ababa.
 **Responsible/review authority:** `befikadusata` directing Codex in temporary Backend/CMS,
 Clinical-contract and QA roles; same workspace identity for controlled-development review.
 **Branch:** `b02-005-governed-service-records`.
 **Build basis:** scoped implementation based on main `1a6a2c8c3314794e74a142d59e68629c53ede448`;
-the submitted implementation SHA and exact-head hosted run are tracked in
-[issue #38](https://github.com/dynamicet/hallelujah-website/issues/38) and its draft PR.
+implementation head `f74e4821bed6ee0f19fa0778e9410faabf220e96` passed exact-head hosted
+[run 35128628242](https://github.com/dynamicet/hallelujah-website/actions/runs/35128628242).
+[Issue #38](https://github.com/dynamicet/hallelujah-website/issues/38) and
+[PR #39](https://github.com/dynamicet/hallelujah-website/pull/39) retain final closeout evidence.
 **Environment:** Synthetic local T0; no authentic data, provider, collection or publication.
 
 The [execution brief](../b02-005-governed-service-records.md) records the client-directed scope.
@@ -62,9 +64,14 @@ No open local implementation defect remains. Required checks and publication gat
 
 ## Review and acceptance boundary
 
-B02-005 moves In progress → In review after passing local T0 under the same responsible/review
-identity, date/timezone, dependencies and local target. Exact-head hosted T1, clean reconstruction,
-matching SHA/run and PR review are tracked in issue #38 and the draft PR and must pass before merge.
-Client controlled-development acceptance remains pending. CARE-04/CARE-05, authentic services,
-hospital clinical/operations approval, public routes, appointment/provider/collection/production
-and publication gates remain unresolved.
+On 16 September 2026, Africa/Addis_Ababa, the client directed “B02-005 PR is In Review, close out”.
+Workspace identity `befikadusata` accepts the synthetic local scope under the same temporary
+Backend/CMS, Clinical-contract and QA responsibility and controlled-development review authority.
+Local T0 and hosted implementation [run 35128628242](https://github.com/dynamicet/hallelujah-website/actions/runs/35128628242)
+passed full verification and clean reconstruction for exact head
+`f74e4821bed6ee0f19fa0778e9410faabf220e96`. No implementation defect remains open.
+This direction promotes In review → Done for controlled development. The acceptance-documentation
+head must repeat hosted CI before merge; issue #38 and PR #39 retain the matching SHA/run,
+merge and exact-main result. CARE-04/CARE-05, authentic taxonomy/services and claims,
+hospital clinical/operations approval, public routes, collection, providers, production and
+publication remain gated.

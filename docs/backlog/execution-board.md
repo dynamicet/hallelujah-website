@@ -410,12 +410,21 @@ projections. [Issue #38](https://github.com/dynamicet/hallelujah-website/issues/
 [execution evidence](evidence/B02-005-governed-service-records-2026-09-16.md) track checks.
 Authentic taxonomy/services, clinical/operations approval, routes, collection and publication remain gated.
 
-B02-005 moves In progress → In review after passing local T0 on 16 September 2026,
+B02-005 moved In progress → In review after passing local T0 on 16 September 2026,
 Africa/Addis_Ababa, under the same responsible/review identity `befikadusata` and synthetic local
 target. [Issue #38](https://github.com/dynamicet/hallelujah-website/issues/38) and
 [completion evidence](evidence/B02-005-governed-service-records-2026-09-16.md) record fresh PostgreSQL
 service/claim/clinical-role/duplicate/copy/retirement assertions, cross-role denial, full repository
 verification, the 92-case bilingual browser matrix, history secret scan and dependency audit.
-Controlled-development acceptance remains pending. Exact-head hosted T1 and clean reconstruction
-are tracked in issue #38 and its draft PR and must pass before merge. No authentic services,
-hospital clinical/operations approval, CARE-04/CARE-05, production or publication gate is promoted.
+
+On 16 September 2026, Africa/Addis_Ababa, the client directed “B02-005 PR is In Review, close out”.
+B02-005 moves In review → **Done** for controlled development under the same temporary
+Backend/CMS, Clinical-contract and QA responsibility and controlled-development acceptance
+authority. Hosted implementation [run 35128628242](https://github.com/dynamicet/hallelujah-website/actions/runs/35128628242)
+passed full verification and clean reconstruction for exact head
+`f74e4821bed6ee0f19fa0778e9410faabf220e96`. No implementation defect remains open.
+The acceptance-documentation head must repeat CI before merge;
+[issue #38](https://github.com/dynamicet/hallelujah-website/issues/38) and
+[PR #39](https://github.com/dynamicet/hallelujah-website/pull/39) retain its matching SHA/run,
+merge and exact-main result. Authentic taxonomy/services, hospital clinical/operations approval,
+CARE-04/CARE-05, public routes, collection, providers, production and publication remain gated.
