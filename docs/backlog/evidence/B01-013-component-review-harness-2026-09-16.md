@@ -2,7 +2,7 @@
 
 **Build/environment:** Branch `b01-013-component-review-harness`, local `T0`, 16 September 2026, Africa/Addis_Ababa
 **Method/tester:** Codex under client-directed temporary Designer/Frontend/QA roles; pinned Node.js 24.21.0 and pnpm 10.27.0
-**Status:** In review; local `T0` passes. Exact-head hosted `T1` is tracked on [issue `#26`](https://github.com/dynamicet/hallelujah-website/issues/26); client acceptance remains pending.
+**Status:** Done for controlled development; local `T0`, hosted implementation `T1`, and client acceptance recorded on 16 September 2026, Africa/Addis_Ababa. Final acceptance-documentation CI must pass before merge. [Issue `#26`](https://github.com/dynamicet/hallelujah-website/issues/26) and [PR `#27`](https://github.com/dynamicet/hallelujah-website/pull/27) track closeout.
 
 | Expected | Actual | Result |
 | --- | --- | --- |
@@ -91,3 +91,22 @@ classifies embedded data-image/about-blank events separately from actual transfe
 cases continue to reject external HTTP, other loopback ports, files, blobs and non-image data.
 The corrected clean-build gate must pass on the new exact head before merge; no hosted pass or
 client acceptance is inferred from the earlier implementation-only success.
+
+## Controlled-development acceptance and hosted closeout
+
+The client, workspace identity `befikadusata`, directed review and closure of `B01-013` and draft
+PR `#27` on 16 September 2026, Africa/Addis_Ababa, accepting the controlled-development outcome
+under the existing temporary Designer/Frontend/QA roles and working `B00-016` matrix. This records
+In review → Done for controlled development.
+
+[Hosted implementation run `35073807049`](https://github.com/dynamicet/hallelujah-website/actions/runs/35073807049)
+succeeded for `703ccb4d3507b42cd88f4a8ba958251da0cc23b0`, matching the reviewed PR head. Every
+step passed: frozen install, fail-closed controls, history-aware secret scan, dependency audit,
+full `pnpm verify`, and isolated clean reconstruction with repeated verification. This successful
+run resolves the earlier reconstruction failure recorded above. Repository review found no
+review comments or unresolved threads and no open controlled-development defect.
+
+The final acceptance-documentation head must repeat `quality-and-security` before merge; the
+matching final SHA/run and merge result belong in the tracker. Production acceptance remains
+deferred for professional language review, physical devices, human AT, actual zoom, authentic
+image/font loss and production performance. No publication or other gated authority is granted.

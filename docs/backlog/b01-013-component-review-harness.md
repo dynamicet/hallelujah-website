@@ -1,7 +1,7 @@
 # `B01-013` — Component, Motion, Media, and State Review Harness
 
 **Execution date:** 16 September 2026, Africa/Addis_Ababa
-**Status:** In review; local `T0` verification passes
+**Status:** Done for controlled development; local `T0`, hosted implementation `T1`, and client acceptance recorded; final documentation head must pass CI before merge
 **Production, collection, provider, authentic content, and publication authority:** Not granted
 
 ## Execution contract
@@ -10,7 +10,7 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `EVIDENCE` / `P1` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress → In review on client instruction to start `B01-013` and passing local verification on 16 September 2026, Africa/Addis_Ababa; client controlled-development acceptance remains pending |
+| Old / new status | Proposed → Ready → In progress → In review → Done on client instruction to review and close `B01-013`, passing local verification and hosted implementation `T1` on 16 September 2026, Africa/Addis_Ababa |
 | Responsible / acceptance | Client workspace identity `befikadusata` directing Codex in temporary Designer, Frontend, and QA roles / same client identity for controlled-development review; named Language, Accessibility, QA, Security, and Release people return before production |
 | Dependencies | `B01-005`–`B01-012` Done for controlled development; latest dependent PR `#25` merged as local `54c741b`. The working `B00-016` acceptance matrix is binding; formal `DEL-01` production signatures remain deferred. |
 | Target | Isolated local `T0` built application and loopback Chromium review; private-repository hosted `T1` when the implementation is submitted for review |
@@ -19,7 +19,7 @@
 | Fixtures / languages | Existing visibly synthetic component specimens; English source meaning plus repeated, explicitly unreviewed Amharic shaping/mixed-script stress. No translation is approved or invented. |
 | Exclusions | No public route, hospital claim, authentic media/font/logo intake, personal-data flow, provider, package, CMS workflow, appointment outcome, migration, deployment, production, DNS, or publication |
 | Branch | `b01-013-component-review-harness` |
-| Review tracker | [issue `#26`](https://github.com/dynamicet/hallelujah-website/issues/26) tracks execution; [draft PR `#27`](https://github.com/dynamicet/hallelujah-website/pull/27) contains implementation and exact-head hosted review; successful current-head CI is required before merge; client acceptance remains pending |
+| Review tracker | [issue `#26`](https://github.com/dynamicet/hallelujah-website/issues/26) tracks execution; [PR `#27`](https://github.com/dynamicet/hallelujah-website/pull/27) contains implementation and exact-head hosted review; hosted implementation CI passes for `703ccb4`; client controlled-development acceptance is recorded; final documentation head must repeat CI before merge |
 | Evidence destination | [Local evidence](evidence/B01-013-component-review-harness-2026-09-16.md), sanitized captures and JSON under `evidence/b01-013-rendered/` |
 | Sources | [Epic 01](epic-01-design-system-global.md), [component evidence baseline](../visual-design/components/README.md), [motion/media acceptance](../visual-design/motion/high-end-motion-and-interactive-media-amendment.md#9-acceptance-before-production), [working matrix](../validation/implementation-acceptance-matrix.md), [architecture](../architecture/component-review-harness.md) |
 
