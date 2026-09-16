@@ -50,7 +50,7 @@ acceptance is not inferred from this implementation instruction. [Issue #30](htt
 [local completion evidence](evidence/B02-002-controlled-cms-workflow-2026-09-16.md) records passing
 permission/approval/preview negatives, PostgreSQL persistence, concurrent-write and real timed-lifecycle
 assertions, full local verification, history secret scan and refreshed dependency audit. Exact-head
-hosted T1 and final client acceptance remain pending.
+hosted implementation T1 [run 35080177144](https://github.com/dynamicet/hallelujah-website/actions/runs/35080177144) passed for exact commit `65206c0f52292b85ad6f1868ad6bdfc032963da4` under [draft PR #31](https://github.com/dynamicet/hallelujah-website/pull/31). Final documentation CI must repeat before merge; final client acceptance remains pending.
 
 For every promotion, record the ticket ID, old/new status, responsible person, acceptance person, date/timezone, dependency evidence, target environment, and issue/evidence link. Update this board and the issue tracker in the same change. A role name alone cannot promote a delivery ticket to `Ready`.
 

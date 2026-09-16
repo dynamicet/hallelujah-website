@@ -65,7 +65,7 @@ Implementation mechanics are documented in the [controlled CMS architecture](../
 
 The [local evidence](evidence/B02-002-controlled-cms-workflow-2026-09-16.md) records pure negatives,
 authenticated PostgreSQL persistence/concurrency/timed lifecycle, full repository verification,
-reachable-history secret scan and dependency audit. Hosted exact-head CI remains required before merge.
+reachable-history secret scan and dependency audit. Hosted implementation [run 35080177144](https://github.com/dynamicet/hallelujah-website/actions/runs/35080177144) passed for exact commit `65206c0f52292b85ad6f1868ad6bdfc032963da4` under [draft PR #31](https://github.com/dynamicet/hallelujah-website/pull/31). The final documentation head must repeat CI before merge; final client acceptance remains pending.
 
 Run `pnpm cms-workflow:check`, `pnpm governed-records:check`, `pnpm verify`,
 `pnpm secrets:check --history` and `pnpm audit:dependencies` under the pinned toolchain.
