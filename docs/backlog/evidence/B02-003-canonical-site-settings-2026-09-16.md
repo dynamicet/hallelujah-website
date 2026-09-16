@@ -3,8 +3,8 @@
 **Date/timezone:** 16 September 2026, Africa/Addis_Ababa.
 **Responsible / review authority:** `befikadusata` directing Codex in temporary Backend/CMS,
 Operations-contract and QA roles / same client identity for controlled-development review.
-**Status:** Proposed → Ready → In progress → In review after passing local T0; client acceptance pending; hosted current-head results are tracked in draft PR #35.
-**Branch/tracker:** `b02-003-canonical-site-settings`; [issue #34](https://github.com/dynamicet/hallelujah-website/issues/34), [draft PR #35](https://github.com/dynamicet/hallelujah-website/pull/35).
+**Status:** Proposed → Ready → In progress → In review → Done for controlled development; client acceptance recorded on 16 September 2026, Africa/Addis_Ababa. Final closeout CI and merge results are tracked in PR #35.
+**Branch/tracker:** `b02-003-canonical-site-settings`; [issue #34](https://github.com/dynamicet/hallelujah-website/issues/34), [PR #35](https://github.com/dynamicet/hallelujah-website/pull/35).
 
 ## Scope and dependencies
 
@@ -72,9 +72,26 @@ initial origins and passing asset budgets.
 Review additionally added explicit English language attributes for warnings/canonical English values
 inside the Amharic specimen and rejected leading/consecutive local-part dots and invalid domain
 label edges in email values. Focused settings/render checks, typecheck and lint passed after those
-changes. The final PR head must repeat the full hosted verification and clean reconstruction.
+changes. Exact implementation-head hosted run `35094906914` then passed full verification and clean reconstruction for `842e0a03bdda745eea0dea6fe527aabcc21a7cfa`.
 
 No open local implementation defect remains. Local PostgreSQL integration is distinct from hosted
-T1 and does not certify production infrastructure or workflows. Hosted exact-head quality/security
-and clean reconstruction must pass before merge, and client controlled-development acceptance
-remains required to promote In review → Done.
+T1 and does not certify production infrastructure or workflows. The client subsequently accepted
+the implemented controlled-development result as recorded below. Hosted exact closeout-head
+quality/security and clean reconstruction must pass before merge.
+
+## Client acceptance and merge control
+
+On 16 September 2026, Africa/Addis_Ababa, the client directed “close it out if implemented”.
+Implementation is complete and local T0 plus
+[exact-head T1 run `35094906914`](https://github.com/dynamicet/hallelujah-website/actions/runs/35094906914)
+passed all steps for `842e0a03bdda745eea0dea6fe527aabcc21a7cfa`, including clean reconstruction
+and repeated verification. The superseded initial-head run `35094675397` was cancelled and is
+not the current acceptance result. Responsible/review identity and local target are unchanged;
+this direction promotes In review → Done for controlled development only. No implementation
+defect is open. Formal hospital safety/operations approval, authentic content, providers,
+collection, production and publication remain gated.
+
+The acceptance-documentation head must repeat exact-head CI before manual merge. Issue #34
+and PR #35 record that SHA/run, merge commit and exact-main CI result without requiring a
+self-referential follow-up documentation commit. A main failure reopens scoped correction and
+pauses dependent execution until a checked correction passes; failures remain in the evidence.

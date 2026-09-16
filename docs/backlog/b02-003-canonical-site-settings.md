@@ -1,6 +1,6 @@
 # `B02-003` — Canonical Site Settings and Contact Records
 
-**Status:** In review after passing local T0 on 16 September 2026, Africa/Addis_Ababa; [issue #34](https://github.com/dynamicet/hallelujah-website/issues/34) and [draft PR #35](https://github.com/dynamicet/hallelujah-website/pull/35) track hosted review and client acceptance.
+**Status:** Done for controlled development on 16 September 2026, Africa/Addis_Ababa. The client directed “close it out if implemented” after implementation and exact-head hosted verification passed. [Issue #34](https://github.com/dynamicet/hallelujah-website/issues/34) and [PR #35](https://github.com/dynamicet/hallelujah-website/pull/35) track acceptance, final closeout CI and merge.
 
 ## Execution authority and boundary
 
@@ -78,3 +78,16 @@ packages, providers, coordinates, personal-data flows, safety signoff or destruc
 No public Contact/Home/Emergency implementation, CMS administration, real tap-to-call action,
 email delivery, external direction link, geolocation, provider activation, production or publication
 is authorized. Completion means scoped checks and review pass; release gates remain separate.
+
+## Controlled-development acceptance
+
+The client accepted the implemented result by directing “close it out if implemented” on
+16 September 2026, Africa/Addis_Ababa. Responsible and acceptance authority remain the client
+workspace identity `befikadusata` directing Codex in temporary Backend/CMS, Operations-contract
+and QA roles. Local T0, fresh disposable PostgreSQL integration, and exact implementation-head
+[hosted run `35094906914`](https://github.com/dynamicet/hallelujah-website/actions/runs/35094906914)
+passed for `842e0a03bdda745eea0dea6fe527aabcc21a7cfa`, including clean reconstruction.
+The status moves In review → Done for controlled development. The acceptance-documentation
+head must pass matching hosted CI before manual merge; the matching SHA/run, merge and
+post-merge main result are recorded in issue #34 and PR #35. SAFE-01/SAFE-03, authentic facts,
+named hospital approvals and all existing production/publication gates remain unresolved.
