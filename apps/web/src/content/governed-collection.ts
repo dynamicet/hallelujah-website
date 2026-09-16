@@ -1,4 +1,9 @@
 import type { CollectionConfig } from 'payload'
+import { cmsActor, lockCmsWrites, roleAccess } from './cms-identity.ts'
+import {
+  applyWorkflow, canonical, createWorkflow, requiredDomains,
+  type CmsWorkflow, type ContentClass, type WorkflowCommand,
+} from './cms-workflow.ts'
 import {
   canTransition,
   type GovernedRecord,
@@ -50,7 +55,17 @@ const deny = () => false
 export const governedRecordsCollection: CollectionConfig = {
   slug: 'governed-records',
   admin: { useAsTitle: 'publicId' },
-  access: { admin: deny, create: deny, delete: deny, read: deny, update: deny },
+  access: {
+    admin: deny, create: roleAccess('author'), delete: deny,
+    read: async ({ req }) => {
+      const actor = await cmsActor(req)
+      if (!actor) return false
+      return actor.roles.some((role) => role !== 'author' && role !== 'identity-manager')
+        ? true : actor.roles.includes('author') ? { authorId: { equals: actor.id } } : false
+    },
+    update: roleAccess('author', 'reviewer', 'publisher', 'medical', 'clinical',
+      'operations', 'human-resources', 'content', 'privacy', 'brand'),
+  },
   endpoints: false,
   graphQL: false,
   disableBulkDelete: true,
@@ -59,10 +74,57 @@ export const governedRecordsCollection: CollectionConfig = {
   fields: [
     { name: 'publicId', type: 'text', required: true, unique: true, index: true },
     { name: 'record', type: 'json', required: true },
+    { name: 'authorId', type: 'text', required: true, index: true, admin: { readOnly: true } },
+    { name: 'contentClass', type: 'select', required: true,
+      options: ['general', 'emergency', 'contact', 'privacy', 'brand'] },
+    { name: 'workflow', type: 'json', required: true, admin: { readOnly: true } },
+    { name: 'command', type: 'json', virtual: true },
   ],
   hooks: {
-    beforeChange: [async ({ data, originalDoc, req }) => {
-      const candidate = data.record ?? originalDoc?.record
+    beforeChange: [async ({ data, operation, originalDoc, req }) => {
+      let actor = await cmsActor(req)
+      if (!actor) throw new Error('Governed writes require an active persisted CMS identity')
+      // Serialize the complete local record set: uniqueness/relationship checks and revision
+      // validation must see committed state, including another writer's latest approval.
+      await lockCmsWrites(req)
+      actor = await cmsActor(req)
+      if (!actor) throw new Error('Governed writes require an active persisted CMS identity')
+      const stored = operation === 'update' ? await req.payload.findByID({
+        collection: 'governed-records', id: originalDoc.id, overrideAccess: true, req,
+      }) : undefined
+      if (!stored && data.command) throw new Error('A new draft cannot run a workflow command')
+      if (stored && (data.command as WorkflowCommand)?.expectedRevision !== (stored.workflow as CmsWorkflow).revision) {
+        throw new Error('Stale or missing workflow revision')
+      }
+      if (data.workflow !== undefined && canonical(data.workflow) !== canonical(stored?.workflow)
+        || data.authorId !== undefined && data.authorId !== stored?.authorId
+        || stored && data.contentClass !== undefined && data.contentClass !== stored.contentClass) {
+        throw new Error('Workflow metadata and content class cannot be supplied or changed')
+      }
+      const change = stored ? applyWorkflow({
+        record: requireRecord(stored.record), workflow: stored.workflow as CmsWorkflow,
+      }, data.record, data.command as WorkflowCommand, actor, new Date())
+        : createWorkflow(data.record, data.contentClass as ContentClass, actor, new Date())
+      if (stored && ['approve', 'schedule', 'publish'].includes((data.command as WorkflowCommand)?.action)) {
+        for (const domain of requiredDomains(change.record, change.workflow.contentClass)) {
+          const review = change.workflow.reviews[domain]
+          const reviewer = review && await req.payload.findByID({
+            collection: 'users', id: Number(review.actor.slice(4)), overrideAccess: true, req,
+          }).catch(() => null)
+          if (!reviewer?.active || !reviewer.synthetic || !reviewer.roles.includes(domain)) {
+            throw new Error('Domain approval identity is inactive or no longer has its matching role')
+          }
+        }
+        if (change.record.approval) {
+          const approver = await req.payload.findByID({ collection: 'users',
+            id: Number(change.record.approval.actor.slice(4)), overrideAccess: true, req,
+          }).catch(() => null)
+          if (!approver?.active || !approver.synthetic || !approver.roles.includes('reviewer')) {
+            throw new Error('Approval identity is inactive or no longer a reviewer')
+          }
+        }
+      }
+      const candidate = change.record
       if (data.publicId !== undefined && data.publicId !== (
         candidate as { publicId?: unknown } | undefined
       )?.publicId) {
@@ -78,9 +140,10 @@ export const governedRecordsCollection: CollectionConfig = {
       if (result.totalDocs > result.docs.length) {
         throw new Error('Governed record validation requires the complete local record set')
       }
-      const peers = result.docs.filter((doc) => doc.id !== originalDoc?.id).map((doc) => doc.record)
-      const record = validateStoredRecordChange(candidate, originalDoc?.record, peers)
-      return { ...data, publicId: record.publicId, record }
+      const peers = result.docs.filter((doc) => doc.id !== stored?.id).map((doc) => doc.record)
+      const record = validateStoredRecordChange(candidate, stored?.record, peers)
+      return { ...data, publicId: record.publicId, record, authorId: change.workflow.author,
+        contentClass: change.workflow.contentClass, workflow: change.workflow, command: null }
     }],
     beforeDelete: [() => { throw new Error('Governed records must be withdrawn, not deleted') }],
   },

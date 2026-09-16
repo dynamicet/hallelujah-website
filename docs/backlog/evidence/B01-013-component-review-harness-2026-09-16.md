@@ -137,3 +137,9 @@ ready under that temporary profile. Neither local reconstruction attempt is repo
 Exact-head hosted clean reconstruction and passing post-merge `main` CI are required to resolve
 this evidence limitation before closure; their SHA/run results belong in issue `#28` and its PR.
 Production and publication gates remain open.
+
+**Correction closure:** PR `#29` merged as `5b51f5cfae1322d8681e437388a5b694ddbd17da`.
+Exact-main [run `35077538959`](https://github.com/dynamicet/hallelujah-website/actions/runs/35077538959)
+completed successfully, including clean reconstruction. Verified through the GitHub API on
+16 September 2026 before the client-directed `B02-002` pull. This resolves the local reconstruction
+evidence limitation and dependent-execution pause; production/publication gates remain open.

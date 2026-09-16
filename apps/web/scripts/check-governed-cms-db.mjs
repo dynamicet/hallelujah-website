@@ -22,54 +22,158 @@ process.stdout.write('Disposable Payload initialized.\n')
 
 const fixtureSuffix = randomBytes(6).toString('hex')
 
+const { cmsPreview } = await import('../src/content/cms-preview.ts')
+const { advanceDueCmsRecords } = await import('../src/content/cms-lifecycle.ts')
+const instant = (offset) => new Date(Date.now() + offset).toISOString().replace(/\.\d{3}Z$/, 'Z')
 const fixture = {
   publicId: `pub_${fixtureSuffix}`,
-  kind: 'service',
-  status: 'published',
-  synthetic: true,
-  localized: { en: { slug: `controlled-cms-${fixtureSuffix}`, title: 'Synthetic CMS fixture' } },
-  source: { reference: 'synthetic-cms-smoke', recordedAt: '2026-09-15T09:00:00Z' },
-  owner: 'Temporary content role',
-  reviewer: 'Temporary review role',
-  approval: { actor: 'Temporary acceptance role', at: '2026-09-15T10:00:00Z' },
-  domainApproval: {
-    domain: 'clinical', actor: 'Temporary clinical role',
-    at: '2026-09-15T10:00:00Z', reference: 'synthetic-domain-review',
-  },
-  relationships: [],
-  publishAt: '2026-09-15T11:00:00Z',
-  reviewAt: '2026-10-15T11:00:00Z',
-  expiresAt: '2026-11-15T11:00:00Z',
-  withdrawal: null,
-  audit: [{ actor: 'Temporary content role', at: '2026-09-15T09:00:00Z', change: 'fixture created' }],
+  kind: 'service', status: 'draft', synthetic: true,
+  localized: { en: { slug: `controlled-cms-${fixtureSuffix}`, title: 'Synthetic CMS workflow fixture' } },
+  source: { reference: 'synthetic-cms-smoke', recordedAt: instant(-86400000) },
+  owner: null, reviewer: null, approval: null, domainApproval: null, relationships: [],
+  publishAt: instant(-3600000), reviewAt: instant(86400000 * 30), expiresAt: instant(86400000 * 60),
+  withdrawal: null, audit: [],
+}
+
+async function identity(label, roles) {
+  const email = `fixture-${label}-${fixtureSuffix}@cms.invalid`
+  const password = randomBytes(24).toString('hex')
+  const user = await payload.create({ collection: 'users', overrideAccess: true,
+    data: { email, password, roles, synthetic: true, active: true },
+  })
+  const login = await payload.login({ collection: 'users', data: { email, password } })
+  assert.equal(login.user.id, user.id)
+  assert.ok(login.token)
+  return { ...login.user, collection: 'users' }
+}
+async function command(doc, user, action, extra = {}, data = {}) {
+  return payload.update({ collection: 'governed-records', id: doc.id, user, overrideAccess: false,
+    data: { ...data, command: { action, expectedRevision: doc.workflow.revision, ...extra } },
+  })
+}
+async function denied(operation, pattern) {
+  await assert.rejects(operation, pattern)
 }
 
 try {
-  const created = await payload.create({
-    collection: 'governed-records',
-    data: { publicId: fixture.publicId, record: fixture },
-    overrideAccess: true,
+  const author = await identity('author', ['author', 'reviewer', 'clinical', 'operations', 'publisher'])
+  const otherAuthor = await identity('other-author', ['author'])
+  const reviewer = await identity('reviewer', ['reviewer'])
+  const domain = await identity('domain', ['clinical', 'operations', 'reviewer'])
+  const publisher = await identity('publisher', ['publisher'])
+  const manager = await identity('manager', ['identity-manager'])
+  process.stdout.write('Synthetic CMS identities authenticated.\n')
+  await denied(() => payload.create({ collection: 'users', user: author, overrideAccess: false,
+    data: { email: `fixture-unapproved-${fixtureSuffix}@cms.invalid`, password: randomBytes(24).toString('hex'),
+      roles: ['publisher'], synthetic: true, active: true },
+  }), /not allowed|Forbidden/i)
+  await denied(() => payload.create({ collection: 'governed-records', overrideAccess: true,
+    data: { publicId: fixture.publicId, record: fixture, contentClass: 'contact' },
+  }), /persisted CMS identity/)
+  let doc = await payload.create({ collection: 'governed-records', user: author, overrideAccess: false,
+    data: { publicId: fixture.publicId, record: fixture, contentClass: 'contact' },
   })
-  process.stdout.write('Synthetic governed record created.\n')
-  assert.equal(created.publicId, fixture.publicId)
-  assert.equal(publicEligibility(created.record, new Date('2026-09-16T00:00:00Z')).eligible,
-    false)
+  process.stdout.write('Synthetic governed draft persisted.\n')
+  assert.equal(doc.record.status, 'draft')
+  assert.equal(doc.record.owner, `cms:${author.id}`)
+  await denied(() => cmsPreview(payload, undefined, doc.id), /not allowed|Forbidden|Not Found/i)
+  await denied(() => cmsPreview(payload, otherAuthor, doc.id), /not allowed|Forbidden|Not Found/i)
+  assert.equal((await cmsPreview(payload, author, doc.id)).headers['Cache-Control'], 'private, no-store')
+  await denied(() => command(doc, otherAuthor, 'submit'), /owning author/)
+  await denied(() => payload.update({ collection: 'users', id: author.id, user: author,
+    overrideAccess: true, data: { roles: ['publisher'] },
+  }), /separate identity manager/)
+  await denied(() => payload.update({ collection: 'users', id: manager.id, user: manager,
+    overrideAccess: false, data: { roles: ['publisher'] },
+  }), /separate identity manager/)
+  await denied(() => command(doc, author, 'edit', {}, { authorId: `cms:${otherAuthor.id}`, record: doc.record }),
+    /Workflow metadata/)
+  await denied(() => command(doc, author, 'edit', {}, { contentClass: 'general', record: doc.record }),
+    /Workflow metadata/)
 
-  const retired = {
-    ...fixture,
-    status: 'expired',
-    withdrawal: { reason: 'synthetic retirement', successorPublicId: null },
-    audit: [...fixture.audit, {
-      actor: 'Temporary content role', at: '2026-09-16T09:00:00Z', change: 'fixture retired',
-    }],
-  }
-  const updated = await payload.update({
-    collection: 'governed-records', id: created.id,
-    data: { record: retired }, overrideAccess: true,
+  // Both writers start with the same revision; only one transaction may commit.
+  const concurrent = await Promise.allSettled([
+    command(doc, author, 'edit', {}, { record: { ...doc.record,
+      localized: { en: { ...doc.record.localized.en, title: 'Synthetic concurrent edit A' } } } }),
+    command(doc, author, 'edit', {}, { record: { ...doc.record,
+      localized: { en: { ...doc.record.localized.en, title: 'Synthetic concurrent edit B' } } } }),
+  ])
+  assert.equal(concurrent.filter((result) => result.status === 'fulfilled').length, 1)
+  assert.match(concurrent.find((result) => result.status === 'rejected').reason.message, /Stale/)
+  doc = concurrent.find((result) => result.status === 'fulfilled').value
+  process.stdout.write('Concurrent stale-write denial passed.\n')
+
+  doc = await command(doc, author, 'submit')
+  await denied(() => command(doc, author, 'approve'), /self-approve/)
+  await denied(() => command(doc, reviewer, 'review-domain', { domain: 'clinical', reference: 'synthetic review' }),
+    /clinical role/)
+  await denied(() => command(doc, { ...reviewer, roles: ['clinical'] }, 'review-domain',
+    { domain: 'clinical', reference: 'synthetic forged-role review' }), /clinical role/)
+  await denied(() => command(doc, reviewer, 'approve'), /domain reviews/)
+  doc = await command(doc, domain, 'review-domain', { domain: 'clinical', reference: 'synthetic clinical review' })
+  doc = await command(doc, domain, 'review-domain', { domain: 'operations', reference: 'synthetic safety review' })
+  await denied(() => command(doc, domain, 'approve'), /two distinct approval/)
+  doc = await command(doc, reviewer, 'approve')
+  assert.equal(doc.record.approval.actor, `cms:${reviewer.id}`)
+  await denied(() => command(doc, publisher, 'publish', {}, { record: {
+    ...doc.record, localized: { en: { ...doc.record.localized.en, title: 'Synthetic changed claim' } },
+  } }), /Content cannot change/)
+  await payload.update({ collection: 'users', id: domain.id, user: manager,
+    overrideAccess: false, data: { active: false },
   })
-  process.stdout.write('Synthetic governed record retired.\n')
-  assert.equal(updated.record.status, 'expired')
-  process.stdout.write('Disposable Payload/PostgreSQL governed-record integration passed.\n')
+  await denied(() => command(doc, publisher, 'publish'), /Domain approval identity is inactive/)
+  await denied(() => cmsPreview(payload, domain, doc.id), /not allowed|Forbidden|Not Found/i)
+  await payload.update({ collection: 'users', id: domain.id, user: manager,
+    overrideAccess: false, data: { active: true },
+  })
+  await payload.update({ collection: 'users', id: reviewer.id, user: manager,
+    overrideAccess: false, data: { roles: ['author'] },
+  })
+  await denied(() => command(doc, publisher, 'publish'), /Approval identity is inactive/)
+  await payload.update({ collection: 'users', id: reviewer.id, user: manager,
+    overrideAccess: false, data: { roles: ['reviewer'] },
+  })
+  doc = await command(doc, publisher, 'publish')
+  assert.equal(doc.record.status, 'published')
+  assert.equal(doc.workflow.verification, null)
+  doc = await command(doc, domain, 'verify-publication', { reference: 'synthetic post-publish verification' })
+  assert.equal(doc.workflow.verification.actor, `cms:${domain.id}`)
+  assert.equal(publicEligibility(doc.record, new Date()).eligible, false)
+  await denied(() => payload.delete({ collection: 'governed-records', id: doc.id, overrideAccess: true }), /withdrawn/)
+  const priorAudit = doc.record.audit
+  doc = await command(doc, publisher, 'withdraw', { reason: 'synthetic retirement' })
+  assert.equal(doc.record.status, 'withdrawn')
+  assert.deepEqual(doc.record.audit.slice(0, -1), priorAudit)
+  assert.equal(doc.record.audit.at(-1).actor, `cms:${publisher.id}`)
+  assert.equal(doc.publicId, fixture.publicId)
+  await denied(() => command(doc, publisher, 'publish'), /approved content/)
+  const publishInstant = instant(12000)
+  const expiryInstant = instant(17000)
+  let timed = await payload.create({ collection: 'governed-records', user: author, overrideAccess: false,
+    data: { publicId: `pub_${fixtureSuffix}ff`, contentClass: 'general', record: {
+      ...fixture, publicId: `pub_${fixtureSuffix}ff`,
+      localized: { en: { slug: `timed-cms-${fixtureSuffix}`, title: 'Synthetic timed CMS fixture' } },
+      publishAt: publishInstant, expiresAt: expiryInstant,
+    } },
+  })
+  timed = await command(timed, author, 'submit')
+  timed = await command(timed, domain, 'review-domain', { domain: 'clinical', reference: 'synthetic timed review' })
+  timed = await command(timed, reviewer, 'approve')
+  timed = await command(timed, publisher, 'schedule')
+  assert.equal(timed.record.status, 'scheduled')
+  await denied(() => command(timed, publisher, 'publish'), /not effective/)
+  await new Promise((resolve) => setTimeout(resolve, Math.max(0, Date.parse(publishInstant) - Date.now() + 200)))
+  const duePublication = await advanceDueCmsRecords(payload, publisher)
+  assert.ok(duePublication.some((change) => change.id === timed.id && change.action === 'publish'))
+  await new Promise((resolve) => setTimeout(resolve, Math.max(0, Date.parse(expiryInstant) - Date.now() + 200)))
+  const dueExpiry = await advanceDueCmsRecords(payload, publisher)
+  assert.ok(dueExpiry.some((change) => change.id === timed.id && change.action === 'expire'))
+  const timedExpired = await payload.findByID({ collection: 'governed-records', id: timed.id,
+    user: publisher, overrideAccess: false,
+  })
+  assert.equal(timedExpired.record.status, 'expired')
+  assert.equal(timedExpired.record.withdrawal.reason, 'Controlled expiry instant reached')
+  process.stdout.write('Disposable Payload/PostgreSQL authenticated workflow, timed lifecycle and retirement integration passed.\n')
 } catch (error) {
   process.stderr.write(`Disposable CMS smoke failed: ${error.message}\n`)
   process.exitCode = 1

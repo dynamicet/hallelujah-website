@@ -105,9 +105,9 @@ assert.ok(validateRecordSet([linkedRetired, retiredWithMissingSuccessor]).includ
   'relationship points to a retired public record'))
 
 assert.equal(governedRecordsCollection.endpoints, false)
-assert.equal(governedRecordsCollection.access.read(), false)
-assert.equal(governedRecordsCollection.access.create(), false)
-assert.equal(governedRecordsCollection.access.update(), false)
+assert.equal(await governedRecordsCollection.access.read({ req: {} }), false)
+assert.equal(await governedRecordsCollection.access.create({ req: {} }), false)
+assert.equal(await governedRecordsCollection.access.update({ req: {} }), false)
 assert.equal(governedRecordsCollection.access.delete(), false)
 accepted(validateStoredRecordChange(syntheticRecord, undefined, []))
 assert.throws(() => validateStoredRecordChange(productionShape, undefined, []), /Authentic/)
@@ -131,9 +131,9 @@ assert.throws(() => validateStoredRecordChange({ ...updated, status: 'draft', wi
   syntheticRecord, []), /status transition/)
 
 const beforeChange = governedRecordsCollection.hooks.beforeChange[0]
-const request = { payload: { find: async () => ({ docs: [], totalDocs: 0 }) } }
-const stored = await beforeChange({ data: { record: syntheticRecord }, req: request })
-assert.equal(stored.publicId, syntheticRecord.publicId)
+await assert.rejects(() => beforeChange({
+  data: { record: syntheticRecord }, req: { payload: {} },
+}), /active persisted CMS identity/)
 assert.throws(() => governedRecordsCollection.hooks.beforeDelete[0](), /withdrawn/)
 
 process.stdout.write('Governed-record controlled contract checks passed.\n')
