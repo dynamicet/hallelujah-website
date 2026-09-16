@@ -1,9 +1,9 @@
-# `B01-011` — Provider-Neutral Optional-Map Local Evidence
+# `B01-011` — Provider-Neutral Optional-Map Completion Evidence
 
 **Recorded:** 16 September 2026, Africa/Addis_Ababa
-**Result:** Local implementation complete; In review for controlled development
+**Result:** Done for controlled development; client acceptance, local `T0`, and hosted implementation `T1` pass
 **Tester:** Codex directed by client workspace identity `befikadusata` in the temporary Frontend/QA roles
-**Build:** `b01-011-optional-map-wrapper` implementation snapshot tested before commit, based on merged `main` commit `e6d567f`; no hosted exact-head result is claimed
+**Build:** Local implementation snapshot on `b01-011-optional-map-wrapper`, based on merged `main` commit `e6d567f`; hosted implementation `T1` passed for exact commit `b13d709edd3ded4555154588e77298d5f4cc0b7a`
 **Environment:** Isolated local Next.js production build, Node.js `24.21.0`, pnpm `10.27.0`, headless Chromium from `/snap/bin/chromium` (installed Snap metadata version `152.0.7977.64`)
 
 ## Expected and actual results
@@ -28,7 +28,7 @@
 ## Source fingerprints
 
 SHA-256 identifies the implementation and browser harness reviewed locally; this does not replace
-the future exact-commit hosted gate.
+the passing exact-commit hosted gate.
 
 | File | SHA-256 |
 | --- | --- |
@@ -52,9 +52,21 @@ the future exact-commit hosted gate.
 
 ## Remaining acceptance boundaries
 
-Client controlled-development acceptance, issue/pull-request review, and hosted exact-head `T1`
-remain unclaimed. The client subsequently directed a local commit of this implementation;
-no push, issue, or pull request is authorized or claimed.
+The client accepted controlled development and directed closure on 16 September 2026,
+Africa/Addis_Ababa, authorizing hosted review and merge after the required gate.
+[Issue `#24`](https://github.com/dynamicet/hallelujah-website/issues/24) and
+[PR `#25`](https://github.com/dynamicet/hallelujah-website/pull/25) track closure.
+[hosted implementation run `35069339308`](https://github.com/dynamicet/hallelujah-website/actions/runs/35069339308) passed for exact commit
+`b13d709edd3ded4555154588e77298d5f4cc0b7a`, including frozen install, fail-closed CI controls,
+reachable-history secret scan, dependency audit, full `pnpm verify` (including optional-map
+browser assertions), and clean reconstruction. This records In review → Done for controlled
+development under the same temporary responsible/acceptance identity and completed dependencies.
+The final acceptance-documentation head must repeat `quality-and-security` before merge.
+No merge or production acceptance is claimed in this record.
+
+Closeout-only local checks pass: `pnpm optional-map:check`, `pnpm secrets:check --history`,
+`node docs/backlog/audit-backlog.mjs` (10/10), `node scripts/check-format.mjs`,
+`node scripts/check-local-links.mjs`, and `git diff --check`.
 
 Real provider selection/integration and activation still require `B00-014` / `SEC-02`. Real arrival
 facts, contacts, entrances, access guidance, and coordinates require applicable content and

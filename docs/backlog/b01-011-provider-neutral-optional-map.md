@@ -1,7 +1,7 @@
 # `B01-011` — Provider-Neutral Optional-Map Wrapper
 
 **Execution date:** 16 September 2026, Africa/Addis_Ababa
-**Status:** In review; local implementation and `T0` verification complete
+**Status:** Done for controlled development; local `T0` and hosted implementation `T1` pass
 **Provider, real arrival content, collection, production, and publication authority:** Not granted
 
 ## Execution contract
@@ -10,14 +10,14 @@
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P1` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Proposed → Ready → In progress → In review on the client's provider-neutral instruction, implemented component/fixture, passing local gates, and sanitized evidence; controlled-development acceptance remains unclaimed |
+| Old / new status | Proposed → Ready → In progress → In review → Done on the client's provider-neutral instruction, implemented component/fixture, passing local gates, and sanitized evidence; client controlled-development acceptance recorded on 16 September 2026, Africa/Addis_Ababa, on the instruction to close the ticket; hosted implementation `T1` passed for `b13d709`; final documentation head must repeat CI before merge |
 | Responsible / acceptance | Client workspace identity `befikadusata` directing Codex in temporary Frontend and QA roles; same client identity reviews controlled-development acceptance; named production Privacy, Security, Operations, Language, Accessibility, and Release owners return at their gates |
 | Dependencies | `B01-010` is Done. The deferred `B00-014` default-deny baseline explicitly permits dependent local/first-party development, but does not approve any provider. `SEC-02` remains unresolved. |
-| Target | Isolated local `T0` application and headless Chromium; hosted `T1` remains a separate review gate |
+| Target | Isolated local `T0` application/headless Chromium and passing private-repository hosted implementation `T1`; final documentation head must repeat CI before merge |
 | Requirements | `C-003`, `S-005`, `G-007`; real arrival facts remain under `SAFE-03` and the canonical content gates |
 | Allowed repository scope | Provider-neutral map component/CSS, first-party enhancement, visibly synthetic fixture, static/browser tests, verification commands, architecture/backlog documentation, and sanitized evidence |
 | Branch | `b01-011-optional-map-wrapper` |
-| Repository review | Local implementation only at this stage; no issue, pull request, push, or hosted result is claimed |
+| Repository review | [Issue `#24`](https://github.com/dynamicet/hallelujah-website/issues/24) and [PR `#25`](https://github.com/dynamicet/hallelujah-website/pull/25); client accepted controlled development and authorized closure; [hosted implementation run `35069339308`](https://github.com/dynamicet/hallelujah-website/actions/runs/35069339308) passed for exact commit `b13d709`; final documentation head must repeat CI before merge |
 | Evidence destination | [Local evidence](evidence/B01-011-provider-neutral-optional-map-2026-09-16.md) and captures under `evidence/b01-011-rendered/` |
 
 The client's direction authorizes this controlled implementation and verification. It does not
@@ -70,8 +70,8 @@ screen-reader/physical-device acceptance, approved translations, provider author
 - [x] Provider-neutral component/CSS, first-party enhancement, and visibly synthetic fixtures exist.
 - [x] Static contract, lint/types/build, full local `pnpm verify`, responsive/resilience browser
       matrix, history secret scan, dependency audit, and sanitized visual inspection pass.
-- [ ] Client controlled-development acceptance and repository issue/pull-request review are recorded.
-- [ ] Hosted `T1` passes for the exact current review commit before merge.
+- [x] Client controlled-development acceptance and repository issue/pull-request review are recorded.
+- [x] Hosted implementation `T1` passes for exact commit `b13d709`; final documentation head must repeat CI before merge.
 - [ ] Named production roles approve actual provider, arrival facts, privacy/consent policy,
       language, physical-device/assistive-technology behavior, and publication where applicable.
 
