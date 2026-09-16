@@ -3,8 +3,8 @@
 **Date/timezone:** 16 September 2026, Africa/Addis_Ababa.
 **Responsible / review authority:** `befikadusata` directing Codex in temporary Backend/CMS,
 Operations-contract and QA roles / same client identity for controlled-development review.
-**Status:** Proposed → Ready → In progress → In review after passing local T0; client acceptance and hosted T1 pending.
-**Branch/tracker:** `b02-003-canonical-site-settings`; [issue #34](https://github.com/dynamicet/hallelujah-website/issues/34).
+**Status:** Proposed → Ready → In progress → In review after passing local T0; client acceptance pending; hosted current-head results are tracked in draft PR #35.
+**Branch/tracker:** `b02-003-canonical-site-settings`; [issue #34](https://github.com/dynamicet/hallelujah-website/issues/34), [draft PR #35](https://github.com/dynamicet/hallelujah-website/pull/35).
 
 ## Scope and dependencies
 
@@ -68,6 +68,11 @@ initial origins and passing asset budgets.
   The same edits were completed with a correctly quoted inline script outside the sandbox.
 - Full verification and fresh database sockets required execution outside the sandbox, with
   disposable `/var/tmp` storage. No acceptance check, production gate or browser assertion was weakened.
+
+Review additionally added explicit English language attributes for warnings/canonical English values
+inside the Amharic specimen and rejected leading/consecutive local-part dots and invalid domain
+label edges in email values. Focused settings/render checks, typecheck and lint passed after those
+changes. The final PR head must repeat the full hosted verification and clean reconstruction.
 
 No open local implementation defect remains. Local PostgreSQL integration is distinct from hosted
 T1 and does not certify production infrastructure or workflows. Hosted exact-head quality/security

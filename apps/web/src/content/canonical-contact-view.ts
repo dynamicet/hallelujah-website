@@ -34,11 +34,11 @@ export function CanonicalContactDetails(props: Readonly<{
   record: unknown; locale: GovernedLocale; now: Date; mode?: 'controlled-fixture'
 }>) {
   const view = canonicalContactView(props.record, props.locale, props.now, props.mode)
-  if (view.state === 'unavailable') return createElement('p', { 'data-contact-state': 'unavailable' },
+  if (view.state === 'unavailable') return createElement('p', { lang: 'en', 'data-contact-state': 'unavailable' },
     'Contact details are withheld pending verification.')
   return createElement('section', { lang: props.locale, 'data-contact-state': view.state },
-    createElement('p', null, 'Synthetic contact fixture — not hospital contact or arrival information.'),
-    props.locale === 'am' ? createElement('p', null, 'Unreviewed Amharic shaping fixture.') : null,
+    createElement('p', { lang: 'en' }, 'Synthetic contact fixture — not hospital contact or arrival information.'),
+    props.locale === 'am' ? createElement('p', { lang: 'en' }, 'Unreviewed Amharic shaping fixture.') : null,
     createElement('dl', null, ...view.facts.map((fact) => createElement('div', { key: fact.key,
       'data-contact-fact': fact.key }, createElement('dt', null, fact.label),
     createElement('dd', { lang: 'en' }, fact.value)))))

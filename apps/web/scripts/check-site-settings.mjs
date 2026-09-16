@@ -46,6 +46,10 @@ assert.equal(validateGovernedRecord(fact('ambulancePhone', {
   label: fixture.siteSettings.emergencyPhone.label })).ok, false)
 assert.equal(validateGovernedRecord(fact('email', { value: 'test@hospital.invalid?subject=secret' })).ok, false)
 assert.equal(validateGovernedRecord(fact('emergencyPhone', { value: 'javascript:alert(1)' })).ok, false)
+for (const value of ['.contact@hospital.invalid', 'contact..desk@hospital.invalid',
+  'contact@-hospital.invalid', 'contact@hospital-.invalid']) {
+  assert.equal(validateGovernedRecord(fact('email', { value })).ok, false)
+}
 assert.equal(canonicalPhone('12345'), null)
 assert.equal(validateGovernedRecord(fact('address', { value: 'Synthetic\naddress' })).ok, false)
 assert.throws(() => createWorkflow(fixture, 'general', author, now), /contact safety class/)
@@ -86,7 +90,7 @@ for (const locale of ['en', 'am']) {
   assert.match(html, /<dl>/)
   assert.doesNotMatch(html, /<a\b|<script\b|href=|<input\b/)
   for (const key of siteFactKeys) assert.ok(html.includes(`data-contact-fact="${key}"`))
-  if (locale === 'am') assert.match(html, /Unreviewed Amharic/)
+  if (locale === 'am') assert.match(html, /<p lang="en">Unreviewed Amharic/)
 }
 const changed = fact('publicPhone', { value: '+1 202 555 0199' })
 assert.equal(canonicalContactView(changed, 'en', now, 'controlled-fixture').facts

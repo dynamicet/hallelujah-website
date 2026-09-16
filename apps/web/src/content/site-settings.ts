@@ -41,7 +41,13 @@ export function factTarget(key: SiteFactKey, value: string): string | null {
     return number ? `tel:${number}` : null
   }
   if (key === 'email') {
-    return /^[a-z0-9._+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)+$/iu.test(value)
+    const parts = value.split('@')
+    const local = parts[0] ?? ''
+    const host = parts[1] ?? ''
+    const labels = host.split('.')
+    return parts.length === 2 && value.length <= 254 && local.length <= 64
+      && /^[a-z0-9_+-]+(?:\.[a-z0-9_+-]+)*$/iu.test(local) && labels.length >= 2
+      && labels.every((part) => part.length <= 63 && /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/iu.test(part))
       ? `mailto:${value}` : null
   }
   return null

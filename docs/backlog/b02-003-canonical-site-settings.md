@@ -1,6 +1,6 @@
 # `B02-003` — Canonical Site Settings and Contact Records
 
-**Status:** In review after passing local T0 on 16 September 2026, Africa/Addis_Ababa; [issue #34](https://github.com/dynamicet/hallelujah-website/issues/34) tracks hosted review and client acceptance.
+**Status:** In review after passing local T0 on 16 September 2026, Africa/Addis_Ababa; [issue #34](https://github.com/dynamicet/hallelujah-website/issues/34) and [draft PR #35](https://github.com/dynamicet/hallelujah-website/pull/35) track hosted review and client acceptance.
 
 ## Execution authority and boundary
 
