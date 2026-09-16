@@ -57,7 +57,8 @@
     "cms-workflow:check": "pnpm --dir apps/web cms-workflow:check",
     "site-settings:check": "pnpm --dir apps/web site-settings:check",
     "clinicians:check": "pnpm --dir apps/web clinicians:check",
-    "services:check": "pnpm --dir apps/web services:check"
+    "services:check": "pnpm --dir apps/web services:check",
+    "care-relationships:check": "pnpm --dir apps/web care-relationships:check"
   },
   "pnpm": {
     "overrides": {
