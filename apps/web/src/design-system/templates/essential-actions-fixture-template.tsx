@@ -16,6 +16,7 @@ import { SearchControlsFixtureTemplate } from './search-controls-fixture-templat
 import { SystemStatesFixtureTemplate } from './system-states-fixture-template'
 import { MotionMediaFixtureTemplate } from './motion-media-fixture-template'
 import { GovernedCardsFixtureTemplate } from './governed-cards-fixture-template'
+import { OptionalMapFixtureTemplate } from './optional-map-fixture-template'
 
 export interface EssentialActionsFixtureTemplateProps {
   readonly searchParameters: Readonly<
@@ -226,6 +227,7 @@ export function EssentialActionsFixtureTemplate({
       <SystemStatesFixtureTemplate />
       <MotionMediaFixtureTemplate />
       <GovernedCardsFixtureTemplate />
+      <OptionalMapFixtureTemplate />
       </ControlledBootstrapTemplate>
     </SiteShell>
   )

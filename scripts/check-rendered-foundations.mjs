@@ -21,6 +21,7 @@ const formPrimitivesMode = process.argv.includes('--form-primitives')
 const systemStatesMode = process.argv.includes('--system-states')
 const motionMediaMode = process.argv.includes('--motion-media')
 const governedCardsMode = process.argv.includes('--governed-cards')
+const optionalMapMode = process.argv.includes('--optional-map')
 const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
 const environment = {
@@ -70,12 +71,22 @@ try {
   const { sessionId } = await client.send('Target.attachToTarget', { flatten: true, targetId })
   await client.send('Page.enable', {}, sessionId)
   await client.send('Runtime.enable', {}, sessionId)
+  const mapRequests = []
+  if (optionalMapMode) {
+    client.onEvent((event) => {
+      if (event.sessionId === sessionId && event.method === 'Network.requestWillBeSent') {
+        mapRequests.push(event.params.request.url)
+      }
+    })
+    await client.send('Network.enable', {}, sessionId)
+  }
   await client.send('Page.navigate', { url: origin }, sessionId)
   await waitForDocument(client, sessionId)
   if (shellMode) await waitForShellEnhancement(client, sessionId)
   if (searchControlsMode) await waitForSearchControlsEnhancement(client, sessionId)
   if (formPrimitivesMode) await waitForFormPrimitivesEnhancement(client, sessionId)
   if (motionMediaMode) await waitForMotionMediaEnhancement(client, sessionId)
+  if (optionalMapMode) await waitForOptionalMapEnhancement(client, sessionId)
 
   const viewports = [
     { height: 900, label: 320, width: 320 },
@@ -126,6 +137,12 @@ try {
       assertSystemStatesViewport(
         viewport.label,
         await evaluate(client, sessionId, renderedSystemStatesChecksSource()),
+      )
+    }
+    if (optionalMapMode) {
+      assertOptionalMapViewport(
+        viewport.label,
+        await evaluate(client, sessionId, renderedOptionalMapChecksSource()),
       )
     }
     if (governedCardsMode) {
@@ -197,6 +214,14 @@ try {
       ) fail(`motion/media viewport ${viewport.label}: ${JSON.stringify(motionResult)}`)
     }
     if (captureDirectory && (viewport.width === 320 || viewport.width === 1440)) {
+      if (optionalMapMode) {
+        await evaluate(client, sessionId, `(() => {
+          const fixture = document.querySelector('[data-optional-map-fixture]')
+          const nodes = [...fixture.parentElement.children].filter((node) => node !== fixture)
+          window.__optionalMapCaptureNodes = nodes.map((node) => ({ node, display: node.style.display }))
+          nodes.forEach((node) => { node.style.display = 'none' })
+        })()`)
+      }
       await evaluate(
         client,
         sessionId,
@@ -207,9 +232,13 @@ try {
       )
       await settleLayout()
       await mkdir(captureDirectory, { recursive: true })
+      const clip = optionalMapMode ? await evaluate(client, sessionId, `(() => {
+        const rect = document.querySelector('[data-optional-map-fixture]').getBoundingClientRect()
+        return { x: 0, y: rect.y + scrollY, width: innerWidth, height: rect.height, scale: 1 }
+      })()`) : undefined
       const { data } = await client.send(
         'Page.captureScreenshot',
-        { captureBeyondViewport: true, format: 'png', fromSurface: true },
+        { captureBeyondViewport: true, ...(clip ? { clip } : {}), format: 'png', fromSurface: true },
         sessionId,
       )
       await writeFile(
@@ -217,6 +246,12 @@ try {
         data,
         'base64',
       )
+      if (optionalMapMode) {
+        await evaluate(client, sessionId, `(() => {
+          window.__optionalMapCaptureNodes.forEach(({ node, display }) => { node.style.display = display })
+          delete window.__optionalMapCaptureNodes
+        })()`)
+      }
     }
   }
 
@@ -677,6 +712,134 @@ try {
     }
   }
 
+  if (optionalMapMode) {
+    const uncheckedMap = await evaluate(client, sessionId, `(() => ({
+      unchecked: !document.querySelector('[data-map-acknowledgement]').checked,
+      activationDisabled: document.querySelector('[data-map-activate]').disabled,
+    }))()`)
+    if (!uncheckedMap.unchecked || !uncheckedMap.activationDisabled) {
+      fail(`optional-map unchecked baseline: ${JSON.stringify(uncheckedMap)}`)
+    }
+    await evaluate(client, sessionId, "document.querySelector('[data-map-acknowledgement]').click()")
+    await settleLayout()
+    const acknowledgedMap = await evaluate(client, sessionId, `(() => ({
+      checked: document.querySelector('[data-map-acknowledgement]').checked,
+      choiceDisabled: document.querySelector('[data-map-acknowledgement]').disabled,
+      activationDisabled: document.querySelector('[data-map-activate]').disabled,
+    }))()`)
+    if (!acknowledgedMap.checked || acknowledgedMap.choiceDisabled || acknowledgedMap.activationDisabled) {
+      throw new Error(`optional-map acknowledgement did not enable the launcher: ${JSON.stringify(acknowledgedMap)}`)
+    }
+    await evaluate(client, sessionId, `(() => {
+      const button = document.querySelector('[data-map-activate]')
+      button.scrollIntoView({ block: 'center' })
+      button.focus()
+    })()`)
+    await settleLayout()
+    const launcherFocused = await evaluate(client, sessionId,
+      "document.activeElement === document.querySelector('[data-map-activate]')")
+    if (!launcherFocused) throw new Error('optional-map keyboard launcher could not receive focus')
+    const requestCountBeforeIntent = mapRequests.length
+    await client.send('Input.dispatchKeyEvent', {
+      code: 'Enter', key: 'Enter', text: '\r', type: 'keyDown', windowsVirtualKeyCode: 13,
+    }, sessionId)
+    await client.send('Input.dispatchKeyEvent', {
+      code: 'Enter', key: 'Enter', type: 'keyUp', windowsVirtualKeyCode: 13,
+    }, sessionId)
+    await settleLayout()
+    const activeMap = await evaluate(client, sessionId, `(() => {
+      const wrapper = document.getElementById('controlled-map-interactive')
+      const surface = wrapper.querySelector('[data-map-surface]')
+      const live = wrapper.querySelector('[data-map-live]')
+      return {
+        focused: document.activeElement === surface,
+        state: wrapper.dataset.mapState,
+        surfaceVisible: !surface.hidden,
+        removeVisible: !wrapper.querySelector('[data-map-remove]').hidden,
+        directionsVisible: wrapper.querySelector('[data-text-directions]').getBoundingClientRect().height > 0,
+        live: live.getAttribute('aria-live'),
+        statusAvailable: !live.hidden,
+        status: live.textContent,
+      }
+    })()`)
+    if (activeMap.state !== 'active' || !activeMap.focused || !activeMap.surfaceVisible
+      || !activeMap.removeVisible || !activeMap.directionsVisible || activeMap.live !== 'polite'
+      || !activeMap.statusAvailable || !activeMap.status.includes('No map provider was contacted')
+      || mapRequests.length !== requestCountBeforeIntent) {
+      fail(`optional-map intent or request boundary: ${JSON.stringify(activeMap)}; new requests ${mapRequests.length - requestCountBeforeIntent}`)
+    }
+
+    await evaluate(client, sessionId, "document.querySelector('[data-map-remove]').focus()")
+    await client.send('Input.dispatchKeyEvent', {
+      code: 'Space', key: ' ', type: 'rawKeyDown', windowsVirtualKeyCode: 32,
+    }, sessionId)
+    await client.send('Input.dispatchKeyEvent', {
+      code: 'Space', key: ' ', type: 'keyUp', windowsVirtualKeyCode: 32,
+    }, sessionId)
+    await settleLayout()
+    const removedMap = await evaluate(client, sessionId, `(() => {
+      const wrapper = document.getElementById('controlled-map-interactive')
+      return {
+        focused: document.activeElement === wrapper.querySelector('[data-map-activate]'),
+        state: wrapper.dataset.mapState,
+        surfaceHidden: wrapper.querySelector('[data-map-surface]').hidden,
+        removeHidden: wrapper.querySelector('[data-map-remove]').hidden,
+      }
+    })()`)
+    if (removedMap.state !== 'idle' || !removedMap.focused || !removedMap.surfaceHidden
+      || !removedMap.removeHidden || mapRequests.length !== requestCountBeforeIntent) {
+      fail(`optional-map removal or focus: ${JSON.stringify(removedMap)}`)
+    }
+
+    await evaluate(client, sessionId, "document.querySelector('[data-map-activate]').click()")
+    await evaluate(client, sessionId, "document.querySelector('[data-map-acknowledgement]').click()")
+    const revokedMap = await evaluate(client, sessionId, `(() => ({
+      idle: document.getElementById('controlled-map-interactive').dataset.mapState === 'idle',
+      unchecked: !document.querySelector('[data-map-acknowledgement]').checked,
+      disabled: document.querySelector('[data-map-activate]').disabled,
+      hidden: document.querySelector('[data-map-surface]').hidden,
+    }))()`)
+    if (Object.values(revokedMap).some((passed) => !passed)) {
+      fail(`optional-map local-choice revocation: ${JSON.stringify(revokedMap)}`)
+    }
+    await evaluate(client, sessionId, "document.querySelector('[data-map-acknowledgement]').click()")
+    await evaluate(client, sessionId, "document.querySelector('[data-map-activate]').click()")
+    await evaluate(client, sessionId, "window.dispatchEvent(new PageTransitionEvent('pagehide'))")
+    const exitedMap = await evaluate(client, sessionId, `(() => ({
+      idle: document.getElementById('controlled-map-interactive').dataset.mapState === 'idle',
+      unchecked: !document.querySelector('[data-map-acknowledgement]').checked,
+      disabled: document.querySelector('[data-map-activate]').disabled,
+    }))()`)
+    if (Object.values(exitedMap).some((passed) => !passed)) {
+      fail(`optional-map route-exit cleanup: ${JSON.stringify(exitedMap)}`)
+    }
+
+    await client.send('Emulation.setScriptExecutionDisabled', { value: true }, sessionId)
+    await client.send('Page.navigate', { url: origin }, sessionId)
+    await waitForDocument(client, sessionId)
+    const noScriptMap = await evaluate(client, sessionId, `(() => ({
+      enhanced: document.documentElement.dataset.optionalMapEnhanced ?? null,
+      disabled: document.querySelector('[data-map-activate]').disabled,
+      choiceDisabled: document.querySelector('[data-map-acknowledgement]').disabled,
+      choiceUnchecked: !document.querySelector('[data-map-acknowledgement]').checked,
+      directions: document.querySelectorAll('[data-text-directions]').length,
+      hidden: document.querySelector('[data-map-surface]').hidden,
+      embeddedResources: document.querySelectorAll('[data-optional-map-fixture] iframe, [data-optional-map-fixture] img').length,
+    }))()`)
+    if (noScriptMap.enhanced !== null || !noScriptMap.disabled || !noScriptMap.choiceDisabled
+      || !noScriptMap.choiceUnchecked || noScriptMap.directions !== 4
+      || !noScriptMap.hidden || noScriptMap.embeddedResources !== 0) {
+      fail(`no-JavaScript optional-map boundary: ${JSON.stringify(noScriptMap)}`)
+    }
+    await client.send('Emulation.setScriptExecutionDisabled', { value: false }, sessionId)
+    await client.send('Page.navigate', { url: origin }, sessionId)
+    await waitForDocument(client, sessionId)
+    await waitForOptionalMapEnhancement(client, sessionId)
+    if (mapRequests.some((url) => !url.startsWith(`${origin}/`))) {
+      fail('optional-map browser matrix made a request outside the local application origin')
+    }
+  }
+
   if (motionMediaMode) {
     const noScriptResponse = await fetch(origin)
     const noScriptHtml = await noScriptResponse.text()
@@ -936,6 +1099,9 @@ try {
   await evaluate(client, sessionId, "document.documentElement.style.fontSize = '200%'")
   await settleLayout()
   assertViewport('200%-text', await evaluate(client, sessionId, renderedChecksSource()))
+  if (optionalMapMode) {
+    assertOptionalMapViewport('200%-text', await evaluate(client, sessionId, renderedOptionalMapChecksSource()))
+  }
   await evaluate(client, sessionId, "document.documentElement.style.removeProperty('font-size')")
 
   await client.send(
@@ -967,6 +1133,11 @@ try {
     if (reducedStateResult.animationName !== 'none') {
       fail(`reduced-motion loading indicator still animates: ${JSON.stringify(reducedStateResult)}`)
     }
+  }
+  if (optionalMapMode) {
+    const animation = await evaluate(client, sessionId,
+      "getComputedStyle(document.querySelector('[data-map-loading] span')).animationName")
+    if (animation !== 'none') fail('reduced-motion optional-map loading specimen still animates')
   }
   if (motionMediaMode) {
     const accent = await evaluate(client, sessionId, `(() => {
@@ -1014,6 +1185,17 @@ try {
     })()`)
     if (printCard.background !== 'rgba(0, 0, 0, 0)' || printCard.border === 'none') {
       fail(`print governed card boundary: ${JSON.stringify(printCard)}`)
+    }
+  }
+  if (optionalMapMode) {
+    const printMap = await evaluate(client, sessionId, `(() => ({
+      directions: [...document.querySelectorAll('[data-text-directions]')].every((node) =>
+        getComputedStyle(node).display !== 'none' && node.getBoundingClientRect().height > 0),
+      panelsHidden: [...document.querySelectorAll('[data-map-panel]')].every((node) =>
+        getComputedStyle(node).display === 'none'),
+    }))()`)
+    if (!printMap.directions || !printMap.panelsHidden) {
+      fail(`print optional-map text-first boundary: ${JSON.stringify(printMap)}`)
     }
   }
 
@@ -1068,11 +1250,25 @@ try {
       fail(`forced-colors governed card boundary: ${JSON.stringify(forcedCard)}`)
     }
   }
+  if (optionalMapMode) {
+    const forcedMap = await evaluate(client, sessionId, `(() => {
+      const panel = getComputedStyle(document.querySelector('[data-map-state="blocked"] [data-map-panel]'))
+      const button = document.querySelector('[data-map-acknowledgement]')
+      button.focus()
+      const focus = getComputedStyle(button)
+      return { border: panel.borderLeftStyle, focus: focus.outlineStyle, width: Number.parseFloat(focus.outlineWidth) }
+    })()`)
+    if (forcedMap.border === 'none' || forcedMap.focus === 'none' || forcedMap.width < 3) {
+      fail(`forced-colors optional-map boundary: ${JSON.stringify(forcedMap)}`)
+    }
+  }
 
   client.close()
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
-    governedCardsMode
+    optionalMapMode
+      ? 'Rendered optional-map smoke passed (complete text-first fallback, four controlled states, explicit keyboard intent, removal/focus, route cleanup, zero activation/external requests, true no-JavaScript mode, responsive/enlarged text, reduced motion, print, and forced colors).'
+      : governedCardsMode
       ? 'Rendered governed-card smoke passed (four synthetic variants, omission, unavailable and retired actions, public fail-closed gate, responsive targets, no-JavaScript output, print, and forced colors).'
       : motionMediaMode
       ? 'Rendered motion/media smoke passed (responsive static regions, protected and area ceilings, zero pre-intent requests, keyboard Play/Pause/Stop, focus, Save-Data and blocked-media recovery, no-JavaScript content, reduced motion, print, and forced colors).'
@@ -1152,6 +1348,7 @@ async function waitForDevTools() {
 async function createDevToolsClient(url) {
   const socket = new WebSocket(url)
   const pending = new Map()
+  const eventListeners = new Set()
   let nextId = 0
   await new Promise((resolve, reject) => {
     socket.addEventListener('open', resolve, { once: true })
@@ -1159,6 +1356,10 @@ async function createDevToolsClient(url) {
   })
   socket.addEventListener('message', (event) => {
     const message = JSON.parse(event.data)
+    if (message.method) {
+      eventListeners.forEach((listener) => listener(message))
+      return
+    }
     const operation = pending.get(message.id)
     if (!operation) return
     pending.delete(message.id)
@@ -1167,6 +1368,7 @@ async function createDevToolsClient(url) {
   })
   return {
     close: () => socket.close(),
+    onEvent(listener) { eventListeners.add(listener) },
     send(method, params = {}, sessionId) {
       const id = ++nextId
       return new Promise((resolve, reject) => {
@@ -1239,6 +1441,53 @@ async function waitForMotionMediaEnhancement(client, sessionId) {
     saveData: navigator.connection?.saveData,
   }))()`)
   throw new Error(`first-party motion enhancement did not load: ${JSON.stringify(state)}`)
+}
+
+async function waitForOptionalMapEnhancement(client, sessionId) {
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    const enhanced = await evaluate(client, sessionId,
+      "document.documentElement.dataset.optionalMapEnhanced === 'true'")
+    if (enhanced) return
+    await pause(100)
+  }
+  throw new Error('first-party optional-map enhancement did not load')
+}
+
+function renderedOptionalMapChecksSource() {
+  return `(() => {
+    const fixture = document.querySelector('[data-optional-map-fixture]')
+    const wrappers = [...fixture.querySelectorAll('[data-optional-map]')]
+    const button = fixture.querySelector('[data-map-activate]')
+    const rect = button.getBoundingClientRect()
+    return {
+      count: wrappers.length,
+      states: wrappers.map((wrapper) => wrapper.dataset.mapState),
+      complete: wrappers.every((wrapper) => {
+        const directions = wrapper.querySelector('[data-text-directions]')
+        return directions.querySelectorAll('dt').length === 3
+          && directions.querySelectorAll('ol li').length === 2
+          && directions.compareDocumentPosition(wrapper.querySelector('[data-map-panel]')) & Node.DOCUMENT_POSITION_FOLLOWING
+      }),
+      blocked: fixture.querySelector('[data-map-state="blocked"] button').disabled,
+      busy: fixture.querySelector('[data-map-state="loading"] [data-map-panel]').getAttribute('aria-busy'),
+      failure: Boolean(fixture.querySelector('[data-map-failure]')),
+      noResourceSurface: !fixture.querySelector('iframe, img, video, canvas, a[href]'),
+      prohibited: wrappers.every((wrapper) => wrapper.dataset.providerRequest === 'prohibited'),
+      livePrepared: !fixture.querySelector('[data-map-live]').hidden
+        && fixture.querySelector('[data-map-live]').textContent === '',
+      button: { height: rect.height, width: rect.width },
+      overflow: wrappers.some((wrapper) => wrapper.getBoundingClientRect().right > document.documentElement.clientWidth + 1),
+    }
+  })()`
+}
+
+function assertOptionalMapViewport(label, result) {
+  if (result.count !== 4 || JSON.stringify(result.states) !== JSON.stringify(['idle', 'blocked', 'loading', 'failure'])
+    || !result.complete || !result.blocked || result.busy !== 'true' || !result.failure
+    || !result.noResourceSurface || !result.prohibited || !result.livePrepared || result.button.height < 44
+    || result.button.width < 44 || result.overflow) {
+    fail(`optional-map viewport ${label}: ${JSON.stringify(result)}`)
+  }
 }
 
 async function waitForPathAndSearch(client, sessionId, expectedValue) {

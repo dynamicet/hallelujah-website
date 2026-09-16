@@ -71,6 +71,12 @@ export { MotionAccent } from './motion-accent'
 export type { MotionAccentProps } from './motion-accent'
 export { isFirstPartyMediaPath, OptInMedia } from './opt-in-media'
 export type { MediaAuthority, OptInMediaProps, OptInMediaSource } from './opt-in-media'
+export { OptionalMap, optionalMapStates } from './optional-map'
+export type {
+  OptionalMapProps,
+  OptionalMapState,
+  TextDirectionStep,
+} from './optional-map'
 export type { StatusSummaryItem, StatusSummaryProps } from './status-summary'
 export {
   ActiveFilterList,

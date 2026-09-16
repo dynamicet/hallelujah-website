@@ -1,0 +1,5 @@
+.grid {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  min-inline-size: 0;
+}

@@ -31,6 +31,8 @@
     "introduction:check": "node scripts/check-introduction-gates.mjs",
     "lint": "node apps/web/node_modules/eslint/bin/eslint.js apps/web scripts docs/backlog/audit-backlog.mjs eslint.config.mjs --max-warnings=0",
     "motion-media:smoke": "node scripts/check-rendered-foundations.mjs --motion-media --capture-prefix b01-012-motion-media",
+    "optional-map:check": "pnpm --dir apps/web optional-map:check",
+    "optional-map:smoke": "node scripts/check-rendered-foundations.mjs --optional-map --capture-prefix b01-011-optional-map",
     "links:check": "node scripts/check-local-links.mjs",
     "rebuild:verify": "node scripts/verify-clean-rebuild.mjs",
     "runtime:smoke": "node scripts/check-runtime-smoke.mjs",
@@ -48,7 +50,7 @@
     "tokens:check": "pnpm --dir apps/web tokens:check",
     "tokens:generate": "pnpm --dir apps/web tokens:generate",
     "typecheck": "pnpm --dir apps/web typecheck",
-    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm brand:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke && pnpm foundations:smoke && pnpm governed-cards:smoke"
+    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm brand:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke && pnpm foundations:smoke && pnpm governed-cards:smoke && pnpm optional-map:smoke"
   },
   "pnpm": {
     "overrides": {
