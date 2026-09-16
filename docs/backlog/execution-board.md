@@ -381,3 +381,18 @@ dependency audit. Client acceptance remains pending; exact-head hosted T1 result
 in issue #36 and the implementation PR and must pass before merge. No authentic
 roster, hospital medical approval, schedule, asset, appointment, production or publication gate
 is promoted.
+
+On 16 September 2026, Africa/Addis_Ababa, the client directed “close it”. `B02-004` moves
+In review → **Done** for controlled development under workspace identity `befikadusata`
+directing Codex in temporary Backend/CMS, Medical-contract and QA roles and the same
+controlled-development review authority and local target. [Issue #36](https://github.com/dynamicet/hallelujah-website/issues/36),
+[PR #37](https://github.com/dynamicet/hallelujah-website/pull/37) and
+[completion evidence](evidence/B02-004-governed-clinician-records-2026-09-16.md) record passing
+fresh PostgreSQL clinician/medical-role/duplicate/retirement checks, local cross-role denial,
+full repository and 92-case bilingual browser verification, history secret scan and dependency
+audit. Hosted implementation [run 35105320640](https://github.com/dynamicet/hallelujah-website/actions/runs/35105320640)
+passed full verification and clean reconstruction for exact head
+`c42c44784ec0518be0a9b3688eb2e0fe162305d1`. The final acceptance-documentation head must
+repeat CI before merge; issue #36 and PR #37 retain its matching SHA/run, merge and exact-main
+result. Authentic clinicians, hospital medical approval, `CARE-01`–`CARE-03`, schedules,
+portraits, appointments, production and publication remain gated.

@@ -1,6 +1,6 @@
 # `B02-004` — Governed Clinician Records
 
-**Status:** In review for controlled development, 16 September 2026, Africa/Addis_Ababa. Local T0 passes; client acceptance remains pending. The matching-head hosted T1 result is tracked in issue #36 and the implementation PR. [Issue #36](https://github.com/dynamicet/hallelujah-website/issues/36) tracks review.
+**Status:** Done for controlled development on 16 September 2026, Africa/Addis_Ababa. The client directed “close it” after implementation and exact-head hosted verification passed. [Issue #36](https://github.com/dynamicet/hallelujah-website/issues/36) and [PR #37](https://github.com/dynamicet/hallelujah-website/pull/37) track acceptance, final closeout CI and merge.
 
 ## Execution authority
 
@@ -72,3 +72,16 @@ asset rights or hospital signoff. Bidirectional doctor/service/location mutation
 asset intake/derivatives remain `B02-011`; real search, appointment, CMS admin/API, provisioning,
 collection and publication remain gated. Scoped verification is implementation evidence; it does
 not grant clinical or production acceptance.
+
+## Controlled-development acceptance
+
+On 16 September 2026, Africa/Addis_Ababa, the client directed “close it”. Workspace identity
+`befikadusata` accepts the synthetic local scope under the same temporary Backend/CMS,
+Medical-contract and QA responsibility and controlled-development review authority.
+Local T0 and hosted implementation [run 35105320640](https://github.com/dynamicet/hallelujah-website/actions/runs/35105320640)
+passed, including clean reconstruction, for exact head `c42c44784ec0518be0a9b3688eb2e0fe162305d1`.
+No implementation defect remains open. The status moves In review → Done for controlled
+development. The acceptance-documentation head must repeat hosted CI before merge;
+issue #36 and PR #37 retain the matching SHA/run, merge and exact-main result.
+This acceptance does not approve authentic clinician content, hospital medical ownership,
+`CARE-01`–`CARE-03`, portraits, schedules, appointments, production or publication.

@@ -3,7 +3,7 @@
 **Date/environment:** 16 September 2026, Africa/Addis_Ababa; local controlled development T0.
 **Responsible/review identity:** `befikadusata` directing Codex in temporary Backend/CMS,
 Medical-contract and QA roles; same identity as controlled-development review authority.
-**Status:** In review after passing local T0; client acceptance remains pending. Matching-head hosted T1 result is tracked in issue #36 and the implementation PR.
+**Status:** Proposed → Ready → In progress → In review → Done for controlled development; client acceptance recorded on 16 September 2026, Africa/Addis_Ababa. Final closeout CI and merge results are tracked in PR #37.
 **Branch/tracker:** `b02-004-governed-clinician-records`; [issue #36](https://github.com/dynamicet/hallelujah-website/issues/36).
 
 ## Boundary and method
@@ -73,7 +73,17 @@ No open local implementation defect remains. No check or publication gate was we
 
 ## Acceptance boundary
 
-No controlled-development client acceptance or merge is claimed by this local record.
-The matching SHA/run and exact-head hosted T1 result are recorded in issue #36 and the
-implementation PR; a successful run must match the latest head before merge. Formal `CARE-01`–`CARE-03`, hospital medical ownership, authentic content,
-asset intake, CMS/public routes, appointments, production and publication remain gated.
+The client directed “close it” on 16 September 2026, Africa/Addis_Ababa. Workspace identity
+`befikadusata`, under the same temporary Backend/CMS, Medical-contract and QA responsibility
+and controlled-development review authority, accepts the implemented synthetic local scope.
+This direction promotes In review → Done for controlled development only. No implementation
+defect remains open.
+
+Hosted implementation [run 35105320640](https://github.com/dynamicet/hallelujah-website/actions/runs/35105320640)
+passed full verification and clean reconstruction for exact head
+`c42c44784ec0518be0a9b3688eb2e0fe162305d1`. The acceptance-documentation head must repeat
+CI before merge. [Issue #36](https://github.com/dynamicet/hallelujah-website/issues/36) and
+[PR #37](https://github.com/dynamicet/hallelujah-website/pull/37) retain the final matching
+SHA/run, merge and exact-main result; this record does not claim a merge before it occurs.
+Formal `CARE-01`–`CARE-03`, hospital medical ownership, authentic content, asset intake,
+CMS/public routes, appointments, production and publication remain gated.
