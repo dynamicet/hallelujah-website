@@ -57,6 +57,10 @@ Handoff candidates contain doctor/service/location public IDs only and remain in
   revision check. Checking the locked current revision first corrected the rejection order; repeating
   the entire fresh PostgreSQL smoke passed concurrency, rollback and all existing integration checks.
 
-No local implementation defect remains open. Hosted exact-head CI and client controlled-development
-acceptance are pending. CARE-06, authentic affiliations, hospital clinical/operations approval,
+No implementation defect remains open. Hosted implementation T1 passed all steps, including clean
+reconstruction, for `78aabb244a67d01b3b3330c40e423334cff9d27e` under [hosted implementation run 35133605026](https://github.com/dynamicet/hallelujah-website/actions/runs/35133605026).
+Client controlled-development acceptance is pending. CARE-06, authentic affiliations, hospital clinical/operations approval,
 appointment collection, providers, public routes, production and publication remain gated.
+
+[PR #41](https://github.com/dynamicet/hallelujah-website/pull/41) retains hosted review and the final documentation head SHA/run. The documentation
+head must repeat CI before merge. Implementation acceptance does not authorize production.

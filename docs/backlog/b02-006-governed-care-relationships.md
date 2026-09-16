@@ -1,6 +1,6 @@
 # B02-006 — Governed Care Relationships
 
-**Status:** In review for controlled development; local T0 passed; hosted T1 and client acceptance pending.
+**Status:** In review for controlled development; local T0 and hosted implementation T1 passed; client acceptance pending.
 **Date/timezone:** 16 September 2026, Africa/Addis_Ababa.
 
 The client directed “proceed with steps” after the proposed B02-006 execution.
@@ -51,3 +51,7 @@ collection, external provider, asset intake, legacy migration, provisioning or p
 CARE-06 and all production gates remain open. Implementation review does not constitute client acceptance.
 
 [Issue #40](https://github.com/dynamicet/hallelujah-website/issues/40) tracks the controlled execution.
+
+[PR #41](https://github.com/dynamicet/hallelujah-website/pull/41) records review. [hosted implementation run 35133605026](https://github.com/dynamicet/hallelujah-website/actions/runs/35133605026) passed all steps, including clean reconstruction, for
+`78aabb244a67d01b3b3330c40e423334cff9d27e`. The final documentation head must repeat CI
+before merge; its matching SHA/run is tracked in issue #40 and PR #41.

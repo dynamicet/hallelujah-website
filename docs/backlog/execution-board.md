@@ -446,3 +446,9 @@ and [completion evidence](evidence/B02-006-governed-care-relationships-2026-09-1
 PostgreSQL persistence/concurrency/rollback/live-role tests, cross-role denial, full verification,
 the 92-case bilingual browser matrix, history secret scan and dependency audit. Hosted exact-head
 T1 and client controlled-development acceptance remain pending; production gates are unchanged.
+
+B02-006 hosted implementation T1 [hosted implementation run 35133605026](https://github.com/dynamicet/hallelujah-website/actions/runs/35133605026) passed all steps, including
+clean reconstruction, for exact head `78aabb244a67d01b3b3330c40e423334cff9d27e` under [PR #41](https://github.com/dynamicet/hallelujah-website/pull/41).
+The ticket remains In review pending client controlled-development acceptance. The final
+documentation head must repeat CI before merge; issue #40 and PR #41 track its matching SHA/run.
+CARE-06, authentic affiliations, hospital approval, collection and publication remain gated.
