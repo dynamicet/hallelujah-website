@@ -171,7 +171,15 @@ export async function checkReviewHarness({ client, sessionId, origin, captureDir
     }
     await evaluate("document.querySelector('[data-form-submit]').focus()")
     await pressKey(' ', 'Space', 32)
-    if (!await evaluate("document.activeElement === document.querySelector('[data-error-summary]') && !document.querySelector('[data-error-summary]').hidden")) {
+    // Validation itself is scheduled after 80 ms; the key helper's 80 ms wait
+    // cannot guarantee that timer has run on a busy browser.
+    let summaryFocused = false
+    for (let attempt = 0; attempt < 40; attempt += 1) {
+      summaryFocused = await evaluate("document.activeElement === document.querySelector('[data-error-summary]') && !document.querySelector('[data-error-summary]').hidden")
+      if (summaryFocused) break
+      await wait(50)
+    }
+    if (!summaryFocused) {
       throw new Error(`review ${language}: invalid form did not focus its summary`)
     }
     await evaluate("document.querySelector('[data-map-acknowledgement]').focus()")

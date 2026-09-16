@@ -56,6 +56,20 @@ hosted implementation T1 [run 35080177144](https://github.com/dynamicet/halleluj
 
 For every promotion, record the ticket ID, old/new status, responsible person, acceptance person, date/timezone, dependency evidence, target environment, and issue/evidence link. Update this board and the issue tracker in the same change. A role name alone cannot promote a delivery ticket to `Ready`.
 
+During `B02-002` closeout, PR `#31` merged as `3fac0d9` after final exact-head
+CI [run `35081816962`](https://github.com/dynamicet/hallelujah-website/actions/runs/35081816962)
+attempt 2 passed, automatically closing issue `#30`. Post-merge main
+[run `35091489396`](https://github.com/dynamicet/hallelujah-website/actions/runs/35091489396)
+then failed repeated form-focus verification during clean reconstruction. Dependent execution is
+paused under the manual merge control until a checked correction resolves it. The client-directed
+closeout authorizes the scoped `B01-013` harness correction under
+[issue `#32`](https://github.com/dynamicet/hallelujah-website/issues/32), with `befikadusata` directing
+Codex in temporary Frontend/QA roles and the same controlled-development acceptance authority on
+16 September 2026, Africa/Addis_Ababa. The
+[correction evidence](evidence/B01-013-form-focus-closeout-2026-09-16.md) records the timer race,
+bounded condition wait and required local/hosted checks. `B02-002` remains accepted for controlled
+development; production, publication and collection gates remain open.
+
 If this board and an epic disagree, use the epic for scope and this board for live status. If either conflicts with a dated hospital decision, update all affected artifacts through the backlog change-control rule before work continues.
 
 ## M0 pull queue

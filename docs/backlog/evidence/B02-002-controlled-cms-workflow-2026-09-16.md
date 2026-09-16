@@ -102,3 +102,18 @@ under the responsible and acceptance identity recorded above, within local T0/pr
 Hosted T1 does not certify the separate local PostgreSQL matrix or production acceptance.
 This final acceptance-documentation head must repeat current-head CI before merge. Its matching
 SHA/run and merge result belong in issue #30 and PR #31. No production gate is promoted.
+
+## Final acceptance and post-merge control
+
+Final acceptance head `0ff4da75413d486927d3ebc0798a8864dcdaed3b` passed every step of
+[run `35081816962`](https://github.com/dynamicet/hallelujah-website/actions/runs/35081816962)
+attempt 2, including full verification and clean reconstruction. Attempt 1 failed the existing
+Amharic form-focus assertion only during repeated browser verification; no code changed between
+attempts. PR `#31` merged as `3fac0d930f09be0b923be40d1b1126e6df2668e9`, closing issue `#30`.
+
+Post-merge [main run `35091489396`](https://github.com/dynamicet/hallelujah-website/actions/runs/35091489396)
+passed full verification but failed the same assertion in English during clean reconstruction.
+The existing harness's 80 ms key wait races the form's 80 ms validation timer. The
+[scoped correction](B01-013-form-focus-closeout-2026-09-16.md) under issue `#32` preserves the
+keyboard action and focused/visible-summary requirement while polling for asynchronous completion.
+Dependent execution remains paused until the checked correction and exact-main verification pass.
