@@ -2,6 +2,7 @@ import type { CmsActor, CmsRole } from './cms-identity.ts'
 import { type GovernedRecord, validateGovernedRecord } from './governed-record.ts'
 import { siteSettingsReadiness } from './site-settings.ts'
 import { clinicianReadiness } from './clinician.ts'
+import { clearServiceReviews, reviewServiceClaims, serviceReadiness } from './service.ts'
 
 export const contentClasses = ['general', 'emergency', 'contact', 'privacy', 'brand'] as const
 export type ContentClass = typeof contentClasses[number]
@@ -75,6 +76,7 @@ export function createWorkflow(
     || record.owner || record.reviewer || record.withdrawal) {
     throw new Error('New content must be an unsigned draft without supplied audit or identities')
   }
+  if (record.service?.claims.some((claim) => claim.state === 'approved')) throw new Error('New service claims cannot supply clinical approval')
   return {
     record: checked({ ...record, owner: actor.id,
       audit: [{ actor: actor.id, at: now.toISOString().replace(/\.\d{3}Z$/, 'Z'), change: 'draft created' }] }),
@@ -114,6 +116,7 @@ export function applyWorkflow(
         'approval', 'domainApproval', 'audit', 'withdrawal'] as const) {
         if (canonical(candidate[key]) !== canonical(old[key])) throw new Error('Server governance fields cannot be edited')
       }
+      if (candidate.service?.claims.some((claim) => claim.state === 'approved')) throw new Error('Authors cannot supply service claim approval')
       record = candidate
       reviews = {}
       verification = null
@@ -132,6 +135,7 @@ export function applyWorkflow(
       // Approved/scheduled content returns via review, preserving the shared transition contract.
       record = { ...old, status: old.status === 'review' ? 'draft' : 'review',
         approval: null, domainApproval: null, reviewer: null }
+      if (record.service) record = { ...record, service: clearServiceReviews(record.service) }
       reviews = {}
       verification = null
       reference(command.reason)
@@ -144,6 +148,8 @@ export function applyWorkflow(
       requireRole(actor, command.domain)
       review.reference = reference(command.reference)
       reviews[command.domain] = review
+      if (old.service && command.domain === 'clinical') record = { ...old,
+        service: reviewServiceClaims(old.service, actor.id, now.toISOString().replace(/\.\d{3}Z$/, 'Z')) }
       break
     }
     case 'approve': {
@@ -156,6 +162,7 @@ export function applyWorkflow(
       if (old.clinician && clinicianReadiness(old.clinician, now).length) {
         throw new Error('Clinician roster or portrait evidence is not current')
       }
+      if (old.service && serviceReadiness(old.service, now).length) throw new Error('Service launch subset or claim approval evidence is not current')
       if (required.some((domain) => !reviews[domain])) throw new Error('All matching domain reviews are required')
       if (safety && reviews.operations?.actor === actor.id) throw new Error('Safety content requires two distinct approval people')
       record = { ...old, status: 'approved', reviewer: actor.id,
@@ -168,6 +175,7 @@ export function applyWorkflow(
     case 'schedule':
     case 'publish': {
       requireRole(actor, 'publisher')
+      if (old.service && serviceReadiness(old.service, now).length) throw new Error('Service launch subset or claim approval evidence is not current')
       if (old.siteSettings && siteSettingsReadiness(old.siteSettings, now).length) {
         throw new Error('Canonical contact facts are unresolved or no longer current')
       }
