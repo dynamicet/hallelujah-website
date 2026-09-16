@@ -6,7 +6,7 @@ import path from 'node:path'
 
 import { repositoryRoot } from './lib/repository-files.mjs'
 import { createReviewHarnessServer } from './review-harness/server.mjs'
-import { checkReviewHarness } from './review-harness/check-browser.mjs'
+import { checkReviewHarness, reviewRequestIsAllowed } from './review-harness/check-browser.mjs'
 
 const host = '127.0.0.1'
 const appPort = 3212
@@ -849,8 +849,13 @@ try {
     await client.send('Page.navigate', { url: origin }, sessionId)
     await waitForDocument(client, sessionId)
     await waitForOptionalMapEnhancement(client, sessionId)
-    if (mapRequests.some((url) => !url.startsWith(`${origin}/`))) {
-      fail('optional-map browser matrix made a request outside the local application origin')
+    const unexpectedMapRequests = mapRequests.filter((url) => !reviewRequestIsAllowed(url, origin))
+    if (unexpectedMapRequests.length) {
+      const destinations = unexpectedMapRequests.map((url) => {
+        const parsed = new URL(url)
+        return { protocol: parsed.protocol, origin: parsed.origin }
+      })
+      fail(`optional-map browser matrix made a request outside the local application origin: ${JSON.stringify(destinations)}`)
     }
   }
 

@@ -4,6 +4,11 @@
 **Status:** Done for controlled development; local `T0`, hosted implementation `T1`, and client acceptance recorded; final documentation head must pass CI before merge
 **Production, collection, provider, authentic content, and publication authority:** Not granted
 
+**Post-merge closeout:** PR `#27` merged after final documentation CI passed, closing issue `#26`.
+Its initial `main` CI failed clean reconstruction at the optional-map request-origin assertion.
+The [post-merge correction record](evidence/B01-013-component-review-harness-2026-09-16.md#post-merge-closeout-correction)
+requires a checked follow-up PR and passing `main` CI before dependent execution resumes.
+
 ## Execution contract
 
 | Field | Controlled execution value |
