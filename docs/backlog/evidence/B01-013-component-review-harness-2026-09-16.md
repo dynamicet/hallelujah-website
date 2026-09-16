@@ -110,3 +110,30 @@ The final acceptance-documentation head must repeat `quality-and-security` befor
 matching final SHA/run and merge result belong in the tracker. Production acceptance remains
 deferred for professional language review, physical devices, human AT, actual zoom, authentic
 image/font loss and production performance. No publication or other gated authority is granted.
+
+## Post-merge closeout correction
+
+Final documentation [run `35075309036`](https://github.com/dynamicet/hallelujah-website/actions/runs/35075309036)
+passed for `1a1702ef764531bdcbd92ec703448b01f89fc644`; PR `#27` merged as
+`25e9b85b528c60f3ac169d5c2a2681e240aba373`, closing issue `#26` on 16 September 2026.
+Post-merge [run `35075829878`](https://github.com/dynamicet/hallelujah-website/actions/runs/35075829878)
+passed the initial verification but failed clean reconstruction at the optional-map request-origin
+assertion, while all 92 review cases passed. This is a recorded manual-merge control failure;
+dependent execution must wait for its correction through a checked follow-up PR.
+[Issue `#28`](https://github.com/dynamicet/hallelujah-website/issues/28) tracks the scoped correction
+under the client-directed temporary Frontend/QA responsible and acceptance identity `befikadusata`.
+
+The map origin assertion now uses the same tested request classifier as the review matrix:
+embedded data images and `about:blank` events are allowed, while every network destination must
+remain at the exact local origin. Map activation/removal still asserts zero new request events.
+Negative cases additionally reject deceptive origin prefixes and other `about:` destinations;
+unexpected map events report only protocol/origin, without query or embedded content.
+Full local `pnpm verify` passed, including all 92 review cases and independent map/card/foundation
+smokes; reachable-history secret scan and the refreshed 650-dependency audit passed with zero
+moderate/high/critical findings. Local clean reconstruction first hit the `/tmp` quota (copy error
+`-122`). A `/var/tmp` retry preserved the lockfile/importer graph and passed checks through build,
+accessibility, budgets, runtime and harness contracts, but Chromium exited before DevTools became
+ready under that temporary profile. Neither local reconstruction attempt is reported as a pass.
+Exact-head hosted clean reconstruction and passing post-merge `main` CI are required to resolve
+this evidence limitation before closure; their SHA/run results belong in issue `#28` and its PR.
+Production and publication gates remain open.

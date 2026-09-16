@@ -34,6 +34,11 @@
 
 ## Epic exit criteria
 
+PR `#27` is merged and issue `#26` is closed after passing final documentation CI. Its initial
+post-merge `main` CI exposed an optional-map request classifier mismatch during clean reconstruction;
+the [scoped closeout correction](evidence/B01-013-component-review-harness-2026-09-16.md#post-merge-closeout-correction)
+must pass a follow-up PR gate and `main` CI before dependent execution resumes.
+
 - All production templates can use the system without importing another page implementation.
 - Token generation/parity, accessibility smoke, responsive geometry, motion-mode, media-request, and cleanup tests run in CI.
 - Component states are demonstrable in English and Amharic fixtures without being publishable content.

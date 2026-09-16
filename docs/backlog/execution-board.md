@@ -31,6 +31,16 @@ This board turns the planning baseline into a controlled pull system. It identif
 
 ## Status authority and update rule
 
+On 16 September 2026, the client directed completion of PR `#27` closeout. GitHub confirms final
+documentation CI passed for `1a1702e`, PR `#27` merged as `25e9b85`, and issue `#26` closed.
+Post-merge [run `35075829878`](https://github.com/dynamicet/hallelujah-website/actions/runs/35075829878)
+failed clean reconstruction at the optional-map request-origin assertion. The client-directed
+closeout now includes a scoped correction under the existing temporary Frontend/QA authority;
+dependent execution is paused until a checked follow-up PR and passing `main` CI resolve this
+manual-merge control failure. [Issue `#28`](https://github.com/dynamicet/hallelujah-website/issues/28)
+and the [correction evidence](evidence/B01-013-component-review-harness-2026-09-16.md#post-merge-closeout-correction)
+track the scoped defect and its exact-head hosted closure.
+
 For every promotion, record the ticket ID, old/new status, responsible person, acceptance person, date/timezone, dependency evidence, target environment, and issue/evidence link. Update this board and the issue tracker in the same change. A role name alone cannot promote a delivery ticket to `Ready`.
 
 If this board and an epic disagree, use the epic for scope and this board for live status. If either conflicts with a dated hospital decision, update all affected artifacts through the backlog change-control rule before work continues.
