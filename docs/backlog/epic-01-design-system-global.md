@@ -44,3 +44,16 @@
 - No new palette, font, icon family, logo reconstruction, photography, footage, or motion-library license is approved through implementation.
 - No screenshot pixel-matching that contradicts semantic, responsive, or accessibility contracts.
 - No client-only component may hide essential server-rendered content.
+
+
+`B01-013` moved Proposed → Ready → In progress → In review on client instruction and passing
+controlled local evidence on 16 September 2026, Africa/Addis_Ababa. Its loopback-only review tool
+lives outside application source/public assets and reviews the actual built SSR fixtures. All 41
+rendering components are inventoried; the full shared interaction suite, 90 bilingual capability/
+viewport cases, bilingual keyboard/media-end/history retests, repository gates, reachable-history
+secret scan, dependency audit and sanitized captures pass. See the
+[execution brief](b01-013-component-review-harness.md),
+[local evidence](evidence/B01-013-component-review-harness-2026-09-16.md) and
+[issue `#26`](https://github.com/dynamicet/hallelujah-website/issues/26) for exact-head hosted review.
+Client controlled-development acceptance is pending; `DEL-01` signatures, human AT/physical devices,
+professional language approval, authentic media, public routes and publication remain gated.

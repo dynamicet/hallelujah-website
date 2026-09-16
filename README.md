@@ -47,3 +47,9 @@ The default application has no CMS admin/API route, public hospital content, ext
 See [`B00-004`](docs/backlog/b00-004-clean-application-bootstrap.md) for the application boundary and
 [`B00-011`](docs/backlog/b00-011-ci-quality-security.md) for the completed controlled-development CI
 contract. The private/free-plan merge-enforcement limitation remains explicit under `B00-012`.
+
+The controlled component review tool is separate from application routes. After `pnpm build`, run
+`pnpm review-harness:serve` and open `http://127.0.0.1:3213`. The index covers component states,
+English/unreviewed Amharic shaping and byte reporting. See the
+[harness architecture](docs/architecture/component-review-harness.md) and
+[`B01-013` execution brief](docs/backlog/b01-013-component-review-harness.md).

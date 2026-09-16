@@ -5,23 +5,28 @@ import { tmpdir } from 'node:os'
 import path from 'node:path'
 
 import { repositoryRoot } from './lib/repository-files.mjs'
+import { createReviewHarnessServer } from './review-harness/server.mjs'
+import { checkReviewHarness } from './review-harness/check-browser.mjs'
 
 const host = '127.0.0.1'
 const appPort = 3212
-const origin = `http://${host}:${appPort}`
+const upstreamOrigin = `http://${host}:${appPort}`
+let origin = upstreamOrigin
+let reviewHarness
 const browserPort = 20_000 + (randomBytes(2).readUInt16BE(0) % 30_000)
 const captureFlag = process.argv.indexOf('--capture-dir')
 const captureDirectory = captureFlag >= 0 ? path.resolve(process.argv[captureFlag + 1] ?? '') : undefined
 const capturePrefixFlag = process.argv.indexOf('--capture-prefix')
 const capturePrefix =
   capturePrefixFlag >= 0 ? process.argv[capturePrefixFlag + 1] : 'b01-004-foundations'
-const shellMode = process.argv.includes('--shell')
-const searchControlsMode = process.argv.includes('--search-controls')
-const formPrimitivesMode = process.argv.includes('--form-primitives')
-const systemStatesMode = process.argv.includes('--system-states')
-const motionMediaMode = process.argv.includes('--motion-media')
-const governedCardsMode = process.argv.includes('--governed-cards')
-const optionalMapMode = process.argv.includes('--optional-map')
+const reviewHarnessMode = process.argv.includes('--review-harness')
+const shellMode = reviewHarnessMode || process.argv.includes('--shell')
+const searchControlsMode = reviewHarnessMode || process.argv.includes('--search-controls')
+const formPrimitivesMode = reviewHarnessMode || process.argv.includes('--form-primitives')
+const systemStatesMode = reviewHarnessMode || process.argv.includes('--system-states')
+const motionMediaMode = reviewHarnessMode || process.argv.includes('--motion-media')
+const governedCardsMode = reviewHarnessMode || process.argv.includes('--governed-cards')
+const optionalMapMode = reviewHarnessMode || process.argv.includes('--optional-map')
 const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
 const environment = {
@@ -65,6 +70,14 @@ browser.stderr.on('data', (chunk) => { browserOutput += chunk.toString() })
 
 try {
   await waitForServer()
+  if (reviewHarnessMode) {
+    const production = await (await fetch(upstreamOrigin)).text()
+    if (production.includes('data-review-harness') || production.includes('data-review-shaping')) {
+      throw new Error('review tooling was mounted in the production application')
+    }
+    reviewHarness = await createReviewHarnessServer({ upstreamOrigin })
+    origin = reviewHarness.origin
+  }
   const devtools = await waitForDevTools()
   const client = await createDevToolsClient(devtools)
   const { targetId } = await client.send('Target.createTarget', { url: 'about:blank' })
@@ -214,7 +227,7 @@ try {
       ) fail(`motion/media viewport ${viewport.label}: ${JSON.stringify(motionResult)}`)
     }
     if (captureDirectory && (viewport.width === 320 || viewport.width === 1440)) {
-      if (optionalMapMode) {
+      if (optionalMapMode && !reviewHarnessMode) {
         await evaluate(client, sessionId, `(() => {
           const fixture = document.querySelector('[data-optional-map-fixture]')
           const nodes = [...fixture.parentElement.children].filter((node) => node !== fixture)
@@ -232,7 +245,8 @@ try {
       )
       await settleLayout()
       await mkdir(captureDirectory, { recursive: true })
-      const clip = optionalMapMode ? await evaluate(client, sessionId, `(() => {
+      const clip = reviewHarnessMode ? { x: 0, y: 0, width: viewport.width, height: viewport.height, scale: 1 }
+        : optionalMapMode ? await evaluate(client, sessionId, `(() => {
         const rect = document.querySelector('[data-optional-map-fixture]').getBoundingClientRect()
         return { x: 0, y: rect.y + scrollY, width: innerWidth, height: rect.height, scale: 1 }
       })()`) : undefined
@@ -246,7 +260,7 @@ try {
         data,
         'base64',
       )
-      if (optionalMapMode) {
+      if (optionalMapMode && !reviewHarnessMode) {
         await evaluate(client, sessionId, `(() => {
           window.__optionalMapCaptureNodes.forEach(({ node, display }) => { node.style.display = display })
           delete window.__optionalMapCaptureNodes
@@ -1263,10 +1277,13 @@ try {
     }
   }
 
+  if (reviewHarnessMode) await checkReviewHarness({ client, sessionId, origin, captureDirectory })
   client.close()
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
-    optionalMapMode
+    reviewHarnessMode
+      ? 'Rendered B01-013 harness passed (all shared component interactions plus bilingual capability, viewport, media-end and history matrix; production exclusion and zero external/pre-intent media requests).'
+      : optionalMapMode
       ? 'Rendered optional-map smoke passed (complete text-first fallback, four controlled states, explicit keyboard intent, removal/focus, route cleanup, zero activation/external requests, true no-JavaScript mode, responsive/enlarged text, reduced motion, print, and forced colors).'
       : governedCardsMode
       ? 'Rendered governed-card smoke passed (four synthetic variants, omission, unavailable and retired actions, public fail-closed gate, responsive targets, no-JavaScript output, print, and forced colors).'
@@ -1288,6 +1305,7 @@ try {
   if (browserOutput.trim()) console.error('Browser output was captured; rerun directly for local diagnostics.')
   process.exitCode = 1
 } finally {
+  if (reviewHarness) await reviewHarness.close()
   stopProcess(server)
   stopProcess(browser)
   await Promise.all([waitForExit(server), waitForExit(browser)])
@@ -1316,7 +1334,7 @@ async function waitForServer() {
   for (let attempt = 0; attempt < 60; attempt += 1) {
     if (server.exitCode !== null) throw new Error('application server exited before becoming ready')
     try {
-      const response = await fetch(`${origin}/health`, { signal: AbortSignal.timeout(500) })
+      const response = await fetch(`${upstreamOrigin}/health`, { signal: AbortSignal.timeout(500) })
       if (response.ok) return
     } catch {
       // The local process is still starting.
