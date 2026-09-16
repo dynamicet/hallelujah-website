@@ -428,3 +428,21 @@ The acceptance-documentation head must repeat CI before merge;
 [PR #39](https://github.com/dynamicet/hallelujah-website/pull/39) retain its matching SHA/run,
 merge and exact-main result. Authentic taxonomy/services, hospital clinical/operations approval,
 CARE-04/CARE-05, public routes, collection, providers, production and publication remain gated.
+
+On 16 September 2026, Africa/Addis_Ababa, the client directed “proceed with steps” for B02-006.
+B02-004 and B02-005 are Done; PR #39 merged as `9ca9853aa17f69b0aa7ab30086df85d337c5a1ad`
+and [exact-main run 35130481886](https://github.com/dynamicet/hallelujah-website/actions/runs/35130481886) passed.
+B02-006 moves Proposed → Ready → In progress under `befikadusata` directing Codex in temporary
+Backend/CMS, Content/Clinical-contract and QA roles, with the same identity as controlled-development
+review authority. The [execution brief](b02-006-governed-care-relationships.md) permits synthetic
+local associations and internal stable-ID handoff candidates under a CARE-06 sequencing exception.
+Authentic affiliations, hospital approval, appointment collection and publication remain gated.
+
+[Issue #40](https://github.com/dynamicet/hallelujah-website/issues/40) tracks B02-006 and its dependency/evidence boundary.
+
+B02-006 moved In progress → In review on 16 September 2026, Africa/Addis_Ababa under the same
+responsible/review identity `befikadusata`, after passing local T0. [Issue #40](https://github.com/dynamicet/hallelujah-website/issues/40)
+and [completion evidence](evidence/B02-006-governed-care-relationships-2026-09-16.md) record fresh
+PostgreSQL persistence/concurrency/rollback/live-role tests, cross-role denial, full verification,
+the 92-case bilingual browser matrix, history secret scan and dependency audit. Hosted exact-head
+T1 and client controlled-development acceptance remain pending; production gates are unchanged.

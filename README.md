@@ -67,3 +67,11 @@ for taxonomy, claim-level clinical approval, duplicate/lifecycle negatives and b
 The [B02-005 execution brief](docs/backlog/b02-005-governed-service-records.md) and
 [architecture](docs/architecture/governed-service-records.md) define its synthetic-only scope.
 Authentic services, care claims, availability and publication remain withheld.
+
+Controlled care affiliations are authored through the local `care-relationships` collection.
+Run `pnpm care-relationships:check` for the independent medical/clinical/operations review contract,
+bidirectional graph and inert stable-ID handoff tests. `pnpm governed-records:db-smoke` also proves
+persistence, concurrent-write denial, rollback and live identity revocation. Internal consumers use
+`cmsCareGraph` for transaction-consistent authenticated reads; both inert doctor/service specimens
+consume the same graph. [B02-006 scope](docs/backlog/b02-006-governed-care-relationships.md) and
+[evidence](docs/backlog/evidence/B02-006-governed-care-relationships-2026-09-16.md) retain the synthetic-only boundary.

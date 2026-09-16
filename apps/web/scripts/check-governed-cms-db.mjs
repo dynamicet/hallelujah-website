@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { checkCareRelationshipsDb } from './check-care-relationships-db.mjs'
 import { randomBytes } from 'node:crypto'
 import { getPayload } from 'payload'
 import { publicEligibility } from '../src/content/governed-record.ts'
@@ -351,6 +352,7 @@ try {
   assert.equal(controlledServiceResolution(serviceSet, service.publicId, 'en', new Date(), 'controlled-fixture').state, 'redirect')
   await denied(() => payload.delete({ collection: 'governed-records', id: service.id, overrideAccess: true }), /withdrawn/)
   process.stdout.write('Service PostgreSQL persistence, duplicate/copy/immutable identity denials, clinical claim stamping and role revocation, taxonomy and successor retirement passed.\n')
+  await checkCareRelationshipsDb(payload, { identity, command, denied, fixtureSuffix })
   process.stdout.write('Disposable Payload/PostgreSQL authenticated workflow, timed lifecycle and retirement integration passed.\n')
 } catch (error) {
   process.stderr.write(`Disposable CMS smoke failed: ${error.message}\n`)
