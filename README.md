@@ -53,3 +53,5 @@ The controlled component review tool is separate from application routes. After 
 English/unreviewed Amharic shaping and byte reporting. See the
 [harness architecture](docs/architecture/component-review-harness.md) and
 [`B01-013` execution brief](docs/backlog/b01-013-component-review-harness.md).
+
+The internal canonical settings record uses the existing authenticated CMS Local API. Run `pnpm site-settings:check` for schema, safety/lifecycle negatives and bilingual inert-render consistency. The [B02-003 execution brief](docs/backlog/b02-003-canonical-site-settings.md) and [architecture](docs/architecture/canonical-site-settings.md) define its synthetic-only boundary; public contact values remain withheld pending hospital safety approval.

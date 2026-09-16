@@ -54,7 +54,8 @@
     "review-harness:serve": "node scripts/serve-review-harness.mjs",
     "review-harness:check": "node scripts/check-review-harness.mjs",
     "review-harness:smoke": "node scripts/check-rendered-foundations.mjs --review-harness --capture-prefix b01-013-review-harness",
-    "cms-workflow:check": "pnpm --dir apps/web cms-workflow:check"
+    "cms-workflow:check": "pnpm --dir apps/web cms-workflow:check",
+    "site-settings:check": "pnpm --dir apps/web site-settings:check"
   },
   "pnpm": {
     "overrides": {

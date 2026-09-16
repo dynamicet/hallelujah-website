@@ -2,6 +2,8 @@ import assert from 'node:assert/strict'
 import { randomBytes } from 'node:crypto'
 import { getPayload } from 'payload'
 import { publicEligibility } from '../src/content/governed-record.ts'
+import { canonicalContactView } from '../src/content/canonical-contact-view.ts'
+import { siteSettingsFixture } from './lib/site-settings-fixture.mjs'
 
 const host = process.env.B02_001_PGHOST
 const port = process.env.B02_001_PGPORT
@@ -173,6 +175,55 @@ try {
   })
   assert.equal(timedExpired.record.status, 'expired')
   assert.equal(timedExpired.record.withdrawal.reason, 'Controlled expiry instant reached')
+  // B02-003: facts persist within the same locked safety workflow, without new routes.
+  const settingsFixture = siteSettingsFixture(new Date())
+  settingsFixture.publicId = `pub_${fixtureSuffix}cc`
+  settingsFixture.localized.en.slug = `synthetic-settings-${fixtureSuffix}`
+  settingsFixture.localized.am.slug = `synthetic-settings-am-${fixtureSuffix}`
+  await denied(() => payload.create({ collection: 'governed-records', user: author, overrideAccess: false,
+    data: { record: settingsFixture, contentClass: 'general' },
+  }), /contact safety class/)
+  let settings = await payload.create({ collection: 'governed-records', user: author, overrideAccess: false,
+    data: { record: { ...settingsFixture, siteSettings: { ...settingsFixture.siteSettings,
+      emergencyPhone: { ...settingsFixture.siteSettings.emergencyPhone, state: 'conflict',
+        note: 'Synthetic emergency-number conflict awaiting reconciliation' } } }, contentClass: 'contact' },
+  })
+  const duplicate = { ...settingsFixture, publicId: `pub_${fixtureSuffix}dd`,
+    localized: { en: { slug: `duplicate-settings-${fixtureSuffix}`, title: 'Synthetic duplicate settings' } } }
+  await denied(() => payload.create({ collection: 'governed-records', user: otherAuthor, overrideAccess: false,
+    data: { record: duplicate, contentClass: 'contact' },
+  }), /only one current canonical/)
+  settings = await command(settings, author, 'submit')
+  settings = await command(settings, domain, 'review-domain',
+    { domain: 'operations', reference: 'synthetic settings operations review' })
+  await denied(() => command(settings, reviewer, 'approve'), /unresolved|current/)
+  settings = await command(settings, reviewer, 'request-changes', { reason: 'Synthetic reconcile conflict' })
+  settings = await command(settings, author, 'edit', {}, { record: { ...settings.record,
+    siteSettings: settingsFixture.siteSettings } })
+  assert.deepEqual(settings.workflow.reviews, {})
+  settings = await command(settings, author, 'submit')
+  settings = await command(settings, domain, 'review-domain',
+    { domain: 'operations', reference: 'synthetic reconciled settings operations review' })
+  await denied(() => command(settings, domain, 'approve'), /two distinct approval/)
+  settings = await command(settings, reviewer, 'approve')
+  await denied(() => command(settings, publisher, 'publish', {}, { record: { ...settings.record,
+    siteSettings: { ...settings.record.siteSettings, publicPhone: {
+      ...settings.record.siteSettings.publicPhone, value: '+1 202 555 0199' } } } }), /Content cannot change/)
+  settings = await command(settings, publisher, 'publish')
+  settings = await command(settings, domain, 'verify-publication',
+    { reference: 'Synthetic settings post-publication verification' })
+  const persistedSettings = await payload.findByID({ collection: 'governed-records', id: settings.id,
+    user: domain, overrideAccess: false })
+  assert.deepEqual(persistedSettings.record.siteSettings, settingsFixture.siteSettings)
+  assert.equal(persistedSettings.publicId, settingsFixture.publicId)
+  const view = canonicalContactView(persistedSettings.record, 'en', new Date(), 'controlled-fixture')
+  assert.equal(view.facts.find((entry) => entry.key === 'emergencyPhone').target, 'tel:+12025550100')
+  assert.equal(view.facts.find((entry) => entry.key === 'ambulancePhone').target, 'tel:+12025550100')
+  assert.equal(canonicalContactView(persistedSettings.record, 'en', new Date()).state, 'unavailable')
+  assert.equal(publicEligibility(persistedSettings.record, new Date()).eligible, false)
+  settings = await command(settings, publisher, 'withdraw', { reason: 'Synthetic settings retirement' })
+  assert.equal(canonicalContactView(settings.record, 'en', new Date(), 'controlled-fixture').state, 'unavailable')
+  process.stdout.write('Canonical settings persistence, conflict/duplicate denials, safety approval, inert consumer and retirement passed.\n')
   process.stdout.write('Disposable Payload/PostgreSQL authenticated workflow, timed lifecycle and retirement integration passed.\n')
 } catch (error) {
   process.stderr.write(`Disposable CMS smoke failed: ${error.message}\n`)

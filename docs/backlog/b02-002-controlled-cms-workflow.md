@@ -79,3 +79,5 @@ CMS/public route, real translations, release or publication is authorized. Produ
 hospital role assignment, safety approval procedures, scheduler ownership and post-publication
 operations return at their named governance/security gates. Controlled-development acceptance is
 recorded by the client's closeout instruction; hosted closure must be recorded for the final head.
+
+Final acceptance run `35081816962` attempt 2 passed before PR #31 merged as `3fac0d9`, closing issue #30. Its post-merge form-focus failure was corrected in PR #33, merged as `38d5e45`; exact-main run `35092817178` passed. The [successful closeout](evidence/B01-013-form-focus-closeout-2026-09-16.md#successful-hosted-and-merged-closeout) resolves the dependent-execution pause and preserves failed-run history. B02-002 closeout is complete for controlled development.

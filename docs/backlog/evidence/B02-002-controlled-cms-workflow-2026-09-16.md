@@ -117,3 +117,5 @@ The existing harness's 80 ms key wait races the form's 80 ms validation timer. T
 [scoped correction](B01-013-form-focus-closeout-2026-09-16.md) under issue `#32` preserves the
 keyboard action and focused/visible-summary requirement while polling for asynchronous completion.
 Dependent execution remains paused until the checked correction and exact-main verification pass.
+
+Correction PR #33 subsequently merged as `38d5e455d0733a62e6fbd188fa76c0127012c57d` after exact-head run `35092261032` passed. Exact-main [run `35092817178`](https://github.com/dynamicet/hallelujah-website/actions/runs/35092817178) passed all gates, resolving the dependent-execution pause on 16 September 2026. The [successful closeout](B01-013-form-focus-closeout-2026-09-16.md#successful-hosted-and-merged-closeout) preserves prior failures. B02-002 remains Done for controlled development; the client directed B02-003 next. No production gate is promoted.

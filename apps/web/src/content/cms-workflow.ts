@@ -1,5 +1,6 @@
 import type { CmsActor, CmsRole } from './cms-identity.ts'
 import { type GovernedRecord, validateGovernedRecord } from './governed-record.ts'
+import { siteSettingsReadiness } from './site-settings.ts'
 
 export const contentClasses = ['general', 'emergency', 'contact', 'privacy', 'brand'] as const
 export type ContentClass = typeof contentClasses[number]
@@ -24,6 +25,7 @@ export type WorkflowCommand = Readonly<{
 const domains: Record<GovernedRecord['kind'], CmsRole> = {
   doctor: 'medical', service: 'clinical', location: 'operations',
   vacancy: 'human-resources', page: 'content',
+  'site-settings': 'operations',
 }
 
 export function requiredDomains(record: GovernedRecord, contentClass: ContentClass): CmsRole[] {
@@ -64,6 +66,9 @@ export function createWorkflow(
   requireRole(actor, 'author')
   if (!contentClasses.includes(contentClass)) throw new Error('An explicit content class is required')
   const record = checked(input)
+  if (record.kind === 'site-settings' && contentClass !== 'contact') {
+    throw new Error('Canonical site settings require the contact safety class')
+  }
   if (record.status !== 'draft' || record.approval || record.domainApproval || record.audit.length
     || record.owner || record.reviewer || record.withdrawal) {
     throw new Error('New content must be an unsigned draft without supplied audit or identities')
@@ -140,6 +145,9 @@ export function applyWorkflow(
       requireRole(actor, 'reviewer')
       if (isAuthor || old.status !== 'review') throw new Error('Author cannot self-approve; content must be in review')
       const required = requiredDomains(old, previous.workflow.contentClass)
+      if (old.siteSettings && siteSettingsReadiness(old.siteSettings, now).length) {
+        throw new Error('Canonical contact facts are unresolved or no longer current')
+      }
       if (required.some((domain) => !reviews[domain])) throw new Error('All matching domain reviews are required')
       if (safety && reviews.operations?.actor === actor.id) throw new Error('Safety content requires two distinct approval people')
       record = { ...old, status: 'approved', reviewer: actor.id,
@@ -152,6 +160,9 @@ export function applyWorkflow(
     case 'schedule':
     case 'publish': {
       requireRole(actor, 'publisher')
+      if (old.siteSettings && siteSettingsReadiness(old.siteSettings, now).length) {
+        throw new Error('Canonical contact facts are unresolved or no longer current')
+      }
       if (isAuthor || !old.approval || !['approved', 'scheduled'].includes(old.status)) {
         throw new Error('Publication requires independent publisher and approved content')
       }

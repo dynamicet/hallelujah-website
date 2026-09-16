@@ -1,4 +1,6 @@
-export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page'] as const
+import { siteSettingsReadiness, validateSiteSettings, type SiteSettings } from './site-settings.ts'
+
+export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page', 'site-settings'] as const
 export const governedStatuses = [
   'draft', 'review', 'approved', 'scheduled', 'published', 'expired', 'withdrawn',
 ] as const
@@ -14,6 +16,7 @@ const governanceDomain: Record<GovernedKind, string> = {
   location: 'operations',
   vacancy: 'human-resources',
   page: 'content',
+  'site-settings': 'operations',
 }
 
 export type GovernedRecord = Readonly<{
@@ -36,6 +39,7 @@ export type GovernedRecord = Readonly<{
     successorPublicId: string | null
   }> | null
   audit: readonly Readonly<{ actor: string; at: string; change: string }>[]
+  siteSettings?: SiteSettings
 }>
 
 export type ValidationResult =
@@ -180,6 +184,15 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
     issues.push('withdrawal is only valid for a retired status')
   }
 
+  const settings = kind === 'site-settings' ? validateSiteSettings(raw.siteSettings) : null
+  if (settings && !settings.ok) issues.push(...settings.issues)
+  if (settings?.settings && ['scheduled', 'published'].includes(status as string) && publishAt) {
+    issues.push(...siteSettingsReadiness(settings.settings, new Date(publishAt)))
+  }
+  if (kind !== 'site-settings' && raw.siteSettings !== undefined) {
+    issues.push('siteSettings is only allowed on its canonical record kind')
+  }
+  if (kind === 'site-settings' && !localized.en) issues.push('siteSettings requires an English canonical entry')
   if (issues.length > 0) return { ok: false, issues: Object.freeze(issues) }
   return {
     ok: true,
@@ -208,6 +221,7 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
         successorPublicId: withdrawalRaw.successorPublicId as string | null,
       } : null,
       audit: audit as GovernedRecord['audit'],
+      ...(settings?.settings ? { siteSettings: settings.settings } : {}),
     },
   }
 }
@@ -228,7 +242,7 @@ export function canTransition(from: GovernedStatus, to: GovernedStatus): boolean
 
 export function publicEligibility(input: unknown, now: Date): Readonly<{
   eligible: boolean
-  reason: 'invalid' | 'synthetic' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
+  reason: 'invalid' | 'synthetic' | 'safety-gated' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
 }> {
   const validated = validateGovernedRecord(input)
   if (!validated.ok || !Number.isFinite(now.getTime())) {
@@ -236,6 +250,7 @@ export function publicEligibility(input: unknown, now: Date): Readonly<{
   }
   const record = validated.record
   if (record.synthetic) return { eligible: false, reason: 'synthetic' }
+  if (record.kind === 'site-settings') return { eligible: false, reason: 'safety-gated' }
   if (record.status !== 'published' || !record.approval || !record.owner || !record.reviewer) {
     return { eligible: false, reason: 'status' }
   }
@@ -254,6 +269,10 @@ export function publicEligibility(input: unknown, now: Date): Readonly<{
 
 export function validateRecordSet(records: readonly GovernedRecord[]): readonly string[] {
   const issues: string[] = []
+  if (records.filter((record) => record.kind === 'site-settings'
+    && !['expired', 'withdrawn'].includes(record.status)).length > 1) {
+    issues.push('only one current canonical site-settings record is allowed')
+  }
   const ids = new Map<string, GovernedRecord>()
   const paths = new Set<string>()
   for (const record of records) {

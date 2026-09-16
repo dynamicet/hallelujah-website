@@ -70,6 +70,18 @@ Codex in temporary Frontend/QA roles and the same controlled-development accepta
 bounded condition wait and required local/hosted checks. `B02-002` remains accepted for controlled
 development; production, publication and collection gates remain open.
 
+On 16 September 2026, the client directed recording closeout and proceeding with `B02-003`.
+Correction PR #33 merged as `38d5e455d0733a62e6fbd188fa76c0127012c57d` after exact-head
+[run `35092261032`](https://github.com/dynamicet/hallelujah-website/actions/runs/35092261032)
+passed; exact-main [run `35092817178`](https://github.com/dynamicet/hallelujah-website/actions/runs/35092817178)
+also passed. This resolves the dependent-execution pause recorded above. `B02-001` and `B02-002`
+are Done for controlled development. `B02-003` moves Proposed → Ready → In progress under
+`befikadusata` directing Codex in temporary Backend/CMS, Operations-contract and QA roles, with
+the same identity as controlled-development review authority, on 16 September 2026,
+Africa/Addis_Ababa. The [execution brief](b02-003-canonical-site-settings.md) authorizes synthetic
+local records, conflict/verification checks and internal template consumption only. `SAFE-01`,
+`SAFE-03`, authentic contacts/arrival facts, operations signoff and publication remain unresolved.
+
 If this board and an epic disagree, use the epic for scope and this board for live status. If either conflicts with a dated hospital decision, update all affected artifacts through the backlog change-control rule before work continues.
 
 ## M0 pull queue
@@ -344,3 +356,5 @@ Run repository application commands only after `B00-004` creates and documents t
 ## Handoff to an issue tracker
 
 When an issue tracker is selected, create issues one milestone ahead using the required template. Preserve the stable `Bxx-xxx` ID in every title, copy direct source links rather than relying on epic context, represent each dependency as a link, and keep decision/content/evidence issues separate from delivery issues. After the tracker becomes authoritative, replace this board's row status with tracker links and retain this file as the pull-policy index.
+
+After passing the full local T0 on 16 September 2026, `B02-003` moves In progress → In review under the same responsible/review identity and local target. [Issue #34](https://github.com/dynamicet/hallelujah-website/issues/34) and [completion evidence](evidence/B02-003-canonical-site-settings-2026-09-16.md) record fresh PostgreSQL settings persistence/conflict/duplicate/safety/retirement checks, full repository and 92-case bilingual browser verification, reachable-history secret scan and dependency audit. Hosted exact-head T1 and client controlled-development acceptance remain pending; no production gate is promoted.

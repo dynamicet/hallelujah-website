@@ -5,7 +5,7 @@ import styles from './governed-cards-fixture-template.module.css'
 
 const now = new Date('2026-09-16T09:00:00Z')
 
-function syntheticRecord(kind: GovernedKind, status: GovernedStatus, suffix: string): GovernedRecord {
+function syntheticRecord(kind: Exclude<GovernedKind, 'site-settings'>, status: GovernedStatus, suffix: string): GovernedRecord {
   const domain = {
     doctor: 'medical', service: 'clinical', location: 'operations',
     vacancy: 'human-resources', page: 'content',
