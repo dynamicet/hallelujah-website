@@ -45,12 +45,14 @@ identity is controlled-development review authority. `B02-001` is Done. The
 [execution brief](b02-002-controlled-cms-workflow.md) records a controlled sequencing exception to
 deferred `B00-001`: synthetic local identities/records only, no CMS/public route, authentic roles,
 production scheduler, provisioning, providers, collection or publication. Formal `GOV-01` and
-hospital role/workflow approval remain required before authentic or production use. Final client
-acceptance is not inferred from this implementation instruction. [Issue #30](https://github.com/dynamicet/hallelujah-website/issues/30) tracks the controlled pull; the
+hospital role/workflow approval remain required before authentic or production use. The client
+subsequently accepted controlled development by directing closeout of implemented draft PR #31,
+promoting In review → **Done** on 16 September 2026, Africa/Addis_Ababa, under the same responsible
+and acceptance identity. [Issue #30](https://github.com/dynamicet/hallelujah-website/issues/30) tracks the controlled pull; the
 [local completion evidence](evidence/B02-002-controlled-cms-workflow-2026-09-16.md) records passing
 permission/approval/preview negatives, PostgreSQL persistence, concurrent-write and real timed-lifecycle
 assertions, full local verification, history secret scan and refreshed dependency audit. Exact-head
-hosted implementation T1 [run 35080177144](https://github.com/dynamicet/hallelujah-website/actions/runs/35080177144) passed for exact commit `65206c0f52292b85ad6f1868ad6bdfc032963da4` under [draft PR #31](https://github.com/dynamicet/hallelujah-website/pull/31). Final documentation CI must repeat before merge; final client acceptance remains pending.
+hosted implementation T1 [run 35080177144](https://github.com/dynamicet/hallelujah-website/actions/runs/35080177144) passed for exact commit `65206c0f52292b85ad6f1868ad6bdfc032963da4` under [PR #31](https://github.com/dynamicet/hallelujah-website/pull/31). Documentation [run 35080873707](https://github.com/dynamicet/hallelujah-website/actions/runs/35080873707) passed full verification and clean reconstruction for `a7a6e9c955c10235a9b673deae71b732c70e9c7c`. Final acceptance-documentation CI must repeat before merge; its matching SHA/run and merge result must be recorded in issue #30 and PR #31. Production and publication remain gated.
 
 For every promotion, record the ticket ID, old/new status, responsible person, acceptance person, date/timezone, dependency evidence, target environment, and issue/evidence link. Update this board and the issue tracker in the same change. A role name alone cannot promote a delivery ticket to `Ready`.
 

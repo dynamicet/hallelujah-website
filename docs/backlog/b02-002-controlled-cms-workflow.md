@@ -1,6 +1,6 @@
 # `B02-002` — Controlled CMS Roles and Approval Lifecycle
 
-**Status:** In review after passing local T0 on 16 September 2026, Africa/Addis_Ababa. Final client acceptance remains pending. [Issue #30](https://github.com/dynamicet/hallelujah-website/issues/30) tracks implementation and exact-head hosted review.
+**Status:** Done for controlled development on 16 September 2026, Africa/Addis_Ababa. The client accepted the implemented draft PR #31 and directed closeout, promoting In review → Done after passing local T0 and hosted implementation/documentation T1. [Issue #30](https://github.com/dynamicet/hallelujah-website/issues/30) and [PR #31](https://github.com/dynamicet/hallelujah-website/pull/31) track acceptance and exact-head merge verification.
 
 ## Execution authority and boundary
 
@@ -16,7 +16,7 @@ Merged correction PR `#29` and passing `main` run `35077538959` resolve the depe
 | --- | --- |
 | Epic / lane / priority | Epic 02 / DELIVERY / P0 |
 | Phase / milestone / target | Phase 1 / M1; local T0 and private-repository implementation T1 |
-| Responsible / review authority | `befikadusata` directing Codex in temporary Backend/CMS, Security and QA roles / same client identity for controlled review; final client acceptance remains separate |
+| Responsible / review authority | `befikadusata` directing Codex in temporary Backend/CMS, Security and QA roles / same client identity accepting controlled development on 16 September 2026, Africa/Addis_Ababa |
 | Routes | None; internal Payload Local API only; REST, GraphQL, CMS administration and HTTP preview remain unavailable |
 | Requirements | `G-013`, `G-014`, `S-002`; domain approval, audit identity and status lifecycle |
 | Dependencies / gates | `B02-001` Done; controlled sequencing exception to deferred `B00-001`; `GOV-01` before authentic roles/publication; `B00-008` before remote provisioning |
@@ -65,7 +65,7 @@ Implementation mechanics are documented in the [controlled CMS architecture](../
 
 The [local evidence](evidence/B02-002-controlled-cms-workflow-2026-09-16.md) records pure negatives,
 authenticated PostgreSQL persistence/concurrency/timed lifecycle, full repository verification,
-reachable-history secret scan and dependency audit. Hosted implementation [run 35080177144](https://github.com/dynamicet/hallelujah-website/actions/runs/35080177144) passed for exact commit `65206c0f52292b85ad6f1868ad6bdfc032963da4` under [draft PR #31](https://github.com/dynamicet/hallelujah-website/pull/31). The final documentation head must repeat CI before merge; final client acceptance remains pending.
+reachable-history secret scan and dependency audit. Hosted implementation [run 35080177144](https://github.com/dynamicet/hallelujah-website/actions/runs/35080177144) passed for exact commit `65206c0f52292b85ad6f1868ad6bdfc032963da4` under [PR #31](https://github.com/dynamicet/hallelujah-website/pull/31). Documentation [run 35080873707](https://github.com/dynamicet/hallelujah-website/actions/runs/35080873707) passed full verification and clean reconstruction for `a7a6e9c955c10235a9b673deae71b732c70e9c7c`. The client then directed closeout and accepted controlled development; this acceptance-documentation head must repeat current-head CI before merge, with its matching SHA/run recorded in issue #30 and PR #31.
 
 Run `pnpm cms-workflow:check`, `pnpm governed-records:check`, `pnpm verify`,
 `pnpm secrets:check --history` and `pnpm audit:dependencies` under the pinned toolchain.
@@ -77,5 +77,5 @@ The check supplies synthetic fixture credentials internally and logs assertions 
 No authentic records, personal-data intake, provider/email integration, migration, remote provisioning,
 CMS/public route, real translations, release or publication is authorized. Production authentication,
 hospital role assignment, safety approval procedures, scheduler ownership and post-publication
-operations return at their named governance/security gates. Client acceptance and hosted closure
-must be recorded rather than inferred from local passing checks.
+operations return at their named governance/security gates. Controlled-development acceptance is
+recorded by the client's closeout instruction; hosted closure must be recorded for the final head.

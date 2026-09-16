@@ -2,8 +2,8 @@
 
 **Date/timezone:** 16 September 2026, Africa/Addis_Ababa.
 **Responsible:** `befikadusata` directing Codex in temporary Backend/CMS, Security and QA roles.
-**Controlled review authority:** same client identity; final client acceptance is pending.
-**Status:** In progress → In review after passing local T0 and hosted implementation T1; final client acceptance remains pending.
+**Controlled review authority:** same client identity, accepting controlled development by directing PR #31 closeout on 16 September 2026, Africa/Addis_Ababa.
+**Status:** In progress → In review after passing local T0 and hosted implementation T1 → Done after client controlled-development acceptance; final acceptance-documentation CI must pass before merge.
 **Branch/tracker:** `b02-002-controlled-cms-workflow`; [issue #30](https://github.com/dynamicet/hallelujah-website/issues/30).
 
 ## Scope and dependencies
@@ -80,20 +80,25 @@ certify the locally executed PostgreSQL persistence matrix or production workflo
 
 ## Review and remaining gates
 
-The implementation is ready for controlled-development review. Matching exact-head hosted results
-and PR identity will be recorded in the tracker before merge. Final client acceptance, named hospital
+The client accepted the implemented draft PR #31 and directed closeout after passing controlled-development review. Matching final-head hosted results
+and PR identity will be recorded in the tracker before merge. Named hospital
 role assignments, actual safety approval/post-publication operations, HTTP authentication/CSRF,
 production scheduling, infrastructure, collection and publication remain separate unresolved gates.
 
 ## Hosted implementation review
 
-[Draft PR #31](https://github.com/dynamicet/hallelujah-website/pull/31) records the implementation and controlled review boundary.
+[PR #31](https://github.com/dynamicet/hallelujah-website/pull/31) records the implementation and controlled review boundary.
 [Hosted run 35080177144](https://github.com/dynamicet/hallelujah-website/actions/runs/35080177144) completed successfully for
 exact commit `65206c0f52292b85ad6f1868ad6bdfc032963da4` on 16 September 2026. Every step
 passed, including frozen install, negative CI controls, reachable-history secret scan, dependency
 audit, full repository/browser verification and clean reconstruction with repeated verification.
 No hosted failure or open local implementation defect remains.
 
-This records implementation T1, not local PostgreSQL certification or client/production acceptance.
-The final documentation head must repeat current-head CI before merge. Its matching SHA/run belongs
-in issue #30 and PR #31; final client controlled-development acceptance remains pending.
+Documentation [run 35080873707](https://github.com/dynamicet/hallelujah-website/actions/runs/35080873707) also passed every step, including full verification and clean reconstruction, for
+`a7a6e9c955c10235a9b673deae71b732c70e9c7c`. The client subsequently accepted controlled development
+by instructing “B02-002 is implemented in draft PR #31, close it out”. This promotes In review → Done
+under the responsible and acceptance identity recorded above, within local T0/private-repository T1.
+
+Hosted T1 does not certify the separate local PostgreSQL matrix or production acceptance.
+This final acceptance-documentation head must repeat current-head CI before merge. Its matching
+SHA/run and merge result belong in issue #30 and PR #31. No production gate is promoted.
