@@ -8,3 +8,4 @@ export type { SearchControlsFixtureTemplateProps } from './search-controls-fixtu
 export { SystemStatesFixtureTemplate } from './system-states-fixture-template'
 export { MotionMediaFixtureTemplate } from './motion-media-fixture-template'
 export { GovernedCardsFixtureTemplate } from './governed-cards-fixture-template'
+export { OptionalMapFixtureTemplate } from './optional-map-fixture-template'

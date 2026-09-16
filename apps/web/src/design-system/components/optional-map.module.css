@@ -1,0 +1,301 @@
+.wrapper {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  display: grid;
+  gap: var(--semantic-space-page);
+  max-inline-size: var(--semantic-size-full);
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  padding: var(--semantic-space-page);
+}
+
+.directions,
+.mapPanel,
+.facts,
+.facts div,
+.steps,
+.steps ol,
+.steps li,
+.mapHeading,
+.mapHeading div,
+.actions,
+.placeholder,
+.loadingStatus {
+  min-inline-size: 0;
+}
+
+.directions,
+.mapPanel,
+.steps,
+.steps li,
+.placeholder {
+  display: grid;
+  gap: var(--semantic-space-regular);
+}
+
+.wrapper h3,
+.wrapper h4,
+.wrapper p,
+.wrapper dl,
+.wrapper dd,
+.wrapper ol {
+  margin: 0;
+}
+
+.facts {
+  display: grid;
+  gap: var(--semantic-space-compact);
+}
+
+.facts div {
+  display: grid;
+  gap: var(--semantic-space-fine);
+  grid-template-columns: minmax(6rem, 0.35fr) minmax(0, 1fr);
+}
+
+.facts dt,
+.steps strong {
+  font-weight: var(--semantic-font-weight-strong);
+}
+
+.facts dd {
+  color: var(--semantic-color-text-secondary);
+}
+
+.steps {
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  padding-block-start: var(--semantic-space-regular);
+}
+
+.steps ol {
+  display: grid;
+  gap: var(--semantic-space-compact);
+  padding-inline-start: var(--semantic-space-section);
+}
+
+.steps li {
+  padding-inline-start: var(--semantic-space-fine);
+}
+
+.steps li span {
+  color: var(--semantic-color-text-secondary);
+}
+
+.mapPanel {
+  background: var(--semantic-color-surface-subtle);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-strong);
+  border-inline-start-width: var(--semantic-border-emphasis);
+  border-radius: var(--semantic-radius-control);
+  display: grid;
+  gap: var(--semantic-space-regular);
+  padding: var(--semantic-space-page);
+}
+
+.blocked,
+.failure {
+  background: var(--semantic-color-surface-warning);
+  color: var(--semantic-color-text-warning);
+}
+
+.idle {
+  color: var(--semantic-color-text-primary);
+}
+
+.loading {
+  background: var(--semantic-color-surface-information);
+  color: var(--semantic-color-text-information);
+}
+
+.mapHeading {
+  align-items: start;
+  display: grid;
+  gap: var(--semantic-space-compact);
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.mapHeading div {
+  display: grid;
+  gap: var(--semantic-space-fine);
+}
+
+.icon,
+.spinner {
+  block-size: var(--semantic-size-icon);
+  inline-size: var(--semantic-size-icon);
+}
+
+.icon {
+  flex: 0 0 auto;
+}
+
+.status,
+.liveStatus {
+  font-size: var(--semantic-type-small-size);
+  line-height: var(--semantic-type-small-line);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--semantic-space-compact);
+}
+
+.acknowledgement {
+  align-items: center;
+  cursor: pointer;
+  display: grid;
+  gap: var(--semantic-space-compact);
+  grid-template-columns: auto minmax(0, 1fr);
+  min-block-size: var(--semantic-size-touch);
+  min-inline-size: 0;
+}
+
+.acknowledgement input {
+  accent-color: var(--semantic-color-action-primary);
+  block-size: 1.25rem;
+  inline-size: 1.25rem;
+  margin: 0;
+  min-block-size: 1.25rem;
+}
+
+.button {
+  align-items: center;
+  background: var(--semantic-color-action-primary);
+  border: var(--semantic-border-default) solid var(--semantic-color-action-primary);
+  border-radius: var(--semantic-radius-control);
+  color: var(--semantic-color-action-on-solid);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  max-inline-size: var(--semantic-size-full);
+  min-block-size: var(--semantic-size-touch);
+  min-inline-size: var(--semantic-size-touch);
+  overflow-wrap: anywhere;
+  padding: var(--semantic-space-compact) var(--semantic-space-page);
+  text-align: center;
+  white-space: normal;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--semantic-color-action-primary-hover);
+}
+
+.button:active:not(:disabled) {
+  background: var(--semantic-color-action-primary-active);
+}
+
+.button:disabled {
+  background: var(--semantic-color-surface-subtle);
+  border-color: var(--semantic-color-border-strong);
+  color: var(--semantic-color-text-secondary);
+  cursor: not-allowed;
+}
+
+.placeholder {
+  align-content: center;
+  background: var(--semantic-color-surface-page);
+  border: var(--semantic-border-default) dashed currentColor;
+  border-radius: var(--semantic-radius-control);
+  justify-items: center;
+  min-block-size: 12rem;
+  padding: var(--semantic-space-page);
+  text-align: center;
+}
+
+.placeholder[hidden],
+.button[hidden] {
+  display: none;
+}
+
+.loadingStatus {
+  align-items: center;
+  display: grid;
+  gap: var(--semantic-space-compact);
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.spinner {
+  animation: optional-map-spin var(--semantic-motion-immersive-duration) linear infinite;
+  border: var(--semantic-border-emphasis) solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+}
+
+.failureStatus {
+  font-weight: var(--semantic-font-weight-strong);
+}
+
+@keyframes optional-map-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (min-width: 48rem) {
+  .wrapper {
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+  }
+}
+
+@media (max-width: 30rem) {
+  .wrapper,
+  .mapPanel {
+    padding: var(--semantic-space-compact);
+  }
+
+  .steps ol {
+    padding-inline-start: var(--semantic-space-page);
+  }
+
+  .facts div,
+  .mapHeading,
+  .loadingStatus {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-style: double;
+  }
+}
+
+@media (forced-colors: active) {
+  .wrapper,
+  .mapPanel,
+  .placeholder,
+  .button {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+
+  .blocked,
+  .failure {
+    border-style: double;
+  }
+
+  .button:not(:disabled) {
+    background: ButtonFace;
+    border-color: ButtonText;
+    color: ButtonText;
+  }
+
+  .spinner {
+    border-inline-end-color: Canvas;
+  }
+}
+
+@media print {
+  .wrapper {
+    background: transparent;
+    border-color: CanvasText;
+    display: block;
+  }
+
+  .mapPanel {
+    display: none;
+  }
+}

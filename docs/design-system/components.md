@@ -295,6 +295,10 @@ Inline error or status
 - Map loads only after an explicit action if privacy/performance review requires it.
 - Launcher explains the provider/behavior when it leaves the site or loads a third party.
 - Failure preserves all contact/direction content and offers an external map link only if approved.
+- Controlled `B01-011` implementation is provider-neutral: it accepts no provider URL, coordinates,
+  iframe, or external-link slot. Its synthetic Preview uses an unchecked, temporary local-test
+  acknowledgement, not provider consent, and reveals only a local placeholder. See the
+  [wrapper architecture](../architecture/optional-map-wrapper.md).
 - Requirements: C-002–C-003, S-005, G-007.
 
 ## 12. Component acceptance evidence
