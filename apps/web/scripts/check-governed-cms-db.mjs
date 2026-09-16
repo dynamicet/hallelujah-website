@@ -3,11 +3,13 @@ import { randomBytes } from 'node:crypto'
 import { getPayload } from 'payload'
 import { publicEligibility } from '../src/content/governed-record.ts'
 import { canonicalContactView } from '../src/content/canonical-contact-view.ts'
+import { clinicianFixture } from './lib/clinician-fixture.mjs'
+import { controlledClinicianIndex, controlledClinicianResolution } from '../src/content/clinician-view.ts'
 import { siteSettingsFixture } from './lib/site-settings-fixture.mjs'
 
 const host = process.env.B02_001_PGHOST
 const port = process.env.B02_001_PGPORT
-if (!host?.startsWith('/tmp/hallelujah-b02-001-pg.') || !/^\d{2,5}$/.test(port ?? '')
+if (!/^\/(?:var\/)?tmp\/hallelujah-b02-001-pg\.[a-zA-Z0-9]+$/.test(host ?? '') || !/^\d{2,5}$/.test(port ?? '')
   || process.env.LOCAL_DATABASE_URL || process.env.PGPASSWORD) {
   throw new Error('Use a disposable B02-001 Unix socket without supplied database credentials')
 }
@@ -224,6 +226,64 @@ try {
   settings = await command(settings, publisher, 'withdraw', { reason: 'Synthetic settings retirement' })
   assert.equal(canonicalContactView(settings.record, 'en', new Date(), 'controlled-fixture').state, 'unavailable')
   process.stdout.write('Canonical settings persistence, conflict/duplicate denials, safety approval, inert consumer and retirement passed.\n')
+  // B02-004: clinician contracts use the same persisted medical permission boundary.
+  const medical = await identity('medical', ['medical'])
+  const clinicianInput = clinicianFixture(new Date(), `${fixtureSuffix}04`)
+  let clinician = await payload.create({ collection: 'governed-records', user: author, overrideAccess: false,
+    data: { record: clinicianInput, contentClass: 'general' },
+  })
+  const readClinician = await payload.findByID({ collection: 'governed-records', id: clinician.id,
+    user: author, overrideAccess: false })
+  assert.deepEqual(readClinician.record.clinician, clinicianInput.clinician)
+  assert.equal(controlledClinicianIndex([readClinician.record], 'en', new Date(), 'controlled-fixture').length, 0)
+  const duplicateClinician = clinicianFixture(new Date(), `${fixtureSuffix}05`)
+  duplicateClinician.clinician.identityKey = clinicianInput.clinician.identityKey
+  await denied(() => payload.create({ collection: 'governed-records', user: otherAuthor, overrideAccess: false,
+    data: { record: duplicateClinician, contentClass: 'general' },
+  }), /duplicate clinician roster identity/)
+  await denied(() => command(clinician, author, 'edit', {}, { record: { ...clinician.record,
+    clinician: { ...clinician.record.clinician, identityKey: `clin_${fixtureSuffix}06` } } }), /roster identity cannot change/)
+  await denied(() => command(clinician, author, 'edit', {}, { record: { ...clinician.record,
+    clinician: { ...clinician.record.clinician, schedule: { state: 'enabled', reason: 'synthetic fake schedule', entries: [] } } } }),
+  /schedule remains withheld/)
+  clinician = await command(clinician, author, 'submit')
+  await denied(() => command(clinician, domain, 'review-domain', { domain: 'medical', reference: 'wrong clinical role' }), /medical role/)
+  await denied(() => command(clinician, reviewer, 'approve'), /domain reviews/)
+  clinician = await command(clinician, medical, 'review-domain', { domain: 'medical', reference: 'Synthetic persisted medical review' })
+  clinician = await command(clinician, reviewer, 'approve')
+  await denied(() => command(clinician, publisher, 'publish', {}, { record: { ...clinician.record,
+    clinician: { ...clinician.record.clinician, localized: { en: { ...clinician.record.clinician.localized.en,
+      credentials: ['Synthetic changed credential'] } } } } }), /Content cannot change/)
+  await payload.update({ collection: 'users', id: medical.id, user: manager, overrideAccess: false, data: { roles: ['clinical'] } })
+  await denied(() => command(clinician, publisher, 'publish'), /Domain approval identity is inactive/)
+  await payload.update({ collection: 'users', id: medical.id, user: manager, overrideAccess: false, data: { roles: ['medical'] } })
+  clinician = await command(clinician, publisher, 'publish')
+  assert.equal(clinician.record.domainApproval.actor, `cms:${medical.id}`)
+  assert.equal(publicEligibility(clinician.record, new Date()).eligible, false)
+  assert.equal(controlledClinicianIndex([clinician.record], 'en', new Date()).length, 0)
+  assert.equal(controlledClinicianIndex([clinician.record], 'en', new Date(), 'controlled-fixture')[0].appointment.doctorPublicId, clinician.publicId)
+  let successor = await payload.create({ collection: 'governed-records', user: author, overrideAccess: false,
+    data: { record: clinicianFixture(new Date(), `${fixtureSuffix}07`), contentClass: 'general' },
+  })
+  await denied(() => command(clinician, publisher, 'withdraw', { reason: 'Synthetic successor pending',
+    successorPublicId: successor.publicId }), /successor must be approved/)
+  successor = await command(successor, author, 'submit')
+  successor = await command(successor, medical, 'review-domain', { domain: 'medical', reference: 'Synthetic successor medical review' })
+  successor = await command(successor, reviewer, 'approve')
+  successor = await command(successor, publisher, 'publish')
+  const clinicianAudit = clinician.record.audit
+  clinician = await command(clinician, publisher, 'withdraw', { reason: 'Synthetic genuine successor',
+    successorPublicId: successor.publicId })
+  const retiredClinician = await payload.findByID({ collection: 'governed-records', id: clinician.id,
+    user: medical, overrideAccess: false })
+  assert.equal(retiredClinician.publicId, clinicianInput.publicId)
+  assert.equal(retiredClinician.record.clinician.identityKey, clinicianInput.clinician.identityKey)
+  assert.deepEqual(retiredClinician.record.audit.slice(0, -1), clinicianAudit)
+  const clinicianSet = [retiredClinician.record, successor.record]
+  assert.deepEqual(controlledClinicianIndex(clinicianSet, 'en', new Date(), 'controlled-fixture').map((entry) => entry.publicId), [successor.publicId])
+  assert.equal(controlledClinicianResolution(clinicianSet, clinician.publicId, 'en', new Date(), 'controlled-fixture').state, 'redirect')
+  await denied(() => payload.delete({ collection: 'governed-records', id: clinician.id, overrideAccess: true }), /withdrawn/)
+  process.stdout.write('Clinician PostgreSQL persistence, immutable/duplicate identity, medical role revocation, withheld schedule, canonical projection and successor retirement passed.\n')
   process.stdout.write('Disposable Payload/PostgreSQL authenticated workflow, timed lifecycle and retirement integration passed.\n')
 } catch (error) {
   process.stderr.write(`Disposable CMS smoke failed: ${error.message}\n`)

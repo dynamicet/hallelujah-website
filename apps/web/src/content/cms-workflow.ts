@@ -1,6 +1,7 @@
 import type { CmsActor, CmsRole } from './cms-identity.ts'
 import { type GovernedRecord, validateGovernedRecord } from './governed-record.ts'
 import { siteSettingsReadiness } from './site-settings.ts'
+import { clinicianReadiness } from './clinician.ts'
 
 export const contentClasses = ['general', 'emergency', 'contact', 'privacy', 'brand'] as const
 export type ContentClass = typeof contentClasses[number]
@@ -20,6 +21,7 @@ export type WorkflowCommand = Readonly<{
   domain?: CmsRole
   reference?: string
   reason?: string
+  successorPublicId?: string | null
 }>
 
 const domains: Record<GovernedRecord['kind'], CmsRole> = {
@@ -88,6 +90,9 @@ export function applyWorkflow(
     throw new Error('Stale or missing workflow revision')
   }
   const old = checked(previous.record)
+  if (command.successorPublicId !== undefined && command.action !== 'withdraw') {
+    throw new Error('A redirect decision is only allowed during withdrawal')
+  }
   let record = old
   let reviews = { ...previous.workflow.reviews }
   let verification = previous.workflow.verification
@@ -148,6 +153,9 @@ export function applyWorkflow(
       if (old.siteSettings && siteSettingsReadiness(old.siteSettings, now).length) {
         throw new Error('Canonical contact facts are unresolved or no longer current')
       }
+      if (old.clinician && clinicianReadiness(old.clinician, now).length) {
+        throw new Error('Clinician roster or portrait evidence is not current')
+      }
       if (required.some((domain) => !reviews[domain])) throw new Error('All matching domain reviews are required')
       if (safety && reviews.operations?.actor === actor.id) throw new Error('Safety content requires two distinct approval people')
       record = { ...old, status: 'approved', reviewer: actor.id,
@@ -162,6 +170,9 @@ export function applyWorkflow(
       requireRole(actor, 'publisher')
       if (old.siteSettings && siteSettingsReadiness(old.siteSettings, now).length) {
         throw new Error('Canonical contact facts are unresolved or no longer current')
+      }
+      if (old.clinician && clinicianReadiness(old.clinician, now).length) {
+        throw new Error('Clinician roster or portrait evidence is not current')
       }
       if (isAuthor || !old.approval || !['approved', 'scheduled'].includes(old.status)) {
         throw new Error('Publication requires independent publisher and approved content')
@@ -194,7 +205,7 @@ export function applyWorkflow(
       }
       if (old.status === 'withdrawn') throw new Error('Withdrawn content is immutable')
       record = { ...old, status: command.action === 'expire' ? 'expired' : 'withdrawn',
-        withdrawal: { reason: reference(command.reason), successorPublicId: null } }
+        withdrawal: { reason: reference(command.reason), successorPublicId: command.successorPublicId ?? null } }
       break
     default:
       throw new Error('Unsupported workflow action')

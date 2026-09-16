@@ -1,4 +1,5 @@
 import { siteSettingsReadiness, validateSiteSettings, type SiteSettings } from './site-settings.ts'
+import { clinicianReadiness, validateClinician, type Clinician } from './clinician.ts'
 
 export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page', 'site-settings'] as const
 export const governedStatuses = [
@@ -40,6 +41,7 @@ export type GovernedRecord = Readonly<{
   }> | null
   audit: readonly Readonly<{ actor: string; at: string; change: string }>[]
   siteSettings?: SiteSettings
+  clinician?: Clinician
 }>
 
 export type ValidationResult =
@@ -193,6 +195,25 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
     issues.push('siteSettings is only allowed on its canonical record kind')
   }
   if (kind === 'site-settings' && !localized.en) issues.push('siteSettings requires an English canonical entry')
+  const clinician = kind === 'doctor' ? validateClinician(raw.clinician) : null
+  if (clinician && !clinician.ok) issues.push(...clinician.issues)
+  if (kind !== 'doctor' && raw.clinician !== undefined) issues.push('clinician is only allowed on doctor records')
+  if (clinician?.clinician) {
+    for (const [locale, details] of Object.entries(clinician.clinician.localized)) {
+      if (!localized[locale as GovernedLocale] || localized[locale as GovernedLocale]?.title !== details.name) {
+        issues.push('clinician name must match its canonical localized title')
+      }
+    }
+    for (const locale of Object.keys(localized)) {
+      if (!clinician.clinician.localized[locale as GovernedLocale]) issues.push('clinician details must match canonical locales')
+    }
+    if (clinician.clinician.locationPublicIds.some((id) => !relationships.includes(id))) {
+      issues.push('clinician locations must be explicit governed relationships')
+    }
+    if (['scheduled', 'published'].includes(status as string) && publishAt) {
+      issues.push(...clinicianReadiness(clinician.clinician, new Date(publishAt)))
+    }
+  }
   if (issues.length > 0) return { ok: false, issues: Object.freeze(issues) }
   return {
     ok: true,
@@ -222,6 +243,7 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
       } : null,
       audit: audit as GovernedRecord['audit'],
       ...(settings?.settings ? { siteSettings: settings.settings } : {}),
+      ...(clinician?.clinician ? { clinician: clinician.clinician } : {}),
     },
   }
 }
@@ -242,7 +264,7 @@ export function canTransition(from: GovernedStatus, to: GovernedStatus): boolean
 
 export function publicEligibility(input: unknown, now: Date): Readonly<{
   eligible: boolean
-  reason: 'invalid' | 'synthetic' | 'safety-gated' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
+  reason: 'invalid' | 'synthetic' | 'safety-gated' | 'care-gated' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
 }> {
   const validated = validateGovernedRecord(input)
   if (!validated.ok || !Number.isFinite(now.getTime())) {
@@ -251,6 +273,7 @@ export function publicEligibility(input: unknown, now: Date): Readonly<{
   const record = validated.record
   if (record.synthetic) return { eligible: false, reason: 'synthetic' }
   if (record.kind === 'site-settings') return { eligible: false, reason: 'safety-gated' }
+  if (record.kind === 'doctor') return { eligible: false, reason: 'care-gated' }
   if (record.status !== 'published' || !record.approval || !record.owner || !record.reviewer) {
     return { eligible: false, reason: 'status' }
   }
@@ -275,9 +298,20 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
   }
   const ids = new Map<string, GovernedRecord>()
   const paths = new Set<string>()
+  const clinicianIdentities = new Set<string>()
+  const clinicianNames = new Set<string>()
   for (const record of records) {
     if (ids.has(record.publicId)) issues.push('duplicate publicId')
     ids.set(record.publicId, record)
+    if (record.clinician) {
+      if (clinicianIdentities.has(record.clinician.identityKey)) issues.push('duplicate clinician roster identity')
+      clinicianIdentities.add(record.clinician.identityKey)
+      if (!['expired', 'withdrawn'].includes(record.status)) {
+        const name = record.clinician.localized.en!.name.trim().normalize('NFKC').toLowerCase().replace(/\s+/g, ' ')
+        if (clinicianNames.has(name)) issues.push('duplicate current clinician name requires roster reconciliation')
+        clinicianNames.add(name)
+      }
+    }
     for (const [locale, entry] of Object.entries(record.localized)) {
       const key = `${record.kind}:${locale}:${entry.slug}`
       if (paths.has(key)) issues.push('duplicate canonical slug')
@@ -285,6 +319,14 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
     }
   }
   for (const record of records) {
+    for (const id of record.clinician?.locationPublicIds ?? []) {
+      const location = ids.get(id)
+      if (!location || location.kind !== 'location') issues.push('clinician location must resolve to a location record')
+      else if (['approved', 'scheduled', 'published'].includes(record.status)
+        && !['approved', 'scheduled', 'published'].includes(location.status)) {
+        issues.push('approved clinician location must be approved and current')
+      }
+    }
     for (const relatedId of record.relationships) {
       const related = ids.get(relatedId)
       if (!related) issues.push('relationship has no matching public record')
