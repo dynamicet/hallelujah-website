@@ -684,3 +684,24 @@ passed every step, including full verification and clean reconstruction/build, f
 `ffebc1aa3bfd4dd122c2eb70db535583ac375cfa` under [draft PR #49](https://github.com/dynamicet/hallelujah-website/pull/49).
 B02-010 remains In review pending client acceptance. The documentation head must repeat hosted CI
 before merge; issue #48 and PR #49 retain its exact SHA/run. No production/publication gate is promoted.
+
+## B02-010 controlled-development acceptance
+
+On 17 September 2026 at 23:04 Africa/Addis_Ababa, the client directed “close it”.
+B02-010 moves In review → **Done** for controlled development under workspace identity
+`befikadusata` directing Codex in temporary Backend/CMS and SEO/QA roles, with the same
+identity as acceptance authority. Dependencies B02-001–B02-003 are Done; B02-009 merge
+and exact-main CI passed. The target remains synthetic local T0/private hosted T1.
+
+All scoped local checks and hosted implementation T1 pass. Documentation
+[run 35267682156](https://github.com/dynamicet/hallelujah-website/actions/runs/35267682156)
+passed every step, including full verification and clean reconstruction/build, for exact commit
+`a90fafc653fe68eea71a84683a5ab7cca44618a1`. The final acceptance-documentation head must
+repeat hosted CI before [PR #49](https://github.com/dynamicet/hallelujah-website/pull/49) merges.
+[Issue #48](https://github.com/dynamicet/hallelujah-website/issues/48) and PR #49 retain the matching
+SHA/run, merge and exact-main result. No scoped implementation defect remains open.
+
+LANG-01/LANG-02, GOV-01, authentic content, hospital approval, historical public statement
+routing, production cache/CDN wiring, public/CMS routes, providers, personal-data collection,
+provisioning and publication remain gated. B02-011 is the next candidate after successful
+merge/main closeout, subject to its controlled-development execution brief and readiness checks.
