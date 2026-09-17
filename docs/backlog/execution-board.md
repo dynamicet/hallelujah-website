@@ -678,3 +678,9 @@ negatives, fresh PostgreSQL authentication/live-role/cache/rollback/dependency/e
 local role isolation, full verification and browser matrices, reachable-history secret scan, dependency
 audit and sanitized output. Hosted implementation T1 and client acceptance remain pending; no
 production, authentic-language, collection or publication gate is promoted.
+
+Hosted B02-010 implementation T1 [run 35267003343](https://github.com/dynamicet/hallelujah-website/actions/runs/35267003343)
+passed every step, including full verification and clean reconstruction/build, for exact commit
+`ffebc1aa3bfd4dd122c2eb70db535583ac375cfa` under [draft PR #49](https://github.com/dynamicet/hallelujah-website/pull/49).
+B02-010 remains In review pending client acceptance. The documentation head must repeat hosted CI
+before merge; issue #48 and PR #49 retain its exact SHA/run. No production/publication gate is promoted.

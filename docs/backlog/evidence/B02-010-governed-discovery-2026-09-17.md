@@ -1,7 +1,7 @@
 # B02-010 — Execution Evidence
 
 **Status:** In review after passing local T0; final PostgreSQL retest passes.
-Hosted implementation T1 and client controlled-development acceptance remain pending.
+Hosted implementation T1 passes; client controlled-development acceptance remains pending.
 
 Client direction “Start” on 17 September 2026, Africa/Addis_Ababa authorizes the
 [execution brief](../b02-010-governed-discovery.md). Responsible and controlled review authority
@@ -67,3 +67,12 @@ visual layout, so no visual benchmark application is added.
 LANG-01/LANG-02, GOV-01, authentic content, hospital approval, historical public statement routing,
 production invalidation delivery/CDN wiring, public/CMS routes, providers, personal-data collection,
 provisioning and publication remain gated. Hosted CI is separate from local integration and client acceptance.
+
+## Hosted implementation review
+
+[Draft PR #49](https://github.com/dynamicet/hallelujah-website/pull/49) tracks review.
+Hosted implementation T1 [run 35267003343](https://github.com/dynamicet/hallelujah-website/actions/runs/35267003343)
+passed every step, including full verification and clean dependency reconstruction/build, for exact
+commit `ffebc1aa3bfd4dd122c2eb70db535583ac375cfa`. B02-010 remains In review pending
+client controlled-development acceptance. The documentation head must repeat hosted CI before
+merge; issue #48 and PR #49 retain the matching SHA/run. No production or publication gate is promoted.
