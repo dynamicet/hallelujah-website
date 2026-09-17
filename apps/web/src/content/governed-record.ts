@@ -1,8 +1,9 @@
+import { validateVisitorTopic, visitorTopicReadiness, type VisitorTopic } from './visitor-topic.ts'
 import { siteSettingsReadiness, validateSiteSettings, type SiteSettings } from './site-settings.ts'
 import { clinicianReadiness, validateClinician, type Clinician } from './clinician.ts'
 import { serviceReadiness, serviceTextKey, validateService, type Service } from './service.ts'
 
-export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page', 'site-settings'] as const
+export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page', 'site-settings', 'visitor-topic'] as const
 export const governedStatuses = [
   'draft', 'review', 'approved', 'scheduled', 'published', 'expired', 'withdrawn',
 ] as const
@@ -19,6 +20,7 @@ const governanceDomain: Record<GovernedKind, string> = {
   vacancy: 'human-resources',
   page: 'content',
   'site-settings': 'operations',
+  'visitor-topic': 'operations',
 }
 
 export type GovernedRecord = Readonly<{
@@ -44,6 +46,7 @@ export type GovernedRecord = Readonly<{
   siteSettings?: SiteSettings
   clinician?: Clinician
   service?: Service
+  visitorTopic?: VisitorTopic
 }>
 
 export type ValidationResult =
@@ -234,6 +237,16 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
       issues.push(...serviceReadiness(service.service, new Date(effective)))
     }
   }
+  const visitorTopic = kind === 'visitor-topic' ? validateVisitorTopic(raw.visitorTopic) : null
+  if (visitorTopic && !visitorTopic.ok) issues.push(...visitorTopic.issues)
+  if (kind !== 'visitor-topic' && raw.visitorTopic !== undefined) issues.push('visitorTopic is only allowed on visitor-topic records')
+  if (visitorTopic?.topic) {
+    for (const locale of new Set([...Object.keys(localized), ...Object.keys(visitorTopic.topic.localized)])) {
+      if (!localized[locale as GovernedLocale] || localized[locale as GovernedLocale]?.title
+        !== visitorTopic.topic.localized[locale as GovernedLocale]?.title) issues.push('visitor topic title must match canonical localized title and locales')
+    }
+    if (['approved', 'scheduled', 'published'].includes(status as string)) issues.push(...visitorTopicReadiness(visitorTopic.topic))
+  }
   if (issues.length > 0) return { ok: false, issues: Object.freeze(issues) }
   return {
     ok: true,
@@ -265,6 +278,7 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
       ...(settings?.settings ? { siteSettings: settings.settings } : {}),
       ...(clinician?.clinician ? { clinician: clinician.clinician } : {}),
       ...(service?.service ? { service: service.service } : {}),
+      ...(visitorTopic?.topic ? { visitorTopic: visitorTopic.topic } : {}),
     },
   }
 }
@@ -285,7 +299,7 @@ export function canTransition(from: GovernedStatus, to: GovernedStatus): boolean
 
 export function publicEligibility(input: unknown, now: Date): Readonly<{
   eligible: boolean
-  reason: 'invalid' | 'synthetic' | 'safety-gated' | 'care-gated' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
+  reason: 'invalid' | 'synthetic' | 'safety-gated' | 'care-gated' | 'access-gated' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
 }> {
   const validated = validateGovernedRecord(input)
   if (!validated.ok || !Number.isFinite(now.getTime())) {
@@ -293,6 +307,7 @@ export function publicEligibility(input: unknown, now: Date): Readonly<{
   }
   const record = validated.record
   if (record.synthetic) return { eligible: false, reason: 'synthetic' }
+  if (record.kind === 'visitor-topic') return { eligible: false, reason: 'access-gated' }
   if (record.kind === 'site-settings') return { eligible: false, reason: 'safety-gated' }
   if (record.kind === 'doctor' || record.kind === 'service') return { eligible: false, reason: 'care-gated' }
   if (record.status !== 'published' || !record.approval || !record.owner || !record.reviewer) {
@@ -319,6 +334,8 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
   }
   const ids = new Map<string, GovernedRecord>()
   const paths = new Set<string>()
+  const visitorIdentities = new Set<string>()
+  const visitorPurposes = new Set<string>()
   const clinicianIdentities = new Set<string>()
   const clinicianNames = new Set<string>()
   const serviceIdentities = new Set<string>()
@@ -329,6 +346,14 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
   for (const record of records) {
     if (ids.has(record.publicId)) issues.push('duplicate publicId')
     ids.set(record.publicId, record)
+    if (record.visitorTopic) {
+      if (visitorIdentities.has(record.visitorTopic.identityKey)) issues.push('duplicate visitor topic identity')
+      visitorIdentities.add(record.visitorTopic.identityKey)
+      if (!['expired', 'withdrawn'].includes(record.status)) {
+        if (visitorPurposes.has(record.visitorTopic.purpose)) issues.push('duplicate current visitor topic purpose')
+        visitorPurposes.add(record.visitorTopic.purpose)
+      }
+    }
     if (record.service) {
       const service = record.service
       if (serviceIdentities.has(service.identityKey)) issues.push('duplicate service identity')

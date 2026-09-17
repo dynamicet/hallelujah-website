@@ -64,3 +64,13 @@ passed all steps for `b6e2d6bf5aafd028d0c9d03d04e258ab6906a744`. The final accep
 commit must repeat hosted CI before merge; issue #40 and PR #41 retain its matching SHA/run,
 merge and exact-main result. Authentic affiliations, hospital approvals, appointment collection
 and publication remain gated.
+
+## Verified merge closeout
+
+Verified on 17 September 2026, Africa/Addis_Ababa: final acceptance head
+`6df67e1b8a7fd1f16379082113256b790fa86183` passed
+[run 35136076144](https://github.com/dynamicet/hallelujah-website/actions/runs/35136076144).
+PR #41 merged as `da4434ff8703f5c2f07fc9b6bf8b81270e4aec49`; its exact-main
+[run 35136691110](https://github.com/dynamicet/hallelujah-website/actions/runs/35136691110)
+passed. Issue #40 is closed. This completes the dependent-execution merge control;
+controlled-development acceptance and all hospital/production gates retain their existing scope.

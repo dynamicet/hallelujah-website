@@ -58,7 +58,8 @@
     "site-settings:check": "pnpm --dir apps/web site-settings:check",
     "clinicians:check": "pnpm --dir apps/web clinicians:check",
     "services:check": "pnpm --dir apps/web services:check",
-    "care-relationships:check": "pnpm --dir apps/web care-relationships:check"
+    "care-relationships:check": "pnpm --dir apps/web care-relationships:check",
+    "visitor-topics:check": "pnpm --dir apps/web visitor-topics:check"
   },
   "pnpm": {
     "overrides": {

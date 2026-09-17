@@ -23,7 +23,7 @@
     "lint": "eslint . --max-warnings=0",
     "start": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next start",
     "system-states:check": "node scripts/check-system-states.mjs",
-    "test": "pnpm tokens:check && pnpm foundations:check && pnpm actions:check && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && pnpm system-states:check && pnpm optional-map:check && pnpm governed-records:check && pnpm cms-workflow:check && pnpm site-settings:check && pnpm clinicians:check && pnpm services:check && pnpm care-relationships:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
+    "test": "pnpm tokens:check && pnpm foundations:check && pnpm actions:check && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && pnpm system-states:check && pnpm optional-map:check && pnpm governed-records:check && pnpm cms-workflow:check && pnpm site-settings:check && pnpm clinicians:check && pnpm services:check && pnpm care-relationships:check && pnpm visitor-topics:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
     "tokens:check": "node scripts/generate-design-tokens.mjs --check",
     "tokens:generate": "node scripts/generate-design-tokens.mjs",
     "typecheck": "tsc --noEmit",
@@ -31,7 +31,8 @@
     "site-settings:check": "node scripts/check-site-settings.mjs",
     "clinicians:check": "node scripts/check-clinicians.mjs",
     "services:check": "node scripts/check-services.mjs",
-    "care-relationships:check": "node scripts/check-care-relationships.mjs"
+    "care-relationships:check": "node scripts/check-care-relationships.mjs",
+    "visitor-topics:check": "node scripts/check-visitor-topics.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.89.0",

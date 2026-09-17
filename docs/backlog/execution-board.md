@@ -464,3 +464,57 @@ passed all steps, including clean reconstruction, for `b6e2d6bf5aafd028d0c9d03d0
 The final acceptance commit must repeat hosted CI before [PR #41](https://github.com/dynamicet/hallelujah-website/pull/41)
 merges; issue #40 and PR #41 record its matching SHA/run, merge and exact-main result.
 CARE-06, authentic affiliations, hospital approval, collection and publication remain gated.
+
+On 17 September 2026, Africa/Addis_Ababa, the client directed “proceed with the steps” for B02-007.
+B02-006 PR #41 merged as `da4434ff8703f5c2f07fc9b6bf8b81270e4aec49` after final exact-head
+[run 35136076144](https://github.com/dynamicet/hallelujah-website/actions/runs/35136076144) passed;
+[exact-main run 35136691110](https://github.com/dynamicet/hallelujah-website/actions/runs/35136691110)
+also passed, completing the dependent-execution merge control. B02-001/B02-002 are Done.
+B02-007 moves Proposed → Ready → In progress under `befikadusata` directing Codex in temporary
+Backend/CMS, Operations/Content-contract, Privacy/Legal-contract and QA roles, with the same
+controlled-development review authority. The [execution brief](b02-007-governed-visitor-topics.md)
+permits synthetic local topic contracts/decisions and internal consumers under an ACCESS-01
+sequencing exception. [Execution evidence](evidence/B02-007-governed-visitor-topics-2026-09-17.md)
+tracks required checks. Authentic guidance, hospital signoff, contacts and publication remain gated.
+
+[Issue #42](https://github.com/dynamicet/hallelujah-website/issues/42) tracks the controlled B02-007 execution.
+
+B02-007 moves In progress → In review on 17 September 2026, Africa/Addis_Ababa under the same
+responsible/review identity `befikadusata`, after local T0 passes. [Issue #42](https://github.com/dynamicet/hallelujah-website/issues/42)
+and [completion evidence](evidence/B02-007-governed-visitor-topics-2026-09-17.md) record strict
+topic decisions, independent operations/privacy/legal workflow, task-ordered internal hub,
+fresh PostgreSQL persistence/concurrency/rollback/live-role tests, actual elapsed temporary
+expiry, cross-role denial, full verification and 92-case bilingual browser matrix, reachable-history
+secret scan and dependency audit. Hosted exact-head T1 and client acceptance remain pending.
+No authentic guidance, operational signoff, public route, collection or publication is promoted.
+
+B02-007 hosted implementation T1 [run 35244463130](https://github.com/dynamicet/hallelujah-website/actions/runs/35244463130)
+passed all steps, including clean reconstruction, for exact head
+`3222622361edf9495075905f923d1ab3c8720983` under [PR #43](https://github.com/dynamicet/hallelujah-website/pull/43).
+The ticket remains In review pending client controlled-development acceptance. Final documentation
+CI must repeat before merge; issue #42 and PR #43 track the matching SHA/run.
+ACCESS-01, authentic guidance, hospital signoff, collection and publication remain gated.
+
+
+## Controlled-development acceptance
+
+On 17 September 2026, Africa/Addis_Ababa, the client directed “close it out”.
+B02-007 moves In review → **Done** for controlled development. Responsible and acceptance
+authority is workspace identity `befikadusata` directing Codex in the same temporary
+Backend/CMS, Operations/Content-contract, Privacy/Legal-contract and QA roles.
+The target remains synthetic local T0/private hosted T1. B02-001/B02-002 are Done;
+B02-006 final-head and exact-main CI passed as recorded above. The ACCESS-01 controlled
+sequencing exception remains limited to synthetic contracts, decisions and internal consumers.
+
+Implementation [run 35244463130](https://github.com/dynamicet/hallelujah-website/actions/runs/35244463130)
+passed full verification and clean reconstruction for
+`3222622361edf9495075905f923d1ab3c8720983`. Documentation
+[run 35245153540](https://github.com/dynamicet/hallelujah-website/actions/runs/35245153540)
+also passed every step for exact reviewed head `0ad3fcc233e121bddcdcb784a27123c30aa6d1c4`.
+All scoped acceptance criteria pass; no implementation defect remains open.
+The final acceptance-documentation head must repeat hosted CI before merge.
+[Issue #42](https://github.com/dynamicet/hallelujah-website/issues/42) and
+[PR #43](https://github.com/dynamicet/hallelujah-website/pull/43) retain its matching
+SHA/run, merge and exact-main result. ACCESS-01, authentic guidance, hospital operations/privacy/legal
+approval, contacts, approved translations, public routes, collection, providers, production
+and publication remain gated.

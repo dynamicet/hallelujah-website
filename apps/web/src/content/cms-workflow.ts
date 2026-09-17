@@ -29,13 +29,15 @@ const domains: Record<GovernedRecord['kind'], CmsRole> = {
   doctor: 'medical', service: 'clinical', location: 'operations',
   vacancy: 'human-resources', page: 'content',
   'site-settings': 'operations',
+  'visitor-topic': 'operations',
 }
 
 export function requiredDomains(record: GovernedRecord, contentClass: ContentClass): CmsRole[] {
   const extra: CmsRole[] = contentClass === 'contact' || contentClass === 'emergency'
     ? ['operations'] : contentClass === 'privacy' ? ['privacy']
       : contentClass === 'brand' ? ['brand'] : []
-  return [...new Set([domains[record.kind], ...extra])]
+  return [...new Set([domains[record.kind], ...extra,
+    ...(record.kind === 'visitor-topic' ? ['privacy', 'legal'] as const : [])])]
 }
 
 export function canonical(value: unknown): string {
