@@ -1,10 +1,11 @@
+import { validateUtilityStatement, statementReadiness, type UtilityStatement } from './utility-statement.ts'
 import { validateInstitutionalBlock, institutionalReadiness, type InstitutionalBlock } from './institutional-block.ts'
 import { validateVisitorTopic, visitorTopicReadiness, type VisitorTopic } from './visitor-topic.ts'
 import { siteSettingsReadiness, validateSiteSettings, type SiteSettings } from './site-settings.ts'
 import { clinicianReadiness, validateClinician, type Clinician } from './clinician.ts'
 import { serviceReadiness, serviceTextKey, validateService, type Service } from './service.ts'
 
-export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page', 'site-settings', 'visitor-topic', 'institutional-block'] as const
+export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page', 'site-settings', 'visitor-topic', 'institutional-block', 'utility-statement'] as const
 export const governedStatuses = [
   'draft', 'review', 'approved', 'scheduled', 'published', 'expired', 'withdrawn',
 ] as const
@@ -23,6 +24,7 @@ const governanceDomain: Record<GovernedKind, string> = {
   'site-settings': 'operations',
   'visitor-topic': 'operations',
   'institutional-block': 'content',
+  'utility-statement': 'content',
 }
 
 export type GovernedRecord = Readonly<{
@@ -50,6 +52,7 @@ export type GovernedRecord = Readonly<{
   service?: Service
   visitorTopic?: VisitorTopic
   institutionalBlock?: InstitutionalBlock
+  utilityStatement?: UtilityStatement
 }>
 
 export type ValidationResult =
@@ -265,6 +268,23 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
       issues.push(...institutionalReadiness(block, new Date(effective)))
     }
   }
+  const statement = kind === 'utility-statement' ? validateUtilityStatement(raw.utilityStatement) : null
+  if (statement && !statement.ok) issues.push(...statement.issues)
+  if (kind !== 'utility-statement' && raw.utilityStatement !== undefined) issues.push('utilityStatement is only allowed on utility-statement records')
+  if (statement?.statement) {
+    const policy = statement.statement
+    for (const locale of new Set([...Object.keys(localized), ...Object.keys(policy.localized)])) {
+      if (!localized[locale as GovernedLocale] || localized[locale as GovernedLocale]?.title
+        !== policy.localized[locale as GovernedLocale]?.title) issues.push('statement title and locales must match canonical text')
+    }
+    if (publishAt !== policy.effectiveAt || reviewAt !== policy.reviewAt || expiresAt !== policy.expiresAt) issues.push('statement dates must match governed dates')
+    if ([...policy.servicePublicIds, ...(policy.contact.settingsPublicId ? [policy.contact.settingsPublicId] : [])]
+      .some((id) => !relationships.includes(id))) issues.push('statement dependencies must be explicit governed relationships')
+    if (['approved', 'scheduled', 'published'].includes(status as string)) {
+      if (!policy.reviewedAt || Date.parse(policy.reviewedAt) > Date.parse(approvalRaw?.at as string)) issues.push('statement review stamp must precede approval')
+      issues.push(...statementReadiness(policy, new Date(approvalRaw?.at as string)))
+    }
+  }
   if (issues.length > 0) return { ok: false, issues: Object.freeze(issues) }
   return {
     ok: true,
@@ -298,6 +318,7 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
       ...(service?.service ? { service: service.service } : {}),
       ...(visitorTopic?.topic ? { visitorTopic: visitorTopic.topic } : {}),
       ...(institutional?.block ? { institutionalBlock: institutional.block } : {}),
+      ...(statement?.statement ? { utilityStatement: statement.statement } : {}),
     },
   }
 }
@@ -318,7 +339,7 @@ export function canTransition(from: GovernedStatus, to: GovernedStatus): boolean
 
 export function publicEligibility(input: unknown, now: Date): Readonly<{
   eligible: boolean
-  reason: 'invalid' | 'synthetic' | 'safety-gated' | 'care-gated' | 'access-gated' | 'institution-gated' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
+  reason: 'invalid' | 'synthetic' | 'safety-gated' | 'care-gated' | 'access-gated' | 'institution-gated' | 'policy-gated' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
 }> {
   const validated = validateGovernedRecord(input)
   if (!validated.ok || !Number.isFinite(now.getTime())) {
@@ -326,6 +347,7 @@ export function publicEligibility(input: unknown, now: Date): Readonly<{
   }
   const record = validated.record
   if (record.synthetic) return { eligible: false, reason: 'synthetic' }
+  if (record.kind === 'utility-statement') return { eligible: false, reason: 'policy-gated' }
   if (record.kind === 'institutional-block') return { eligible: false, reason: 'institution-gated' }
   if (record.kind === 'visitor-topic') return { eligible: false, reason: 'access-gated' }
   if (record.kind === 'site-settings') return { eligible: false, reason: 'safety-gated' }
@@ -352,6 +374,9 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
     && !['expired', 'withdrawn'].includes(record.status)).length > 1) {
     issues.push('only one current canonical site-settings record is allowed')
   }
+  const statementVersions = new Set<string>()
+  const currentStatements = new Set<string>()
+  const statementSeries = new Map<string, string>()
   const ids = new Map<string, GovernedRecord>()
   const paths = new Set<string>()
   const institutionalIdentities = new Set<string>()
@@ -368,6 +393,18 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
   for (const record of records) {
     if (ids.has(record.publicId)) issues.push('duplicate publicId')
     ids.set(record.publicId, record)
+    if (record.utilityStatement) {
+      const statement = record.utilityStatement
+      const key = `${statement.identityKey}:${statement.version}`
+      if (statementVersions.has(key)) issues.push('duplicate statement series version')
+      statementVersions.add(key)
+      if (statementSeries.has(statement.identityKey) && statementSeries.get(statement.identityKey) !== statement.type) issues.push('statement series type cannot change')
+      statementSeries.set(statement.identityKey, statement.type)
+      if (['approved', 'scheduled', 'published'].includes(record.status)) {
+        if (currentStatements.has(statement.type)) issues.push('competing current statement versions require retirement first')
+        currentStatements.add(statement.type)
+      }
+    }
     if (record.institutionalBlock) {
       const block = record.institutionalBlock
       if (institutionalIdentities.has(block.identityKey)) issues.push('duplicate institutional identity')
@@ -431,6 +468,19 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
     }
   }
   for (const record of records) {
+    const statement = record.utilityStatement
+    if (statement) {
+      const predecessor = statement.supersedesPublicId ? ids.get(statement.supersedesPublicId) : null
+      if (statement.version > 1 && (!predecessor?.utilityStatement
+        || predecessor.utilityStatement.identityKey !== statement.identityKey
+        || predecessor.utilityStatement.type !== statement.type
+        || predecessor.utilityStatement.version !== statement.version - 1
+        || Date.parse(predecessor.utilityStatement.effectiveAt) >= Date.parse(statement.effectiveAt))) issues.push('statement predecessor must be the preceding version of its series with an earlier effective date')
+      if (['approved', 'scheduled', 'published'].includes(record.status) && predecessor
+        && !['expired', 'withdrawn'].includes(predecessor.status)) issues.push('statement predecessor must be retired before successor approval')
+      if (statement.contact.settingsPublicId && ids.get(statement.contact.settingsPublicId)?.kind !== 'site-settings') issues.push('statement contact must resolve to canonical site settings')
+      if (statement.servicePublicIds.some((id) => ids.get(id)?.kind !== 'service')) issues.push('statement service dependency must resolve to a service')
+    }
     for (const id of record.service?.locationPublicIds ?? []) {
       const location = ids.get(id)
       if (!location || location.kind !== 'location') issues.push('service location must resolve to a location record')
@@ -451,7 +501,8 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
     for (const relatedId of record.relationships) {
       const related = ids.get(relatedId)
       if (!related) issues.push('relationship has no matching public record')
-      else if (related.status === 'expired' || related.status === 'withdrawn') {
+      else if ((related.status === 'expired' || related.status === 'withdrawn')
+        && record.kind !== 'utility-statement') {
         issues.push('relationship points to a retired public record')
       }
     }

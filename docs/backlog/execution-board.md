@@ -572,3 +572,32 @@ The final acceptance-documentation head must repeat hosted CI before
 matching SHA/run, merge and exact-main result. INST-01–INST-03, hospital executive approval,
 authentic content, insurance coverage, reviewed translations, media, public routes, collection,
 providers and publication remain gated.
+
+## B02-009 controlled execution
+
+On 17 September 2026, Africa/Addis_Ababa, the client directed “start” for B02-009.
+B02-008 PR #45 merged as `c451fa5335fd8b4a036c2e2c75c2725912b63848` after final-head
+[run 35255139180](https://github.com/dynamicet/hallelujah-website/actions/runs/35255139180) passed;
+exact-main [run 35255831837](https://github.com/dynamicet/hallelujah-website/actions/runs/35255831837)
+passed. This records B02-008 merge closeout. B02-001/B02-002 are Done.
+B02-009 moves Proposed → Ready → In progress under workspace identity `befikadusata`
+directing Codex in temporary Backend/CMS, Privacy/Legal-contract and Accessibility/QA roles,
+with the same controlled-development review authority. The target is synthetic local T0/private hosted T1.
+The [execution brief](b02-009-versioned-utility-statements.md) records a controlled sequencing
+exception to APPT-03, SEARCH-02 and formal DEL-01 using the accepted working B00-016 matrix.
+[Execution evidence](evidence/B02-009-versioned-utility-statements-2026-09-17.md) tracks checks.
+Authentic policy, hospital approval, reviewed translations, real support contacts, public routes,
+collection, providers, production and publication remain gated.
+
+[Issue #46](https://github.com/dynamicet/hallelujah-website/issues/46) tracks controlled B02-009 execution.
+
+B02-009 moves In progress → In review on 17 September 2026, Africa/Addis_Ababa under the same
+responsible/review identity after passing local T0. [Issue #46](https://github.com/dynamicet/hallelujah-website/issues/46)
+and [completion evidence](evidence/B02-009-versioned-utility-statements-2026-09-17.md) record strict
+version/inventory/evidence contracts, independent privacy/legal/accessibility reviews, fresh PostgreSQL
+persistence/concurrency/rollback/live-role and dependency-approval revocation, retained historical text,
+actual elapsed expiry, cross-role denial, full verification and 92 shared-component plus 52 statement
+browser cases, reachable-history secret scan and dependency audit.
+Hosted exact-head T1 and client controlled-development acceptance remain pending.
+APPT-03, SEARCH-02, formal DEL-01, authentic policy/support facts, hospital approval, collection
+and publication remain gated.

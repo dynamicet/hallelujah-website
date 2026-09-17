@@ -1,3 +1,4 @@
+import { statementReadiness } from './utility-statement.ts'
 import { clearInstitutionalReview, reviewInstitutionalBlock, institutionalReadiness } from './institutional-block.ts'
 import type { CmsActor, CmsRole } from './cms-identity.ts'
 import { type GovernedRecord, validateGovernedRecord } from './governed-record.ts'
@@ -32,6 +33,7 @@ const domains: Record<GovernedRecord['kind'], CmsRole> = {
   'site-settings': 'operations',
   'visitor-topic': 'operations',
   'institutional-block': 'content',
+  'utility-statement': 'content',
 }
 
 export function requiredDomains(record: GovernedRecord, contentClass: ContentClass): CmsRole[] {
@@ -40,7 +42,10 @@ export function requiredDomains(record: GovernedRecord, contentClass: ContentCla
       : contentClass === 'brand' ? ['brand'] : []
   return [...new Set([domains[record.kind], ...extra,
     ...(record.kind === 'visitor-topic' ? ['privacy', 'legal'] as const : []),
-    ...(record.kind === 'institutional-block' ? ['brand', 'legal'] as const : [])])]
+    ...(record.kind === 'institutional-block' ? ['brand', 'legal'] as const : []),
+    ...(record.utilityStatement?.type === 'privacy' ? ['privacy', 'legal'] as const
+      : record.utilityStatement?.type === 'accessibility' ? ['accessibility'] as const : []),
+    ...(record.utilityStatement?.contact.state === 'bound' ? ['operations'] as const : [])])]
 }
 
 export function canonical(value: unknown): string {
@@ -77,6 +82,8 @@ export function createWorkflow(
   if (record.kind === 'site-settings' && contentClass !== 'contact') {
     throw new Error('Canonical site settings require the contact safety class')
   }
+  if (record.utilityStatement && contentClass !== (record.utilityStatement.type === 'privacy' ? 'privacy' : 'general')) throw new Error('Statement requires its matching controlled content class')
+  if (record.utilityStatement?.reviewedAt) throw new Error('New statements cannot supply review stamps')
   if (record.status !== 'draft' || record.approval || record.domainApproval || record.audit.length
     || record.owner || record.reviewer || record.withdrawal) {
     throw new Error('New content must be an unsigned draft without supplied audit or identities')
@@ -122,6 +129,7 @@ export function applyWorkflow(
         'approval', 'domainApproval', 'audit', 'withdrawal'] as const) {
         if (canonical(candidate[key]) !== canonical(old[key])) throw new Error('Server governance fields cannot be edited')
       }
+      if (candidate.utilityStatement?.reviewedAt) throw new Error('Authors cannot supply statement review stamps')
       if (candidate.service?.claims.some((claim) => claim.state === 'approved')) throw new Error('Authors cannot supply service claim approval')
       if (candidate.institutionalBlock?.evidence?.reviewer || candidate.institutionalBlock?.evidence?.reviewedAt) throw new Error('Authors cannot supply institutional review stamps')
       record = candidate
@@ -142,6 +150,7 @@ export function applyWorkflow(
       // Approved/scheduled content returns via review, preserving the shared transition contract.
       record = { ...old, status: old.status === 'review' ? 'draft' : 'review',
         approval: null, domainApproval: null, reviewer: null }
+      if (record.utilityStatement) record = { ...record, utilityStatement: { ...record.utilityStatement, reviewedAt: null } }
       if (record.institutionalBlock) record = { ...record, institutionalBlock: clearInstitutionalReview(record.institutionalBlock) }
       if (record.service) record = { ...record, service: clearServiceReviews(record.service) }
       reviews = {}
@@ -156,6 +165,7 @@ export function applyWorkflow(
       requireRole(actor, command.domain)
       review.reference = reference(command.reference)
       reviews[command.domain] = review
+      if (old.utilityStatement && command.domain === 'content') record = { ...old, utilityStatement: { ...old.utilityStatement, reviewedAt: at } }
       if (old.institutionalBlock && command.domain === 'content') record = { ...old,
         institutionalBlock: reviewInstitutionalBlock(old.institutionalBlock, actor.id, at) }
       if (old.service && command.domain === 'clinical') record = { ...old,
@@ -166,6 +176,7 @@ export function applyWorkflow(
       requireRole(actor, 'reviewer')
       if (isAuthor || old.status !== 'review') throw new Error('Author cannot self-approve; content must be in review')
       const required = requiredDomains(old, previous.workflow.contentClass)
+      if (old.utilityStatement && statementReadiness(old.utilityStatement, new Date(at)).length) throw new Error('Statement is not current and reviewed')
       if (old.institutionalBlock && institutionalReadiness(old.institutionalBlock, new Date(at)).length) throw new Error('Institutional evidence or disposition is not current and reviewed')
       if (old.siteSettings && siteSettingsReadiness(old.siteSettings, now).length) {
         throw new Error('Canonical contact facts are unresolved or no longer current')
@@ -186,6 +197,7 @@ export function applyWorkflow(
     case 'schedule':
     case 'publish': {
       requireRole(actor, 'publisher')
+      if (old.utilityStatement && statementReadiness(old.utilityStatement, new Date(at), command.action === 'publish').length) throw new Error('Statement is not current and reviewed')
       if (old.institutionalBlock && institutionalReadiness(old.institutionalBlock, new Date(at)).length) throw new Error('Institutional evidence or disposition is not current and reviewed')
       if (old.service && serviceReadiness(old.service, now).length) throw new Error('Service launch subset or claim approval evidence is not current')
       if (old.siteSettings && siteSettingsReadiness(old.siteSettings, now).length) {
