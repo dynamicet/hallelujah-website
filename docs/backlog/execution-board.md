@@ -705,3 +705,27 @@ LANG-01/LANG-02, GOV-01, authentic content, hospital approval, historical public
 routing, production cache/CDN wiring, public/CMS routes, providers, personal-data collection,
 provisioning and publication remain gated. B02-011 is the next candidate after successful
 merge/main closeout, subject to its controlled-development execution brief and readiness checks.
+
+## B02-010 post-merge cleanup correction
+
+PR #49 merged as `14616f50efca2b816f271dd60ed8fbd49876d197` after final acceptance-head
+[run 35268726064](https://github.com/dynamicet/hallelujah-website/actions/runs/35268726064)
+passed for `3754675763897344d79260fa8e92f26d5fb9ba11`, automatically closing issue #48.
+Exact-main [run 35269268129](https://github.com/dynamicet/hallelujah-website/actions/runs/35269268129)
+then failed after all 52 statement browser cases passed: profile cleanup raised `ENOTEMPTY`.
+This is a manual merge control failure; dependent execution is paused until checked correction
+and exact-main CI pass. B02-010 remains accepted for controlled development.
+
+Client-directed closeout authorizes the scoped browser cleanup correction under
+[issue #50](https://github.com/dynamicet/hallelujah-website/issues/50), with `befikadusata`
+directing Codex in temporary Frontend/QA roles and the same controlled acceptance authority
+on 17 September 2026, Africa/Addis_Ababa. The statement harness now uses five bounded
+100 ms recursive-removal retries, matching the existing foundation browser harness.
+Browser shutdown and all functional assertions remain intact; exhausted cleanup retries still fail.
+Two local 52-case statement matrices and lint pass using pinned Node.js 24.21.0, pnpm 10.27.0
+and disposable `/var/tmp` profiles. Local verification passes across all prescribed checks, including the 92-case shared-component matrix
+and a third 52-case statement matrix with direct Chromium after a Snap launcher startup failure.
+Format/links/backlog/history-secret/diff checks and dependency audit pass. The correction moves
+In progress → In review under the same responsible/acceptance identity; hosted correction CI remains required.
+The [correction evidence](evidence/B02-010-browser-cleanup-closeout-2026-09-17.md) retains the failed
+run and required passing correction/merge/main results. Production/publication gates are unchanged.
