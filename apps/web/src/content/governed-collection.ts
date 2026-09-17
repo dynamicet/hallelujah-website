@@ -30,6 +30,10 @@ export function validateStoredRecordChange(
     if (record.publicId !== old.publicId || record.kind !== old.kind) {
       throw new Error('Stable public ID and record kind cannot change')
     }
+    if (record.visitorTopic?.identityKey !== old.visitorTopic?.identityKey
+      || record.visitorTopic?.purpose !== old.visitorTopic?.purpose) {
+      throw new Error('Stable visitor topic identity and purpose cannot change')
+    }
     if (record.clinician?.identityKey !== old.clinician?.identityKey) {
       throw new Error('Stable clinician roster identity cannot change')
     }
@@ -75,7 +79,7 @@ export const governedRecordsCollection: CollectionConfig = {
         ? true : actor.roles.includes('author') ? { authorId: { equals: actor.id } } : false
     },
     update: roleAccess('author', 'reviewer', 'publisher', 'medical', 'clinical',
-      'operations', 'human-resources', 'content', 'privacy', 'brand'),
+      'operations', 'human-resources', 'content', 'privacy', 'legal', 'brand'),
   },
   endpoints: false,
   graphQL: false,

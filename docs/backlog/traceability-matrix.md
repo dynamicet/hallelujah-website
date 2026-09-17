@@ -135,6 +135,12 @@
 | `SEC-02` | `B00-014` plus feature-specific tickets | Every optional/external provider |
 | `DEL-01` | `B00-015`–`B00-016` | Acceptance matrix, evidence, and release authority |
 
+B02-007 controlled-development execution covers P-001/P-002 schema, topic decisions,
+independent operations/privacy/legal workflow, internal task ordering and safe expiry under the
+[execution brief](b02-007-governed-visitor-topics.md) and
+[execution evidence](evidence/B02-007-governed-visitor-topics-2026-09-17.md).
+ACCESS-01 remains unresolved for hospital-authored guidance and publication. No route is enabled.
+
 ## Architecture coverage
 
 | Decision | Backlog coverage | Verification |

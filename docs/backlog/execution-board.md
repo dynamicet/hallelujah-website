@@ -464,3 +464,26 @@ passed all steps, including clean reconstruction, for `b6e2d6bf5aafd028d0c9d03d0
 The final acceptance commit must repeat hosted CI before [PR #41](https://github.com/dynamicet/hallelujah-website/pull/41)
 merges; issue #40 and PR #41 record its matching SHA/run, merge and exact-main result.
 CARE-06, authentic affiliations, hospital approval, collection and publication remain gated.
+
+On 17 September 2026, Africa/Addis_Ababa, the client directed “proceed with the steps” for B02-007.
+B02-006 PR #41 merged as `da4434ff8703f5c2f07fc9b6bf8b81270e4aec49` after final exact-head
+[run 35136076144](https://github.com/dynamicet/hallelujah-website/actions/runs/35136076144) passed;
+[exact-main run 35136691110](https://github.com/dynamicet/hallelujah-website/actions/runs/35136691110)
+also passed, completing the dependent-execution merge control. B02-001/B02-002 are Done.
+B02-007 moves Proposed → Ready → In progress under `befikadusata` directing Codex in temporary
+Backend/CMS, Operations/Content-contract, Privacy/Legal-contract and QA roles, with the same
+controlled-development review authority. The [execution brief](b02-007-governed-visitor-topics.md)
+permits synthetic local topic contracts/decisions and internal consumers under an ACCESS-01
+sequencing exception. [Execution evidence](evidence/B02-007-governed-visitor-topics-2026-09-17.md)
+tracks required checks. Authentic guidance, hospital signoff, contacts and publication remain gated.
+
+[Issue #42](https://github.com/dynamicet/hallelujah-website/issues/42) tracks the controlled B02-007 execution.
+
+B02-007 moves In progress → In review on 17 September 2026, Africa/Addis_Ababa under the same
+responsible/review identity `befikadusata`, after local T0 passes. [Issue #42](https://github.com/dynamicet/hallelujah-website/issues/42)
+and [completion evidence](evidence/B02-007-governed-visitor-topics-2026-09-17.md) record strict
+topic decisions, independent operations/privacy/legal workflow, task-ordered internal hub,
+fresh PostgreSQL persistence/concurrency/rollback/live-role tests, actual elapsed temporary
+expiry, cross-role denial, full verification and 92-case bilingual browser matrix, reachable-history
+secret scan and dependency audit. Hosted exact-head T1 and client acceptance remain pending.
+No authentic guidance, operational signoff, public route, collection or publication is promoted.
