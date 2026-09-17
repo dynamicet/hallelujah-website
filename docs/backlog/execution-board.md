@@ -609,3 +609,24 @@ passed every step, including full verification and clean reconstruction/build, f
 controlled-development acceptance. Final documentation CI must repeat before merge; issue #46
 and PR #47 retain its matching SHA/run. APPT-03, SEARCH-02, formal DEL-01, authentic policy/support
 facts, hospital approval, collection, providers, production and publication remain gated.
+
+## Final-head CI harness correction
+
+Final documentation [run 35260612990](https://github.com/dynamicet/hallelujah-website/actions/runs/35260612990)
+failed on `9da7dc2883578328b59da5ceda77b0a4c2717bb8` in the existing B01-013/form smoke assertion:
+the controlled invalid submission no longer appeared busy/pending/disabled when sampled.
+All statement schema checks and the build passed; the run stopped before the new statement browser step.
+
+The form fixture exposes pending state synchronously and clears it after 80 ms. The harness
+submitted and sampled pending semantics using separate browser-protocol calls. Under runner load,
+the callback could clear pending before the second call arrived. The correction samples the same
+busy, visible-pending and disabled-submit conditions within the submission browser task.
+It also replaces fixed result sleeps with bounded condition waits requiring visible/focused invalid
+summary or visible truthful failure after completion. No assertion, runtime timer, form behavior,
+collection or publication gate is weakened. The failure remains part of the evidence; the corrected
+exact head requires passing local and hosted verification before review is ready.
+
+The corrected harness subsequently passed full local `pnpm verify`, including all pending/focus/
+truthful-failure assertions, the 92-case shared-component matrix and all 52 statement cases.
+No application/runtime behavior changed. Corrected exact-head hosted CI remains required before
+review is ready; issue #46 and PR #47 retain the final matching SHA/run and failed-run history.
