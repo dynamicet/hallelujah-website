@@ -1,3 +1,4 @@
+import { clearInstitutionalReview, reviewInstitutionalBlock, institutionalReadiness } from './institutional-block.ts'
 import type { CmsActor, CmsRole } from './cms-identity.ts'
 import { type GovernedRecord, validateGovernedRecord } from './governed-record.ts'
 import { siteSettingsReadiness } from './site-settings.ts'
@@ -30,6 +31,7 @@ const domains: Record<GovernedRecord['kind'], CmsRole> = {
   vacancy: 'human-resources', page: 'content',
   'site-settings': 'operations',
   'visitor-topic': 'operations',
+  'institutional-block': 'content',
 }
 
 export function requiredDomains(record: GovernedRecord, contentClass: ContentClass): CmsRole[] {
@@ -37,7 +39,8 @@ export function requiredDomains(record: GovernedRecord, contentClass: ContentCla
     ? ['operations'] : contentClass === 'privacy' ? ['privacy']
       : contentClass === 'brand' ? ['brand'] : []
   return [...new Set([domains[record.kind], ...extra,
-    ...(record.kind === 'visitor-topic' ? ['privacy', 'legal'] as const : [])])]
+    ...(record.kind === 'visitor-topic' ? ['privacy', 'legal'] as const : []),
+    ...(record.kind === 'institutional-block' ? ['brand', 'legal'] as const : [])])]
 }
 
 export function canonical(value: unknown): string {
@@ -79,6 +82,7 @@ export function createWorkflow(
     throw new Error('New content must be an unsigned draft without supplied audit or identities')
   }
   if (record.service?.claims.some((claim) => claim.state === 'approved')) throw new Error('New service claims cannot supply clinical approval')
+  if (record.institutionalBlock?.evidence?.reviewer || record.institutionalBlock?.evidence?.reviewedAt) throw new Error('New institutional claims cannot supply review stamps')
   return {
     record: checked({ ...record, owner: actor.id,
       audit: [{ actor: actor.id, at: now.toISOString().replace(/\.\d{3}Z$/, 'Z'), change: 'draft created' }] }),
@@ -119,6 +123,7 @@ export function applyWorkflow(
         if (canonical(candidate[key]) !== canonical(old[key])) throw new Error('Server governance fields cannot be edited')
       }
       if (candidate.service?.claims.some((claim) => claim.state === 'approved')) throw new Error('Authors cannot supply service claim approval')
+      if (candidate.institutionalBlock?.evidence?.reviewer || candidate.institutionalBlock?.evidence?.reviewedAt) throw new Error('Authors cannot supply institutional review stamps')
       record = candidate
       reviews = {}
       verification = null
@@ -137,6 +142,7 @@ export function applyWorkflow(
       // Approved/scheduled content returns via review, preserving the shared transition contract.
       record = { ...old, status: old.status === 'review' ? 'draft' : 'review',
         approval: null, domainApproval: null, reviewer: null }
+      if (record.institutionalBlock) record = { ...record, institutionalBlock: clearInstitutionalReview(record.institutionalBlock) }
       if (record.service) record = { ...record, service: clearServiceReviews(record.service) }
       reviews = {}
       verification = null
@@ -150,6 +156,8 @@ export function applyWorkflow(
       requireRole(actor, command.domain)
       review.reference = reference(command.reference)
       reviews[command.domain] = review
+      if (old.institutionalBlock && command.domain === 'content') record = { ...old,
+        institutionalBlock: reviewInstitutionalBlock(old.institutionalBlock, actor.id, at) }
       if (old.service && command.domain === 'clinical') record = { ...old,
         service: reviewServiceClaims(old.service, actor.id, now.toISOString().replace(/\.\d{3}Z$/, 'Z')) }
       break
@@ -158,6 +166,7 @@ export function applyWorkflow(
       requireRole(actor, 'reviewer')
       if (isAuthor || old.status !== 'review') throw new Error('Author cannot self-approve; content must be in review')
       const required = requiredDomains(old, previous.workflow.contentClass)
+      if (old.institutionalBlock && institutionalReadiness(old.institutionalBlock, new Date(at)).length) throw new Error('Institutional evidence or disposition is not current and reviewed')
       if (old.siteSettings && siteSettingsReadiness(old.siteSettings, now).length) {
         throw new Error('Canonical contact facts are unresolved or no longer current')
       }
@@ -177,6 +186,7 @@ export function applyWorkflow(
     case 'schedule':
     case 'publish': {
       requireRole(actor, 'publisher')
+      if (old.institutionalBlock && institutionalReadiness(old.institutionalBlock, new Date(at)).length) throw new Error('Institutional evidence or disposition is not current and reviewed')
       if (old.service && serviceReadiness(old.service, now).length) throw new Error('Service launch subset or claim approval evidence is not current')
       if (old.siteSettings && siteSettingsReadiness(old.siteSettings, now).length) {
         throw new Error('Canonical contact facts are unresolved or no longer current')

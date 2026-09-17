@@ -181,3 +181,8 @@ ACCESS-01 remains unresolved for hospital-authored guidance and publication. No 
 - [ ] Every ticket links to canonical requirements and implementation sources.
 - [ ] Every release evidence record identifies requirement, decision, route/section/state, build, environment, method, expected/actual, result, tester/date, artifact, defect, and retest.
 - [ ] Any Changed/Rejected decision updates the affected requirement, contract, design, ticket, test, and evidence mapping together.
+
+B02-008 controlled-development execution covers H-004/I-001–I-003 institutional block contracts,
+claim evidence, competing mission denial, independent reviews and read-time expiry/omission.
+INST-01–INST-03 remain unresolved for authentic content/publication; synthetic local evidence is
+recorded in [execution evidence](evidence/B02-008-governed-institutional-blocks-2026-09-17.md).

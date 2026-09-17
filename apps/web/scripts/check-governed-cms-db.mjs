@@ -1,3 +1,4 @@
+import { checkInstitutionalBlocksDb } from './check-institutional-blocks-db.mjs'
 import assert from 'node:assert/strict'
 import { checkVisitorTopicsDb } from './check-visitor-topics-db.mjs'
 import { checkCareRelationshipsDb } from './check-care-relationships-db.mjs'
@@ -355,6 +356,7 @@ try {
   process.stdout.write('Service PostgreSQL persistence, duplicate/copy/immutable identity denials, clinical claim stamping and role revocation, taxonomy and successor retirement passed.\n')
   await checkCareRelationshipsDb(payload, { identity, command, denied, fixtureSuffix })
   await checkVisitorTopicsDb(payload, { identity, command, denied, fixtureSuffix })
+  await checkInstitutionalBlocksDb(payload, { identity, command, denied, fixtureSuffix })
   process.stdout.write('Disposable Payload/PostgreSQL authenticated workflow, timed lifecycle and retirement integration passed.\n')
 } catch (error) {
   process.stderr.write(`Disposable CMS smoke failed: ${error.message}\n`)
