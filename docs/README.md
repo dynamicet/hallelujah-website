@@ -175,3 +175,5 @@ Role placeholders enable backlog assignment but are not signatures. Formal appro
 ## Change control
 
 When a requirement changes, update its row in the matrix and the affected page specification in the same change. Record the decision owner, date, and evidence link in the requirement's notes rather than silently weakening acceptance criteria.
+
+Controlled implementation: [governed discovery architecture](architecture/governed-discovery.md) and [B02-010 execution brief](backlog/b02-010-governed-discovery.md).

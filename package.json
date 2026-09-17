@@ -62,7 +62,8 @@
     "visitor-topics:check": "pnpm --dir apps/web visitor-topics:check",
     "institutional-blocks:check": "pnpm --dir apps/web institutional-blocks:check",
     "utility-statements:check": "pnpm --dir apps/web utility-statements:check",
-    "utility-statements:smoke": "pnpm --dir apps/web utility-statements:smoke"
+    "utility-statements:smoke": "pnpm --dir apps/web utility-statements:smoke",
+    "discovery:check": "pnpm --dir apps/web discovery:check"
   },
   "pnpm": {
     "overrides": {

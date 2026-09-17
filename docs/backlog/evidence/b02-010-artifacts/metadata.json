@@ -1,0 +1,142 @@
+[
+  {
+    "publicId": "pub_040404040404",
+    "locale": "am",
+    "path": "/am/doctors/synthetic-am-clinician/",
+    "url": "http://127.0.0.1:43101/am/doctors/synthetic-am-clinician/",
+    "title": "የቁጥጥር ምሳሌ",
+    "alternates": {
+      "en": "http://127.0.0.1:43101/doctors/synthetic-clinician-040404040404/",
+      "am": "http://127.0.0.1:43101/am/doctors/synthetic-am-clinician/"
+    },
+    "lastModified": "2026-09-17T12:00:04Z",
+    "metadata": {
+      "title": "የቁጥጥር ምሳሌ",
+      "description": "Synthetic discovery fixture. Not approved for publication.",
+      "robots": {
+        "index": false,
+        "follow": false,
+        "noarchive": true
+      },
+      "alternates": {
+        "canonical": "http://127.0.0.1:43101/am/doctors/synthetic-am-clinician/",
+        "languages": {
+          "en": "http://127.0.0.1:43101/doctors/synthetic-clinician-040404040404/",
+          "am": "http://127.0.0.1:43101/am/doctors/synthetic-am-clinician/"
+        }
+      }
+    },
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "http://127.0.0.1:43101/am/doctors/synthetic-am-clinician/",
+      "url": "http://127.0.0.1:43101/am/doctors/synthetic-am-clinician/",
+      "name": "የቁጥጥር ምሳሌ",
+      "inLanguage": "am"
+    }
+  },
+  {
+    "publicId": "pub_040404040404",
+    "locale": "en",
+    "path": "/doctors/synthetic-clinician-040404040404/",
+    "url": "http://127.0.0.1:43101/doctors/synthetic-clinician-040404040404/",
+    "title": "Synthetic clinician 040404040404",
+    "alternates": {
+      "en": "http://127.0.0.1:43101/doctors/synthetic-clinician-040404040404/",
+      "am": "http://127.0.0.1:43101/am/doctors/synthetic-am-clinician/"
+    },
+    "lastModified": "2026-09-17T12:00:04Z",
+    "metadata": {
+      "title": "Synthetic clinician 040404040404",
+      "description": "Synthetic discovery fixture. Not approved for publication.",
+      "robots": {
+        "index": false,
+        "follow": false,
+        "noarchive": true
+      },
+      "alternates": {
+        "canonical": "http://127.0.0.1:43101/doctors/synthetic-clinician-040404040404/",
+        "languages": {
+          "en": "http://127.0.0.1:43101/doctors/synthetic-clinician-040404040404/",
+          "am": "http://127.0.0.1:43101/am/doctors/synthetic-am-clinician/"
+        }
+      }
+    },
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "http://127.0.0.1:43101/doctors/synthetic-clinician-040404040404/",
+      "url": "http://127.0.0.1:43101/doctors/synthetic-clinician-040404040404/",
+      "name": "Synthetic clinician 040404040404",
+      "inLanguage": "en"
+    }
+  },
+  {
+    "publicId": "pub_909090909090",
+    "locale": "en",
+    "path": "/privacy/",
+    "url": "http://127.0.0.1:43101/privacy/",
+    "title": "Synthetic privacy statement 909090909090",
+    "alternates": {
+      "en": "http://127.0.0.1:43101/privacy/"
+    },
+    "lastModified": "2026-09-17T12:00:06Z",
+    "metadata": {
+      "title": "Synthetic privacy statement 909090909090",
+      "description": "Synthetic discovery fixture. Not approved for publication.",
+      "robots": {
+        "index": false,
+        "follow": false,
+        "noarchive": true
+      },
+      "alternates": {
+        "canonical": "http://127.0.0.1:43101/privacy/",
+        "languages": {
+          "en": "http://127.0.0.1:43101/privacy/"
+        }
+      }
+    },
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "http://127.0.0.1:43101/privacy/",
+      "url": "http://127.0.0.1:43101/privacy/",
+      "name": "Synthetic privacy statement 909090909090",
+      "inLanguage": "en"
+    }
+  },
+  {
+    "publicId": "pub_050505050505",
+    "locale": "en",
+    "path": "/services/synthetic-service-050505050505/",
+    "url": "http://127.0.0.1:43101/services/synthetic-service-050505050505/",
+    "title": "Synthetic service 050505050505",
+    "alternates": {
+      "en": "http://127.0.0.1:43101/services/synthetic-service-050505050505/"
+    },
+    "lastModified": "2026-09-17T12:00:04Z",
+    "metadata": {
+      "title": "Synthetic service 050505050505",
+      "description": "Synthetic discovery fixture. Not approved for publication.",
+      "robots": {
+        "index": false,
+        "follow": false,
+        "noarchive": true
+      },
+      "alternates": {
+        "canonical": "http://127.0.0.1:43101/services/synthetic-service-050505050505/",
+        "languages": {
+          "en": "http://127.0.0.1:43101/services/synthetic-service-050505050505/"
+        }
+      }
+    },
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "http://127.0.0.1:43101/services/synthetic-service-050505050505/",
+      "url": "http://127.0.0.1:43101/services/synthetic-service-050505050505/",
+      "name": "Synthetic service 050505050505",
+      "inLanguage": "en"
+    }
+  }
+]

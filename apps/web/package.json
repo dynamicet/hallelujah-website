@@ -23,7 +23,7 @@
     "lint": "eslint . --max-warnings=0",
     "start": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next start",
     "system-states:check": "node scripts/check-system-states.mjs",
-    "test": "pnpm tokens:check && pnpm foundations:check && pnpm actions:check && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && pnpm system-states:check && pnpm optional-map:check && pnpm governed-records:check && pnpm cms-workflow:check && pnpm site-settings:check && pnpm clinicians:check && pnpm services:check && pnpm care-relationships:check && pnpm visitor-topics:check && pnpm institutional-blocks:check && pnpm utility-statements:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
+    "test": "pnpm tokens:check && pnpm foundations:check && pnpm actions:check && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && pnpm system-states:check && pnpm optional-map:check && pnpm governed-records:check && pnpm cms-workflow:check && pnpm site-settings:check && pnpm clinicians:check && pnpm services:check && pnpm care-relationships:check && pnpm visitor-topics:check && pnpm institutional-blocks:check && pnpm utility-statements:check && pnpm discovery:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
     "tokens:check": "node scripts/generate-design-tokens.mjs --check",
     "tokens:generate": "node scripts/generate-design-tokens.mjs",
     "typecheck": "tsc --noEmit",
@@ -35,7 +35,8 @@
     "visitor-topics:check": "node scripts/check-visitor-topics.mjs",
     "institutional-blocks:check": "node scripts/check-institutional-blocks.mjs",
     "utility-statements:check": "node scripts/check-utility-statements.mjs",
-    "utility-statements:smoke": "node scripts/check-utility-statements-rendered.mjs"
+    "utility-statements:smoke": "node scripts/check-utility-statements-rendered.mjs",
+    "discovery:check": "node scripts/check-governed-discovery.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.89.0",
