@@ -1,6 +1,6 @@
 # B02-008 — Governed Institutional Content Blocks
 
-**Status:** In review for controlled development after passing local T0 on 17 September 2026, Africa/Addis_Ababa. Hosted implementation T1 passes; client acceptance pending. Final documentation CI required before merge.
+**Status:** Done for controlled development following client acceptance on 17 September 2026, Africa/Addis_Ababa. Final acceptance-head CI is required before merge.
 
 The client directed “continue” after the proposed B02-008 execution. B02-007 PR #43 merged
 as `2adbbbefcf4b058d39da0c5a95a60891d053cea4`; exact-main
@@ -65,3 +65,27 @@ passed every step, including full verification and clean reconstruction, for exa
 Client controlled-development acceptance remains pending. The final documentation head must
 repeat hosted CI before merge; issue #44 and PR #45 retain the matching SHA/run.
 INST-01–INST-03, authentic content, executive approval, coverage and publication remain gated.
+
+
+## Controlled-development acceptance
+
+On 17 September 2026, Africa/Addis_Ababa, the client directed “close it”.
+B02-008 moves In review → **Done** for controlled development. Responsible and acceptance
+authority is workspace identity `befikadusata` directing Codex in temporary Backend/CMS,
+Executive/Content-contract, Brand/Legal-contract and QA roles, under the same synthetic
+local T0/private hosted T1 boundary.
+
+All scoped acceptance criteria pass; no implementation defect remains open. Local schema,
+workflow, rendering, PostgreSQL persistence/concurrency/rollback/live-role/elapsed-expiry checks,
+role isolation, full verification, history-secret scan and dependency audit pass. Hosted
+implementation [run 35253420861](https://github.com/dynamicet/hallelujah-website/actions/runs/35253420861)
+passed for `e38726255685d939136a8f7f5277f5a39a455315`; documentation
+[run 35254108886](https://github.com/dynamicet/hallelujah-website/actions/runs/35254108886)
+passed for `4b8c3e639879e493578cbcfc7d0f357165de2753`.
+
+The final acceptance-documentation head must repeat hosted CI before
+[PR #45](https://github.com/dynamicet/hallelujah-website/pull/45) merges.
+[Issue #44](https://github.com/dynamicet/hallelujah-website/issues/44) and PR #45 retain its
+matching SHA/run, merge and exact-main result. INST-01–INST-03, hospital executive approval,
+authentic content, insurance coverage, reviewed translations, media, public routes, collection,
+providers and publication remain gated.
