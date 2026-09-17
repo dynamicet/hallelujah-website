@@ -146,8 +146,21 @@ try {
       const beforeRequests = requests.length
       await send('Page.navigate', { url: `${origin}/${kind}/${locale}/current` })
       for (let attempt = 0; attempt < 60; attempt++) {
-        if (await evaluate("document.readyState === 'complete' && document.querySelector('h1') !== null")) break
+        if (await evaluate(`location.pathname === ${JSON.stringify(`/${kind}/${locale}/current`)} && document.readyState === 'complete' && document.querySelector('h1') !== null`)) break
         await pause(50)
+      }
+      if (kind === 'font') {
+        // font-display:swap may finish loading after the document's load event.
+        // Keep script execution disabled and wait for the actual locale face, not a fallback.
+        let fontState
+        for (let attempt = 0; attempt < 100; attempt++) {
+          fontState = await evaluate(`({ faces: [...document.fonts].map(face => ({ family: face.family, status: face.status })),
+            ready: [...document.fonts].some(face => face.family === 'SyntheticAsset' && face.status === 'loaded') &&
+              document.fonts.check('16px SyntheticAsset', document.querySelector('#font-specimen').textContent) })`)
+          if (fontState.ready) break
+          await pause(50)
+        }
+        assert.equal(fontState.ready, true, `synthetic ${locale} subset must load in Chromium: ${JSON.stringify(fontState)}`)
       }
       const result = await evaluate(`({ locale: document.documentElement.lang,
         overflow: document.documentElement.scrollWidth > innerWidth + 1,
@@ -165,7 +178,7 @@ try {
       assert.equal(result.preloads, true)
       if (kind === 'video' && capability === 'save-data') assert.equal(result.videos, 0)
       assert.ok(!requests.slice(beforeRequests).some((url) => url.endsWith('.mp4')), 'video bytes must not transfer before user activation')
-      if (kind === 'font' && capability !== 'failed-image') assert.equal(result.font, true, 'synthetic subset must load in Chromium')
+      if (kind === 'font') assert.equal(result.font, true, 'synthetic subset must load in Chromium')
       if (locale === 'am') assert.match(result.text, /Unreviewed Amharic/)
       if (kind === 'video' && capability !== 'save-data') assert.equal(await evaluate(`document.querySelector('track').src.endsWith('captions-${locale}.vtt')`), true, 'caption output must match requested fixture locale')
       if (width === 320 && capability === 'no-js') {

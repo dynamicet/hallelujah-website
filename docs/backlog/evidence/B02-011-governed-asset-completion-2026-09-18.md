@@ -60,3 +60,17 @@ No unsupported human screen-reader, original-PDF accessibility or authentic-font
 Production storage/backups/capacity, scheduling/cache/CDN, authentic assets/rights/consent/crops,
 professionally reviewed language alternatives, hospital/domain approvals, external providers/storage
 (SEC-02), public/CMS routes, collection and publication remain release gates.
+
+## Hosted font readiness correction
+
+[Issue #52](https://github.com/dynamicet/hallelujah-website/issues/52) and
+[PR #53](https://github.com/dynamicet/hallelujah-website/pull/53) track this controlled pull.
+Initial hosted [run 35277613573](https://github.com/dynamicet/hallelujah-website/actions/runs/35277613573)
+for `bdf6a90fb839a6f86954b25fa8a2a5cc5d497d29` passed processor reconstruction, security,
+source/types/tests/build and all preceding browser matrices, then failed the asset font readiness
+assertion. The document load event does not guarantee a `font-display:swap` font has loaded.
+The harness now waits up to five seconds for the actual synthetic face's loaded state and checks
+the locale specimen text, including the image-failure capability. It also binds document readiness
+to the current navigation path. Font decode errors and timeouts still fail; no fallback is accepted.
+The corrected 163-case local browser matrix, lint, format/link/backlog and diff checks pass.
+The corrected head must pass hosted full verification and clean reconstruction before acceptance.
