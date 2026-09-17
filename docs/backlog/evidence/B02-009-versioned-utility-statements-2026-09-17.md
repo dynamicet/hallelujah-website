@@ -1,6 +1,6 @@
 # B02-009 — Execution Evidence
 
-**Status:** In review for controlled development. All local T0 checks pass; hosted exact-head T1 and client acceptance remain pending.
+**Status:** In review for controlled development. All local T0 and hosted implementation T1 checks pass; client acceptance remains pending.
 
 Client direction on 17 September 2026, Africa/Addis_Ababa authorizes the
 [execution brief](../b02-009-versioned-utility-statements.md). Responsible and controlled review
@@ -65,9 +65,19 @@ Human screen-reader acceptance and hospital legal/privacy/support review were no
 
 B02-009 moves In progress → In review on 17 September 2026, Africa/Addis_Ababa under the same
 responsibility/review identity and synthetic local T0/private hosted T1 scope. No scoped
-implementation defect remains open. Hosted exact-head T1 and client controlled-development
-acceptance remain pending. Final documentation CI must repeat before merge.
+implementation defect remains open. Hosted implementation T1 passes; client controlled-development acceptance remains pending. Final documentation CI must repeat before merge.
 
 APPT-03, SEARCH-02, GOV-01, formal DEL-01, authentic policy/support facts, hospital approval,
 reviewed translations, real contacts, public routes, collection, providers, production and
 publication remain gated.
+
+## Hosted implementation review
+
+[Draft PR #47](https://github.com/dynamicet/hallelujah-website/pull/47) tracks review.
+Hosted implementation T1 [run 35259827827](https://github.com/dynamicet/hallelujah-website/actions/runs/35259827827)
+passed every step, including full verification and clean dependency reconstruction/build,
+for exact commit `76df9d832465b1467b7855ff8f43264e1baffbd9`.
+B02-009 remains In review pending client controlled-development acceptance.
+The final documentation head must repeat hosted CI before merge; issue #46 and PR #47 retain
+its matching SHA/run. APPT-03, SEARCH-02, formal DEL-01, authentic hospital policy/support
+approval, public routes, collection, providers, production and publication remain gated.

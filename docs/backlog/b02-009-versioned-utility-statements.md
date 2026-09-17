@@ -1,6 +1,6 @@
 # B02-009 — Controlled Versioned Privacy and Accessibility Statements
 
-**Status:** In review for controlled development; local T0 passes. Hosted exact-head T1 and client acceptance remain pending.
+**Status:** In review for controlled development; local T0 passes. Hosted implementation T1 passes; client controlled-development acceptance remains pending.
 
 On 17 September 2026, Africa/Addis_Ababa, the client directed “start” for the proposed next
 B02-009 execution. B02-008 PR #45 merged as `c451fa5335fd8b4a036c2e2c75c2725912b63848`
@@ -63,4 +63,15 @@ All scoped local checks, fresh PostgreSQL persistence/lifecycle and role isolati
 verification suite including 92 shared-component and 52 statement browser cases, reachable-history
 secret scan, refreshed dependency audit and sanitized specimen review pass.
 B02-009 moves In progress → In review under the same responsibility/review identity and synthetic
-local T0/private hosted T1 scope. Hosted exact-head T1 and client acceptance remain pending.
+local T0/private hosted T1 scope. Hosted implementation T1 passes; client controlled-development acceptance remains pending.
+
+## Hosted implementation review
+
+[Draft PR #47](https://github.com/dynamicet/hallelujah-website/pull/47) tracks review.
+Hosted implementation T1 [run 35259827827](https://github.com/dynamicet/hallelujah-website/actions/runs/35259827827)
+passed every step, including full verification and clean dependency reconstruction/build,
+for exact commit `76df9d832465b1467b7855ff8f43264e1baffbd9`.
+B02-009 remains In review pending client controlled-development acceptance.
+The final documentation head must repeat hosted CI before merge; issue #46 and PR #47 retain
+its matching SHA/run. APPT-03, SEARCH-02, formal DEL-01, authentic hospital policy/support
+approval, public routes, collection, providers, production and publication remain gated.

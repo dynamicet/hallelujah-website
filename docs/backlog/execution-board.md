@@ -601,3 +601,11 @@ browser cases, reachable-history secret scan and dependency audit.
 Hosted exact-head T1 and client controlled-development acceptance remain pending.
 APPT-03, SEARCH-02, formal DEL-01, authentic policy/support facts, hospital approval, collection
 and publication remain gated.
+
+[Draft PR #47](https://github.com/dynamicet/hallelujah-website/pull/47) tracks B02-009 review.
+Hosted implementation T1 [run 35259827827](https://github.com/dynamicet/hallelujah-website/actions/runs/35259827827)
+passed every step, including full verification and clean reconstruction/build, for exact commit
+`76df9d832465b1467b7855ff8f43264e1baffbd9`. B02-009 remains In review pending client
+controlled-development acceptance. Final documentation CI must repeat before merge; issue #46
+and PR #47 retain its matching SHA/run. APPT-03, SEARCH-02, formal DEL-01, authentic policy/support
+facts, hospital approval, collection, providers, production and publication remain gated.
