@@ -1,6 +1,6 @@
 # B02-008 — Execution Evidence
 
-**Status:** In review; local T0 passes, hosted T1 and client acceptance pending.
+**Status:** In review; local T0 and hosted implementation T1 pass, client acceptance pending. Final documentation CI required before merge.
 **Date / timezone:** 17 September 2026, Africa/Addis_Ababa.
 **Responsible / review authority:** `befikadusata` directing Codex in temporary Backend/CMS,
 Executive/Content-contract, Brand/Legal-contract and QA roles; same controlled-development review identity.
@@ -49,3 +49,11 @@ Local review submission is In progress → In review under the brief's responsib
 Hosted CI and client acceptance remain pending. INST-01–INST-03, authentic executive signatures,
 hospital facts, coverage, translations, media, public routes, collection, providers and publication
 remain gated.
+
+[PR #45](https://github.com/dynamicet/hallelujah-website/pull/45) tracks the draft review.
+Hosted implementation T1 [run 35253420861](https://github.com/dynamicet/hallelujah-website/actions/runs/35253420861)
+passed every step, including full verification and clean reconstruction, for exact commit
+`e38726255685d939136a8f7f5277f5a39a455315`.
+Client controlled-development acceptance remains pending. The final documentation head must
+repeat hosted CI before merge; issue #44 and PR #45 retain the matching SHA/run.
+INST-01–INST-03, authentic content, executive approval, coverage and publication remain gated.

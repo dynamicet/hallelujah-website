@@ -540,3 +540,11 @@ persistence/concurrency/rollback/live-role revocation, actual elapsed leadership
 per-block relationship expiry, cross-role denial, full verification and 92-case bilingual shared-component
 browser matrix, reachable-history secret scan and dependency audit. Hosted exact-head T1 and
 client controlled-development acceptance remain pending; INST-01–INST-03 and production gates remain open.
+
+[PR #45](https://github.com/dynamicet/hallelujah-website/pull/45) tracks the draft review.
+Hosted implementation T1 [run 35253420861](https://github.com/dynamicet/hallelujah-website/actions/runs/35253420861)
+passed every step, including full verification and clean reconstruction, for exact commit
+`e38726255685d939136a8f7f5277f5a39a455315`.
+Client controlled-development acceptance remains pending. The final documentation head must
+repeat hosted CI before merge; issue #44 and PR #45 retain the matching SHA/run.
+INST-01–INST-03, authentic content, executive approval, coverage and publication remain gated.

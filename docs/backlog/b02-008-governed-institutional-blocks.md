@@ -1,6 +1,6 @@
 # B02-008 — Governed Institutional Content Blocks
 
-**Status:** In review for controlled development after passing local T0 on 17 September 2026, Africa/Addis_Ababa. Hosted T1 and client acceptance pending.
+**Status:** In review for controlled development after passing local T0 on 17 September 2026, Africa/Addis_Ababa. Hosted implementation T1 passes; client acceptance pending. Final documentation CI required before merge.
 
 The client directed “continue” after the proposed B02-008 execution. B02-007 PR #43 merged
 as `2adbbbefcf4b058d39da0c5a95a60891d053cea4`; exact-main
@@ -57,3 +57,11 @@ All scoped local checks, fresh PostgreSQL integration and role isolation, full v
 the 92-case bilingual shared-component browser matrix, history-secret scan and dependency audit pass.
 B02-008 moves In progress → In review under the same responsibility/review identity and synthetic
 local T0/private hosted T1 environment. Hosted exact-head CI and client acceptance remain pending.
+
+[PR #45](https://github.com/dynamicet/hallelujah-website/pull/45) tracks the draft review.
+Hosted implementation T1 [run 35253420861](https://github.com/dynamicet/hallelujah-website/actions/runs/35253420861)
+passed every step, including full verification and clean reconstruction, for exact commit
+`e38726255685d939136a8f7f5277f5a39a455315`.
+Client controlled-development acceptance remains pending. The final documentation head must
+repeat hosted CI before merge; issue #44 and PR #45 retain the matching SHA/run.
+INST-01–INST-03, authentic content, executive approval, coverage and publication remain gated.
