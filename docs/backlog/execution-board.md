@@ -630,3 +630,28 @@ The corrected harness subsequently passed full local `pnpm verify`, including al
 truthful-failure assertions, the 92-case shared-component matrix and all 52 statement cases.
 No application/runtime behavior changed. Corrected exact-head hosted CI remains required before
 review is ready; issue #46 and PR #47 retain the final matching SHA/run and failed-run history.
+
+## B02-009 controlled-development acceptance
+
+On 17 September 2026 at 22:06 Africa/Addis_Ababa, the client directed “close it”.
+B02-009 moves In review → **Done** for controlled development. Responsible and acceptance
+authority is workspace identity `befikadusata` directing Codex in temporary Backend/CMS,
+Privacy/Legal-contract and Accessibility/QA roles, under the same synthetic local T0/private hosted T1
+boundary. Dependencies B02-001/B02-002 are Done; B02-008 merge and exact-main CI passed.
+
+All scoped local acceptance checks pass, including fresh PostgreSQL persistence, concurrency,
+rollback, historical-text retention, live-role/dependency revocation, actual elapsed expiry and role
+isolation. Full local verification, the 92-case shared-component and 52-case statement browser
+matrices, reachable-history secret scan and dependency audit pass. Corrected exact-head hosted
+[run 35261501352](https://github.com/dynamicet/hallelujah-website/actions/runs/35261501352)
+passed every step, including full verification and clean reconstruction/build, for
+`4c0541582e24930947014e407efd292684905062`. This resolves the documented form-smoke timing failure;
+the earlier failed run remains retained as evidence. No scoped implementation defect remains open.
+
+The final acceptance-documentation head must repeat hosted CI before
+[PR #47](https://github.com/dynamicet/hallelujah-website/pull/47) merges.
+[Issue #46](https://github.com/dynamicet/hallelujah-website/issues/46) and PR #47 retain its matching
+SHA/run, merge and exact-main result. APPT-03, SEARCH-02, GOV-01, formal DEL-01, authentic policy
+and support facts, hospital privacy/legal/accessibility approval, reviewed translations, public routes,
+collection, providers, production and publication remain gated. B02-010 is the next candidate after
+successful merge/main closeout, subject to controlled-development readiness checks.
