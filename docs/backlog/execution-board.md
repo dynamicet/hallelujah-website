@@ -729,3 +729,8 @@ Format/links/backlog/history-secret/diff checks and dependency audit pass. The c
 In progress → In review under the same responsible/acceptance identity; hosted correction CI remains required.
 The [correction evidence](evidence/B02-010-browser-cleanup-closeout-2026-09-17.md) retains the failed
 run and required passing correction/merge/main results. Production/publication gates are unchanged.
+
+Correction [PR #51](https://github.com/dynamicet/hallelujah-website/pull/51) and issue #50
+record the final current-head SHA/run, checked merge and exact-main result. Once both checked
+merge and exact-main CI pass, the dependent-execution pause above is resolved. Consult these
+closeout records before pulling B02-011; no production/publication gate is promoted.

@@ -1,6 +1,6 @@
 # B02-010 browser cleanup closeout correction
 
-**Status:** In review after passing local verification; dependent execution paused pending checked correction/main CI.
+**Status:** Local correction verified; checked merge/main closeout is recorded under issue #50 and PR #51.
 
 Client direction “close it” authorizes this scoped correction under
 [issue #50](https://github.com/dynamicet/hallelujah-website/issues/50). Responsible and acceptance
@@ -26,3 +26,8 @@ retries as the foundation harness; exhausted retries still fail. No assertion or
 
 B02-010 remains accepted for controlled development. Dependent execution remains paused.
 Production, publication, collection, providers and authentic content remain gated.
+
+[Correction PR #51](https://github.com/dynamicet/hallelujah-website/pull/51) and
+[issue #50](https://github.com/dynamicet/hallelujah-website/issues/50) are the closeout authority
+for the final current-head CI SHA/run, checked merge commit and exact-main result. Successful
+checked merge and exact-main CI resolve the dependent-execution pause; failed attempts remain retained.
