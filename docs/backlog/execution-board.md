@@ -655,3 +655,26 @@ SHA/run, merge and exact-main result. APPT-03, SEARCH-02, GOV-01, formal DEL-01,
 and support facts, hospital privacy/legal/accessibility approval, reviewed translations, public routes,
 collection, providers, production and publication remain gated. B02-010 is the next candidate after
 successful merge/main closeout, subject to controlled-development readiness checks.
+
+## B02-010 controlled execution
+
+On 17 September 2026, Africa/Addis_Ababa, the client directed “Start” for B02-010.
+B02-009 PR #47 merged as `14fe00e40384a4131a651e8ea4f44e9e0e051272`; exact-main
+[run 35263794651](https://github.com/dynamicet/hallelujah-website/actions/runs/35263794651)
+passed. B02-001–B02-003 are Done. B02-010 moves Proposed → Ready → In progress under
+workspace identity `befikadusata` directing Codex in temporary Backend/CMS and SEO/QA
+roles, with the same identity as controlled-development review authority. The
+[execution brief](b02-010-governed-discovery.md) authorizes synthetic local candidates,
+authenticated CMS consumption, HTTP adapters and controlled cache checks only.
+LANG-01/LANG-02, authentic content, public/CMS routes, providers, collection, production
+and publication remain gated.
+
+[Issue #48](https://github.com/dynamicet/hallelujah-website/issues/48) tracks B02-010 execution and evidence.
+
+B02-010 moves In progress → **In review** on 17 September 2026, Africa/Addis_Ababa after
+passing local T0 under the same responsible/review identity. [Issue #48](https://github.com/dynamicet/hallelujah-website/issues/48)
+and [completion evidence](evidence/B02-010-governed-discovery-2026-09-17.md) record discovery/HTTP
+negatives, fresh PostgreSQL authentication/live-role/cache/rollback/dependency/elapsed-lifecycle checks,
+local role isolation, full verification and browser matrices, reachable-history secret scan, dependency
+audit and sanitized output. Hosted implementation T1 and client acceptance remain pending; no
+production, authentic-language, collection or publication gate is promoted.

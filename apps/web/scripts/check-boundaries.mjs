@@ -54,7 +54,16 @@ for (const file of files) {
   const relativeFile = path.relative(applicationRoot, file)
 
   for (const rule of prohibited) {
-    if (rule.pattern.test(contents)) {
+    // Only the three exact static namespace declarations are exempted, never URL prefixes.
+    const namespaces = new Set([
+      "const schemaContext = 'https://schema.org'",
+      "const sitemapNamespace = 'http://www.sitemaps.org/schemas/sitemap/0.9'",
+      "const alternateNamespace = 'http://www.w3.org/1999/xhtml'",
+    ])
+    const inspected = rule.label === 'external URL'
+      && relativeFile === path.join('src', 'content', 'governed-discovery.ts')
+      ? contents.split('\n').filter((line) => !namespaces.has(line)).join('\n') : contents
+    if (rule.pattern.test(inspected)) {
       failures.push(`${relativeFile}: ${rule.label}`)
     }
   }

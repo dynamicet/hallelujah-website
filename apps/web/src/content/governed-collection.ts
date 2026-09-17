@@ -1,3 +1,4 @@
+import { controlledDiscoveryCache } from './discovery-cache.ts'
 import { statementDependencies } from './utility-statement-view.ts'
 import type { CollectionConfig } from 'payload'
 import { cmsActor, lockCmsWrites, roleAccess, type CmsRole } from './cms-identity.ts'
@@ -30,6 +31,13 @@ export function validateStoredRecordChange(
     const old = requireRecord(previous)
     if (record.publicId !== old.publicId || record.kind !== old.kind) {
       throw new Error('Stable public ID and record kind cannot change')
+    }
+    if (old.audit.some((entry) => entry.change === 'publish')) {
+      for (const locale of ['en', 'am'] as const) {
+        if (old.localized[locale] && record.localized[locale]?.slug !== old.localized[locale]?.slug) {
+          throw new Error('Published canonical slugs cannot change or disappear; create a governed successor')
+        }
+      }
     }
     if (record.utilityStatement?.identityKey !== old.utilityStatement?.identityKey
       || record.utilityStatement?.type !== old.utilityStatement?.type
@@ -108,6 +116,8 @@ export const governedRecordsCollection: CollectionConfig = {
     { name: 'command', type: 'json', virtual: true },
   ],
   hooks: {
+    // Eviction contains no data and remains safe if an enclosing transaction rolls back.
+    afterChange: [({ doc }) => { controlledDiscoveryCache.invalidate(); return doc }],
     beforeChange: [async ({ data, operation, originalDoc, req }) => {
       let actor = await cmsActor(req)
       if (!actor) throw new Error('Governed writes require an active persisted CMS identity')

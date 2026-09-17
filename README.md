@@ -75,3 +75,9 @@ persistence, concurrent-write denial, rollback and live identity revocation. Int
 `cmsCareGraph` for transaction-consistent authenticated reads; both inert doctor/service specimens
 consume the same graph. [B02-006 scope](docs/backlog/b02-006-governed-care-relationships.md) and
 [evidence](docs/backlog/evidence/B02-006-governed-care-relationships-2026-09-16.md) retain the synthetic-only boundary.
+
+Controlled discovery uses authenticated local governed records for canonical URL, metadata,
+language-alternate and sitemap candidates. Run `pnpm discovery:check` for lifecycle, escaping,
+dependency/cache and real loopback HTTP checks. The [execution brief](docs/backlog/b02-010-governed-discovery.md)
+and [architecture](docs/architecture/governed-discovery.md) define the synthetic-only scope;
+public routes and production cache wiring remain gated.

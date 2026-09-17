@@ -1,3 +1,4 @@
+import { checkDiscoveryDb } from './check-discovery-db.mjs'
 import { checkUtilityStatementsDb } from './check-utility-statements-db.mjs'
 import { checkInstitutionalBlocksDb } from './check-institutional-blocks-db.mjs'
 import assert from 'node:assert/strict'
@@ -359,6 +360,7 @@ try {
   await checkVisitorTopicsDb(payload, { identity, command, denied, fixtureSuffix })
   await checkInstitutionalBlocksDb(payload, { identity, command, denied, fixtureSuffix })
   await checkUtilityStatementsDb(payload, { identity, command, denied, fixtureSuffix, serviceSuccessor })
+  await checkDiscoveryDb(payload, { identity, command, denied, fixtureSuffix })
   process.stdout.write('Disposable Payload/PostgreSQL authenticated workflow, timed lifecycle and retirement integration passed.\n')
 } catch (error) {
   process.stderr.write(`Disposable CMS smoke failed: ${error.message}\n`)
