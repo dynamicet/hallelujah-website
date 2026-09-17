@@ -1,0 +1,1148 @@
+{
+  "synthetic": true,
+  "fixtureOnlyScan": true,
+  "cases": [
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "en",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "locale": "am",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "en",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "locale": "am",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "en",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "document",
+      "locale": "am",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "en",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "icon",
+      "locale": "am",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "en",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 320,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 320,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 360,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 360,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 768,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 768,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 1440,
+      "capability": "print",
+      "passed": true
+    },
+    {
+      "kind": "font",
+      "locale": "am",
+      "width": 1440,
+      "capability": "failed-image",
+      "passed": true
+    },
+    {
+      "kind": "video",
+      "capability": "native-keyboard-open-play-pause",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "state": "unavailable",
+      "passed": true
+    },
+    {
+      "kind": "raster",
+      "state": "expired",
+      "passed": true
+    }
+  ],
+  "externalRequests": 0,
+  "initialVideoRequests": 0,
+  "removedDerivativeStatus": 410,
+  "humanScreenReaderAcceptance": "not performed",
+  "rasterBytes": 8261,
+  "activatedVideoBytes": 2200,
+  "saveDataObserved": true
+}

@@ -21,7 +21,8 @@
   "application": {
     "next": "16.3.5",
     "payload": "3.89.0",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "sharp": "0.35.4"
   },
   "database": {
     "postgresql": {
@@ -37,5 +38,14 @@
   "securityOverrides": {
     "@esbuild-kit/core-utils>esbuild": "0.25.12",
     "dompurify": "3.4.15"
+  },
+  "assetProcessors": {
+    "fontTools": "4.65.0",
+    "brotli": "1.2.0",
+    "validatedLocal": {
+      "ffmpeg": "8.0.1",
+      "poppler": "26.01.0",
+      "clamav": "1.5.3"
+    }
   }
 }

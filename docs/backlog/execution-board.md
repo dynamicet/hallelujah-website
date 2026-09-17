@@ -734,3 +734,55 @@ Correction [PR #51](https://github.com/dynamicet/hallelujah-website/pull/51) and
 record the final current-head SHA/run, checked merge and exact-main result. Once both checked
 merge and exact-main CI pass, the dependent-execution pause above is resolved. Consult these
 closeout records before pulling B02-011; no production/publication gate is promoted.
+
+## B02-011 controlled asset intake — 17 September 2026
+
+Correction PR #51 merged as `3fc18a945fcecb0edc70221e956c520bd97c87c5`; exact-main
+[run 35270876560](https://github.com/dynamicet/hallelujah-website/actions/runs/35270876560)
+passed. Issue #50 is closed. This resolves the preceding dependent-execution pause.
+
+The client directed “start” for B02-011. B01-002 is Done; provider-neutral first-party local
+work requires no external-storage decision. B02-011 moves Proposed → Ready → **In progress**
+under workspace identity `befikadusata` directing Codex in temporary Backend/CMS, Brand/Privacy
+and QA roles, with the same identity as controlled review authority. The
+[execution brief](b02-011-governed-asset-intake.md) authorizes synthetic private local intake,
+server-owned scan/output receipts, raster derivatives and controlled lifecycle/reference checks.
+Non-raster processors and real engine clearance remain open; no completion is claimed.
+Authentic assets, production storage/scheduling/cache delivery, providers, collection and
+publication remain gated. SEC-02 is required before external storage.
+
+[Initial implementation evidence](evidence/B02-011-governed-asset-intake-2026-09-17.md) records
+passing private intake/raster/lifecycle checks, complete and focused PostgreSQL integration, local
+verification, clean dependency reconstruction, history secret scan and dependency audit. The first
+database review corrected Payload's unchanged merged JSON handling without allowing authored receipts.
+Final namespace/lifecycle safeguards repeat focused checks. B02-011 remains **In progress**.
+
+## B02-011 completion execution — 18 September 2026
+
+The client directed “procce to finish it” under the same controlled responsible/review identity.
+B02-011 moves In progress → **In review** after passing full local verification, complete/focused
+PostgreSQL integration/role isolation, all four remaining format processors, real current-signature
+ClamAV clean/EICAR behavior, local synced-store reopening/integrity/orphan recovery and 163 bilingual
+media browser cases. Font and caption outputs bind to the requested locale; no translation approval
+is inferred. [Completion evidence](evidence/B02-011-governed-asset-completion-2026-09-18.md) records
+measured sanitized reports and captures. Final clean reconstruction passes, including complete verification and frozen importer parity.
+Hosted exact-head review remains required. Authentic assets, hospital/language approval, external storage (SEC-02), production
+storage/backups/scheduling/cache/CDN, providers, collection, public/CMS routes and publication remain gated.
+
+## B02-011 controlled acceptance — 18 September 2026
+
+The client direction to finish promotes B02-011 In review → **Done** for controlled development
+under `befikadusata` as responsible and controlled acceptance person, directing Codex in temporary
+Backend/CMS, Brand/Privacy and QA roles on 18 September 2026, Africa/Addis_Ababa.
+Target: synthetic local T0/private hosted T1. B01-002 is Done and preceding exact-main CI passes.
+All local format, real-engine, PostgreSQL, recovery and 163-case media browser checks pass.
+[Hosted implementation run 35278163102](https://github.com/dynamicet/hallelujah-website/actions/runs/35278163102) passes full verification and frozen clean
+reconstruction for `fb9cad46934da2d5e0c020793a9be7a3f2831380`; the earlier font readiness failure
+and meaningful normal/delayed-response retests are retained in the
+[completion evidence](evidence/B02-011-governed-asset-completion-2026-09-18.md).
+No scoped implementation defect remains open. The final acceptance-documentation head must repeat
+CI before [PR #53](https://github.com/dynamicet/hallelujah-website/pull/53) merges. [Issue #52](https://github.com/dynamicet/hallelujah-website/issues/52)
+and PR #53 retain its matching SHA/run, checked merge and exact-main result.
+Authentic assets/rights/consent/crops, hospital/language acceptance, external storage (SEC-02),
+production storage/backups/capacity/scheduling/cache/CDN, providers, collection, public/CMS routes
+and publication remain gated.

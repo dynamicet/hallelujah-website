@@ -75,12 +75,22 @@ expectEqual('Next.js version', webManifest.dependencies?.next, policy.applicatio
 expectEqual('Payload version', webManifest.dependencies?.payload, policy.application.payload)
 expectEqual('@payloadcms/next version', webManifest.dependencies?.['@payloadcms/next'], policy.application.payload)
 expectEqual('@payloadcms/db-postgres version', webManifest.dependencies?.['@payloadcms/db-postgres'], policy.application.payload)
+expectEqual('Sharp version', webManifest.dependencies?.sharp, policy.application.sharp)
 expectEqual('TypeScript version', webManifest.devDependencies?.typescript, policy.application.typescript)
 expectEqual('eslint-config-next version', webManifest.devDependencies?.['eslint-config-next'], policy.application.next)
 
 for (const [selector, version] of Object.entries(policy.securityOverrides)) {
   expectEqual(`pnpm override ${selector}`, rootManifest.pnpm?.overrides?.[selector], version)
 }
+
+const assetRequirements = await readFile(path.join(repositoryRoot, 'apps/web/scripts/lib/asset-format-requirements.txt'), 'utf8')
+const assetWorker = await readFile(path.join(repositoryRoot, 'apps/web/scripts/lib/asset-format-worker.py'), 'utf8')
+expectIncludes('asset fontTools pin', assetRequirements, `fonttools==${policy.assetProcessors.fontTools}`)
+expectIncludes('asset Brotli pin', assetRequirements, `brotli==${policy.assetProcessors.brotli}`)
+expectIncludes('asset dependency hashes', assetRequirements, '--require-hashes')
+expectIncludes('asset fontTools runtime enforcement', assetWorker, `fontTools.version != "${policy.assetProcessors.fontTools}"`)
+expectIncludes('asset Brotli runtime enforcement', assetWorker, `brotli.__version__ != "${policy.assetProcessors.brotli}"`)
+expectIncludes('hosted asset processors', workflow, 'pip" install -r apps/web/scripts/lib/asset-format-requirements.txt')
 
 ensureExactDependencies(webManifest)
 ensureSupported('Node.js', policy.runtime.node.supportUntil)
@@ -90,6 +100,7 @@ ensureReviewCurrent(policy.reviewDue)
 expectIncludes('lockfile version', lockfile, "lockfileVersion: '9.0'")
 expectIncludes('lockfile Next.js specifier', lockfile, `next:\n        specifier: ${policy.application.next}`)
 expectIncludes('lockfile Payload specifier', lockfile, `payload:\n        specifier: ${policy.application.payload}`)
+expectIncludes('lockfile Sharp specifier', lockfile, `sharp:\n        specifier: ${policy.application.sharp}`)
 expectIncludes('lockfile TypeScript specifier', lockfile, `typescript:\n        specifier: ${policy.application.typescript}`)
 expectIncludes('lockfile DOMPurify override', lockfile, `dompurify@${policy.securityOverrides.dompurify}:`)
 expectIncludes('lockfile scoped esbuild override', lockfile, `esbuild@${policy.securityOverrides['@esbuild-kit/core-utils>esbuild']}:`)

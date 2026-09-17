@@ -1,0 +1,91 @@
+{
+  "synthetic": true,
+  "fixtureOnlyScan": true,
+  "engine": "fixture-only-no-malware-clearance",
+  "realMalwareClearance": false,
+  "publication": "disabled",
+  "originalMetadataRetained": true,
+  "derivativeMetadata": "stripped",
+  "outputs": [
+    {
+      "mime": "image/webp",
+      "bytes": 220,
+      "width": 320,
+      "height": 160,
+      "ratio": null,
+      "sha256": "5a96c91a3b1b8edde5e94a3c38f57f07062943577b5ee3cf0a01e3079ea7a2ee"
+    },
+    {
+      "mime": "image/png",
+      "bytes": 639,
+      "width": 320,
+      "height": 160,
+      "ratio": null,
+      "sha256": "7d4f370a04aa7fe8a54f7b3f7e2fe01ffc0bf70a6ebba8ad9fdf3c99877446bd"
+    },
+    {
+      "mime": "image/webp",
+      "bytes": 518,
+      "width": 640,
+      "height": 320,
+      "ratio": null,
+      "sha256": "28740278662f5db6aa0ea887c66bd630379b644a0b35975844c63d946e28adfb"
+    },
+    {
+      "mime": "image/png",
+      "bytes": 1524,
+      "width": 640,
+      "height": 320,
+      "ratio": null,
+      "sha256": "c5237370088a7a030c3245352e2030a7f70fa27d8dd21259a19c09ee9f98e397"
+    },
+    {
+      "mime": "image/webp",
+      "bytes": 732,
+      "width": 800,
+      "height": 400,
+      "ratio": null,
+      "sha256": "f3c4830674b75fff80881e1854b2ceaa3a7216499c2a6e3b208f75490a59c9c7"
+    },
+    {
+      "mime": "image/png",
+      "bytes": 2142,
+      "width": 800,
+      "height": 400,
+      "ratio": null,
+      "sha256": "7d5025aebe6437dc29d390b8e5a82378b9e1c151a88610b5ea782d0e4b0520b9"
+    },
+    {
+      "mime": "image/webp",
+      "bytes": 272,
+      "width": 320,
+      "height": 320,
+      "ratio": 1,
+      "sha256": "01b5acbff46d2b595b28f71693605fcc12ab27969659c435e63ce757c877dc77"
+    },
+    {
+      "mime": "image/png",
+      "bytes": 765,
+      "width": 320,
+      "height": 320,
+      "ratio": 1,
+      "sha256": "3ce40e53551178b38f4ee890d61ff80ba9452d38d70277dd112c2ad5ba044f85"
+    },
+    {
+      "mime": "image/webp",
+      "bytes": 376,
+      "width": 400,
+      "height": 400,
+      "ratio": 1,
+      "sha256": "d5fb90f8d5866b73d4b9cf55e9dde2902b36e8e12b0ceee96cce993fb0b472ea"
+    },
+    {
+      "mime": "image/png",
+      "bytes": 1073,
+      "width": 400,
+      "height": 400,
+      "ratio": 1,
+      "sha256": "1df0ba8b952a7a194a870ff30cd3010b0d3a6f10fa6400007296dcc1964c7683"
+    }
+  ]
+}

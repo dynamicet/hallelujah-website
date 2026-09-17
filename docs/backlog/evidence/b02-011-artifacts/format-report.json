@@ -1,0 +1,112 @@
+{
+  "synthetic": true,
+  "fixtureOnlyScan": true,
+  "realMalwareClearance": false,
+  "publication": "disabled",
+  "fonttools": "4.65.0",
+  "brotli": "1.2.0",
+  "records": [
+    {
+      "kind": "icon",
+      "outputs": [
+        {
+          "mime": "image/svg+xml",
+          "bytes": 177,
+          "width": 24,
+          "height": 24,
+          "purpose": "vector",
+          "sha256": "69c65265aebbd6ccf9054465e3634d24e4dc7a140c45dbb46db695dffb963712"
+        },
+        {
+          "mime": "image/png",
+          "bytes": 137,
+          "width": 24,
+          "height": 24,
+          "purpose": "poster",
+          "sha256": "03e6cd95e8d3e291b2eb28cc38adc67bb8030966a8426748eaedb3b4293779e3"
+        }
+      ]
+    },
+    {
+      "kind": "font",
+      "outputs": [
+        {
+          "mime": "font/woff2",
+          "bytes": 336,
+          "width": 0,
+          "height": 0,
+          "purpose": "font",
+          "locale": "en",
+          "coverageCount": 95,
+          "weight": 400,
+          "sha256": "b875d7d4e6389e81eaa7b5ca0bd86ff33e6daac7194f101320fb71736048f874"
+        },
+        {
+          "mime": "font/woff2",
+          "bytes": 464,
+          "width": 0,
+          "height": 0,
+          "purpose": "font",
+          "locale": "am",
+          "coverageCount": 358,
+          "weight": 400,
+          "sha256": "0cac437fe96f1fe21eec5475d241254bca3b85a1a50ef77d7de0c48f2fa6cf14"
+        }
+      ]
+    },
+    {
+      "kind": "document",
+      "outputs": [
+        {
+          "mime": "text/html",
+          "bytes": 359,
+          "width": 0,
+          "height": 0,
+          "purpose": "document-text",
+          "locale": "en",
+          "sha256": "e15cf57acea295309b3bae9fd79abd46ed79aaea1d9590c8372ffed83ad0dece"
+        },
+        {
+          "mime": "image/png",
+          "bytes": 11427,
+          "width": 1280,
+          "height": 640,
+          "purpose": "document-preview",
+          "sha256": "4c31ce77e6824e2bdc83c00dba36b1b3a13138e59dfacd070521a0d9beda2907"
+        }
+      ]
+    },
+    {
+      "kind": "video",
+      "outputs": [
+        {
+          "mime": "video/mp4",
+          "bytes": 2200,
+          "width": 160,
+          "height": 90,
+          "purpose": "video",
+          "duration": 1,
+          "sha256": "af4aa2d580d8fa22d36e29a3a19c5a2ed9932886d93ca4f050d24f2a0bce93ed"
+        },
+        {
+          "mime": "image/png",
+          "bytes": 416,
+          "width": 160,
+          "height": 90,
+          "purpose": "poster",
+          "sha256": "54934c66da1350b92e411316fb6de7ff8b50714c2ff93eaf05dbc35e4518688a"
+        },
+        {
+          "mime": "text/vtt",
+          "bytes": 66,
+          "width": 0,
+          "height": 0,
+          "purpose": "captions",
+          "locale": "en",
+          "duration": 1,
+          "sha256": "62475e49557d2975fb4ca6f1d8474ce96dfcac77ee5dd2f6440229b9b3b11023"
+        }
+      ]
+    }
+  ]
+}
