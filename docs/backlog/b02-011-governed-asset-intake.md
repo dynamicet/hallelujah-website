@@ -1,6 +1,7 @@
 # B02-011 — Controlled Governed Asset Intake
 
-**Status:** In review for controlled development; all local/clean checks pass; hosted exact-head review pending.
+**Status:** Done for controlled development; local and hosted implementation verification/clean reconstruction pass.
+Final acceptance-documentation CI must pass before merge.
 
 Client direction “start” authorizes this pull on 17 September 2026, Africa/Addis_Ababa.
 Responsible and controlled review authority: `befikadusata` directing Codex in temporary
@@ -41,7 +42,7 @@ Commands: `pnpm assets:check --capture`, fresh `pnpm assets:db-smoke`,
   withdrawal/review/expiry removes private derivatives and controlled references/cache entries,
   retaining the original and audit provenance. Failed cleanup remains retryable and unavailable.
 
-## Acceptance and remaining boundaries
+## Acceptance and remaining boundaries at initial pull
 
 Meaningful tests must prove scanner failures and byte binding, MIME mismatch, malformed inputs,
 metadata stripping, no upscaling, approved crops, strict governance, self-review/stale-revision
@@ -49,7 +50,7 @@ denials, authenticated PostgreSQL persistence, role revocation, scope and tempor
 rollback cleanup and zero external requests. Run full local verification, reachable-history
 secret scan, dependency audit and diff checks before review submission.
 
-Real malware-engine clearance, all non-raster processors, authentic rights/consent and crop
+At the initial pull, real malware-engine clearance, all non-raster processors, authentic rights/consent and crop
 review, reviewed Amharic alternatives, asset delivery/browser acceptance, production storage,
 scheduler/cache/CDN integrations and hospital approval remain open. External storage requires
 SEC-02. Authentic ingestion, public routes, collection, providers and publication remain gated.
@@ -90,3 +91,16 @@ checks ownership, permissions and fingerprints and reports orphan originals with
 Production durability/backups, storage capacity, scheduling/cache/CDN, authentic assets/rights/consent,
 hospital and language-owner acceptance, public routes, providers, collection and publication remain
 separate release gates. Unsupported formats and missing required processors remain unavailable.
+
+## Controlled acceptance — 18 September 2026
+
+Client direction to finish authorizes In review → **Done** for synthetic local T0/private hosted T1
+under `befikadusata` as responsible and controlled acceptance person, directing Codex in temporary
+Backend/CMS, Brand/Privacy and QA roles, on 18 September 2026, Africa/Addis_Ababa.
+B01-002 is Done and the preceding exact-main run passed. All scoped local checks and
+[hosted implementation run 35278163102](https://github.com/dynamicet/hallelujah-website/actions/runs/35278163102) pass for
+`fb9cad46934da2d5e0c020793a9be7a3f2831380`, including frozen clean reconstruction.
+[Issue #52](https://github.com/dynamicet/hallelujah-website/issues/52) and [PR #53](https://github.com/dynamicet/hallelujah-website/pull/53)
+retain the final current-head SHA/run, checked merge and exact-main result. The final acceptance
+commit must repeat hosted CI before merge. No scoped defect remains open; production and authentic
+asset, rights/consent, language/hospital, storage/provider and publication gates above remain closed.

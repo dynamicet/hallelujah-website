@@ -768,3 +768,21 @@ is inferred. [Completion evidence](evidence/B02-011-governed-asset-completion-20
 measured sanitized reports and captures. Final clean reconstruction passes, including complete verification and frozen importer parity.
 Hosted exact-head review remains required. Authentic assets, hospital/language approval, external storage (SEC-02), production
 storage/backups/scheduling/cache/CDN, providers, collection, public/CMS routes and publication remain gated.
+
+## B02-011 controlled acceptance — 18 September 2026
+
+The client direction to finish promotes B02-011 In review → **Done** for controlled development
+under `befikadusata` as responsible and controlled acceptance person, directing Codex in temporary
+Backend/CMS, Brand/Privacy and QA roles on 18 September 2026, Africa/Addis_Ababa.
+Target: synthetic local T0/private hosted T1. B01-002 is Done and preceding exact-main CI passes.
+All local format, real-engine, PostgreSQL, recovery and 163-case media browser checks pass.
+[Hosted implementation run 35278163102](https://github.com/dynamicet/hallelujah-website/actions/runs/35278163102) passes full verification and frozen clean
+reconstruction for `fb9cad46934da2d5e0c020793a9be7a3f2831380`; the earlier font readiness failure
+and meaningful normal/delayed-response retests are retained in the
+[completion evidence](evidence/B02-011-governed-asset-completion-2026-09-18.md).
+No scoped implementation defect remains open. The final acceptance-documentation head must repeat
+CI before [PR #53](https://github.com/dynamicet/hallelujah-website/pull/53) merges. [Issue #52](https://github.com/dynamicet/hallelujah-website/issues/52)
+and PR #53 retain its matching SHA/run, checked merge and exact-main result.
+Authentic assets/rights/consent/crops, hospital/language acceptance, external storage (SEC-02),
+production storage/backups/capacity/scheduling/cache/CDN, providers, collection, public/CMS routes
+and publication remain gated.

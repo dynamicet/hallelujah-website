@@ -1,7 +1,7 @@
 # B02-011 — Controlled Asset Completion Evidence
 
-**Status:** In review for controlled development. Local implementation and full verification pass;
-clean reconstruction also passes; hosted exact-head review remains required.
+**Status:** Done for controlled development. Local verification and reconstruction plus hosted
+implementation verification/clean reconstruction pass. Final acceptance-head CI remains required before merge.
 
 Client direction “procce to finish it” on 18 September 2026, Africa/Addis_Ababa, extends the
 [execution brief](../b02-011-governed-asset-intake.md). Responsible/review authority remains
@@ -73,4 +73,18 @@ The harness now waits up to five seconds for the actual synthetic face's loaded 
 the locale specimen text, including the image-failure capability. It also binds document readiness
 to the current navigation path. Font decode errors and timeouts still fail; no fallback is accepted.
 The corrected 163-case local browser matrix, lint, format/link/backlog and diff checks pass.
-The corrected head must pass hosted full verification and clean reconstruction before acceptance.
+An additional 163-case local matrix with deliberately 500 ms delayed font responses also passes;
+the temporary experiment restores the committed harness and leaves the workspace clean.
+Corrected [hosted run 35278163102](https://github.com/dynamicet/hallelujah-website/actions/runs/35278163102) passes full verification and clean reconstruction
+for exact commit `fb9cad46934da2d5e0c020793a9be7a3f2831380`.
+
+## Controlled acceptance and merge control
+
+B02-011 moves In review → **Done** following the client's completion direction, with `befikadusata`
+as responsible and controlled acceptance person in the temporary Backend/CMS, Brand/Privacy and QA
+roles on 18 September 2026, Africa/Addis_Ababa. Target: synthetic local T0/private hosted T1.
+Dependency B01-002 is Done; preceding correction main `3fc18a9` has passing exact-main CI.
+All scoped checks pass and no scoped defect remains open. Final acceptance-documentation CI must
+repeat on the current PR head before merge; [issue #52](https://github.com/dynamicet/hallelujah-website/issues/52) and
+[PR #53](https://github.com/dynamicet/hallelujah-website/pull/53) retain its exact SHA/run, merge and exact-main closeout.
+All authentic/production/publication gates listed above remain closed.
