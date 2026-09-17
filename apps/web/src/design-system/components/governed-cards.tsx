@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import styles from './governed-cards.module.css'
 
-type CardKind = Exclude<GovernedKind, 'page' | 'site-settings' | 'visitor-topic'>
+type CardKind = Exclude<GovernedKind, 'page' | 'site-settings' | 'visitor-topic' | 'institutional-block'>
 
 export type GovernedCardContent =
   | Readonly<{

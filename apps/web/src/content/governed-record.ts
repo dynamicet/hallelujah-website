@@ -1,9 +1,10 @@
+import { validateInstitutionalBlock, institutionalReadiness, type InstitutionalBlock } from './institutional-block.ts'
 import { validateVisitorTopic, visitorTopicReadiness, type VisitorTopic } from './visitor-topic.ts'
 import { siteSettingsReadiness, validateSiteSettings, type SiteSettings } from './site-settings.ts'
 import { clinicianReadiness, validateClinician, type Clinician } from './clinician.ts'
 import { serviceReadiness, serviceTextKey, validateService, type Service } from './service.ts'
 
-export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page', 'site-settings', 'visitor-topic'] as const
+export const governedKinds = ['doctor', 'service', 'location', 'vacancy', 'page', 'site-settings', 'visitor-topic', 'institutional-block'] as const
 export const governedStatuses = [
   'draft', 'review', 'approved', 'scheduled', 'published', 'expired', 'withdrawn',
 ] as const
@@ -21,6 +22,7 @@ const governanceDomain: Record<GovernedKind, string> = {
   page: 'content',
   'site-settings': 'operations',
   'visitor-topic': 'operations',
+  'institutional-block': 'content',
 }
 
 export type GovernedRecord = Readonly<{
@@ -47,6 +49,7 @@ export type GovernedRecord = Readonly<{
   clinician?: Clinician
   service?: Service
   visitorTopic?: VisitorTopic
+  institutionalBlock?: InstitutionalBlock
 }>
 
 export type ValidationResult =
@@ -247,6 +250,21 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
     }
     if (['approved', 'scheduled', 'published'].includes(status as string)) issues.push(...visitorTopicReadiness(visitorTopic.topic))
   }
+  const institutional = kind === 'institutional-block' ? validateInstitutionalBlock(raw.institutionalBlock) : null
+  if (institutional && !institutional.ok) issues.push(...institutional.issues)
+  if (kind !== 'institutional-block' && raw.institutionalBlock !== undefined) issues.push('institutionalBlock is only allowed on institutional-block records')
+  if (institutional?.block) {
+    const block = institutional.block
+    for (const locale of new Set([...Object.keys(localized), ...Object.keys(block.localized)])) {
+      if (!localized[locale as GovernedLocale] || localized[locale as GovernedLocale]?.title
+        !== block.localized[locale as GovernedLocale]?.title) issues.push('institutional title must match canonical localized title and locales')
+    }
+    if (['approved', 'scheduled', 'published'].includes(status as string)) {
+      if (block.evidence?.reviewer !== domainApprovalRaw?.actor) issues.push('institutional evidence reviewer must match independent content approval')
+      const effective = Math.max(Date.parse(publishAt ?? ''), Date.parse(approvalRaw?.at as string))
+      issues.push(...institutionalReadiness(block, new Date(effective)))
+    }
+  }
   if (issues.length > 0) return { ok: false, issues: Object.freeze(issues) }
   return {
     ok: true,
@@ -279,6 +297,7 @@ export function validateGovernedRecord(input: unknown): ValidationResult {
       ...(clinician?.clinician ? { clinician: clinician.clinician } : {}),
       ...(service?.service ? { service: service.service } : {}),
       ...(visitorTopic?.topic ? { visitorTopic: visitorTopic.topic } : {}),
+      ...(institutional?.block ? { institutionalBlock: institutional.block } : {}),
     },
   }
 }
@@ -299,7 +318,7 @@ export function canTransition(from: GovernedStatus, to: GovernedStatus): boolean
 
 export function publicEligibility(input: unknown, now: Date): Readonly<{
   eligible: boolean
-  reason: 'invalid' | 'synthetic' | 'safety-gated' | 'care-gated' | 'access-gated' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
+  reason: 'invalid' | 'synthetic' | 'safety-gated' | 'care-gated' | 'access-gated' | 'institution-gated' | 'status' | 'not-effective' | 'review-due' | 'expired' | 'eligible'
 }> {
   const validated = validateGovernedRecord(input)
   if (!validated.ok || !Number.isFinite(now.getTime())) {
@@ -307,6 +326,7 @@ export function publicEligibility(input: unknown, now: Date): Readonly<{
   }
   const record = validated.record
   if (record.synthetic) return { eligible: false, reason: 'synthetic' }
+  if (record.kind === 'institutional-block') return { eligible: false, reason: 'institution-gated' }
   if (record.kind === 'visitor-topic') return { eligible: false, reason: 'access-gated' }
   if (record.kind === 'site-settings') return { eligible: false, reason: 'safety-gated' }
   if (record.kind === 'doctor' || record.kind === 'service') return { eligible: false, reason: 'care-gated' }
@@ -334,6 +354,8 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
   }
   const ids = new Map<string, GovernedRecord>()
   const paths = new Set<string>()
+  const institutionalIdentities = new Set<string>()
+  let currentMission = false
   const visitorIdentities = new Set<string>()
   const visitorPurposes = new Set<string>()
   const clinicianIdentities = new Set<string>()
@@ -346,6 +368,15 @@ export function validateRecordSet(records: readonly GovernedRecord[]): readonly 
   for (const record of records) {
     if (ids.has(record.publicId)) issues.push('duplicate publicId')
     ids.set(record.publicId, record)
+    if (record.institutionalBlock) {
+      const block = record.institutionalBlock
+      if (institutionalIdentities.has(block.identityKey)) issues.push('duplicate institutional identity')
+      institutionalIdentities.add(block.identityKey)
+      if (block.type === 'mission' && !['expired', 'withdrawn'].includes(record.status)) {
+        if (currentMission) issues.push('competing current mission text requires reconciliation')
+        currentMission = true
+      }
+    }
     if (record.visitorTopic) {
       if (visitorIdentities.has(record.visitorTopic.identityKey)) issues.push('duplicate visitor topic identity')
       visitorIdentities.add(record.visitorTopic.identityKey)

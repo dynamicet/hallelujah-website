@@ -518,3 +518,57 @@ The final acceptance-documentation head must repeat hosted CI before merge.
 SHA/run, merge and exact-main result. ACCESS-01, authentic guidance, hospital operations/privacy/legal
 approval, contacts, approved translations, public routes, collection, providers, production
 and publication remain gated.
+
+## B02-008 controlled execution
+
+On 17 September 2026, Africa/Addis_Ababa, the client directed “continue” for B02-008.
+B02-007 PR #43 merged as `2adbbbefcf4b058d39da0c5a95a60891d053cea4`; exact-main
+[run 35247200418](https://github.com/dynamicet/hallelujah-website/actions/runs/35247200418) passed.
+B02-001/B02-002 are Done. B02-008 moves Proposed → Ready → In progress under workspace identity
+`befikadusata` directing Codex in temporary Backend/CMS, Executive/Content-contract, Brand/Legal-contract
+and QA roles, with the same controlled-development review authority.
+The [execution brief](b02-008-governed-institutional-blocks.md) records an INST-01–INST-03 sequencing
+exception for synthetic local T0/private hosted T1 contracts and internal consumers only.
+[Execution evidence](evidence/B02-008-governed-institutional-blocks-2026-09-17.md) tracks verification.
+Authentic hospital content, executive approval, leadership, relationships, coverage and publication remain gated.
+
+B02-008 moves In progress → In review on 17 September 2026, Africa/Addis_Ababa under the same
+responsible/review identity after passing local T0. [Issue #44](https://github.com/dynamicet/hallelujah-website/issues/44)
+and [completion evidence](evidence/B02-008-governed-institutional-blocks-2026-09-17.md) record strict
+claim evidence, mission conflict denial, independent content/brand/legal workflow, fresh PostgreSQL
+persistence/concurrency/rollback/live-role revocation, actual elapsed leadership evidence expiry,
+per-block relationship expiry, cross-role denial, full verification and 92-case bilingual shared-component
+browser matrix, reachable-history secret scan and dependency audit. Hosted exact-head T1 and
+client controlled-development acceptance remain pending; INST-01–INST-03 and production gates remain open.
+
+[PR #45](https://github.com/dynamicet/hallelujah-website/pull/45) tracks the draft review.
+Hosted implementation T1 [run 35253420861](https://github.com/dynamicet/hallelujah-website/actions/runs/35253420861)
+passed every step, including full verification and clean reconstruction, for exact commit
+`e38726255685d939136a8f7f5277f5a39a455315`.
+Client controlled-development acceptance remains pending. The final documentation head must
+repeat hosted CI before merge; issue #44 and PR #45 retain the matching SHA/run.
+INST-01–INST-03, authentic content, executive approval, coverage and publication remain gated.
+
+
+## B02-008 controlled-development acceptance
+
+On 17 September 2026, Africa/Addis_Ababa, the client directed “close it”.
+B02-008 moves In review → **Done** for controlled development. Responsible and acceptance
+authority is workspace identity `befikadusata` directing Codex in temporary Backend/CMS,
+Executive/Content-contract, Brand/Legal-contract and QA roles, under the same synthetic
+local T0/private hosted T1 boundary.
+
+All scoped acceptance criteria pass; no implementation defect remains open. Local schema,
+workflow, rendering, PostgreSQL persistence/concurrency/rollback/live-role/elapsed-expiry checks,
+role isolation, full verification, history-secret scan and dependency audit pass. Hosted
+implementation [run 35253420861](https://github.com/dynamicet/hallelujah-website/actions/runs/35253420861)
+passed for `e38726255685d939136a8f7f5277f5a39a455315`; documentation
+[run 35254108886](https://github.com/dynamicet/hallelujah-website/actions/runs/35254108886)
+passed for `4b8c3e639879e493578cbcfc7d0f357165de2753`.
+
+The final acceptance-documentation head must repeat hosted CI before
+[PR #45](https://github.com/dynamicet/hallelujah-website/pull/45) merges.
+[Issue #44](https://github.com/dynamicet/hallelujah-website/issues/44) and PR #45 retain its
+matching SHA/run, merge and exact-main result. INST-01–INST-03, hospital executive approval,
+authentic content, insurance coverage, reviewed translations, media, public routes, collection,
+providers and publication remain gated.

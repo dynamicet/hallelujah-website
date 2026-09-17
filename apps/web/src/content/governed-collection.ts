@@ -30,6 +30,10 @@ export function validateStoredRecordChange(
     if (record.publicId !== old.publicId || record.kind !== old.kind) {
       throw new Error('Stable public ID and record kind cannot change')
     }
+    if (record.institutionalBlock?.identityKey !== old.institutionalBlock?.identityKey
+      || record.institutionalBlock?.type !== old.institutionalBlock?.type) {
+      throw new Error('Stable institutional identity and type cannot change')
+    }
     if (record.visitorTopic?.identityKey !== old.visitorTopic?.identityKey
       || record.visitorTopic?.purpose !== old.visitorTopic?.purpose) {
       throw new Error('Stable visitor topic identity and purpose cannot change')
