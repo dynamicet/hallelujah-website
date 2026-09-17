@@ -4,7 +4,7 @@ import { loadServerEnvironment } from '../server/environment.ts'
 
 export const cmsRoles = [
   'author', 'reviewer', 'publisher', 'medical', 'clinical', 'operations',
-  'human-resources', 'content', 'privacy', 'legal', 'brand', 'identity-manager',
+  'human-resources', 'content', 'privacy', 'legal', 'brand', 'accessibility', 'identity-manager',
 ] as const
 export type CmsRole = typeof cmsRoles[number]
 export type CmsActor = Readonly<{ id: string; roles: readonly CmsRole[] }>

@@ -501,7 +501,7 @@ try {
 
   if (formPrimitivesMode) {
     const initialPath = await evaluate(client, sessionId, 'location.pathname + location.search')
-    await evaluate(
+    const invalidPending = await evaluate(
       client,
       sessionId,
       `(() => {
@@ -510,13 +510,6 @@ try {
         form.elements.reviewContext.value = 'responsive'
         form.elements.controlledNote.value = 'Synthetic retained wording'
         form.querySelector('[data-form-submit]').click()
-      })()`,
-    )
-    const invalidPending = await evaluate(
-      client,
-      sessionId,
-      `(() => {
-        const form = document.querySelector('[data-form-primitives-fixture] form')
         return {
           busy: form.getAttribute('aria-busy'),
           pendingVisible: !form.querySelector('[data-form-status="pending"]').hidden,
@@ -524,6 +517,7 @@ try {
         }
       })()`,
     )
+
     if (
       invalidPending.busy !== 'true'
       || !invalidPending.pendingVisible
@@ -531,7 +525,7 @@ try {
     ) {
       fail(`controlled invalid submit did not expose truthful pending state: ${JSON.stringify(invalidPending)}`)
     }
-    await pause(120)
+    await waitForFormFixtureResult(client, sessionId, 'invalid')
     const invalidResult = await evaluate(
       client,
       sessionId,
@@ -572,7 +566,7 @@ try {
       fail(`controlled invalid state or value retention is incorrect: ${JSON.stringify(invalidResult)}`)
     }
 
-    await evaluate(
+    const validPending = await evaluate(
       client,
       sessionId,
       `(() => {
@@ -580,13 +574,6 @@ try {
         form.elements.controlledReference.value = 'CONTROLLED'
         form.querySelector('input[name="reviewChannel"][value="rendered"]').checked = true
         form.querySelector('[data-form-submit]').click()
-      })()`,
-    )
-    const validPending = await evaluate(
-      client,
-      sessionId,
-      `(() => {
-        const form = document.querySelector('[data-form-primitives-fixture] form')
         return {
           busy: form.getAttribute('aria-busy'),
           pendingVisible: !form.querySelector('[data-form-status="pending"]').hidden,
@@ -594,6 +581,7 @@ try {
         }
       })()`,
     )
+
     if (
       validPending.busy !== 'true'
       || !validPending.pendingVisible
@@ -601,7 +589,7 @@ try {
     ) {
       fail(`controlled valid submit did not expose truthful pending state: ${JSON.stringify(validPending)}`)
     }
-    await pause(120)
+    await waitForFormFixtureResult(client, sessionId, 'valid')
     const validResult = await evaluate(
       client,
       sessionId,
@@ -1435,6 +1423,23 @@ async function waitForSearchControlsEnhancement(client, sessionId) {
     await pause(100)
   }
   throw new Error('first-party search-control enhancement did not load')
+}
+
+/** Pending snapshots are taken within the submit task; completed results use a bounded wait. */
+async function waitForFormFixtureResult(client, sessionId, state) {
+  const resultCondition = state === 'invalid'
+    ? '!summary.hidden && document.activeElement === summary'
+    : `!form.querySelector('[data-form-status="failure"]').hidden`
+  for (let attempt = 0; attempt < 40; attempt += 1) {
+    const finished = await evaluate(client, sessionId, `(() => {
+      const form = document.querySelector('[data-form-primitives-fixture] form')
+      const summary = form.querySelector('[data-error-summary]')
+      return form.getAttribute('aria-busy') !== 'true' && (${resultCondition})
+    })()`)
+    if (finished) return
+    await pause(50)
+  }
+  throw new Error(`Controlled ${state} form did not finish with its required visible result`)
 }
 
 async function waitForFormPrimitivesEnhancement(client, sessionId) {

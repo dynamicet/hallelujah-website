@@ -1,5 +1,6 @@
+import { statementDependencies } from './utility-statement-view.ts'
 import type { CollectionConfig } from 'payload'
-import { cmsActor, lockCmsWrites, roleAccess } from './cms-identity.ts'
+import { cmsActor, lockCmsWrites, roleAccess, type CmsRole } from './cms-identity.ts'
 import {
   applyWorkflow, canonical, createWorkflow, requiredDomains,
   type CmsWorkflow, type ContentClass, type WorkflowCommand,
@@ -30,6 +31,13 @@ export function validateStoredRecordChange(
     if (record.publicId !== old.publicId || record.kind !== old.kind) {
       throw new Error('Stable public ID and record kind cannot change')
     }
+    if (record.utilityStatement?.identityKey !== old.utilityStatement?.identityKey
+      || record.utilityStatement?.type !== old.utilityStatement?.type
+      || record.utilityStatement?.version !== old.utilityStatement?.version
+      || record.utilityStatement?.supersedesPublicId !== old.utilityStatement?.supersedesPublicId) throw new Error('Statement series, type, version and predecessor cannot change')
+    if (old.utilityStatement && ['published', 'expired', 'withdrawn'].includes(old.status)
+      && canonical(old.utilityStatement) !== canonical(record.utilityStatement)) throw new Error('Published and historical statement content is immutable; create a successor version')
+    if (old.utilityStatement && old.status === 'expired' && record.status === 'draft') throw new Error('Historical statement versions cannot be reopened')
     if (record.institutionalBlock?.identityKey !== old.institutionalBlock?.identityKey
       || record.institutionalBlock?.type !== old.institutionalBlock?.type) {
       throw new Error('Stable institutional identity and type cannot change')
@@ -83,7 +91,7 @@ export const governedRecordsCollection: CollectionConfig = {
         ? true : actor.roles.includes('author') ? { authorId: { equals: actor.id } } : false
     },
     update: roleAccess('author', 'reviewer', 'publisher', 'medical', 'clinical',
-      'operations', 'human-resources', 'content', 'privacy', 'legal', 'brand'),
+      'operations', 'human-resources', 'content', 'privacy', 'legal', 'brand', 'accessibility'),
   },
   endpoints: false,
   graphQL: false,
@@ -161,6 +169,24 @@ export const governedRecordsCollection: CollectionConfig = {
       }
       const peers = result.docs.filter((doc) => doc.id !== stored?.id).map((doc) => doc.record)
       const record = validateStoredRecordChange(candidate, stored?.record, peers)
+      if (record.utilityStatement && ['approve', 'schedule', 'publish'].includes((data.command as WorkflowCommand)?.action)) {
+        const effective = new Date(Math.max(Date.now(), Date.parse(record.approval?.at ?? ''),
+          Date.parse(record.publishAt ?? '')))
+        const issues = statementDependencies(record, peers.map(requireRecord), effective)
+        if (issues.length) throw new Error(issues.join('; '))
+        for (const dependency of peers.map(requireRecord).filter((peer) => record.relationships.includes(peer.publicId))) {
+          const dependencyDoc = result.docs.find((doc) => doc.publicId === dependency.publicId)!
+          const workflow = dependencyDoc.workflow as CmsWorkflow
+          const roles = requiredDomains(dependency, workflow.contentClass)
+          const approvals: readonly [string | undefined, CmsRole][] = [[dependency.approval?.actor, 'reviewer'],
+            ...roles.map((role): [string | undefined, CmsRole] => [workflow.reviews[role]?.actor, role])]
+          for (const [id, role] of approvals) {
+            const identity = typeof id === 'string' && /^cms:[1-9]\d*$/.test(id)
+              ? await req.payload.findByID({ collection: 'users', id: Number(id.slice(4)), overrideAccess: true, req }).catch(() => null) : null
+            if (!identity?.active || !identity.synthetic || !identity.roles.includes(role)) throw new Error('Statement dependency approval identity is inactive or has lost its role')
+          }
+        }
+      }
       return { ...data, publicId: record.publicId, record, authorId: change.workflow.author,
         contentClass: change.workflow.contentClass, workflow: change.workflow, command: null }
     }],

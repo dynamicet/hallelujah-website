@@ -572,3 +572,86 @@ The final acceptance-documentation head must repeat hosted CI before
 matching SHA/run, merge and exact-main result. INST-01–INST-03, hospital executive approval,
 authentic content, insurance coverage, reviewed translations, media, public routes, collection,
 providers and publication remain gated.
+
+## B02-009 controlled execution
+
+On 17 September 2026, Africa/Addis_Ababa, the client directed “start” for B02-009.
+B02-008 PR #45 merged as `c451fa5335fd8b4a036c2e2c75c2725912b63848` after final-head
+[run 35255139180](https://github.com/dynamicet/hallelujah-website/actions/runs/35255139180) passed;
+exact-main [run 35255831837](https://github.com/dynamicet/hallelujah-website/actions/runs/35255831837)
+passed. This records B02-008 merge closeout. B02-001/B02-002 are Done.
+B02-009 moves Proposed → Ready → In progress under workspace identity `befikadusata`
+directing Codex in temporary Backend/CMS, Privacy/Legal-contract and Accessibility/QA roles,
+with the same controlled-development review authority. The target is synthetic local T0/private hosted T1.
+The [execution brief](b02-009-versioned-utility-statements.md) records a controlled sequencing
+exception to APPT-03, SEARCH-02 and formal DEL-01 using the accepted working B00-016 matrix.
+[Execution evidence](evidence/B02-009-versioned-utility-statements-2026-09-17.md) tracks checks.
+Authentic policy, hospital approval, reviewed translations, real support contacts, public routes,
+collection, providers, production and publication remain gated.
+
+[Issue #46](https://github.com/dynamicet/hallelujah-website/issues/46) tracks controlled B02-009 execution.
+
+B02-009 moves In progress → In review on 17 September 2026, Africa/Addis_Ababa under the same
+responsible/review identity after passing local T0. [Issue #46](https://github.com/dynamicet/hallelujah-website/issues/46)
+and [completion evidence](evidence/B02-009-versioned-utility-statements-2026-09-17.md) record strict
+version/inventory/evidence contracts, independent privacy/legal/accessibility reviews, fresh PostgreSQL
+persistence/concurrency/rollback/live-role and dependency-approval revocation, retained historical text,
+actual elapsed expiry, cross-role denial, full verification and 92 shared-component plus 52 statement
+browser cases, reachable-history secret scan and dependency audit.
+Hosted exact-head T1 and client controlled-development acceptance remain pending.
+APPT-03, SEARCH-02, formal DEL-01, authentic policy/support facts, hospital approval, collection
+and publication remain gated.
+
+[Draft PR #47](https://github.com/dynamicet/hallelujah-website/pull/47) tracks B02-009 review.
+Hosted implementation T1 [run 35259827827](https://github.com/dynamicet/hallelujah-website/actions/runs/35259827827)
+passed every step, including full verification and clean reconstruction/build, for exact commit
+`76df9d832465b1467b7855ff8f43264e1baffbd9`. B02-009 remains In review pending client
+controlled-development acceptance. Final documentation CI must repeat before merge; issue #46
+and PR #47 retain its matching SHA/run. APPT-03, SEARCH-02, formal DEL-01, authentic policy/support
+facts, hospital approval, collection, providers, production and publication remain gated.
+
+## Final-head CI harness correction
+
+Final documentation [run 35260612990](https://github.com/dynamicet/hallelujah-website/actions/runs/35260612990)
+failed on `9da7dc2883578328b59da5ceda77b0a4c2717bb8` in the existing B01-013/form smoke assertion:
+the controlled invalid submission no longer appeared busy/pending/disabled when sampled.
+All statement schema checks and the build passed; the run stopped before the new statement browser step.
+
+The form fixture exposes pending state synchronously and clears it after 80 ms. The harness
+submitted and sampled pending semantics using separate browser-protocol calls. Under runner load,
+the callback could clear pending before the second call arrived. The correction samples the same
+busy, visible-pending and disabled-submit conditions within the submission browser task.
+It also replaces fixed result sleeps with bounded condition waits requiring visible/focused invalid
+summary or visible truthful failure after completion. No assertion, runtime timer, form behavior,
+collection or publication gate is weakened. The failure remains part of the evidence; the corrected
+exact head requires passing local and hosted verification before review is ready.
+
+The corrected harness subsequently passed full local `pnpm verify`, including all pending/focus/
+truthful-failure assertions, the 92-case shared-component matrix and all 52 statement cases.
+No application/runtime behavior changed. Corrected exact-head hosted CI remains required before
+review is ready; issue #46 and PR #47 retain the final matching SHA/run and failed-run history.
+
+## B02-009 controlled-development acceptance
+
+On 17 September 2026 at 22:06 Africa/Addis_Ababa, the client directed “close it”.
+B02-009 moves In review → **Done** for controlled development. Responsible and acceptance
+authority is workspace identity `befikadusata` directing Codex in temporary Backend/CMS,
+Privacy/Legal-contract and Accessibility/QA roles, under the same synthetic local T0/private hosted T1
+boundary. Dependencies B02-001/B02-002 are Done; B02-008 merge and exact-main CI passed.
+
+All scoped local acceptance checks pass, including fresh PostgreSQL persistence, concurrency,
+rollback, historical-text retention, live-role/dependency revocation, actual elapsed expiry and role
+isolation. Full local verification, the 92-case shared-component and 52-case statement browser
+matrices, reachable-history secret scan and dependency audit pass. Corrected exact-head hosted
+[run 35261501352](https://github.com/dynamicet/hallelujah-website/actions/runs/35261501352)
+passed every step, including full verification and clean reconstruction/build, for
+`4c0541582e24930947014e407efd292684905062`. This resolves the documented form-smoke timing failure;
+the earlier failed run remains retained as evidence. No scoped implementation defect remains open.
+
+The final acceptance-documentation head must repeat hosted CI before
+[PR #47](https://github.com/dynamicet/hallelujah-website/pull/47) merges.
+[Issue #46](https://github.com/dynamicet/hallelujah-website/issues/46) and PR #47 retain its matching
+SHA/run, merge and exact-main result. APPT-03, SEARCH-02, GOV-01, formal DEL-01, authentic policy
+and support facts, hospital privacy/legal/accessibility approval, reviewed translations, public routes,
+collection, providers, production and publication remain gated. B02-010 is the next candidate after
+successful merge/main closeout, subject to controlled-development readiness checks.
