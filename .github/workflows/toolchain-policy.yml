@@ -40,6 +40,14 @@ jobs:
       - name: Install the frozen dependency graph
         run: pnpm install --frozen-lockfile
 
+      - name: Prepare local asset format processors
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends ffmpeg poppler-utils python3-venv
+          python3 -m venv "$RUNNER_TEMP/asset-format-python"
+          "$RUNNER_TEMP/asset-format-python/bin/pip" install -r apps/web/scripts/lib/asset-format-requirements.txt
+          echo "ASSET_FORMAT_PYTHON=$RUNNER_TEMP/asset-format-python/bin/python" >> "$GITHUB_ENV"
+
       - name: Prove fail-closed CI controls
         run: pnpm ci:controls:test
 

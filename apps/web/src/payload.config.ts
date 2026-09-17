@@ -5,13 +5,14 @@ import { buildConfig } from 'payload'
 import { governedRecordsCollection } from './content/governed-collection.ts'
 import { careRelationshipsCollection } from './content/care-relationship-collection.ts'
 import { cmsUsersCollection } from './content/cms-identity.ts'
+import { governedAssetsCollection } from './content/asset-cms.ts'
 import { loadServerEnvironment } from './server/environment.ts'
 
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url))
 const environment = loadServerEnvironment()
 
 export default buildConfig({
-  collections: [cmsUsersCollection, governedRecordsCollection, careRelationshipsCollection],
+  collections: [cmsUsersCollection, governedRecordsCollection, careRelationshipsCollection, governedAssetsCollection],
   db: postgresAdapter({
     pool: {
       connectionString: environment.databaseUrl,

@@ -50,7 +50,7 @@
     "tokens:check": "pnpm --dir apps/web tokens:check",
     "tokens:generate": "pnpm --dir apps/web tokens:generate",
     "typecheck": "pnpm --dir apps/web typecheck",
-    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm brand:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke && pnpm review-harness:check && pnpm review-harness:smoke && pnpm foundations:smoke && pnpm governed-cards:smoke && pnpm optional-map:smoke && pnpm utility-statements:smoke",
+    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm brand:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke && pnpm review-harness:check && pnpm review-harness:smoke && pnpm foundations:smoke && pnpm governed-cards:smoke && pnpm optional-map:smoke && pnpm utility-statements:smoke && pnpm assets:smoke",
     "review-harness:serve": "node scripts/serve-review-harness.mjs",
     "review-harness:check": "node scripts/check-review-harness.mjs",
     "review-harness:smoke": "node scripts/check-rendered-foundations.mjs --review-harness --capture-prefix b01-013-review-harness",
@@ -63,7 +63,13 @@
     "institutional-blocks:check": "pnpm --dir apps/web institutional-blocks:check",
     "utility-statements:check": "pnpm --dir apps/web utility-statements:check",
     "utility-statements:smoke": "pnpm --dir apps/web utility-statements:smoke",
-    "discovery:check": "pnpm --dir apps/web discovery:check"
+    "discovery:check": "pnpm --dir apps/web discovery:check",
+    "assets:check": "pnpm --dir apps/web assets:check",
+    "assets:db-smoke": "pnpm --dir apps/web assets:db-smoke",
+    "assets:formats:check": "pnpm --dir apps/web assets:formats:check",
+    "assets:malware:check": "pnpm --dir apps/web assets:malware:check",
+    "assets:db-local": "node apps/web/scripts/run-assets-db.mjs",
+    "assets:smoke": "pnpm --dir apps/web assets:smoke"
   },
   "pnpm": {
     "overrides": {
