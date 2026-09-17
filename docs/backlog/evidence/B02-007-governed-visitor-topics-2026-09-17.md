@@ -10,7 +10,7 @@ Operations/Content-contract, Privacy/Legal-contract and QA roles; same controlle
 
 The [execution brief](../b02-007-governed-visitor-topics.md) records the client-directed boundary
 and ACCESS-01 sequencing exception. B02-001 and B02-002 are Done.
-Local T0 passes. Hosted exact-head T1 and client controlled-development acceptance remain pending.
+Local T0 passes. Hosted implementation T1 passes; client controlled-development acceptance remains pending.
 
 [Issue #42](https://github.com/dynamicet/hallelujah-website/issues/42) tracks the controlled B02-007 execution.
 
@@ -52,6 +52,14 @@ No new interaction, visual direction, media or benchmark application is introduc
   Calling the authenticated API with undefined directly corrected the test; fresh integration
   proves the anonymous-read denial and all subsequent authorization/lifecycle cases.
 
-No implementation defect remains open. Hosted T1 and client acceptance are pending.
+No implementation defect remains open. Hosted implementation T1 passes; client acceptance is pending.
 ACCESS-01, authentic operational/privacy/legal guidance, approved contacts, translations,
 public routes, providers, collection, production and publication remain gated.
+
+[PR #43](https://github.com/dynamicet/hallelujah-website/pull/43) tracks review.
+[Hosted implementation run 35244463130](https://github.com/dynamicet/hallelujah-website/actions/runs/35244463130)
+passed all steps, including clean reconstruction, for exact implementation head
+`3222622361edf9495075905f923d1ab3c8720983`. The final documentation head must repeat
+hosted CI before merge; its matching SHA/run is tracked in issue #42 and PR #43.
+Client controlled-development acceptance remains pending. ACCESS-01, authentic guidance,
+contacts, approved translations, public routes, collection and publication remain gated.

@@ -1,6 +1,6 @@
 # B02-007 — Governed Patient & Visitor Topics
 
-**Status:** In review after passing local T0 on 17 September 2026, Africa/Addis_Ababa. Hosted exact-head T1 and client acceptance remain pending.
+**Status:** In review after passing local T0 on 17 September 2026, Africa/Addis_Ababa. Hosted implementation T1 passes; client acceptance remains pending.
 
 The client directed “proceed with the steps” after the proposed B02-007 execution.
 B02-006 PR #41 merged as `da4434ff8703f5c2f07fc9b6bf8b81270e4aec49`; final-head
@@ -66,5 +66,13 @@ Local scoped checks, fresh disposable PostgreSQL integration/cross-role denial, 
 verification and 92-case bilingual browser matrix, history-secret scan and dependency audit pass.
 The [execution evidence](evidence/B02-007-governed-visitor-topics-2026-09-17.md) records method,
 expected/actual outcomes and corrected test-fixture defects. B02-007 moves In progress → In review
-under the same client workspace responsibility/review identity. Exact-head hosted CI and client
+under the same client workspace responsibility/review identity. Final documentation-head hosted CI and client
 controlled-development acceptance remain required; ACCESS-01 and production gates remain open.
+
+[PR #43](https://github.com/dynamicet/hallelujah-website/pull/43) tracks review.
+[Hosted implementation run 35244463130](https://github.com/dynamicet/hallelujah-website/actions/runs/35244463130)
+passed all steps, including clean reconstruction, for exact implementation head
+`3222622361edf9495075905f923d1ab3c8720983`. The final documentation head must repeat
+hosted CI before merge; its matching SHA/run is tracked in issue #42 and PR #43.
+Client controlled-development acceptance remains pending. ACCESS-01, authentic guidance,
+contacts, approved translations, public routes, collection and publication remain gated.
