@@ -881,3 +881,30 @@ Unix socket, rejects remote query overrides before CLI initialization and passes
 focused persisted/CLI retests. The final guard/review-documentation head repeats hosted T1;
 its matching SHA/run must be retained in issue #56 and PR #57. B02-013 remains **In review**;
 controlled acceptance and checked merge/main closeout remain required.
+
+## Controlled acceptance — 18 September 2026
+
+The client directed “close b02-013”. B02-013 moves In review → **Done** for controlled
+development on 18 September 2026, Africa/Addis_Ababa. Responsible and acceptance person:
+`befikadusata` directing Codex in temporary Backend/Content/QA roles. Target: synthetic local
+T0 and private hosted T1. Dependencies B02-001–B02-012 are Done; B02-012 checked merge
+`ba55eb145ee7308cee5c41408ce28058973ffc86` and exact-main run `35341982931` pass.
+
+Final implementation commit `22e98b6b1ac8808f827ebd945d724e7567e4c5c3` passes all hosted
+quality/security steps, full verification and independent clean reconstruction under
+[run 35346485083](https://github.com/dynamicet/hallelujah-website/actions/runs/35346485083).
+Local schema/authority checks, real CLI, complete disposable PostgreSQL integration,
+rollback/concurrency/revocation negatives, final local-database guard retests, full application
+verification, history secret scan and dependency audit pass. No scoped runtime defect remains open.
+The additional local reconstruction's registry failures remain environmental failures;
+the independent hosted reconstruction passes.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #57](https://github.com/dynamicet/hallelujah-website/pull/57). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #56](https://github.com/dynamicet/hallelujah-website/issues/56)
+and PR #57. Dependent execution waits for passing exact-main CI. B02-014 is the next candidate
+after successful closeout, subject to controlled-development readiness checks.
+
+This acceptance does not resolve GOV-01, SEC-01, authentic reconciliation or hospital migration
+approval. Authentic identities/content, providers/assets, personal-data collection, remote
+provisioning, production, publication, legacy migration and DNS remain gated.

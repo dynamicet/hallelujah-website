@@ -76,7 +76,7 @@ git diff --check
 The pure contract check is included in `pnpm test`; the existing complete disposable database
 smoke includes the persistence/rollback/concurrency checks. No new dependency is introduced.
 Tracking: [issue #56](https://github.com/dynamicet/hallelujah-website/issues/56) and
-[draft PR #57](https://github.com/dynamicet/hallelujah-website/pull/57).
+[PR #57](https://github.com/dynamicet/hallelujah-website/pull/57).
 Evidence: [B02-013 execution evidence](evidence/B02-013-controlled-content-transfer-2026-09-18.md).
 Local T0 and private hosted T1 remain separate; completion requires recorded review and acceptance.
 
@@ -97,3 +97,16 @@ Issue #56 and PR #57 retain the exact current-head result before acceptance/merg
 
 Authentic content/identities, production provisioning, providers, personal-data collection,
 publication, legacy migration and DNS remain disabled. B02-014 is the next candidate after closeout.
+
+## Controlled-development acceptance
+
+Client direction “close b02-013” promotes In review → **Done** on 18 September 2026,
+Africa/Addis_Ababa, under `befikadusata` as responsible and controlled acceptance person in
+temporary Backend/Content/QA roles. Final implementation commit
+`22e98b6b1ac8808f827ebd945d724e7567e4c5c3` passes full hosted verification and independent
+clean reconstruction in [run 35346485083](https://github.com/dynamicet/hallelujah-website/actions/runs/35346485083).
+Local reconstruction registry failures remain recorded; no open scoped runtime defect remains.
+Final acceptance-documentation CI, checked PR #57 merge and exact-main verification are required
+for closeout and dependent execution. Issue #56 and the completion evidence retain the exact
+SHA/run and merge/main results. All authentic-content, hospital-approval, production,
+publication, provider and collection gates remain unchanged.
