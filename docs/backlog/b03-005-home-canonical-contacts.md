@@ -1,7 +1,7 @@
 # B03-005 — Home Canonical Safety and Contact Integration
 
 **Lane / priority / phase:** DELIVERY / P0 / Phase 1 preparation
-**Status:** In review; local T0 and independent frozen reconstruction pass
+**Status:** Done for controlled development; final closeout CI and checked merge tracked below
 
 On 19 September 2026, Africa/Addis_Ababa, the client directed “start” after the proposed
 B03-005 execution. `befikadusata` directs Codex in temporary Frontend/Operations-contract/QA
@@ -12,7 +12,7 @@ B02-003 and B03-004 are Done; PR #61 merged as
 [run 35398851259](https://github.com/dynamicet/hallelujah-website/actions/runs/35398851259) passed.
 The working B00-016 matrix supplies controlled acceptance; formal DEL-01 remains deferred.
 Tracking: [issue #62](https://github.com/dynamicet/hallelujah-website/issues/62).
-Review: [draft PR #63](https://github.com/dynamicet/hallelujah-website/pull/63), implementation
+Review: [PR #63](https://github.com/dynamicet/hallelujah-website/pull/63), implementation
 `8394bb3c282849362297a34b3bd283c56bf809f1`.
 
 ## Controlled sequencing and scope
@@ -97,3 +97,22 @@ environment/shared-port failures and passing retests. Issue #62 and draft PR #63
 review SHA/run pointers. The final review-documentation head repeats hosted T1; controlled
 client acceptance, checked merge and passing exact-main CI remain required. No Done, authentic
 contact, real dialer/provider/arrival acceptance, hospital route, production or publication is claimed.
+
+## Controlled acceptance — 19 September 2026
+
+The client directed “close out b03-005”. B03-005 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person, directing
+Codex in temporary Frontend/Operations-contract/QA roles on 19 September 2026,
+Africa/Addis_Ababa. Target: synthetic local T0/private hosted T1. B02-003/B03-004 are Done;
+preceding checked merge and exact-main CI pass. The working B00-016 matrix supplies controlled
+acceptance while formal DEL-01 and B03-001–B03-003 hospital approvals remain unresolved.
+
+All recorded local gates pass. Exact-head hosted [run 35401410274](https://github.com/dynamicet/hallelujah-website/actions/runs/35401410274)
+passes every step, including complete verification and independent frozen clean reconstruction,
+for `941d74c15c5769d38542be575e936cee7bcdcb56`. No scoped implementation defect remains open.
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of PR #63.
+Issue #62 and PR #63 retain the matching SHA/run, merge SHA and exact-main result. Dependent
+execution waits for passing exact-main CI; B03-006 is the next candidate subject to its
+controlled-development brief and readiness checks. Authentic contact/language/call/arrival
+approval, providers, collection, migration, provisioning, production and publication retain
+their gates.
