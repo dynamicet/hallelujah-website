@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 import {
   ActionGroup,
   ActionLink,
@@ -24,6 +26,7 @@ export interface HomeTaskLinks {
 }
 
 export interface HomeTemplateProps {
+  readonly contactDetails?: ReactNode
   readonly description: string
   readonly eyebrow: string
   readonly media?: {
@@ -41,6 +44,7 @@ export interface HomeTemplateProps {
 // Content adapters own approval and destination availability. This composition performs
 // no data fetch, contact substitution, feature selection, or publication decision.
 export function HomeTemplate({
+  contactDetails,
   description,
   eyebrow,
   media,
@@ -106,6 +110,11 @@ export function HomeTemplate({
               <noscript><p>Video playback requires JavaScript. The written still and transcript remain available.</p></noscript>
             </div>
           </section>
+        ) : null}
+        {contactDetails ? (
+          <div className={styles.section} data-home-section="H9" data-experience-level="0">
+            {contactDetails}
+          </div>
         ) : null}
       </div>
       <script data-motion-media-script defer src="/motion-media.js" />

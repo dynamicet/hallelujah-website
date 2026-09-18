@@ -44,3 +44,28 @@ React component implementations are the same source. Browser results therefore e
 composition behavior in isolated T0, not deployed Home performance, real destination availability,
 physical-device/assistive-technology acceptance or professional language approval. Those return
 at their route, DEL-01 and production gates.
+
+## Canonical contact integration — B03-005
+
+`HomeContactTemplate` composes `HomeTemplate` with H9 contact information. Its `documents`,
+`locale`, `now` and optional `controlled-fixture` mode feed `homeContactView`; the template
+fetches no records or providers and mounts no application route. A validated complete document
+set must contain exactly one non-retired settings record. Its synthetic publication must retain
+independent operations review, approval and post-publication verification; record and individual
+fact dates are checked on every render. Real/default, ambiguous, missing, partially translated,
+unverified, stale and retired input produces only withheld explanations.
+
+Emergency contact, enquiry contact and arrival text have distinct stable local section IDs.
+Each displayed purpose/value pair comes from canonical settings; `publicPhone` retains its
+enquiry purpose and is never replaced by an emergency, switchboard or ambulance value.
+The internal projection checks canonical phone/email targets, but the controlled preview emits
+only local anchors and synthetic text. All sections remain Level 0 without a client runtime.
+English headings/explanations are marked explicitly; Amharic data is a labeled shaping fixture.
+
+There is no contact projection cache. Changing the supplied settings document replaces rendered
+facts immediately, and the existing `discoveryInvalidation` safety path includes `/`, `/am/`
+and `canonical-contacts` for the future route consumer. Loopback responses use `no-store`.
+This establishes controlled invalidation coverage, not a deployed Home cache or live call flow.
+The [execution brief](../backlog/b03-005-home-canonical-contacts.md) and
+[evidence](../backlog/evidence/B03-005-home-canonical-contacts-2026-09-19.md) retain the remaining
+hospital, physical-device/AT, language, production and publication boundaries.

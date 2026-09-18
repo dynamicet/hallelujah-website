@@ -1029,3 +1029,21 @@ and PR #61. Dependent execution waits for passing exact-main CI. B03-005 is the 
 subject to a controlled-development brief and readiness checks while B03-001–B03-003 hospital
 approvals remain unresolved. Formal DEL-01, hospital/language/media approvals, authentic content,
 providers, collection, migration, provisioning, production and publication retain their gates.
+
+## B03-005 controlled Home canonical contacts — 19 September 2026
+
+B03-004 PR #61 merged as `de341e59073ad3da4813b43de7b1686c74f1cebe`; exact-main
+[run 35398851259](https://github.com/dynamicet/hallelujah-website/actions/runs/35398851259)
+passed, resolving the dependent-execution wait. The client directed “start” for B03-005.
+It moves Proposed → Ready → **In progress** under `befikadusata` directing Codex in temporary
+Frontend/Operations-contract/QA roles, with the same identity as controlled-development review
+authority, on 19 September 2026, Africa/Addis_Ababa. B02-003/B03-004 are Done.
+The [execution brief](b03-005-home-canonical-contacts.md) records the explicit synthetic-only
+sequencing exception while B03-001–B03-003 hospital approvals remain unresolved. The working
+B00-016 matrix supplies T0/private hosted T1 acceptance; formal DEL-01 remains deferred.
+Scope: canonical settings consumption by a reusable Home server composition and loopback-only
+inert contact preview, with independent workflow, lifecycle, omission and invalidation checks.
+[Execution evidence](evidence/B03-005-home-canonical-contacts-2026-09-19.md) retains results
+and remaining review gates. Real telephone/email/provider activation, authentic records,
+hospital/language/arrival approval, collection, migration, provisioning, production and
+publication remain gated. Hosted T1 and client controlled acceptance remain required before Done.

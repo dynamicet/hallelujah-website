@@ -1,0 +1,14 @@
+.contactFacts {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  max-inline-size: var(--semantic-size-reading);
+}
+
+.contactFacts dt {
+  font-weight: var(--semantic-font-weight-strong);
+}
+
+.contactFacts dd {
+  margin-inline-start: 0;
+  overflow-wrap: anywhere;
+}

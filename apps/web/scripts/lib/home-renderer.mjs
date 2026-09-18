@@ -45,7 +45,7 @@ registerHooks({
   },
 })
 
-const { ActionLink, EmergencyAction, HomeTemplate, LanguageSwitcher } = {
+const { ActionLink, EmergencyAction, HomeTemplate, HomeContactTemplate, LanguageSwitcher } = {
   ...await import('../../src/design-system/templates/index.ts'),
   ...await import('../../src/design-system/components/index.ts'),
 }
@@ -64,7 +64,8 @@ export function renderHome(props) {
       href: props.tasks.appointment.href, label: props.tasks.appointment.label,
     }),
   }
-  return renderToStaticMarkup(createElement(HomeTemplate, { ...props, shell: { ...props.shell, header } }))
+  return renderToStaticMarkup(createElement(props.documents ? HomeContactTemplate : HomeTemplate,
+    { ...props, shell: { ...props.shell, header } }))
 }
 
 export function homeStyles() {

@@ -12,6 +12,7 @@ const forbiddenRoots = [
 forbiddenRoots.push(path.resolve(repositoryRoot, '../resources'))
 
 export const fixtureMarkers = [
+  'synthetic-home-canonical-contacts-fixture',
   'synthetic-home-hierarchy-fixture',
   'synthetic-clinician-fixture', 'synthetic-service-fixture', 'synthetic-site-settings-fixture',
   'synthetic-statement-fixture', 'synthetic-visitor-fixture',
