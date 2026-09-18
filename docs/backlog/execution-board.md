@@ -908,3 +908,30 @@ after successful closeout, subject to controlled-development readiness checks.
 This acceptance does not resolve GOV-01, SEC-01, authentic reconciliation or hospital migration
 approval. Authentic identities/content, providers/assets, personal-data collection, remote
 provisioning, production, publication, legacy migration and DNS remain gated.
+
+## B02-014 controlled content integrity and lifecycle — 18 September 2026
+
+B02-013 PR #57 merged as `74ac57b28aee5f09e199834cf6d1aea6605489ae`; exact-main
+[run 35362650228](https://github.com/dynamicet/hallelujah-website/actions/runs/35362650228)
+passed, resolving the dependent-execution wait above. The client directed “start” for B02-014.
+It moves Proposed → Ready → **In progress** under `befikadusata` directing Codex in temporary
+QA/Content roles, with the same identity as controlled-development review authority, on
+18 September 2026, Africa/Addis_Ababa. Dependencies B02-003–B02-013 are Done for controlled
+development; the working B00-016 matrix supplies T0/private hosted T1 acceptance while formal
+DEL-01 production signatures remain deferred. The
+[execution brief](b02-014-content-integrity-lifecycle.md) authorizes fixed-time synthetic
+cross-model regression and deployable-build isolation checks only.
+[Execution evidence](evidence/B02-014-content-integrity-lifecycle-2026-09-18.md) records results
+and remaining review gates; [issue #58](https://github.com/dynamicet/hallelujah-website/issues/58)
+tracks the same execution. Hospital decisions, authentic records/migration, language approval,
+providers, collection, remote provisioning, production and publication remain gated.
+
+B02-014 moves In progress → **In review** on 18 September 2026, Africa/Addis_Ababa under
+the same responsible/review identity `befikadusata` in temporary QA/Content roles. Fifty
+fixed-time cross-model cases, 26 build-isolation controls, complete local repository verification,
+all 92 component/52 policy/163 asset browser cases, complete disposable PostgreSQL integration,
+frozen clean reconstruction, history secret scan, dependency audit and diff checks pass.
+The [evidence](evidence/B02-014-content-integrity-lifecycle-2026-09-18.md) retains the sandbox
+failures and passing unrestricted retests. [Issue #58](https://github.com/dynamicet/hallelujah-website/issues/58)
+retains implementation SHA, PR and hosted exact-head review pointers. Hosted T1 and client
+controlled acceptance remain required before Done; no merge or publication is claimed.

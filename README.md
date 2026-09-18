@@ -87,3 +87,10 @@ Controlled synthetic content transfer uses the existing authenticated local CMS 
 `pnpm content-transfer:db-local` for disposable PostgreSQL concurrency/rollback evidence.
 The [runbook](docs/architecture/content-transfer.md) documents operator export, dry-run and import
 commands. Authentic source reconciliation remains withheld; this does not authorize migration.
+
+Run `pnpm content-integrity:check` for fixed-time cross-model content/lifecycle regression and
+`pnpm content-build:policy` for source isolation and deliberately invalid controls. After a build,
+`pnpm content-build:check` inspects deployment traces and server/client/static/public outputs
+for authored content fixture leakage. Both are included in full verification; the approved
+bootstrap review surface remains a controlled-development exception. See the
+[B02-014 execution brief](docs/backlog/b02-014-content-integrity-lifecycle.md).
