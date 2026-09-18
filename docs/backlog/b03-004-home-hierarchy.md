@@ -12,6 +12,9 @@ replaceable and authentic BRAND-01 assets remain gated. B02-014 PR #59 merged as
 `baaa1be922442a657b027f6fa4ea909d61f45ec5`; exact-main
 [run 35392349389](https://github.com/dynamicet/hallelujah-website/actions/runs/35392349389) passed.
 Tracking: [issue #60](https://github.com/dynamicet/hallelujah-website/issues/60).
+Review: [draft PR #61](https://github.com/dynamicet/hallelujah-website/pull/61), implementation
+`171c904dfb6b40f6a7edf7e413f7f79730ba4f07`. Hosted CI must repeat for the final documentation
+review head; its matching SHA/run remains tracked in issue #60 and PR #61.
 The working B00-016 matrix supplies controlled acceptance while formal DEL-01 production
 signatures remain deferred.
 

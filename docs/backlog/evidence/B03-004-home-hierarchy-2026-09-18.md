@@ -34,6 +34,10 @@ The no-JavaScript variant explicitly explains that the still/transcript remain a
 playback requires JavaScript. Full final matrix results remain pending below.
 
 Tracking: [issue #60](https://github.com/dynamicet/hallelujah-website/issues/60).
+Implementation commit: `171c904dfb6b40f6a7edf7e413f7f79730ba4f07`, pushed to
+`b03-004-home-hierarchy` under [draft PR #61](https://github.com/dynamicet/hallelujah-website/pull/61).
+The final documentation review head repeats hosted T1. Issue #60 and PR #61 retain its matching
+SHA/run; hosted exact-head review and controlled client acceptance remain required before Done.
 
 ## Verification result
 

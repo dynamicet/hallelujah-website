@@ -980,3 +980,8 @@ reviewed. [Issue #60](https://github.com/dynamicet/hallelujah-website/issues/60)
 [execution evidence](evidence/B03-004-home-hierarchy-2026-09-18.md) retain review pointers and
 failed-run/passing-retest history. Hosted current-head T1 and controlled client acceptance remain
 required before Done; no merge or publication is claimed.
+
+Implementation `171c904dfb6b40f6a7edf7e413f7f79730ba4f07` is pushed to `b03-004-home-hierarchy`
+under [draft PR #61](https://github.com/dynamicet/hallelujah-website/pull/61). The final review
+documentation head repeats hosted T1; issue #60 and PR #61 retain its matching SHA/run.
+Controlled client acceptance, checked merge and passing exact-main CI remain required.
