@@ -101,6 +101,13 @@ to exercise the race without weakening content, omission or external-request ass
 B03-004 remains In review until corrected hosted T1 passes. The same responsible/acceptance
 identity and isolated target apply; no application route or runtime behavior changes.
 
+Corrected local `pnpm verify` passes the complete matrix. Hosted correction
+[run 35396380781](https://github.com/dynamicet/hallelujah-website/actions/runs/35396380781)
+passes all asset and Home browser assertions but fails temporary Home profile deletion with
+`ENOTEMPTY`. The already allowed Home browser script now uses five bounded removal retries
+at 100 ms, matching the existing component/asset browser cleanup policy. This retains failing
+cleanup as a failure when the bounded retries are exhausted. Corrected hosted T1 remains required.
+
 ## Source authority and benchmark application
 
 - [Epic scope](epic-03-critical-journeys.md#home--h0h9): H-001, H-002, G-001–G-003 and G-012.

@@ -998,3 +998,10 @@ readiness and streamed delayed-body regression cases. B03-004 remains In review 
 hosted T1 passes. The [evidence](evidence/B03-004-home-hierarchy-2026-09-18.md#client-directed-closeout-correction--19-september-2026)
 retains the failed hosted run and loopback-denied local attempt. No production, publication,
 authentic content, provider, collection or migration gate changes.
+
+Full corrected local verification passes. Hosted correction
+[run 35396380781](https://github.com/dynamicet/hallelujah-website/actions/runs/35396380781)
+for `017753856f12945056a41faec3909b0ac3831b99` passes asset/Home assertions but fails temporary
+Home browser profile deletion with `ENOTEMPTY`. The already scoped Home test receives the
+existing five-retry/100 ms removal policy; exhausted cleanup remains a failure. Both hosted
+failures remain in the evidence. B03-004 stays In review pending corrected hosted T1.

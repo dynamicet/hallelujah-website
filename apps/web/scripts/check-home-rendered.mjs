@@ -246,5 +246,5 @@ try {
   await Promise.race([new Promise((resolve) => browser.once('exit', resolve)), pause(2000)])
   if (browser.exitCode === null && browser.signalCode === null) browser.kill('SIGKILL')
   await server.close()
-  await rm(profile, { recursive: true, force: true })
+  await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 })
 }

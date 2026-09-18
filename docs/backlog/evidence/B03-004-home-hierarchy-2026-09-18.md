@@ -113,3 +113,16 @@ The sandbox retest fails at loopback binding (`listen EPERM`). The unrestricted 
 native keyboard/player controls, loaded bilingual fonts, 410 derivative withdrawal and zero
 external requests. Hosted correction results remain pending. B03-004 stays In review until
 corrected T1 passes; checked merge and passing exact-main CI still govern dependent execution.
+
+Full corrected local `pnpm verify` passes all repository gates, including the 163 asset and
+165 Home browser cases. Fresh lint/format/link/backlog/diff checks and reachable-history secret
+scan pass. Generated pre-existing print/capture/report changes are restored from the initially
+clean HEAD; the corrected asset report is retained only as temporary local evidence.
+
+Hosted correction [run 35396380781](https://github.com/dynamicet/hallelujah-website/actions/runs/35396380781)
+for `017753856f12945056a41faec3909b0ac3831b99` passes every asset and Home browser assertion,
+then fails deleting the temporary Home profile (`ENOTEMPTY` in Chrome's extension storage).
+It remains failed evidence; reconstruction does not start. Home browser cleanup now applies
+five bounded removal retries at 100 ms, matching existing component/asset checks. Exhausted
+cleanup still fails the process. Focused `pnpm home:smoke` passes all 165 cases and exits zero
+after profile removal; lint/format/local-link/diff checks pass. Corrected hosted T1 remains pending.
