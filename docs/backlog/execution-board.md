@@ -844,3 +844,67 @@ SHA/run, checked merge and exact-main result. B02-013 is the next candidate afte
 closeout, subject to controlled-development readiness checks. All 20 hospital review issues,
 unavailable raw snapshot, hospital approval, authentic migration, collection, production and
 publication gates remain unresolved.
+
+## B02-013 controlled content transfer — 18 September 2026
+
+B02-012 PR #55 merged as `ba55eb145ee7308cee5c41408ce28058973ffc86`; exact-main
+[run 35341982931](https://github.com/dynamicet/hallelujah-website/actions/runs/35341982931)
+passed. The client directed “start” for B02-013. It moves Proposed → Ready → **In progress**
+under workspace identity `befikadusata` directing Codex in temporary Backend/Content/QA roles,
+with the same identity as controlled-development review authority, on 18 September 2026,
+Africa/Addis_Ababa. Dependencies B02-001–B02-012 are Done for controlled development.
+Target: synthetic local T0 and private hosted T1. The
+[execution brief](b02-013-controlled-content-transfer.md) authorizes validated unsigned-draft
+import/update/explicit-merge, immutable dry runs, authenticated governed-content export and
+whole-batch transactional rollback through the existing CMS hooks.
+[Execution evidence](evidence/B02-013-controlled-content-transfer-2026-09-18.md) records local
+checks and remaining gates; [issue #56](https://github.com/dynamicet/hallelujah-website/issues/56)
+tracks the same execution. No acceptance is yet claimed. The B02-012 authentic evidence bundle,
+hospital migration approval, GOV-01/SEC-01, real identities/content, assets/providers, collection,
+production and publication remain gated. B02-014 is the next candidate after successful closeout.
+
+B02-013 moves In progress → **In review** on 18 September 2026, Africa/Addis_Ababa under the same
+responsible/review identity after the pure/schema/authority checks, real CLI, full application
+verification, complete disposable PostgreSQL CMS/asset matrix, lint/typecheck, history secret scan
+and fresh dependency audit pass. Local clean reconstruction hit registry timeouts/connection
+resets, including reduced-concurrency retry; it remains an environmental failure. Hosted T1
+independently requires full clean reconstruction and remains pending. Implementation commit
+`a1c13800bfdc99e5aceeeab7bb114250fbd2a2a4` is pushed to `b02-013-controlled-content-transfer`.
+[Issue #56](https://github.com/dynamicet/hallelujah-website/issues/56) and
+[draft PR #57](https://github.com/dynamicet/hallelujah-website/pull/57) retain the remaining CI/acceptance gates; no acceptance,
+merge or authentic migration approval is claimed.
+
+Hosted [run 35345740923](https://github.com/dynamicet/hallelujah-website/actions/runs/35345740923)
+passes all steps including full clean reconstruction for review head
+`66376adbfc30a22c15af01ccf7c7f22a50b2ecca`. The final local-database guard requires loopback or a
+Unix socket, rejects remote query overrides before CLI initialization and passes pure/type and
+focused persisted/CLI retests. The final guard/review-documentation head repeats hosted T1;
+its matching SHA/run must be retained in issue #56 and PR #57. B02-013 remains **In review**;
+controlled acceptance and checked merge/main closeout remain required.
+
+## Controlled acceptance — 18 September 2026
+
+The client directed “close b02-013”. B02-013 moves In review → **Done** for controlled
+development on 18 September 2026, Africa/Addis_Ababa. Responsible and acceptance person:
+`befikadusata` directing Codex in temporary Backend/Content/QA roles. Target: synthetic local
+T0 and private hosted T1. Dependencies B02-001–B02-012 are Done; B02-012 checked merge
+`ba55eb145ee7308cee5c41408ce28058973ffc86` and exact-main run `35341982931` pass.
+
+Final implementation commit `22e98b6b1ac8808f827ebd945d724e7567e4c5c3` passes all hosted
+quality/security steps, full verification and independent clean reconstruction under
+[run 35346485083](https://github.com/dynamicet/hallelujah-website/actions/runs/35346485083).
+Local schema/authority checks, real CLI, complete disposable PostgreSQL integration,
+rollback/concurrency/revocation negatives, final local-database guard retests, full application
+verification, history secret scan and dependency audit pass. No scoped runtime defect remains open.
+The additional local reconstruction's registry failures remain environmental failures;
+the independent hosted reconstruction passes.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #57](https://github.com/dynamicet/hallelujah-website/pull/57). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #56](https://github.com/dynamicet/hallelujah-website/issues/56)
+and PR #57. Dependent execution waits for passing exact-main CI. B02-014 is the next candidate
+after successful closeout, subject to controlled-development readiness checks.
+
+This acceptance does not resolve GOV-01, SEC-01, authentic reconciliation or hospital migration
+approval. Authentic identities/content, providers/assets, personal-data collection, remote
+provisioning, production, publication, legacy migration and DNS remain gated.

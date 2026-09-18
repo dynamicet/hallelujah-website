@@ -70,7 +70,11 @@
     "assets:malware:check": "pnpm --dir apps/web assets:malware:check",
     "assets:db-local": "node apps/web/scripts/run-assets-db.mjs",
     "assets:smoke": "pnpm --dir apps/web assets:smoke",
-    "content-reconciliation:check": "node scripts/check-content-reconciliation.mjs && node scripts/test-content-reconciliation.mjs"
+    "content-reconciliation:check": "node scripts/check-content-reconciliation.mjs && node scripts/test-content-reconciliation.mjs",
+    "content-transfer:check": "pnpm --dir apps/web content-transfer:check",
+    "content-transfer:db-smoke": "pnpm --dir apps/web content-transfer:db-smoke",
+    "content-transfer:db-local": "node apps/web/scripts/run-assets-db.mjs --transfer-only",
+    "content-transfer": "pnpm --dir apps/web content-transfer"
   },
   "pnpm": {
     "overrides": {

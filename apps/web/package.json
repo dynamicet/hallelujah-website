@@ -23,7 +23,7 @@
     "lint": "eslint . --max-warnings=0",
     "start": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next start",
     "system-states:check": "node scripts/check-system-states.mjs",
-    "test": "pnpm tokens:check && pnpm foundations:check && pnpm actions:check && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && pnpm system-states:check && pnpm optional-map:check && pnpm governed-records:check && pnpm cms-workflow:check && pnpm site-settings:check && pnpm clinicians:check && pnpm services:check && pnpm care-relationships:check && pnpm visitor-topics:check && pnpm institutional-blocks:check && pnpm utility-statements:check && pnpm discovery:check && pnpm assets:check && pnpm assets:formats:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
+    "test": "pnpm tokens:check && pnpm foundations:check && pnpm actions:check && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && pnpm system-states:check && pnpm optional-map:check && pnpm governed-records:check && pnpm content-transfer:check && pnpm cms-workflow:check && pnpm site-settings:check && pnpm clinicians:check && pnpm services:check && pnpm care-relationships:check && pnpm visitor-topics:check && pnpm institutional-blocks:check && pnpm utility-statements:check && pnpm discovery:check && pnpm assets:check && pnpm assets:formats:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
     "tokens:check": "node scripts/generate-design-tokens.mjs --check",
     "tokens:generate": "node scripts/generate-design-tokens.mjs",
     "typecheck": "tsc --noEmit",
@@ -41,7 +41,10 @@
     "assets:db-smoke": "node scripts/check-governed-cms-db.mjs --assets-only",
     "assets:formats:check": "node scripts/check-assets-formats.mjs",
     "assets:malware:check": "node scripts/check-assets-malware.mjs",
-    "assets:smoke": "node scripts/check-assets-rendered.mjs"
+    "assets:smoke": "node scripts/check-assets-rendered.mjs",
+    "content-transfer:check": "node scripts/check-content-transfer.mjs",
+    "content-transfer:db-smoke": "node scripts/check-governed-cms-db.mjs --transfer-only",
+    "content-transfer": "node --env-file-if-exists=.env.local scripts/content-transfer.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.89.0",

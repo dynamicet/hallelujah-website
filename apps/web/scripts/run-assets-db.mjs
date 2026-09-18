@@ -33,7 +33,8 @@ try {
   }
   await run('pnpm', ['local-db-isolation:check'])
   await query('hallelujah_content_local', 'DROP TABLE controlled_content_fixture;')
-  await run('pnpm', [process.argv.includes('--full') ? 'governed-records:db-smoke' : 'assets:db-smoke'], { timeout: 300000 })
+  await run('pnpm', [process.argv.includes('--transfer-only') ? 'content-transfer:db-smoke'
+    : process.argv.includes('--full') ? 'governed-records:db-smoke' : 'assets:db-smoke'], { timeout: 300000 })
 } finally {
   if (started) await run(path.join(bin, 'pg_ctl'), ['-D', data, '-m', 'fast', '-w', 'stop'])
   await rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 })

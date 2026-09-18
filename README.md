@@ -81,3 +81,9 @@ language-alternate and sitemap candidates. Run `pnpm discovery:check` for lifecy
 dependency/cache and real loopback HTTP checks. The [execution brief](docs/backlog/b02-010-governed-discovery.md)
 and [architecture](docs/architecture/governed-discovery.md) define the synthetic-only scope;
 public routes and production cache wiring remain gated.
+
+Controlled synthetic content transfer uses the existing authenticated local CMS workflow. Run
+`pnpm content-transfer:check` for bundle/plan/schema negatives and
+`pnpm content-transfer:db-local` for disposable PostgreSQL concurrency/rollback evidence.
+The [runbook](docs/architecture/content-transfer.md) documents operator export, dry-run and import
+commands. Authentic source reconciliation remains withheld; this does not authorize migration.
