@@ -1,0 +1,1860 @@
+{
+  "ticket": "B03-004",
+  "scope": "Isolated controlled Home T0; not deployed-route or language/AT acceptance",
+  "cases": [
+    {
+      "state": "static",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 156,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 76,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 112,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 116,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 144,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 112,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 124,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 96,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 116,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 112,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 100,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 120,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 92,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "static",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 140,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 104,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 108,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 132,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 120,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 96,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 100,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9311067889228489,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 132,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 76,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 104,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 104,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 120,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 128,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 108,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 140,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 144,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 120,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 156,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 136,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 144,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "hero",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.5195175438596491,
+        "lcp": 116,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 128,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 156,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 132,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9311067889228489,
+        "lcp": 120,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 148,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 116,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 120,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 112,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 100,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 104,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 108,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 104,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 100,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 132,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 100,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 136,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 96,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 124,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 92,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 120,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 116,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 152,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "story",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 76,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 120,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9311067889228489,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 92,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 124,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 128,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 116,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 108,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 124,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 128,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 132,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "media-failure",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.5195175438596491,
+        "lcp": 116,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 136,
+        "longTasks": [
+          58
+        ]
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 76,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 92,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 76,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.8922848939520237,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 104,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 76,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 92,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 108,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 112,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.911268921095008,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 100,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 112,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9308927253947175,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 92,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 76,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 84,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 104,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 100,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "long-labels",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.999813596491228,
+        "lcp": 116,
+        "longTasks": []
+      }
+    },
+    {
+      "capability": "default",
+      "state": "compact-menu-keyboard",
+      "passed": true
+    },
+    {
+      "capability": "no-js",
+      "state": "compact-menu-keyboard",
+      "passed": true
+    },
+    {
+      "state": "hero",
+      "capability": "play-pause-resume-stop-end-history",
+      "passed": true
+    },
+    {
+      "state": "story",
+      "capability": "play-pause-resume-stop-end-history",
+      "passed": true
+    },
+    {
+      "state": "media-failure",
+      "capability": "keyboard-activation-recovery",
+      "passed": true
+    }
+  ],
+  "samples": {
+    "static": {
+      "initialGzipBytes": 15866,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "hero": {
+      "initialGzipBytes": 16266,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "story": {
+      "initialGzipBytes": 16276,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "media-failure": {
+      "initialGzipBytes": 16273,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "long-labels": {
+      "initialGzipBytes": 15956,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    }
+  },
+  "activatedMediaRequests": [
+    "/fixtures/b01-012-abstract-motion.vtt",
+    "/fixtures/b01-012-abstract-motion.webm",
+    "/fixtures/b01-012-abstract-motion.webm",
+    "/fixtures/b01-012-abstract-motion.webm",
+    "/fixtures/b01-012-abstract-motion.vtt",
+    "/fixtures/b01-012-abstract-motion.webm",
+    "/fixtures/b01-012-abstract-motion.webm",
+    "/fixtures/b01-012-abstract-motion.webm",
+    "/fixtures/b01-012-abstract-motion.vtt",
+    "/missing.webm"
+  ],
+  "activatedMedia": {
+    "bytes": 1196,
+    "captionBytes": 82,
+    "durationSeconds": 2,
+    "posterAssetBytes": 0,
+    "kind": "abstract informative test film, no hospital people/facilities",
+    "provider": "none"
+  },
+  "externalRequests": 0,
+  "inlineImageEvents": 17,
+  "forbiddenRequestControls": 6,
+  "reflowBasis": "320 CSS px also covers 1280 px at 400% zoom equivalent",
+  "metricsBasis": "Local Chromium samples only; no constrained-device LCP/INP or motion long-task attribution is claimed"
+}

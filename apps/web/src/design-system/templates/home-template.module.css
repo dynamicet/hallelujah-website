@@ -1,0 +1,88 @@
+.frame {
+  margin-inline: auto;
+  max-inline-size: calc(var(--semantic-size-wide) + 2 * var(--semantic-space-page));
+  padding-inline: var(--semantic-space-page);
+}
+
+.introduction {
+  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  padding-block: var(--semantic-space-section);
+}
+
+.eyebrow {
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--semantic-type-small-size);
+  font-weight: var(--semantic-font-weight-strong);
+}
+
+.description {
+  font-size: var(--semantic-type-body-large-size);
+  line-height: var(--semantic-type-body-large-line);
+}
+
+.section {
+  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  padding-block: var(--semantic-space-section);
+}
+
+.tasks {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  list-style: none;
+  margin-block-start: var(--semantic-space-regular);
+  padding: 0;
+}
+
+.tasks li {
+  min-inline-size: 0;
+}
+
+.tasks a {
+  inline-size: var(--semantic-size-full);
+  justify-content: space-between;
+  text-align: start;
+}
+
+.media {
+  margin-block-start: var(--semantic-space-section);
+  max-inline-size: var(--semantic-size-reading);
+}
+
+/* Keep the Stop control's footprint while it is unavailable. Activation must not
+   shift the written still, adjacent controls, or essential tasks below hero media. */
+.media [data-media-stop][hidden] {
+  display: inline-block;
+  visibility: hidden;
+}
+
+@media (min-width: 48rem) {
+  .frame {
+    padding-inline: var(--semantic-space-gutter-regular);
+  }
+}
+
+@media (min-width: 64rem) {
+  .frame {
+    padding-inline: var(--semantic-space-gutter-wide);
+  }
+}
+
+@media (forced-colors: active) {
+  .introduction,
+  .section {
+    border-color: CanvasText;
+  }
+}
+
+@media print {
+  .frame {
+    max-inline-size: none;
+    padding: 0;
+  }
+
+  .introduction,
+  .section {
+    padding-block: var(--semantic-space-regular);
+  }
+}

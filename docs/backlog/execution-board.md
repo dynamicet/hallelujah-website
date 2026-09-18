@@ -953,3 +953,30 @@ execution waits for passing exact-main CI. B03-004 Home hierarchy is the next im
 candidate, subject to controlled-development readiness checks. Formal DEL-01, hospital and
 language approvals, authentic content/migration, providers, collection, remote provisioning,
 production and publication retain their existing gates.
+
+## B03-004 controlled Home hierarchy — 18 September 2026
+
+B02-014 PR #59 merged as `baaa1be922442a657b027f6fa4ea909d61f45ec5`; exact-main
+[run 35392349389](https://github.com/dynamicet/hallelujah-website/actions/runs/35392349389) passed,
+resolving the dependent-execution wait. The client directed “start” for B03-004. It moves
+Proposed → Ready → **In progress** under workspace identity `befikadusata` directing Codex in
+temporary Frontend/Product/QA roles, with the same identity as controlled-development review
+authority, on 18 September 2026, Africa/Addis_Ababa. B01-006/B01-012 are Done; GOV-02 supplies
+planned scope and the centrally replaceable project brand baseline applies. The working B00-016
+matrix supplies local T0/private hosted T1 acceptance; formal DEL-01 remains deferred.
+The [execution brief](b03-004-home-hierarchy.md) authorizes the reusable Home composition and
+separate loopback-only controlled preview with local withheld destinations. B03-005/006 retain
+canonical contact and optional governed-record integration. [Execution evidence](evidence/B03-004-home-hierarchy-2026-09-18.md)
+records results and remaining review gates. Hosted T1 and controlled client acceptance remain
+pending. No hospital route, real contact, clinical claim, authentic media, language approval,
+provider, collection, migration, provisioning, production or publication gate is promoted.
+
+B03-004 moves In progress → **In review** on 19 September 2026, Africa/Addis_Ababa under the
+same responsible/review identity after 14 SSR/omission/safety/escaping/token cases, 165 responsive/
+capability/native-keyboard/media cases, six rejected request controls, complete repository
+verification, independent frozen clean reconstruction, dependency audit and history secret scan
+pass. The scoped mobile media shift is fixed and retested; six sanitized captures are visually
+reviewed. [Issue #60](https://github.com/dynamicet/hallelujah-website/issues/60) and the
+[execution evidence](evidence/B03-004-home-hierarchy-2026-09-18.md) retain review pointers and
+failed-run/passing-retest history. Hosted current-head T1 and controlled client acceptance remain
+required before Done; no merge or publication is claimed.
