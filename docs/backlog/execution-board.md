@@ -1029,3 +1029,59 @@ and PR #61. Dependent execution waits for passing exact-main CI. B03-005 is the 
 subject to a controlled-development brief and readiness checks while B03-001–B03-003 hospital
 approvals remain unresolved. Formal DEL-01, hospital/language/media approvals, authentic content,
 providers, collection, migration, provisioning, production and publication retain their gates.
+
+## B03-005 controlled Home canonical contacts — 19 September 2026
+
+B03-004 PR #61 merged as `de341e59073ad3da4813b43de7b1686c74f1cebe`; exact-main
+[run 35398851259](https://github.com/dynamicet/hallelujah-website/actions/runs/35398851259)
+passed, resolving the dependent-execution wait. The client directed “start” for B03-005.
+It moves Proposed → Ready → **In progress** under `befikadusata` directing Codex in temporary
+Frontend/Operations-contract/QA roles, with the same identity as controlled-development review
+authority, on 19 September 2026, Africa/Addis_Ababa. B02-003/B03-004 are Done.
+The [execution brief](b03-005-home-canonical-contacts.md) records the explicit synthetic-only
+sequencing exception while B03-001–B03-003 hospital approvals remain unresolved. The working
+B00-016 matrix supplies T0/private hosted T1 acceptance; formal DEL-01 remains deferred.
+Scope: canonical settings consumption by a reusable Home server composition and loopback-only
+inert contact preview, with independent workflow, lifecycle, omission and invalidation checks.
+[Execution evidence](evidence/B03-005-home-canonical-contacts-2026-09-19.md) retains results
+and remaining review gates. Real telephone/email/provider activation, authentic records,
+hospital/language/arrival approval, collection, migration, provisioning, production and
+publication remain gated. Hosted T1 and client controlled acceptance remain required before Done.
+
+B03-005 moves In progress → **In review** on 19 September 2026, Africa/Addis_Ababa under the
+same responsible/review identity after all 134 contact contract cases, 293 contact browser cases,
+six sanitized visual captures, full repository verification, sequential independent frozen
+reconstruction, history secret scan and dependency audit pass. The
+[execution evidence](evidence/B03-005-home-canonical-contacts-2026-09-19.md) retains initial
+loopback/DNS/shared-port failures and passing retests. Implementation
+`8394bb3c282849362297a34b3bd283c56bf809f1` is pushed under
+[issue #62](https://github.com/dynamicet/hallelujah-website/issues/62) and
+[draft PR #63](https://github.com/dynamicet/hallelujah-website/pull/63). The final review-documentation
+head repeats hosted T1; its matching SHA/run is retained in issue #62 and PR #63. Hosted
+current-head T1, client controlled acceptance, checked merge and passing exact-main CI remain
+required. No hospital safety/language/arrival approval, authentic contact, callable/provider
+activation, collection, migration, provisioning, production or publication gate changes.
+
+## B03-005 controlled acceptance — 19 September 2026
+
+The client directed “close out b03-005”. B03-005 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing
+Codex in temporary Frontend/Operations-contract/QA roles on 19 September 2026,
+Africa/Addis_Ababa. Target: synthetic local T0/private hosted T1. B02-003/B03-004 are Done;
+preceding checked merge and exact-main CI pass. The working B00-016 matrix supplies controlled
+acceptance; formal DEL-01 and B03-001–B03-003 hospital approvals remain unresolved.
+
+All recorded local checks and independent frozen reconstruction pass. Hosted exact-head
+[run 35401410274](https://github.com/dynamicet/hallelujah-website/actions/runs/35401410274)
+passes every step for `941d74c15c5769d38542be575e936cee7bcdcb56`. The
+[completion evidence](evidence/B03-005-home-canonical-contacts-2026-09-19.md#controlled-acceptance--19-september-2026)
+retains initial environment/shared-port failures and passing retests; no scoped implementation
+defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #63](https://github.com/dynamicet/hallelujah-website/pull/63). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #62](https://github.com/dynamicet/hallelujah-website/issues/62)
+and PR #63. Dependent execution waits for passing exact-main CI. B03-006 is the next candidate,
+subject to a controlled-development brief and readiness checks. Authentic contacts,
+hospital/language/call/arrival approval, providers, collection, migration, provisioning,
+production and publication retain their gates.

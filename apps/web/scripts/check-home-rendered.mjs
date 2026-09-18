@@ -7,11 +7,13 @@ import { request as httpRequest } from 'node:http'
 import path from 'node:path'
 import { createHomePreviewServer } from './lib/home-preview-server.mjs'
 import { homeFixtureStates } from './lib/home-fixture.mjs'
+import { homeContactFixtureStates } from './lib/home-contact-fixture.mjs'
 
 const server = await createHomePreviewServer()
 const profile = await mkdtemp(path.join(tmpdir(), 'hallelujah-home-browser-'))
 const port = 20000 + randomBytes(2).readUInt16BE(0) % 30000
-const captureRoot = path.resolve(new URL('../../../docs/backlog/evidence/b03-004-artifacts/', import.meta.url).pathname)
+const contacts = process.argv.includes('--contacts')
+const captureRoot = path.resolve(new URL(`../../../docs/backlog/evidence/${contacts ? 'b03-005' : 'b03-004'}-artifacts/`, import.meta.url).pathname)
 const capture = process.argv.includes('--capture')
 if (capture) await mkdir(captureRoot, { recursive: true })
 const browserPath = ['google-chrome-stable', 'google-chrome', '/snap/chromium/current/usr/lib/chromium-browser/chrome', 'chromium', 'chromium-browser']
@@ -97,14 +99,19 @@ try {
       features: capability === 'forced-colors' ? [{ name: 'forced-colors', value: 'active' }]
         : capability === 'reduced-motion' ? [{ name: 'prefers-reduced-motion', value: 'reduce' }] : [] })
     await send('Network.setExtraHTTPHeaders', { headers: capability === 'save-data' ? { 'Save-Data': 'on' } : {} })
-    await send('Network.setBlockedURLs', { urls: capability === 'images-fonts-blocked' ? ['*.png', '*.jpg', '*.woff', '*.woff2', '*.webm'] : [] })
+    await send('Network.setBlockedURLs', { urls: capability === 'images-fonts-blocked' ? ['*.png', '*.jpg', '*.woff', '*.woff2', '*.webm']
+      : capability === 'no-css' ? ['*/home.css'] : [] })
     await send('Page.navigate', { url: state === 'static' ? server.origin : `${server.origin}/${state}` })
     await until(`document.readyState === 'complete' && !!document.querySelector('[data-home-template]') ${capability === 'no-js' ? '' : "&& document.documentElement.dataset.motionMediaEnhanced === 'true'"}`)
     if (capability === '200%-text') await evaluate("document.documentElement.style.fontSize = '200%'")
     await pause(45)
   }
-  for (const state of (process.argv.includes('--lifecycle-only') ? [] : homeFixtureStates)) for (const width of [320, 360, 768, 1440])
-    for (const capability of ['default', 'no-js', 'reduced-motion', 'forced-colors', 'save-data', 'images-fonts-blocked', 'print', '200%-text']) {
+  const captureOnly = process.argv.includes('--capture-only')
+  const reviewStates = contacts ? homeContactFixtureStates : homeFixtureStates
+  for (const state of (process.argv.includes('--lifecycle-only') ? [] : captureOnly
+    ? reviewStates.filter(state => (contacts ? ['contacts-current', 'contacts-missing', 'contacts-expired'] : ['static', 'hero', 'story']).includes(state)) : reviewStates))
+    for (const width of (captureOnly ? [320, 1440] : [320, 360, 768, 1440]))
+    for (const capability of (captureOnly ? ['no-js'] : ['default', 'no-js', 'reduced-motion', 'forced-colors', 'save-data', 'images-fonts-blocked', 'print', '200%-text', ...(contacts ? ['no-css'] : [])])) {
       const requestStart = requests.length
       await navigate(state, capability, width)
       const result = await evaluate(`({
@@ -114,13 +121,15 @@ try {
         targets: [...document.querySelectorAll('[data-action-link],[data-emergency-action],[data-media-play]')].every(el => {
           const r = el.getBoundingClientRect(); return (r.width === 0 && r.height === 0) || (r.width >= 43.5 && r.height >= 43.5);
         }),
-        safeMotion: [...document.querySelectorAll('[data-emergency-action], [data-home-destinations] section')].every(el => !el.closest('[data-experience-area]')),
+        safeMotion: [...document.querySelectorAll('[data-emergency-action], [data-home-destinations] section, [data-home-contact-state] section')].every(el => !el.closest('[data-experience-area]')),
         anchors: [...document.querySelectorAll('a[href]')].every(a => a.getAttribute('href').startsWith('#') && document.getElementById(a.hash.slice(1))),
         headingOrder: [...document.querySelectorAll('main h1,main h2,main h3')].map(el => Number(el.tagName[1])),
         videoSource: !!document.querySelector('video[src],track[src]'),
         accentEnabled: document.querySelector('[data-motion-accent]').dataset.motionEnabled,
         text: document.body.innerText,
         hasFields: !!document.querySelector('form,input,iframe'),
+        contactState: document.querySelector('[data-home-contact-state]')?.dataset.homeContactState,
+        contactFacts: [...document.querySelectorAll('[data-home-contact-fact]')].map(el => ({key: el.dataset.homeContactFact, label: el.querySelector('dt').innerText, value: el.querySelector('dd').innerText})),
         metrics: window.homeMetrics ?? null,
       })`)
       const label = `${state}/${width}/${capability}`
@@ -128,7 +137,7 @@ try {
       assert.equal(result.mainCount, 1, label)
       assert.equal(result.h1Count, 1, label)
       assert.equal(result.taskCount, 5, label)
-      assert.equal(result.targets, true, label)
+      if (capability !== 'no-css') assert.equal(result.targets, true, label)
       assert.equal(result.safeMotion, true, label)
       assert.equal(result.anchors, true, label)
       assert.equal(result.videoSource, false, label)
@@ -136,7 +145,23 @@ try {
       assert.equal(result.headingOrder[0], 1, label)
       assert.ok(result.headingOrder.slice(1).every((level) => level === 2), label)
       assert.match(result.text, /Online appointment requests are unavailable/u)
-      assert.match(result.text, /Hospital telephone contacts are withheld/u)
+      if (contacts && ['contacts-current', 'contacts-updated'].includes(state)) {
+        assert.equal(result.contactState, 'controlled-fixture', label)
+        assert.match(result.text, /Synthetic contact fixture/u)
+        const enquiry = result.contactFacts.find(fact => fact.key === 'publicPhone')
+        assert.equal(enquiry.label, 'Public enquiry phone', label)
+        assert.equal(enquiry.value, state === 'contacts-updated' ? '+1 (202) 555-0199' : '+1 (202) 555-0101', label)
+        for (const id of ['publicPhone', 'emergencyPhone', 'switchboardPhone', 'ambulancePhone', 'address', 'publicEntrance', 'accessibleEntrance']) {
+          assert.ok(result.contactFacts.some(fact => fact.key === id), label + '/' + id)
+        }
+      } else {
+        assert.match(result.text, /Hospital telephone contacts are withheld/u)
+        if (contacts) {
+          assert.equal(result.contactState, 'unavailable', label)
+          assert.equal(result.contactFacts.length, 0, label)
+          assert.doesNotMatch(result.text, /555|hospital\.invalid|Synthetic address/u)
+        }
+      }
       assert.match(result.text, /An approved Amharic Home page is not available/u)
       if (['no-js', 'reduced-motion', 'save-data'].includes(capability)) assert.equal(result.accentEnabled, 'false', label)
       assert.ok(!requests.slice(requestStart).some((url) => /\.(?:webm|vtt)(?:\?|$)/u.test(url)), label)
@@ -151,14 +176,43 @@ try {
         assert.equal(await evaluate(`location.hash === '#home-${id}' && document.activeElement.id === 'home-${id}'`), true, label + '/' + id)
       }
       await evaluate('scrollTo(0,0)')
-      if (capture && capability === 'no-js' && [320, 1440].includes(width) && ['static', 'hero', 'story'].includes(state)) {
-        const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true })
+      if (capture && capability === 'no-js' && [320, 1440].includes(width)
+        && (contacts ? ['contacts-current', 'contacts-missing', 'contacts-expired'] : ['static', 'hero', 'story']).includes(state)) {
+        // Allow native anchor scrolling to paint before requesting the full document.
+        await pause(150)
+        const { cssContentSize } = await send('Page.getLayoutMetrics')
+        const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true,
+          clip: { x: 0, y: 0, width: cssContentSize.width, height: cssContentSize.height, scale: 1 } })
         await writeFile(path.join(captureRoot, `${state}-${width}-no-js.png`), Buffer.from(shot.data, 'base64'))
       }
       cases.push({ state, width, capability, passed: true, metrics: result.metrics })
     }
 
-  for (const capability of ['default', 'no-js']) {
+  if (contacts) {
+    for (const state of ['contacts-current', 'contacts-updated', 'contacts-expired', 'contacts-withdrawn']) {
+      await navigate(state)
+      const tree = await send('Accessibility.getFullAXTree')
+      const nodes = tree.nodes.filter(node => !node.ignored)
+      assert.ok(nodes.some(node => node.role?.value === 'heading' && node.name?.value === 'Call and contact information'))
+      assert.ok(nodes.some(node => node.role?.value === 'link' && node.name?.value === 'Call the hospital'))
+      const body = await evaluate('document.body.innerText')
+      if (state === 'contacts-updated') { assert.match(body, /555-0199/u); assert.doesNotMatch(body, /555-0101/u) }
+      if (['contacts-expired', 'contacts-withdrawn'].includes(state)) assert.doesNotMatch(body, /555|hospital\.invalid/u)
+      cases.push({ state, capability: 'updated-lifecycle-accessibility-tree', passed: true })
+    }
+    await navigate('contacts-current')
+    await send('Emulation.setTouchEmulationEnabled', { enabled: true })
+    await evaluate(`document.querySelector('[data-home-template] a[href="#home-directions"]').scrollIntoView({block:'center'})`)
+    const point = await evaluate(`(() => { const r = document.querySelector('[data-home-template] a[href="#home-directions"]').getBoundingClientRect(); return {x:r.x+r.width/2,y:r.y+r.height/2}; })()`)
+    await send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ ...point, radiusX: 1, radiusY: 1, force: 1, id: 1 }] })
+    await send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] })
+    await until(`location.hash === '#home-directions'`)
+    assert.match(await evaluate('document.getElementById("home-directions").innerText'), /Synthetic accessible entrance/u)
+    cases.push({ state: 'contacts-current', capability: 'emulated-touch-directions', passed: true })
+    await send('Emulation.setTouchEmulationEnabled', { enabled: false })
+    assert.equal((await fetch(`${server.origin}/contacts-current`)).headers.get('cache-control'), 'no-store')
+  }
+  for (const capability of (contacts ? [] : ['default', 'no-js'])) {
     await navigate('static', capability)
     await evaluate("document.querySelector('[data-menu-trigger]').focus()")
     await key()
@@ -169,7 +223,7 @@ try {
     if (capability === 'default') assert.equal(await evaluate("document.activeElement.matches('[data-menu-trigger]')"), true)
     cases.push({ capability, state: 'compact-menu-keyboard', passed: true })
   }
-  for (const state of ['hero', 'story']) {
+  for (const state of (contacts ? [] : ['hero', 'story'])) {
     await navigate(state)
     const geometry = await evaluate("({frame: document.querySelector('[data-media-state]').getBoundingClientRect().height, tasks: document.querySelector('[data-home-section=\"H2\"]').offsetTop})")
     await evaluate("document.querySelector('[data-media-play]').focus()")
@@ -198,12 +252,14 @@ try {
     assert.equal(await evaluate("document.querySelector('[data-media-state]').dataset.mediaState !== 'playing' && !document.querySelector('video').hasAttribute('src')"), true)
     cases.push({ state, capability: 'play-pause-resume-stop-end-history', passed: true })
   }
-  await navigate('media-failure')
-  await evaluate("document.querySelector('[data-media-play]').focus()")
-  await key()
-  await until("document.querySelector('[data-media-state]').dataset.mediaState === 'failed'")
-  assert.equal(await evaluate("!document.querySelector('[data-media-poster]').hidden && !document.querySelector('[data-media-status]').hidden && document.activeElement.matches('[data-media-play]')"), true)
-  cases.push({ state: 'media-failure', capability: 'keyboard-activation-recovery', passed: true })
+  if (!contacts) {
+    await navigate('media-failure')
+    await evaluate("document.querySelector('[data-media-play]').focus()")
+    await key()
+    await until("document.querySelector('[data-media-state]').dataset.mediaState === 'failed'")
+    assert.equal(await evaluate("!document.querySelector('[data-media-poster]').hidden && !document.querySelector('[data-media-status]').hidden && document.activeElement.matches('[data-media-play]')"), true)
+    cases.push({ state: 'media-failure', capability: 'keyboard-activation-recovery', passed: true })
+  }
 
   for (const pathName of ['/?q=private-review', '/admin', '/appointments/', '//external.invalid/']) {
     const response = await fetch(server.origin + pathName)
@@ -231,15 +287,17 @@ try {
         ...(value.startsWith('data:') ? { mime: value.slice(5).split(/[,;]/u)[0] } : {}) })))}`)
   const mediaBytes = await readFile(new URL('../public/fixtures/b01-012-abstract-motion.webm', import.meta.url))
   const captionBytes = await readFile(new URL('../public/fixtures/b01-012-abstract-motion.vtt', import.meta.url))
-  const report = { ticket: 'B03-004', scope: 'Isolated controlled Home T0; not deployed-route or language/AT acceptance',
+  const report = { ticket: contacts ? 'B03-005' : 'B03-004', scope: 'Isolated controlled Home T0; not deployed-route or language/AT acceptance',
     cases, samples: server.samples, activatedMediaRequests: server.requestLog.filter((url) => /\.(webm|vtt)$/u.test(url)),
-    activatedMedia: { bytes: mediaBytes.byteLength, captionBytes: captionBytes.byteLength, durationSeconds: 2,
+    activatedMedia: contacts ? null : { bytes: mediaBytes.byteLength, captionBytes: captionBytes.byteLength, durationSeconds: 2,
       posterAssetBytes: 0, kind: 'abstract informative test film, no hospital people/facilities', provider: 'none' },
     externalRequests: 0, inlineImageEvents: requests.filter((url) => url.startsWith('data:image/')).length,
     forbiddenRequestControls: 6, reflowBasis: '320 CSS px also covers 1280 px at 400% zoom equivalent',
     metricsBasis: 'Local Chromium samples only; no constrained-device LCP/INP or motion long-task attribution is claimed' }
-  if (capture) await writeFile(path.join(captureRoot, 'browser-report.json'), JSON.stringify(report, null, 2) + '\n')
-  console.log(`Home browser matrix passed: ${cases.length} cases, native task/skip/menu keyboard, media lifecycle/failure/history, zero pre-intent/external media requests.`)
+  if (capture) await writeFile(path.join(captureRoot, captureOnly ? 'capture-report.json' : 'browser-report.json'), JSON.stringify(report, null, 2) + '\n')
+  console.log(contacts
+    ? `Home contact browser matrix passed: ${cases.length} cases, native keyboard, lifecycle/accessibility tree, emulated touch, no external requests or callable targets.`
+    : `Home browser matrix passed: ${cases.length} cases, native task/skip/menu keyboard, media lifecycle/failure/history, zero pre-intent/external media requests.`)
 } finally {
   socket?.close()
   browser.kill('SIGTERM')

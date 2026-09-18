@@ -1,0 +1,3272 @@
+{
+  "ticket": "B03-005",
+  "scope": "Isolated controlled Home T0; not deployed-route or language/AT acceptance",
+  "cases": [
+    {
+      "state": "contacts-current",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 104,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9311067889228489,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 320,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 360,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 768,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 76,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "width": 1440,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9311067889228489,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 320,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 360,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 768,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-missing",
+      "width": 1440,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9311067889228489,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 320,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 360,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 768,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-unverified",
+      "width": 1440,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9322550091074682,
+        "lcp": 36,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 320,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 360,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 768,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-expired",
+      "width": 1440,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9311067889228489,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 320,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 100,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 360,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 768,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-withdrawn",
+      "width": 1440,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9311067889228489,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 320,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 360,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 768,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 76,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 88,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-updated",
+      "width": 1440,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9322550091074682,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 320,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 360,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 72,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 68,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 80,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 768,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 64,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-amharic-unavailable",
+      "width": 1440,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 320,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 320,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 320,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 320,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 320,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 320,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 320,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9311067889228489,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 320,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 360,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 360,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 360,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 360,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 360,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 360,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 360,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 40,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 360,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9370177133655394,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 360,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 768,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 768,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 768,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 768,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 768,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 768,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 768,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 768,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.9454035709015789,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 768,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 48,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 1440,
+      "capability": "default",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 1440,
+      "capability": "reduced-motion",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 1440,
+      "capability": "forced-colors",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 1440,
+      "capability": "save-data",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 56,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 1440,
+      "capability": "images-fonts-blocked",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 1440,
+      "capability": "print",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 44,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 1440,
+      "capability": "200%-text",
+      "passed": true,
+      "metrics": {
+        "cls": 0.7951864035087719,
+        "lcp": 60,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-public-denied",
+      "width": 1440,
+      "capability": "no-css",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 52,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "contacts-current",
+      "capability": "updated-lifecycle-accessibility-tree",
+      "passed": true
+    },
+    {
+      "state": "contacts-updated",
+      "capability": "updated-lifecycle-accessibility-tree",
+      "passed": true
+    },
+    {
+      "state": "contacts-expired",
+      "capability": "updated-lifecycle-accessibility-tree",
+      "passed": true
+    },
+    {
+      "state": "contacts-withdrawn",
+      "capability": "updated-lifecycle-accessibility-tree",
+      "passed": true
+    },
+    {
+      "state": "contacts-current",
+      "capability": "emulated-touch-directions",
+      "passed": true
+    }
+  ],
+  "samples": {
+    "contacts-current": {
+      "initialGzipBytes": 16256,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "contacts-missing": {
+      "initialGzipBytes": 16005,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "contacts-unverified": {
+      "initialGzipBytes": 16005,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "contacts-expired": {
+      "initialGzipBytes": 16005,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "contacts-withdrawn": {
+      "initialGzipBytes": 16004,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "contacts-updated": {
+      "initialGzipBytes": 16257,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "contacts-amharic-unavailable": {
+      "initialGzipBytes": 16005,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "contacts-public-denied": {
+      "initialGzipBytes": 16005,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    }
+  },
+  "activatedMediaRequests": [],
+  "activatedMedia": null,
+  "externalRequests": 0,
+  "inlineImageEvents": 0,
+  "forbiddenRequestControls": 6,
+  "reflowBasis": "320 CSS px also covers 1280 px at 400% zoom equivalent",
+  "metricsBasis": "Local Chromium samples only; no constrained-device LCP/INP or motion long-task attribution is claimed"
+}
