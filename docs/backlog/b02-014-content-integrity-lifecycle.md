@@ -1,7 +1,7 @@
 # B02-014 — Content Integrity and Lifecycle Evidence
 
 **Lane / priority / phase:** EVIDENCE / P1 / Phase 1 preparation  
-**Status:** In review for controlled development; all local gates pass
+**Status:** Done for controlled development; final documentation CI and checked merge required
 
 On 18 September 2026, Africa/Addis_Ababa, the client directed “start” following the proposed
 B02-014 execution. Responsible person and controlled review authority: workspace identity
@@ -61,7 +61,8 @@ git diff --check
 The new assertions run through `pnpm test`; the build check runs after `pnpm build` in
 `pnpm verify`. CI also repeats it during clean reconstruction. See the
 [execution evidence](evidence/B02-014-content-integrity-lifecycle-2026-09-18.md).
-Hosted exact-head review and client controlled acceptance remain required before Done.
+Hosted implementation review passes; the client directed closeout and accepted controlled development.
+Final acceptance-documentation CI must pass before checked merge, followed by exact-main CI.
 
 ## Local review result
 
@@ -70,8 +71,14 @@ inspects 73 source/config files, six traces and 138 output payloads against know
 markers and 82 evidence-asset fingerprints, with zero findings. Full repository verification,
 complete disposable PostgreSQL integration, frozen clean reconstruction, history secret scan,
 dependency audit and diff checks pass. Sandbox failures and their passing unrestricted retests
-remain in the evidence. Hosted exact-head review and client controlled acceptance are pending;
-no acceptance or merge is claimed.
+remain in the evidence. Hosted implementation T1 passes for commit
+`d2942da68fcd082cf5c5c4e6abff6737da62c830` under
+[run 35390517090](https://github.com/dynamicet/hallelujah-website/actions/runs/35390517090).
+On 18 September 2026, 23:26 Africa/Addis_Ababa, the client directed “close it”, accepting
+controlled development under workspace identity `befikadusata` in temporary QA/Content roles.
+The ticket moves In review → **Done**. Final documentation CI, checked merge of
+[PR #59](https://github.com/dynamicet/hallelujah-website/pull/59), and passing exact-main CI
+remain required for closeout; issue #58 and PR #59 retain matching SHA/run and merge evidence.
 
 Authentic records, hospital migration decisions, professional language approval, formal DEL-01,
 providers, collection, provisioning and publication retain their existing gates.

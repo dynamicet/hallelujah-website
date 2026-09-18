@@ -2,7 +2,7 @@
 
 **Date / timezone:** 18 September 2026, Africa/Addis_Ababa  
 **Target:** Synthetic local T0 and private hosted T1  
-**Status:** In review; all local gates pass; no acceptance claimed
+**Status:** Done for controlled development; final documentation CI and checked merge required
 
 Client direction: “start” following the proposed B02-014 execution. Responsible person and
 controlled review authority: `befikadusata` directing Codex in temporary QA/Content roles.
@@ -71,3 +71,24 @@ No scoped implementation defect remains open. Hosted exact-head T1 and client co
 acceptance remain required; issue #58 retains the reviewed SHA, PR and run pointers.
 Formal DEL-01, hospital decisions, authentic content/migration, professional language approval,
 providers, collection, remote provisioning, production and publication remain gated.
+
+## Controlled acceptance and closeout
+
+On 18 September 2026, 23:26 Africa/Addis_Ababa, the client directed “close it”. B02-014
+moves In review → **Done** for controlled development. Responsible and acceptance person:
+workspace identity `befikadusata` directing Codex in temporary QA/Content roles. Dependencies
+B02-003–B02-013 are Done; synthetic local T0 and private hosted T1 remain the target.
+
+Hosted implementation [run 35390517090](https://github.com/dynamicet/hallelujah-website/actions/runs/35390517090)
+passes every quality/security step, full repository verification and independent clean
+reconstruction for exact commit `d2942da68fcd082cf5c5c4e6abff6737da62c830` under
+[PR #59](https://github.com/dynamicet/hallelujah-website/pull/59). All recorded local gates pass;
+no scoped implementation defect remains open. This client direction supplies controlled
+acceptance only; formal DEL-01 and all authentic-content and production gates remain open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge. The
+matching documentation SHA/run, merge SHA and exact-main result must be retained in
+[issue #58](https://github.com/dynamicet/hallelujah-website/issues/58) and PR #59. Dependent
+execution waits for passing exact-main CI. B03-004 Home hierarchy is the next implementation
+candidate, subject to controlled-development readiness checks; no public route is authorized
+by this closeout.
