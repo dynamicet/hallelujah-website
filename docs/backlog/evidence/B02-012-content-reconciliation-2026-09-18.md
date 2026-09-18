@@ -1,7 +1,7 @@
 # B02-012 — Controlled Reconciliation Evidence
 
 **Date / timezone:** 18 September 2026 / Africa/Addis_Ababa
-**Target:** Private local T0 passes; controlled client acceptance, hospital content acceptance and hosted T1 remain pending.
+**Target:** Private local T0 and hosted implementation T1 pass; accepted for controlled development. Hospital content acceptance remains gated.
 **Responsible / controlled reviewer:** `befikadusata` directing Codex in temporary Content Manager and QA roles.
 **Base:** `2c50a3cf26524b2ebb6f1aef9fc2663ebcc9bb4f`, B02-011 PR #53 merge; exact-main
 [run 35279658953](https://github.com/dynamicet/hallelujah-website/actions/runs/35279658953) passed.
@@ -55,10 +55,11 @@ test; a permitted run outside the sandbox passed that test but then failed becau
 the existing pinned Python environment passed the entire suite. These are retained as environment/
 prerequisite failures, not hidden successful runs. No scoped implementation defect remains open.
 The unchanged hosted workflow already installs the pinned Python requirements and sets
-`ASSET_FORMAT_PYTHON`; hosted exact-head verification still must run independently.
+`ASSET_FORMAT_PYTHON`; the independent hosted result is recorded in the closeout section below.
 
-Verification identifies the local branch working tree based on the merge SHA above. No new
-commit, pushed branch, issue, PR or hosted pass is claimed by this local execution evidence.
+Local implementation commit: `24785783f93d9e5396f738525072ed467c728647`.
+[Issue #54](https://github.com/dynamicet/hallelujah-website/issues/54) tracks hosted verification,
+controlled acceptance and checked merge/main closeout. No hosted pass is inferred from local checks.
 
 No new dependency, application code, database mutation, public fixture, fetched source/media,
 provider request or personal-data intake is introduced. Source forms/URLs remain inert evidence.
@@ -70,3 +71,28 @@ Controlled draft preparation does not close GOV-01, SEC-01 or SAFE/CARE/ACCESS/I
 decisions. Hospital content/domain acceptance, named review ownership, authentic policy/facts,
 reviewed translations, actual import/export or migration, redirects, production and publication
 remain gated. Client acceptance and hosted exact-head CI are separate closeout evidence.
+
+## Client-directed closeout
+
+On 18 September 2026, Africa/Addis_Ababa, `befikadusata` directed “close out B02-012”.
+The same workspace identity is responsible and controlled acceptance authority in temporary
+Content Manager/QA roles. This accepts the controlled draft boundary and authorizes the tracking,
+checked review/merge and exact-main verification; it does not approve hospital dispositions.
+The repeated reconciliation check passes all 259-unit coverage and integrity/approval negatives.
+Closeout format, local-link, all ten backlog assertions, reachable-history secret scan and diff
+checks pass. The fresh dependency audit passes for 650 dependencies with zero moderate, high
+or critical findings. Its initial restricted-network attempt returned an incomplete registry
+report; the permitted network retest passes without changing the checker.
+[PR #55](https://github.com/dynamicet/hallelujah-website/pull/55) reviews the implementation;
+hosted [run 35340428619](https://github.com/dynamicet/hallelujah-website/actions/runs/35340428619)
+passes every step, including full verification and clean reconstruction, for exact implementation
+commit `24785783f93d9e5396f738525072ed467c728647`.
+
+B02-012 moves In review → **Done** for controlled development under the same responsible and
+acceptance identity on 18 September 2026, Africa/Addis_Ababa. Dependency B02-011 is Done with
+passing merge/main evidence above. No scoped implementation defect remains open. The final
+acceptance-documentation head must repeat hosted CI before PR #55 merges; issue #54 and PR #55
+will retain its matching SHA/run, checked merge and exact-main result. B02-013 is the next candidate
+after successful closeout, subject to controlled-development readiness checks. The 20 hospital
+review issues and unavailable raw snapshot remain explicit; no hospital approval or authentic
+migration, production or publication authority is promoted.
