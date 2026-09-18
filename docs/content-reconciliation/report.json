@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "boundary": "controlled-draft-no-migration",
+  "sourceExtractionDate": "2026-09-10",
+  "availableSourceUnits": 259,
+  "dispositionedSourceUnits": 259,
+  "unaccountedSourceUnits": 0,
+  "kinds": {
+    "clinician": 32,
+    "clinician-alias": 1,
+    "service": 39,
+    "page": 9,
+    "media": 85,
+    "profile": 93
+  },
+  "dispositions": {
+    "approve": 0,
+    "correct": 38,
+    "merge": 1,
+    "omit": 1,
+    "defer": 219,
+    "reject": 0
+  },
+  "openReviewIssues": 20,
+  "currentDirectoryClinicians": 17,
+  "profileOnlyClinicians": 15,
+  "rawSnapshotPageCount": 99,
+  "rawSnapshotAvailable": false,
+  "rawPageCoverage": "unverifiable-without-original-snapshot",
+  "approvedCanonicalRecords": 0,
+  "approvedFacts": 0,
+  "migrationMutations": 0,
+  "limitations": [
+    "The 99-page raw WordPress snapshot is absent; available-bundle coverage is not raw-page coverage.",
+    "Extracted text, links, forms and media URLs are inert evidence, never verified facts or executable configuration.",
+    "No hospital approval, named hospital owner, canonical ID, corrected copy, translation, redirect or production migration is supplied."
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "name": "Hallelujah General Hospital",
+  "tagline_as_published": "BRINGING QUALITY CARE HOME!",
+  "source_site": "https://hallelujahhospital.com/",
+  "extracted_at": "2026-09-10",
+  "publish_status": "draft-requires-hospital-verification",
+  "story": {
+    "timeline_as_published": [
+      {
+        "year": "2006",
+        "event": "Hallelujah Center for Internal Medicine and Chest Disease PLC was established."
+      },
+      {
+        "year": "2007",
+        "event": "The center became formally operational on Bole Road, in front of Bole Printing Press."
+      },
+      {
+        "year": "2010",
+        "event": "The organization changed its name to Hallelujah Higher Medical Clinic PLC."
+      },
+      {
+        "year": "2013–present",
+        "event": "The source says the clinic provided general and pulmonary medicine and later constructed a G+6 building, described as eight stories including basement and ground floors."
+      },
+      {
+        "date": "2017-05-07",
+        "event": "The source says the hospital became fully operational after an inauguration attended by then-President Mulatu Teshome and public officials."
+      }
+    ],
+    "overview_as_published": "Hallelujah Hospital provides a comprehensive service at one place, from diagnosis to major surgeries.",
+    "source_url": "https://hallelujahhospital.com/about/"
+  },
+  "mission_as_published": "To be customer’s first choice, provide high quality and specialized medical care through specialized diagnostic, treatment services, and trusted care at competitive cost and best service enriched by research and training, thereby complementing the preventive medical services rendered by the Government of Ethiopia.",
+  "vision_as_published": "Our hospital aspires to be a well-organized, technologically advanced, and the leading healthcare provider in the horn Africa. We are dedicated to provide quality medical services. We are very meticulous to the details of medical standards, hospitality and compassion to the satisfaction of our clients.",
+  "core_values_as_published": [
+    {
+      "name": "Human Dignity",
+      "description": "We respect the rights of our patients by providing physical, emotional, and spiritual care for patients and their families."
+    },
+    {
+      "name": "Excellence",
+      "description": "Delivering medical services beyond the expectation of clients."
+    },
+    {
+      "name": "Compassionate & Quality Care",
+      "description": "We take a personal interest in our clients."
+    },
+    {
+      "name": "Socially Responsible",
+      "description": "Using resources wisely and balancing care for people most in need with highly specialized services for the broader community."
+    },
+    {
+      "name": "Staff Empowerment",
+      "description": "Building a working environment where each person is valued and respected and has opportunities for personal and professional growth."
+    }
+  ],
+  "published_facts_requiring_verification": [
+    {
+      "claim": "115 total beds, including 96 inpatient beds",
+      "source_url": "https://hallelujahhospital.com/about/"
+    },
+    {
+      "claim": "More than 450 jobs",
+      "source_url": "https://hallelujahhospital.com/about/"
+    },
+    {
+      "claim": "Approximately ten minutes from Bole International Airport",
+      "source_url": "https://hallelujahhospital.com/about/"
+    },
+    {
+      "claim": "19+ years of experience",
+      "source_url": "https://hallelujahhospital.com/"
+    },
+    {
+      "claim": "175,000+ patients served",
+      "source_url": "https://hallelujahhospital.com/"
+    },
+    {
+      "claim": "24/7 emergency service",
+      "source_url": "https://hallelujahhospital.com/emergency/"
+    }
+  ],
+  "leadership_as_published": [
+    {
+      "name": "Yetnayet Eshetu",
+      "honorific_as_published": "W/ro",
+      "role": "Chief Executive Officer (CEO)"
+    },
+    {
+      "name": "Professor Getachew Aderaye",
+      "role": "Chief Clinical Officer (CCO)"
+    },
+    {
+      "name": "Gebeyehu Seyoum",
+      "honorific_as_published": "Mr.",
+      "role": "Deputy Chief Executive Officer"
+    },
+    {
+      "name": "Abdi Ketema",
+      "honorific_as_published": "Dr.",
+      "role": "Medical Director"
+    }
+  ],
+  "contact": {
+    "general_phones_as_published": [
+      "+251-114-704242",
+      "+251-114-704244",
+      "+251-965-407886",
+      "+251-945-211206"
+    ],
+    "emergency_phone_as_published": "+251-940-105692",
+    "ambulance_phone_as_published": "+251-940-105692",
+    "email": "info@hallelujahhospital.com",
+    "street_description_as_published": "Around Gotera Condominium, Addis Ababa, Ethiopia",
+    "city": "Addis Ababa",
+    "country": "Ethiopia",
+    "postal_box": "301",
+    "map_coordinates_from_embed": {
+      "latitude": 9.0465772,
+      "longitude": 38.7455048
+    },
+    "source_urls": [
+      "https://hallelujahhospital.com/contact/",
+      "https://hallelujahhospital.com/emergency/"
+    ]
+  },
+  "social_profiles_as_published": {
+    "telegram": "https://t.me/hallelujah_GHospital",
+    "instagram": "https://www.instagram.com/official_hallelujahospital/?hl=en",
+    "tiktok": "https://www.tiktok.com/@hallelujahospital",
+    "facebook": "https://web.facebook.com/hallelujah.hospital"
+  },
+  "appointment_request": {
+    "source_url": "https://hallelujahhospital.com/appointment/",
+    "form_action_as_published": "https://api.hallelujahhospital.com/request-appointment",
+    "method": "POST",
+    "fields_as_published": [
+      "Full Name",
+      "Phone Number",
+      "Appointment Date",
+      "Doctor",
+      "Department",
+      "Service",
+      "Additional Notes"
+    ]
+  },
+  "emergency_and_ambulance": {
+    "source_url": "https://hallelujahhospital.com/emergency/",
+    "audience_as_published": "Pediatric and adult patients",
+    "ambulance_equipment_as_published": [
+      "Infusion pump",
+      "Mechanical ventilation",
+      "Patient monitor",
+      "Suction machine",
+      "Defibrillator"
+    ]
+  },
+  "visitor_journey_as_published": [
+    {
+      "step": 1,
+      "name": "Reception / front desk",
+      "description": "New patients provide registration details and medical history information."
+    },
+    {
+      "step": 2,
+      "name": "Triage",
+      "description": "Vital signs, consultation, and specialty routing."
+    },
+    {
+      "step": 3,
+      "name": "Cashier",
+      "description": "Payment handling."
+    },
+    {
+      "step": 4,
+      "name": "OPD station",
+      "description": "Payment confirmation and assignment to the doctor waiting list."
+    }
+  ],
+  "technology_as_published": [
+    "Allengers C-Arm X-ray machine",
+    "Mindray WATO EX-20 anesthesia system",
+    "ProOne panoramic dental X-ray machine",
+    "Infant warmer",
+    "Panda i-Res Warmer",
+    "Integrated immunoassay and clinical chemistry analyzer"
+  ],
+  "partners_as_published": [
+    "Safaricom",
+    "MOENCO",
+    "TotalEnergies",
+    "MOHA Soft Drink Industries",
+    "Oracle",
+    "Oromia Insurance",
+    "Nib Bank",
+    "United States Embassy",
+    "Ethiopian Airlines",
+    "Ethio Telecom",
+    "Cigna Healthcare",
+    "MSF Holland",
+    "Civil Aviation Authority",
+    "IOM",
+    "Awash Insurance",
+    "Ethiopia Investment Holdings",
+    "Henner Insurance",
+    "Amanah Insurance",
+    "Dashen Bank"
+  ]
+}

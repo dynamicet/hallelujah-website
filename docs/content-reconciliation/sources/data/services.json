@@ -1,0 +1,2914 @@
+[
+  {
+    "id": 1784,
+    "title": "Emergency Department",
+    "group": "access-and-hospital-care",
+    "slug": "emergency-2",
+    "source_url": "https://hallelujahhospital.com/emergency-2/",
+    "source_modified": "2025-08-08T12:51:45",
+    "sections": [
+      {
+        "heading": "Emergency Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "24/7 Emergency Care — Fast, Reliable, Life-Saving",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The Emergency Department at Hallelujah General Hospital operates 24 hours a day, 7 days a week to provide immediate medical care for urgent and life-threatening conditions. Staffed by skilled emergency physicians, nurses, and trauma responders, our emergency unit is equipped to handle a wide range of critical cases with speed and compassion."
+          }
+        ]
+      },
+      {
+        "heading": "What We Handle",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Accidents & Injuries"
+          },
+          {
+            "type": "list-item",
+            "text": "Severe Bleeding or Trauma"
+          },
+          {
+            "type": "list-item",
+            "text": "Heart Attacks (Chest Pain, Shortness of Breath)"
+          },
+          {
+            "type": "list-item",
+            "text": "Stroke Symptoms (Numbness, Slurred Speech)"
+          },
+          {
+            "type": "list-item",
+            "text": "High Fever, Seizures, or Loss of Consciousness"
+          },
+          {
+            "type": "list-item",
+            "text": "Severe Abdominal Pain"
+          },
+          {
+            "type": "list-item",
+            "text": "Breathing Difficulties & Asthma Attacks"
+          },
+          {
+            "type": "list-item",
+            "text": "Poisoning & Allergic Reactions"
+          },
+          {
+            "type": "list-item",
+            "text": "Obstetric & Pediatric Emergencies"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1678,
+    "title": "Outpatient Department (OPD)",
+    "group": "access-and-hospital-care",
+    "slug": "outpatient-department",
+    "source_url": "https://hallelujahhospital.com/outpatient-department/",
+    "source_modified": "2025-08-08T14:19:15",
+    "sections": [
+      {
+        "heading": "Outpatient Department (OPD)",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Your First Step to Expert Medical Care",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Outpatient Department (OPD) is designed to provide quick, accessible, and professional medical services without the need for hospital admission. Whether you need a consultation, follow-up care, or a referral for specialized treatment, our OPD is your first stop."
+          }
+        ]
+      },
+      {
+        "heading": "Our Services Include:",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "General Consultations"
+          },
+          {
+            "type": "list-item",
+            "text": "Specialist Consultations (e.g., Internal Medicine, Pediatrics, Gynecology, Surgery, Dermatology, ENT, Orthopedics, etc.)"
+          },
+          {
+            "type": "list-item",
+            "text": "Vital Signs & Preliminary Assessment"
+          },
+          {
+            "type": "list-item",
+            "text": "Prescription & Medication Guidance"
+          },
+          {
+            "type": "list-item",
+            "text": "Minor Procedures & Wound Care"
+          },
+          {
+            "type": "list-item",
+            "text": "Referral to Imaging, Laboratory, or Specialist Units"
+          },
+          {
+            "type": "list-item",
+            "text": "Chronic Disease Follow-Up (e.g., diabetes, hypertension)"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1778,
+    "title": "In-Patient Department (IPD)",
+    "group": "access-and-hospital-care",
+    "slug": "ipd",
+    "source_url": "https://hallelujahhospital.com/ipd/",
+    "source_modified": "2025-08-08T12:29:56",
+    "sections": [
+      {
+        "heading": "In-Patient Department (IPD)",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Comprehensive, Compassionate Care During Your Stay",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Inpatient Department (IPD) provides high-quality, 24/7 medical care for patients who require hospital admission. Whether you’re recovering from surgery, receiving treatment for a serious illness, or under observation, our team is dedicated to ensuring your safety, comfort, and recovery throughout your stay."
+          }
+        ]
+      },
+      {
+        "heading": "What We Offer",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Private, Semi-Private & General WardsComfortable rooms designed to support healing and privacy."
+          },
+          {
+            "type": "paragraph",
+            "text": "Continuous Medical & Nursing CareExperienced doctors and nurses available around the clock."
+          },
+          {
+            "type": "paragraph",
+            "text": "Daily Specialist RoundsMonitoring by the assigned physician and supporting specialists to ensure treatment is on track."
+          },
+          {
+            "type": "paragraph",
+            "text": "Nutrition & Dietary SupportCustomized meals based on medical and dietary needs."
+          },
+          {
+            "type": "paragraph",
+            "text": "Pharmacy & Lab Services On-SiteQuick access to medications and diagnostic tests without delays."
+          },
+          {
+            "type": "paragraph",
+            "text": "Patient & Family SupportCounseling, health education, and discharge planning support."
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1791,
+    "title": "Intensive Care Unit (ICU)",
+    "group": "access-and-hospital-care",
+    "slug": "icu",
+    "source_url": "https://hallelujahhospital.com/icu/",
+    "source_modified": "2025-08-08T12:59:07",
+    "sections": [
+      {
+        "heading": "Intensive Care Unit (ICU)",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Advanced Critical Care. Round-the-Clock Life Support.",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Intensive Care Unit (ICU) is designed to provide specialized care for critically ill or medically unstable patients who require close monitoring and life-saving interventions. Staffed by experienced critical care physicians, ICU nurses, and respiratory therapists, our ICU operates 24/7 with the highest level of vigilance and technology."
+          }
+        ]
+      },
+      {
+        "heading": "Who Needs ICU Care?",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Patients with life-threatening illnesses or injuries"
+          },
+          {
+            "type": "list-item",
+            "text": "Post-operative patients requiring intensive monitoring"
+          },
+          {
+            "type": "list-item",
+            "text": "Respiratory failure or severe pneumonia"
+          },
+          {
+            "type": "list-item",
+            "text": "Heart attack, cardiac arrest, or arrhythmias"
+          },
+          {
+            "type": "list-item",
+            "text": "Stroke or traumatic brain injury"
+          },
+          {
+            "type": "list-item",
+            "text": "Sepsis and severe infections"
+          },
+          {
+            "type": "list-item",
+            "text": "Multi-organ failure or shock"
+          },
+          {
+            "type": "list-item",
+            "text": "Poisoning or overdose cases"
+          }
+        ]
+      },
+      {
+        "heading": "Key Features of Our ICU",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "24/7 Monitoring: Continuous observation of vital signs using advanced monitoring systems"
+          },
+          {
+            "type": "list-item",
+            "text": "Critical Care Expertise: Skilled ICU doctors, nurses, and support teams trained in emergency response"
+          },
+          {
+            "type": "list-item",
+            "text": "Ventilator & Respiratory Support: For patients with breathing difficulties or lung failure"
+          },
+          {
+            "type": "list-item",
+            "text": "Infusion Pumps & Life-Support Equipment: To manage medications, fluids, and nutrition precisely"
+          },
+          {
+            "type": "list-item",
+            "text": "Strict Infection Control Protocols: Ensuring a clean and controlled environment for the most vulnerable patients"
+          },
+          {
+            "type": "list-item",
+            "text": "Family Communication & Counseling: Regular updates and emotional support for patient families"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1611,
+    "title": "Nursing Department",
+    "group": "access-and-hospital-care",
+    "slug": "nursing-department",
+    "source_url": "https://hallelujahhospital.com/nursing-department/",
+    "source_modified": "2025-08-08T12:30:27",
+    "sections": [
+      {
+        "heading": "Nursing Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Where Compassion Meets Clinical Excellence",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Nursing Department is at the heart of patient care. Our highly trained and compassionate nurses provide attentive, personalized care to every patient — ensuring safety, comfort, and dignity throughout your healthcare journey."
+          }
+        ]
+      },
+      {
+        "heading": "Our Commitment to You",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Our nurses are not just caregivers — they are advocates for your well-being. Whether you are visiting for a routine procedure, recovering from surgery, or receiving critical care, our nursing team is with you every step of the way."
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1881,
+    "title": "Pharmacy Department",
+    "group": "access-and-hospital-care",
+    "slug": "pharmacy-department",
+    "source_url": "https://hallelujahhospital.com/pharmacy-department/",
+    "source_modified": "2025-08-08T13:07:37",
+    "sections": [
+      {
+        "heading": "Pharmacy Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Ensuring Safe, Accessible, and Effective Medication for Every Patient",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Pharmacy Department plays a vital role in patient care by providing high-quality, safe, and timely access to essential medications. Staffed by licensed pharmacists and trained technicians, the department ensures proper medication dispensing, dosage accuracy, and patient counseling as part of a coordinated healthcare approach."
+          }
+        ]
+      },
+      {
+        "heading": "Our Services Include:",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Inpatient and outpatient medication services"
+          },
+          {
+            "type": "list-item",
+            "text": "Accurate and safe dispensing of prescriptions"
+          },
+          {
+            "type": "list-item",
+            "text": "Patient counseling and medication education"
+          },
+          {
+            "type": "list-item",
+            "text": "Drug interaction monitoring"
+          },
+          {
+            "type": "list-item",
+            "text": "Support for chronic disease medication management"
+          },
+          {
+            "type": "list-item",
+            "text": "Emergency and critical care medication support"
+          },
+          {
+            "type": "list-item",
+            "text": "Antibiotic stewardship in coordination with physicians"
+          },
+          {
+            "type": "list-item",
+            "text": "Special pharmaceutical support for pediatric and elderly patients"
+          },
+          {
+            "type": "list-item",
+            "text": "Collaboration with clinicians for optimal therapeutic outcomes"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1688,
+    "title": "Laboratory Department",
+    "group": "access-and-hospital-care",
+    "slug": "laboratory-department",
+    "source_url": "https://hallelujahhospital.com/laboratory-department/",
+    "source_modified": "2025-08-08T14:14:13",
+    "sections": [
+      {
+        "heading": "Laboratory Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Accurate Results. Timely Diagnosis. Quality You Can Trust.",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Laboratory Department plays a critical role in diagnosis, treatment planning, and patient monitoring. We offer a full range of diagnostic tests performed by experienced lab professionals using state-of-the-art equipment — ensuring accurate, fast, and reliable results."
+          }
+        ]
+      },
+      {
+        "heading": "Our Services Include:",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Clinical Chemistry Tests (e.g. blood glucose, liver and kidney function)"
+          },
+          {
+            "type": "list-item",
+            "text": "Hematology (e.g. complete blood count, blood typing)"
+          },
+          {
+            "type": "list-item",
+            "text": "Microbiology & Infection Screening (e.g. urine, stool, and culture tests)"
+          },
+          {
+            "type": "list-item",
+            "text": "Immunology & Serology (e.g. HIV, Hepatitis, COVID-19 tests)"
+          },
+          {
+            "type": "list-item",
+            "text": "Hormonal & Fertility Tests (e.g. thyroid, reproductive hormone levels)"
+          },
+          {
+            "type": "list-item",
+            "text": "Parasitology (e.g. malaria, intestinal parasites)"
+          },
+          {
+            "type": "list-item",
+            "text": "Urine & Stool Analysis"
+          },
+          {
+            "type": "list-item",
+            "text": "Pregnancy & ANC Lab Panels"
+          },
+          {
+            "type": "list-item",
+            "text": "Pre-Operative Screening"
+          },
+          {
+            "type": "list-item",
+            "text": "Health Check-up Packages"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1551,
+    "title": "Imaging Department",
+    "group": "access-and-hospital-care",
+    "slug": "imaging-department",
+    "source_url": "https://hallelujahhospital.com/imaging-department/",
+    "source_modified": "2025-08-08T14:10:54",
+    "sections": [
+      {
+        "heading": "Imaging Department",
+        "level": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah Imaging Department, we bring precision, speed, and clarity to your diagnosis. Equipped with the latest medical imaging technologies, including Digital X-ray, Ultrasound, CT Scan, MRI, and Panoramic Dental Imaging, we provide comprehensive diagnostic services under one roof."
+          },
+          {
+            "type": "paragraph",
+            "text": "Our team of skilled radiologists and technologists ensure that every scan is performed with the highest standards of safety, accuracy, and patient comfort. Whether it’s a routine check-up or a specialized diagnostic exam, we deliver clear results that empower your healthcare journey."
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1787,
+    "title": "Pathology",
+    "group": "access-and-hospital-care",
+    "slug": "pathology",
+    "source_url": "https://hallelujahhospital.com/pathology/",
+    "source_modified": "2025-08-08T12:32:25",
+    "sections": [
+      {
+        "heading": "Pathology Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Precision Diagnostics That Guide Treatment",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, the Pathology Department plays a central role in diagnosing diseases by examining tissues, blood, and other body fluids. Our experienced pathologists work closely with clinicians to provide accurate, timely, and detailed diagnostic reports — forming the foundation of effective treatment planning."
+          }
+        ]
+      },
+      {
+        "heading": "Our Services Include:",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Microscopic examination of tissue samples (biopsies, surgical specimens) for accurate diagnosis of cancers, tumors, and infections."
+          },
+          {
+            "type": "list-item",
+            "text": "Analysis of individual cells (e.g. Pap smears, FNAC) for early detection of disease."
+          },
+          {
+            "type": "list-item",
+            "text": "Study of blood, bone marrow, and lymph nodes to diagnose blood-related conditions such as anemia, leukemia, and lymphoma."
+          },
+          {
+            "type": "list-item",
+            "text": "Interpretation of routine blood, urine, and body fluid tests in collaboration with the clinical lab."
+          },
+          {
+            "type": "list-item",
+            "text": "Advanced testing for cancer markers, helping in tumor classification and treatment decisions."
+          },
+          {
+            "type": "list-item",
+            "text": "Intraoperative tissue diagnosis to support immediate surgical decisions."
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 815,
+    "title": "Internal Medicine",
+    "group": "medicine",
+    "slug": "internal-medicine",
+    "source_url": "https://hallelujahhospital.com/internal-medicine/",
+    "source_modified": "2025-07-22T13:42:29",
+    "sections": [
+      {
+        "heading": "Internal Medicine",
+        "level": 1,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Our Internal Medicine Department provides expert, patient-centered care for adults, covering a wide range of medical needs from routine check-ups to the management of complex chronic illnesses. Our experienced internists and subspecialists work together to offer high-quality, evidence-based care across multiple areas of adult health."
+          }
+        ]
+      },
+      {
+        "heading": "Involved Departments",
+        "level": 2,
+        "content": []
+      },
+      {
+        "heading": "Cardiology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Neurology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Nephrology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Gastroenterology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Infectious",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Endocrinology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Rheumatology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Infectious",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Pulmonology",
+        "level": 3,
+        "content": []
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1798,
+    "title": "Cardiology",
+    "group": "medicine",
+    "slug": "cardiology-2",
+    "source_url": "https://hallelujahhospital.com/cardiology-2/",
+    "source_modified": "2025-08-08T12:43:25",
+    "sections": [
+      {
+        "heading": "Cardiology Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Expert Heart Care You Can Trust",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Cardiology Department is committed to the prevention, diagnosis, and treatment of heart and vascular diseases. With a team of experienced cardiologists, advanced diagnostic tools, and personalized treatment plans, we help patients manage heart health with confidence and care."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Hypertension (High Blood Pressure)"
+          },
+          {
+            "type": "list-item",
+            "text": "Coronary Artery Disease (Heart Blockage)"
+          },
+          {
+            "type": "list-item",
+            "text": "Heart Failure"
+          },
+          {
+            "type": "list-item",
+            "text": "Arrhythmias (Irregular Heartbeat)"
+          },
+          {
+            "type": "list-item",
+            "text": "Heart Valve Disorders"
+          },
+          {
+            "type": "list-item",
+            "text": "Chest Pain & Shortness of Breath"
+          },
+          {
+            "type": "list-item",
+            "text": "Congenital Heart Conditions"
+          },
+          {
+            "type": "list-item",
+            "text": "High Cholesterol & Cardiovascular Risk"
+          },
+          {
+            "type": "list-item",
+            "text": "Post-Heart Attack Follow-Up"
+          }
+        ]
+      },
+      {
+        "heading": "Our Services Include",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Cardiac Consultations & Follow-Up Care"
+          },
+          {
+            "type": "list-item",
+            "text": "Electrocardiogram (ECG)"
+          },
+          {
+            "type": "list-item",
+            "text": "Echocardiography (Heart Ultrasound)"
+          },
+          {
+            "type": "list-item",
+            "text": "Treadmill Test (TMT)/Stress Testing"
+          },
+          {
+            "type": "list-item",
+            "text": "24-Hour Holter Monitoring"
+          },
+          {
+            "type": "list-item",
+            "text": "Cardiac Risk Screening & Prevention"
+          },
+          {
+            "type": "list-item",
+            "text": "Heart Failure Management"
+          },
+          {
+            "type": "list-item",
+            "text": "Referral to Cardiothoracic Surgery if Needed"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1856,
+    "title": "Neurology",
+    "group": "medicine",
+    "slug": "neurology",
+    "source_url": "https://hallelujahhospital.com/neurology/",
+    "source_modified": "2025-08-08T12:07:51",
+    "sections": [
+      {
+        "heading": "Neurology",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Expert Brain, Nerve & Spine Care You Can Trust",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The Neurology Department at Hallelujah General Hospital offers comprehensive care for conditions affecting the brain, spinal cord, and nervous system. Our neurologists specialize in diagnosing and treating a wide range of neurological disorders — from headaches and seizures to strokes and complex nerve diseases."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Stroke and Transient Ischemic Attack (TIA)"
+          },
+          {
+            "type": "list-item",
+            "text": "Epilepsy and seizures"
+          },
+          {
+            "type": "list-item",
+            "text": "Headaches & migraines"
+          },
+          {
+            "type": "list-item",
+            "text": "Parkinson’s disease"
+          },
+          {
+            "type": "list-item",
+            "text": "Alzheimer’s disease and memory disorders"
+          },
+          {
+            "type": "list-item",
+            "text": "Multiple sclerosis (MS)"
+          },
+          {
+            "type": "list-item",
+            "text": "Neuropathy and nerve pain"
+          },
+          {
+            "type": "list-item",
+            "text": "Muscle weakness and movement disorders"
+          },
+          {
+            "type": "list-item",
+            "text": "Dizziness, vertigo, and balance problems"
+          },
+          {
+            "type": "list-item",
+            "text": "Brain infections and inflammation"
+          }
+        ]
+      },
+      {
+        "heading": "Key Services Offered",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Neurology Consultations & Evaluation"
+          },
+          {
+            "type": "list-item",
+            "text": "EEG (Electroencephalogram) for seizure and brain activity analysis"
+          },
+          {
+            "type": "list-item",
+            "text": "Nerve Conduction Studies & EMG to assess nerve and muscle health"
+          },
+          {
+            "type": "list-item",
+            "text": "Stroke Risk Screening & Management"
+          },
+          {
+            "type": "list-item",
+            "text": "Chronic Headache and Migraine Clinics"
+          },
+          {
+            "type": "list-item",
+            "text": "Neuroimaging Coordination (CT, MRI, etc.)"
+          },
+          {
+            "type": "list-item",
+            "text": "Memory & Cognitive Function Testing"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1862,
+    "title": "Nephrology Department",
+    "group": "medicine",
+    "slug": "nephrology-department",
+    "source_url": "https://hallelujahhospital.com/nephrology-department/",
+    "source_modified": "2025-08-08T14:16:00",
+    "sections": [
+      {
+        "heading": "Nephrology Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Specialized Kidney Care with Precision and Compassion",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "The Nephrology Department at Hallelujah General Hospital is dedicated to the diagnosis, treatment, and long-term management of kidney-related conditions. We offer comprehensive care for patients with chronic kidney disease, hypertension, electrolyte disorders, and those requiring dialysis. Our goal is to preserve kidney function and improve quality of life through early detection and expert intervention."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Chronic Kidney Disease (CKD)"
+          },
+          {
+            "type": "list-item",
+            "text": "Acute Kidney Injury (AKI)"
+          },
+          {
+            "type": "list-item",
+            "text": "Glomerulonephritis"
+          },
+          {
+            "type": "list-item",
+            "text": "Diabetic & Hypertensive Kidney Disease"
+          },
+          {
+            "type": "list-item",
+            "text": "Kidney stones and infections"
+          },
+          {
+            "type": "list-item",
+            "text": "Electrolyte and acid-base imbalances"
+          },
+          {
+            "type": "list-item",
+            "text": "Protein or blood in urine"
+          },
+          {
+            "type": "list-item",
+            "text": "End-Stage Renal Disease (ESRD)"
+          },
+          {
+            "type": "list-item",
+            "text": "Polycystic Kidney Disease"
+          },
+          {
+            "type": "list-item",
+            "text": "Nephrotic & Nephritic Syndromes"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Nephrology Consultations"
+          },
+          {
+            "type": "list-item",
+            "text": "Kidney Function Testing (Creatinine, GFR, etc.)"
+          },
+          {
+            "type": "list-item",
+            "text": "24-Hour Blood Pressure Monitoring"
+          },
+          {
+            "type": "list-item",
+            "text": "Urinalysis & Proteinuria Evaluation"
+          },
+          {
+            "type": "list-item",
+            "text": "Renal Ultrasound & Imaging Referrals"
+          },
+          {
+            "type": "list-item",
+            "text": "Chronic Kidney Disease Management & Counseling"
+          },
+          {
+            "type": "list-item",
+            "text": "Dialysis Services (Hemodialysis & Peritoneal Dialysis)"
+          },
+          {
+            "type": "list-item",
+            "text": "Pre- and Post-Transplant Nephrology Support"
+          },
+          {
+            "type": "list-item",
+            "text": "Dietary & Lifestyle Counseling for Kidney Health"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1853,
+    "title": "Gastroenterology & Hepatology",
+    "group": "medicine",
+    "slug": "gastroenterology-hepatology",
+    "source_url": "https://hallelujahhospital.com/gastroenterology-hepatology/",
+    "source_modified": "2025-08-08T12:54:10",
+    "sections": [
+      {
+        "heading": "Gastroenterology & Hepatology",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Specialized Digestive & Liver Care for a Healthier You",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Gastroenterology & Hepatology Department provides expert care for disorders of the digestive system and liver. From common stomach problems to complex liver diseases, our team of specialists is committed to accurate diagnosis, effective treatment, and long-term management — all in a patient-centered environment."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Acid reflux, heartburn, and ulcers"
+          },
+          {
+            "type": "list-item",
+            "text": "Irritable Bowel Syndrome (IBS)"
+          },
+          {
+            "type": "list-item",
+            "text": "Chronic constipation or diarrhea"
+          },
+          {
+            "type": "list-item",
+            "text": "Gastritis and indigestion"
+          },
+          {
+            "type": "list-item",
+            "text": "Hepatitis A, B, and C"
+          },
+          {
+            "type": "list-item",
+            "text": "Fatty liver disease & liver cirrhosis"
+          },
+          {
+            "type": "list-item",
+            "text": "Pancreatitis and gallstones"
+          },
+          {
+            "type": "list-item",
+            "text": "Liver enzyme abnormalities"
+          },
+          {
+            "type": "list-item",
+            "text": "Gastrointestinal bleeding"
+          },
+          {
+            "type": "list-item",
+            "text": "Colon polyps & colorectal disease"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Gastroenterology Consultations: Diagnosis and treatment of all GI tract issues"
+          },
+          {
+            "type": "list-item",
+            "text": "Liver Disease Management: Care for hepatitis, cirrhosis, and liver-related complications"
+          },
+          {
+            "type": "list-item",
+            "text": "Endoscopy & Colonoscopy: Painless, minimally invasive procedures for diagnosis and treatment"
+          },
+          {
+            "type": "list-item",
+            "text": "Abdominal Ultrasound & Imaging Referrals"
+          },
+          {
+            "type": "list-item",
+            "text": "Gastrointestinal Cancer Screening & Biopsy"
+          },
+          {
+            "type": "list-item",
+            "text": "Diet & Lifestyle Counseling for Digestive Health"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1865,
+    "title": "Endocrinology Department",
+    "group": "medicine",
+    "slug": "endocrinology-department",
+    "source_url": "https://hallelujahhospital.com/endocrinology-department/",
+    "source_modified": "2025-08-08T14:09:09",
+    "sections": [
+      {
+        "heading": "Endocrinology Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Hormonal Health. Balanced Life.",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Endocrinology Department provides expert care for disorders of the endocrine system — the glands and hormones that control many vital body functions. We offer accurate diagnosis, personalized treatment plans, and ongoing management for conditions like diabetes, thyroid problems, and hormonal imbalances."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Type 1 & Type 2 Diabetes Mellitus"
+          },
+          {
+            "type": "list-item",
+            "text": "Thyroid disorders (Hyperthyroidism, Hypothyroidism, Thyroid nodules)"
+          },
+          {
+            "type": "list-item",
+            "text": "Adrenal gland disorders (e.g., Addison’s disease, Cushing’s syndrome)"
+          },
+          {
+            "type": "list-item",
+            "text": "Pituitary gland disorders (e.g., pituitary tumors, hormone deficiencies)"
+          },
+          {
+            "type": "list-item",
+            "text": "Osteoporosis and calcium metabolism issues"
+          },
+          {
+            "type": "list-item",
+            "text": "Polycystic Ovary Syndrome (PCOS)"
+          },
+          {
+            "type": "list-item",
+            "text": "Growth and puberty disorders"
+          },
+          {
+            "type": "list-item",
+            "text": "Hormonal causes of infertility"
+          },
+          {
+            "type": "list-item",
+            "text": "Metabolic syndrome and obesity"
+          },
+          {
+            "type": "list-item",
+            "text": "Lipid disorders (e.g., high cholesterol)"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Endocrine Consultation and Evaluation"
+          },
+          {
+            "type": "list-item",
+            "text": "Diabetes Management & Education"
+          },
+          {
+            "type": "list-item",
+            "text": "Insulin Pump & Continuous Glucose Monitoring (CGM) Support"
+          },
+          {
+            "type": "list-item",
+            "text": "Thyroid Function Testing & Ultrasound Referrals"
+          },
+          {
+            "type": "list-item",
+            "text": "Hormone Testing & Imaging Coordination"
+          },
+          {
+            "type": "list-item",
+            "text": "Bone Density Testing for Osteoporosis"
+          },
+          {
+            "type": "list-item",
+            "text": "Lifestyle & Nutritional Counseling"
+          },
+          {
+            "type": "list-item",
+            "text": "Long-Term Follow-Up for Chronic Conditions"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17247,
+    "title": "Infectious Diseases",
+    "group": "medicine",
+    "slug": "infectious-diseases",
+    "source_url": "https://hallelujahhospital.com/infectious-diseases/",
+    "source_modified": "2025-08-25T07:05:50",
+    "sections": [
+      {
+        "heading": "Infectious Diseases",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Infectious Diseases Care at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Infectious Diseases Department is dedicated to the prevention, diagnosis, and treatment of infections caused by bacteria, viruses, fungi, and parasites. Infectious diseases can affect any part of the body and may range from mild to life-threatening. Our team of experienced specialists provides accurate diagnosis, advanced treatment, and expert guidance to protect your health and prevent the spread of infection."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Specialized care for bacterial, viral, and parasitic infections"
+          },
+          {
+            "type": "list-item",
+            "text": "Hepatitis B vaccination"
+          },
+          {
+            "type": "list-item",
+            "text": "Hepatitis C treatment"
+          },
+          {
+            "type": "list-item",
+            "text": "HIV/AIDS, TB, malaria, and emerging infections management"
+          },
+          {
+            "type": "list-item",
+            "text": "Travel medicine and vaccination advice"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17256,
+    "title": "Rheumatology",
+    "group": "medicine",
+    "slug": "rheumatology",
+    "source_url": "https://hallelujahhospital.com/rheumatology/",
+    "source_modified": "2025-08-25T07:11:58",
+    "sections": [
+      {
+        "heading": "Rheumatology",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Rheumatology at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Rheumatology Department is dedicated to diagnosing, treating, and managing joint, muscle, and autoimmune disorders. Rheumatic conditions can affect mobility, comfort, and overall quality of life. Our experienced rheumatologists provide personalized care using advanced therapies to help patients reduce pain, improve function, and maintain an active lifestyle."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Comprehensive evaluation and diagnosis of rheumatic diseases."
+          },
+          {
+            "type": "list-item",
+            "text": "Management of arthritis (rheumatoid arthritis, osteoarthritis, gout, psoriatic arthritis)."
+          },
+          {
+            "type": "list-item",
+            "text": "Care for autoimmune diseases such as lupus, scleroderma, and vasculitis."
+          },
+          {
+            "type": "list-item",
+            "text": "Treatment for ankylosing spondylitis and other spinal inflammatory disorders."
+          },
+          {
+            "type": "list-item",
+            "text": "Patient education and lifestyle guidance for improved quality of life."
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17241,
+    "title": "Hematology",
+    "group": "medicine",
+    "slug": "hematology",
+    "source_url": "https://hallelujahhospital.com/hematology/",
+    "source_modified": "2025-08-25T07:01:48",
+    "sections": [
+      {
+        "heading": "Hematology",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Hematology Care at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Hematology Department is dedicated to the diagnosis and treatment of blood-related disorders. Blood plays a vital role in carrying oxygen, fighting infections, and maintaining overall health. Conditions affecting the blood can be complex and require specialized care. Our expert hematologists combine advanced testing, modern therapies, and compassionate support to ensure patients receive the best possible treatment."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Diagnosis and management of blood disorders"
+          },
+          {
+            "type": "list-item",
+            "text": "Anemia, clotting disorders, and blood cancers"
+          },
+          {
+            "type": "list-item",
+            "text": "Capacity for bone marrow aspiration and biopsy"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17244,
+    "title": "Pulmonology (Chest & Lung Care)",
+    "group": "medicine",
+    "slug": "pulmonology-chest-lung-care",
+    "source_url": "https://hallelujahhospital.com/pulmonology-chest-lung-care/",
+    "source_modified": "2025-08-25T07:04:02",
+    "sections": [
+      {
+        "heading": "Pulmonology (Chest & Lung Care)",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Pulmonology Care at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Pulmonology Department specializes in the prevention, diagnosis, and treatment of respiratory and lung-related conditions. Healthy lungs are essential for oxygenating the body and maintaining overall well-being. Our experienced pulmonologists use advanced diagnostic tools and modern therapies to provide comprehensive care for patients of all ages."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Bronchoscopy"
+          },
+          {
+            "type": "list-item",
+            "text": "Full pulmonary function testing"
+          },
+          {
+            "type": "list-item",
+            "text": "Asthma and chronic lung disease management"
+          },
+          {
+            "type": "list-item",
+            "text": "Diagnosis and treatment of respiratory infections"
+          },
+          {
+            "type": "list-item",
+            "text": "Pleural biopsy"
+          },
+          {
+            "type": "list-item",
+            "text": "Polysonography"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17276,
+    "title": "Sleep Lab",
+    "group": "medicine",
+    "slug": "sleep-lab",
+    "source_url": "https://hallelujahhospital.com/sleep-lab/",
+    "source_modified": "2025-08-30T17:06:02",
+    "sections": [
+      {
+        "heading": "Sleep Lab",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Sleep Lab at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Sleep Lab is dedicated to diagnosing and treating sleep disorders that affect health, energy, and quality of life. Proper sleep is essential for physical and mental well-being, and our team of specialists uses advanced diagnostic technology to identify sleep-related problems and provide effective, personalized treatment."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Sleep apnea and insomnia testing"
+          },
+          {
+            "type": "list-item",
+            "text": "Overnight diagnostic studies"
+          },
+          {
+            "type": "list-item",
+            "text": "Snoring and breathing disorder care"
+          },
+          {
+            "type": "list-item",
+            "text": "Personalized sleep treatment plans"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17253,
+    "title": "Psychiatry",
+    "group": "medicine",
+    "slug": "psychiatry",
+    "source_url": "https://hallelujahhospital.com/psychiatry/",
+    "source_modified": "2025-08-25T07:10:16",
+    "sections": [
+      {
+        "heading": "Psychiatry",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Psychiatry at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Psychiatry Department is dedicated to supporting mental health and emotional well-being. We provide compassionate, evidence-based care for individuals experiencing mental health challenges, helping them regain balance, improve quality of life, and achieve lasting wellness. Our team of experienced psychiatrists works closely with patients to deliver personalized treatment plans tailored to their unique needs."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Mental health evaluations and counseling"
+          },
+          {
+            "type": "list-item",
+            "text": "Treatment for schizophrenia, depression, anxiety and other disorders"
+          },
+          {
+            "type": "list-item",
+            "text": "Substance abuse and addiction support"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17250,
+    "title": "General Surgery",
+    "group": "surgery",
+    "slug": "general-surgery",
+    "source_url": "https://hallelujahhospital.com/general-surgery/",
+    "source_modified": "2025-08-25T07:08:47",
+    "sections": [
+      {
+        "heading": "General Surgery",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "General Surgery at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our General Surgery Department provides expert care for a wide range of surgical conditions affecting the abdomen, digestive system, soft tissues, and more. Our experienced surgeons combine advanced techniques, modern facilities, and compassionate care to ensure safe, effective, and patient-centered surgical treatment."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Abdominal Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Gastrointestinal Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Emergency Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Minimally Invasive & Laparoscopic Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Soft Tissue Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Endocrine Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Bariatric & Weight Loss Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Surgical Oncology"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1800,
+    "title": "Cardiothoracic Surgery",
+    "group": "surgery",
+    "slug": "cardiothoracic-surgery",
+    "source_url": "https://hallelujahhospital.com/cardiothoracic-surgery/",
+    "source_modified": "2025-08-08T14:07:19",
+    "sections": [
+      {
+        "heading": "Cardiothoracic Surgery",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Advanced Heart & Chest Surgery with Precision and Care",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Cardiothoracic Surgery Department provides cutting-edge surgical care for conditions affecting the heart, lungs, chest wall, and major blood vessels. Our team of highly trained cardiothoracic surgeons, anesthesiologists, and critical care specialists deliver life-saving interventions with the highest standards of safety and precision."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Coronary Artery Disease (Blockages in Heart Arteries)"
+          },
+          {
+            "type": "list-item",
+            "text": "Heart Valve Disorders (Mitral, Aortic, etc.)"
+          },
+          {
+            "type": "list-item",
+            "text": "Congenital Heart Defects"
+          },
+          {
+            "type": "list-item",
+            "text": "Aortic Aneurysms"
+          },
+          {
+            "type": "list-item",
+            "text": "Pericardial Diseases"
+          },
+          {
+            "type": "list-item",
+            "text": "Lung Cancer and Lung Masses"
+          },
+          {
+            "type": "list-item",
+            "text": "Chest Trauma or Injuries"
+          },
+          {
+            "type": "list-item",
+            "text": "Pleural Effusions and Chest Infections"
+          },
+          {
+            "type": "list-item",
+            "text": "Mediastinal Tumors"
+          }
+        ]
+      },
+      {
+        "heading": "Our Surgical Services Include",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Coronary Artery Bypass Grafting (CABG)"
+          },
+          {
+            "type": "list-item",
+            "text": "Heart Valve Repair & Replacement"
+          },
+          {
+            "type": "list-item",
+            "text": "Minimally Invasive Thoracic Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Lung Resection & Lobectomy"
+          },
+          {
+            "type": "list-item",
+            "text": "Thoracic Trauma Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Pacemaker & Cardiac Device Implantation"
+          },
+          {
+            "type": "list-item",
+            "text": "Congenital Heart Defect Correction"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1859,
+    "title": "Neurosurgery Department",
+    "group": "surgery",
+    "slug": "neurosurgery-department",
+    "source_url": "https://hallelujahhospital.com/neurosurgery-department/",
+    "source_modified": "2025-08-08T13:00:56",
+    "sections": [
+      {
+        "heading": "Neurosurgery Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Advanced Brain, Spine & Nerve Surgery with Precision and Compassion",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, the Neurosurgery Department offers expert surgical care for disorders affecting the brain, spinal cord, spine, and peripheral nerves. Our neurosurgeons are highly trained to perform both emergency and elective procedures using advanced techniques and equipment to ensure the best outcomes with minimal risk."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Brain tumors and cysts"
+          },
+          {
+            "type": "list-item",
+            "text": "Head injuries and traumatic brain injury (TBI)"
+          },
+          {
+            "type": "list-item",
+            "text": "Spinal cord injuries"
+          },
+          {
+            "type": "list-item",
+            "text": "Herniated discs and spinal stenosis"
+          },
+          {
+            "type": "list-item",
+            "text": "Hydrocephalus (fluid in the brain)"
+          },
+          {
+            "type": "list-item",
+            "text": "Stroke-related hemorrhages"
+          },
+          {
+            "type": "list-item",
+            "text": "Trigeminal neuralgia and nerve compression"
+          },
+          {
+            "type": "list-item",
+            "text": "Congenital brain or spine conditions"
+          },
+          {
+            "type": "list-item",
+            "text": "Brain and spine infections or abscesses"
+          },
+          {
+            "type": "list-item",
+            "text": "Functional disorders (e.g., epilepsy surgery)"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Emergency Neurosurgery (head trauma, brain bleeds, spine injuries)"
+          },
+          {
+            "type": "list-item",
+            "text": "Brain Tumor Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Minimally Invasive Spine Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Microsurgery & Image-Guided Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Shunt Placement for Hydrocephalus"
+          },
+          {
+            "type": "list-item",
+            "text": "Craniotomy and Skull Base Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Stereotactic Biopsy and Navigation"
+          },
+          {
+            "type": "list-item",
+            "text": "Collaborative Neurology & ICU Care Support"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17224,
+    "title": "Hepatobiliary",
+    "group": "surgery",
+    "slug": "hepatobiliary",
+    "source_url": "https://hallelujahhospital.com/hepatobiliary/",
+    "source_modified": "2025-08-25T06:48:17",
+    "sections": [
+      {
+        "heading": "Hepatobiliary",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Hepatobiliary Care at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Hepatobiliary Department provides expert care for conditions affecting the liver, gallbladder, bile ducts, and pancreas. These organs play a vital role in digestion, detoxification, and overall health. Disorders in this system can be complex, but with advanced diagnostic tools, skilled specialists, and personalized treatment plans, we are dedicated to improving patient outcomes and quality of life."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Liver, gallbladder & bile duct disease care"
+          },
+          {
+            "type": "list-item",
+            "text": "Hepatitis and cirrhosis management"
+          },
+          {
+            "type": "list-item",
+            "text": "Gallstone & biliary tract disorder treatment"
+          },
+          {
+            "type": "list-item",
+            "text": "Liver function monitoring"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Liver Diseases"
+          },
+          {
+            "type": "list-item",
+            "text": "Gallbladder Disorders"
+          },
+          {
+            "type": "list-item",
+            "text": "Bile Duct Conditions"
+          },
+          {
+            "type": "list-item",
+            "text": "Pancreatic Disorders"
+          },
+          {
+            "type": "list-item",
+            "text": "Hepatobiliary Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Minimally Invasive & Laparoscopic Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Transplant Evaluation & Referral"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17228,
+    "title": "Vascular Surgery",
+    "group": "surgery",
+    "slug": "vascular-surgery",
+    "source_url": "https://hallelujahhospital.com/vascular-surgery/",
+    "source_modified": "2025-08-30T17:08:33",
+    "sections": [
+      {
+        "heading": "Vascular Surgery",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Hepatobiliary Care at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Vascular Surgery Department specializes in the diagnosis and treatment of conditions affecting the arteries, veins, and lymphatic system. Healthy blood flow is essential for overall wellness, and our expert vascular surgeons use advanced techniques—both surgical and minimally invasive—to restore circulation, relieve symptoms, and prevent serious complications."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Diagnosis and treatment of vascular diseases"
+          },
+          {
+            "type": "list-item",
+            "text": "Varicose vein and arterial disease care"
+          },
+          {
+            "type": "list-item",
+            "text": "Endovascular and open surgical procedures"
+          },
+          {
+            "type": "list-item",
+            "text": "Vascular trauma and emergency care"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Peripheral Artery Disease (PAD) Treatment"
+          },
+          {
+            "type": "list-item",
+            "text": "Varicose & Spider Vein Treatment"
+          },
+          {
+            "type": "list-item",
+            "text": "Aneurysm Care"
+          },
+          {
+            "type": "list-item",
+            "text": "Carotid Artery Disease Management"
+          },
+          {
+            "type": "list-item",
+            "text": "Deep Vein Thrombosis (DVT) & Blood Clots"
+          },
+          {
+            "type": "list-item",
+            "text": "Dialysis Access Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Endovascular & Minimally Invasive Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Vascular Trauma & Emergency Care"
+          }
+        ]
+      }
+    ],
+    "quality_flags": [
+      "copied_incorrect_hepatobiliary_subheading"
+    ]
+  },
+  {
+    "id": 17231,
+    "title": "Plastic Surgery",
+    "group": "surgery",
+    "slug": "plastic-surgery",
+    "source_url": "https://hallelujahhospital.com/plastic-surgery/",
+    "source_modified": "2025-08-25T06:54:16",
+    "sections": [
+      {
+        "heading": "Plastic Surgery",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Hepatobiliary Care at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Plastic Surgery Department is dedicated to restoring form, function, and confidence. We provide both reconstructive and cosmetic surgical services using advanced techniques, modern technology, and compassionate care. Whether you are seeking treatment after an injury, surgery, or simply wish to enhance your appearance, our skilled plastic surgeons ensure safe and personalized solutions."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Cosmetic and aesthetic procedures"
+          },
+          {
+            "type": "list-item",
+            "text": "Burn and scar management"
+          },
+          {
+            "type": "list-item",
+            "text": "Reconstructive surgery after injury"
+          },
+          {
+            "type": "list-item",
+            "text": "Congenital and corrective surgeries"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Reconstructive Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Trauma Reconstruction – Repair of injuries to the face, hands, and body."
+          },
+          {
+            "type": "list-item",
+            "text": "Burn Care & Reconstruction – Surgical treatment and scar management for burn patients."
+          },
+          {
+            "type": "list-item",
+            "text": "Post-Cancer Reconstruction – Breast reconstruction after mastectomy and soft tissue repair after tumor removal."
+          },
+          {
+            "type": "list-item",
+            "text": "Congenital Defect Correction – Treatment for cleft lip, cleft palate, and other birth defects."
+          },
+          {
+            "type": "list-item",
+            "text": "Scar Revision Surgery – Minimizing the appearance of scars for improved function and aesthetics."
+          },
+          {
+            "type": "list-item",
+            "text": "Cosmetic & Aesthetic Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Facial Aesthetics – Procedures such as rhinoplasty (nose reshaping), facelifts, and eyelid surgery."
+          },
+          {
+            "type": "list-item",
+            "text": "Body Contouring – Liposuction, tummy tucks, and body lifts for improved body shape."
+          },
+          {
+            "type": "list-item",
+            "text": "Breast Surgery – Augmentation, reduction, and lift procedures tailored to individual needs."
+          },
+          {
+            "type": "list-item",
+            "text": "Non-Surgical Treatments – Botox, fillers, and skin rejuvenation for a refreshed look."
+          }
+        ]
+      }
+    ],
+    "quality_flags": [
+      "copied_incorrect_hepatobiliary_subheading"
+    ]
+  },
+  {
+    "id": 1871,
+    "title": "Urology Department",
+    "group": "surgery",
+    "slug": "urology-department",
+    "source_url": "https://hallelujahhospital.com/urology-department/",
+    "source_modified": "2025-08-08T14:21:03",
+    "sections": [
+      {
+        "heading": "Urology Department",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Advanced Care for Urinary and Male Reproductive Health",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Urology Department provides expert care for conditions affecting the urinary system in both men and women, as well as the male reproductive system. Our experienced urologists use advanced diagnostics and minimally invasive techniques to deliver safe, effective, and compassionate treatment. We focus on preserving function, relieving discomfort, and improving quality of life for every patient."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Kidney stones"
+          },
+          {
+            "type": "list-item",
+            "text": "Urinary tract infections (UTIs)"
+          },
+          {
+            "type": "list-item",
+            "text": "Bladder problems (incontinence, overactive bladder)"
+          },
+          {
+            "type": "list-item",
+            "text": "Prostate enlargement (BPH)"
+          },
+          {
+            "type": "list-item",
+            "text": "Prostate, kidney, and bladder cancers"
+          },
+          {
+            "type": "list-item",
+            "text": "Erectile dysfunction (ED)"
+          },
+          {
+            "type": "list-item",
+            "text": "Male infertility"
+          },
+          {
+            "type": "list-item",
+            "text": "Testicular disorders"
+          },
+          {
+            "type": "list-item",
+            "text": "Urethral strictures"
+          },
+          {
+            "type": "list-item",
+            "text": "Pediatric urological conditions"
+          },
+          {
+            "type": "list-item",
+            "text": "Hematuria (blood in urine)"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Urological Consultation & Evaluation"
+          },
+          {
+            "type": "list-item",
+            "text": "Digital Imaging & Diagnostic Testing"
+          },
+          {
+            "type": "list-item",
+            "text": "Cystoscopy & Urodynamic Testing"
+          },
+          {
+            "type": "list-item",
+            "text": "Kidney Stone Removal (ESWL, Laser Lithotripsy)"
+          },
+          {
+            "type": "list-item",
+            "text": "Prostate Surgery & TURP"
+          },
+          {
+            "type": "list-item",
+            "text": "Minimally Invasive & Laparoscopic Procedures"
+          },
+          {
+            "type": "list-item",
+            "text": "Male Reproductive Health Services"
+          },
+          {
+            "type": "list-item",
+            "text": "Cancer Screening & Surgical Treatment"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1868,
+    "title": "Endocrine Surgery",
+    "group": "surgery",
+    "slug": "endocrine-surgery",
+    "source_url": "https://hallelujahhospital.com/endocrine-surgery/",
+    "source_modified": "2025-08-08T12:05:57",
+    "sections": [
+      {
+        "heading": "Endocrine Surgery",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Specialized Surgical Care for Glands That Control Life",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Endocrine Surgery Department provides advanced surgical care for disorders of the thyroid, parathyroid, adrenal, and other endocrine glands. We focus on precise diagnosis, minimally invasive techniques, and faster recovery — ensuring patients receive safe, effective, and personalized treatment for hormone-producing gland issues."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Thyroid nodules, goiters, and thyroid cancer"
+          },
+          {
+            "type": "list-item",
+            "text": "Hyperthyroidism (Graves’ disease or toxic nodules)"
+          },
+          {
+            "type": "list-item",
+            "text": "Parathyroid tumors and hyperparathyroidism"
+          },
+          {
+            "type": "list-item",
+            "text": "Adrenal tumors (functional or non-functional)"
+          },
+          {
+            "type": "list-item",
+            "text": "Neuroendocrine tumors"
+          },
+          {
+            "type": "list-item",
+            "text": "Recurrent or complex endocrine gland issues"
+          },
+          {
+            "type": "list-item",
+            "text": "Suspicious neck masses or gland enlargements"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Thyroidectomy (total or partial thyroid removal)"
+          },
+          {
+            "type": "list-item",
+            "text": "Minimally Invasive Parathyroidectomy"
+          },
+          {
+            "type": "list-item",
+            "text": "Adrenalectomy (laparoscopic or open)"
+          },
+          {
+            "type": "list-item",
+            "text": "Neck Mass Evaluation and Excision"
+          },
+          {
+            "type": "list-item",
+            "text": "Re-operative Endocrine Surgeries"
+          },
+          {
+            "type": "list-item",
+            "text": "Cancer Surgery for Endocrine Tumors"
+          },
+          {
+            "type": "list-item",
+            "text": "Collaboration with Endocrinology for Hormonal Management"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1877,
+    "title": "Colorectal Surgery",
+    "group": "surgery",
+    "slug": "colorectal-surgery",
+    "source_url": "https://hallelujahhospital.com/colorectal-surgery/",
+    "source_modified": "2025-08-08T12:04:26",
+    "sections": [
+      {
+        "heading": "Colorectal Surgery",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Expert Care for Colon, Rectum & Anus Disorders",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Colorectal Surgery Department offers specialized care for patients with conditions affecting the colon, rectum, and anus. Our expert colorectal surgeons use advanced techniques—including minimally invasive and laparoscopic surgeries—to ensure precise treatment with faster recovery and minimal discomfort. Whether it’s a complex colorectal cancer case or a common anorectal issue, we are committed to delivering safe, effective, and compassionate care."
+          }
+        ]
+      },
+      {
+        "heading": "Conditions We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Colorectal cancer"
+          },
+          {
+            "type": "list-item",
+            "text": "Hemorrhoids (piles)"
+          },
+          {
+            "type": "list-item",
+            "text": "Anal fissures"
+          },
+          {
+            "type": "list-item",
+            "text": "Anal fistulas"
+          },
+          {
+            "type": "list-item",
+            "text": "Inflammatory bowel diseases (IBD) like Crohn’s & ulcerative colitis"
+          },
+          {
+            "type": "list-item",
+            "text": "Diverticulitis"
+          },
+          {
+            "type": "list-item",
+            "text": "Rectal prolapse"
+          },
+          {
+            "type": "list-item",
+            "text": "Constipation and fecal incontinence"
+          },
+          {
+            "type": "list-item",
+            "text": "Polyps of the colon and rectum"
+          },
+          {
+            "type": "list-item",
+            "text": "Bowel obstruction"
+          },
+          {
+            "type": "list-item",
+            "text": "Pilonidal sinus"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Colonoscopy and Rectoscopy"
+          },
+          {
+            "type": "list-item",
+            "text": "Laparoscopic Colon and Rectal Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Hemorrhoidectomy & Stapled Hemorrhoidopexy"
+          },
+          {
+            "type": "list-item",
+            "text": "Fistula and Fissure Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Colorectal Cancer Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Rectal Prolapse Repair"
+          },
+          {
+            "type": "list-item",
+            "text": "Anal Incontinence Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Stoma Creation and Reversal"
+          },
+          {
+            "type": "list-item",
+            "text": "Minimally Invasive Procedures for Faster Recovery"
+          },
+          {
+            "type": "list-item",
+            "text": "Post-operative Colorectal Rehabilitation"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 1874,
+    "title": "Arthroplasty, Trauma & Orthopedic Surgery",
+    "group": "surgery",
+    "slug": "arthroplasty-trauma-orthopedic-surgery",
+    "source_url": "https://hallelujahhospital.com/arthroplasty-trauma-orthopedic-surgery/",
+    "source_modified": "2025-08-08T12:05:11",
+    "sections": [
+      {
+        "heading": "Arthroplasty, Trauma & Orthopedic Surgery",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Restoring Movement. Relieving Pain. Rebuilding Lives.",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Arthroplasty, Trauma & Orthopedic Surgery Department is dedicated to diagnosing, treating, and managing conditions of the bones, joints, ligaments, tendons, and muscles. From joint replacements to complex fractures, our skilled orthopedic surgeons offer both emergency trauma care and planned reconstructive surgeries to help patients regain strength, mobility, and confidence."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Joint damage (hip, knee, shoulder)"
+          },
+          {
+            "type": "list-item",
+            "text": "Osteoarthritis and degenerative joint disease"
+          },
+          {
+            "type": "list-item",
+            "text": "Bone fractures and dislocations"
+          },
+          {
+            "type": "list-item",
+            "text": "Sports injuries (ACL tears, meniscus injuries, etc.)"
+          },
+          {
+            "type": "list-item",
+            "text": "Spinal conditions (herniated discs, scoliosis)"
+          },
+          {
+            "type": "list-item",
+            "text": "Congenital or developmental orthopedic deformities"
+          },
+          {
+            "type": "list-item",
+            "text": "Bone infections (osteomyelitis)"
+          },
+          {
+            "type": "list-item",
+            "text": "Soft tissue injuries (ligaments, tendons, cartilage)"
+          },
+          {
+            "type": "list-item",
+            "text": "Post-traumatic deformities or complications"
+          },
+          {
+            "type": "list-item",
+            "text": "Failed previous joint replacements"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Total and Partial Joint Replacement (Arthroplasty)"
+          },
+          {
+            "type": "list-item",
+            "text": "Hip and Knee Replacement Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Trauma & Emergency Orthopedic Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Fracture Fixation & Realignment Procedures"
+          },
+          {
+            "type": "list-item",
+            "text": "Minimally Invasive Orthopedic Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Arthroscopy (Knee, Shoulder, Ankle)"
+          },
+          {
+            "type": "list-item",
+            "text": "Sports Injury Management & Rehab"
+          },
+          {
+            "type": "list-item",
+            "text": "Spinal Surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Orthopedic Oncology Support"
+          },
+          {
+            "type": "list-item",
+            "text": "Pediatric Orthopedic Services"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17267,
+    "title": "Orthopedics & Orthopedic Surgery",
+    "group": "surgery",
+    "slug": "orthopedics-orthopedic-surgery",
+    "source_url": "https://hallelujahhospital.com/orthopedics-orthopedic-surgery/",
+    "source_modified": "2025-08-25T10:27:10",
+    "sections": [
+      {
+        "heading": "Orthopedics & Orthopedic Surgery",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Orthopedics & Orthopedic Surgery at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Orthopedics Department is dedicated to the diagnosis, treatment, and surgical management of musculoskeletal conditions affecting bones, joints, muscles, ligaments, and tendons. Our expert orthopedic surgeons and specialists use advanced techniques to relieve pain, restore mobility, and improve quality of life for patients of all ages."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Bone fractures and trauma care"
+          },
+          {
+            "type": "list-item",
+            "text": "Joint replacement & sports injuries"
+          },
+          {
+            "type": "list-item",
+            "text": "Spine, back, and neck treatment"
+          },
+          {
+            "type": "list-item",
+            "text": "Advanced orthopedic surgeries"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17179,
+    "title": "GYNACOLOGY",
+    "group": "women-and-children",
+    "slug": "gynacology",
+    "source_url": "https://hallelujahhospital.com/gynacology/",
+    "source_modified": "2025-08-30T17:01:45",
+    "sections": [
+      {
+        "heading": "GYNACOLOGY DEPARTMENT",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Comprehensive Women’s Health, Every Step of the Way",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our OB-GYN Department is dedicated to supporting women’s health through every stage of life — from adolescence to motherhood and beyond. With expert gynecologists, compassionate care, and advanced technology, we provide personalized solutions tailored to every woman’s unique needs."
+          }
+        ]
+      },
+      {
+        "heading": "Our Services Include:",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Pregnancy & Antenatal Care:Complete prenatal checkups, pregnancy monitoring, and safe delivery options."
+          },
+          {
+            "type": "paragraph",
+            "text": "Gynecological Consultations:Diagnosis and treatment of menstrual disorders, pelvic pain, hormonal issues, and more."
+          },
+          {
+            "type": "paragraph",
+            "text": "Family Planning & Fertility Services:Contraception advice, fertility assessments, and counseling."
+          },
+          {
+            "type": "paragraph",
+            "text": "Minimally Invasive Surgery:Laparoscopic procedures for conditions like fibroids, cysts, and endometriosis."
+          },
+          {
+            "type": "paragraph",
+            "text": "Postnatal Care:Support and guidance after childbirth for both mother and baby."
+          }
+        ]
+      },
+      {
+        "heading": "Why Choose Us?",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Specialized, experienced OB-GYN physicians"
+          },
+          {
+            "type": "paragraph",
+            "text": "Modern, comfortable delivery suites"
+          },
+          {
+            "type": "paragraph",
+            "text": "Compassionate, privacy-focused care"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17261,
+    "title": "Ophthalmology",
+    "group": "specialty-and-rehabilitation",
+    "slug": "ophthalmology",
+    "source_url": "https://hallelujahhospital.com/ophthalmology/",
+    "source_modified": "2025-08-25T10:23:27",
+    "sections": [
+      {
+        "heading": "Ophthalmology",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Ophthalmology at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Ophthalmology Department is dedicated to preserving and enhancing your vision. Eyes are essential for daily life, and our expert ophthalmologists provide comprehensive care for a wide range of eye conditions, combining advanced diagnostic technology with compassionate, personalized treatment."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Comprehensive eye exams with optometric unit including eyeglasses"
+          },
+          {
+            "type": "list-item",
+            "text": "Cataract and glaucoma management"
+          },
+          {
+            "type": "list-item",
+            "text": "Emergency and pediatric eye care"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17264,
+    "title": "Dentistry",
+    "group": "specialty-and-rehabilitation",
+    "slug": "dentistry",
+    "source_url": "https://hallelujahhospital.com/dentistry/",
+    "source_modified": "2025-08-25T10:25:08",
+    "sections": [
+      {
+        "heading": "Dentistry",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Dentistry at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Dentistry Department is dedicated to promoting oral health and a confident smile for patients of all ages. Our team of experienced dentists combines advanced technology, modern techniques, and compassionate care to provide comprehensive dental services—from routine check-ups to complex restorative procedures."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Preventive and routine dental care"
+          },
+          {
+            "type": "list-item",
+            "text": "Restorative treatments (fillings, crowns)"
+          },
+          {
+            "type": "list-item",
+            "text": "Orthodontics (braces, aligners)"
+          },
+          {
+            "type": "list-item",
+            "text": "Panoramic X- ray and Faciomaxillary surgery"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17238,
+    "title": "ENT (Ear, Nose & Throat)",
+    "group": "specialty-and-rehabilitation",
+    "slug": "ent-ear-nose-throat",
+    "source_url": "https://hallelujahhospital.com/ent-ear-nose-throat/",
+    "source_modified": "2025-08-25T06:59:32",
+    "sections": [
+      {
+        "heading": "ENT (Ear, Nose & Throat)",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Hepatobiliary Care at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our ENT Department provides comprehensive care for conditions affecting the ear, nose, throat, head, and neck. From common infections to complex surgical procedures, our ENT specialists use advanced diagnostics, modern technology, and compassionate care to help patients of all ages breathe easier, hear better, and live healthier."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Sinus, allergy, and throat care"
+          },
+          {
+            "type": "list-item",
+            "text": "Hearing loss and ear infections"
+          },
+          {
+            "type": "list-item",
+            "text": "Head & neck surgery"
+          },
+          {
+            "type": "list-item",
+            "text": "Voice and swallowing disorders"
+          }
+        ]
+      },
+      {
+        "heading": "Our Key Services",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Ear Care"
+          },
+          {
+            "type": "list-item",
+            "text": "Nose & Sinus Care"
+          },
+          {
+            "type": "list-item",
+            "text": "Throat & Voice Care"
+          },
+          {
+            "type": "list-item",
+            "text": "Head & Neck Conditions"
+          },
+          {
+            "type": "list-item",
+            "text": "Pediatric ENT"
+          },
+          {
+            "type": "list-item",
+            "text": "ENT Surgeries"
+          }
+        ]
+      }
+    ],
+    "quality_flags": [
+      "copied_incorrect_hepatobiliary_subheading"
+    ]
+  },
+  {
+    "id": 17269,
+    "title": "Physical Therapy & Rehabilitation",
+    "group": "specialty-and-rehabilitation",
+    "slug": "physical-therapy-rehabilitation",
+    "source_url": "https://hallelujahhospital.com/physical-therapy-rehabilitation/",
+    "source_modified": "2025-08-30T17:02:59",
+    "sections": [
+      {
+        "heading": "Physical Therapy & Rehabilitation",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Physical Therapy & Rehabilitation at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Physical Therapy & Rehabilitation Department is dedicated to helping patients restore mobility, reduce pain, and regain independence after injury, surgery, or chronic conditions. Our skilled therapists use evidence-based techniques and personalized programs to improve function, promote healing, and enhance overall quality of life."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Post-surgical recovery care"
+          },
+          {
+            "type": "list-item",
+            "text": "Pain management & mobility therapy"
+          },
+          {
+            "type": "list-item",
+            "text": "Sports injury rehabilitation"
+          },
+          {
+            "type": "list-item",
+            "text": "Customized exercise programs"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": 17273,
+    "title": "Speech Therapy",
+    "group": "specialty-and-rehabilitation",
+    "slug": "speech-therapy",
+    "source_url": "https://hallelujahhospital.com/speech-therapy/",
+    "source_modified": "2025-08-30T17:04:27",
+    "sections": [
+      {
+        "heading": "Speech Therapy",
+        "level": 1,
+        "content": []
+      },
+      {
+        "heading": "Speech Therapy at Hallelujah General Hospital",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital, our Speech Therapy Department is dedicated to helping patients develop, restore, and improve communication and swallowing abilities. Our experienced speech-language pathologists provide personalized therapy for children and adults, using evidence-based techniques to enhance speech, language, and overall quality of life."
+          }
+        ]
+      },
+      {
+        "heading": "What We Treat",
+        "level": 2,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Communication disorder therapy"
+          },
+          {
+            "type": "list-item",
+            "text": "Swallowing disorder management"
+          },
+          {
+            "type": "list-item",
+            "text": "Pediatric speech development support"
+          },
+          {
+            "type": "list-item",
+            "text": "Voice rehabilitation"
+          }
+        ]
+      }
+    ],
+    "quality_flags": []
+  },
+  {
+    "id": "services:pediatrics",
+    "title": "Pediatrics",
+    "group": "women-and-children",
+    "slug": "pediatrics",
+    "source_url": "https://hallelujahhospital.com/services/#pediatrics",
+    "source_modified": "2025-08-25T06:07:59",
+    "sections": [
+      {
+        "heading": "Pediatrics",
+        "level": 2,
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "At Hallelujah General Hospital our Pediatrics Department is dedicated to providing expert care for neonatal, infants, children, and adolescents. We understand that children have unique healthcare needs, and our compassionate, child-friendly approach ensures that both patients and their families feel supported throughout their healthcare journey."
+          }
+        ]
+      },
+      {
+        "heading": "Neonatal ICU",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Pediatric surgery",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Pediatric Neurology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Pediatric Cardiology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Pediatric Oncology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Pediatric Nephrology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Pediatric Endocrinology",
+        "level": 3,
+        "content": []
+      },
+      {
+        "heading": "Vaccination",
+        "level": 3,
+        "content": [
+          {
+            "type": "list-item",
+            "text": "Well-Child Check-UpsRegular pediatric exams to monitor growth, development, and overall health"
+          },
+          {
+            "type": "list-item",
+            "text": "Immunizations and Vaccinations"
+          },
+          {
+            "type": "list-item",
+            "text": "Acute Care for Illnesses and InjuriesImmediate care for common childhood illnesses like colds, ear infections, flu, and more. We also provide treatment for injuries and accidents."
+          },
+          {
+            "type": "list-item",
+            "text": "Chronic Disease ManagementOngoing care and support for chronic conditions like asthma, diabetes, epilepsy, and obesity. Our team helps manage treatment plans and works with families to ensure effective care at home."
+          },
+          {
+            "type": "list-item",
+            "text": "Nutritional CounselingOffering guidance on healthy eating habits for children, as well as support for children with specific dietary needs or challenges (e.g., food allergies, obesity)."
+          },
+          {
+            "type": "list-item",
+            "text": "Emergency Pediatric CareImmediate care for children who require urgent attention, including trauma, allergic reactions, and other critical conditions."
+          },
+          {
+            "type": "paragraph",
+            "text": "Developmental and Behavioral AssessmentsComprehensive evaluations to assess developmental milestones, speech delays, or behavioral concerns, ensuring children are meeting age-appropriate milestones."
+          }
+        ]
+      }
+    ],
+    "quality_flags": [
+      "no_standalone_pediatrics_page_found"
+    ]
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "authority": "unverified-extracted-evidence",
+  "sourceExtractionDate": "2026-09-10",
+  "capturedForReviewDate": "2026-09-18",
+  "rawSnapshotAvailable": false,
+  "files": [
+    {
+      "path": "hospital-profile.json",
+      "originalWorkspacePath": "resources/hospital-profile.json",
+      "bytes": 7260,
+      "sha256": "9c633c6222c67c0924530ae5d9d11a5986b0834524a1814c572b172f0837438b"
+    },
+    {
+      "path": "data/doctors.json",
+      "originalWorkspacePath": "resources/data/doctors.json",
+      "bytes": 44618,
+      "sha256": "fa283012ac191bad4d55f3d6a11932623aec1281c814271b94d48ddc6f379553"
+    },
+    {
+      "path": "data/services.json",
+      "originalWorkspacePath": "resources/data/services.json",
+      "bytes": 92173,
+      "sha256": "e2f7abb57129d28e91bfdbe69f31691ddfddb9ef795c02316629a1a8c90249ce"
+    },
+    {
+      "path": "data/site-pages.json",
+      "originalWorkspacePath": "resources/data/site-pages.json",
+      "bytes": 61622,
+      "sha256": "7f37da9e9506edbc56f806ea61fcaba5283babaae0d4b0aa8ab6c359abcf8090"
+    },
+    {
+      "path": "data/media-manifest.json",
+      "originalWorkspacePath": "resources/data/media-manifest.json",
+      "bytes": 24936,
+      "sha256": "202f34332489fbd5e5e7b998681934f03e6c798cadf3ff9545df54c4daf4e4fe"
+    },
+    {
+      "path": "data/metadata.json",
+      "originalWorkspacePath": "resources/data/metadata.json",
+      "bytes": 717,
+      "sha256": "f1b081fa53b95d0fd505ad473e7bad7f4b1fac95098936a626b71c7c9f65ade4"
+    },
+    {
+      "path": "source-readme.txt",
+      "originalWorkspacePath": "resources/README.md",
+      "bytes": 3396,
+      "sha256": "5fb074a402e4179f49cc59769d2e8b0771e0201f5a8f0f1b2e7cb52dbfe6d0c5"
+    },
+    {
+      "path": "content-inventory.txt",
+      "originalWorkspacePath": "resources/content-inventory.md",
+      "bytes": 5016,
+      "sha256": "05856d1bcedf455434272fd8997934718976324c1ebb58d716b77001e0ece284"
+    },
+    {
+      "path": "content-review.txt",
+      "originalWorkspacePath": "resources/content-review.md",
+      "bytes": 5775,
+      "sha256": "b3726c623c70261b4a0ace3642c535c34cf211933769315e4c662220ff5ba7be"
+    }
+  ]
+}

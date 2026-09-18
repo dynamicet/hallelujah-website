@@ -1,0 +1,1574 @@
+[
+  {
+    "id": 17163,
+    "name_as_published": "DR. ABEL ZEMENFES",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSISTANT PROFESSOR OF MEDICINE, NEPHROLOGIST",
+    "slug": "dr-abel-zemenfes",
+    "source_url": "https://hallelujahhospital.com/dr-abel-zemenfes/",
+    "source_modified": "2025-08-22T12:56:19",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder",
+      "directory_card_has_no_profile_link"
+    ]
+  },
+  {
+    "id": 1761,
+    "name_as_published": "Dr. Abiy Worku",
+    "credentials_as_published": null,
+    "specialty_as_published": "TRAUMA & ARTHROPLASY SURGEON",
+    "slug": "dr-abiy-worku-2",
+    "source_url": "https://hallelujahhospital.com/dr-abiy-worku-2/",
+    "source_modified": "2025-08-22T12:03:35",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-28-1.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "6:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "8:30 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "4:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "duplicate_profile_pages_exist"
+    ],
+    "duplicate_source_urls": [
+      "https://hallelujahhospital.com/dr-abiy-worku/"
+    ]
+  },
+  {
+    "id": 1308,
+    "name_as_published": "DR. AMARE GULILAT",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSISTANT PROFESSOR CONSULTANT INTERNIST & ENDOCRINOLOGIST",
+    "slug": "dr-amare-gulilat",
+    "source_url": "https://hallelujahhospital.com/dr-amare-gulilat/",
+    "source_modified": "2025-08-22T14:35:16",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "11:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "9:00 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "11:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "11:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "SUNDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "uses_generic_doctor_placeholder"
+    ]
+  },
+  {
+    "id": 1746,
+    "name_as_published": "Dr. Dagnachew Shibeshi",
+    "credentials_as_published": null,
+    "specialty_as_published": "Dermatology Specialist",
+    "slug": "dr-dagnachew-shibeshi-2",
+    "source_url": "https://hallelujahhospital.com/dr-dagnachew-shibeshi-2/",
+    "source_modified": "2025-07-24T12:03:48",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-22-1.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "8:30 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "8:30 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "8:30 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday"
+    ]
+  },
+  {
+    "id": 17167,
+    "name_as_published": "DR. DANIEL HAILU",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSISTANT PROFESSOR OF PEDIATRICS HEMATOLOGY, ONCOLOGY",
+    "slug": "dr-daniel-hailu",
+    "source_url": "https://hallelujahhospital.com/dr-daniel-hailu/",
+    "source_modified": "2025-08-22T14:09:36",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder"
+    ]
+  },
+  {
+    "id": 1751,
+    "name_as_published": "DR. HABTEMARIAM DEMOZ",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSISTANT PROFESSOR OF SURGERY AND UROLOGY SURGEON",
+    "slug": "dr-h-mariam-demoz-2",
+    "source_url": "https://hallelujahhospital.com/dr-h-mariam-demoz-2/",
+    "source_modified": "2026-09-08T14:40:06",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-24.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "6:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "6:00 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "6:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday"
+    ]
+  },
+  {
+    "id": 1772,
+    "name_as_published": "Dr. Kassaye Ashene",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSISTANT PROFESSOR OF ENT",
+    "slug": "dr-kassaye-ashene",
+    "source_url": "https://hallelujahhospital.com/dr-kassaye-ashene/",
+    "source_modified": "2025-08-22T12:36:38",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-26.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "10:30 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "7:30 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "5:30 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "5:30 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday"
+    ]
+  },
+  {
+    "id": 1273,
+    "name_as_published": "Dr. Kefelegne Dejene",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSISTANCE PROFESSOR OF MEDICINE & INTERVENTION CARDIOLOGIST",
+    "slug": "dr-kefelegne-dejene",
+    "source_url": "https://hallelujahhospital.com/dr-kefelegne-dejene/",
+    "source_modified": "2025-08-22T12:24:38",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "9:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "9:00 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "9:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder"
+    ]
+  },
+  {
+    "id": 1737,
+    "name_as_published": "Dr. Mussie Gebeyehu",
+    "credentials_as_published": null,
+    "specialty_as_published": "PULMONOLOGIST SUB-SPECIALIST",
+    "slug": "dr-mussie-gebeyehu",
+    "source_url": "https://hallelujahhospital.com/dr-mussie-gebeyehu/",
+    "source_modified": "2025-08-22T14:24:09",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-21.png",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "3:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday"
+    ]
+  },
+  {
+    "id": 17144,
+    "name_as_published": "DR. RABIA JEMAL",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSISTANT PROFESSOR OF PEDIATRICS & CHILD HEALTH",
+    "slug": "dr-rabia-jemal",
+    "source_url": "https://hallelujahhospital.com/dr-rabia-jemal/",
+    "source_modified": "2025-08-22T08:35:29",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder"
+    ]
+  },
+  {
+    "id": 1774,
+    "name_as_published": "DR. SEMUNIGUS KEBEDE",
+    "credentials_as_published": null,
+    "specialty_as_published": "UROLOGY SUB-SPECIALIST",
+    "slug": "dr-semunigus-kebede",
+    "source_url": "https://hallelujahhospital.com/dr-semunigus-kebede/",
+    "source_modified": "2026-09-08T15:05:36",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-20.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday"
+    ]
+  },
+  {
+    "id": 17146,
+    "name_as_published": "DR. TEMESGEN BEYENE",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSOCIATE PROFESSOR OF EMERGENCY MEDICINE",
+    "slug": "dr-temesgen-beyene",
+    "source_url": "https://hallelujahhospital.com/dr-temesgen-beyene/",
+    "source_modified": "2025-08-22T08:41:55",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder"
+    ]
+  },
+  {
+    "id": 17177,
+    "name_as_published": "DR. TIZAZU KEBEDE",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSISTANT PROFESSOR, VASCULAR & GENERAL SURGEON",
+    "slug": "dr-tizazu-kebede",
+    "source_url": "https://hallelujahhospital.com/dr-tizazu-kebede/",
+    "source_modified": "2025-08-22T15:01:44",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "3:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder"
+    ]
+  },
+  {
+    "id": 17151,
+    "name_as_published": "DR. WORKIYE TIGABU",
+    "credentials_as_published": null,
+    "specialty_as_published": "ASSISTANT PROFESSOR OF PEDIATRICS SURGERY",
+    "slug": "dr-workiye-tigabu",
+    "source_url": "https://hallelujahhospital.com/dr-workiye-tigabu/",
+    "source_modified": "2025-08-22T12:17:18",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "6:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "6:00 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "6:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder"
+    ]
+  },
+  {
+    "id": 17134,
+    "name_as_published": "DR. YIBELTAL ZEWDE",
+    "credentials_as_published": null,
+    "specialty_as_published": "INTERNAL MEDICINE SPECIALIST ( INTERNIST )",
+    "slug": "dr-yibeltal-zewde",
+    "source_url": "https://hallelujahhospital.com/dr-yibeltal-zewde/",
+    "source_modified": "2025-08-22T07:24:30",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-18-2.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday"
+    ]
+  },
+  {
+    "id": 1290,
+    "name_as_published": "Prof. Wondwossen Amogne",
+    "credentials_as_published": null,
+    "specialty_as_published": "INTERNIST & INFECTIOUS DISEASE SPECIALIST",
+    "slug": "dr-wondessen-amogne",
+    "source_url": "https://hallelujahhospital.com/dr-wondessen-amogne/",
+    "source_modified": "2026-09-08T14:10:14",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "7:30 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "7:30 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "7:30 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "3:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder"
+    ]
+  },
+  {
+    "id": 1741,
+    "name_as_published": "Professor Getachew Aderaye",
+    "credentials_as_published": null,
+    "specialty_as_published": "Pulmonologist,The First Pulmonologist in Ethiopia",
+    "slug": "professor-gethachew-aderay",
+    "source_url": "https://hallelujahhospital.com/professor-gethachew-aderay/",
+    "source_modified": "2026-09-08T14:30:15",
+    "listed_in_current_directory": true,
+    "linked_from_current_directory": true,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-32.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "From 4:30 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday"
+    ]
+  },
+  {
+    "id": 1283,
+    "name_as_published": "Dr .Abdulkadir sheibo",
+    "credentials_as_published": null,
+    "specialty_as_published": "Pediatric Cardiologist",
+    "slug": "dr-abdulkadir-sheibo",
+    "source_url": "https://hallelujahhospital.com/dr-abdulkadir-sheibo/",
+    "source_modified": "2025-06-05T10:39:19",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "7:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1776,
+    "name_as_published": "Dr. Asnake Lemenh",
+    "credentials_as_published": null,
+    "specialty_as_published": "Psychiatrist",
+    "slug": "dr-asnake-lemenh",
+    "source_url": "https://hallelujahhospital.com/dr-asnake-lemenh/",
+    "source_modified": "2025-07-24T12:55:36",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-28-5.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1744,
+    "name_as_published": "Dr. Baheru Bezabeh",
+    "credentials_as_published": null,
+    "specialty_as_published": "Orthopedics Specialist",
+    "slug": "dr-baheru-bezabeh",
+    "source_url": "https://hallelujahhospital.com/dr-baheru-bezabeh/",
+    "source_modified": "2025-08-08T14:34:58",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-17.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "From 7:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "From 7:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "From 7:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1268,
+    "name_as_published": "Dr. Biruk Mesfen",
+    "credentials_as_published": null,
+    "specialty_as_published": "Neurosurgeon",
+    "slug": "dr-biruk-mesfen",
+    "source_url": "https://hallelujahhospital.com/dr-biruk-mesfen/",
+    "source_modified": "2025-06-05T10:20:21",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "10:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "10:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1766,
+    "name_as_published": "Dr. Kibret",
+    "credentials_as_published": null,
+    "specialty_as_published": "Neurosurgeon",
+    "slug": "dr-kibret",
+    "source_url": "https://hallelujahhospital.com/dr-kibret/",
+    "source_modified": "2025-07-24T12:38:47",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-25.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "4:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "4:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "4:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1031,
+    "name_as_published": "DR. MARTA SEID AHMED",
+    "credentials_as_published": "(MD, FCECSA)",
+    "specialty_as_published": "Assistant Professor of Surgery Endocrine and Breast Surgeon",
+    "slug": "timetable-marta-seid-ahmed",
+    "source_url": "https://hallelujahhospital.com/timetable-marta-seid-ahmed/",
+    "source_modified": "2025-07-25T21:15:22",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/Frame-9-1024x1024.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "9:00 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "4:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1733,
+    "name_as_published": "Dr. Mekbib G/Hana",
+    "credentials_as_published": null,
+    "specialty_as_published": "Chief Obstetrician & Gynecologist",
+    "slug": "dr-mekbib-g-hana",
+    "source_url": "https://hallelujahhospital.com/dr-mekbib-g-hana/",
+    "source_modified": "2025-08-08T14:32:45",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-38.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "2:00 LT – 6:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1317,
+    "name_as_published": "Dr. Melese Gardie",
+    "credentials_as_published": null,
+    "specialty_as_published": "Arthroscopy/Sport Medicine and Arthroplasty",
+    "slug": "dr-melese-gardie",
+    "source_url": "https://hallelujahhospital.com/dr-melese-gardie/",
+    "source_modified": "2025-06-05T12:39:26",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "10:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "10:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1265,
+    "name_as_published": "Dr. Mulalem Wondafrash",
+    "credentials_as_published": null,
+    "specialty_as_published": "Neurosurgeon",
+    "slug": "dr-mulalem-wondafrash",
+    "source_url": "https://hallelujahhospital.com/dr-mulalem-wondafrash/",
+    "source_modified": "2025-07-25T21:27:56",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "11:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "11:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1757,
+    "name_as_published": "Dr. Ruth",
+    "credentials_as_published": null,
+    "specialty_as_published": "Dentist",
+    "slug": "dr-ruth",
+    "source_url": "https://hallelujahhospital.com/dr-ruth/",
+    "source_modified": "2025-07-24T12:20:37",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-30-1-1.webp",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "2:00 LT – 11:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "2:00 LT – 6:00 LT"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1302,
+    "name_as_published": "Dr. Sara",
+    "credentials_as_published": null,
+    "specialty_as_published": "Dermatologist",
+    "slug": "dr-sara",
+    "source_url": "https://hallelujahhospital.com/dr-sara/",
+    "source_modified": "2025-07-25T21:40:03",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-12-2-1024x1024.png",
+      "is_placeholder": false
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "9:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "9:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1311,
+    "name_as_published": "Dr. Sewagne",
+    "credentials_as_published": null,
+    "specialty_as_published": "Pediatric Endocronoligist",
+    "slug": "dr-sewagne",
+    "source_url": "https://hallelujahhospital.com/dr-sewagne/",
+    "source_modified": "2025-06-05T12:29:09",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "8:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1259,
+    "name_as_published": "Dr. Solomon",
+    "credentials_as_published": null,
+    "specialty_as_published": "Orthopedics",
+    "slug": "dr-solomon",
+    "source_url": "https://hallelujahhospital.com/dr-solomon/",
+    "source_modified": "2025-06-05T09:56:40",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "8:00 AM"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "ON CALL"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1276,
+    "name_as_published": "Dr.Henok Benti",
+    "credentials_as_published": null,
+    "specialty_as_published": "Cardiologist",
+    "slug": "dr-henok-benti",
+    "source_url": "https://hallelujahhospital.com/dr-henok-benti/",
+    "source_modified": "2025-06-05T10:33:37",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "9:00 LT"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "9:00 LT"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  },
+  {
+    "id": 1287,
+    "name_as_published": "Dr.Tadesse Getahun",
+    "credentials_as_published": null,
+    "specialty_as_published": "Pediatric Cardiologist",
+    "slug": "dr-tadesse-getahun",
+    "source_url": "https://hallelujahhospital.com/dr-tadesse-getahun/",
+    "source_modified": "2025-06-05T10:45:12",
+    "listed_in_current_directory": false,
+    "linked_from_current_directory": false,
+    "image": {
+      "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+      "is_placeholder": true
+    },
+    "availability": [
+      {
+        "day_as_published": "Monday",
+        "hours_as_published": "4:00 LT"
+      },
+      {
+        "day_as_published": "Tuesday",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "WEDNESDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "THURSDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "FRIDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      },
+      {
+        "day_as_published": "SATURDAY",
+        "hours_as_published": "—"
+      }
+    ],
+    "quality_flags": [
+      "schedule_has_duplicate_saturday_and_no_sunday",
+      "uses_generic_doctor_placeholder",
+      "profile_not_present_in_current_doctor_directory"
+    ]
+  }
+]

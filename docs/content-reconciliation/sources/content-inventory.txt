@@ -1,0 +1,118 @@
+# Developer content inventory
+
+This is the human-readable index for the structured records under `resources/data/`. Counts are from the 10 September 2026 extraction.
+
+## Hospital-wide content
+
+| Content | Source status | Implementation note |
+| --- | --- | --- |
+| Name and tagline | Extracted | Tagline is “Bringing Quality Care Home!” |
+| Story and timeline | Extracted | Five milestones; leadership approval required |
+| Mission, vision, values | Extracted | Homepage mission is incorrect/duplicated; use About source pending approval |
+| Leadership | Extracted | Four names/roles; confirm current tenure and portraits |
+| Contact and location | Extracted | Four general numbers, one emergency/ambulance number, email, locality, map coordinates |
+| Appointment request | Extracted | Seven fields and current API action recorded; privacy/SLA content missing |
+| Emergency and ambulance | Extracted | Number, audience, and five equipment items recorded |
+| Visitor journey | Extracted | Reception → triage → cashier → OPD station |
+| Technology | Extracted | Six published equipment/technology references |
+| Partners | Extracted | Nineteen names; active relationships and logo rights need confirmation |
+| Capacity/statistics | Extracted as claims | Beds, staffing, experience, patient count, and airport proximity need evidence/as-of dates |
+
+## Current doctor directory
+
+The visible directory contains 18 rendered cards but one duplicate, leaving **17 unique clinicians**. Sixteen cards link to profiles; Dr. Abel Zemenfes appears without a profile link:
+
+1. Professor Getachew Aderaye — Pulmonology
+2. Dr. Yibeltal Zewde — Internal Medicine
+3. Dr. Dagnachew Shibeshi — Dermatology / allergy
+4. Dr. Rabia Jemal — Pediatrics and child health
+5. Dr. Temesgen Beyene — Emergency medicine
+6. Dr. Abiy Worku — Trauma and arthroplasty surgery
+7. Dr. Habtemariam Demoz — Urology surgery
+8. Dr. Workiye Tigabu — Pediatric surgery
+9. Dr. Kassaye Ashene — ENT
+10. Dr. Kefelegne Dejene — Interventional cardiology
+11. Prof. Wondwossen Amogne — Internal medicine / infectious disease
+12. Dr. Semunigus Kebede — Urology subspecialty
+13. Dr. Abel Zemenfes — Nephrology
+14. Dr. Daniel Hailu — Pediatric hematology/oncology
+15. Dr. Mussie Gebeyehu — Pulmonology
+16. Dr. Amare Gulilat — Internal medicine / endocrinology
+17. Dr. Tizazu Kebede — Vascular and general surgery
+
+The list above follows the published directory text, including its duplicate Daniel Hailu card; structured data resolves this to 17 current-directory records. There are **15 additional profile-only records** in `doctors.json`. Do not surface them until the hospital confirms they are current.
+
+## Services and departments
+
+### Access and hospital care (9)
+
+- Emergency Department
+- Outpatient Department (OPD)
+- In-Patient Department (IPD)
+- Intensive Care Unit (ICU)
+- Nursing Department
+- Pharmacy Department
+- Laboratory Department
+- Imaging Department
+- Pathology
+
+### Medicine (12)
+
+- Internal Medicine
+- Cardiology
+- Neurology
+- Nephrology
+- Gastroenterology & Hepatology
+- Endocrinology
+- Infectious Diseases
+- Rheumatology
+- Hematology
+- Pulmonology / chest and lung care
+- Sleep Lab
+- Psychiatry
+
+### Surgery (11)
+
+- General Surgery
+- Cardiothoracic Surgery
+- Neurosurgery
+- Hepatobiliary
+- Vascular Surgery
+- Plastic Surgery
+- Urology
+- Endocrine Surgery
+- Colorectal Surgery
+- Arthroplasty, Trauma & Orthopedic Surgery
+- Orthopedics & Orthopedic Surgery
+
+### Women and children (2)
+
+- Gynecology / OB-GYN
+- Pediatrics (embedded on the general Services page; no standalone page found)
+
+### Specialty and rehabilitation (5)
+
+- Ophthalmology
+- Dentistry
+- ENT
+- Physical Therapy & Rehabilitation
+- Speech Therapy
+
+Each service record contains the public page's section headings, overview paragraphs, conditions, and service lists—not merely a title.
+
+## Suggested website content model
+
+| Template | Primary source |
+| --- | --- |
+| Home | `hospital-profile.json` plus selected approved doctors/services |
+| About | Story, mission, vision, values, leadership, verified facts |
+| Doctor directory | `data/doctors.json`, filtered to approved current records |
+| Doctor profile | One doctor record plus hospital-supplied biography/credentials/languages |
+| Service directory | `data/services.json`, grouped by `group` |
+| Service detail | One service record plus hours, location, preparation, owner, and CTA |
+| Emergency | `hospital-profile.json.emergency_and_ambulance` plus approved safety guidance |
+| Appointment | `hospital-profile.json.appointment_request` plus privacy, consent, and response expectations |
+| Contact / directions | `hospital-profile.json.contact` plus verified wayfinding and hours |
+| Patient & visitor guide | Visitor journey plus missing admission, visit, payment, accessibility, and discharge content |
+| Careers | Current vacancy page plus hospital-owned recruitment policy/content |
+| Legal and privacy | New hospital/legal content required; no usable source copy found |

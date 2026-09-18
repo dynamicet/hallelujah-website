@@ -1,0 +1,15 @@
+{
+  "organization": "Hallelujah General Hospital",
+  "source_site": "https://hallelujahhospital.com/",
+  "source_api": "https://hallelujahhospital.com/wp-json/wp/v2/pages",
+  "extracted_at": "2026-09-10",
+  "source_page_count": 99,
+  "doctor_record_count": 32,
+  "current_directory_doctor_count": 17,
+  "service_record_count": 39,
+  "notes": [
+    "Published-source values are retained as written; quality flags identify known inconsistencies.",
+    "A record is not an operational guarantee. Clinical services, staff, schedules, claims, and contacts require hospital-owner verification before launch.",
+    "The public sitemap was not used because the project audit found large-scale unrelated SEO-spam URLs."
+  ]
+}

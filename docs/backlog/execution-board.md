@@ -786,3 +786,61 @@ and PR #53 retain its matching SHA/run, checked merge and exact-main result.
 Authentic assets/rights/consent/crops, hospital/language acceptance, external storage (SEC-02),
 production storage/backups/capacity/scheduling/cache/CDN, providers, collection, public/CMS routes
 and publication remain gated.
+
+## B02-012 controlled draft reconciliation — 18 September 2026
+
+B02-011 PR #53 merged as `2c50a3cf26524b2ebb6f1aef9fc2663ebcc9bb4f`; exact-main
+[run 35279658953](https://github.com/dynamicet/hallelujah-website/actions/runs/35279658953)
+passed. The client directed “start” for the proposed controlled B02-012 reconciliation.
+B02-012 moves Proposed → Ready → **In progress** for offline draft/withheld reconciliation
+under workspace identity `befikadusata` directing Codex in temporary Content Manager and QA roles;
+the same identity is controlled-development review authority. Hospital domain owners remain
+unassigned. The [execution brief](b02-012-content-reconciliation.md) limits this pull to source
+evidence, proposed dispositions, review-role/decision links and integrity checks.
+
+The register covers 259 available source units with zero unaccounted units and 20 open review
+issues. Its completeness claim excludes the unavailable 99-page raw snapshot. All canonical IDs
+and hospital approvals remain null; no corrected clinical/operational copy, actual merge/redirect,
+CMS/database write, source/media fetch, public route or migration occurs. GOV-01, SEC-01 and
+applicable SAFE/CARE/ACCESS/INST/APPT/BRAND/LANG decisions remain required before authentic approval
+or migration. [Execution evidence](evidence/B02-012-content-reconciliation-2026-09-18.md)
+records local verification; hosted review and controlled client acceptance remain pending.
+
+B02-012 moves In progress → **In review** after the controlled local T0 passes on
+18 September 2026, Africa/Addis_Ababa, under the same responsible/review identity. Source
+byte comparisons, 259-unit coverage, deterministic report/queue checks, meaningful integrity
+and approval negatives, full repository verification, history secret scan and diff checks pass.
+Full verification includes the existing 92-case component, 52-case statement and 163-case media
+matrices using pinned local Python tooling. Environment failures and the passing retest remain
+in the evidence. Hosted exact-head review and controlled client acceptance remain pending;
+hospital disposition approval, authentic content migration, production and publication remain gated.
+
+On 18 September 2026, Africa/Addis_Ababa, the client directed “close out B02-012” under
+`befikadusata` as responsible and controlled acceptance identity in temporary Content Manager/QA
+roles. [Issue #54](https://github.com/dynamicet/hallelujah-website/issues/54) tracks closeout of
+implementation commit `24785783f93d9e5396f738525072ed467c728647`. Controlled acceptance is directed;
+[PR #55](https://github.com/dynamicet/hallelujah-website/pull/55) carries hosted review.
+At closeout initiation the ticket remained In review pending hosted exact-head verification. Checked merge and passing
+exact-main CI are required before dependent execution. Hospital approval and all authentic
+migration, collection, production and publication gates remain unresolved.
+
+## B02-012 controlled acceptance — 18 September 2026
+
+B02-012 moves In review → **Done** for controlled development under client direction to
+“close out B02-012”. Responsible and acceptance person: `befikadusata` directing Codex in temporary
+Content Manager/QA roles on 18 September 2026, Africa/Addis_Ababa. Target: synthetic/offline local
+T0 and private hosted T1; dependency B02-011 is Done with passing checked merge/main evidence above.
+All 259 available source units reconcile, with zero unaccounted units; all source fingerprints,
+deterministic report/queue checks and meaningful integrity/approval negatives pass. Full local
+verification, fresh dependency audit, reachable-history secret scan and closeout documentation
+checks pass. Hosted implementation [run 35340428619](https://github.com/dynamicet/hallelujah-website/actions/runs/35340428619)
+passes every step, including full verification and clean reconstruction, for exact commit
+`24785783f93d9e5396f738525072ed467c728647`. No scoped implementation defect remains open.
+The [evidence](evidence/B02-012-content-reconciliation-2026-09-18.md) retains environment/network
+failures and passing retests. Final acceptance-documentation CI must pass before
+[PR #55](https://github.com/dynamicet/hallelujah-website/pull/55) merges;
+[issue #54](https://github.com/dynamicet/hallelujah-website/issues/54) and PR #55 retain its matching
+SHA/run, checked merge and exact-main result. B02-013 is the next candidate after successful
+closeout, subject to controlled-development readiness checks. All 20 hospital review issues,
+unavailable raw snapshot, hospital approval, authentic migration, collection, production and
+publication gates remain unresolved.

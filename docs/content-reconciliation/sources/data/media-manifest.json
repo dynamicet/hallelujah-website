@@ -1,0 +1,767 @@
+[
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+    "usage": "doctor",
+    "owner_slug": "dr-abel-zemenfes",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 25,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-28-1.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-abiy-worku-2",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-amare-gulilat",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-22-1.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-dagnachew-shibeshi-2",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+    "usage": "doctor",
+    "owner_slug": "dr-daniel-hailu",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 25,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-24.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-h-mariam-demoz-2",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-26.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-kassaye-ashene",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-kefelegne-dejene",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-21.png",
+    "usage": "doctor",
+    "owner_slug": "dr-mussie-gebeyehu",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+    "usage": "doctor",
+    "owner_slug": "dr-rabia-jemal",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 25,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-20.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-semunigus-kebede",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+    "usage": "doctor",
+    "owner_slug": "dr-temesgen-beyene",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 25,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+    "usage": "doctor",
+    "owner_slug": "dr-tizazu-kebede",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 25,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+    "usage": "doctor",
+    "owner_slug": "dr-workiye-tigabu",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 25,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-18-2.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-yibeltal-zewde",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-wondessen-amogne",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-32.webp",
+    "usage": "doctor",
+    "owner_slug": "professor-gethachew-aderay",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-abdulkadir-sheibo",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-28-5.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-asnake-lemenh",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-17.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-baheru-bezabeh",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-biruk-mesfen",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-25.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-kibret",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/Frame-9-1024x1024.webp",
+    "usage": "doctor",
+    "owner_slug": "timetable-marta-seid-ahmed",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-38.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-mekbib-g-hana",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-melese-gardie",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-mulalem-wondafrash",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-30-1-1.webp",
+    "usage": "doctor",
+    "owner_slug": "dr-ruth",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-12-2-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-sara",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-sewagne",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-solomon",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-henok-benti",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1-1024x1024.png",
+    "usage": "doctor",
+    "owner_slug": "dr-tadesse-getahun",
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 11,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/Houston-Medical-Imaging1-1.png",
+    "usage": "about",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-06-at-06.42.04_74012033-1.png",
+    "usage": "about",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/slider/cache/ddb1ba424e04aa2612b708a2c5ceff69/PEDIATRICS-WARD-1-1-2.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/slider/cache/d85c2d0ce0d5659009e0edb03b043318/Frame-10.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/slider/cache/f9c981dbe9f16d7d7badedc7cc4def35/OR-THEATHRE-1-1.jpg",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/slider/cache/c105096080fb4504a356864f17e3cd2f/CAFE-1-1.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-4-1.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-3-1.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-5-1.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-6-1.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-8.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-9.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-32.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-18-2.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-22-1.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/06/Frame-13-1.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 25,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-28-1.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-24.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-26.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-20.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/07/Frame-21.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 3,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/09/Frame-41.jpg",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Frame-32-1.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Frame-32-3.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Frame-31-1.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/Group-17.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/Group-18.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/human-dignity-1.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/excellence-1.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/quality-compationate-1.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/quality-compationate.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/quality-compationate-2-1.webp",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/tech-health.jpg",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/05/tech-edited-scaled.jpg",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-31-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-33-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-42-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-34-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-38-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-32-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-30-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-5-3-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-35-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-41-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-6-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-43-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-44-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-21-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-39-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-40-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-22-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-36-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  },
+  {
+    "source_url": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-37-300x160.png",
+    "usage": "home",
+    "owner_slug": null,
+    "source_alt_text": null,
+    "alt_text_status": "missing_in_source",
+    "shared_source_occurrences": 1,
+    "downloaded": false
+  }
+]
