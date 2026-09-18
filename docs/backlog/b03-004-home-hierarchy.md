@@ -1,7 +1,7 @@
 # B03-004 — Server-Rendered Home Hierarchy
 
 **Lane / priority / phase:** DELIVERY / P1 / Phase 1 preparation
-**Status:** In review for controlled development; full local verification and clean reconstruction pass
+**Status:** Done for controlled development; final documentation CI and checked merge required
 
 The client directed “start” following the proposed B03-004 execution on 18 September 2026,
 Africa/Addis_Ababa. Responsible person: `befikadusata` directing Codex in temporary Frontend,
@@ -107,6 +107,30 @@ passes all asset and Home browser assertions but fails temporary Home profile de
 `ENOTEMPTY`. The already allowed Home browser script now uses five bounded removal retries
 at 100 ms, matching the existing component/asset browser cleanup policy. This retains failing
 cleanup as a failure when the bounded retries are exhausted. Corrected hosted T1 remains required.
+
+## Controlled acceptance — 19 September 2026
+
+The client directed “close it”. B03-004 moves In review → **Done** for controlled development
+under `befikadusata` directing Codex in temporary Frontend/Product/QA roles, with the same
+identity as responsible and controlled acceptance person, on 19 September 2026,
+Africa/Addis_Ababa. Target: isolated synthetic local T0/private hosted T1. B01-006/B01-012 are
+Done; preceding B02-014 checked merge and exact-main CI pass. The working B00-016 matrix
+supplies controlled acceptance while formal DEL-01 remains deferred.
+
+Complete local verification and focused correction retests pass. Hosted corrected
+[run 35396965682](https://github.com/dynamicet/hallelujah-website/actions/runs/35396965682)
+passes all steps, including full verification and independent frozen clean reconstruction, for
+exact commit `3ac1705e2debc4360b8636a64b4fcd7ee78b80a1`. The
+[completion evidence](evidence/B03-004-home-hierarchy-2026-09-18.md#controlled-acceptance--19-september-2026)
+retains both failed hosted runs and their passing corrected retests. No scoped implementation
+defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #61](https://github.com/dynamicet/hallelujah-website/pull/61). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #60](https://github.com/dynamicet/hallelujah-website/issues/60)
+and PR #61. Dependent execution waits for passing exact-main CI. B03-005 is the next candidate,
+subject to a controlled-development brief and readiness checks while B03-001–B03-003 hospital
+approvals remain unresolved. No production or publication gate is promoted.
 
 ## Source authority and benchmark application
 

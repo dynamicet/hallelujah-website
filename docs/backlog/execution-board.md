@@ -1005,3 +1005,27 @@ for `017753856f12945056a41faec3909b0ac3831b99` passes asset/Home assertions but 
 Home browser profile deletion with `ENOTEMPTY`. The already scoped Home test receives the
 existing five-retry/100 ms removal policy; exhausted cleanup remains a failure. Both hosted
 failures remain in the evidence. B03-004 stays In review pending corrected hosted T1.
+
+## B03-004 controlled acceptance — 19 September 2026
+
+The client directed “close it”. B03-004 moves In review → **Done** for controlled development
+under `befikadusata` as responsible and controlled acceptance person, directing Codex in temporary
+Frontend/Product/QA roles on 19 September 2026, Africa/Addis_Ababa. Target: synthetic local
+T0/private hosted T1. B01-006/B01-012 are Done; preceding B02-014 checked merge and exact-main
+CI pass. The working B00-016 matrix supplies controlled acceptance; formal DEL-01 remains deferred.
+
+All recorded local checks and focused correction retests pass. Hosted corrected
+[run 35396965682](https://github.com/dynamicet/hallelujah-website/actions/runs/35396965682)
+passes every step, including full verification and independent frozen clean reconstruction, for
+exact commit `3ac1705e2debc4360b8636a64b4fcd7ee78b80a1`. The
+[completion evidence](evidence/B03-004-home-hierarchy-2026-09-18.md#controlled-acceptance--19-september-2026)
+retains both failed hosted runs and the passing guarded navigation/cleanup retests. No scoped
+implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #61](https://github.com/dynamicet/hallelujah-website/pull/61). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #60](https://github.com/dynamicet/hallelujah-website/issues/60)
+and PR #61. Dependent execution waits for passing exact-main CI. B03-005 is the next candidate,
+subject to a controlled-development brief and readiness checks while B03-001–B03-003 hospital
+approvals remain unresolved. Formal DEL-01, hospital/language/media approvals, authentic content,
+providers, collection, migration, provisioning, production and publication retain their gates.

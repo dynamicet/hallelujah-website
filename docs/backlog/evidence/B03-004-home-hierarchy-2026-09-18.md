@@ -1,8 +1,8 @@
 # B03-004 — Controlled Home Hierarchy Evidence
 
-**Status:** In review; local T0 and frozen reconstruction pass; acceptance remains pending.
-**Target:** Isolated local T0; private hosted exact-head T1 required.
-**Responsible/review person:** `befikadusata` directing Codex in temporary Frontend/Product/QA roles.
+**Status:** Done for controlled development; final documentation CI and checked merge required.
+**Target:** Isolated local T0; private hosted exact-head T1 passed.
+**Responsible/acceptance person:** `befikadusata` directing Codex in temporary Frontend/Product/QA roles.
 
 The client directed “start” following the proposed B03-004 Home hierarchy on 18 September 2026,
 Africa/Addis_Ababa. B02-014 checked merge `baaa1be922442a657b027f6fa4ea909d61f45ec5` has passing
@@ -126,3 +126,26 @@ It remains failed evidence; reconstruction does not start. Home browser cleanup 
 five bounded removal retries at 100 ms, matching existing component/asset checks. Exhausted
 cleanup still fails the process. Focused `pnpm home:smoke` passes all 165 cases and exits zero
 after profile removal; lint/format/local-link/diff checks pass. Corrected hosted T1 remains pending.
+
+## Controlled acceptance — 19 September 2026
+
+The client directed “close it”. B03-004 moves In review → **Done** for controlled development
+on 19 September 2026, Africa/Addis_Ababa. Responsible and controlled acceptance person:
+`befikadusata` directing Codex in temporary Frontend/Product/QA roles. Dependencies B01-006
+and B01-012 are Done; preceding B02-014 checked merge/exact-main CI pass. Target remains
+synthetic local T0/private hosted T1 under the working B00-016 matrix.
+
+Hosted corrected [run 35396965682](https://github.com/dynamicet/hallelujah-website/actions/runs/35396965682)
+passes all steps, full verification and independent frozen clean reconstruction for exact commit
+`3ac1705e2debc4360b8636a64b4fcd7ee78b80a1`. This includes 14 SSR cases, 165 Home browser
+cases, six rejected request controls, 163 asset cases with delayed-body fallback coverage,
+92 component/52 policy cases, build isolation, history secret scan and dependency audit.
+Local full verification, focused complete-exit Home/asset retests and documentation checks pass.
+No scoped defect remains open. Both failed hosted runs above remain failed evidence.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #61](https://github.com/dynamicet/hallelujah-website/pull/61). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #60](https://github.com/dynamicet/hallelujah-website/issues/60)
+and PR #61. Dependent execution waits for passing exact-main CI. No deployed Home, physical
+device/AT, professional language, authentic hospital content/media/contact, provider, collection,
+migration, provisioning, production or publication approval is claimed.
