@@ -1,7 +1,7 @@
 # B03-005 — Home Canonical Safety and Contact Integration
 
 **Lane / priority / phase:** DELIVERY / P0 / Phase 1 preparation
-**Status:** In progress
+**Status:** In review; local T0 and independent frozen reconstruction pass
 
 On 19 September 2026, Africa/Addis_Ababa, the client directed “start” after the proposed
 B03-005 execution. `befikadusata` directs Codex in temporary Frontend/Operations-contract/QA
@@ -12,6 +12,8 @@ B02-003 and B03-004 are Done; PR #61 merged as
 [run 35398851259](https://github.com/dynamicet/hallelujah-website/actions/runs/35398851259) passed.
 The working B00-016 matrix supplies controlled acceptance; formal DEL-01 remains deferred.
 Tracking: [issue #62](https://github.com/dynamicet/hallelujah-website/issues/62).
+Review: [draft PR #63](https://github.com/dynamicet/hallelujah-website/pull/63), implementation
+`8394bb3c282849362297a34b3bd283c56bf809f1`.
 
 ## Controlled sequencing and scope
 
@@ -51,6 +53,8 @@ geolocation, search query, appointment collection, migration, provisioning or pu
 ## Verification and sources
 
 Use pinned Node.js 24.21.0 and pnpm 10.27.0:
+Run source verification and clean reconstruction sequentially: the existing shared-component
+browser harness uses fixed upstream port 3212.
 
 ```sh
 pnpm home-contacts:check
@@ -64,6 +68,11 @@ pnpm secrets:check --history
 git diff --check
 ```
 
+Review with `pnpm home:preview` at `http://127.0.0.1:3214/contacts-current`.
+Other local states: `/contacts-missing`, `/contacts-unverified`, `/contacts-expired`,
+`/contacts-withdrawn`, `/contacts-updated`, `/contacts-amharic-unavailable`, and
+`/contacts-public-denied`. These are review-tool paths, not hospital application routes.
+
 Sources: [Epic scope](epic-03-critical-journeys.md#home--h0h9),
 [Home specification](../ux/page-specifications.md#1-home), [Home wireframe](../wireframes/home.md),
 [canonical settings boundary](b02-003-canonical-site-settings.md),
@@ -76,3 +85,15 @@ code, screenshots and benchmark facts have no runtime authority.
 Hosted current-head T1 and client controlled acceptance are required before Done. Checked
 merge and passing exact-main CI precede dependent execution. Hospital safety/language approval,
 authentic contacts, real call/arrival acceptance, production and publication retain their gates.
+
+## Local review result — 19 September 2026
+
+B03-005 moves In progress → **In review** under the same responsible/review identity after
+134 contact projection/workflow/purpose-target/lifecycle/invalidation/bilingual/SSR cases,
+293 contact browser cases, six visually reviewed sanitized captures, full source verification,
+sequential independent frozen reconstruction, history secret scan and dependency audit pass.
+The [execution evidence](evidence/B03-005-home-canonical-contacts-2026-09-19.md) retains initial
+environment/shared-port failures and passing retests. Issue #62 and draft PR #63 retain exact
+review SHA/run pointers. The final review-documentation head repeats hosted T1; controlled
+client acceptance, checked merge and passing exact-main CI remain required. No Done, authentic
+contact, real dialer/provider/arrival acceptance, hospital route, production or publication is claimed.

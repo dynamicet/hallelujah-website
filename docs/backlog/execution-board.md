@@ -1047,3 +1047,17 @@ inert contact preview, with independent workflow, lifecycle, omission and invali
 and remaining review gates. Real telephone/email/provider activation, authentic records,
 hospital/language/arrival approval, collection, migration, provisioning, production and
 publication remain gated. Hosted T1 and client controlled acceptance remain required before Done.
+
+B03-005 moves In progress → **In review** on 19 September 2026, Africa/Addis_Ababa under the
+same responsible/review identity after all 134 contact contract cases, 293 contact browser cases,
+six sanitized visual captures, full repository verification, sequential independent frozen
+reconstruction, history secret scan and dependency audit pass. The
+[execution evidence](evidence/B03-005-home-canonical-contacts-2026-09-19.md) retains initial
+loopback/DNS/shared-port failures and passing retests. Implementation
+`8394bb3c282849362297a34b3bd283c56bf809f1` is pushed under
+[issue #62](https://github.com/dynamicet/hallelujah-website/issues/62) and
+[draft PR #63](https://github.com/dynamicet/hallelujah-website/pull/63). The final review-documentation
+head repeats hosted T1; its matching SHA/run is retained in issue #62 and PR #63. Hosted
+current-head T1, client controlled acceptance, checked merge and passing exact-main CI remain
+required. No hospital safety/language/arrival approval, authentic contact, callable/provider
+activation, collection, migration, provisioning, production or publication gate changes.

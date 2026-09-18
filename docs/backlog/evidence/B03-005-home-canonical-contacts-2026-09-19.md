@@ -1,12 +1,14 @@
 # B03-005 — Home Canonical Contact Execution Evidence
 
-**Status:** In progress; local verification running
+**Status:** In review; all local gates and independent frozen reconstruction pass
 **Date / timezone:** 19 September 2026 / Africa/Addis_Ababa
 **Responsible / review authority:** `befikadusata` directing Codex in temporary
 Frontend/Operations-contract/QA roles / same client workspace identity
 **Target:** Synthetic local T0/private hosted T1; no hospital route or release
 **Branch:** `b03-005-home-canonical-contacts`
 **Tracking:** [issue #62](https://github.com/dynamicet/hallelujah-website/issues/62)
+**Review:** [draft PR #63](https://github.com/dynamicet/hallelujah-website/pull/63)
+**Implementation:** `8394bb3c282849362297a34b3bd283c56bf809f1`
 
 ## Authority and implementation
 
@@ -55,17 +57,36 @@ installs fontTools 4.65.0/Brotli 1.2.0. Full application verification and indepe
 reconstruction use that temporary environment. The fresh registry dependency audit passes:
 650 dependencies, zero moderate/high/critical known vulnerabilities. Reachable-history secret,
 format, local-link and backlog checks pass. Deployment isolation passes 28 controls, 76 source
-files, six traces and 138 payloads with no fixture leakage. Full verification, reconstruction
-and hosted T1 remain pending.
+files, six traces and 138 payloads with no fixture leakage. Full verification and sequential
+independent reconstruction pass; matching-head hosted T1 and client acceptance remain required.
 
 The first clean reconstruction passes frozen installation, importer/lockfile checks, all pure
 checks, build, isolation, runtime, semantic accessibility and budgets, then times out in the
 existing review harness (`review document did not become ready`). Source verification and
 reconstruction were launched concurrently; both use the existing fixed upstream port 3212.
-Source verification passes that same harness. Reconstruction must repeat sequentially after
-source verification completes, avoiding this shared-port conflict; the first attempt remains
-failed evidence. Generated pre-existing statement print PDFs are restored from the initially
-clean HEAD rather than included as unrelated changes.
+Source verification passes that same harness. Sequential reconstruction after source verification
+passes every check, resolving the shared-port failure without modifying the existing harness;
+the first attempt remains failed evidence. Generated pre-existing statement print PDFs and
+asset browser verification metadata are restored from the initially clean HEAD rather than
+included as unrelated changes.
+
+## Local review result — 19 September 2026
+
+B03-005 moves In progress → **In review** under the same responsible/review identity and
+synthetic T0/private hosted T1 target. All 134 contact contract cases and 293 contact browser
+cases pass independently, during complete source verification and during frozen reconstruction.
+The complete matrix also passes the existing 92 component, 52 policy, 163 asset and 165 Home
+browser cases, lint/types, all content/workflow checks, build, isolation, semantic accessibility,
+performance budgets, runtime, links/backlog, reachable-history secrets and dependency audit.
+
+Sequential reconstruction preserves full lockfile graph SHA-256
+`b143b09bf35b897291553919a74247047f1b6529da0d759642ca6aa4290652bd`
+and workspace importer graph SHA-256
+`72df5c767c10664a290292b262c772a238c6bb287cb3a5622fa2e4c2095f1815`.
+No scoped implementation defect remains open. The preview launcher lists the new inert
+contact states; the final documentation/launcher head repeats hosted T1. Issue #62 and PR #63
+retain its matching SHA/run. Controlled acceptance, checked merge and exact-main CI remain
+required; no release or authentic-content acceptance is promoted.
 
 ## Acceptance boundary
 
