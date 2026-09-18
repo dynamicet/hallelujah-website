@@ -786,3 +786,31 @@ and PR #53 retain its matching SHA/run, checked merge and exact-main result.
 Authentic assets/rights/consent/crops, hospital/language acceptance, external storage (SEC-02),
 production storage/backups/capacity/scheduling/cache/CDN, providers, collection, public/CMS routes
 and publication remain gated.
+
+## B02-012 controlled draft reconciliation — 18 September 2026
+
+B02-011 PR #53 merged as `2c50a3cf26524b2ebb6f1aef9fc2663ebcc9bb4f`; exact-main
+[run 35279658953](https://github.com/dynamicet/hallelujah-website/actions/runs/35279658953)
+passed. The client directed “start” for the proposed controlled B02-012 reconciliation.
+B02-012 moves Proposed → Ready → **In progress** for offline draft/withheld reconciliation
+under workspace identity `befikadusata` directing Codex in temporary Content Manager and QA roles;
+the same identity is controlled-development review authority. Hospital domain owners remain
+unassigned. The [execution brief](b02-012-content-reconciliation.md) limits this pull to source
+evidence, proposed dispositions, review-role/decision links and integrity checks.
+
+The register covers 259 available source units with zero unaccounted units and 20 open review
+issues. Its completeness claim excludes the unavailable 99-page raw snapshot. All canonical IDs
+and hospital approvals remain null; no corrected clinical/operational copy, actual merge/redirect,
+CMS/database write, source/media fetch, public route or migration occurs. GOV-01, SEC-01 and
+applicable SAFE/CARE/ACCESS/INST/APPT/BRAND/LANG decisions remain required before authentic approval
+or migration. [Execution evidence](evidence/B02-012-content-reconciliation-2026-09-18.md)
+records local verification; hosted review and controlled client acceptance remain pending.
+
+B02-012 moves In progress → **In review** after the controlled local T0 passes on
+18 September 2026, Africa/Addis_Ababa, under the same responsible/review identity. Source
+byte comparisons, 259-unit coverage, deterministic report/queue checks, meaningful integrity
+and approval negatives, full repository verification, history secret scan and diff checks pass.
+Full verification includes the existing 92-case component, 52-case statement and 163-case media
+matrices using pinned local Python tooling. Environment failures and the passing retest remain
+in the evidence. Hosted exact-head review and controlled client acceptance remain pending;
+hospital disposition approval, authentic content migration, production and publication remain gated.

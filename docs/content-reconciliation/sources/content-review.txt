@@ -1,0 +1,55 @@
+# Content verification queue
+
+**Status:** Content inventory complete; operational approval required before launch.
+
+## Priority 0 — safety and access
+
+- Confirm the emergency and ambulance number. Both are currently published as `+251-940-105692`.
+- Reconcile general telephone numbers. The Contact page publishes `+251-114-704242`, `+251-114-704244`, `+251-965-407886`, and `+251-945-211206`; the Emergency page additionally presents the landline range `+251-114-704241/2/3/4`; the global header shows `+251 912 345 678`, which appears to be placeholder data.
+- Confirm the street address, map pin, entrance, nearby landmark, parking access, and accessibility information. “Around Gotera Condominium” is not sufficient arrival guidance.
+- Define whether the appointment form is a request or a confirmed booking, the response time, working hours, cancellation/rescheduling route, privacy/consent language, and a clear “not for emergencies” notice.
+- Confirm that every published 24/7, emergency, ICU, ambulance, and equipment claim is currently operational.
+
+## Priority 1 — doctors and schedules
+
+- The current directory resolves to **17 unique clinicians** (16 linked cards plus one unlinked Dr. Abel Zemenfes card), while **32 unique public profiles** were found. Confirm which profile-only clinicians are current and which pages must be unpublished or redirected.
+- Almost every timetable repeats Saturday as its final row and omits Sunday. Correct the source schedule before converting it to application logic.
+- Define `LT`. If it means Ethiopian local time, publish both the local convention and an unambiguous clock time for patients unfamiliar with it.
+- Confirm name spelling, honorifics, professional titles, specialties, subspecialties, and appointment routes with each clinician or medical-staff owner.
+- Several listed clinicians use a generic silhouette instead of a portrait. Obtain approved, consistently cropped photographs and consent/usage records.
+- Profiles need biography, qualifications, license/registration details where appropriate, clinical interests, languages, education/training, professional affiliations, locations, and accepted appointment routes.
+- The current directory contains Dr. Daniel Hailu twice in rendered content; Dr. Abiy Worku has duplicate profile URLs. Choose one canonical record/URL per clinician.
+
+## Priority 1 — services and clinical claims
+
+- Assign a clinical owner to approve every service page. Public copy includes high-consequence capability claims such as CABG, valve replacement, pacemaker implantation, dialysis, transplant support/referral, surgical oncology, bariatric surgery, complex neurosurgery, and pediatric emergency care.
+- Confirm scope, patient eligibility, referral requirements, days/hours, location/floor, preparation, required documents, pricing/insurance process, and booking method for every service.
+- Create one governed taxonomy. The site currently overlaps “Departments,” “Our Services,” specialty pages, surgery subspecialties, and doctor-card-only landing pages.
+- Pediatrics has no retrievable standalone page; its content currently lives inside the general Services page.
+- Vascular Surgery, Plastic Surgery, Dermatology, and ENT contain the incorrect copied subheading “Hepatobiliary Care at Hallelujah General Hospital.”
+- The Services page repeats Speech Therapy copy under the Ophthalmology heading. Use the standalone Ophthalmology page instead.
+- Normalize source spellings only after clinical review: examples include “Gynacology,” “Ophtalmonology,” “Endocronoligist,” “Arthroplasy,” and “Emergemcy.”
+
+## Priority 2 — institutional trust content
+
+- Validate the published figures: 115 beds, 96 inpatient beds, 450+ jobs, 19+ years of experience, and 175,000+ patients served. Add an “as of” date and evidence owner.
+- Confirm the 2006–2017 history and inauguration wording with leadership. The source timeline has grammatical and date-range ambiguities.
+- The homepage repeats the Vision text under both Mission and Vision; the About page contains a different mission. Treat the About page as the current source pending leadership approval.
+- Verify leadership names, roles, current tenure, biographies, and approved portraits.
+- Confirm that every named partner/insurer relationship is active, what the relationship means for patients, and whether logo/publication permission exists.
+- Confirm the claims “first pulmonologist in Ethiopia” and “ten minutes from Bole International Airport” before publication.
+
+## Priority 0 — source integrity
+
+- The project audit recorded thousands of unrelated gambling/spam URLs in the public sitemap. Complete incident response, clean the CMS, rotate credentials, patch dependencies, and validate search-index recovery before treating the live CMS as a trusted production source.
+- The extraction therefore used only the current public navigation/pages and WordPress page API. It did not ingest the full sitemap or post collection.
+
+## Minimum content still missing
+
+- Privacy notice, patient-data handling notice, cookie policy, and appointment consent wording
+- Patient rights and responsibilities, complaints/feedback route, safeguarding, and accessibility support
+- Visiting hours, inpatient visitor rules, admission/discharge guidance, what to bring, and payment/insurance workflow
+- Exact service hours and locations, accessibility/wayfinding, parking/public transport guidance
+- International-patient eligibility, records review, interpreter availability, payment estimates, travel coordination, and follow-up policy
+- Careers policy/content beyond the current vacancy shell
+- News/health-information governance, medical review dates, authors, and emergency disclaimers
