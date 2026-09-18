@@ -90,3 +90,26 @@ client acceptance remain required before Done. Checked merge and passing exact-m
 required before dependent execution. No acceptance, merge or release is claimed.
 Hospital approval, authentic routes/content, real contacts, language/media approval, providers,
 collection, migration, remote provisioning, production and publication remain gated.
+
+## Client-directed closeout correction — 19 September 2026
+
+The client directed “close it”, recording controlled-development acceptance under the same
+`befikadusata` responsible/acceptance identity and authorizing the necessary scoped CI correction.
+Hosted [run 35395367464](https://github.com/dynamicet/hallelujah-website/actions/runs/35395367464)
+for `804e4243849844972e6cc37ce237d3be20fd57fe` passes all security and full repository
+verification steps, but independent reconstruction fails at asset fallback navigation:
+`check-assets-rendered.mjs:210` dereferences `document.body.innerText` before the new page has
+a body. This run remains failed evidence and is not a merge gate pass.
+
+The scoped asset test correction waits for the exact unavailable/expired path, complete document
+and safely guarded unavailable text, then asserts readiness within the existing deadline before
+checking media omission and complete text. Both fallback responses stream their head before
+delaying the body by 150 ms, exercising transitional document readiness. All 163 asset cases,
+native video controls, locale-font checks, derivative withdrawal and zero external requests remain
+required. No asset/application runtime or hospital route changes.
+
+The sandbox retest fails at loopback binding (`listen EPERM`). The unrestricted corrected
+`pnpm assets:smoke` passes all 163 cases, including both streamed delayed-body fallback states,
+native keyboard/player controls, loaded bilingual fonts, 410 derivative withdrawal and zero
+external requests. Hosted correction results remain pending. B03-004 stays In review until
+corrected T1 passes; checked merge and passing exact-main CI still govern dependent execution.

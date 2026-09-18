@@ -985,3 +985,16 @@ Implementation `171c904dfb6b40f6a7edf7e413f7f79730ba4f07` is pushed to `b03-004-
 under [draft PR #61](https://github.com/dynamicet/hallelujah-website/pull/61). The final review
 documentation head repeats hosted T1; issue #60 and PR #61 retain its matching SHA/run.
 Controlled client acceptance, checked merge and passing exact-main CI remain required.
+
+On 19 September 2026, Africa/Addis_Ababa, the client directed “close it”, supplying controlled
+acceptance under `befikadusata` directing Codex in temporary Frontend/Product/QA roles and
+authorizing the required scoped closeout correction. Review
+[run 35395367464](https://github.com/dynamicet/hallelujah-website/actions/runs/35395367464)
+for `804e4243849844972e6cc37ce237d3be20fd57fe` passes full verification but fails independent
+reconstruction in the existing asset fallback browser test: the document body is read during
+navigation before it exists. The [brief](b03-004-home-hierarchy.md#client-directed-closeout-correction--19-september-2026)
+adds only `apps/web/scripts/check-assets-rendered.mjs` for guarded exact-path/complete-document
+readiness and streamed delayed-body regression cases. B03-004 remains In review until corrected
+hosted T1 passes. The [evidence](evidence/B03-004-home-hierarchy-2026-09-18.md#client-directed-closeout-correction--19-september-2026)
+retains the failed hosted run and loopback-denied local attempt. No production, publication,
+authentic content, provider, collection or migration gate changes.

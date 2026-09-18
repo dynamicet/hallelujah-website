@@ -87,6 +87,20 @@ passing retests, methods, byte reports and six visually reviewed sanitized captu
 Hosted exact-head T1 and controlled client acceptance remain required; no Done, merge or
 publication is claimed.
 
+## Client-directed closeout correction — 19 September 2026
+
+The client directed “close it”, supplying controlled-development acceptance and authorizing
+the scoped correction needed to pass the current-head merge control. Hosted review
+[run 35395367464](https://github.com/dynamicet/hallelujah-website/actions/runs/35395367464)
+passes full verification but fails independent reconstruction at the existing asset browser
+fallback navigation check. The test reads `document.body.innerText` before the new document has
+a body. The additional allowed file is `apps/web/scripts/check-assets-rendered.mjs`: wait for
+the exact fallback path, complete document and safely guarded unavailable text; assert readiness
+within the existing deadline. Streamed unavailable/expired responses delay the body by 150 ms
+to exercise the race without weakening content, omission or external-request assertions.
+B03-004 remains In review until corrected hosted T1 passes. The same responsible/acceptance
+identity and isolated target apply; no application route or runtime behavior changes.
+
 ## Source authority and benchmark application
 
 - [Epic scope](epic-03-critical-journeys.md#home--h0h9): H-001, H-002, G-001–G-003 and G-012.
