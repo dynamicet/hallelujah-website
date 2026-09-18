@@ -1,0 +1,216 @@
+{
+  "scope": "Synthetic fixed-time specimens; no authentic record or approval",
+  "create": {
+    "version": 1,
+    "synthetic": true,
+    "valid": true,
+    "snapshotHash": "14175017044340ad1dffedf244042b9b904d5ccb06079729dab9a62f8a5a1bc1",
+    "planHash": "4d1b1bae1775f5980ab29ed3347998615ef9cdfbfaafde5be7dd49469f68fd75",
+    "totals": {
+      "create": 1,
+      "update": 0,
+      "merge": 0,
+      "skip": 1,
+      "error": 0
+    },
+    "rows": [
+      {
+        "sourceKey": "synthetic/pub_131313131313",
+        "publicId": "pub_131313131313",
+        "action": "create",
+        "issues": []
+      },
+      {
+        "sourceKey": "synthetic/withheld-media",
+        "publicId": null,
+        "action": "skip",
+        "issues": []
+      }
+    ]
+  },
+  "repeated": {
+    "version": 1,
+    "synthetic": true,
+    "valid": true,
+    "snapshotHash": "a73bf1d61fde6d32c602e2926bc52461a4a033c24387b072c9b6c2264cecc58b",
+    "planHash": "c58ee50f0825d9dcf657b7f7e0b2ab746478aff1cc8527855ffab04ad95fc3ba",
+    "totals": {
+      "create": 0,
+      "update": 0,
+      "merge": 0,
+      "skip": 2,
+      "error": 0
+    },
+    "rows": [
+      {
+        "sourceKey": "synthetic/pub_131313131313",
+        "publicId": "pub_131313131313",
+        "action": "skip",
+        "issues": []
+      },
+      {
+        "sourceKey": "synthetic/withheld-media",
+        "publicId": null,
+        "action": "skip",
+        "issues": []
+      }
+    ]
+  },
+  "update": {
+    "version": 1,
+    "synthetic": true,
+    "valid": true,
+    "snapshotHash": "a73bf1d61fde6d32c602e2926bc52461a4a033c24387b072c9b6c2264cecc58b",
+    "planHash": "e9e82328e58e3cff8773ca8238aeb484e6cdc58b8730fd0c217f26ab14392dc4",
+    "totals": {
+      "create": 0,
+      "update": 1,
+      "merge": 0,
+      "skip": 0,
+      "error": 0
+    },
+    "rows": [
+      {
+        "sourceKey": "synthetic/pub_131313131313",
+        "publicId": "pub_131313131313",
+        "action": "update",
+        "issues": []
+      }
+    ]
+  },
+  "merge": {
+    "version": 1,
+    "synthetic": true,
+    "valid": true,
+    "snapshotHash": "a73bf1d61fde6d32c602e2926bc52461a4a033c24387b072c9b6c2264cecc58b",
+    "planHash": "ce3ad1d844b0830d03cb7cf4798a8f3e2e0c41ebadfb0a0ab70dbfad1ef9e8ad",
+    "totals": {
+      "create": 0,
+      "update": 0,
+      "merge": 1,
+      "skip": 0,
+      "error": 0
+    },
+    "rows": [
+      {
+        "sourceKey": "synthetic/pub_131313131313",
+        "publicId": "pub_131313131313",
+        "action": "merge",
+        "issues": []
+      }
+    ]
+  },
+  "forwardReferences": {
+    "version": 1,
+    "synthetic": true,
+    "valid": true,
+    "snapshotHash": "14175017044340ad1dffedf244042b9b904d5ccb06079729dab9a62f8a5a1bc1",
+    "planHash": "4fa10a0ec00c95b8746d7b50ea18b12101315f6576d27e5d8e960eb59348016e",
+    "totals": {
+      "create": 2,
+      "update": 0,
+      "merge": 0,
+      "skip": 0,
+      "error": 0
+    },
+    "rows": [
+      {
+        "sourceKey": "synthetic/pub_131313131313",
+        "publicId": "pub_131313131313",
+        "action": "create",
+        "issues": []
+      },
+      {
+        "sourceKey": "synthetic/pub_141414141414",
+        "publicId": "pub_141414141414",
+        "action": "create",
+        "issues": []
+      }
+    ]
+  },
+  "cyclicReferences": {
+    "version": 1,
+    "synthetic": true,
+    "valid": false,
+    "snapshotHash": "14175017044340ad1dffedf244042b9b904d5ccb06079729dab9a62f8a5a1bc1",
+    "planHash": "2522efc4ecd70683342671042a3a3997370bacb40fcec824d75bd2adaf3c0b10",
+    "totals": {
+      "create": 0,
+      "update": 0,
+      "merge": 0,
+      "skip": 0,
+      "error": 2
+    },
+    "rows": [
+      {
+        "sourceKey": "synthetic/pub_131313131313",
+        "publicId": "pub_131313131313",
+        "action": "error",
+        "issues": [
+          "Unresolved or cyclic new-record relationships"
+        ]
+      },
+      {
+        "sourceKey": "synthetic/pub_141414141414",
+        "publicId": "pub_141414141414",
+        "action": "error",
+        "issues": [
+          "Unresolved or cyclic new-record relationships"
+        ]
+      }
+    ]
+  },
+  "exportSnapshot": {
+    "version": 1,
+    "synthetic": true,
+    "documents": [
+      {
+        "id": 13,
+        "record": {
+          "publicId": "pub_131313131313",
+          "kind": "page",
+          "status": "draft",
+          "synthetic": true,
+          "localized": {
+            "en": {
+              "slug": "synthetic-transfer-131313131313",
+              "title": "Synthetic transfer specimen"
+            },
+            "am": {
+              "slug": "synthetic-am-131313131313",
+              "title": "የቁጥጥር ምሳሌ"
+            }
+          },
+          "source": {
+            "reference": "synthetic-transfer-specimen",
+            "recordedAt": "2026-09-17T12:00:00Z"
+          },
+          "owner": "cms:1",
+          "reviewer": null,
+          "approval": null,
+          "domainApproval": null,
+          "relationships": [],
+          "publishAt": null,
+          "reviewAt": null,
+          "expiresAt": null,
+          "withdrawal": null,
+          "audit": [
+            {
+              "actor": "cms:1",
+              "at": "2026-09-18T12:00:00Z",
+              "change": "draft created"
+            }
+          ]
+        },
+        "workflow": {
+          "revision": 1,
+          "author": "cms:1",
+          "contentClass": "general",
+          "reviews": {},
+          "verification": null
+        }
+      }
+    ],
+    "snapshotHash": "a73bf1d61fde6d32c602e2926bc52461a4a033c24387b072c9b6c2264cecc58b"
+  }
+}

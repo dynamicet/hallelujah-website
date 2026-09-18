@@ -844,3 +844,21 @@ SHA/run, checked merge and exact-main result. B02-013 is the next candidate afte
 closeout, subject to controlled-development readiness checks. All 20 hospital review issues,
 unavailable raw snapshot, hospital approval, authentic migration, collection, production and
 publication gates remain unresolved.
+
+## B02-013 controlled content transfer — 18 September 2026
+
+B02-012 PR #55 merged as `ba55eb145ee7308cee5c41408ce28058973ffc86`; exact-main
+[run 35341982931](https://github.com/dynamicet/hallelujah-website/actions/runs/35341982931)
+passed. The client directed “start” for B02-013. It moves Proposed → Ready → **In progress**
+under workspace identity `befikadusata` directing Codex in temporary Backend/Content/QA roles,
+with the same identity as controlled-development review authority, on 18 September 2026,
+Africa/Addis_Ababa. Dependencies B02-001–B02-012 are Done for controlled development.
+Target: synthetic local T0 and private hosted T1. The
+[execution brief](b02-013-controlled-content-transfer.md) authorizes validated unsigned-draft
+import/update/explicit-merge, immutable dry runs, authenticated governed-content export and
+whole-batch transactional rollback through the existing CMS hooks.
+[Execution evidence](evidence/B02-013-controlled-content-transfer-2026-09-18.md) records local
+checks and remaining gates; [issue #56](https://github.com/dynamicet/hallelujah-website/issues/56)
+tracks the same execution. No acceptance is yet claimed. The B02-012 authentic evidence bundle,
+hospital migration approval, GOV-01/SEC-01, real identities/content, assets/providers, collection,
+production and publication remain gated. B02-014 is the next candidate after successful closeout.

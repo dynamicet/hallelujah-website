@@ -1,4 +1,5 @@
 import { checkAssetsDb } from './check-assets-db.mjs'
+import { checkContentTransferDb, installTransferFailureFixture } from './check-content-transfer-db.mjs'
 import { checkDiscoveryDb } from './check-discovery-db.mjs'
 import { checkUtilityStatementsDb } from './check-utility-statements-db.mjs'
 import { checkInstitutionalBlocksDb } from './check-institutional-blocks-db.mjs'
@@ -29,6 +30,7 @@ process.env.LOCAL_PAYLOAD_SECRET = 'controlled-local-cms-fixture-secret-only'
 process.env.LOCAL_DATABASE_URL = `postgresql://hallelujah_content_local:synthetic-placeholder@localhost:${port}/hallelujah_content_local?host=${encodeURIComponent(host)}`
 
 const { default: config } = await import('../src/payload.config.ts')
+installTransferFailureFixture(await config)
 const payload = await getPayload({ config })
 process.stdout.write('Disposable Payload initialized.\n')
 
@@ -68,11 +70,17 @@ async function denied(operation, pattern) {
 }
 
 try {
+  if (process.argv.includes('--transfer-only')) {
+    await checkContentTransferDb(payload, { identity, denied, fixtureSuffix })
+    await new Promise((resolve) => process.stdout.write('Disposable transfer CMS smoke passed.\n', resolve))
+    process.exit(0)
+  }
   if (process.argv.includes('--assets-only')) {
     await checkAssetsDb(payload, { identity, denied, fixtureSuffix })
     await new Promise((resolve) => process.stdout.write('Disposable asset CMS smoke passed.\n', resolve))
     process.exit(0)
   }
+  await checkContentTransferDb(payload, { identity, denied, fixtureSuffix })
   const author = await identity('author', ['author', 'reviewer', 'content', 'operations', 'publisher'])
   const otherAuthor = await identity('other-author', ['author'])
   const reviewer = await identity('reviewer', ['reviewer'])
