@@ -77,7 +77,14 @@ const server = createServer(async (req, res) => {
     locale, saveData, mode: 'controlled-fixture' }))
   const fontCss = kind === 'font'
   res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
-  res.end(`<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Synthetic asset review</title><link rel="stylesheet" href="/specimen.css">${fontCss ? `<link rel="stylesheet" href="/fixture-font-${locale}.css">` : ''}</head><body><main><h1>Synthetic asset fixture</h1>${locale === 'am' ? '<p>Unreviewed Amharic shaping fixture</p>' : ''}<p>The complete text content stays available without media.</p>${kind === 'font' ? `<p id="font-specimen">${locale === 'am' ? 'ምሳሌ' : 'Synthetic font geometry'}</p>` : figure}</main></body></html>`)
+  const html = `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Synthetic asset review</title><link rel="stylesheet" href="/specimen.css">${fontCss ? `<link rel="stylesheet" href="/fixture-font-${locale}.css">` : ''}</head><body><main><h1>Synthetic asset fixture</h1>${locale === 'am' ? '<p>Unreviewed Amharic shaping fixture</p>' : ''}<p>The complete text content stays available without media.</p>${kind === 'font' ? `<p id="font-specimen">${locale === 'am' ? 'ምሳሌ' : 'Synthetic font geometry'}</p>` : figure}</main></body></html>`
+  if (['unavailable', 'expired'].includes(state)) {
+    // Exercise navigation readiness with a streamed response whose body arrives later.
+    const bodyStart = html.indexOf('<body>')
+    res.write(html.slice(0, bodyStart))
+    await new Promise((resolve) => setTimeout(resolve, 150))
+    res.end(html.slice(bodyStart))
+  } else res.end(html)
 })
 await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve))
 const origin = `http://127.0.0.1:${server.address().port}`
@@ -207,9 +214,11 @@ try {
   cases.push({ kind: 'video', capability: 'native-keyboard-open-play-pause', passed: true })
   for (const state of ['unavailable', 'expired']) {
     await send('Page.navigate', { url: `${origin}/raster/en/${state}` })
-    for (let attempt = 0; attempt < 50 && !(await evaluate("document.body.innerText.includes('Media unavailable')")); attempt++) await pause(50)
+    const ready = `location.pathname === ${JSON.stringify(`/raster/en/${state}`)} && document.readyState === 'complete' && document.body?.innerText.includes('Media unavailable')`
+    for (let attempt = 0; attempt < 50 && !(await evaluate(ready)); attempt++) await pause(50)
+    assert.equal(await evaluate(ready), true, `${state} asset fallback must finish loading`)
     assert.equal(await evaluate("document.querySelectorAll('img,video').length === 0 && document.body.innerText.includes('complete text content')"), true)
-    cases.push({ kind: 'raster', state, passed: true })
+    cases.push({ kind: 'raster', state, streamedBodyDelayMs: 150, passed: true })
   }
   const networkRequests = requests.filter((url) => /^https?:/.test(url))
   assert.equal(networkRequests.every((url) => url.startsWith(origin)), true, 'asset fixture requested an external resource: ' + networkRequests.filter((url) => !url.startsWith(origin)).join(', '))

@@ -953,3 +953,79 @@ execution waits for passing exact-main CI. B03-004 Home hierarchy is the next im
 candidate, subject to controlled-development readiness checks. Formal DEL-01, hospital and
 language approvals, authentic content/migration, providers, collection, remote provisioning,
 production and publication retain their existing gates.
+
+## B03-004 controlled Home hierarchy — 18 September 2026
+
+B02-014 PR #59 merged as `baaa1be922442a657b027f6fa4ea909d61f45ec5`; exact-main
+[run 35392349389](https://github.com/dynamicet/hallelujah-website/actions/runs/35392349389) passed,
+resolving the dependent-execution wait. The client directed “start” for B03-004. It moves
+Proposed → Ready → **In progress** under workspace identity `befikadusata` directing Codex in
+temporary Frontend/Product/QA roles, with the same identity as controlled-development review
+authority, on 18 September 2026, Africa/Addis_Ababa. B01-006/B01-012 are Done; GOV-02 supplies
+planned scope and the centrally replaceable project brand baseline applies. The working B00-016
+matrix supplies local T0/private hosted T1 acceptance; formal DEL-01 remains deferred.
+The [execution brief](b03-004-home-hierarchy.md) authorizes the reusable Home composition and
+separate loopback-only controlled preview with local withheld destinations. B03-005/006 retain
+canonical contact and optional governed-record integration. [Execution evidence](evidence/B03-004-home-hierarchy-2026-09-18.md)
+records results and remaining review gates. Hosted T1 and controlled client acceptance remain
+pending. No hospital route, real contact, clinical claim, authentic media, language approval,
+provider, collection, migration, provisioning, production or publication gate is promoted.
+
+B03-004 moves In progress → **In review** on 19 September 2026, Africa/Addis_Ababa under the
+same responsible/review identity after 14 SSR/omission/safety/escaping/token cases, 165 responsive/
+capability/native-keyboard/media cases, six rejected request controls, complete repository
+verification, independent frozen clean reconstruction, dependency audit and history secret scan
+pass. The scoped mobile media shift is fixed and retested; six sanitized captures are visually
+reviewed. [Issue #60](https://github.com/dynamicet/hallelujah-website/issues/60) and the
+[execution evidence](evidence/B03-004-home-hierarchy-2026-09-18.md) retain review pointers and
+failed-run/passing-retest history. Hosted current-head T1 and controlled client acceptance remain
+required before Done; no merge or publication is claimed.
+
+Implementation `171c904dfb6b40f6a7edf7e413f7f79730ba4f07` is pushed to `b03-004-home-hierarchy`
+under [draft PR #61](https://github.com/dynamicet/hallelujah-website/pull/61). The final review
+documentation head repeats hosted T1; issue #60 and PR #61 retain its matching SHA/run.
+Controlled client acceptance, checked merge and passing exact-main CI remain required.
+
+On 19 September 2026, Africa/Addis_Ababa, the client directed “close it”, supplying controlled
+acceptance under `befikadusata` directing Codex in temporary Frontend/Product/QA roles and
+authorizing the required scoped closeout correction. Review
+[run 35395367464](https://github.com/dynamicet/hallelujah-website/actions/runs/35395367464)
+for `804e4243849844972e6cc37ce237d3be20fd57fe` passes full verification but fails independent
+reconstruction in the existing asset fallback browser test: the document body is read during
+navigation before it exists. The [brief](b03-004-home-hierarchy.md#client-directed-closeout-correction--19-september-2026)
+adds only `apps/web/scripts/check-assets-rendered.mjs` for guarded exact-path/complete-document
+readiness and streamed delayed-body regression cases. B03-004 remains In review until corrected
+hosted T1 passes. The [evidence](evidence/B03-004-home-hierarchy-2026-09-18.md#client-directed-closeout-correction--19-september-2026)
+retains the failed hosted run and loopback-denied local attempt. No production, publication,
+authentic content, provider, collection or migration gate changes.
+
+Full corrected local verification passes. Hosted correction
+[run 35396380781](https://github.com/dynamicet/hallelujah-website/actions/runs/35396380781)
+for `017753856f12945056a41faec3909b0ac3831b99` passes asset/Home assertions but fails temporary
+Home browser profile deletion with `ENOTEMPTY`. The already scoped Home test receives the
+existing five-retry/100 ms removal policy; exhausted cleanup remains a failure. Both hosted
+failures remain in the evidence. B03-004 stays In review pending corrected hosted T1.
+
+## B03-004 controlled acceptance — 19 September 2026
+
+The client directed “close it”. B03-004 moves In review → **Done** for controlled development
+under `befikadusata` as responsible and controlled acceptance person, directing Codex in temporary
+Frontend/Product/QA roles on 19 September 2026, Africa/Addis_Ababa. Target: synthetic local
+T0/private hosted T1. B01-006/B01-012 are Done; preceding B02-014 checked merge and exact-main
+CI pass. The working B00-016 matrix supplies controlled acceptance; formal DEL-01 remains deferred.
+
+All recorded local checks and focused correction retests pass. Hosted corrected
+[run 35396965682](https://github.com/dynamicet/hallelujah-website/actions/runs/35396965682)
+passes every step, including full verification and independent frozen clean reconstruction, for
+exact commit `3ac1705e2debc4360b8636a64b4fcd7ee78b80a1`. The
+[completion evidence](evidence/B03-004-home-hierarchy-2026-09-18.md#controlled-acceptance--19-september-2026)
+retains both failed hosted runs and the passing guarded navigation/cleanup retests. No scoped
+implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #61](https://github.com/dynamicet/hallelujah-website/pull/61). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #60](https://github.com/dynamicet/hallelujah-website/issues/60)
+and PR #61. Dependent execution waits for passing exact-main CI. B03-005 is the next candidate,
+subject to a controlled-development brief and readiness checks while B03-001–B03-003 hospital
+approvals remain unresolved. Formal DEL-01, hospital/language/media approvals, authentic content,
+providers, collection, migration, provisioning, production and publication retain their gates.
