@@ -3,7 +3,7 @@
 **Date/timezone:** 18 September 2026, Africa/Addis_Ababa
 **Responsible / review authority:** `befikadusata` directing Codex in temporary Backend/Content/QA roles
 **Environment:** synthetic local T0; private hosted T1 pending
-**Status:** In progress; no completion or hospital migration approval claimed
+**Status:** In review; no controlled acceptance or hospital migration approval claimed
 
 Tracking: [issue #56](https://github.com/dynamicet/hallelujah-website/issues/56).
 
@@ -38,9 +38,14 @@ passed. The [execution brief](../b02-013-controlled-content-transfer.md) and
 - `pnpm secrets:check --history` passes; fresh `pnpm audit:dependencies` passes for all 650
   dependencies with zero moderate/high/critical known vulnerabilities. The sandboxed audit
   stalled on network access; the permitted network rerun passes. No dependency or lockfile changed.
+- Full `pnpm assets:db-local --full` passes, exit 0, with PostgreSQL 18.6 cross-role denial,
+  actual CLI JSON import/export/dry-run, all new transactional checks and the complete existing
+  settings/clinician/service/care/topic/institutional/statement/discovery/asset persistence,
+  timed-lifecycle, rollback and live-role-revocation suite. Final lint and typecheck pass.
 - Initial clean reconstruction was blocked by read-only pnpm-store metadata. The permitted
-  rerun encountered registry tarball timeouts; a reduced-concurrency retry is in progress.
-  Complete database regression, final clean reconstruction and hosted T1 remain pending.
+  rerun encountered registry tarball timeouts; the reduced-concurrency retry also failed on
+  registry connection resets. Local clean reconstruction remains an environmental failure;
+  hosted T1 independently requires full clean reconstruction. No dependency/lockfile changed.
   No defect or environmental failure is represented as a passing result.
 
 The [fixed-time synthetic report specimens](b02-013-artifacts/README.md) retain readable
@@ -55,6 +60,14 @@ PATH=/home/befikadusata/.nvm/versions/node/v24.21.0/bin:$PATH \
 ASSET_FORMAT_PYTHON=/var/tmp/hallelujah-b02-011-tools/python/bin/python \
 PYTHONDONTWRITEBYTECODE=1 pnpm verify
 ```
+
+## Review promotion
+
+On 18 September 2026, Africa/Addis_Ababa, B02-013 moves In progress → **In review** under the same
+responsible and review identity, `befikadusata`, after the local source/application and complete
+database/CLI matrix passes. Implementation commit: `a1c13800bfdc99e5aceeeab7bb114250fbd2a2a4`.
+The first review-branch push hit a connection reset; its HTTP/1.1 retry succeeded. Private hosted
+exact-head T1 and controlled acceptance remain required; no merge or acceptance is claimed.
 
 No authentic source record, hospital approval, asset download, provider request, public route,
 collection, production provisioning, publication or migration is enabled.

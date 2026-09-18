@@ -862,3 +862,13 @@ checks and remaining gates; [issue #56](https://github.com/dynamicet/hallelujah-
 tracks the same execution. No acceptance is yet claimed. The B02-012 authentic evidence bundle,
 hospital migration approval, GOV-01/SEC-01, real identities/content, assets/providers, collection,
 production and publication remain gated. B02-014 is the next candidate after successful closeout.
+
+B02-013 moves In progress → **In review** on 18 September 2026, Africa/Addis_Ababa under the same
+responsible/review identity after the pure/schema/authority checks, real CLI, full application
+verification, complete disposable PostgreSQL CMS/asset matrix, lint/typecheck, history secret scan
+and fresh dependency audit pass. Local clean reconstruction hit registry timeouts/connection
+resets, including reduced-concurrency retry; it remains an environmental failure. Hosted T1
+independently requires full clean reconstruction and remains pending. Implementation commit
+`a1c13800bfdc99e5aceeeab7bb114250fbd2a2a4` is pushed to `b02-013-controlled-content-transfer`.
+Issue #56 and the scoped draft review retain the remaining CI/acceptance gates; no acceptance,
+merge or authentic migration approval is claimed.
