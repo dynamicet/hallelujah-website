@@ -61,6 +61,11 @@ or underlying driver exceptions. Use private ignored storage for exports and cap
 synthetic evidence. The API never trusts roles supplied in the caller's user object; it rereads the
 persisted active local identity.
 
+The CLI rejects remote database hosts before Payload initialization. Transfer APIs also require
+the local content database on localhost/127.0.0.1/IPv6 loopback, optionally with one absolute
+Unix-socket `host` query parameter. Remote host overrides, nested connection strings, duplicate
+parameters and the appointment database are rejected; a local deployment label is insufficient.
+
 `pnpm content-transfer:db-local` creates a disposable socket-only PostgreSQL cluster, proves
 public-content/appointment cross-role denial and exercises persisted dry runs, repeat imports,
 updates/merges, concurrent plans, late failure rollback and live identity revocation. The late

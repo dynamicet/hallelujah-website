@@ -26,6 +26,18 @@ export function transferHash(value: unknown): string {
   return createHash('sha256').update(canonical(value)).digest('hex')
 }
 
+/** The deployment label alone must not authorize a remote database connection. */
+export function assertLocalTransferDatabase(databaseUrl: string): void {
+  const url = new URL(databaseUrl)
+  const query = [...url.searchParams.entries()]
+  if (!['postgres:', 'postgresql:'].includes(url.protocol)
+    || !['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)
+    || url.pathname !== '/hallelujah_content_local'
+    || query.length > 1 || query.some(([key, value]) => key !== 'host' || !value.startsWith('/'))) {
+    throw new Error('Content transfer requires a loopback or Unix-socket local content database')
+  }
+}
+
 function plain(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value)
 }

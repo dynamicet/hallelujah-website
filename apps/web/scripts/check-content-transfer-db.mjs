@@ -133,6 +133,11 @@ export async function checkContentTransferDb(payload, { identity, denied, fixtur
     await symlink(inputPath, symlinkPath)
     await assert.rejects(run(['dry-run', symlinkPath]))
     await assert.rejects(run(['import', inputPath, 'invalid-plan']))
+    const remote = await run(['export'], { ...env,
+      LOCAL_DATABASE_URL: 'postgresql://fixture:synthetic@external.invalid/hallelujah_content_local' }).catch((error) => error)
+    assert.equal(remote.code, 1)
+    assert.equal(remote.stdout, '')
+    assert.match(remote.stderr, /loopback or Unix-socket/)
     console.log('Local transfer CLI passed: JSON export/dry-run/import, credential-safe login failure, symlink and malformed-plan denial.')
   } finally { await rm(directory, { recursive: true, force: true }) }
 

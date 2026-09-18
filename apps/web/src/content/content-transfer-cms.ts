@@ -1,14 +1,16 @@
 import { commitTransaction, createLocalReq, initTransaction, killTransaction, type Payload, type TypedUser, type RequiredDataFromCollectionSlug } from 'payload'
 import { cmsActor, lockCmsWrites } from './cms-identity.ts'
 import { canonical, type CmsWorkflow } from './cms-workflow.ts'
-import { exportTransferSnapshot, planContentTransfer, type TransferDocument } from './content-transfer.ts'
+import { assertLocalTransferDatabase, exportTransferSnapshot, planContentTransfer, type TransferDocument } from './content-transfer.ts'
 import { validateGovernedRecord } from './governed-record.ts'
+import { loadServerEnvironment } from '../server/environment.ts'
 
 /** No HTTP endpoint: local authenticated tooling shares the existing serialized CMS boundary. */
 export async function cmsContentTransfer(
   payload: Payload, user: TypedUser | undefined,
   command: Readonly<{ action: 'export' | 'dry-run' | 'import'; bundle?: unknown; expectedPlanHash?: string }>,
 ) {
+  assertLocalTransferDatabase(loadServerEnvironment().databaseUrl)
   if (!['export', 'dry-run', 'import'].includes(command.action)) throw new Error('Unsupported content transfer action')
   // Bind the caller's bundle before the first await; later caller mutation cannot change the batch.
   const bundle = command.bundle === undefined ? undefined : structuredClone(command.bundle)

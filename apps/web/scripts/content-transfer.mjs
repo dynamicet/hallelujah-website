@@ -4,6 +4,7 @@ import { getPayload } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { loadServerEnvironment } from '../src/server/environment.ts'
 import { cmsContentTransfer } from '../src/content/content-transfer-cms.ts'
+import { assertLocalTransferDatabase } from '../src/content/content-transfer.ts'
 
 // Credentials belong in the ignored local environment, never argv or reports.
 const [action, inputPath, expectedPlanHash, ...extra] = process.argv.slice(2)
@@ -15,6 +16,7 @@ if (!['export', 'dry-run', 'import'].includes(action) || extra.length
   throw new Error('Usage: content-transfer export | dry-run <bundle.json> | import <bundle.json> <dry-run-plan-hash>')
 }
 const environment = loadServerEnvironment()
+assertLocalTransferDatabase(environment.databaseUrl)
 if (environment.deployment !== 'local' || process.env.PERSONAL_DATA_COLLECTION !== 'disabled'
   || process.env.EXTERNAL_SERVICES !== 'disabled') throw new Error('Content transfer requires local deployment with collection/providers disabled')
 const email = process.env.LOCAL_CONTENT_TRANSFER_EMAIL

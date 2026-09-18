@@ -5,7 +5,8 @@
 **Environment:** synthetic local T0; private hosted T1 pending
 **Status:** In review; no controlled acceptance or hospital migration approval claimed
 
-Tracking: [issue #56](https://github.com/dynamicet/hallelujah-website/issues/56).
+Tracking: [issue #56](https://github.com/dynamicet/hallelujah-website/issues/56) and
+[draft PR #57](https://github.com/dynamicet/hallelujah-website/pull/57).
 
 Client direction: “start” following the proposed B02-013 execution. B02-012 PR #55 merged as
 `ba55eb145ee7308cee5c41408ce28058973ffc86`; exact-main
@@ -68,6 +69,20 @@ responsible and review identity, `befikadusata`, after the local source/applicat
 database/CLI matrix passes. Implementation commit: `a1c13800bfdc99e5aceeeab7bb114250fbd2a2a4`.
 The first review-branch push hit a connection reset; its HTTP/1.1 retry succeeded. Private hosted
 exact-head T1 and controlled acceptance remain required; no merge or acceptance is claimed.
+
+Final scope review tightened database URLs: the local deployment label alone cannot authorize
+a remote host. CLI pre-initialization and transfer API checks reject remote hosts, remote `host`
+overrides, duplicate/nested query parameters and appointment database selection. IPv4/IPv6
+loopback and explicit Unix-socket cases pass. Pure contract/type checks repeat successfully;
+focused disposable PostgreSQL/CLI retest and current-head hosted T1 follow this amendment.
+
+The finalized focused `pnpm content-transfer:db-local` retest passes, including CLI rejection of
+a remote database URL before initialization. The preceding implementation/review head
+`66376adbfc30a22c15af01ccf7c7f22a50b2ecca` passes every hosted quality/security step and full clean
+reconstruction under [run 35345740923](https://github.com/dynamicet/hallelujah-website/actions/runs/35345740923).
+This independent hosted reconstruction succeeds despite the local registry failures. The final
+local-database guard/review-documentation head must repeat hosted CI; its exact SHA/run remains
+recorded in issue #56 and PR #57 before checked closeout. Controlled acceptance is not granted.
 
 No authentic source record, hospital approval, asset download, provider request, public route,
 collection, production provisioning, publication or migration is enabled.

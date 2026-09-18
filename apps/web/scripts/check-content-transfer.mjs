@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { createWorkflow } from '../src/content/cms-workflow.ts'
-import { exportTransferSnapshot, parseTransferBundle, planContentTransfer, unsignedTransferRecord } from '../src/content/content-transfer.ts'
+import { assertLocalTransferDatabase, exportTransferSnapshot, parseTransferBundle, planContentTransfer, unsignedTransferRecord } from '../src/content/content-transfer.ts'
 import { serviceFixture } from './lib/service-fixture.mjs'
 import { clinicianFixture } from './lib/clinician-fixture.mjs'
 import { siteSettingsFixture } from './lib/site-settings-fixture.mjs'
@@ -10,6 +10,17 @@ import { transferFixture, transferBundle, transferEntry } from './lib/content-tr
 
 const now = new Date('2026-09-18T12:00:00Z')
 const actor = { id: 'cms:1', roles: ['author'] }
+for (const host of ['localhost', '127.0.0.1', '[::1]']) {
+  assertLocalTransferDatabase(`postgresql://fixture:synthetic@${host}:5432/hallelujah_content_local`)
+}
+assertLocalTransferDatabase('postgresql://fixture:synthetic@localhost/hallelujah_content_local?host=%2Ftmp%2Fsynthetic-socket')
+for (const url of [
+  'postgresql://fixture:synthetic@external.invalid/hallelujah_content_local',
+  'postgresql://fixture:synthetic@localhost/hallelujah_content_local?host=external.invalid',
+  'postgresql://fixture:synthetic@localhost/hallelujah_content_local?host=%2Ftmp&host=external.invalid',
+  'postgresql://fixture:synthetic@localhost/hallelujah_content_local?connectionString=remote',
+  'postgresql://fixture:synthetic@localhost/hallelujah_appointment_local',
+]) assert.throws(() => assertLocalTransferDatabase(url), /local content database/)
 const record = transferFixture()
 const bundle = transferBundle([transferEntry(record), { sourceKey: 'synthetic/withheld-media', operation: 'skip' }])
 const baseline = structuredClone(bundle)
