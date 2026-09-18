@@ -1,0 +1,114 @@
+{
+  "scope": "Controlled build isolation; bootstrap is not publication approval",
+  "sourceFiles": 73,
+  "traces": 6,
+  "payloads": 138,
+  "evidenceAssets": 82,
+  "controls": [
+    {
+      "id": "build-negative-import",
+      "passed": true
+    },
+    {
+      "id": "build-negative-reexport",
+      "passed": true
+    },
+    {
+      "id": "build-negative-dynamic",
+      "passed": true
+    },
+    {
+      "id": "build-negative-require",
+      "passed": true
+    },
+    {
+      "id": "build-negative-alias",
+      "passed": true
+    },
+    {
+      "id": "build-negative-multiline",
+      "passed": true
+    },
+    {
+      "id": "build-negative-importEquals",
+      "passed": true
+    },
+    {
+      "id": "build-positive-runtime",
+      "passed": true
+    },
+    {
+      "id": "build-positive-comment",
+      "passed": true
+    },
+    {
+      "id": "build-negative-traced-fixture",
+      "passed": true
+    },
+    {
+      "id": "build-negative-traced-docs",
+      "passed": true
+    },
+    {
+      "id": "build-negative-malformed-trace",
+      "passed": true
+    },
+    {
+      "id": "build-positive-trace",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-1",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-2",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-3",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-4",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-5",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-6",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-7",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-8",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-9",
+      "passed": true
+    },
+    {
+      "id": "build-negative-payload-10",
+      "passed": true
+    },
+    {
+      "id": "build-positive-bootstrap",
+      "passed": true
+    },
+    {
+      "id": "build-negative-copied-binary",
+      "passed": true
+    },
+    {
+      "id": "build-positive-distinct-binary",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

@@ -908,3 +908,48 @@ after successful closeout, subject to controlled-development readiness checks.
 This acceptance does not resolve GOV-01, SEC-01, authentic reconciliation or hospital migration
 approval. Authentic identities/content, providers/assets, personal-data collection, remote
 provisioning, production, publication, legacy migration and DNS remain gated.
+
+## B02-014 controlled content integrity and lifecycle — 18 September 2026
+
+B02-013 PR #57 merged as `74ac57b28aee5f09e199834cf6d1aea6605489ae`; exact-main
+[run 35362650228](https://github.com/dynamicet/hallelujah-website/actions/runs/35362650228)
+passed, resolving the dependent-execution wait above. The client directed “start” for B02-014.
+It moves Proposed → Ready → **In progress** under `befikadusata` directing Codex in temporary
+QA/Content roles, with the same identity as controlled-development review authority, on
+18 September 2026, Africa/Addis_Ababa. Dependencies B02-003–B02-013 are Done for controlled
+development; the working B00-016 matrix supplies T0/private hosted T1 acceptance while formal
+DEL-01 production signatures remain deferred. The
+[execution brief](b02-014-content-integrity-lifecycle.md) authorizes fixed-time synthetic
+cross-model regression and deployable-build isolation checks only.
+[Execution evidence](evidence/B02-014-content-integrity-lifecycle-2026-09-18.md) records results
+and remaining review gates; [issue #58](https://github.com/dynamicet/hallelujah-website/issues/58)
+tracks the same execution. Hospital decisions, authentic records/migration, language approval,
+providers, collection, remote provisioning, production and publication remain gated.
+
+B02-014 moves In progress → **In review** on 18 September 2026, Africa/Addis_Ababa under
+the same responsible/review identity `befikadusata` in temporary QA/Content roles. Fifty
+fixed-time cross-model cases, 26 build-isolation controls, complete local repository verification,
+all 92 component/52 policy/163 asset browser cases, complete disposable PostgreSQL integration,
+frozen clean reconstruction, history secret scan, dependency audit and diff checks pass.
+The [evidence](evidence/B02-014-content-integrity-lifecycle-2026-09-18.md) retains the sandbox
+failures and passing unrestricted retests. [Issue #58](https://github.com/dynamicet/hallelujah-website/issues/58)
+retains implementation SHA, PR and hosted exact-head review pointers. Hosted T1 and client
+controlled acceptance remain required before Done; no merge or publication is claimed.
+
+On 18 September 2026, 23:26 Africa/Addis_Ababa, the client directed “close it”. B02-014 moves
+In review → **Done** for controlled development under workspace identity `befikadusata`
+directing Codex in temporary QA/Content roles, with the same identity as acceptance authority.
+Dependencies B02-003–B02-013 are Done; target remains synthetic local T0/private hosted T1.
+All recorded local gates pass. Hosted implementation
+[run 35390517090](https://github.com/dynamicet/hallelujah-website/actions/runs/35390517090)
+passes full verification and independent clean reconstruction for exact commit
+`d2942da68fcd082cf5c5c4e6abff6737da62c830` under
+[PR #59](https://github.com/dynamicet/hallelujah-website/pull/59).
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge. Its
+matching SHA/run, merge SHA and exact-main result must be retained in
+[issue #58](https://github.com/dynamicet/hallelujah-website/issues/58) and PR #59. Dependent
+execution waits for passing exact-main CI. B03-004 Home hierarchy is the next implementation
+candidate, subject to controlled-development readiness checks. Formal DEL-01, hospital and
+language approvals, authentic content/migration, providers, collection, remote provisioning,
+production and publication retain their existing gates.

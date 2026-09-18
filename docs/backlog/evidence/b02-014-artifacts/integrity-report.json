@@ -1,0 +1,208 @@
+{
+  "scope": "Fixed-time synthetic evidence only; no hospital approval or malware clearance",
+  "at": "2026-09-18T12:00:00.000Z",
+  "now": "2026-09-18T12:02:00.000Z",
+  "assertions": 50,
+  "results": [
+    {
+      "id": "INT-001-all-governed-kinds",
+      "passed": true
+    },
+    {
+      "id": "INT-governance-owner",
+      "passed": true
+    },
+    {
+      "id": "INT-governance-reviewer",
+      "passed": true
+    },
+    {
+      "id": "INT-governance-approval",
+      "passed": true
+    },
+    {
+      "id": "INT-governance-domainApproval",
+      "passed": true
+    },
+    {
+      "id": "INT-governance-source",
+      "passed": true
+    },
+    {
+      "id": "INT-governance-publishAt",
+      "passed": true
+    },
+    {
+      "id": "INT-governance-reviewAt",
+      "passed": true
+    },
+    {
+      "id": "INT-governance-expiresAt",
+      "passed": true
+    },
+    {
+      "id": "INT-governance-audit",
+      "passed": true
+    },
+    {
+      "id": "INT-002-canonical-uniqueness",
+      "passed": true
+    },
+    {
+      "id": "INT-003-broken-relationships",
+      "passed": true
+    },
+    {
+      "id": "INT-004-contact-policy-baseline",
+      "passed": true
+    },
+    {
+      "id": "INT-005-contact-conflict",
+      "passed": true
+    },
+    {
+      "id": "INT-006-contact-expiry-preserves-notice-withholds-values",
+      "passed": true
+    },
+    {
+      "id": "INT-007-unverified-safety-discovery",
+      "passed": true
+    },
+    {
+      "id": "INT-008-conflicting-canonical-contacts",
+      "passed": true
+    },
+    {
+      "id": "INT-009-contact-invalidation-reaches-policy-and-pages",
+      "passed": true
+    },
+    {
+      "id": "INT-010-collection-stays-disabled",
+      "passed": true
+    },
+    {
+      "id": "INT-011-bidirectional-care-en",
+      "passed": true
+    },
+    {
+      "id": "INT-011-bidirectional-care-am",
+      "passed": true
+    },
+    {
+      "id": "INT-care-location-reviewAt",
+      "passed": true
+    },
+    {
+      "id": "INT-care-location-expiresAt",
+      "passed": true
+    },
+    {
+      "id": "INT-care-doctor-reviewAt",
+      "passed": true
+    },
+    {
+      "id": "INT-care-doctor-expiresAt",
+      "passed": true
+    },
+    {
+      "id": "INT-care-service-reviewAt",
+      "passed": true
+    },
+    {
+      "id": "INT-care-service-expiresAt",
+      "passed": true
+    },
+    {
+      "id": "INT-012-service-claim-expiry-cascades-to-affiliation",
+      "passed": true
+    },
+    {
+      "id": "INT-013-withdrawn-affiliation-removes-both-handoffs",
+      "passed": true
+    },
+    {
+      "id": "INT-014-wrong-kind-care-endpoint",
+      "passed": true
+    },
+    {
+      "id": "INT-015-discovery-metadata-sitemap-agreement",
+      "passed": true
+    },
+    {
+      "id": "INT-016-missing-translation-has-no-alternate",
+      "passed": true
+    },
+    {
+      "id": "INT-017-cache-exact-time-boundary",
+      "passed": true
+    },
+    {
+      "id": "INT-018-valid-successor-redirect",
+      "passed": true
+    },
+    {
+      "id": "INT-025-unapproved-successor-cannot-redirect",
+      "passed": true
+    },
+    {
+      "id": "INT-redirect-missing",
+      "passed": true
+    },
+    {
+      "id": "INT-redirect-wrong-kind",
+      "passed": true
+    },
+    {
+      "id": "INT-redirect-retired",
+      "passed": true
+    },
+    {
+      "id": "INT-019-retired-and-review-due-http-semantics",
+      "passed": true
+    },
+    {
+      "id": "INT-020-structured-data-and-http-escaping",
+      "passed": true
+    },
+    {
+      "id": "INT-021-current-asset-attachment",
+      "passed": true
+    },
+    {
+      "id": "INT-asset-rights-license",
+      "passed": true
+    },
+    {
+      "id": "INT-asset-rights-consent",
+      "passed": true
+    },
+    {
+      "id": "INT-asset-rights-restrictions",
+      "passed": true
+    },
+    {
+      "id": "INT-asset-review-denies-reference",
+      "passed": true
+    },
+    {
+      "id": "INT-asset-content-expiry-denies-reference",
+      "passed": true
+    },
+    {
+      "id": "INT-asset-rights-expiry-denies-reference",
+      "passed": true
+    },
+    {
+      "id": "INT-022-unlicensed-scope-and-missing-language",
+      "passed": true
+    },
+    {
+      "id": "INT-023-consent-withdrawal-clears-references",
+      "passed": true
+    },
+    {
+      "id": "INT-024-default-consumers-withhold-fixtures",
+      "passed": true
+    }
+  ]
+}
