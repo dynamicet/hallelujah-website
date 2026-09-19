@@ -1116,3 +1116,27 @@ the initial Node/Python/loopback prerequisites and corrected combined-contact ha
 Issue #64 retains repository review and exact-head hosted pointers. Hosted T1 and controlled client
 acceptance remain required before Done; checked merge and passing exact-main CI govern dependent
 execution. No authentic content, public route, production or publication gate changes.
+
+## B03-006 controlled acceptance — 19 September 2026
+
+The client directed “close b03-006”. B03-006 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing
+Codex in temporary Frontend/Content/QA roles on 19 September 2026, Africa/Addis_Ababa. Target:
+synthetic local T0/private hosted T1. B02-004–B02-006, B02-008 and B03-004–B03-005 are Done;
+the preceding checked merge and exact-main CI pass. The working B00-016 matrix supplies controlled
+acceptance; formal DEL-01, CARE-01, CARE-04 and INST-01–INST-03 remain unresolved.
+
+All recorded local checks and independent frozen reconstruction pass. Hosted exact-head
+[run 35428435194](https://github.com/dynamicet/hallelujah-website/actions/runs/35428435194)
+passes every step for `5bf5b65c1a7d8273cbbac9fb366fa7b9496edc33`. The
+[completion evidence](evidence/B03-006-home-governed-omissions-2026-09-19.md#controlled-acceptance--19-september-2026)
+retains initial environment/prerequisite failures, the corrected combined-contact harness
+assumption and passing retests; no scoped implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #65](https://github.com/dynamicet/hallelujah-website/pull/65). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #64](https://github.com/dynamicet/hallelujah-website/issues/64)
+and PR #65. Dependent execution waits for passing exact-main CI. B03-007 remains gated by B06-005
+and formal DEL-01; no successor ticket is promoted. Authentic content/language/feature approval,
+public routes, providers, collection, migration, provisioning, production and publication retain
+their gates.

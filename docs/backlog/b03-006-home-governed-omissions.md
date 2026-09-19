@@ -1,8 +1,9 @@
 # B03-006 — Home Governed Optional Content and Omissions
 
 **Lane / priority / phase:** DELIVERY / P1 / Phase 1 preparation
-**Status:** In review for controlled development
+**Status:** Done for controlled development; final closeout CI and checked merge tracked below
 **Tracking:** [issue #64](https://github.com/dynamicet/hallelujah-website/issues/64)
+**Review:** [PR #65](https://github.com/dynamicet/hallelujah-website/pull/65)
 
 On 19 September 2026, Africa/Addis_Ababa, the client directed “start”. `befikadusata`
 directs Codex in temporary Frontend/Content/QA roles and is the controlled-development review
@@ -97,3 +98,23 @@ visual-review limits. Issue #64 retains the repository review pointers.
 Hosted exact-head T1 and controlled client acceptance remain required before Done. No authentic
 feature/content/language approval, public doctor/service/Home route, production or publication is
 claimed.
+
+## Controlled acceptance — 19 September 2026
+
+The client directed “close b03-006”. B03-006 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person, directing
+Codex in temporary Frontend/Content/QA roles on 19 September 2026, Africa/Addis_Ababa. Target:
+synthetic local T0/private hosted T1. B02-004–B02-006, B02-008 and B03-004–B03-005 are Done;
+the preceding checked merge and exact-main CI pass. The working B00-016 matrix supplies
+controlled acceptance while formal DEL-01, CARE-01, CARE-04 and INST-01–INST-03 remain unresolved.
+
+All recorded local gates pass. Exact-head hosted
+[run 35428435194](https://github.com/dynamicet/hallelujah-website/actions/runs/35428435194)
+passes every step, including complete verification and independent frozen clean reconstruction,
+for `5bf5b65c1a7d8273cbbac9fb366fa7b9496edc33`. No scoped implementation defect remains open.
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of PR #65.
+Issue #64 and PR #65 retain the matching SHA/run, merge SHA and exact-main result. Dependent
+execution waits for passing exact-main CI. B03-007 remains gated by B06-005 and formal DEL-01;
+no successor ticket is promoted by this acceptance. Authentic content/language/feature approval,
+public routes, providers, collection, migration, provisioning, production and publication retain
+their gates.
