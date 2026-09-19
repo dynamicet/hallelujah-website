@@ -76,6 +76,13 @@ persistence, concurrent-write denial, rollback and live identity revocation. Int
 consume the same graph. [B02-006 scope](docs/backlog/b02-006-governed-care-relationships.md) and
 [evidence](docs/backlog/evidence/B02-006-governed-care-relationships-2026-09-16.md) retain the synthetic-only boundary.
 
+The controlled Home optional-content composition projects explicitly selected synthetic services,
+clinicians and institutional evidence through those existing governed contracts. Run
+`pnpm home-governed:check` for selection/lifecycle/omission contracts and
+`pnpm home-governed:smoke` for its responsive browser matrix. The
+[B03-006 execution brief](docs/backlog/b03-006-home-governed-omissions.md) keeps authentic records,
+feature decisions, public care routes and publication withheld.
+
 Controlled discovery uses authenticated local governed records for canonical URL, metadata,
 language-alternate and sitemap candidates. Run `pnpm discovery:check` for lifecycle, escaping,
 dependency/cache and real loopback HTTP checks. The [execution brief](docs/backlog/b02-010-governed-discovery.md)
