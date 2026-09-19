@@ -33,6 +33,7 @@ export interface HomeTemplateProps {
     readonly placement: 'hero' | 'story'
     readonly presentation: OptInMediaProps
   }
+  readonly governedContent?: ReactNode
   readonly shell: Omit<SiteShellProps, 'breadcrumbs' | 'children'>
   readonly tasks: HomeTaskLinks
   readonly tasksHeading: string
@@ -47,6 +48,7 @@ export function HomeTemplate({
   contactDetails,
   description,
   eyebrow,
+  governedContent,
   media,
   shell,
   tasks,
@@ -102,6 +104,8 @@ export function HomeTemplate({
             <ActionLink href={tasks.search.href} label={tasks.search.label} variant="tertiary" />
           </div>
         </section>
+
+        {governedContent}
 
         {media?.placement === 'story' ? (
           <section aria-label={media.presentation.heading} className={styles.section} data-home-section="H8">

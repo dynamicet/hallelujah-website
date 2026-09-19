@@ -1085,3 +1085,58 @@ and PR #63. Dependent execution waits for passing exact-main CI. B03-006 is the 
 subject to a controlled-development brief and readiness checks. Authentic contacts,
 hospital/language/call/arrival approval, providers, collection, migration, provisioning,
 production and publication retain their gates.
+
+## B03-006 controlled Home governed omissions — 19 September 2026
+
+B03-005 PR #63 merged as `ff696fd4d3f0004e59ece59ca4636c1fef54a096`; exact-main
+[run 35403351431](https://github.com/dynamicet/hallelujah-website/actions/runs/35403351431)
+passed, resolving the dependent-execution wait. The client directed “start”. B03-006 moves
+Proposed → Ready → **In progress** under `befikadusata` directing Codex in temporary
+Frontend/Content/QA roles, with the same identity as controlled-development review authority,
+on 19 September 2026, Africa/Addis_Ababa. B02-004–B02-006, B02-008, B03-004 and B03-005 are Done.
+
+The [execution brief](b03-006-home-governed-omissions.md) records the synthetic-only sequencing
+exception while CARE-01, CARE-04 and INST-01–INST-03 remain unresolved. Scope: explicit bounded
+feature selections projected through the existing governed clinician, service, care-relationship
+and institutional workflow contracts into optional Home H4/H5/H8; canonical care paths; lifecycle,
+language, selection, responsive and whole-section omission checks; no public route.
+[Issue #64](https://github.com/dynamicet/hallelujah-website/issues/64) and the
+[execution evidence](evidence/B03-006-home-governed-omissions-2026-09-19.md) retain execution and
+results. The working B00-016 matrix supplies T0/private hosted T1 acceptance while formal DEL-01
+remains deferred. Hosted T1 and client controlled acceptance remain required before Done.
+Authentic content, feature/language approval, providers, collection, migration, provisioning,
+production and publication remain gated.
+
+B03-006 moves In progress → **In review** on 19 September 2026, Africa/Addis_Ababa under the
+same responsible/review identity. Nine SSR states, 289 responsive/capability/accessibility/
+canonical-path browser cases, six sanitized reviewed captures, full repository verification,
+independent frozen reconstruction, reachable-history secret scan and refreshed dependency audit
+pass. The [execution evidence](evidence/B03-006-home-governed-omissions-2026-09-19.md) retains
+the initial Node/Python/loopback prerequisites and corrected combined-contact harness assumption.
+Issue #64 retains repository review and exact-head hosted pointers. Hosted T1 and controlled client
+acceptance remain required before Done; checked merge and passing exact-main CI govern dependent
+execution. No authentic content, public route, production or publication gate changes.
+
+## B03-006 controlled acceptance — 19 September 2026
+
+The client directed “close b03-006”. B03-006 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing
+Codex in temporary Frontend/Content/QA roles on 19 September 2026, Africa/Addis_Ababa. Target:
+synthetic local T0/private hosted T1. B02-004–B02-006, B02-008 and B03-004–B03-005 are Done;
+the preceding checked merge and exact-main CI pass. The working B00-016 matrix supplies controlled
+acceptance; formal DEL-01, CARE-01, CARE-04 and INST-01–INST-03 remain unresolved.
+
+All recorded local checks and independent frozen reconstruction pass. Hosted exact-head
+[run 35428435194](https://github.com/dynamicet/hallelujah-website/actions/runs/35428435194)
+passes every step for `5bf5b65c1a7d8273cbbac9fb366fa7b9496edc33`. The
+[completion evidence](evidence/B03-006-home-governed-omissions-2026-09-19.md#controlled-acceptance--19-september-2026)
+retains initial environment/prerequisite failures, the corrected combined-contact harness
+assumption and passing retests; no scoped implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #65](https://github.com/dynamicet/hallelujah-website/pull/65). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #64](https://github.com/dynamicet/hallelujah-website/issues/64)
+and PR #65. Dependent execution waits for passing exact-main CI. B03-007 remains gated by B06-005
+and formal DEL-01; no successor ticket is promoted. Authentic content/language/feature approval,
+public routes, providers, collection, migration, provisioning, production and publication retain
+their gates.

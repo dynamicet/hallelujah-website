@@ -8,12 +8,14 @@ import path from 'node:path'
 import { createHomePreviewServer } from './lib/home-preview-server.mjs'
 import { homeFixtureStates } from './lib/home-fixture.mjs'
 import { homeContactFixtureStates } from './lib/home-contact-fixture.mjs'
+import { homeGovernedFixtureStates } from './lib/home-governed-fixture.mjs'
 
 const server = await createHomePreviewServer()
 const profile = await mkdtemp(path.join(tmpdir(), 'hallelujah-home-browser-'))
 const port = 20000 + randomBytes(2).readUInt16BE(0) % 30000
 const contacts = process.argv.includes('--contacts')
-const captureRoot = path.resolve(new URL(`../../../docs/backlog/evidence/${contacts ? 'b03-005' : 'b03-004'}-artifacts/`, import.meta.url).pathname)
+const governed = process.argv.includes('--governed')
+const captureRoot = path.resolve(new URL(`../../../docs/backlog/evidence/${governed ? 'b03-006' : contacts ? 'b03-005' : 'b03-004'}-artifacts/`, import.meta.url).pathname)
 const capture = process.argv.includes('--capture')
 if (capture) await mkdir(captureRoot, { recursive: true })
 const browserPath = ['google-chrome-stable', 'google-chrome', '/snap/chromium/current/usr/lib/chromium-browser/chrome', 'chromium', 'chromium-browser']
@@ -107,9 +109,10 @@ try {
     await pause(45)
   }
   const captureOnly = process.argv.includes('--capture-only')
-  const reviewStates = contacts ? homeContactFixtureStates : homeFixtureStates
+  const reviewStates = governed ? homeGovernedFixtureStates : contacts ? homeContactFixtureStates : homeFixtureStates
   for (const state of (process.argv.includes('--lifecycle-only') ? [] : captureOnly
-    ? reviewStates.filter(state => (contacts ? ['contacts-current', 'contacts-missing', 'contacts-expired'] : ['static', 'hero', 'story']).includes(state)) : reviewStates))
+    ? reviewStates.filter(state => (governed ? ['governed-current', 'governed-empty', 'governed-expired']
+      : contacts ? ['contacts-current', 'contacts-missing', 'contacts-expired'] : ['static', 'hero', 'story']).includes(state)) : reviewStates))
     for (const width of (captureOnly ? [320, 1440] : [320, 360, 768, 1440]))
     for (const capability of (captureOnly ? ['no-js'] : ['default', 'no-js', 'reduced-motion', 'forced-colors', 'save-data', 'images-fonts-blocked', 'print', '200%-text', ...(contacts ? ['no-css'] : [])])) {
       const requestStart = requests.length
@@ -118,11 +121,15 @@ try {
         overflow: document.documentElement.scrollWidth > innerWidth + 1,
         mainCount: document.querySelectorAll('main').length, h1Count: document.querySelectorAll('h1').length,
         taskCount: document.querySelector('[data-home-section="H2"] ul').children.length,
-        targets: [...document.querySelectorAll('[data-action-link],[data-emergency-action],[data-media-play]')].every(el => {
+        targets: [...document.querySelectorAll('[data-action-link],[data-emergency-action],[data-media-play],[data-controlled-fixture="true"] a')].every(el => {
           const r = el.getBoundingClientRect(); return (r.width === 0 && r.height === 0) || (r.width >= 43.5 && r.height >= 43.5);
         }),
         safeMotion: [...document.querySelectorAll('[data-emergency-action], [data-home-destinations] section, [data-home-contact-state] section')].every(el => !el.closest('[data-experience-area]')),
-        anchors: [...document.querySelectorAll('a[href]')].every(a => a.getAttribute('href').startsWith('#') && document.getElementById(a.hash.slice(1))),
+        anchors: [...document.querySelectorAll('a[href]')].every(a => {
+          const href = a.getAttribute('href');
+          return href.startsWith('#') ? !!document.getElementById(a.hash.slice(1))
+            : /^\\/(?:doctors|services)\\/[a-z0-9-]+\\/$/.test(href) && !!a.closest('[data-controlled-fixture="true"]');
+        }),
         headingOrder: [...document.querySelectorAll('main h1,main h2,main h3')].map(el => Number(el.tagName[1])),
         videoSource: !!document.querySelector('video[src],track[src]'),
         accentEnabled: document.querySelector('[data-motion-accent]').dataset.motionEnabled,
@@ -143,9 +150,9 @@ try {
       assert.equal(result.videoSource, false, label)
       assert.equal(result.hasFields, false, label)
       assert.equal(result.headingOrder[0], 1, label)
-      assert.ok(result.headingOrder.slice(1).every((level) => level === 2), label)
+      assert.ok(result.headingOrder.slice(1).every((level, index) => level <= result.headingOrder[index] + 1), label)
       assert.match(result.text, /Online appointment requests are unavailable/u)
-      if (contacts && ['contacts-current', 'contacts-updated'].includes(state)) {
+      if ((contacts && ['contacts-current', 'contacts-updated'].includes(state)) || governed) {
         assert.equal(result.contactState, 'controlled-fixture', label)
         assert.match(result.text, /Synthetic contact fixture/u)
         const enquiry = result.contactFacts.find(fact => fact.key === 'publicPhone')
@@ -163,6 +170,24 @@ try {
         }
       }
       assert.match(result.text, /An approved Amharic Home page is not available/u)
+      if (governed) {
+        const sections = await evaluate(`[...document.querySelectorAll('[data-home-governed-section]')].map(el => el.dataset.homeGovernedSection)`)
+        const expected = ({
+          'governed-current': ['services', 'doctors', 'institutional'],
+          'governed-doctor-only': ['doctors'],
+          'governed-service-only': ['services'],
+          'governed-institution-only': ['institutional'],
+        })[state] ?? []
+        assert.deepEqual(sections, expected, label)
+        if (state === 'governed-current') {
+          assert.match(result.text, /Synthetic featured services/u)
+          assert.match(result.text, /Synthetic featured clinicians/u)
+          assert.match(result.text, /Synthetic institutional evidence/u)
+          assert.equal(await evaluate(`document.querySelectorAll('[data-card-state="current"]').length`), 2, label)
+        } else if (!expected.length) {
+          assert.doesNotMatch(result.text, /Browse care by need|Synthetic featured clinicians|About the hospital/u, label)
+        }
+      }
       if (['no-js', 'reduced-motion', 'save-data'].includes(capability)) assert.equal(result.accentEnabled, 'false', label)
       assert.ok(!requests.slice(requestStart).some((url) => /\.(?:webm|vtt)(?:\?|$)/u.test(url)), label)
       if (capability !== 'print') {
@@ -177,7 +202,8 @@ try {
       }
       await evaluate('scrollTo(0,0)')
       if (capture && capability === 'no-js' && [320, 1440].includes(width)
-        && (contacts ? ['contacts-current', 'contacts-missing', 'contacts-expired'] : ['static', 'hero', 'story']).includes(state)) {
+        && (governed ? ['governed-current', 'governed-empty', 'governed-expired']
+          : contacts ? ['contacts-current', 'contacts-missing', 'contacts-expired'] : ['static', 'hero', 'story']).includes(state)) {
         // Allow native anchor scrolling to paint before requesting the full document.
         await pause(150)
         const { cssContentSize } = await send('Page.getLayoutMetrics')
@@ -212,7 +238,25 @@ try {
     await send('Emulation.setTouchEmulationEnabled', { enabled: false })
     assert.equal((await fetch(`${server.origin}/contacts-current`)).headers.get('cache-control'), 'no-store')
   }
-  for (const capability of (contacts ? [] : ['default', 'no-js'])) {
+  if (governed) {
+    await navigate('governed-current')
+    const tree = await send('Accessibility.getFullAXTree')
+    const nodes = tree.nodes.filter(node => !node.ignored)
+    for (const heading of ['Browse care by need', 'Find a doctor', 'About the hospital']) {
+      assert.ok(nodes.some(node => node.role?.value === 'heading' && node.name?.value === heading), heading)
+    }
+    const canonicalPaths = await evaluate(`[...document.querySelectorAll('[data-controlled-fixture="true"] a')].map(a => a.getAttribute('href'))`)
+    assert.equal(canonicalPaths.length, 2)
+    for (const canonicalPath of canonicalPaths) {
+      assert.equal((await fetch(server.origin + canonicalPath)).status, 404)
+    }
+    await evaluate(`document.querySelector('[data-controlled-fixture="true"] a').focus()`)
+    assert.equal(await evaluate(`document.activeElement.matches('[data-controlled-fixture="true"] a')`), true)
+    await navigate('governed-empty')
+    assert.equal(await evaluate(`document.querySelectorAll('[data-home-governed-section]').length`), 0)
+    cases.push({ state: 'governed-current', capability: 'accessibility-tree-canonical-paths-keyboard', passed: true })
+  }
+  for (const capability of (contacts || governed ? [] : ['default', 'no-js'])) {
     await navigate('static', capability)
     await evaluate("document.querySelector('[data-menu-trigger]').focus()")
     await key()
@@ -223,7 +267,7 @@ try {
     if (capability === 'default') assert.equal(await evaluate("document.activeElement.matches('[data-menu-trigger]')"), true)
     cases.push({ capability, state: 'compact-menu-keyboard', passed: true })
   }
-  for (const state of (contacts ? [] : ['hero', 'story'])) {
+  for (const state of (contacts || governed ? [] : ['hero', 'story'])) {
     await navigate(state)
     const geometry = await evaluate("({frame: document.querySelector('[data-media-state]').getBoundingClientRect().height, tasks: document.querySelector('[data-home-section=\"H2\"]').offsetTop})")
     await evaluate("document.querySelector('[data-media-play]').focus()")
@@ -252,7 +296,7 @@ try {
     assert.equal(await evaluate("document.querySelector('[data-media-state]').dataset.mediaState !== 'playing' && !document.querySelector('video').hasAttribute('src')"), true)
     cases.push({ state, capability: 'play-pause-resume-stop-end-history', passed: true })
   }
-  if (!contacts) {
+  if (!contacts && !governed) {
     await navigate('media-failure')
     await evaluate("document.querySelector('[data-media-play]').focus()")
     await key()
@@ -287,15 +331,17 @@ try {
         ...(value.startsWith('data:') ? { mime: value.slice(5).split(/[,;]/u)[0] } : {}) })))}`)
   const mediaBytes = await readFile(new URL('../public/fixtures/b01-012-abstract-motion.webm', import.meta.url))
   const captionBytes = await readFile(new URL('../public/fixtures/b01-012-abstract-motion.vtt', import.meta.url))
-  const report = { ticket: contacts ? 'B03-005' : 'B03-004', scope: 'Isolated controlled Home T0; not deployed-route or language/AT acceptance',
+  const report = { ticket: governed ? 'B03-006' : contacts ? 'B03-005' : 'B03-004', scope: 'Isolated controlled Home T0; not deployed-route or language/AT acceptance',
     cases, samples: server.samples, activatedMediaRequests: server.requestLog.filter((url) => /\.(webm|vtt)$/u.test(url)),
-    activatedMedia: contacts ? null : { bytes: mediaBytes.byteLength, captionBytes: captionBytes.byteLength, durationSeconds: 2,
+    activatedMedia: contacts || governed ? null : { bytes: mediaBytes.byteLength, captionBytes: captionBytes.byteLength, durationSeconds: 2,
       posterAssetBytes: 0, kind: 'abstract informative test film, no hospital people/facilities', provider: 'none' },
     externalRequests: 0, inlineImageEvents: requests.filter((url) => url.startsWith('data:image/')).length,
     forbiddenRequestControls: 6, reflowBasis: '320 CSS px also covers 1280 px at 400% zoom equivalent',
     metricsBasis: 'Local Chromium samples only; no constrained-device LCP/INP or motion long-task attribution is claimed' }
   if (capture) await writeFile(path.join(captureRoot, captureOnly ? 'capture-report.json' : 'browser-report.json'), JSON.stringify(report, null, 2) + '\n')
-  console.log(contacts
+  console.log(governed
+    ? `Home governed-content browser matrix passed: ${cases.length} cases, canonical card paths, responsive whole-section omissions and zero external requests.`
+    : contacts
     ? `Home contact browser matrix passed: ${cases.length} cases, native keyboard, lifecycle/accessibility tree, emulated touch, no external requests or callable targets.`
     : `Home browser matrix passed: ${cases.length} cases, native task/skip/menu keyboard, media lifecycle/failure/history, zero pre-intent/external media requests.`)
 } finally {

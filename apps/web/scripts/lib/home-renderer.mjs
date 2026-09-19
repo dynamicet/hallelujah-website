@@ -45,12 +45,13 @@ registerHooks({
   },
 })
 
-const { ActionLink, EmergencyAction, HomeTemplate, HomeContactTemplate, LanguageSwitcher } = {
+const { ActionLink, EmergencyAction, HomeTemplate, HomeContactTemplate, HomeGovernedContent, LanguageSwitcher } = {
   ...await import('../../src/design-system/templates/index.ts'),
   ...await import('../../src/design-system/components/index.ts'),
 }
 
 export function renderHome(props) {
+  const { governed, ...pageProps } = props
   const header = { ...props.shell.header,
     languageSwitcher: createElement(LanguageSwitcher, {
       alternate: { available: false, label: 'አማርኛ', lang: 'am',
@@ -64,8 +65,9 @@ export function renderHome(props) {
       href: props.tasks.appointment.href, label: props.tasks.appointment.label,
     }),
   }
+  const governedContent = governed ? createElement(HomeGovernedContent, governed) : undefined
   return renderToStaticMarkup(createElement(props.documents ? HomeContactTemplate : HomeTemplate,
-    { ...props, shell: { ...props.shell, header } }))
+    { ...pageProps, governedContent, shell: { ...props.shell, header } }))
 }
 
 export function homeStyles() {

@@ -11,8 +11,11 @@ the template fetches no records and makes no approval or publication decision.
 The source order is H1 introduction, native Appointment/Doctor actions and a separately styled
 Emergency action; H2 Doctor/Service/Appointment/Call/Directions links; H3 search entry;
 then optional H8 media. Hero media, when supplied, follows H1's complete text and actions.
-Missing media creates no empty H8 section. B03-005/006 will supply separately governed contact
-and optional record modules; this ticket does not turn raw records into claims.
+Missing media creates no empty H8 section. B03-005 supplies separately governed contact content.
+B03-006 adds H4 services, H5 clinicians and H8 institutional evidence only when explicit feature
+IDs resolve through existing current, approved governed projections. No ranking, inference or
+fallback selection occurs; an ineligible or empty result removes the whole optional section and
+its spacing.
 
 One decorative Level 3 accent has its own `ExperienceRegion`; no task or unavailable meaning
 is a child of that region. The existing first-party motion script supplies once-only enhancement,
@@ -69,3 +72,27 @@ This establishes controlled invalidation coverage, not a deployed Home cache or 
 The [execution brief](../backlog/b03-005-home-canonical-contacts.md) and
 [evidence](../backlog/evidence/B03-005-home-canonical-contacts-2026-09-19.md) retain the remaining
 hospital, physical-device/AT, language, production and publication boundaries.
+
+## Governed optional content — B03-006
+
+`controlledHomeGovernedView` accepts bounded explicit feature IDs, governed care records,
+approved care relationships and institutional workflow documents. It consumes
+`controlledCareGraph` and `controlledInstitutionalView` rather than recreating their approval,
+relationship or lifecycle logic. Its default/public mode is empty; only the visibly synthetic
+controlled-fixture mode can render during this execution stage.
+
+H4 and H5 use the shared `GovernedCard` with canonical paths produced by the clinician/service
+projections. The review-only card mode permits these same-origin canonical paths but the loopback
+server does not mount them. Each care card requires an approved relationship, so a generic record
+relationship or an independently valid but unassociated record cannot become a Home feature.
+H8 exposes only the already-reviewed body, evidence date and limitations; it does not infer a
+statistic, partner meaning, leadership identity, technology claim or superlative.
+
+Selections contain at most three unique stable public IDs per section and retain their explicit
+order. Invalid selection metadata empties only the affected section. Draft, not-yet-effective,
+review-due, expired, withdrawn, missing-language, invalid-set, stale-relationship and missing
+selection outcomes emit no optional heading, placeholder or layout container. Projection occurs
+on every server render; no Home-specific record cache is introduced. The
+[execution brief](../backlog/b03-006-home-governed-omissions.md) and
+[evidence](../backlog/evidence/B03-006-home-governed-omissions-2026-09-19.md) retain the authentic
+care/institutional, language, route, production and publication gates.

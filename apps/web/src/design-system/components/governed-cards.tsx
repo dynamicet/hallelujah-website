@@ -50,6 +50,7 @@ export interface GovernedCardReview {
 
 export interface GovernedCardProps {
   readonly content: GovernedCardContent
+  readonly controlledDestination?: 'fragment' | 'canonical-path'
   readonly href: string
   readonly locale: GovernedLocale
   readonly mode?: 'controlled-fixture'
@@ -62,8 +63,10 @@ function nonempty(value: unknown): value is string {
   return typeof value === 'string' && value.trim().length > 0
 }
 
-function safeHref(href: string, fixture: boolean): boolean {
-  return fixture ? /^#[a-z][a-z0-9-]*$/u.test(href) : /^\/(?!\/)[^?#\s]*\/?$/u.test(href)
+function safeHref(href: string, fixture: boolean, controlledDestination = 'fragment'): boolean {
+  return fixture && controlledDestination === 'fragment'
+    ? /^#[a-z][a-z0-9-]*$/u.test(href)
+    : /^\/(?!\/)[^?#\s]*\/?$/u.test(href)
 }
 
 function complete(content: GovernedCardContent, fixture: boolean): boolean {
@@ -85,7 +88,7 @@ function complete(content: GovernedCardContent, fixture: boolean): boolean {
 
 /** The public default fails closed; only visibly synthetic fixtures may show unavailable specimens. */
 export function GovernedCard({
-  content, href, locale, mode, now, record, review,
+  content, controlledDestination = 'fragment', href, locale, mode, now, record, review,
 }: GovernedCardProps) {
   const validated = validateGovernedRecord(record)
   if (!validated.ok || content.kind !== record.kind || !Number.isFinite(now.getTime())) return null
@@ -103,7 +106,8 @@ export function GovernedCard({
   if (!fixture && !current) return null
   if (!fixture && (!complete(content, false) || !safeHref(href, false))) return null
 
-  const available = current && complete(content, fixture) && safeHref(href, fixture)
+  const available = current && complete(content, fixture)
+    && safeHref(href, fixture, controlledDestination)
     && (content.kind !== 'vacancy'
       || Date.parse(content.closesAt.dateTime) > now.getTime())
   const state = available ? 'current' : retired ? 'expired' : 'unavailable'

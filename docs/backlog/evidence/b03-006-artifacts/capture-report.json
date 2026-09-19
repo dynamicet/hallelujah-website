@@ -1,0 +1,105 @@
+{
+  "ticket": "B03-006",
+  "scope": "Isolated controlled Home T0; not deployed-route or language/AT acceptance",
+  "cases": [
+    {
+      "state": "governed-current",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "governed-current",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "governed-empty",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "governed-empty",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "governed-expired",
+      "width": 320,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    },
+    {
+      "state": "governed-expired",
+      "width": 1440,
+      "capability": "no-js",
+      "passed": true,
+      "metrics": {
+        "cls": 0,
+        "lcp": 0,
+        "longTasks": []
+      }
+    }
+  ],
+  "samples": {
+    "governed-current": {
+      "initialGzipBytes": 17007,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "governed-empty": {
+      "initialGzipBytes": 16380,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    },
+    "governed-expired": {
+      "initialGzipBytes": 16380,
+      "javascriptGzipBytes": 1404,
+      "initialRequests": 4,
+      "initialMediaBytes": 0,
+      "posterAssetBytes": 0,
+      "externalRuntimeBytes": 0
+    }
+  },
+  "activatedMediaRequests": [],
+  "activatedMedia": null,
+  "externalRequests": 0,
+  "inlineImageEvents": 0,
+  "forbiddenRequestControls": 6,
+  "reflowBasis": "320 CSS px also covers 1280 px at 400% zoom equivalent",
+  "metricsBasis": "Local Chromium samples only; no constrained-device LCP/INP or motion long-task attribution is claimed"
+}
