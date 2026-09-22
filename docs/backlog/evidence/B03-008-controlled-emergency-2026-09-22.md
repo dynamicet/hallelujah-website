@@ -36,7 +36,7 @@ Amharic meaning, hospital approval, production readiness or publication approval
 | Deployable build boundary | Pass: build routes remain `/`, `/_not-found`, `/health`; 28 content-isolation controls inspect 79 application source files, six traces and 138 payloads. |
 | `pnpm format:check`, `pnpm links:check`, `pnpm backlog:check`, `git diff --check` | Pass: repository formatting, 1,303 links, all ten backlog assertions and whitespace checks. |
 
-The controlled fixture's measured maximum is 16,572 initial compressed bytes, 422 compressed
+The controlled fixture's measured maximum is 16,581 initial compressed bytes, 422 compressed
 JavaScript bytes, three initial requests, zero external requests and zero media bytes. These are
 loopback specimen measurements, not a deployed-route or constrained-device performance claim.
 
@@ -64,6 +64,11 @@ the pinned 24.21.0. All successful checks use the pinned runtime. The first sand
 failed to bind loopback with `EPERM`; the permitted loopback repeat progressed normally. The initial
 rendered matrix exposed 200% text overflow from two-column definition rows; keeping those rows
 single-column corrected the defect, and all affected widths/states passed on repeat.
+
+Private hosted run 35781272505 then exposed a Chromium/font-metric-specific intrinsic grid-width
+overflow in a call-card label at 320 CSS px with 200% text. Constraining the internal one-column
+grid tracks and allowing every call-card child to wrap corrected the cross-environment defect. That
+run remains retained as failed evidence; its exact-head replacement is recorded with the review.
 
 The first full verification repeat passed through the new Emergency contract but stopped at the
 existing asset-format prerequisite because default `python3` lacked `fontTools`. Repeating with the

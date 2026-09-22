@@ -29,6 +29,12 @@
 .locationFacts {
   display: grid;
   gap: var(--semantic-space-regular);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.callCard > * {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
 }
 
 .eyebrow,
