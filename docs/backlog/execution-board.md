@@ -1140,3 +1140,32 @@ and PR #65. Dependent execution waits for passing exact-main CI. B03-007 remains
 and formal DEL-01; no successor ticket is promoted. Authentic content/language/feature approval,
 public routes, providers, collection, migration, provisioning, production and publication retain
 their gates.
+
+## B03-008 controlled Emergency implementation — 22 September 2026
+
+B03-006 PR #65 merged as `0ef397aafce6c4809b597656394aebf00c22e713`; exact-main
+[run 35432845708](https://github.com/dynamicet/hallelujah-website/actions/runs/35432845708)
+passed, resolving the merge-control wait. B03-007 remains gated by B06-005 and formal DEL-01, but
+no implementation ticket depends on B03-007. The client directed a placeholder-based controlled
+B03-008 execution. B03-008 moves Proposed → Ready → **In progress** under `befikadusata` directing
+Codex in temporary Frontend/Operations-contract/Clinical-contract/QA roles, with the same identity
+as controlled-development review authority, on 22 September 2026, Africa/Addis_Ababa.
+
+The [execution brief](b03-008-controlled-emergency.md) records the explicit sequencing exception
+while B03-001–B03-003 and SAFE-01–SAFE-04 remain unresolved. Scope is a server-rendered E0–E8
+composition and loopback-only preview using visibly synthetic, deliberately invalid and inert
+contact, distinction, scope and arrival fixtures. No `tel:`, real safety fact, map/provider request,
+public route, collection, authentic content, migration, provisioning, production or publication is
+authorized. [Issue #66](https://github.com/dynamicet/hallelujah-website/issues/66) tracks execution.
+The working B00-016 matrix supplies T0/private hosted T1 controlled acceptance; formal DEL-01 and
+all hospital/language/physical-device approvals retain their gates.
+
+B03-008 moves In progress → **In review** on 22 September 2026, Africa/Addis_Ababa, under the same
+responsible/review identity after 13 SSR contract cases, 58 responsive/capability/accessibility/
+isolation browser cases, four sanitized reviewed captures, complete repository verification and
+optimized-build isolation pass. The
+[execution evidence](evidence/B03-008-controlled-emergency-2026-09-22.md) retains prerequisite,
+environment and corrected 200% reflow history. Issue #66 retains repository and hosted-review
+pointers. Hosted exact-head T1 and controlled client acceptance remain required before Done;
+checked merge and passing exact-main CI govern dependent execution. No hospital safety/language,
+authentic content, public route, provider, production or publication gate changes.
