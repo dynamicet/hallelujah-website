@@ -66,14 +66,14 @@ export function renderEmergency(props) {
       href: '#non-emergency-support', label: 'Non-emergency support', variant: 'secondary',
     }),
   }
-  const mapStatus = createElement('p', null, props.mapStatus)
-  const support = createElement(Fragment, null,
+  const failClosed = ['expired', 'unavailable'].includes(props.state.kind)
+  const mapStatus = failClosed ? undefined : createElement('p', null, props.mapStatus)
+  const support = failClosed ? undefined : createElement(Fragment, null,
     createElement('p', null, props.support),
     createElement('a', { className: 'ds-touch-target', href: '#emergency-title' },
-      'Return to Emergency choices'),
-  )
+      'Return to Emergency choices'))
   return renderToStaticMarkup(createElement(EmergencyTemplate, {
-    ...props, mapStatus, support, shell: { ...props.shell, header },
+    ...props, ...(failClosed ? {} : { mapStatus, support }), shell: { ...props.shell, header },
   }))
 }
 
