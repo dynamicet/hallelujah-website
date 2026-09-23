@@ -38,6 +38,11 @@
 | `B03-009` | DELIVERY | P0 | Implement Emergency withheld, call-handoff-unsupported, arrival/map-failure, expired, and no-JS/CSS/media states. | No state guesses or retains expired safety data; unsupported dialer offers readable verified number; map failure preserves directions; missing required safety content prevents publication; alerts are announced once and expose a safe next action. | `B03-008`, `B01-010`–`B01-012` | Frontend + QA | `G-007`, `G-011`, `E-005`; [page states](../visual-design/handoff/page-handoff-matrix.md#page-contracts) |
 | `B03-010` | EVIDENCE | P0 | Run live Emergency call/arrival, comprehension, accessibility, resilience, and performance acceptance. | Named testers verify visible/href match, hospital/public distinction, deliberate physical-device activation, screen-reader output, Amharic clinical meaning, on-site arrival without map, no-JS/slow network, 320/360/zoom/forced colors; all evidence is dated to current approved record. | `B03-008`–`B03-009`, `LANG-01`, `DEL-01` | QA + Clinical + Operations | `E-001`–`E-005`, `G-003`–`G-010`, `G-016`; [human/device evidence](../visual-design/handoff/accessibility-and-validation-checklist.md#human-and-device-evidence-before-release) |
 
+The [B03-008 controlled-development exception](b03-008-controlled-emergency.md) permits a
+loopback-only E0–E8 composition with visibly synthetic, inert placeholders while B03-001–B03-003
+remain open. It does not alter the dependencies above, mount `/emergency/`, activate a call/map, or
+grant hospital safety, production or publication approval.
+
 ## Appointment operation and secure intake `/appointments/` (`A0`–`A8`)
 
 | ID | Lane | Pri | Outcome and implementation scope | Acceptance and evidence | Dependencies / gates | Owner | References |

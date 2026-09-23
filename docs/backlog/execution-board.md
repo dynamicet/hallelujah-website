@@ -1140,3 +1140,56 @@ and PR #65. Dependent execution waits for passing exact-main CI. B03-007 remains
 and formal DEL-01; no successor ticket is promoted. Authentic content/language/feature approval,
 public routes, providers, collection, migration, provisioning, production and publication retain
 their gates.
+
+## B03-008 controlled Emergency implementation — 22 September 2026
+
+B03-006 PR #65 merged as `0ef397aafce6c4809b597656394aebf00c22e713`; exact-main
+[run 35432845708](https://github.com/dynamicet/hallelujah-website/actions/runs/35432845708)
+passed, resolving the merge-control wait. B03-007 remains gated by B06-005 and formal DEL-01, but
+no implementation ticket depends on B03-007. The client directed a placeholder-based controlled
+B03-008 execution. B03-008 moves Proposed → Ready → **In progress** under `befikadusata` directing
+Codex in temporary Frontend/Operations-contract/Clinical-contract/QA roles, with the same identity
+as controlled-development review authority, on 22 September 2026, Africa/Addis_Ababa.
+
+The [execution brief](b03-008-controlled-emergency.md) records the explicit sequencing exception
+while B03-001–B03-003 and SAFE-01–SAFE-04 remain unresolved. Scope is a server-rendered E0–E8
+composition and loopback-only preview using visibly synthetic, deliberately invalid and inert
+contact, distinction, scope and arrival fixtures. No `tel:`, real safety fact, map/provider request,
+public route, collection, authentic content, migration, provisioning, production or publication is
+authorized. [Issue #66](https://github.com/dynamicet/hallelujah-website/issues/66) tracks execution.
+The working B00-016 matrix supplies T0/private hosted T1 controlled acceptance; formal DEL-01 and
+all hospital/language/physical-device approvals retain their gates.
+
+B03-008 moves In progress → **In review** on 22 September 2026, Africa/Addis_Ababa, under the same
+responsible/review identity after 13 SSR contract cases, 58 responsive/capability/accessibility/
+isolation browser cases, four sanitized reviewed captures, complete repository verification and
+optimized-build isolation pass. The
+[execution evidence](evidence/B03-008-controlled-emergency-2026-09-22.md) retains prerequisite,
+environment and corrected 200% reflow history. Issue #66 retains repository and hosted-review
+pointers. Hosted exact-head T1 and controlled client acceptance remain required before Done;
+checked merge and passing exact-main CI govern dependent execution. No hospital safety/language,
+authentic content, public route, provider, production or publication gate changes.
+
+## B03-008 controlled acceptance — 23 September 2026
+
+The client directed “Close out B03-008”. B03-008 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing Codex
+in temporary Frontend/Operations-contract/Clinical-contract/QA roles on 23 September 2026,
+Africa/Addis_Ababa. Target remains synthetic local T0/private hosted T1 under the working B00-016
+matrix and controlled sequencing exception. B03-001–B03-003, SAFE-01–SAFE-04, LANG-01, SEC-02 and
+formal DEL-01 remain unresolved.
+
+All recorded local checks and independent frozen reconstruction pass. Replacement exact-head
+[run 35783340838](https://github.com/dynamicet/hallelujah-website/actions/runs/35783340838)
+passes every step for `05900cd1994cdf5530ebf856db53db6f0a13fc78`. The
+[completion evidence](evidence/B03-008-controlled-emergency-2026-09-22.md#controlled-acceptance--23-september-2026)
+retains the failed predecessor run, corrected 320 px/200%-text defect, environment/prerequisite
+failures and passing retests; no scoped controlled-implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #67](https://github.com/dynamicet/hallelujah-website/pull/67). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #66](https://github.com/dynamicet/hallelujah-website/issues/66)
+and PR #67. Dependent execution waits for passing exact-main CI; no successor ticket is promoted.
+Authentic emergency records and claims, call activation, professional language and human/device/
+on-site evidence, `/emergency/`, providers, production, emergency use and publication remain
+withheld.

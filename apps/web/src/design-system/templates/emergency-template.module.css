@@ -1,0 +1,212 @@
+.frame {
+  inline-size: 100%;
+  margin-inline: auto;
+  max-inline-size: calc(var(--semantic-size-wide) + 2 * var(--semantic-space-page));
+  padding-inline: var(--semantic-space-page);
+}
+
+.introduction,
+.section {
+  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  padding-block: var(--semantic-space-section);
+}
+
+.introduction {
+  display: grid;
+  gap: var(--semantic-space-surface);
+}
+
+.introCopy,
+.reading {
+  max-inline-size: var(--semantic-size-reading);
+}
+
+.introCopy,
+.section,
+.callCard,
+.routeDefinitions dd,
+.scopeFacts,
+.locationFacts {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.callCard > * {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.eyebrow,
+.choiceType,
+.fixtureBoundary {
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--semantic-type-small-size);
+  line-height: var(--semantic-type-small-line);
+}
+
+.eyebrow,
+.choiceType {
+  font-weight: var(--semantic-font-weight-strong);
+  letter-spacing: var(--semantic-type-eyebrow-tracking);
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: var(--semantic-type-body-large-size);
+  line-height: var(--semantic-type-body-large-line);
+}
+
+.fixtureNotice,
+.warning,
+.mapPanel,
+.support {
+  border: var(--semantic-border-emphasis) solid currentColor;
+  border-radius: var(--semantic-radius-card);
+  padding: var(--semantic-space-page);
+}
+
+.fixtureNotice,
+.warning {
+  background: var(--semantic-color-surface-error);
+  color: var(--semantic-color-text-error);
+}
+
+.callGrid,
+.pairedSections,
+.arrivalGrid {
+  display: grid;
+  gap: var(--semantic-space-section);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.callCard {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-strong);
+  border-inline-start: var(--semantic-border-focus) solid var(--semantic-color-action-emergency);
+  border-radius: var(--semantic-radius-card);
+  min-inline-size: 0;
+  padding: var(--semantic-space-surface);
+}
+
+.inertCallValue {
+  align-items: flex-start;
+  border: var(--semantic-border-emphasis) dashed var(--semantic-color-action-emergency);
+  border-radius: var(--semantic-radius-control);
+  color: var(--semantic-color-text-error);
+  display: flex;
+  flex-direction: column;
+  font-variant-numeric: tabular-nums;
+  gap: var(--semantic-space-compact);
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  padding: var(--semantic-space-regular) var(--semantic-space-page);
+}
+
+.inertCallValue strong {
+  overflow-wrap: anywhere;
+}
+
+.routeDefinitions,
+.scopeFacts,
+.locationFacts {
+  margin: 0;
+}
+
+.routeDefinitions > div,
+.scopeFacts > div,
+.locationFacts > div {
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  display: grid;
+  gap: var(--semantic-space-compact);
+  min-inline-size: 0;
+  padding-block-start: var(--semantic-space-regular);
+}
+
+.routeDefinitions dt,
+.scopeFacts dt,
+.locationFacts dt {
+  font-weight: var(--semantic-font-weight-strong);
+}
+
+.routeDefinitions dd,
+.scopeFacts dd,
+.locationFacts dd {
+  margin: 0;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.mapPanel {
+  background: var(--semantic-color-surface-information);
+  color: var(--semantic-color-text-information);
+  margin-block: var(--semantic-space-section);
+}
+
+.support {
+  background: var(--semantic-color-surface-subtle);
+  margin-block-end: var(--semantic-space-section);
+}
+
+.directionSteps {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  margin: 0;
+}
+
+@media (min-width: 48rem) {
+  .frame {
+    max-inline-size: calc(var(--semantic-size-wide) + 2 * var(--semantic-space-gutter-regular));
+    padding-inline: var(--semantic-space-gutter-regular);
+  }
+
+  .callGrid,
+  .pairedSections,
+  .arrivalGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (min-width: 64rem) {
+  .frame {
+    max-inline-size: calc(var(--semantic-size-wide) + 2 * var(--semantic-space-gutter-wide));
+    padding-inline: var(--semantic-space-gutter-wide);
+  }
+}
+
+@media (forced-colors: active) {
+  .fixtureNotice,
+  .warning,
+  .callCard,
+  .inertCallValue,
+  .mapPanel,
+  .support {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+}
+
+@media print {
+  .frame {
+    max-inline-size: none;
+    padding: 0;
+  }
+
+  .introduction,
+  .section {
+    break-inside: avoid;
+    padding-block: var(--semantic-space-regular);
+  }
+
+  .fixtureNotice,
+  .warning,
+  .callCard,
+  .inertCallValue,
+  .mapPanel,
+  .support {
+    background: transparent;
+    color: CanvasText;
+  }
+}

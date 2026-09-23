@@ -83,6 +83,13 @@ clinicians and institutional evidence through those existing governed contracts.
 [B03-006 execution brief](docs/backlog/b03-006-home-governed-omissions.md) keeps authentic records,
 feature decisions, public care routes and publication withheld.
 
+The controlled Emergency composition preserves the E0–E8 safety hierarchy with deliberately
+invalid, inert fixtures while hospital contact, routing, scope and arrival decisions remain open.
+Run `pnpm emergency:check` for the server contract and `pnpm emergency:smoke` for the responsive
+browser matrix. The [B03-008 execution brief](docs/backlog/b03-008-controlled-emergency.md) and
+[architecture](docs/architecture/emergency-page.md) keep `/emergency/`, calls, maps, authentic facts
+and publication disabled.
+
 Controlled discovery uses authenticated local governed records for canonical URL, metadata,
 language-alternate and sitemap candidates. Run `pnpm discovery:check` for lifecycle, escaping,
 dependency/cache and real loopback HTTP checks. The [execution brief](docs/backlog/b02-010-governed-discovery.md)
