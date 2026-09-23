@@ -99,7 +99,7 @@ If this board and an epic disagree, use the epic for scope and this board for li
 | 9 | `B00-004` | **Done** | Client workspace identity `befikadusata` directing Codex / same client identity at the temporary development boundary; named Delivery and Security people return before production | Completed under the working `B00-016` matrix and isolated clean-rebuild boundary | [Completion record](evidence/B00-004-clean-application-bootstrap-2026-09-13.md); clean local bootstrap passed without legacy executable/configuration import, application providers, personal data, or production claim |
 | 10 | `B00-005` | **Done** | Client workspace identity `befikadusata` directing Codex / same identity at the controlled-development boundary; named Delivery and Security people return before production | Completed within the [extracted controlled-development scope](b00-005-pinned-toolchain.md) | [Completion record](evidence/B00-005-pinned-toolchain-2026-09-13.md); exact policy, frozen graph, advisory scan, application checks, and isolated rebuild passed; Docker host mismatch remains fail-closed before container work |
 | 11 | `B00-006` | **Done** | Client workspace identity `befikadusata` directing Codex / same identity at the controlled-development boundary; named DevOps and Security people return before production | Completed within the [extracted controlled-development scope](b00-006-environment-configuration.md) | [Completion record](evidence/B00-006-environment-configuration-2026-09-13.md); environment-scoped values, startup/Payload validation, disabled gates, names-only example, and runbook passed local checks |
-| 12 | `B00-008`–`B00-010` | Blocked | Named Backend/DevOps owners / Security owner | `B00-006`, `B00-007`; appointment gates where stated | Least-privilege database, migration, backup, and restore evidence |
+| 12 | `B00-008`–`B00-010` | Blocked — remote/activation acceptance | Named Backend/DevOps owners / Security owner | Controlled local delivery may use the approved two-database boundary; `B00-007`, named owners and appointment gates return before remote persistence, personal-data activation or production | [Controlled-development boundary](b00-008-010-logical-database-delivery-boundary.md); remaining evidence is actual-environment least privilege, migration, encrypted backup and restore |
 | 13 | `B00-011` | **Done** | Client workspace identity `befikadusata` directing Codex / same identity for controlled-development implementation; named Delivery/QA/Security return before production | Complete—repository/local gates and hosted execution pass; manual current-head CI procedure records the private/free-plan constraint without claiming technical enforcement | [Execution brief](b00-011-ci-quality-security.md) and [completion evidence](evidence/B00-011-ci-quality-security-2026-09-14.md); branch enforcement remains `B00-012` |
 | 14 | `B00-012`–`B00-013` | Blocked | Named Delivery/DevOps owners / QA and Security owners | `B00-011` is satisfied; deferred ownership/infrastructure/provider gates and an available `B00-012` enforcement approach remain | Deployment control and privacy-safe observability evidence |
 
@@ -1193,6 +1193,22 @@ and PR #67. Dependent execution waits for passing exact-main CI; no successor ti
 Authentic emergency records and claims, call activation, professional language and human/device/
 on-site evidence, `/emergency/`, providers, production, emergency use and publication remain
 withheld.
+
+## B00-008–B00-010 topology and sequencing decision — 23 September 2026
+
+The client selected Option 1: one PostgreSQL instance per environment with logically separate
+public-content and appointment databases, independent least-privilege roles and credentials,
+separate migration histories, and separate encrypted backup/restore sets. The
+[controlled-development boundary](b00-008-010-logical-database-delivery-boundary.md) records the
+decision and its evidence stages.
+
+This corrects the prior all-or-nothing dependency interpretation. Disposable local isolation,
+migration and synthetic restore evidence are controlled-development requirements; selected-host
+networking, secret rotation, off-host backup operations, named ownership, approved RPO/RTO and a
+dated restore rehearsal remain remote/activation requirements. `B00-008`–`B00-010` are not marked
+Done and no personal-data collection or remote appointment persistence is authorized. They no
+longer block controlled local `B03-015` delivery by themselves; `B03-012`–`B03-014` must still
+define the field, privacy/security and request-state contracts before that implementation starts.
 
 ## B03-008 merge closeout and B03-009 planning — 23 September 2026
 
