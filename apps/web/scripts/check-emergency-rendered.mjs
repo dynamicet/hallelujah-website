@@ -12,7 +12,7 @@ const server = await createEmergencyPreviewServer()
 const profile = await mkdtemp(path.join(tmpdir(), 'hallelujah-emergency-browser-'))
 const port = 20000 + randomBytes(2).readUInt16BE(0) % 30000
 const capture = process.argv.includes('--capture')
-const captureRoot = path.resolve(new URL('../../../docs/backlog/evidence/b03-008-artifacts/', import.meta.url).pathname)
+const captureRoot = path.resolve(new URL('../../../docs/backlog/evidence/b03-009-artifacts/', import.meta.url).pathname)
 if (capture) await mkdir(captureRoot, { recursive: true })
 
 const browserPath = ['google-chrome-stable', 'google-chrome',
@@ -120,6 +120,23 @@ try {
   }
 
   for (const state of emergencyFixtureStates) {
+    const failClosed = [
+      'required-arrival-unavailable',
+      'required-content-expired',
+      'required-content-withheld',
+    ].includes(state)
+    const handoffUnsupported = state.startsWith('call-handoff-unsupported')
+    const expectedState = state === 'required-content-expired'
+      ? 'expired'
+      : failClosed
+        ? 'unavailable'
+        : handoffUnsupported
+          ? 'call-handoff-unsupported'
+          : state === 'optional-map-failed'
+            ? 'map-failed'
+            : state === 'optional-map-blocked'
+              ? 'map-blocked'
+              : 'ready'
     for (const width of [320, 360, 768, 1440]) {
       for (const capability of ['default', 'no-js', 'reduced-motion', 'forced-colors', 'print', '200%-text', 'no-css']) {
         const requestStart = await navigate(state, capability, width)
@@ -144,6 +161,10 @@ try {
           activeCalls: document.querySelectorAll('a[href^="tel:"],a[href^="mailto:"]').length,
           fieldsProvidersMedia: document.querySelectorAll('form,input,textarea,select,iframe,img,video,a[href^="http"]').length,
           level: document.querySelector('[data-emergency-template]').dataset.experienceLevel,
+          state: document.querySelector('[data-emergency-template]').dataset.emergencyState,
+          stateAnnouncements: document.querySelectorAll('[data-state-announcement]').length,
+          injectedAnnouncements: document.querySelectorAll('[data-state-announcement="injected"][role="status"][aria-live="polite"][aria-atomic="true"]').length,
+          mapStates: [...document.querySelectorAll('[data-map-state]')].map(el => el.dataset.mapState),
           moving: [...document.querySelectorAll('[data-emergency-template] *')].some(el => {
             const style = getComputedStyle(el);
             return style.animationName !== 'none' || style.transitionDuration.split(',').some(value => parseFloat(value) > 0);
@@ -154,20 +175,34 @@ try {
         assert.equal(result.overflow, false, `${label}: ${JSON.stringify({viewport: result.viewport, elements: result.overflowElements})}`)
         assert.equal(result.mainCount, 1, label)
         assert.equal(result.h1Count, 1, label)
-        assert.deepEqual(result.sections, ['E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8'], label)
+        assert.deepEqual(result.sections, failClosed ? ['E1', 'E8'] : ['E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8'], label)
         assert.equal(result.headingOrder[0], 1, label)
         assert.ok(result.headingOrder.slice(1).every((level, index) => level <= result.headingOrder[index] + 1), label)
         if (capability !== 'no-css') assert.equal(result.interactiveTargets, true, label)
         assert.equal(result.currentEmergency, true, label)
-        assert.equal(result.inertChoices, 2, label)
+        assert.equal(result.inertChoices, failClosed ? 0 : 2, label)
         assert.equal(result.activeCalls, 0, label)
         assert.equal(result.fieldsProvidersMedia, 0, label)
         assert.equal(result.level, '0', label)
+        assert.equal(result.state, expectedState, label)
+        assert.equal(result.injectedAnnouncements,
+          state === 'call-handoff-unsupported-injected' && capability !== 'no-js' ? 1 : 0, label)
+        assert.equal(result.stateAnnouncements, handoffUnsupported || failClosed ? 1 : 0, label)
         if (capability !== 'no-css') assert.equal(result.moving, false, label)
         assert.match(result.text, /Controlled preview only/u, label)
-        assert.match(result.text, /INVALID TEST VALUE/u, label)
-        assert.match(result.text, /provides no emergency advice/u, label)
-        assert.match(result.text, /No map, coordinates, geolocation/u, label)
+        if (failClosed) {
+          assert.doesNotMatch(result.text, /INVALID TEST VALUE|Synthetic Emergency Entrance/u, label)
+          assert.match(result.text, /Controlled preview boundary/u, label)
+        } else {
+          assert.match(result.text, /INVALID TEST VALUE/u, label)
+          assert.match(result.text, /provides no emergency advice/u, label)
+          assert.match(result.text, /No map, coordinates, geolocation/u, label)
+        }
+        if (handoffUnsupported) assert.match(result.text, /Automatic call handoff is unsupported/u, label)
+        if (state === 'optional-map-failed' || state === 'optional-map-blocked') {
+          assert.match(result.text, /Landmark-based test directions[\s\S]*Complete text directions/u, label)
+          assert.deepEqual(result.mapStates, [expectedState], label)
+        }
         assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)
 
         if (capability !== 'print') {
@@ -175,9 +210,11 @@ try {
           await key()
           assert.equal(await evaluate("document.activeElement.id === 'main-content'"), true, label)
         }
-        const hashBefore = await evaluate('location.hash')
-        await evaluate("document.querySelector('[data-inert-call-choice]').click()")
-        assert.equal(await evaluate('location.hash'), hashBefore, label)
+        if (!failClosed) {
+          const hashBefore = await evaluate('location.hash')
+          await evaluate("document.querySelector('[data-inert-call-choice]').click()")
+          assert.equal(await evaluate('location.hash'), hashBefore, label)
+        }
 
         if (capture && capability === 'no-js' && [320, 1440].includes(width)) {
           await pause(100)
@@ -200,6 +237,16 @@ try {
   }
   assert.ok(!nodes.some((node) => node.role?.value === 'link' && /INVALID TEST VALUE/u.test(node.name?.value ?? '')))
   cases.push({ capability: 'accessibility-tree-inert-call-boundary', passed: true, state: 'controlled', width: 360 })
+
+  await navigate('call-handoff-unsupported-injected', 'default', 360)
+  assert.equal(await evaluate(`(() => {
+    const announcement = document.querySelector('[data-state-announcement="injected"]');
+    announcement.focus();
+    return document.activeElement === announcement;
+  })()`), true)
+  assert.equal(await evaluate("document.querySelectorAll('[data-state-announcement=\"injected\"]').length"), 1)
+  cases.push({ capability: 'atomic-announcement-focus-context', passed: true,
+    state: 'call-handoff-unsupported-injected', width: 360 })
 
   const response = await fetch(server.origin)
   assert.equal(response.headers.get('cache-control'), 'no-store')

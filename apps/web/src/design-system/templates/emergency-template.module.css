@@ -58,6 +58,7 @@
 }
 
 .fixtureNotice,
+.stateNotice,
 .warning,
 .mapPanel,
 .support {
@@ -70,6 +71,27 @@
 .warning {
   background: var(--semantic-color-surface-error);
   color: var(--semantic-color-text-error);
+}
+
+.stateNotice {
+  align-items: start;
+  background: var(--semantic-color-surface-information);
+  color: var(--semantic-color-text-information);
+  display: grid;
+  gap: var(--semantic-space-regular);
+  max-inline-size: var(--semantic-size-reading);
+  min-inline-size: 0;
+}
+
+.stateNotice > * {
+  margin: 0;
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
+}
+
+.stateNotice:focus-visible {
+  outline: var(--semantic-border-focus) solid var(--semantic-color-focus);
+  outline-offset: var(--semantic-border-focus);
 }
 
 .callGrid,
@@ -177,6 +199,7 @@
 
 @media (forced-colors: active) {
   .fixtureNotice,
+  .stateNotice,
   .warning,
   .callCard,
   .inertCallValue,
@@ -201,6 +224,7 @@
   }
 
   .fixtureNotice,
+  .stateNotice,
   .warning,
   .callCard,
   .inertCallValue,

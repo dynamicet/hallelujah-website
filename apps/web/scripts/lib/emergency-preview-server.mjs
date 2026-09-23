@@ -5,9 +5,21 @@ import { gzipSync } from 'node:zlib'
 import { emergencyFixture, emergencyFixtureStates } from './emergency-fixture.mjs'
 import { emergencyStyles, renderEmergency } from './emergency-renderer.mjs'
 
+const announcementScript = `(() => {
+  const target = document.querySelector('[data-state-announcement="pending-injection"]')
+  if (!target) return
+  target.dataset.stateAnnouncement = 'injected'
+  target.setAttribute('role', 'status')
+  target.setAttribute('aria-live', 'polite')
+  target.setAttribute('aria-atomic', 'true')
+})()`
+
 export function emergencyPreviewDocument(state = 'controlled') {
   const body = renderEmergency(emergencyFixture(state))
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Emergency — controlled B03-008 preview</title><link rel="stylesheet" href="/emergency.css"></head><body data-emergency-preview-fixture="synthetic-inert-b03-008">${body}</body></html>`
+  const injectedState = state === 'call-handoff-unsupported-injected'
+    ? '<script src="/emergency-state-announcement.js"></script>'
+    : ''
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Emergency — controlled B03-009 preview</title><link rel="stylesheet" href="/emergency.css"></head><body data-emergency-preview-fixture="synthetic-inert-b03-009" data-emergency-preview-state="${state}">${body}${injectedState}</body></html>`
 }
 
 export async function createEmergencyPreviewServer({ port = 0 } = {}) {
@@ -35,15 +47,21 @@ export async function createEmergencyPreviewServer({ port = 0 } = {}) {
       requestLog.push(url.pathname)
       if (url.pathname === '/emergency.css') return finish(200, 'text/css', emergencyStyles())
       if (url.pathname === '/shell-navigation.js') return finish(200, 'text/javascript', await readFile(shellScript))
+      if (url.pathname === '/emergency-state-announcement.js') {
+        return finish(200, 'text/javascript', announcementScript)
+      }
       const state = url.pathname === '/' ? 'controlled' : url.pathname.slice(1)
       if (!emergencyFixtureStates.includes(state)) return finish(404, 'text/plain', 'No preview route.')
       const html = emergencyPreviewDocument(state)
       const css = emergencyStyles()
       const script = await readFile(shellScript)
+      const injectedState = state === 'call-handoff-unsupported-injected'
       samples[state] = {
-        initialGzipBytes: gzipSync(html).byteLength + gzipSync(css).byteLength + gzipSync(script).byteLength,
-        initialRequests: 3,
-        javascriptGzipBytes: gzipSync(script).byteLength,
+        initialGzipBytes: gzipSync(html).byteLength + gzipSync(css).byteLength
+          + gzipSync(script).byteLength + (injectedState ? gzipSync(announcementScript).byteLength : 0),
+        initialRequests: injectedState ? 4 : 3,
+        javascriptGzipBytes: gzipSync(script).byteLength
+          + (injectedState ? gzipSync(announcementScript).byteLength : 0),
         externalRequests: 0,
         mediaBytes: 0,
       }

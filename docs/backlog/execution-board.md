@@ -1193,3 +1193,70 @@ and PR #67. Dependent execution waits for passing exact-main CI; no successor ti
 Authentic emergency records and claims, call activation, professional language and human/device/
 on-site evidence, `/emergency/`, providers, production, emergency use and publication remain
 withheld.
+
+## B03-008 merge closeout and B03-009 planning — 23 September 2026
+
+B03-008 PR #67 merged as `2a7f5d11d42cd5551cb65bca20b56e65d1fd87f3` after its exact-head
+documentation [run 35825256269](https://github.com/dynamicet/hallelujah-website/actions/runs/35825256269)
+passed for `4432a94c824a0456f36abcb01b426308ed61ac0e`. Exact-main
+[run 35844236363](https://github.com/dynamicet/hallelujah-website/actions/runs/35844236363)
+then passed for the merge SHA, resolving the dependent-execution wait.
+
+The client directed recording that closeout and creating the controlled-development brief and
+tracking issue for B03-009. The [B03-009 execution brief](b03-009-emergency-resilience.md) defines
+the proposed synthetic-only boundary for withheld, expired, unsupported call handoff, required
+arrival unavailable, optional-map failure and no-JavaScript/CSS/media states.
+[Issue #68](https://github.com/dynamicet/hallelujah-website/issues/68) retains the proposed ticket.
+B03-009 remains **Proposed**: this planning direction does not promote it to Ready or In progress
+and does not authorize implementation. B03-001–B03-003, SAFE-01–SAFE-04, LANG-01, SEC-02 and
+formal DEL-01 remain unresolved; authentic data, active calls, `/emergency/`, providers,
+production, emergency use and publication remain withheld.
+
+## B03-009 controlled Emergency resilience implementation — 23 September 2026
+
+The client subsequently directed implementation. The completed B03-008 merge and exact-main CI,
+the Done B01-010–B01-012 dependencies, the [controlled execution brief](b03-009-emergency-resilience.md)
+and [issue #68](https://github.com/dynamicet/hallelujah-website/issues/68) satisfy the controlled
+readiness boundary. B03-009 moves Proposed → Ready → **In progress** under workspace identity
+`befikadusata` directing Codex in temporary Frontend and QA roles.
+
+Execution is limited to visibly synthetic loopback fixtures, fail-closed state resolution, inert
+rendering and automated evidence. B03-001–B03-003, SAFE-01–SAFE-04, LANG-01, SEC-02 and formal
+DEL-01 remain production gates. No authentic safety value, active call, provider request, public
+`/emergency/` route, production behavior, emergency-use claim or publication is authorized.
+
+B03-009 moves In progress → **In review** on 23 September 2026, Africa/Addis_Ababa, under the same
+responsible/review identity after passing 52 resolver/SSR contract cases, 255 responsive/capability/
+accessibility/isolation browser cases, full repository verification, independent frozen clean
+reconstruction, dependency audit and reachable-history secret scan. The optimized build retains
+only `/`, `/_not-found` and `/health`; no Emergency fixture or state adapter enters the deployable
+graph. The [execution evidence](evidence/B03-009-emergency-resilience-2026-09-23.md) retains the
+controlled scope, results and corrected development/environment failures.
+
+Private hosted exact-head T1, explicit controlled client acceptance, checked merge and passing
+exact-main CI remain required before Done. B03-010 retains human, assistive-technology,
+physical-device, comprehension, language, live-call and on-site acceptance. All authentic safety,
+public-route, provider, production, emergency-use and publication gates remain withheld.
+
+## B03-009 controlled acceptance — 23 September 2026
+
+The client directed “close out b03-009”. B03-009 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing Codex
+in temporary Frontend and QA roles on 23 September 2026, Africa/Addis_Ababa. Target remains
+synthetic local T0/private hosted T1 under the working B00-016 matrix. B03-001–B03-003,
+SAFE-01–SAFE-04, LANG-01, SEC-02 and formal DEL-01 remain unresolved.
+
+All recorded local checks and independent frozen reconstruction pass. Exact-head
+[run 35893534863](https://github.com/dynamicet/hallelujah-website/actions/runs/35893534863)
+passes every step for `3cd89ae3bfe95866faf306be2d9d91534a1a0309`. The
+[completion evidence](evidence/B03-009-emergency-resilience-2026-09-23.md#controlled-acceptance--23-september-2026)
+retains the corrected development and environment attempts plus passing retests; no scoped
+controlled-implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #69](https://github.com/dynamicet/hallelujah-website/pull/69). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #68](https://github.com/dynamicet/hallelujah-website/issues/68)
+and PR #69. Dependent execution waits for passing exact-main CI; B03-010 is not promoted.
+Authentic emergency records and claims, call activation, professional language and human/device/
+on-site evidence, `/emergency/`, providers, production, emergency use and publication remain
+withheld.

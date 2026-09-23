@@ -1,58 +1,177 @@
 import assert from 'node:assert/strict'
-import { readFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
+import { readFile, readdir } from 'node:fs/promises'
 
-import { emergencyFixture, emergencyFixtureStates } from './lib/emergency-fixture.mjs'
+import {
+  emergencyFixture,
+  emergencyFixtureStates,
+  emergencySourceFixture,
+  resolveEmergencyFixture,
+} from './lib/emergency-fixture.mjs'
 import { emergencyPreviewDocument } from './lib/emergency-preview-server.mjs'
 import { emergencyStyles, renderEmergency } from './lib/emergency-renderer.mjs'
 
+const failClosedStates = new Set([
+  'required-arrival-unavailable',
+  'required-content-expired',
+  'required-content-withheld',
+])
+const handoffStates = new Set([
+  'call-handoff-unsupported',
+  'call-handoff-unsupported-injected',
+])
 let cases = 0
 
 for (const state of emergencyFixtureStates) {
   const html = emergencyPreviewDocument(state)
-  assert.equal((html.match(/<main\b/gu) ?? []).length, 1)
-  assert.equal((html.match(/<h1\b/gu) ?? []).length, 1)
-  assert.match(html, /<main id="main-content" tabindex="-1">/u)
-  assert.match(html, /noindex,nofollow/u)
-  assert.match(html, /synthetic-inert-b03-008/u)
-  assert.match(html, /Controlled preview only/u)
-  assert.match(html, /INVALID TEST VALUE/u)
-  assert.match(html, /This page provides no emergency advice/u)
-  assert.match(html, /No map, coordinates, geolocation, external link or provider request is enabled/u)
-  assert.doesNotMatch(html, /href="(?:tel:|mailto:)|<iframe\b|<video\b|<img\b|<form\b|<input\b/u)
-  assert.doesNotMatch(html, /\b(?:autoplay|aria-live|role="alert")\b/u)
-  assert.equal((html.match(/data-inert-call-choice="true"/gu) ?? []).length, 2)
-  assert.equal((html.match(/data-call-action="withheld"/gu) ?? []).length, 2)
-  assert.equal((html.match(/data-experience-level="0"/gu) ?? []).length >= 2, true)
+  const failClosed = failClosedStates.has(state)
+  assert.equal((html.match(/<main\b/gu) ?? []).length, 1, state)
+  assert.equal((html.match(/<h1\b/gu) ?? []).length, 1, state)
+  assert.match(html, /<main id="main-content" tabindex="-1">/u, state)
+  assert.match(html, /noindex,nofollow/u, state)
+  assert.match(html, /synthetic-inert-b03-009/u, state)
+  assert.match(html, new RegExp(`data-emergency-preview-state="${state}"`, 'u'), state)
+  assert.doesNotMatch(html, /href="(?:tel:|mailto:|https?:)|<iframe\b|<video\b|<img\b|<form\b|<input\b/iu, state)
+  assert.equal((html.match(/data-experience-level="0"/gu) ?? []).length >= 2, true, state)
+
+  const expectedSections = failClosed
+    ? ['E1', 'E8']
+    : ['E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8']
   assert.deepEqual(
     [...html.matchAll(/data-emergency-section="(E\d)"/gu)].map((match) => match[1]),
-    ['E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8'],
+    expectedSections,
+    state,
   )
   const targets = new Set([...html.matchAll(/\bid="([^"]+)"/gu)].map((match) => match[1]))
   for (const match of html.matchAll(/\bhref="#([^"]+)"/gu)) {
-    assert.ok(targets.has(match[1]), `No dead destination anchor: #${match[1]}`)
+    assert.ok(targets.has(match[1]), `${state}: no dead destination anchor #${match[1]}`)
   }
   for (const match of html.matchAll(/\bhref="([^"]+)"/gu)) {
-    assert.ok(match[1].startsWith('#') || match[1] === '/emergency.css')
+    assert.ok(match[1].startsWith('#') || match[1] === '/emergency.css', state)
+  }
+
+  if (failClosed) {
+    assert.match(html, /fail-closed/u, state)
+    assert.match(html, /Controlled preview boundary/u, state)
+    assert.doesNotMatch(html, /INVALID TEST VALUE|Synthetic Emergency Entrance|How the routes differ/u, state)
+    assert.equal((html.match(/data-inert-call-choice="true"/gu) ?? []).length, 0, state)
+    assert.equal((html.match(/data-call-action=/gu) ?? []).length, 0, state)
+  } else {
+    assert.match(html, /Controlled preview only/u, state)
+    assert.match(html, /INVALID TEST VALUE/u, state)
+    assert.match(html, /This page provides no emergency advice/u, state)
+    assert.match(html, /No map, coordinates, geolocation, external link or provider request is enabled/u, state)
+    assert.equal((html.match(/data-inert-call-choice="true"/gu) ?? []).length, 2, state)
+    assert.equal((html.match(/data-call-action=/gu) ?? []).length, 2, state)
+  }
+
+  if (handoffStates.has(state)) {
+    assert.equal((html.match(/data-call-action="unsupported"/gu) ?? []).length, 2, state)
+    assert.match(html, /does not claim a call or service failed/u, state)
+  }
+  if (state === 'call-handoff-unsupported-injected') {
+    assert.equal((html.match(/data-state-announcement="pending-injection"/gu) ?? []).length, 1, state)
+    assert.match(html, /<script src="\/emergency-state-announcement\.js"><\/script>/u, state)
+  }
+  assert.doesNotMatch(html, /\b(?:aria-live|aria-atomic|role="alert"|role="status")=/u, state)
+  if (state === 'required-content-expired') {
+    assert.match(html, /data-emergency-state="expired"/u, state)
+    assert.match(html, /data-emergency-state-reason="required-content-expired"/u, state)
+    assert.doesNotMatch(html, /unsupported|map failed/iu, state)
+  }
+  if (state === 'required-arrival-unavailable') {
+    assert.match(html, /No map or generic direction substitutes/u, state)
+  }
+  if (state === 'optional-map-failed' || state === 'optional-map-blocked') {
+    assert.match(html, /Landmark-based test directions[\s\S]*data-map-state=/u, state)
+    assert.match(html, /Complete text directions/u, state)
   }
   cases++
 }
 
 for (const field of ['description', 'eyebrow', 'title', 'warning']) {
-  const props = emergencyFixture()
-  props[field] = '<script>emergency-hostile-copy</script>'
-  const html = renderEmergency(props)
+  const record = emergencySourceFixture()
+  record[field] = '<script>emergency-hostile-copy</script>'
+  const html = renderEmergency(resolveEmergencyFixture(record))
   assert.match(html, /&lt;script&gt;emergency-hostile-copy&lt;\/script&gt;/u)
   assert.doesNotMatch(html, /<script>emergency-hostile-copy/u)
   cases++
 }
 
-for (const [group, field] of [['hospitalChoice', 'displayValue'], ['publicChoice', 'purpose'],
-  ['arrival', 'entrance'], ['scope', 'summary']]) {
-  const props = emergencyFixture()
-  props[group][field] = '<img src=x onerror=emergency-hostile-field>'
-  assert.doesNotMatch(renderEmergency(props), /<img src=x/u)
+for (const [group, field] of [
+  ['hospitalChoice', 'displayValue'],
+  ['publicChoice', 'purpose'],
+  ['arrival', 'entrance'],
+  ['scope', 'summary'],
+]) {
+  const record = emergencySourceFixture()
+  record[group][field] = '<img src=x onerror=emergency-hostile-field>'
+  assert.doesNotMatch(renderEmergency(resolveEmergencyFixture(record)), /<img src=x/u)
   cases++
 }
+
+const requiredPaths = [
+  'arrival.accessibleEntrance',
+  'arrival.address',
+  'arrival.entrance',
+  'arrival.parking',
+  'arrival.publicTransport',
+  'arrival.steps',
+  'description',
+  'eyebrow',
+  'hospitalChoice.audience',
+  'hospitalChoice.displayValue',
+  'hospitalChoice.hours',
+  'hospitalChoice.label',
+  'hospitalChoice.limitations',
+  'hospitalChoice.purpose',
+  'publicChoice.audience',
+  'publicChoice.displayValue',
+  'publicChoice.hours',
+  'publicChoice.label',
+  'publicChoice.limitations',
+  'publicChoice.purpose',
+  'scope.availability',
+  'scope.limitations',
+  'scope.owner',
+  'scope.reviewedLabel',
+  'scope.reviewedOn',
+  'scope.summary',
+  'support',
+  'title',
+  'warning',
+]
+for (const path of requiredPaths) {
+  const record = emergencySourceFixture()
+  const keys = path.split('.')
+  const target = keys.slice(0, -1).reduce((current, key) => current[key], record)
+  target[keys.at(-1)] = keys.at(-1) === 'steps' ? [] : '   '
+  const resolved = resolveEmergencyFixture(record, { handoff: 'unsupported', map: 'failed' })
+  const html = renderEmergency(resolved)
+  assert.equal(resolved.state.kind, 'unavailable', path)
+  assert.doesNotMatch(html, /INVALID TEST VALUE|Synthetic Emergency Entrance|data-call-action=/u, path)
+  cases++
+}
+
+const precedenceRecord = emergencySourceFixture()
+precedenceRecord.approval = 'withheld'
+precedenceRecord.arrival.entrance = ''
+precedenceRecord.lifecycle.expiresOn = '2026-09-22T12:00:00+03:00'
+const precedence = resolveEmergencyFixture(precedenceRecord, { handoff: 'unsupported', map: 'failed' })
+assert.equal(precedence.state.kind, 'expired')
+assert.equal(precedence.state.reason, 'required-content-expired')
+assert.doesNotMatch(renderEmergency(precedence), /INVALID TEST VALUE|data-call-action=|map failed/iu)
+cases++
+
+const staleRecord = emergencySourceFixture()
+staleRecord.approval = 'withheld'
+staleRecord.hospitalChoice.displayValue = 'STALE-CONTACT-SENTINEL'
+staleRecord.publicChoice.purpose = 'STALE-DISTINCTION-SENTINEL'
+staleRecord.scope.summary = 'STALE-SCOPE-SENTINEL'
+staleRecord.arrival.address = 'STALE-ARRIVAL-SENTINEL'
+const staleHtml = renderEmergency(resolveEmergencyFixture(staleRecord))
+assert.doesNotMatch(staleHtml, /STALE-(?:CONTACT|DISTINCTION|SCOPE|ARRIVAL)-SENTINEL/u)
+cases++
 
 assert.throws(() => emergencyFixture('unknown'), /Unsupported/u)
 cases++
@@ -69,6 +188,26 @@ for (const match of css.matchAll(/var\((--[\w-]+)\)/gu)) {
 }
 const emergencyCssSource = await readFile(new URL('../src/design-system/templates/emergency-template.module.css', import.meta.url), 'utf8')
 assert.doesNotMatch(emergencyCssSource, /@keyframes|animation\s*:|transition\s*:/u)
+assert.doesNotMatch(emergencyCssSource, /(?:#[\da-f]{3,8}\b|\brgba?\()/iu)
 cases++
 
-console.log(`Emergency contract passed: ${cases} controlled SSR, isolation, escaping, static-motion and token cases.`)
+const appRoot = new URL('../src/app/', import.meta.url)
+assert.equal(existsSync(new URL('emergency/', appRoot)), false, 'Deployable /emergency route must remain absent')
+const appSources = await collectSources(appRoot)
+for (const file of appSources) {
+  const content = await readFile(file, 'utf8')
+  assert.doesNotMatch(content, /emergency-(?:fixture|renderer|preview-server)/u, file.pathname)
+}
+cases++
+
+console.log(`Emergency contract passed: ${cases} fail-closed lifecycle, controlled SSR, isolation, escaping, announcement, static-motion and token cases.`)
+
+async function collectSources(directory) {
+  const files = []
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const child = new URL(`${entry.name}${entry.isDirectory() ? '/' : ''}`, directory)
+    if (entry.isDirectory()) files.push(...await collectSources(child))
+    else if (/\.(?:ts|tsx)$/u.test(entry.name)) files.push(child)
+  }
+  return files
+}
