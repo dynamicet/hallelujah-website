@@ -1237,3 +1237,26 @@ Private hosted exact-head T1, explicit controlled client acceptance, checked mer
 exact-main CI remain required before Done. B03-010 retains human, assistive-technology,
 physical-device, comprehension, language, live-call and on-site acceptance. All authentic safety,
 public-route, provider, production, emergency-use and publication gates remain withheld.
+
+## B03-009 controlled acceptance — 23 September 2026
+
+The client directed “close out b03-009”. B03-009 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing Codex
+in temporary Frontend and QA roles on 23 September 2026, Africa/Addis_Ababa. Target remains
+synthetic local T0/private hosted T1 under the working B00-016 matrix. B03-001–B03-003,
+SAFE-01–SAFE-04, LANG-01, SEC-02 and formal DEL-01 remain unresolved.
+
+All recorded local checks and independent frozen reconstruction pass. Exact-head
+[run 35893534863](https://github.com/dynamicet/hallelujah-website/actions/runs/35893534863)
+passes every step for `3cd89ae3bfe95866faf306be2d9d91534a1a0309`. The
+[completion evidence](evidence/B03-009-emergency-resilience-2026-09-23.md#controlled-acceptance--23-september-2026)
+retains the corrected development and environment attempts plus passing retests; no scoped
+controlled-implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #69](https://github.com/dynamicet/hallelujah-website/pull/69). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #68](https://github.com/dynamicet/hallelujah-website/issues/68)
+and PR #69. Dependent execution waits for passing exact-main CI; B03-010 is not promoted.
+Authentic emergency records and claims, call activation, professional language and human/device/
+on-site evidence, `/emergency/`, providers, production, emergency use and publication remain
+withheld.

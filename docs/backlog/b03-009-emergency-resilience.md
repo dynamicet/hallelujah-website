@@ -1,8 +1,9 @@
 # B03-009 — Controlled Emergency Resilience and Failure States
 
 **Lane / priority / phase:** DELIVERY / P0 / Phase 1 preparation
-**Status:** In review; local controlled verification passed 23 September 2026
+**Status:** Done for controlled development; final closeout CI and checked merge tracked below
 **Tracking:** [issue #68](https://github.com/dynamicet/hallelujah-website/issues/68)
+**Review:** [PR #69](https://github.com/dynamicet/hallelujah-website/pull/69)
 **Publication and emergency-use authority:** Not granted
 
 On 23 September 2026, Africa/Addis_Ababa, the client first directed documentation of the completed
@@ -149,3 +150,25 @@ number, clinical instruction, hospital/public route rule, service scope, hours, 
 landmark, staffed fallback, translation, external provider, public route or claim that a call was
 placed, connected or failed. Completion of controlled checks would not approve emergency use or
 publication.
+
+## Controlled acceptance — 23 September 2026
+
+The client directed “close out b03-009”. B03-009 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person, directing Codex
+in temporary Frontend and QA roles on 23 September 2026, Africa/Addis_Ababa. Target remains
+synthetic local T0/private hosted T1 under the working B00-016 matrix. B03-001–B03-003,
+SAFE-01–SAFE-04, LANG-01, SEC-02 and formal DEL-01 remain unresolved.
+
+All recorded local gates pass. Exact-head hosted
+[run 35893534863](https://github.com/dynamicet/hallelujah-website/actions/runs/35893534863)
+passes every step, including complete verification and independent frozen clean reconstruction,
+for `3cd89ae3bfe95866faf306be2d9d91534a1a0309`. No scoped controlled-implementation defect remains
+open. Final acceptance-documentation CI must pass for its exact SHA before checked merge of PR #69.
+Issue #68 and PR #69 must retain the matching SHA/run, merge SHA and exact-main result. Dependent
+execution waits for passing exact-main CI; B03-010 is not promoted by this acceptance.
+
+This closeout accepts only the inert, loopback-only controlled-development artifact. It does not
+approve an authentic emergency number or safety statement, call activation, professional Amharic
+clinical meaning, physical-device or on-site arrival behavior, `/emergency/`, a provider,
+production, emergency use or publication. Those gates remain withheld for B03-001–B03-003,
+B03-010 and their governing control records.
