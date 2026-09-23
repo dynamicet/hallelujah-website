@@ -1276,3 +1276,25 @@ and PR #69. Dependent execution waits for passing exact-main CI; B03-010 is not 
 Authentic emergency records and claims, call activation, professional language and human/device/
 on-site evidence, `/emergency/`, providers, production, emergency use and publication remain
 withheld.
+
+## B03-012–B03-014 controlled appointment decisions — 23 September 2026
+
+The client approved the recommended minimized-field, first-party privacy/security and authoritative
+request-state defaults together. `B03-012`–`B03-014` move Proposed → Ready → **Done for controlled
+development** under workspace identity `befikadusata` directing Codex in temporary Product,
+Privacy, Operations, Backend and Security roles, with the same identity as controlled-development
+acceptance authority. The [controlled appointment contract](b03-012-014-controlled-appointment-contract.md)
+is the dated decision evidence.
+
+The approved schema requires name, phone and care route; conditionally requires one synthetic
+doctor or service canonical ID; permits an optional preferred date; and excludes notes, email,
+new/returning status, uploads, medical history, payment and insurance. The privacy boundary is
+first-party only, denies personal field values in logs, records an unchecked notice acknowledgment
+without asserting a lawful basis, and uses a working 90-day-after-closure deletion rule. The
+appointment database commit is authoritative; atomic idempotency, same-intent reconciliation,
+opaque references and delivery-independent acceptance govern request outcomes.
+
+This completion unlocks `B03-015` readiness review with synthetic data under the approved
+`B00-008`–`B00-010` local boundary. `B03-011`, `APPT-01`, authentic `CARE-01`/`CARE-04` selectors,
+lawful-basis and public-notice approval, named recipients/access, `SEC-02`, formal `DEL-01`, remote
+persistence, personal-data collection, providers, production and publication remain gated.

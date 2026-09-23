@@ -52,9 +52,9 @@ Allowed work is documentation and isolated, provider-neutral local implementatio
 | `SAFE-03` | Open | Facilities + Operations | `B03-003`, `B03-008`, `B05-005`, `B05-007` | `M2` | Text-first facts withheld and maps off; dated on-site arrival evidence |
 | `SAFE-04` | Open | Clinical + Operations + Executive | `B03-002`, `B03-006`, `B03-008`, `B04-005` | `M2` | Omit high-consequence claims; dated scoped claim evidence |
 | `APPT-01` | Open | Operations + Product | `B03-011`, `B03-017`, `B04-009`, `B04-013` | `M5` | Non-submitting simulation/unavailable route; approved operating procedure |
-| `APPT-02` | Open | Privacy + Operations | `B03-012`, `B03-015`, `B03-017` | `M5` | No collection; field-by-field minimization and routing record |
-| `APPT-03` | Open | Privacy/Legal + Security | `B03-013`, `B03-015`, `B03-017`–`B03-019` | `M5` before collection | Collect nothing; signed assessment, notice, retention, access, and data-flow records |
-| `APPT-04` | Open | Operations + Backend + Security | `B03-014`, `B03-016`–`B03-019` | `M5` | Simulated outcomes only; approved state-machine decision and executable cases |
+| `APPT-02` | Open | Privacy + Operations | `B03-012`, `B03-015`, `B03-017` | `M5` | [Controlled minimized-field contract](b03-012-014-controlled-appointment-contract.md) approved; no authentic selectors or collection until named approval |
+| `APPT-03` | Open | Privacy/Legal + Security | `B03-013`, `B03-015`, `B03-017`–`B03-019` | `M5` before collection | [Controlled first-party contract](b03-012-014-controlled-appointment-contract.md) approved; lawful basis, notice, named access/recipients and collection activation remain open |
+| `APPT-04` | Open | Operations + Backend + Security | `B03-014`, `B03-016`–`B03-019` | `M5` | [Controlled state-machine contract](b03-012-014-controlled-appointment-contract.md) approved; executable evidence and named production acceptance remain open |
 | `CARE-01` | Open | Medical Staff + Content | `B04-001`, `B04-007`, `B04-009`, `B06-003` | `M3` | Publish no extracted clinician as current; signed roster |
 | `CARE-02` | Open | Medical Staff + Content | `B04-002`, `B04-007`, `B04-009` | `M3` | Fictional/withheld records; approved canonical map and maintained fields |
 | `CARE-03` | Open | Operations + Medical Staff | `B04-003`, `B04-009` | `M3` | Omit schedules and availability; corrected model or signed omission |
