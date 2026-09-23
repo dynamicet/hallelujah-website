@@ -1,10 +1,12 @@
 # B03-008 — Controlled Emergency Implementation Evidence
 
+**Status:** Done for controlled development; final closeout CI and checked merge tracked below
 **Date / timezone:** 22 September 2026, Africa/Addis_Ababa
-**Target:** Synthetic local T0; private hosted T1 pending
+**Target:** Synthetic local T0/private hosted T1; both complete for controlled development
 **Responsible / local review identity:** `befikadusata` directing Codex in temporary
 Frontend/Operations-contract/Clinical-contract/QA roles
 **Tracking:** [issue #66](https://github.com/dynamicet/hallelujah-website/issues/66)
+**Review:** [PR #67](https://github.com/dynamicet/hallelujah-website/pull/67)
 **Safety and publication authority:** Not granted
 
 ## Scope and boundary
@@ -94,3 +96,33 @@ open. Private hosted exact-head T1, explicit controlled client acceptance, check
 exact-main CI remain required before Done. Hospital safety decisions, authentic records, real call
 activation, Amharic review, physical-device/on-site evidence, `/emergency/`, production and
 publication remain withheld.
+
+## Acceptance boundary
+
+Controlled-development acceptance is recorded below; checked merge and publication are separate.
+Authentic safety records, professional clinical-language review, physical-device dialer tests,
+human comprehension, assistive-technology review and on-site arrival evidence remain assigned to
+B03-001–B03-003 and B03-009–B03-010. SAFE-01–SAFE-04, LANG-01, SEC-02 and formal DEL-01 remain
+open. No controlled fixture may become public or operational through this acceptance.
+
+## Controlled acceptance — 23 September 2026
+
+The client directed “Close out B03-008”. B03-008 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing Codex
+in temporary Frontend/Operations-contract/Clinical-contract/QA roles on 23 September 2026,
+Africa/Addis_Ababa. Target remains synthetic local T0/private hosted T1 under the working B00-016
+matrix and the documented controlled sequencing exception.
+
+Accepted implementation head: `05900cd1994cdf5530ebf856db53db6f0a13fc78`. Matching replacement
+hosted [run 35783340838](https://github.com/dynamicet/hallelujah-website/actions/runs/35783340838)
+passes every step, including full verification and independent frozen clean reconstruction. All
+recorded local gates pass; no scoped controlled-implementation defect remains open. The failed
+predecessor run, corrected 320 px/200%-text defect and environment/prerequisite failures remain in
+this evidence record.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #67](https://github.com/dynamicet/hallelujah-website/pull/67). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #66](https://github.com/dynamicet/hallelujah-website/issues/66)
+and PR #67. Dependent execution waits for passing exact-main CI; no successor ticket is promoted.
+No authentic emergency record, safety or clinical claim, live call action, public route, provider,
+production, emergency-use or publication acceptance is granted.

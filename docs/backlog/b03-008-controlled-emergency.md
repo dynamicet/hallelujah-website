@@ -1,8 +1,9 @@
 # B03-008 — Controlled Server-Rendered Emergency Page
 
 **Lane / priority / phase:** DELIVERY / P0 / Phase 1 preparation
-**Status:** In review for controlled development; local T0 passes and hosted T1 is pending
+**Status:** Done for controlled development; final closeout CI and checked merge tracked below
 **Tracking:** [issue #66](https://github.com/dynamicet/hallelujah-website/issues/66)
+**Review:** [PR #67](https://github.com/dynamicet/hallelujah-website/pull/67)
 **Publication and emergency-use authority:** Not granted
 
 On 22 September 2026, Africa/Addis_Ababa, the client directed a controlled-development
@@ -105,3 +106,26 @@ links, backlog audit and diff checks pass. The
 loopback-permission, corrected 200% definition-row reflow and missing-default-fontTools history.
 Hosted exact-head T1 and controlled client acceptance remain required before Done. No authentic
 safety content, public route, production or publication gate changes.
+
+## Controlled acceptance — 23 September 2026
+
+The client directed “Close out B03-008”. B03-008 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person, directing Codex
+in temporary Frontend/Operations-contract/Clinical-contract/QA roles on 23 September 2026,
+Africa/Addis_Ababa. Target remains synthetic local T0/private hosted T1 under the working B00-016
+matrix. The controlled sequencing exception remains in force; B03-001–B03-003, SAFE-01–SAFE-04,
+LANG-01, SEC-02 and formal DEL-01 remain unresolved.
+
+All recorded local gates pass. Replacement exact-head hosted
+[run 35783340838](https://github.com/dynamicet/hallelujah-website/actions/runs/35783340838)
+passes every step, including complete verification and independent frozen clean reconstruction,
+for `05900cd1994cdf5530ebf856db53db6f0a13fc78`. No scoped controlled-implementation defect remains
+open. Final acceptance-documentation CI must pass for its exact SHA before checked merge of PR #67.
+Issue #66 and PR #67 retain the matching SHA/run, merge SHA and exact-main result. Dependent
+execution waits for passing exact-main CI; no successor ticket is promoted by this acceptance.
+
+This closeout accepts only the inert, loopback-only controlled-development artifact. It does not
+approve an authentic emergency number or safety statement, call activation, Amharic clinical
+meaning, physical-device or on-site arrival behavior, `/emergency/`, a provider, production,
+emergency use or publication. Those gates remain withheld for B03-001–B03-003, B03-009–B03-010
+and their governing control records.

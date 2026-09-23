@@ -1169,3 +1169,27 @@ environment and corrected 200% reflow history. Issue #66 retains repository and 
 pointers. Hosted exact-head T1 and controlled client acceptance remain required before Done;
 checked merge and passing exact-main CI govern dependent execution. No hospital safety/language,
 authentic content, public route, provider, production or publication gate changes.
+
+## B03-008 controlled acceptance — 23 September 2026
+
+The client directed “Close out B03-008”. B03-008 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing Codex
+in temporary Frontend/Operations-contract/Clinical-contract/QA roles on 23 September 2026,
+Africa/Addis_Ababa. Target remains synthetic local T0/private hosted T1 under the working B00-016
+matrix and controlled sequencing exception. B03-001–B03-003, SAFE-01–SAFE-04, LANG-01, SEC-02 and
+formal DEL-01 remain unresolved.
+
+All recorded local checks and independent frozen reconstruction pass. Replacement exact-head
+[run 35783340838](https://github.com/dynamicet/hallelujah-website/actions/runs/35783340838)
+passes every step for `05900cd1994cdf5530ebf856db53db6f0a13fc78`. The
+[completion evidence](evidence/B03-008-controlled-emergency-2026-09-22.md#controlled-acceptance--23-september-2026)
+retains the failed predecessor run, corrected 320 px/200%-text defect, environment/prerequisite
+failures and passing retests; no scoped controlled-implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #67](https://github.com/dynamicet/hallelujah-website/pull/67). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #66](https://github.com/dynamicet/hallelujah-website/issues/66)
+and PR #67. Dependent execution waits for passing exact-main CI; no successor ticket is promoted.
+Authentic emergency records and claims, call activation, professional language and human/device/
+on-site evidence, `/emergency/`, providers, production, emergency use and publication remain
+withheld.
