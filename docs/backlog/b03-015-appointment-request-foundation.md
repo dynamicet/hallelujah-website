@@ -1,9 +1,11 @@
 # B03-015 — Controlled Appointment Request Backend Foundation
 
 **Lane / priority / phase:** DELIVERY / P0 / Phase 1 preparation
-**Status:** In review on `b03-015-appointment-request-foundation`
+**Status:** Done for controlled development; final closeout CI and checked merge tracked below
 **Responsible/review identity:** `befikadusata` directing Codex in temporary Backend, Security and
 QA roles
+**Tracking:** [issue #70](https://github.com/dynamicet/hallelujah-website/issues/70)
+**Review:** [PR #71](https://github.com/dynamicet/hallelujah-website/pull/71)
 **Personal-data collection, remote persistence and production authority:** Not granted
 
 On 23 September 2026, Africa/Addis_Ababa, the client directed implementation after approving the
@@ -79,3 +81,27 @@ and corrected setup failures.
 Hosted exact-head CI, review tracking and explicit controlled client acceptance remain required
 before Done. Personal data, authentic selectors/notices, collection activation, remote persistence,
 staff access, providers, production and publication remain withheld.
+
+## Controlled acceptance — 24 September 2026
+
+The client directed “close out b03-015”. B03-015 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person, directing Codex
+in temporary Backend, Security and QA roles on 24 September 2026, Africa/Addis_Ababa. The target
+remains synthetic local T0/private hosted T1 under the working B00-016 matrix.
+
+All recorded local gates pass. Exact-head hosted
+[run 35985726275](https://github.com/dynamicet/hallelujah-website/actions/runs/35985726275)
+passes every step, including the isolated appointment migration/permission/restore harness, full
+verification and independent frozen clean reconstruction, for
+`894902ee62e1e72def84677833ff31d1e786cc6a`. No scoped controlled-implementation defect remains
+open. Final acceptance-documentation CI must pass for its exact SHA before checked merge of PR #71.
+Issue #70 and PR #71 must retain the matching SHA/run, merge SHA and exact-main result. Dependent
+execution waits for passing exact-main CI; B03-016 is the next controlled delivery candidate but is
+not promoted by this acceptance.
+
+This closeout accepts only the synthetic, fail-closed backend foundation. `B03-011`, `APPT-01`,
+`CARE-01`, `CARE-04`, final lawful-basis/public-notice approval, named recipients and staff access,
+`SEC-02`, B03-016, formal `DEL-01`, remote provisioning, encrypted off-host backup, approved
+RPO/RTO, production restore evidence and release authority remain open. Personal data, authentic
+selectors/notices, collection activation, staff access, providers, production and publication
+remain withheld.

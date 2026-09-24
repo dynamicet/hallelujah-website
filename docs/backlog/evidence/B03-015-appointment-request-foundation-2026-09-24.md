@@ -3,8 +3,10 @@
 | Field | Result |
 | --- | --- |
 | Branch | `b03-015-appointment-request-foundation` |
-| Scope | Synthetic local T0 and CI-ready T1 only |
-| Status | In review; hosted exact-head CI and explicit controlled acceptance pending |
+| Scope | Synthetic local T0 and private hosted T1 only |
+| Status | Done for controlled development; final closeout CI and checked merge tracked below |
+| Tracking | [issue #70](https://github.com/dynamicet/hallelujah-website/issues/70) |
+| Review | [PR #71](https://github.com/dynamicet/hallelujah-website/pull/71) |
 | Collection | Disabled; route returns `503` before body processing |
 | Production/publication authority | Not granted |
 
@@ -38,10 +40,26 @@ gate; an added unregistered migration still fails the negative control.
 
 No corrected attempt processed real appointment data, contacted a provider or enabled collection.
 
-## Remaining evidence
+## Controlled acceptance
 
-Hosted exact-head CI must run the updated workflow, including PostgreSQL migration/restore. Review
-tracking and explicit client acceptance must identify the accepted head before Done. B03-016 must
-then implement atomic intent idempotency and unknown-outcome reconciliation. Hospital/privacy/
-security approvals, authentic data, remote infrastructure and all activation/release gates remain
-open.
+The client directed “close out b03-015”. B03-015 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing Codex
+in temporary Backend, Security and QA roles on 24 September 2026, Africa/Addis_Ababa. The target
+remains synthetic local T0/private hosted T1 under the working B00-016 matrix.
+
+Accepted implementation head: `894902ee62e1e72def84677833ff31d1e786cc6a`. Matching hosted
+[run 35985726275](https://github.com/dynamicet/hallelujah-website/actions/runs/35985726275)
+passes every step: fail-closed policy controls, history secret scan, dependency audit, full
+application verification, isolated PostgreSQL migration/permission/restore and independent frozen
+clean reconstruction. All recorded local gates pass and no scoped controlled-implementation defect
+remains open. The corrected sandbox, initdb, build-loading, introduction-gate and asset-tool setup
+attempts remain in this evidence record.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #71](https://github.com/dynamicet/hallelujah-website/pull/71). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #70](https://github.com/dynamicet/hallelujah-website/issues/70)
+and PR #71. Dependent execution waits for passing exact-main CI. B03-016 must next implement atomic
+intent idempotency and unknown-outcome reconciliation; it is not promoted by this acceptance.
+
+Hospital/privacy/security approvals, authentic selectors/notices, personal-data collection, staff
+access, providers, remote infrastructure, production and all activation/release gates remain open.
