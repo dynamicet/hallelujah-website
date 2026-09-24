@@ -9,6 +9,9 @@
   },
   "scripts": {
     "actions:check": "pnpm --dir apps/web actions:check",
+    "appointment:check": "pnpm --dir apps/web appointment:check",
+    "appointment:db-smoke": "pnpm --dir apps/web appointment:db-smoke",
+    "appointment:db-local": "pnpm --dir apps/web appointment:db-local",
     "actions:smoke": "node scripts/check-rendered-foundations.mjs --capture-prefix b01-005-essential-actions",
     "accessibility:smoke": "node scripts/check-built-accessibility.mjs",
     "audit:dependencies": "node scripts/check-dependency-audit.mjs",

@@ -81,8 +81,9 @@ seconds.
 - This control cannot technically prevent an authorized GitHub administrator from bypassing it on
   the current private/free plan. Branch protection and review/deployment controls remain governed by
   `B00-012`; no paid-plan, public-repository, or merge-protection claim is made.
-- Add real migration validation only after `B00-008`/`B00-009`; add an approved container scanner,
-  SBOM, and image tests only when the container implementation is authorized.
+- The 23 September 2026 controlled `B00-008`/`B00-009` boundary now permits and validates the exact
+  synthetic B03-015 appointment migration. Other migrations remain fail-closed. Add an approved
+  container scanner, SBOM, and image tests only when container implementation is authorized.
 - Expand the current static semantic check to browser/axe, keyboard, responsive, preference,
   no-JavaScript, state, and route coverage as production UI is implemented under `B07-001` and the
   route tickets.

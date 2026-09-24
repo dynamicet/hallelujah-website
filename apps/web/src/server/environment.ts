@@ -3,10 +3,16 @@ type DeploymentEnvironment = 'local' | 'staging' | 'production'
 type EnvironmentVariableName =
   | 'LOCAL_DATABASE_URL'
   | 'LOCAL_PAYLOAD_SECRET'
+  | 'LOCAL_APPOINTMENT_DATABASE_URL'
+  | 'LOCAL_APPOINTMENT_ABUSE_SECRET'
   | 'STAGING_DATABASE_URL'
   | 'STAGING_PAYLOAD_SECRET'
+  | 'STAGING_APPOINTMENT_DATABASE_URL'
+  | 'STAGING_APPOINTMENT_ABUSE_SECRET'
   | 'PRODUCTION_DATABASE_URL'
   | 'PRODUCTION_PAYLOAD_SECRET'
+  | 'PRODUCTION_APPOINTMENT_DATABASE_URL'
+  | 'PRODUCTION_APPOINTMENT_ABUSE_SECRET'
 
 type EnvironmentVariables = NodeJS.ProcessEnv &
   Partial<Record<EnvironmentVariableName, string>>
@@ -14,13 +20,20 @@ type EnvironmentVariables = NodeJS.ProcessEnv &
 type ScopedVariableNames = {
   databaseUrl: EnvironmentVariableName
   payloadSecret: EnvironmentVariableName
+  appointmentDatabaseUrl: EnvironmentVariableName
+  appointmentAbuseSecret: EnvironmentVariableName
 }
 
 export type ServerEnvironment = Readonly<{
   deployment: DeploymentEnvironment
   databaseUrl: string
   payloadSecret: string
-  personalDataCollection: 'disabled'
+  appointment?: Readonly<{
+    databaseUrl: string
+    abuseSecret: string
+    noticeVersion: string
+  }>
+  personalDataCollection: 'disabled' | 'enabled'
   externalServices: 'disabled'
 }>
 
@@ -34,14 +47,20 @@ const scopedVariables: Record<DeploymentEnvironment, ScopedVariableNames> = {
   local: {
     databaseUrl: 'LOCAL_DATABASE_URL',
     payloadSecret: 'LOCAL_PAYLOAD_SECRET',
+    appointmentDatabaseUrl: 'LOCAL_APPOINTMENT_DATABASE_URL',
+    appointmentAbuseSecret: 'LOCAL_APPOINTMENT_ABUSE_SECRET',
   },
   staging: {
     databaseUrl: 'STAGING_DATABASE_URL',
     payloadSecret: 'STAGING_PAYLOAD_SECRET',
+    appointmentDatabaseUrl: 'STAGING_APPOINTMENT_DATABASE_URL',
+    appointmentAbuseSecret: 'STAGING_APPOINTMENT_ABUSE_SECRET',
   },
   production: {
     databaseUrl: 'PRODUCTION_DATABASE_URL',
     payloadSecret: 'PRODUCTION_PAYLOAD_SECRET',
+    appointmentDatabaseUrl: 'PRODUCTION_APPOINTMENT_DATABASE_URL',
+    appointmentAbuseSecret: 'PRODUCTION_APPOINTMENT_ABUSE_SECRET',
   },
 }
 
@@ -114,6 +133,46 @@ function validateDatabaseUrl(
   }
 }
 
+function validateAppointmentDatabaseUrl(
+  value: string,
+  variableName: EnvironmentVariableName,
+  deployment: DeploymentEnvironment,
+  issues: string[],
+) {
+  let parsed: URL
+
+  try {
+    parsed = new URL(value)
+  } catch {
+    issues.push(`${variableName} must be a valid PostgreSQL URL`)
+    return
+  }
+
+  if (!['postgres:', 'postgresql:'].includes(parsed.protocol)) {
+    issues.push(`${variableName} must use the postgresql protocol`)
+  }
+  if (!parsed.username || !parsed.password) {
+    issues.push(`${variableName} must contain environment-specific credentials`)
+  }
+  const expectedRole = `hallelujah_appointment_runtime_${deployment}`
+  if (decodeURIComponent(parsed.username) !== expectedRole) {
+    issues.push(`${variableName} must use the ${expectedRole} runtime role`)
+  }
+  const expectedDatabase = `hallelujah_appointment_${deployment}`
+  if (parsed.pathname !== `/${expectedDatabase}`) {
+    issues.push(`${variableName} must select the ${expectedDatabase} database`)
+  }
+  if (deployment === 'local') {
+    const socketHost = parsed.searchParams.get('host')
+    const localHost = ['localhost', '127.0.0.1', '[::1]'].includes(parsed.hostname)
+    if (!localHost || !/^\/(?:var\/)?tmp\//u.test(socketHost ?? '')) {
+      issues.push(`${variableName} must use a disposable /tmp or /var/tmp Unix socket locally`)
+    }
+  } else if (parsed.searchParams.get('sslmode') !== 'verify-full') {
+    issues.push(`${variableName} must require verified TLS outside local development`)
+  }
+}
+
 function validatePayloadSecret(
   value: string,
   variableName: EnvironmentVariableName,
@@ -143,7 +202,12 @@ export function loadServerEnvironment(
     if (candidate === deployment) continue
 
     const unselected = scopedVariables[candidate]
-    for (const variableName of [unselected.databaseUrl, unselected.payloadSecret]) {
+    for (const variableName of [
+      unselected.databaseUrl,
+      unselected.payloadSecret,
+      unselected.appointmentDatabaseUrl,
+      unselected.appointmentAbuseSecret,
+    ]) {
       if (hasValue(source[variableName])) {
         issues.push(`${variableName} must not be present in the ${deployment} environment`)
       }
@@ -152,6 +216,9 @@ export function loadServerEnvironment(
 
   const databaseUrl = source[selected.databaseUrl]
   const payloadSecret = source[selected.payloadSecret]
+  const appointmentDatabaseUrl = source[selected.appointmentDatabaseUrl]
+  const appointmentAbuseSecret = source[selected.appointmentAbuseSecret]
+  const appointmentNoticeVersion = source.APPOINTMENT_NOTICE_VERSION
 
   if (!hasValue(databaseUrl)) {
     issues.push(`${selected.databaseUrl} is required`)
@@ -165,6 +232,35 @@ export function loadServerEnvironment(
     validatePayloadSecret(payloadSecret, selected.payloadSecret, issues)
   }
 
+
+  const appointmentValuesPresent = [
+    appointmentDatabaseUrl,
+    appointmentAbuseSecret,
+    appointmentNoticeVersion,
+  ].some(hasValue)
+  if (appointmentValuesPresent) {
+    if (!hasValue(appointmentDatabaseUrl)) {
+      issues.push(`${selected.appointmentDatabaseUrl} is required when appointment configuration is present`)
+    } else {
+      validateAppointmentDatabaseUrl(
+        appointmentDatabaseUrl,
+        selected.appointmentDatabaseUrl,
+        deployment,
+        issues,
+      )
+    }
+    if (!hasValue(appointmentAbuseSecret)) {
+      issues.push(`${selected.appointmentAbuseSecret} is required when appointment configuration is present`)
+    } else {
+      validatePayloadSecret(appointmentAbuseSecret, selected.appointmentAbuseSecret, issues)
+    }
+    if (!hasValue(appointmentNoticeVersion)) {
+      issues.push('APPOINTMENT_NOTICE_VERSION is required when appointment configuration is present')
+    } else if (!/^[a-z0-9][a-z0-9._-]{2,63}$/u.test(appointmentNoticeVersion)) {
+      issues.push('APPOINTMENT_NOTICE_VERSION must be a stable opaque version identifier')
+    }
+  }
+
   if (issues.length > 0 || !hasValue(databaseUrl) || !hasValue(payloadSecret)) {
     throw new EnvironmentConfigurationError(issues)
   }
@@ -174,6 +270,15 @@ export function loadServerEnvironment(
     deployment,
     externalServices: 'disabled',
     payloadSecret,
+    ...(hasValue(appointmentDatabaseUrl)
+      && hasValue(appointmentAbuseSecret)
+      && hasValue(appointmentNoticeVersion)
+      ? { appointment: Object.freeze({
+          databaseUrl: appointmentDatabaseUrl,
+          abuseSecret: appointmentAbuseSecret,
+          noticeVersion: appointmentNoticeVersion,
+        }) }
+      : {}),
     personalDataCollection: 'disabled',
   })
 }

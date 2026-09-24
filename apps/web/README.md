@@ -6,6 +6,8 @@ The default runtime is intentionally limited:
 
 - `/` identifies the build as a controlled local bootstrap, not a hospital website;
 - `/health` returns a non-sensitive local health response;
+- `/api/appointment-requests` is a POST-only fail-closed boundary that returns unavailable while
+  collection is disabled and does not process the submitted body;
 - Payload and its PostgreSQL adapter are configured as the approved application foundation, but no admin, API, collection, database startup, seed, or personal-data path is mounted;
 - the browser receives no remote font, media, analytics, map, chat, replay, pixel, autocomplete, or provider request.
 
@@ -29,5 +31,10 @@ The runtime rejects missing values, cross-environment credential scopes, a datab
 that does not match the selected environment, short Payload secrets, and any attempt to
 enable personal-data collection or external services. See the
 [environment and secrets runbook](../../docs/architecture/environment-and-secrets.md).
+
+Appointment database variables are optional while collection is disabled and must be supplied as
+one environment-matched URL/abuse-secret/notice-version set. The controlled migration and runtime
+remain synthetic-only; see the
+[appointment foundation](../../docs/architecture/appointment-request-foundation.md).
 
 Do not add CMS routes or collections here until their own backlog and security/content gates permit them.

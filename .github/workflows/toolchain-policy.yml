@@ -60,5 +60,8 @@ jobs:
       - name: Verify policy, source, application, build, accessibility, budgets, and runtime
         run: pnpm verify
 
+      - name: Verify isolated appointment migration, permissions, and restore
+        run: pnpm appointment:db-local
+
       - name: Reproduce the clean dependency graph and build
         run: pnpm rebuild:verify

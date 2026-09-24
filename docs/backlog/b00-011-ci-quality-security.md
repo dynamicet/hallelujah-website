@@ -57,9 +57,10 @@ regressions, and runtime-header regressions.
 - loopback runtime health and security-header smoke using generated synthetic credentials, without a
   database connection or provider request;
 - clean frozen reconstruction and repeat verification;
-- fail-closed introduction gates: migrations remain prohibited until `B00-008`/`B00-009`, and
-  container material remains prohibited until an approved scanner and container implementation are
-  added. The current absence of those capabilities is reported as not applicable, not as a scan pass.
+- fail-closed introduction gates: only the exact synthetic B03-015 appointment migration authorized
+  by the 23 September 2026 `B00-008`/`B00-009` controlled boundary is permitted and exercised in
+  CI; any unregistered migration fails. Container material remains prohibited until an approved
+  scanner and container implementation are added.
 
 ## Explicit exclusions and downstream controls
 

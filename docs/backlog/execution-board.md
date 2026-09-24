@@ -1298,3 +1298,32 @@ This completion unlocks `B03-015` readiness review with synthetic data under the
 `B00-008`–`B00-010` local boundary. `B03-011`, `APPT-01`, authentic `CARE-01`/`CARE-04` selectors,
 lawful-basis and public-notice approval, named recipients/access, `SEC-02`, formal `DEL-01`, remote
 persistence, personal-data collection, providers, production and publication remain gated.
+
+## B03-015 controlled implementation start — 23 September 2026
+
+The client directed the approved B03-012–B03-014 defaults to be implemented and asked that B03-015
+begin on its own branch. `B03-015` moves Proposed → Ready → **In progress** on
+`b03-015-appointment-request-foundation` under `befikadusata` directing Codex in temporary Backend,
+Security and QA roles. The [execution brief](b03-015-appointment-request-foundation.md) is the scoped
+implementation contract.
+
+The controlled slice adds the closed server schema, fail-closed POST boundary, CSRF/body/abuse
+controls, appointment-only data access, a separate forward migration/history, function-only runtime
+authorization and value-free audit events. The database operation has an independent hard stop for
+non-synthetic data. The application gate still accepts only `disabled`; no Appointment page, token
+issuer, staff/read API, remote persistence, provider or personal-data path is enabled.
+
+Local contract, type, lint, format and disposable database checks pass, including cross-database
+denial, direct-table denial, synthetic persistence, selector/rate rejection, audit inspection and
+appointment-only dump/restore. Full repository verification and clean reconstruction remain the
+next review gates. B03-016 still owns atomic idempotency and unknown-outcome reconciliation;
+`B03-011`, APPT-01, authentic selectors, final privacy/security/operations approvals, remote
+infrastructure, production and publication remain open.
+
+On 24 September 2026, B03-015 moves In progress → **In review** after full repository verification,
+independent frozen reconstruction, the repeated disposable appointment database/restore suite,
+reachable-history secret scan and registry dependency audit passed. The
+[execution evidence](evidence/B03-015-appointment-request-foundation-2026-09-24.md) records the
+results and corrected sandbox, initdb, build-loading, introduction-gate and asset-tool setup
+attempts. Hosted exact-head CI, review tracking and explicit controlled client acceptance remain
+required before Done; no activation or downstream gate changes.
