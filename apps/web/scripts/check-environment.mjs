@@ -6,6 +6,13 @@ import { loadServerEnvironment } from '../src/server/environment.ts'
 const secretValue = () => randomBytes(32).toString('base64url')
 const databaseUrl = (deployment) =>
   `postgresql://content_${deployment}:${randomBytes(18).toString('hex')}@127.0.0.1:5432/hallelujah_content_${deployment}`
+const appointmentDatabaseUrl = (deployment, host = '127.0.0.1') => {
+  const role = `hallelujah_appointment_runtime_${deployment}`
+  const transport = deployment === 'local'
+    ? `host=${encodeURIComponent('/tmp/hallelujah-b03-015-pg.fixture')}`
+    : 'sslmode=verify-full'
+  return `postgresql://${role}:${randomBytes(18).toString('hex')}@${host}:5432/hallelujah_appointment_${deployment}?${transport}`
+}
 
 const variablePrefix = {
   local: 'LOCAL',
@@ -45,11 +52,66 @@ for (const deployment of ['local', 'staging', 'production']) {
   assert.ok(Object.isFrozen(result))
 }
 
+{
+  const source = {
+    ...validEnvironment('local'),
+    LOCAL_APPOINTMENT_DATABASE_URL: appointmentDatabaseUrl('local'),
+    LOCAL_APPOINTMENT_ABUSE_SECRET: secretValue(),
+    APPOINTMENT_NOTICE_VERSION: 'synthetic-notice-v1',
+  }
+  const result = loadServerEnvironment(source)
+  assert.equal(result.appointment.databaseUrl, source.LOCAL_APPOINTMENT_DATABASE_URL)
+  assert.equal(result.appointment.noticeVersion, 'synthetic-notice-v1')
+  assert.ok(Object.isFrozen(result.appointment))
+}
+
 expectInvalid({}, [/APP_ENVIRONMENT is required/u, /PERSONAL_DATA_COLLECTION/u, /EXTERNAL_SERVICES/u])
 
 expectInvalid(
   { ...validEnvironment('local'), APP_ENVIRONMENT: 'review' },
   [/APP_ENVIRONMENT must be local, staging, or production/u],
+)
+
+const crossScopeAppointmentUrl = appointmentDatabaseUrl('production')
+const crossScopeAbuseSecret = secretValue()
+expectInvalid(
+  {
+    ...validEnvironment('local'),
+    PRODUCTION_APPOINTMENT_DATABASE_URL: crossScopeAppointmentUrl,
+    PRODUCTION_APPOINTMENT_ABUSE_SECRET: crossScopeAbuseSecret,
+  },
+  [
+    /PRODUCTION_APPOINTMENT_DATABASE_URL must not be present/u,
+    /PRODUCTION_APPOINTMENT_ABUSE_SECRET must not be present/u,
+  ],
+  [crossScopeAppointmentUrl, crossScopeAbuseSecret],
+)
+
+expectInvalid(
+  {
+    ...validEnvironment('local'),
+    LOCAL_APPOINTMENT_DATABASE_URL: appointmentDatabaseUrl('local').replace(/\?.*$/u, ''),
+    LOCAL_APPOINTMENT_ABUSE_SECRET: secretValue(),
+    APPOINTMENT_NOTICE_VERSION: 'synthetic-notice-v1',
+  },
+  [/LOCAL_APPOINTMENT_DATABASE_URL must use a disposable/u],
+)
+
+expectInvalid(
+  { ...validEnvironment('local'), LOCAL_APPOINTMENT_DATABASE_URL: appointmentDatabaseUrl('local') },
+  [/LOCAL_APPOINTMENT_ABUSE_SECRET is required/u, /APPOINTMENT_NOTICE_VERSION is required/u],
+)
+
+const remoteLocalAppointmentUrl = appointmentDatabaseUrl('local', 'database.internal')
+expectInvalid(
+  {
+    ...validEnvironment('local'),
+    LOCAL_APPOINTMENT_DATABASE_URL: remoteLocalAppointmentUrl,
+    LOCAL_APPOINTMENT_ABUSE_SECRET: secretValue(),
+    APPOINTMENT_NOTICE_VERSION: 'synthetic-notice-v1',
+  },
+  [/LOCAL_APPOINTMENT_DATABASE_URL must use a disposable/u],
+  [remoteLocalAppointmentUrl],
 )
 
 const productionUrl = databaseUrl('production')
@@ -108,10 +170,17 @@ const runtimeNames = [
   'EXTERNAL_SERVICES',
   'LOCAL_DATABASE_URL',
   'LOCAL_PAYLOAD_SECRET',
+  'LOCAL_APPOINTMENT_DATABASE_URL',
+  'LOCAL_APPOINTMENT_ABUSE_SECRET',
   'STAGING_DATABASE_URL',
   'STAGING_PAYLOAD_SECRET',
+  'STAGING_APPOINTMENT_DATABASE_URL',
+  'STAGING_APPOINTMENT_ABUSE_SECRET',
   'PRODUCTION_DATABASE_URL',
   'PRODUCTION_PAYLOAD_SECRET',
+  'PRODUCTION_APPOINTMENT_DATABASE_URL',
+  'PRODUCTION_APPOINTMENT_ABUSE_SECRET',
+  'APPOINTMENT_NOTICE_VERSION',
   'NEXT_RUNTIME',
 ]
 const originalRuntime = Object.fromEntries(runtimeNames.map((name) => [name, process.env[name]]))

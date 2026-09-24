@@ -1298,3 +1298,58 @@ This completion unlocks `B03-015` readiness review with synthetic data under the
 `B00-008`–`B00-010` local boundary. `B03-011`, `APPT-01`, authentic `CARE-01`/`CARE-04` selectors,
 lawful-basis and public-notice approval, named recipients/access, `SEC-02`, formal `DEL-01`, remote
 persistence, personal-data collection, providers, production and publication remain gated.
+
+## B03-015 controlled implementation start — 23 September 2026
+
+The client directed the approved B03-012–B03-014 defaults to be implemented and asked that B03-015
+begin on its own branch. `B03-015` moves Proposed → Ready → **In progress** on
+`b03-015-appointment-request-foundation` under `befikadusata` directing Codex in temporary Backend,
+Security and QA roles. The [execution brief](b03-015-appointment-request-foundation.md) is the scoped
+implementation contract.
+
+The controlled slice adds the closed server schema, fail-closed POST boundary, CSRF/body/abuse
+controls, appointment-only data access, a separate forward migration/history, function-only runtime
+authorization and value-free audit events. The database operation has an independent hard stop for
+non-synthetic data. The application gate still accepts only `disabled`; no Appointment page, token
+issuer, staff/read API, remote persistence, provider or personal-data path is enabled.
+
+Local contract, type, lint, format and disposable database checks pass, including cross-database
+denial, direct-table denial, synthetic persistence, selector/rate rejection, audit inspection and
+appointment-only dump/restore. Full repository verification and clean reconstruction remain the
+next review gates. B03-016 still owns atomic idempotency and unknown-outcome reconciliation;
+`B03-011`, APPT-01, authentic selectors, final privacy/security/operations approvals, remote
+infrastructure, production and publication remain open.
+
+On 24 September 2026, B03-015 moves In progress → **In review** after full repository verification,
+independent frozen reconstruction, the repeated disposable appointment database/restore suite,
+reachable-history secret scan and registry dependency audit passed. The
+[execution evidence](evidence/B03-015-appointment-request-foundation-2026-09-24.md) records the
+results and corrected sandbox, initdb, build-loading, introduction-gate and asset-tool setup
+attempts. Hosted exact-head CI, review tracking and explicit controlled client acceptance remain
+required before Done; no activation or downstream gate changes.
+
+## B03-015 controlled acceptance — 24 September 2026
+
+The client directed “close out b03-015”. B03-015 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing Codex
+in temporary Backend, Security and QA roles on 24 September 2026, Africa/Addis_Ababa. The target
+remains synthetic local T0/private hosted T1 under the working B00-016 matrix.
+
+All recorded local checks pass. Exact-head
+[run 35985726275](https://github.com/dynamicet/hallelujah-website/actions/runs/35985726275)
+passes every step for `894902ee62e1e72def84677833ff31d1e786cc6a`, including the isolated
+appointment migration/permission/restore harness, full verification and independent frozen clean
+reconstruction. The
+[completion evidence](evidence/B03-015-appointment-request-foundation-2026-09-24.md#controlled-acceptance)
+retains corrected attempts and passing retests; no scoped controlled-implementation defect remains
+open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #71](https://github.com/dynamicet/hallelujah-website/pull/71). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #70](https://github.com/dynamicet/hallelujah-website/issues/70)
+and PR #71. Dependent execution waits for passing exact-main CI. B03-016 is the next controlled
+delivery candidate but is not promoted by this acceptance.
+
+`B03-011`, `APPT-01`, `CARE-01`, `CARE-04`, final privacy/security/operations approvals, named
+recipients and staff access, `SEC-02`, B03-016, formal `DEL-01`, remote infrastructure, personal-
+data collection, authentic selectors/notices, providers, production and publication remain open.

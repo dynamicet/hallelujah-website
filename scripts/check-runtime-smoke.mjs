@@ -88,7 +88,26 @@ try {
   expectHeader(home, 'x-content-type-options', 'nosniff')
   if (home.headers.has('x-powered-by')) throw new Error('x-powered-by must remain disabled')
 
-  console.log('Runtime smoke passed (loopback health, bootstrap HTML, and fail-closed security headers).')
+  const appointment = await fetch(`${origin}/api/appointment-requests`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', origin },
+    body: JSON.stringify({
+      care_route: 'not_sure',
+      full_name: 'Synthetic Disabled Request',
+      phone: '+00000000000',
+      privacy_acknowledged: true,
+    }),
+  })
+  const appointmentBody = await appointment.text()
+  if (appointment.status !== 503 || appointmentBody !== '{"status":"unavailable"}') {
+    throw new Error('appointment collection did not fail closed')
+  }
+  expectHeader(appointment, 'cache-control', 'no-store')
+  if (/Synthetic|00000000000/u.test(appointmentBody)) {
+    throw new Error('appointment unavailable response reflected submitted values')
+  }
+
+  console.log('Runtime smoke passed (loopback health, bootstrap HTML, disabled appointment collection, and security headers).')
 } catch (error) {
   console.error(`Runtime smoke failed: ${error.message}`)
   if (output.trim()) console.error('Server output was captured without environment values.')
