@@ -15,6 +15,7 @@ const migrationFiles = applicationFiles.filter((file) =>
 )
 const authorizedMigrationFiles = new Set([
   'apps/web/migrations/appointment/0001_b03_015_foundation.sql',
+  'apps/web/migrations/appointment/0002_b03_016_idempotency.sql',
   'apps/web/migrations/appointment/README.md',
 ])
 const unauthorizedMigrationFiles = migrationFiles.filter(
@@ -44,6 +45,6 @@ if (failures.length > 0) {
   process.exitCode = 1
 } else {
   console.log(
-    'Migration/container introduction gate passed (only the authorized B03-015 appointment migration exists; containers remain fail-closed).',
+    'Migration/container introduction gate passed (only the authorized B03-015/B03-016 appointment migrations exist; containers remain fail-closed).',
   )
 }

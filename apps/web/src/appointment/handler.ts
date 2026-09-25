@@ -2,7 +2,9 @@ import { randomUUID } from 'node:crypto'
 import { parseAppointmentSubmission } from './schema.ts'
 import {
   deriveAppointmentAbuseKey,
+  deriveAppointmentIntentMaterial,
   readAppointmentJson,
+  readAppointmentIntentKey,
   verifyAppointmentCsrf,
 } from './security.ts'
 import type { AppointmentAuditSink, AppointmentRepository } from './service.ts'
@@ -13,6 +15,7 @@ type AppointmentPostHandlerOptions = Readonly<{
   audit: AppointmentAuditSink
   noticeVersion?: string
   abuseSecret?: string
+  idempotencySecret?: string
   now?: () => Date
 }>
 
@@ -34,7 +37,12 @@ export function createAppointmentPostHandler(options: AppointmentPostHandlerOpti
       return json(503, { status: 'unavailable' })
     }
 
-    if (!options.repository || !options.noticeVersion || !options.abuseSecret) {
+    if (
+      !options.repository
+      || !options.noticeVersion
+      || !options.abuseSecret
+      || !options.idempotencySecret
+    ) {
       options.audit.record({
         event: 'appointment.request.failed',
         outcome: 'internal_failure',
@@ -61,6 +69,19 @@ export function createAppointmentPostHandler(options: AppointmentPostHandlerOpti
       return json(415, { status: 'rejected' })
     }
 
+    const intentKey = readAppointmentIntentKey(request)
+    if (!intentKey) {
+      options.audit.record({
+        event: 'appointment.request.rejected',
+        outcome: 'invalid_intent',
+        correlationId,
+      })
+      return json(400, {
+        status: 'rejected',
+        issues: [{ field: 'intent_key', code: 'invalid' }],
+      })
+    }
+
     const body = await readAppointmentJson(request)
     if (!body.ok) {
       options.audit.record({
@@ -83,20 +104,32 @@ export function createAppointmentPostHandler(options: AppointmentPostHandlerOpti
 
     try {
       const csrfToken = request.headers.get('x-csrf-token') as string
+      const intent = deriveAppointmentIntentMaterial(
+        intentKey,
+        parsed.value,
+        options.noticeVersion,
+        options.idempotencySecret,
+      )
       const outcome = await options.repository.create({
         submission: parsed.value,
         noticeVersion: options.noticeVersion,
         abuseKey: deriveAppointmentAbuseKey(csrfToken, options.abuseSecret),
         correlationId,
+        ...intent,
       })
 
-      if (outcome.status === 'accepted') {
+      if (outcome.status === 'accepted' || outcome.status === 'reconciled') {
         options.audit.record({
-          event: 'appointment.request.accepted',
-          outcome: 'accepted',
+          event: outcome.status === 'accepted'
+            ? 'appointment.request.accepted'
+            : 'appointment.request.reconciled',
+          outcome: outcome.status,
           correlationId,
         })
-        return json(201, { status: 'accepted', reference: outcome.reference })
+        return json(outcome.status === 'accepted' ? 201 : 200, {
+          status: outcome.status,
+          reference: outcome.reference,
+        })
       }
 
       options.audit.record({
@@ -104,12 +137,19 @@ export function createAppointmentPostHandler(options: AppointmentPostHandlerOpti
         outcome: outcome.status,
         correlationId,
       })
-      return json(outcome.status === 'rate_limited' ? 429 : 422, {
-        status: 'rejected',
-        ...(outcome.status === 'invalid_selector'
-          ? { issues: [{ field: 'care_route', code: 'invalid_selection' }] }
-          : {}),
-      }, outcome.status === 'rate_limited' ? { 'Retry-After': '600' } : undefined)
+      const responseStatus = outcome.status === 'rate_limited'
+        ? 429
+        : outcome.status === 'idempotency_conflict' ? 409 : 422
+      return json(
+        responseStatus,
+        {
+          status: outcome.status === 'idempotency_conflict' ? 'conflict' : 'rejected',
+          ...(outcome.status === 'invalid_selector'
+            ? { issues: [{ field: 'care_route', code: 'invalid_selection' }] }
+            : {}),
+        },
+        outcome.status === 'rate_limited' ? { 'Retry-After': '600' } : undefined,
+      )
     } catch {
       options.audit.record({
         event: 'appointment.request.failed',

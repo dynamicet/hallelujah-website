@@ -1,5 +1,7 @@
 import { createHmac, timingSafeEqual } from 'node:crypto'
 
+import type { AppointmentSubmission } from './schema.ts'
+
 export const appointmentRequestBodyLimit = 4_096
 
 type BodyReadResult =
@@ -33,10 +35,40 @@ export function verifyAppointmentCsrf(request: Request): boolean {
 }
 
 export function deriveAppointmentAbuseKey(csrfToken: string, secret: string): string {
-  if (Buffer.byteLength(secret, 'utf8') < 32) {
-    throw new Error('Appointment abuse secret must contain at least 32 bytes')
-  }
-  return createHmac('sha256', secret).update(csrfToken, 'utf8').digest('hex')
+  return deriveAppointmentKey(secret, 'abuse-v1', csrfToken)
+}
+
+export function readAppointmentIntentKey(request: Request): string | undefined {
+  const value = request.headers.get('idempotency-key')
+  if (!value || !/^[a-zA-Z0-9_-]{43}$/u.test(value)) return undefined
+
+  const decoded = Buffer.from(value, 'base64url')
+  if (decoded.byteLength !== 32 || decoded.toString('base64url') !== value) return undefined
+  return value
+}
+
+export function deriveAppointmentIntentMaterial(
+  intentKey: string,
+  submission: AppointmentSubmission,
+  noticeVersion: string,
+  secret: string,
+): Readonly<{ intentKeyHash: string; payloadFingerprint: string }> {
+  const canonicalPayload = JSON.stringify([
+    'appointment-payload-v1',
+    submission.careRoute,
+    submission.doctorId ?? null,
+    submission.serviceId ?? null,
+    submission.fullName,
+    submission.phone,
+    submission.preferredDate ?? null,
+    submission.privacyAcknowledged,
+    noticeVersion,
+  ])
+
+  return Object.freeze({
+    intentKeyHash: deriveAppointmentKey(secret, 'intent-key-v1', intentKey),
+    payloadFingerprint: deriveAppointmentKey(secret, 'payload-fingerprint-v1', canonicalPayload),
+  })
 }
 
 export async function readAppointmentJson(request: Request): Promise<BodyReadResult> {
@@ -92,4 +124,14 @@ function readSingleCookie(cookieHeader: string | null, name: string): string | u
     .filter((part) => part.startsWith(`${name}=`))
     .map((part) => part.slice(name.length + 1))
   return values.length === 1 ? values[0] : undefined
+}
+
+function deriveAppointmentKey(secret: string, purpose: string, value: string): string {
+  if (Buffer.byteLength(secret, 'utf8') < 32) {
+    throw new Error('Appointment key secret must contain at least 32 bytes')
+  }
+  return createHmac('sha256', secret)
+    .update(`hallelujah-appointment:${purpose}\0`, 'utf8')
+    .update(value, 'utf8')
+    .digest('hex')
 }

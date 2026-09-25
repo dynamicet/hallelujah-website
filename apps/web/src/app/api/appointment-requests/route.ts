@@ -23,5 +23,6 @@ export async function POST(request: Request): Promise<Response> {
     audit: consoleAppointmentAuditSink,
     noticeVersion: environment.appointment?.noticeVersion,
     abuseSecret: environment.appointment?.abuseSecret,
+    idempotencySecret: environment.appointment?.idempotencySecret,
   })(request)
 }

@@ -7,6 +7,7 @@ import { parseAppointmentSubmission } from '../src/appointment/schema.ts'
 
 const now = new Date('2026-09-23T09:00:00Z')
 const csrfToken = randomBytes(32).toString('base64url')
+const intentKey = randomBytes(32).toString('base64url')
 const reference = '11111111-2222-4333-8444-555555555555'
 const validBody = {
   care_route: 'doctor',
@@ -24,6 +25,7 @@ function request(body = validBody, overrides = {}) {
     headers: {
       'content-type': 'application/json; charset=utf-8',
       'cookie': `__Host-appointment-csrf=${csrfToken}`,
+      'idempotency-key': intentKey,
       'origin': 'http://appointment.test',
       'sec-fetch-site': 'same-origin',
       'x-csrf-token': csrfToken,
@@ -48,6 +50,7 @@ function harness(outcome = { status: 'accepted', reference }) {
     audit: { record: (event) => events.push(event) },
     noticeVersion: 'synthetic-notice-v1',
     abuseSecret: 'synthetic-abuse-secret-that-is-long-enough-for-testing',
+    idempotencySecret: 'synthetic-idempotency-secret-long-enough-for-testing',
     now: () => now,
   })
   return { commands, events, handler }
@@ -96,11 +99,13 @@ for (const [candidate, expectedStatus, expectedOutcome] of [
   }), 403, 'csrf_rejected'],
   [request(validBody, { origin: 'http://cross-site.invalid' }), 403, 'csrf_rejected'],
   [request(validBody, { 'content-type': 'text/plain' }), 415, 'unsupported_media'],
+  [request(validBody, { 'idempotency-key': '' }), 400, 'invalid_intent'],
+  [request(validBody, { 'idempotency-key': 'not-random' }), 400, 'invalid_intent'],
   [request(validBody, { 'content-length': '4097' }), 413, 'oversized_body'],
   [new Request('http://appointment.test/api/appointment-requests', {
     method: 'POST', body: '{', headers: {
       'content-type': 'application/json', cookie: `__Host-appointment-csrf=${csrfToken}`,
-      origin: 'http://appointment.test', 'x-csrf-token': csrfToken,
+      'idempotency-key': intentKey, origin: 'http://appointment.test', 'x-csrf-token': csrfToken,
     },
   }), 400, 'malformed_body'],
 ]) {
@@ -128,13 +133,25 @@ for (const [candidate, expectedStatus, expectedOutcome] of [
   assert.equal(current.commands[0].noticeVersion, 'synthetic-notice-v1')
   assert.match(current.commands[0].abuseKey, /^[a-f0-9]{64}$/u)
   assert.match(current.commands[0].correlationId, /^[a-f0-9-]{36}$/u)
+  assert.match(current.commands[0].intentKeyHash, /^[a-f0-9]{64}$/u)
+  assert.match(current.commands[0].payloadFingerprint, /^[a-f0-9]{64}$/u)
   const recorded = JSON.stringify(current.events)
-  for (const forbidden of ['Synthetic Requester', '+00000000000', csrfToken, reference]) {
+  for (const forbidden of [
+    'Synthetic Requester',
+    '+00000000000',
+    csrfToken,
+    intentKey,
+    reference,
+    current.commands[0].intentKeyHash,
+    current.commands[0].payloadFingerprint,
+  ]) {
     assert.doesNotMatch(recorded, new RegExp(forbidden.replace(/[+]/gu, '\\+'), 'u'))
   }
 }
 
 for (const [outcome, status, expectedOutcome] of [
+  [{ status: 'reconciled', reference }, 200, 'reconciled'],
+  [{ status: 'idempotency_conflict' }, 409, 'idempotency_conflict'],
   [{ status: 'invalid_selector' }, 422, 'invalid_selector'],
   [{ status: 'rate_limited' }, 429, 'rate_limited'],
   [new Error('database detail containing submitted values'), 503, 'internal_failure'],
@@ -146,15 +163,70 @@ for (const [outcome, status, expectedOutcome] of [
   assert.doesNotMatch(await response.text(), /database|submitted|detail/iu)
 }
 
+{
+  const commands = []
+  let attempt = 0
+  const beforeCommit = createAppointmentPostHandler({
+    collectionEnabled: true,
+    repository: {
+      async create(command) {
+        commands.push(command)
+        attempt += 1
+        if (attempt === 1) throw new Error('synthetic timeout before commit')
+        return { status: 'accepted', reference }
+      },
+    },
+    audit: { record() {} },
+    noticeVersion: 'synthetic-notice-v1',
+    abuseSecret: 'synthetic-abuse-secret-that-is-long-enough-for-testing',
+    idempotencySecret: 'synthetic-idempotency-secret-long-enough-for-testing',
+    now: () => now,
+  })
+  assert.equal((await beforeCommit(request())).status, 503)
+  assert.equal((await beforeCommit(request())).status, 201)
+  assert.equal(commands[0].intentKeyHash, commands[1].intentKeyHash)
+  assert.equal(commands[0].payloadFingerprint, commands[1].payloadFingerprint)
+}
+
+{
+  const commands = []
+  let stored = false
+  const afterCommit = createAppointmentPostHandler({
+    collectionEnabled: true,
+    repository: {
+      async create(command) {
+        commands.push(command)
+        if (!stored) {
+          stored = true
+          throw new Error('synthetic response lost after commit')
+        }
+        return { status: 'reconciled', reference }
+      },
+    },
+    audit: { record() {} },
+    noticeVersion: 'synthetic-notice-v1',
+    abuseSecret: 'synthetic-abuse-secret-that-is-long-enough-for-testing',
+    idempotencySecret: 'synthetic-idempotency-secret-long-enough-for-testing',
+    now: () => now,
+  })
+  assert.equal((await afterCommit(request())).status, 503)
+  const retry = await afterCommit(request())
+  assert.equal(retry.status, 200)
+  assert.deepEqual(await retry.json(), { status: 'reconciled', reference })
+  assert.equal(commands[0].intentKeyHash, commands[1].intentKeyHash)
+  assert.equal(commands[0].payloadFingerprint, commands[1].payloadFingerprint)
+}
+
 const migration = await readFile(
-  new URL('../migrations/appointment/0001_b03_015_foundation.sql', import.meta.url),
+  new URL('../migrations/appointment/0002_b03_016_idempotency.sql', import.meta.url),
   'utf8',
 )
 for (const required of [
   'SECURITY DEFINER',
-  'REVOKE ALL ON ALL TABLES IN SCHEMA appointment FROM PUBLIC',
+  'CREATE TABLE appointment.request_intents',
+  'ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED',
   'GRANT EXECUTE ON FUNCTION appointment.submit_request',
   'personal-data activation is not authorized',
 ]) assert.match(migration, new RegExp(required.replace(/[()]/gu, '\\$&'), 'u'))
 
-console.log('Appointment contract check passed (schema, gate, CSRF, bounds, safe outcomes, and migration policy).')
+console.log('Appointment contract check passed (schema, gate, CSRF, idempotency, safe retry, and migration policy).')

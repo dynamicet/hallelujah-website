@@ -13,7 +13,12 @@ type AppointmentDatabaseOptions = Readonly<{
 }>
 
 type SubmissionRow = Readonly<{
-  outcome: 'accepted' | 'invalid_selector' | 'rate_limited'
+  outcome:
+    | 'accepted'
+    | 'reconciled'
+    | 'idempotency_conflict'
+    | 'invalid_selector'
+    | 'rate_limited'
   public_reference: string | null
 }>
 
@@ -36,9 +41,9 @@ export class PostgresAppointmentRepository implements AppointmentRepository {
   async create(command: AppointmentCreateCommand): Promise<AppointmentCreateOutcome> {
     const { submission } = command
     const result = await this.#pool.query<SubmissionRow>({
-      name: 'b03-015-submit-appointment-request',
+      name: 'b03-016-submit-appointment-request',
       text: `SELECT outcome, public_reference::text
-        FROM appointment.submit_request($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`,
+        FROM appointment.submit_request($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`,
       values: [
         submission.fullName,
         submission.phone,
@@ -51,16 +56,22 @@ export class PostgresAppointmentRepository implements AppointmentRepository {
         command.abuseKey,
         command.correlationId,
         this.#synthetic,
+        command.intentKeyHash,
+        command.payloadFingerprint,
       ],
     })
 
     const row = result.rows[0]
     if (result.rowCount !== 1 || !row) throw new Error('Appointment operation returned no outcome')
-    if (row.outcome === 'accepted') {
+    if (row.outcome === 'accepted' || row.outcome === 'reconciled') {
       if (!row.public_reference) throw new Error('Appointment operation returned no reference')
-      return { status: 'accepted', reference: row.public_reference }
+      return { status: row.outcome, reference: row.public_reference }
     }
-    if (row.outcome === 'invalid_selector' || row.outcome === 'rate_limited') {
+    if (
+      row.outcome === 'idempotency_conflict'
+      || row.outcome === 'invalid_selector'
+      || row.outcome === 'rate_limited'
+    ) {
       return { status: row.outcome }
     }
     throw new Error('Appointment operation returned an unsupported outcome')

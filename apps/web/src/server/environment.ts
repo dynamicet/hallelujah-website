@@ -5,14 +5,17 @@ type EnvironmentVariableName =
   | 'LOCAL_PAYLOAD_SECRET'
   | 'LOCAL_APPOINTMENT_DATABASE_URL'
   | 'LOCAL_APPOINTMENT_ABUSE_SECRET'
+  | 'LOCAL_APPOINTMENT_IDEMPOTENCY_SECRET'
   | 'STAGING_DATABASE_URL'
   | 'STAGING_PAYLOAD_SECRET'
   | 'STAGING_APPOINTMENT_DATABASE_URL'
   | 'STAGING_APPOINTMENT_ABUSE_SECRET'
+  | 'STAGING_APPOINTMENT_IDEMPOTENCY_SECRET'
   | 'PRODUCTION_DATABASE_URL'
   | 'PRODUCTION_PAYLOAD_SECRET'
   | 'PRODUCTION_APPOINTMENT_DATABASE_URL'
   | 'PRODUCTION_APPOINTMENT_ABUSE_SECRET'
+  | 'PRODUCTION_APPOINTMENT_IDEMPOTENCY_SECRET'
 
 type EnvironmentVariables = NodeJS.ProcessEnv &
   Partial<Record<EnvironmentVariableName, string>>
@@ -22,6 +25,7 @@ type ScopedVariableNames = {
   payloadSecret: EnvironmentVariableName
   appointmentDatabaseUrl: EnvironmentVariableName
   appointmentAbuseSecret: EnvironmentVariableName
+  appointmentIdempotencySecret: EnvironmentVariableName
 }
 
 export type ServerEnvironment = Readonly<{
@@ -31,6 +35,7 @@ export type ServerEnvironment = Readonly<{
   appointment?: Readonly<{
     databaseUrl: string
     abuseSecret: string
+    idempotencySecret: string
     noticeVersion: string
   }>
   personalDataCollection: 'disabled' | 'enabled'
@@ -49,18 +54,21 @@ const scopedVariables: Record<DeploymentEnvironment, ScopedVariableNames> = {
     payloadSecret: 'LOCAL_PAYLOAD_SECRET',
     appointmentDatabaseUrl: 'LOCAL_APPOINTMENT_DATABASE_URL',
     appointmentAbuseSecret: 'LOCAL_APPOINTMENT_ABUSE_SECRET',
+    appointmentIdempotencySecret: 'LOCAL_APPOINTMENT_IDEMPOTENCY_SECRET',
   },
   staging: {
     databaseUrl: 'STAGING_DATABASE_URL',
     payloadSecret: 'STAGING_PAYLOAD_SECRET',
     appointmentDatabaseUrl: 'STAGING_APPOINTMENT_DATABASE_URL',
     appointmentAbuseSecret: 'STAGING_APPOINTMENT_ABUSE_SECRET',
+    appointmentIdempotencySecret: 'STAGING_APPOINTMENT_IDEMPOTENCY_SECRET',
   },
   production: {
     databaseUrl: 'PRODUCTION_DATABASE_URL',
     payloadSecret: 'PRODUCTION_PAYLOAD_SECRET',
     appointmentDatabaseUrl: 'PRODUCTION_APPOINTMENT_DATABASE_URL',
     appointmentAbuseSecret: 'PRODUCTION_APPOINTMENT_ABUSE_SECRET',
+    appointmentIdempotencySecret: 'PRODUCTION_APPOINTMENT_IDEMPOTENCY_SECRET',
   },
 }
 
@@ -207,6 +215,7 @@ export function loadServerEnvironment(
       unselected.payloadSecret,
       unselected.appointmentDatabaseUrl,
       unselected.appointmentAbuseSecret,
+      unselected.appointmentIdempotencySecret,
     ]) {
       if (hasValue(source[variableName])) {
         issues.push(`${variableName} must not be present in the ${deployment} environment`)
@@ -218,6 +227,7 @@ export function loadServerEnvironment(
   const payloadSecret = source[selected.payloadSecret]
   const appointmentDatabaseUrl = source[selected.appointmentDatabaseUrl]
   const appointmentAbuseSecret = source[selected.appointmentAbuseSecret]
+  const appointmentIdempotencySecret = source[selected.appointmentIdempotencySecret]
   const appointmentNoticeVersion = source.APPOINTMENT_NOTICE_VERSION
 
   if (!hasValue(databaseUrl)) {
@@ -236,6 +246,7 @@ export function loadServerEnvironment(
   const appointmentValuesPresent = [
     appointmentDatabaseUrl,
     appointmentAbuseSecret,
+    appointmentIdempotencySecret,
     appointmentNoticeVersion,
   ].some(hasValue)
   if (appointmentValuesPresent) {
@@ -253,6 +264,22 @@ export function loadServerEnvironment(
       issues.push(`${selected.appointmentAbuseSecret} is required when appointment configuration is present`)
     } else {
       validatePayloadSecret(appointmentAbuseSecret, selected.appointmentAbuseSecret, issues)
+    }
+    if (!hasValue(appointmentIdempotencySecret)) {
+      issues.push(`${selected.appointmentIdempotencySecret} is required when appointment configuration is present`)
+    } else {
+      validatePayloadSecret(
+        appointmentIdempotencySecret,
+        selected.appointmentIdempotencySecret,
+        issues,
+      )
+    }
+    if (
+      hasValue(appointmentAbuseSecret)
+      && hasValue(appointmentIdempotencySecret)
+      && appointmentAbuseSecret === appointmentIdempotencySecret
+    ) {
+      issues.push('Appointment abuse and idempotency secrets must be independently generated')
     }
     if (!hasValue(appointmentNoticeVersion)) {
       issues.push('APPOINTMENT_NOTICE_VERSION is required when appointment configuration is present')
@@ -272,10 +299,12 @@ export function loadServerEnvironment(
     payloadSecret,
     ...(hasValue(appointmentDatabaseUrl)
       && hasValue(appointmentAbuseSecret)
+      && hasValue(appointmentIdempotencySecret)
       && hasValue(appointmentNoticeVersion)
       ? { appointment: Object.freeze({
           databaseUrl: appointmentDatabaseUrl,
           abuseSecret: appointmentAbuseSecret,
+          idempotencySecret: appointmentIdempotencySecret,
           noticeVersion: appointmentNoticeVersion,
         }) }
       : {}),
