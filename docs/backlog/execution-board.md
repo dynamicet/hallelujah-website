@@ -1353,3 +1353,48 @@ delivery candidate but is not promoted by this acceptance.
 `B03-011`, `APPT-01`, `CARE-01`, `CARE-04`, final privacy/security/operations approvals, named
 recipients and staff access, `SEC-02`, B03-016, formal `DEL-01`, remote infrastructure, personal-
 data collection, authentic selectors/notices, providers, production and publication remain open.
+
+## B03-015 exact-main closeout and B03-016 controlled start — 25 September 2026
+
+B03-015 PR #71 merged as `a59980a1b979110c5891e5d8f1eb1b57abe3e23b`; exact-main
+[run 35989108824](https://github.com/dynamicet/hallelujah-website/actions/runs/35989108824)
+passed. This clears the dependent-execution pause recorded above.
+
+The client then directed the next implementation. `B03-016` moves Proposed → Ready → **In
+progress** on branch `b03-016-appointment-idempotency` under `befikadusata` directing Codex in
+temporary Backend, Security and QA roles, with the same identity as controlled-development review
+authority, on 25 September 2026, Africa/Addis_Ababa. Completed `B03-014` and `B03-015`, the
+[controlled appointment contract](b03-012-014-controlled-appointment-contract.md), the
+[execution brief](b03-016-appointment-idempotency.md), and
+[issue #72](https://github.com/dynamicet/hallelujah-website/issues/72) govern the pull.
+
+The scope is atomic synthetic intent persistence, keyed payload comparison, equivalent retry and
+unknown-outcome reconciliation, conflict rejection, opaque reference continuity, lifecycle
+cleanup, least privilege and concurrency/timeout evidence. Collection remains disabled; no public
+Appointment page, receipt read route, authentic selector/notice, staff access, provider, remote
+database, production or publication capability is authorized.
+
+On 25 September 2026, B03-016 moves In progress → **In review** after all local T0 gates passed.
+The [execution evidence](evidence/B03-016-appointment-idempotency-2026-09-25.md) records unit and
+database reconciliation, conflict, concurrent duplicate, pre-commit rollback, lost-response,
+delivery continuity, lifecycle, least-privilege, audit-redaction and independent restore proofs,
+plus full repository verification, clean reconstruction, dependency audit and history secret scan.
+Hosted exact-head CI and explicit controlled acceptance remain required before Done. Collection,
+remote persistence, authentic data, providers, staff access, production and publication remain
+disabled.
+
+The client then directed “Close out B03-016”. B03-016 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing Codex
+in temporary Backend, Security and QA roles on 25 September 2026, Africa/Addis_Ababa. Accepted
+implementation head `2b7760074550439614de86d088d23e2e1e940795` has matching exact-head
+[run 36107298049](https://github.com/dynamicet/hallelujah-website/actions/runs/36107298049), which
+passes every hosted gate. The
+[completion evidence](evidence/B03-016-appointment-idempotency-2026-09-25.md#controlled-acceptance)
+retains the local and hosted proofs; no scoped controlled-implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #73](https://github.com/dynamicet/hallelujah-website/pull/73). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #72](https://github.com/dynamicet/hallelujah-website/issues/72)
+and PR #73. Dependent execution waits for passing exact-main CI. B03-017 is not promoted by this
+acceptance, and no collection, remote persistence, authentic data, provider, staff access,
+production or publication authority is granted.

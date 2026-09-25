@@ -8,13 +8,13 @@ import { promisify } from 'node:util'
 
 const execute = promisify(execFile)
 const applicationRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const root = await mkdtemp(path.join(tmpdir(), 'hallelujah-b03-015-pg.'))
+const root = await mkdtemp(path.join(tmpdir(), 'hallelujah-b03-016-pg.'))
 const bin = process.env.APPOINTMENT_POSTGRES_BIN
   ?? execFileSync('pg_config', ['--bindir'], { encoding: 'utf8' }).trim()
 const port = String(20_000 + randomBytes(2).readUInt16BE() % 30_000)
 const data = path.join(root, 'data')
 const dump = path.join(root, 'appointment.dump')
-const env = { ...process.env, B03_015_PGHOST: root, B03_015_PGPORT: port }
+const env = { ...process.env, B03_016_PGHOST: root, B03_016_PGPORT: port }
 const migrationRole = 'hallelujah_appointment_migration_local'
 const runtimeRole = 'hallelujah_appointment_runtime_local'
 const contentRole = 'hallelujah_content_local'
@@ -71,6 +71,10 @@ try {
     '-v', `appointment_runtime_role=${runtimeRole}`,
     '-f', path.join(applicationRoot, 'migrations/appointment/0001_b03_015_foundation.sql'),
   ])
+  await psql(migrationRole, appointmentDatabase, [
+    '-v', `appointment_runtime_role=${runtimeRole}`,
+    '-f', path.join(applicationRoot, 'migrations/appointment/0002_b03_016_idempotency.sql'),
+  ])
   await psql(migrationRole, appointmentDatabase, ['-c', `
     INSERT INTO appointment.privacy_notices (version, enabled, synthetic)
     VALUES ('synthetic-notice-v1', true, true);
@@ -101,7 +105,7 @@ try {
       (SELECT count(*) FROM appointment.schema_migrations) || ':' ||
       (to_regclass('public.controlled_content_fixture') IS NULL)::text;
   `])
-  if (restored.stdout.trim() !== '8:1:true') {
+  if (restored.stdout.trim() !== '11:2:true') {
     throw new Error('Independent appointment restore did not preserve the expected synthetic set')
   }
   process.stdout.write('Independent synthetic appointment backup and restore passed.\n')

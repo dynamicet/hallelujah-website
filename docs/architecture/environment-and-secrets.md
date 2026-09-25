@@ -18,12 +18,16 @@ Only the matching credential pair may be present:
 | `production` | `PRODUCTION_DATABASE_URL`, `PRODUCTION_PAYLOAD_SECRET` | `hallelujah_content_production` |
 
 An appointment configuration is optional while collection remains disabled. If any appointment
-value is present, all three parts are required: the selected environment's
-`<ENV>_APPOINTMENT_DATABASE_URL`, `<ENV>_APPOINTMENT_ABUSE_SECRET`, and the server-selected
+value is present, all four parts are required: the selected environment's
+`<ENV>_APPOINTMENT_DATABASE_URL`, `<ENV>_APPOINTMENT_ABUSE_SECRET`,
+`<ENV>_APPOINTMENT_IDEMPOTENCY_SECRET`, and the server-selected
 `APPOINTMENT_NOTICE_VERSION`. The URL must select `hallelujah_appointment_<environment>` with the
 exact `hallelujah_appointment_runtime_<environment>` role. Local use requires a disposable `/tmp`
-or `/var/tmp` Unix socket; staging/production require `sslmode=verify-full`. The abuse secret must
-contain at least 32 bytes. Configuring these values does not enable collection.
+or `/var/tmp` Unix socket; staging/production require `sslmode=verify-full`. The abuse and
+idempotency secrets must each contain at least 32 bytes and must be independently generated. The
+idempotency secret remains stable for the longest live request/intent retention window; rotation
+requires an approved overlap/version strategy before collection activation. Configuring these
+values does not enable collection.
 
 `PERSONAL_DATA_COLLECTION` and `EXTERNAL_SERVICES` are also required and their only accepted
 value is `disabled`. Changing the schema is not authority to enable either capability: reopen

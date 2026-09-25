@@ -33,8 +33,11 @@ enable personal-data collection or external services. See the
 [environment and secrets runbook](../../docs/architecture/environment-and-secrets.md).
 
 Appointment database variables are optional while collection is disabled and must be supplied as
-one environment-matched URL/abuse-secret/notice-version set. The controlled migration and runtime
-remain synthetic-only; see the
+one environment-matched URL/abuse-secret/idempotency-secret/notice-version set. The controlled
+migration and runtime
+remain synthetic-only. An enabled controlled POST also requires a 256-bit base64url
+`Idempotency-Key`; equivalent retries reconcile to the original opaque reference, while conflicting
+reuse fails without exposing a request record. See the
 [appointment foundation](../../docs/architecture/appointment-request-foundation.md).
 
 Do not add CMS routes or collections here until their own backlog and security/content gates permit them.

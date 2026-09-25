@@ -57,10 +57,15 @@ for (const deployment of ['local', 'staging', 'production']) {
     ...validEnvironment('local'),
     LOCAL_APPOINTMENT_DATABASE_URL: appointmentDatabaseUrl('local'),
     LOCAL_APPOINTMENT_ABUSE_SECRET: secretValue(),
+    LOCAL_APPOINTMENT_IDEMPOTENCY_SECRET: secretValue(),
     APPOINTMENT_NOTICE_VERSION: 'synthetic-notice-v1',
   }
   const result = loadServerEnvironment(source)
   assert.equal(result.appointment.databaseUrl, source.LOCAL_APPOINTMENT_DATABASE_URL)
+  assert.equal(
+    result.appointment.idempotencySecret,
+    source.LOCAL_APPOINTMENT_IDEMPOTENCY_SECRET,
+  )
   assert.equal(result.appointment.noticeVersion, 'synthetic-notice-v1')
   assert.ok(Object.isFrozen(result.appointment))
 }
@@ -74,17 +79,20 @@ expectInvalid(
 
 const crossScopeAppointmentUrl = appointmentDatabaseUrl('production')
 const crossScopeAbuseSecret = secretValue()
+const crossScopeIdempotencySecret = secretValue()
 expectInvalid(
   {
     ...validEnvironment('local'),
     PRODUCTION_APPOINTMENT_DATABASE_URL: crossScopeAppointmentUrl,
     PRODUCTION_APPOINTMENT_ABUSE_SECRET: crossScopeAbuseSecret,
+    PRODUCTION_APPOINTMENT_IDEMPOTENCY_SECRET: crossScopeIdempotencySecret,
   },
   [
     /PRODUCTION_APPOINTMENT_DATABASE_URL must not be present/u,
     /PRODUCTION_APPOINTMENT_ABUSE_SECRET must not be present/u,
+    /PRODUCTION_APPOINTMENT_IDEMPOTENCY_SECRET must not be present/u,
   ],
-  [crossScopeAppointmentUrl, crossScopeAbuseSecret],
+  [crossScopeAppointmentUrl, crossScopeAbuseSecret, crossScopeIdempotencySecret],
 )
 
 expectInvalid(
@@ -92,6 +100,7 @@ expectInvalid(
     ...validEnvironment('local'),
     LOCAL_APPOINTMENT_DATABASE_URL: appointmentDatabaseUrl('local').replace(/\?.*$/u, ''),
     LOCAL_APPOINTMENT_ABUSE_SECRET: secretValue(),
+    LOCAL_APPOINTMENT_IDEMPOTENCY_SECRET: secretValue(),
     APPOINTMENT_NOTICE_VERSION: 'synthetic-notice-v1',
   },
   [/LOCAL_APPOINTMENT_DATABASE_URL must use a disposable/u],
@@ -99,8 +108,27 @@ expectInvalid(
 
 expectInvalid(
   { ...validEnvironment('local'), LOCAL_APPOINTMENT_DATABASE_URL: appointmentDatabaseUrl('local') },
-  [/LOCAL_APPOINTMENT_ABUSE_SECRET is required/u, /APPOINTMENT_NOTICE_VERSION is required/u],
+  [
+    /LOCAL_APPOINTMENT_ABUSE_SECRET is required/u,
+    /LOCAL_APPOINTMENT_IDEMPOTENCY_SECRET is required/u,
+    /APPOINTMENT_NOTICE_VERSION is required/u,
+  ],
 )
+
+{
+  const reusedSecret = secretValue()
+  expectInvalid(
+    {
+      ...validEnvironment('local'),
+      LOCAL_APPOINTMENT_DATABASE_URL: appointmentDatabaseUrl('local'),
+      LOCAL_APPOINTMENT_ABUSE_SECRET: reusedSecret,
+      LOCAL_APPOINTMENT_IDEMPOTENCY_SECRET: reusedSecret,
+      APPOINTMENT_NOTICE_VERSION: 'synthetic-notice-v1',
+    },
+    [/Appointment abuse and idempotency secrets must be independently generated/u],
+    [reusedSecret],
+  )
+}
 
 const remoteLocalAppointmentUrl = appointmentDatabaseUrl('local', 'database.internal')
 expectInvalid(
@@ -108,6 +136,7 @@ expectInvalid(
     ...validEnvironment('local'),
     LOCAL_APPOINTMENT_DATABASE_URL: remoteLocalAppointmentUrl,
     LOCAL_APPOINTMENT_ABUSE_SECRET: secretValue(),
+    LOCAL_APPOINTMENT_IDEMPOTENCY_SECRET: secretValue(),
     APPOINTMENT_NOTICE_VERSION: 'synthetic-notice-v1',
   },
   [/LOCAL_APPOINTMENT_DATABASE_URL must use a disposable/u],
@@ -172,14 +201,17 @@ const runtimeNames = [
   'LOCAL_PAYLOAD_SECRET',
   'LOCAL_APPOINTMENT_DATABASE_URL',
   'LOCAL_APPOINTMENT_ABUSE_SECRET',
+  'LOCAL_APPOINTMENT_IDEMPOTENCY_SECRET',
   'STAGING_DATABASE_URL',
   'STAGING_PAYLOAD_SECRET',
   'STAGING_APPOINTMENT_DATABASE_URL',
   'STAGING_APPOINTMENT_ABUSE_SECRET',
+  'STAGING_APPOINTMENT_IDEMPOTENCY_SECRET',
   'PRODUCTION_DATABASE_URL',
   'PRODUCTION_PAYLOAD_SECRET',
   'PRODUCTION_APPOINTMENT_DATABASE_URL',
   'PRODUCTION_APPOINTMENT_ABUSE_SECRET',
+  'PRODUCTION_APPOINTMENT_IDEMPOTENCY_SECRET',
   'APPOINTMENT_NOTICE_VERSION',
   'NEXT_RUNTIME',
 ]
