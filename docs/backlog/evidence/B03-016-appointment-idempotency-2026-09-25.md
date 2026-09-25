@@ -6,6 +6,7 @@
 | Scope | Synthetic local T0 and private hosted T1 only |
 | Status | In review; hosted exact-head CI and controlled acceptance pending |
 | Tracking | [issue #72](https://github.com/dynamicet/hallelujah-website/issues/72) |
+| Review | [PR #73](https://github.com/dynamicet/hallelujah-website/pull/73) |
 | Collection | Disabled; route returns `503` before configuration or body processing |
 | Production/publication authority | Not granted |
 

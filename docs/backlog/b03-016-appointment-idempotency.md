@@ -7,7 +7,8 @@
 **Responsible/review identity:** `befikadusata` directing Codex in temporary Backend, Security and
 QA roles
 
-**Tracking:** [issue #72](https://github.com/dynamicet/hallelujah-website/issues/72)
+**Tracking:** [issue #72](https://github.com/dynamicet/hallelujah-website/issues/72) ·
+[PR #73](https://github.com/dynamicet/hallelujah-website/pull/73)
 
 **Personal-data collection, remote persistence and production authority:** Not granted
 
