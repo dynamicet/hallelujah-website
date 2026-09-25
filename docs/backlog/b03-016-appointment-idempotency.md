@@ -2,7 +2,7 @@
 
 **Lane / priority / phase:** DELIVERY / P0 / Phase 1 preparation
 
-**Status:** In review for controlled development; hosted exact-head review pending
+**Status:** Done for controlled development; final closeout CI and checked merge pending
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary Backend, Security and
 QA roles
@@ -82,6 +82,26 @@ scan passed. The
 results and corrected local setup attempts. Hosted exact-head CI and explicit controlled client
 acceptance remain required before Done; this review state grants no collection or release
 authority.
+
+## Controlled acceptance
+
+The client directed “Close out B03-016”. B03-016 moves In review → **Done** for controlled
+development under `befikadusata` as responsible and controlled acceptance person directing Codex
+in temporary Backend, Security and QA roles on 25 September 2026, Africa/Addis_Ababa. The target
+remains synthetic local T0/private hosted T1 under the working B00-016 matrix.
+
+Accepted implementation head: `2b7760074550439614de86d088d23e2e1e940795`. Matching hosted
+[run 36107298049](https://github.com/dynamicet/hallelujah-website/actions/runs/36107298049)
+passes every step, including fail-closed policy controls, history secret scan, dependency audit,
+full application verification, the isolated PostgreSQL atomicity/concurrency/permission/restore
+harness and independent frozen clean reconstruction. All recorded local gates pass and no scoped
+controlled-implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #73](https://github.com/dynamicet/hallelujah-website/pull/73). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #72](https://github.com/dynamicet/hallelujah-website/issues/72)
+and PR #73. Dependent execution waits for passing exact-main CI. This acceptance does not promote
+B03-017 or authorize any activation or release gate.
 
 ## Remaining gates
 
