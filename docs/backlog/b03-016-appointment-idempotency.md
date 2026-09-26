@@ -2,7 +2,7 @@
 
 **Lane / priority / phase:** DELIVERY / P0 / Phase 1 preparation
 
-**Status:** Done for controlled development; final closeout CI and checked merge pending
+**Status:** Done for controlled development; checked merge and exact-main closeout complete
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary Backend, Security and
 QA roles
@@ -97,11 +97,15 @@ full application verification, the isolated PostgreSQL atomicity/concurrency/per
 harness and independent frozen clean reconstruction. All recorded local gates pass and no scoped
 controlled-implementation defect remains open.
 
-Final acceptance-documentation CI must pass for its exact SHA before checked merge of
-[PR #73](https://github.com/dynamicet/hallelujah-website/pull/73). Its matching SHA/run, merge SHA
-and exact-main result must be retained in [issue #72](https://github.com/dynamicet/hallelujah-website/issues/72)
-and PR #73. Dependent execution waits for passing exact-main CI. This acceptance does not promote
-B03-017 or authorize any activation or release gate.
+Final acceptance-documentation
+[run 36108985856](https://github.com/dynamicet/hallelujah-website/actions/runs/36108985856)
+passed for exact head `9b5577482045c276fcda101220aba94d4ae933e7`.
+[PR #73](https://github.com/dynamicet/hallelujah-website/pull/73) then merged as
+`aa92d695302de3fa5b153c3bc8e756dcd70593e8` on 25 September 2026, and exact-main
+[run 36110485980](https://github.com/dynamicet/hallelujah-website/actions/runs/36110485980)
+passed for that merge commit. [Issue #72](https://github.com/dynamicet/hallelujah-website/issues/72)
+is closed. This clears the dependent-execution pause and completes B03-016 closeout. It does not
+promote B03-017 or authorize any activation or release gate.
 
 ## Remaining gates
 

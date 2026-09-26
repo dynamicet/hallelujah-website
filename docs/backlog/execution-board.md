@@ -1398,3 +1398,17 @@ and exact-main result must be retained in [issue #72](https://github.com/dynamic
 and PR #73. Dependent execution waits for passing exact-main CI. B03-017 is not promoted by this
 acceptance, and no collection, remote persistence, authentic data, provider, staff access,
 production or publication authority is granted.
+
+## B03-016 exact-main closeout — 25 September 2026
+
+Final acceptance-documentation
+[run 36108985856](https://github.com/dynamicet/hallelujah-website/actions/runs/36108985856)
+passed for exact head `9b5577482045c276fcda101220aba94d4ae933e7`.
+[PR #73](https://github.com/dynamicet/hallelujah-website/pull/73) then merged as
+`aa92d695302de3fa5b153c3bc8e756dcd70593e8`, automatically closing
+[issue #72](https://github.com/dynamicet/hallelujah-website/issues/72). Exact-main
+[run 36110485980](https://github.com/dynamicet/hallelujah-website/actions/runs/36110485980)
+passed for that merge commit. This clears the dependent-execution pause and completes B03-016
+closeout. B03-017 may now undergo its own controlled-readiness review but is not promoted by this
+record. Personal-data collection, authentic content, external messaging providers, staff access,
+remote persistence, production and publication remain disabled.
