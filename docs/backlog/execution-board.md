@@ -1412,3 +1412,31 @@ passed for that merge commit. This clears the dependent-execution pause and comp
 closeout. B03-017 may now undergo its own controlled-readiness review but is not promoted by this
 record. Personal-data collection, authentic content, external messaging providers, staff access,
 remote persistence, production and publication remain disabled.
+
+## B03-017 controlled Appointment implementation start — 26 September 2026
+
+The client directed use of synthetic content and an English-only controlled implementation, with
+“Patient Experience Team” as a synthetic recipient label. B03-017 moves Proposed → Ready → **In
+progress** on `b03-017-appointment-page` under `befikadusata` directing Codex in temporary
+Frontend, Backend-contract and QA roles, with the same identity as controlled-development review
+authority. [Issue #74](https://github.com/dynamicet/hallelujah-website/issues/74) and the
+[execution brief](b03-017-controlled-appointment-page.md) govern the pull.
+
+The controlled sequencing exception permits an English-only A0–A8 loopback/noindex composition
+using visibly synthetic selectors and operating labels. It mounts no public `/appointments/`
+route, accepts or persists no request, keeps `PERSONAL_DATA_COLLECTION=disabled`, and activates no
+recipient account, staff access, WhatsApp, Telegram or other provider. A later approved messaging
+integration remains notification-only; database acceptance remains authoritative.
+
+B03-011/APPT-01, LANG-01, authentic CARE-01/CARE-04 selectors, final privacy/operations approval,
+named recipients and staff access, SEC-02, B03-018–B03-019, DEL-01, remote persistence, production
+and publication remain unresolved. This controlled start closes none of those gates.
+
+On 28 September 2026, B03-017 moves In progress → **In review** after all required local T0 gates
+passed. The [execution evidence](evidence/B03-017-controlled-appointment-page-2026-09-26.md)
+records the 20-case server-rendered contract, 284-case responsive/capability/interaction matrix,
+production build, full repository verification, independent frozen clean reconstruction,
+dependency audit, reachable-history secret scan and sanitized visual review. The optimized build
+still has no public Appointment page route; collection and providers remain disabled. Hosted
+exact-head CI and explicit controlled acceptance remain required before Done, and the unresolved
+gates listed above remain unchanged.
