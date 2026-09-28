@@ -25,7 +25,7 @@ and controlled acceptance remain required
 | Requirements / decisions | `G-001`–`G-003`, `G-005`, `G-013`, `S-006`–`S-008`; final labels and equivalents remain gated by `LANG-01`; real contacts remain gated by `SAFE-01` |
 | Dependencies | Completed `B01-004`, merged `B01-005`, working `B00-015` and `B00-016` development baselines |
 | Allowed repository scope | Shell/navigation components and first-party enhancement, component token aliases and generated outputs, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
-| Repository review | [Issue `#10`](https://github.com/dynamicet/hallelujah-website/issues/10), [pull request `#11`](https://github.com/dynamicet/hallelujah-website/pull/11), and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/34879240044) on `fc672b8` |
+| Repository review | Reopened [issue `#10`](https://github.com/dynamicet/hallelujah-website/issues/10) and correction [pull request `#76`](https://github.com/dynamicet/hallelujah-website/pull/76); historical [pull request `#11`](https://github.com/dynamicet/hallelujah-website/pull/11) and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/34879240044) on `fc672b8` are retained |
 | Evidence destination | [Historical implementation evidence](evidence/B01-006-global-shell-navigation-2026-09-14.md); [reopening review](evidence/B01-006-header-review-2026-09-28.md); [correction evidence](evidence/B01-006-header-correction-2026-09-28.md) |
 
 The client's 14 September 2026 direction to proceed authorized readiness promotion, a scoped branch,

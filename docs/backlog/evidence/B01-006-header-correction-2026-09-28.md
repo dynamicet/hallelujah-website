@@ -7,6 +7,7 @@
 | Status | In review; local correction gates pass |
 | Responsible / review identity | `befikadusata` directing Codex in temporary Frontend Lead and QA roles / same controlled-review identity |
 | Tracking | Reopened [issue #10](https://github.com/dynamicet/hallelujah-website/issues/10) |
+| Review | Correction [PR #76](https://github.com/dynamicet/hallelujah-website/pull/76); implementation commit `bc76a58` |
 | Historical implementation | [PR #11](https://github.com/dynamicet/hallelujah-website/pull/11); retained but does not accept the reopened cases |
 | Production/publication authority | Not granted |
 
@@ -58,8 +59,8 @@ physical-device and assistive-technology acceptance remain production gates.
 
 On the client's “let's promote it” direction, B01-006 moves In progress → **In review — reopened
 correction** on 28 September 2026, Africa/Addis_Ababa. No scoped local correction defect remains
-open. The exact review commit and hosted run will be recorded in issue #10 and the correction pull
-request.
+open. Implementation commit `bc76a58` is submitted under PR #76; its exact documentation head and
+hosted run will be retained in issue #10 and the pull request.
 
 Exact review-head hosted `T1` and explicit controlled acceptance remain required before Done is
 restored. Final acceptance-documentation CI, checked merge and passing exact-main CI must then be
