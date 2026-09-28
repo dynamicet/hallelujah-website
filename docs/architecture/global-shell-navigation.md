@@ -1,8 +1,9 @@
 # Global Shell and Navigation Architecture
 
 **Backlog authority:** `B01-006`  
-**Status:** Reopened for a focused controlled-development correction on 28 September 2026;
-historical implementation evidence is retained, and production/publication gates remain open
+**Status:** Focused controlled-development correction accepted on 28 September 2026; final
+acceptance-documentation CI, checked merge and exact-main closeout remain pending, while
+production/publication gates remain open
 
 ## Reopened correction boundary
 
@@ -68,8 +69,9 @@ checks. Final route labels remain governed by `LANG-01`; verified contact data r
 
 The repeatable source contract is `pnpm shell:check`; the rendered matrix is `pnpm shell:smoke`.
 The [historical implementation evidence](../backlog/evidence/B01-006-global-shell-navigation-2026-09-14.md)
-and [reopening review](../backlog/evidence/B01-006-header-review-2026-09-28.md) are retained. A new
-dated correction record, exact review-head hosted `T1`, checked merge and passing exact-main CI are
-required before the ticket returns to Done.
+and [reopening review](../backlog/evidence/B01-006-header-review-2026-09-28.md) are retained. The
+[dated correction record](../backlog/evidence/B01-006-header-correction-2026-09-28.md) and exact
+review-head hosted `T1` support controlled acceptance; final acceptance-documentation CI, checked
+merge and passing exact-main CI remain to be recorded.
 Physical-device, screen-reader, switch-control, professional Amharic, final-content, and production
 acceptance remain outside this controlled implementation result.

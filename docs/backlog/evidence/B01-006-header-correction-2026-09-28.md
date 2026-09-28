@@ -3,8 +3,8 @@
 | Field | Result |
 | --- | --- |
 | Branch | `b01-006-header-correction` |
-| Scope | Focused global-header correction in synthetic local `T0`; private hosted `T1` review pending |
-| Status | In review; local correction gates pass |
+| Scope | Focused global-header correction in synthetic local `T0` and private hosted `T1` |
+| Status | Done for the focused controlled-development correction; final acceptance-documentation CI and checked merge pending |
 | Responsible / review identity | `befikadusata` directing Codex in temporary Frontend Lead and QA roles / same controlled-review identity |
 | Tracking | Reopened [issue #10](https://github.com/dynamicet/hallelujah-website/issues/10) |
 | Review | Correction [PR #76](https://github.com/dynamicet/hallelujah-website/pull/76); implementation commit `bc76a58` |
@@ -65,4 +65,23 @@ hosted run will be retained in issue #10 and the pull request.
 Exact review-head hosted `T1` and explicit controlled acceptance remain required before Done is
 restored. Final acceptance-documentation CI, checked merge and passing exact-main CI must then be
 recorded. `LANG-01`, `SAFE-01`, authentic content/translation, named production roles, public
+routes, providers, personal-data collection, deployment, production and publication remain gated.
+
+## Controlled acceptance
+
+The client directed “B01-006 is In Review, close out”. B01-006 moves In review → **Done** for the
+focused controlled-development correction under `befikadusata` as responsible and controlled
+acceptance person, directing Codex in temporary Frontend Lead and QA roles on 28 September 2026,
+Africa/Addis_Ababa.
+
+Accepted review head `87674b960a41c9e735602971fdfde99c76ec4a66` has matching hosted
+[run 36451735815](https://github.com/dynamicet/hallelujah-website/actions/runs/36451735815), which
+passed the complete `quality-and-security` workflow. Together with the recorded local targeted and
+full verification, this clears the focused correction contract; no scoped controlled-development
+defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #76](https://github.com/dynamicet/hallelujah-website/pull/76). Its matching run, merge SHA and
+exact-main result must be retained in [issue #10](https://github.com/dynamicet/hallelujah-website/issues/10)
+and PR #76. `LANG-01`, `SAFE-01`, authentic content/translation, named production roles, public
 routes, providers, personal-data collection, deployment, production and publication remain gated.

@@ -1,8 +1,7 @@
 # `B01-006` — Global Shell and Navigation
 
-**Status:** In review — focused controlled-development correction on
-`b01-006-header-correction`; local `T0` correction gates pass, while exact review-head hosted `T1`
-and controlled acceptance remain required
+**Status:** Done for the focused controlled-development correction; final acceptance-documentation
+CI, checked merge and exact-main closeout remain pending
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -18,7 +17,7 @@ and controlled acceptance remain required
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P1` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Historical: Proposed → Ready → In progress → In review → Done for controlled development; current: Done → Ready → In progress → In review for focused correction |
+| Old / new status | Historical: Proposed → Ready → In progress → In review → Done for controlled development; current: Done → Ready → In progress → In review → Done for focused correction |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Delivery, Frontend, QA, Accessibility, Language, Content, Operations, and Security people return at their production gates |
 | Target environment | `T0` isolated local application and headless Chromium; private-repository hosted `T1` pass |
@@ -49,6 +48,15 @@ forced-compact, localized-name and regression work passed the local `T0` gates. 
 [dated correction evidence](evidence/B01-006-header-correction-2026-09-28.md) records the results
 and sanitized visual review. Exact review-head hosted `T1` and explicit controlled acceptance are
 still required before Done can be restored.
+
+The client's subsequent “B01-006 is In Review, close out” direction restores **Done** for the
+focused controlled-development correction on 28 September 2026, Africa/Addis_Ababa. Exact review
+head `87674b960a41c9e735602971fdfde99c76ec4a66` passed hosted
+[run 36451735815](https://github.com/dynamicet/hallelujah-website/actions/runs/36451735815).
+Final acceptance-documentation CI must pass before checked merge of
+[PR #76](https://github.com/dynamicet/hallelujah-website/pull/76); the merge SHA and exact-main CI
+must then be recorded. This controlled acceptance does not grant any production or publication
+authority listed above.
 
 ## Reopening trigger and focused correction
 
@@ -166,7 +174,8 @@ The final checkbox remains an external production gate. `LANG-01` owns final lan
 - [x] Rendered keyboard order agrees with visual block order in responsive and forced-compact modes.
 - [x] Static and rendered regressions fail on each reviewed defect and pass the complete viewport, language and capability matrix.
 - [x] Sanitized correction captures receive visual review and the dated correction evidence records targeted and full local gates.
-- [ ] Exact review-head hosted `T1`, controlled acceptance, checked merge and exact-main CI are recorded before Done is restored.
+- [x] Exact review-head hosted `T1` and controlled acceptance are recorded.
+- [ ] Final acceptance-documentation CI, checked merge and exact-main CI are recorded.
 
 ## References
 
