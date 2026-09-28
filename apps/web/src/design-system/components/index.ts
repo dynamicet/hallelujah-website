@@ -62,6 +62,7 @@ export type {
   NavigationItem,
   SiteFooterProps,
   SiteHeaderProps,
+  SiteHeaderNavigationMode,
   SiteShellProps,
 } from './global-shell'
 export { StatusSummary } from './status-summary'

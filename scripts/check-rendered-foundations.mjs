@@ -270,6 +270,22 @@ try {
   }
 
   if (shellMode) {
+    if (!reviewHarnessMode) {
+      const wideTabOrder = await readShellTabOrder(client, sessionId)
+      const expectedWideOrder = [
+        'identity',
+        'emergency',
+        'navigation',
+        'navigation',
+        'navigation',
+        'navigation',
+        'search',
+        'routine',
+      ]
+      if (JSON.stringify(wideTabOrder) !== JSON.stringify(expectedWideOrder)) {
+        fail(`wide actual Tab order is incorrect: ${JSON.stringify(wideTabOrder)}`)
+      }
+    }
     await client.send(
       'Emulation.setDeviceMetricsOverride',
       {
@@ -283,6 +299,12 @@ try {
       sessionId,
     )
     await settleLayout()
+    if (!reviewHarnessMode) {
+      const closedTabOrder = await readShellTabOrder(client, sessionId)
+      if (JSON.stringify(closedTabOrder) !== JSON.stringify(['identity', 'emergency', 'menu'])) {
+        fail(`compact closed actual Tab order is incorrect: ${JSON.stringify(closedTabOrder)}`)
+      }
+    }
     await evaluate(client, sessionId, "document.querySelector('[data-menu-trigger]').click()")
     await settleLayout()
     const openMenu = await evaluate(
@@ -291,14 +313,46 @@ try {
       `(() => {
         const trigger = document.querySelector('[data-menu-trigger]')
         const panel = document.querySelector('[data-navigation-panel]')
+        const utilities = panel.querySelector('[data-shell-utilities]')
+        const language = panel.querySelector('[data-language-switcher]')
+        const routine = panel.querySelector('[data-shell-routine]')
+        const emergency = document.querySelector('[data-shell-emergency]')
+        const visible = (element) => element.getBoundingClientRect().height > 0
         return {
+          complete: panel.contains(document.querySelector('[data-primary-navigation]'))
+            && panel.contains(utilities) && panel.contains(language) && panel.contains(routine)
+            && !panel.contains(emergency),
+          emergencyVisible: visible(emergency),
+          languageVisible: visible(language),
           open: panel.matches(':popover-open'),
           panelHeight: panel.getBoundingClientRect().height,
+          routineVisible: visible(routine),
+          utilitiesVisible: visible(utilities),
         }
       })()`,
     )
-    if (!openMenu.open || openMenu.panelHeight === 0) {
+    if (!openMenu.open || openMenu.panelHeight === 0 || !openMenu.complete
+      || !openMenu.emergencyVisible || !openMenu.languageVisible
+      || !openMenu.routineVisible || !openMenu.utilitiesVisible) {
       fail(`compact menu did not expose its controlled panel: ${JSON.stringify(openMenu)}`)
+    }
+
+    if (!reviewHarnessMode) {
+      const openTabOrder = await readShellTabOrder(client, sessionId)
+      const expectedOpenOrder = [
+        'identity',
+        'emergency',
+        'menu',
+        'navigation',
+        'navigation',
+        'navigation',
+        'navigation',
+        'search',
+        'routine',
+      ]
+      if (JSON.stringify(openTabOrder) !== JSON.stringify(expectedOpenOrder)) {
+        fail(`compact open actual Tab order is incorrect: ${JSON.stringify(openTabOrder)}`)
+      }
     }
 
     await evaluate(
@@ -355,6 +409,17 @@ try {
     )
     if (skipResult.hash !== '#main-content' || skipResult.activeId !== 'main-content') {
       fail(`skip link did not land and focus main: ${JSON.stringify(skipResult)}`)
+    }
+
+    if (!reviewHarnessMode && !searchControlsMode && !formPrimitivesMode && !systemStatesMode
+      && !motionMediaMode && !governedCardsMode && !optionalMapMode) {
+      await assertForcedCompactShell({
+        captureDirectory,
+        capturePrefix,
+        client,
+        origin,
+        sessionId,
+      })
     }
   }
 
@@ -1029,7 +1094,7 @@ try {
     client,
     sessionId,
     `(() => {
-      const target = document.querySelector('[data-action-link]')
+      const target = document.querySelector('[data-essential-actions-fixture] [data-action-link]')
       target.scrollIntoView({ block: 'center' })
       window.__actionActivationCount = 0
       target.addEventListener('click', (event) => {
@@ -1067,7 +1132,7 @@ try {
     fail(`moved touch activated an action ${movedTouchActivations} time(s)`)
   }
   await client.send('Emulation.setTouchEmulationEnabled', { enabled: false }, sessionId)
-  await evaluate(client, sessionId, "document.querySelector('[data-action-link]').focus()")
+  await evaluate(client, sessionId, "document.querySelector('[data-essential-actions-fixture] [data-action-link]').focus()")
   await client.send(
     'Input.dispatchKeyEvent',
     { code: 'Enter', key: 'Enter', type: 'rawKeyDown', windowsVirtualKeyCode: 13 },
@@ -1589,11 +1654,32 @@ function assertShellViewport(label, width, result) {
     fail(`${label}: unavailable language lacks explicit state or explanation`)
   }
   if (!result.footerPresent) fail(`${label}: semantic footer is missing`)
-  if (width < 1024 && (result.triggerDisplay === 'none' || result.panelHeight !== 0)) {
+  if (!result.identityLabel || !result.identityLanguage) {
+    fail(`${label}: identity link lacks governed localized naming`)
+  }
+  if (!result.panelContainsNavigation || !result.panelContainsUtilities
+    || !result.panelContainsRoutine || result.panelContainsEmergency) {
+    fail(`${label}: compact panel ownership is incorrect`)
+  }
+  if (!result.visualOrderMatchesDom) {
+    fail(`${label}: visible header focus order does not match visual block order`)
+  }
+  const compactLayout = width < 1024 || result.navigationMode === 'compact'
+  if (compactLayout && (result.triggerDisplay === 'none' || result.panelHeight !== 0)) {
     fail(`${label}: compact navigation disclosure state is incorrect`)
   }
-  if (width >= 1024 && (result.triggerDisplay !== 'none' || result.panelHeight === 0)) {
+  if (!compactLayout && (result.triggerDisplay !== 'none' || result.panelHeight === 0)) {
     fail(`${label}: wide navigation state is incorrect`)
+  }
+  const expectedClosedRoles = compactLayout
+    ? ['identity', 'emergency', 'menu']
+    : ['identity', 'emergency', 'navigation', 'navigation', 'navigation', 'navigation', 'search', 'routine']
+  if (JSON.stringify(result.focusRoles) !== JSON.stringify(expectedClosedRoles)) {
+    fail(`${label}: unexpected closed header focus order ${JSON.stringify(result.focusRoles)}`)
+  }
+  if (!result.emergencyVisible || result.utilitiesVisible !== !compactLayout
+    || result.routineVisible !== !compactLayout) {
+    fail(`${label}: header regions do not match the ${compactLayout ? 'compact' : 'wide'} composition`)
   }
   for (const target of result.visibleTargets) {
     if (target.width < 44 || target.height < 44) {
@@ -1707,6 +1793,149 @@ function settleLayout() {
   return pause(100)
 }
 
+async function readShellTabOrder(client, sessionId) {
+  await evaluate(client, sessionId, `(() => {
+    const skip = document.querySelector('[data-skip-link]')
+    skip.focus()
+  })()`)
+  const order = []
+  for (let index = 0; index < 16; index += 1) {
+    await client.send(
+      'Input.dispatchKeyEvent',
+      { code: 'Tab', key: 'Tab', type: 'rawKeyDown', windowsVirtualKeyCode: 9 },
+      sessionId,
+    )
+    await client.send(
+      'Input.dispatchKeyEvent',
+      { code: 'Tab', key: 'Tab', type: 'keyUp', windowsVirtualKeyCode: 9 },
+      sessionId,
+    )
+    const role = await evaluate(client, sessionId, `(() => {
+      const target = document.activeElement
+      if (!(target instanceof Element) || !target.closest('[data-site-header]')) return null
+      if (target.matches('[data-shell-identity]')) return 'identity'
+      if (target.matches('[data-menu-trigger]')) return 'menu'
+      if (target.closest('[data-shell-emergency]')) return 'emergency'
+      if (target.closest('[data-primary-navigation]')) return 'navigation'
+      if (target.matches('[data-shell-search]')) return 'search'
+      if (target.closest('[data-language-switcher]')) return 'language'
+      if (target.closest('[data-shell-routine]')) return 'routine'
+      return 'other'
+    })()`)
+    if (!role) {
+      if (order.length > 0) break
+      continue
+    }
+    order.push(role)
+  }
+  return order
+}
+
+async function assertForcedCompactShell({
+  captureDirectory,
+  capturePrefix,
+  client,
+  origin,
+  sessionId,
+}) {
+  const forcedUrl = new URL(origin)
+  forcedUrl.searchParams.set('shell-review', 'amharic')
+  await client.send(
+    'Emulation.setDeviceMetricsOverride',
+    {
+      deviceScaleFactor: 1,
+      height: 900,
+      mobile: false,
+      screenHeight: 900,
+      screenWidth: 1440,
+      width: 1440,
+    },
+    sessionId,
+  )
+  await client.send('Page.navigate', { url: forcedUrl.href }, sessionId)
+  await waitForDocument(client, sessionId)
+  await waitForShellEnhancement(client, sessionId)
+  await settleLayout()
+
+  const closed = await evaluate(client, sessionId, renderedShellChecksSource())
+  assertShellViewport('forced-compact-1440', 1440, closed)
+  if (closed.navigationMode !== 'compact' || closed.identityLanguage !== 'am'
+    || !/[\u1200-\u137f]/u.test(closed.identityLabel)) {
+    fail(`forced compact localized identity is incomplete: ${JSON.stringify(closed)}`)
+  }
+  const closedTabOrder = await readShellTabOrder(client, sessionId)
+  if (JSON.stringify(closedTabOrder) !== JSON.stringify(['identity', 'emergency', 'menu'])) {
+    fail(`forced compact closed actual Tab order is incorrect: ${JSON.stringify(closedTabOrder)}`)
+  }
+
+  await evaluate(client, sessionId, "document.querySelector('[data-menu-trigger]').click()")
+  await settleLayout()
+  const open = await evaluate(client, sessionId, renderedShellChecksSource())
+  const expectedOpenOrder = [
+    'identity',
+    'emergency',
+    'menu',
+    'navigation',
+    'navigation',
+    'navigation',
+    'navigation',
+    'search',
+    'routine',
+  ]
+  if (open.panelHeight === 0 || !open.utilitiesVisible || !open.routineVisible
+    || !open.visualOrderMatchesDom
+    || JSON.stringify(open.focusRoles) !== JSON.stringify(expectedOpenOrder)) {
+    fail(`forced compact open composition is incorrect: ${JSON.stringify(open)}`)
+  }
+  const openTabOrder = await readShellTabOrder(client, sessionId)
+  if (JSON.stringify(openTabOrder) !== JSON.stringify(expectedOpenOrder)) {
+    fail(`forced compact open actual Tab order is incorrect: ${JSON.stringify(openTabOrder)}`)
+  }
+
+  if (captureDirectory) {
+    await evaluate(client, sessionId, `(() => {
+      if (document.activeElement instanceof HTMLElement) document.activeElement.blur()
+      window.scrollTo(0, 0)
+    })()`)
+    await settleLayout()
+    await mkdir(captureDirectory, { recursive: true })
+    const { data } = await client.send(
+      'Page.captureScreenshot',
+      { captureBeyondViewport: true, format: 'png', fromSurface: true },
+      sessionId,
+    )
+    await writeFile(
+      path.join(captureDirectory, `${capturePrefix}-forced-compact-1440.png`),
+      data,
+      'base64',
+    )
+  }
+
+  await client.send('Emulation.setScriptExecutionDisabled', { value: true }, sessionId)
+  await client.send('Page.navigate', { url: forcedUrl.href }, sessionId)
+  await waitForDocument(client, sessionId)
+  await evaluate(client, sessionId, "document.querySelector('[data-menu-trigger]').click()")
+  await settleLayout()
+  const noScript = await evaluate(client, sessionId, `(() => {
+    const panel = document.querySelector('[data-navigation-panel]')
+    return {
+      complete: panel.contains(document.querySelector('[data-primary-navigation]'))
+        && panel.contains(document.querySelector('[data-shell-utilities]'))
+        && panel.contains(document.querySelector('[data-shell-routine]')),
+      enhanced: document.documentElement.dataset.shellNavigationEnhanced ?? null,
+      open: panel.matches(':popover-open'),
+    }
+  })()`)
+  if (!noScript.open || !noScript.complete || noScript.enhanced !== null) {
+    fail(`forced compact no-JavaScript disclosure is incomplete: ${JSON.stringify(noScript)}`)
+  }
+
+  await client.send('Emulation.setScriptExecutionDisabled', { value: false }, sessionId)
+  await client.send('Page.navigate', { url: origin }, sessionId)
+  await waitForDocument(client, sessionId)
+  await waitForShellEnhancement(client, sessionId)
+}
+
 function renderedChecksSource() {
   return `(() => {
   const root = document.documentElement
@@ -1796,16 +2025,36 @@ function renderedShellChecksSource() {
   const breadcrumb = document.querySelector('[data-breadcrumbs]')
   const unavailableLanguage = header.querySelector('[data-language-switcher] [aria-disabled="true"]')
   const reasonId = unavailableLanguage?.getAttribute('aria-describedby')
-  const visibleTargets = [...header.querySelectorAll('a[href], summary')]
+  const identity = header.querySelector('[data-shell-identity]')
+  const emergency = header.querySelector('[data-shell-emergency]')
+  const utilities = header.querySelector('[data-shell-utilities]')
+  const routine = header.querySelector('[data-shell-routine]')
+  const focusableTargets = [...header.querySelectorAll('a[href], button:not([disabled]), summary')]
     .filter((target) => {
       const rect = target.getBoundingClientRect()
       const style = getComputedStyle(target)
       return style.display !== 'none' && rect.width > 0 && rect.height > 0
     })
-    .map((target) => {
+  const role = (target) => target.matches('[data-shell-identity]') ? 'identity'
+    : target.matches('[data-menu-trigger]') ? 'menu'
+    : target.closest('[data-shell-emergency]') ? 'emergency'
+    : target.closest('[data-primary-navigation]') ? 'navigation'
+    : target.matches('[data-shell-search]') ? 'search'
+    : target.closest('[data-language-switcher]') ? 'language'
+    : target.closest('[data-shell-routine]') ? 'routine'
+    : 'other'
+  const targetGeometry = focusableTargets.map((target) => {
+    const rect = target.getBoundingClientRect()
+    return { left: rect.left, role: role(target), top: rect.top }
+  })
+  const visibleTargets = focusableTargets.map((target) => {
       const rect = target.getBoundingClientRect()
       return { height: rect.height, name: target.textContent.trim(), width: rect.width }
     })
+  const visible = (element) => {
+    const rect = element?.getBoundingClientRect()
+    return Boolean(rect && rect.width > 0 && rect.height > 0 && getComputedStyle(element).display !== 'none')
+  }
   return {
     breadcrumbOverflow: breadcrumb.scrollWidth - breadcrumb.clientWidth,
     currentMarkerWidth: Math.max(
@@ -1814,11 +2063,28 @@ function renderedShellChecksSource() {
     ),
     currentPage: current.getAttribute('aria-current') === 'page',
     footerPresent: Boolean(document.querySelector('footer[data-site-footer]')),
+    focusRoles: targetGeometry.map((target) => target.role),
+    identityLabel: identity.getAttribute('aria-label'),
+    identityLanguage: identity.getAttribute('lang'),
     languageReason: Boolean(reasonId && document.getElementById(reasonId)?.textContent.trim()),
     languageUnavailable: unavailableLanguage?.getAttribute('aria-disabled') === 'true',
+    emergencyVisible: visible(emergency),
+    navigationMode: header.dataset.navigationMode,
     panelHeight: panel.getBoundingClientRect().height,
+    panelContainsEmergency: panel.contains(emergency),
+    panelContainsNavigation: panel.contains(header.querySelector('[data-primary-navigation]')),
+    panelContainsRoutine: panel.contains(routine),
+    panelContainsUtilities: panel.contains(utilities),
     primaryNavigationCount: header.querySelectorAll('[data-primary-navigation]').length,
+    routineVisible: visible(routine),
     triggerDisplay: getComputedStyle(trigger).display,
+    utilitiesVisible: visible(utilities),
+    visualOrderMatchesDom: targetGeometry.every((target, index) => {
+      if (index === 0) return true
+      const previous = targetGeometry[index - 1]
+      return target.top > previous.top + 4
+        || (Math.abs(target.top - previous.top) <= 4 && target.left >= previous.left - 4)
+    }),
     visibleTargets,
   }
 })()`

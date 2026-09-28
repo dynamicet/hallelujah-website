@@ -75,7 +75,10 @@ export function emergencySourceFixture({ expanded = false } = {}) {
       header: {
         brandName: 'Hallelujah Hospital — controlled identity',
         homeHref: '#main-content',
+        homeLabel: 'Hallelujah Hospital controlled home',
+        identityLanguage: 'en',
         menuLabel: 'Menu',
+        navigationMode: expanded ? 'compact' : 'responsive',
         navigationItems: [
           { current: true, ...links.home },
           links.routes,

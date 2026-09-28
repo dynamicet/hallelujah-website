@@ -29,6 +29,11 @@ export function EssentialActionsFixtureTemplate({
   searchParameters,
   statuses,
 }: EssentialActionsFixtureTemplateProps) {
+  const amharicHeaderReview = firstParameter(searchParameters['shell-review']) === 'amharic'
+  const headerBrandName = amharicHeaderReview
+    ? 'ሃሌሉያ ሆስፒታል — ያልተገመገመ የቁጥጥር ምሳሌ'
+    : 'Hallelujah Hospital — controlled identity'
+
   return (
     <SiteShell
       breadcrumbs={{
@@ -61,7 +66,7 @@ export function EssentialActionsFixtureTemplate({
         navigationLabel: 'Footer',
       }}
       header={{
-        brandName: 'Hallelujah Hospital — controlled identity',
+        brandName: headerBrandName,
         emergencyAction: (
           <EmergencyAction
             href="#controlled-emergency-explanation"
@@ -69,6 +74,10 @@ export function EssentialActionsFixtureTemplate({
           />
         ),
         homeHref: '#main-content',
+        homeLabel: amharicHeaderReview
+          ? 'ሃሌሉያ ሆስፒታል መነሻ — ያልተገመገመ የቁጥጥር ምሳሌ'
+          : 'Hallelujah Hospital controlled home',
+        identityLanguage: amharicHeaderReview ? 'am' : 'en',
         languageSwitcher: (
           <LanguageSwitcher
             alternate={{
@@ -83,6 +92,7 @@ export function EssentialActionsFixtureTemplate({
           />
         ),
         menuLabel: 'Menu',
+        navigationMode: amharicHeaderReview ? 'compact' : 'responsive',
         navigationItems: [
           { current: true, href: '#main-content', label: 'Controlled home' },
           { href: '#foundation-evidence', label: 'Foundation evidence' },
@@ -231,4 +241,8 @@ export function EssentialActionsFixtureTemplate({
       </ControlledBootstrapTemplate>
     </SiteShell>
   )
+}
+
+function firstParameter(value: string | readonly string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value
 }

@@ -1,11 +1,14 @@
 # `B01-006` — Global Shell and Navigation
 
-**Status:** Ready — reopened for a focused controlled-development correction; historical `T0`/`T1`
-evidence is retained but does not accept the reopened cases
+**Status:** In review — focused controlled-development correction on
+`b01-006-header-correction`; local `T0` correction gates pass, while exact review-head hosted `T1`
+and controlled acceptance remain required
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
 **Reopening date:** 28 September 2026, Africa/Addis_Ababa
+
+**Correction implementation start and review promotion:** 28 September 2026, Africa/Addis_Ababa
 
 **Publication, final-route, verified-contact, final-language, production, and deployment authority:** Not granted
 
@@ -15,7 +18,7 @@ evidence is retained but does not accept the reopened cases
 | --- | --- |
 | Epic / lane / priority | Epic 01 / `DELIVERY` / `P1` |
 | Phase / milestone | Phase 1 / `M1` |
-| Old / new status | Historical: Proposed → Ready → In progress → In review → Done for controlled development; current: Done → Ready for focused correction |
+| Old / new status | Historical: Proposed → Ready → In progress → In review → Done for controlled development; current: Done → Ready → In progress → In review for focused correction |
 | Responsible owner | Client workspace identity `befikadusata` directing Codex in the temporary Frontend Lead and QA roles |
 | Acceptance owner | Same client identity for controlled-development acceptance; named Delivery, Frontend, QA, Accessibility, Language, Content, Operations, and Security people return at their production gates |
 | Target environment | `T0` isolated local application and headless Chromium; private-repository hosted `T1` pass |
@@ -23,7 +26,7 @@ evidence is retained but does not accept the reopened cases
 | Dependencies | Completed `B01-004`, merged `B01-005`, working `B00-015` and `B00-016` development baselines |
 | Allowed repository scope | Shell/navigation components and first-party enhancement, component token aliases and generated outputs, controlled local fixture, static/rendered checks, architecture/backlog documentation, and sanitized screenshots |
 | Repository review | [Issue `#10`](https://github.com/dynamicet/hallelujah-website/issues/10), [pull request `#11`](https://github.com/dynamicet/hallelujah-website/pull/11), and [hosted implementation run](https://github.com/dynamicet/hallelujah-website/actions/runs/34879240044) on `fc672b8` |
-| Evidence destination | [Historical implementation evidence](evidence/B01-006-global-shell-navigation-2026-09-14.md); [reopening review](evidence/B01-006-header-review-2026-09-28.md); a dated correction record is required before re-closeout |
+| Evidence destination | [Historical implementation evidence](evidence/B01-006-global-shell-navigation-2026-09-14.md); [reopening review](evidence/B01-006-header-review-2026-09-28.md); [correction evidence](evidence/B01-006-header-correction-2026-09-28.md) |
 
 The client's 14 September 2026 direction to proceed authorized readiness promotion, a scoped branch,
 implementation, local verification, sanitized evidence, and normal repository review. It did not
@@ -34,6 +37,18 @@ The client's 28 September 2026 direction reopens the ticket at **Ready** for the
 It authorizes planning and issue/board change control. It does not claim the correction is
 implemented, promote the ticket to In progress or Done, accept new evidence, or expand the original
 publication and production boundary.
+
+The client's subsequent “commit and start implementation” direction promotes Ready → **In
+progress** on branch `b01-006-header-correction`, under the same responsible and review identity.
+It authorizes the bounded implementation and local verification below but does not supply In review
+or controlled acceptance.
+
+The client's subsequent “let's promote it” direction moves the focused correction In progress →
+**In review** after the public contract, compact/wide composition, keyboard/visual-order,
+forced-compact, localized-name and regression work passed the local `T0` gates. The
+[dated correction evidence](evidence/B01-006-header-correction-2026-09-28.md) records the results
+and sanitized visual review. Exact review-head hosted `T1` and explicit controlled acceptance are
+still required before Done can be restored.
 
 ## Reopening trigger and focused correction
 
@@ -146,11 +161,11 @@ The final checkbox remains an external production gate. `LANG-01` owns final lan
 
 ## Reopened correction completion boundary
 
-- [ ] Public API and all controlled callers use explicit layout mode and governed identity naming.
-- [ ] Compact closed/open and wide compositions satisfy the correction acceptance contract without duplicate controls.
-- [ ] Rendered keyboard order agrees with visual block order in responsive and forced-compact modes.
-- [ ] Static and rendered regressions fail on each reviewed defect and pass the complete viewport, language and capability matrix.
-- [ ] Sanitized correction captures receive visual review and the dated correction evidence records targeted and full local gates.
+- [x] Public API and all controlled callers use explicit layout mode and governed identity naming.
+- [x] Compact closed/open and wide compositions satisfy the correction acceptance contract without duplicate controls.
+- [x] Rendered keyboard order agrees with visual block order in responsive and forced-compact modes.
+- [x] Static and rendered regressions fail on each reviewed defect and pass the complete viewport, language and capability matrix.
+- [x] Sanitized correction captures receive visual review and the dated correction evidence records targeted and full local gates.
 - [ ] Exact review-head hosted `T1`, controlled acceptance, checked merge and exact-main CI are recorded before Done is restored.
 
 ## References

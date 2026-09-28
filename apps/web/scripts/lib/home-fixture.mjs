@@ -27,7 +27,9 @@ export function homeFixture(state = 'static') {
       skipLinkLabel: 'Skip to main content',
       header: {
         brandName: 'Hallelujah Hospital — controlled identity', homeHref: '#main-content',
+        homeLabel: 'Hallelujah Hospital controlled home', identityLanguage: 'en',
         menuLabel: 'Menu', primaryNavigationLabel: 'Primary',
+        navigationMode: state === 'long-labels' ? 'compact' : 'responsive',
         navigationItems: [tasks.doctor, tasks.service, tasks.appointment, tasks.directions],
         searchItem: tasks.search,
       },

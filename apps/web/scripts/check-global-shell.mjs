@@ -3,18 +3,24 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const applicationRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const [shell, enhancement, styles, fixture, pageFrame] = await Promise.all([
+const [shell, enhancement, styles, fixture, pageFrame, homeFixture, emergencyFixture, appointmentFixture] = await Promise.all([
   read('src/design-system/components/global-shell.tsx'),
   read('public/shell-navigation.js'),
   read('src/design-system/components/global-shell.module.css'),
   read('src/design-system/templates/essential-actions-fixture-template.tsx'),
   read('src/design-system/primitives/page-frame.tsx'),
+  read('scripts/lib/home-fixture.mjs'),
+  read('scripts/lib/emergency-fixture.mjs'),
+  read('scripts/lib/appointment-page-fixture.mjs'),
 ])
 const failures = []
 
 const requiredShellContracts = [
   ['semantic banner', /<header[\s\S]*data-site-header/u],
   ['governed optional brand mark', /brandMark \?[\s\S]*aria-hidden="true"[\s\S]*\{brandMark\}/u],
+  ['governed localized identity name', /aria-label=\{homeLabel\}[\s\S]*lang=\{identityLanguage\}/u],
+  ['non-empty identity contract', /if \(!homeLabel\.trim\(\)\) throw new Error/u],
+  ['explicit navigation mode', /data-navigation-mode=\{navigationMode\}/u],
   ['single labeled primary navigation', /<nav aria-label=\{label\}[\s\S]*data-primary-navigation/u],
   ['navigation list', /data-primary-navigation[\s\S]*<ul>[\s\S]*<li/u],
   ['current page semantics', /aria-current=\{item\.current \? 'page'/u],
@@ -28,6 +34,8 @@ const requiredShellContracts = [
   ['focusable main target', /<main id=\{mainId\} tabIndex=\{-1\}>/u],
   ['native popover trigger', /<button[\s\S]*popoverTarget="primary-navigation-panel"/u],
   ['native popover panel', /id="primary-navigation-panel"[\s\S]*popover="auto"/u],
+  ['distinct emergency before disclosure', /data-shell-emergency[\s\S]*data-navigation-panel/u],
+  ['complete compact disclosure', /data-navigation-panel[\s\S]*<PrimaryNavigation[\s\S]*data-shell-utilities[\s\S]*data-shell-routine/u],
   ['first-party deferred enhancement', /<script data-shell-navigation-script defer src="\/shell-navigation\.js"/u],
 ]
 
@@ -37,6 +45,9 @@ for (const [label, pattern] of requiredShellContracts) {
 
 if (/\b(?:flag|emoji)\b/iu.test(shell)) {
   failures.push('shell source: language choices cannot use flags or emoji')
+}
+if (/\$\{brandName\}\s+home/u.test(shell)) {
+  failures.push('shell source: identity naming cannot append a hard-coded English home token')
 }
 
 const requiredEnhancementContracts = [
@@ -57,7 +68,8 @@ if (/\b(?:fetch|XMLHttpRequest|sendBeacon|WebSocket|localStorage|sessionStorage)
 const requiredStyleContracts = [
   ['44 px token target', /min-block-size:\s*var\(--component-shell-target-minimum\)/u],
   ['compact popover baseline', /\.navigationPanel[\s\S]*overflow-y:\s*auto/u],
-  ['single wide navigation tree', /@media \(min-width: 64rem\)[\s\S]*\.navigationPanel\[popover\][\s\S]*display:\s*block/u],
+  ['single wide navigation tree', /@media \(min-width: 64rem\)[\s\S]*\.navigationPanel\[popover\][\s\S]*display:\s*grid/u],
+  ['explicit responsive wide mode', /\.header\[data-navigation-mode='responsive'\] \.navigationPanel\[popover\]/u],
   ['wrapping primary navigation', /\.primaryNavigation ul[\s\S]*flex-wrap:\s*wrap/u],
   ['non-color current marker', /\[aria-current='page'\][\s\S]*border-/u],
   ['wrapping breadcrumb', /\.breadcrumbs ol[\s\S]*flex-wrap:\s*wrap/u],
@@ -76,6 +88,9 @@ if (/(?:#[\da-f]{3,8}\b|\brgba?\()/iu.test(styles)) {
 if (/overflow-x:\s*hidden/u.test(styles)) {
   failures.push('shell styles: horizontal overflow must be fixed, not hidden')
 }
+if (/\.headerUtilities\s*\{[^}]*grid-row:\s*1/gu.test(styles)) {
+  failures.push('shell styles: utilities cannot be visually reordered ahead of navigation')
+}
 
 for (const marker of [
   'data-global-shell-fixture',
@@ -84,8 +99,25 @@ for (const marker of [
   'They do not mount or publish the proposed routes',
   '<SiteShell',
   '<LanguageSwitcher',
+  'homeLabel:',
+  'identityLanguage:',
+  'navigationMode:',
+  "searchParameters['shell-review']",
 ]) {
   if (!fixture.includes(marker)) failures.push(`controlled fixture: missing ${marker}`)
+}
+
+for (const [label, source] of [
+  ['Home', homeFixture],
+  ['Emergency', emergencyFixture],
+  ['Appointment', appointmentFixture],
+]) {
+  for (const marker of ['homeLabel:', 'identityLanguage:', 'navigationMode:']) {
+    if (!source.includes(marker)) failures.push(`${label} fixture: missing ${marker}`)
+  }
+  if (!/navigationMode:[^\n]+\? 'compact' : 'responsive'/u.test(source)) {
+    failures.push(`${label} fixture: expanded labels do not force compact navigation`)
+  }
 }
 
 if (!/tabIndex=\{-1\}/u.test(pageFrame)) {
