@@ -4,8 +4,9 @@
 | --- | --- |
 | Branch | `b03-017-appointment-page` |
 | Scope | Synthetic English local T0 and private hosted T1 preparation only |
-| Status | In review; all required local T0 implementation evidence passes |
+| Status | Done for controlled development; final closeout CI and checked merge pending |
 | Tracking | [issue #74](https://github.com/dynamicet/hallelujah-website/issues/74) |
+| Review | [PR #75](https://github.com/dynamicet/hallelujah-website/pull/75) |
 | Collection | Disabled; no public Appointment route or token issuer exists |
 | Providers | Disabled; no WhatsApp, Telegram or other external request exists |
 | Production/publication authority | Not granted |
@@ -53,9 +54,31 @@ successful rerun used the repository-supported override and exact pinned `fontTo
 `brotli 1.2.0`. A later clean-rebuild session was interrupted externally and restarted from a
 fresh temporary copy; its complete rerun passed.
 
-## Remaining review gates
+## Controlled acceptance
 
-Hosted exact-head T1 and explicit controlled acceptance remain required before Done.
-B03-011/APPT-01, LANG-01, authentic CARE-01/CARE-04 selectors, final privacy and
-operations approval, named recipients/staff access, B03-018 provider delivery, SEC-02, DEL-01,
-remote persistence, production and publication remain gated.
+The client directed “B03-017 is In Review, close out”. B03-017 moves In review → **Done** for
+controlled development under `befikadusata` as responsible and controlled acceptance person,
+directing Codex in temporary Frontend, Backend-contract and QA roles on 28 September 2026,
+Africa/Addis_Ababa. The target remains synthetic local T0/private hosted T1 under the working
+B00-016 matrix.
+
+Accepted implementation head: `e4c2070644f35667a9cb71b0f0de4934db152d19`. Matching hosted
+[run 36429200636](https://github.com/dynamicet/hallelujah-website/actions/runs/36429200636)
+passes every step: focused server-rendered and browser Appointment matrices, optimized-build
+isolation, disabled-collection policy, history secret scan, dependency audit, full repository
+verification, isolated appointment migration/permission/restore and independent frozen clean
+reconstruction. All recorded local gates pass and no scoped controlled-implementation defect
+remains open. The corrected implementation and execution-environment attempts remain in this
+evidence record.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #75](https://github.com/dynamicet/hallelujah-website/pull/75). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #74](https://github.com/dynamicet/hallelujah-website/issues/74)
+and PR #75. Dependent execution waits for passing exact-main CI. B03-018 is not promoted by this
+acceptance.
+
+## Remaining gates
+
+B03-011/APPT-01, LANG-01, authentic CARE-01/CARE-04 selectors, final privacy and operations
+approval, named recipients/staff access, B03-018 provider delivery, SEC-02, DEL-01, remote
+persistence, personal-data collection, production and publication remain gated.

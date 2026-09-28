@@ -1440,3 +1440,28 @@ dependency audit, reachable-history secret scan and sanitized visual review. The
 still has no public Appointment page route; collection and providers remain disabled. Hosted
 exact-head CI and explicit controlled acceptance remain required before Done, and the unresolved
 gates listed above remain unchanged.
+
+## B03-017 controlled acceptance — 28 September 2026
+
+The client directed “B03-017 is In Review, close out”. B03-017 moves In review → **Done** for
+controlled development under `befikadusata` as responsible and controlled acceptance person,
+directing Codex in temporary Frontend, Backend-contract and QA roles on 28 September 2026,
+Africa/Addis_Ababa. The target remains synthetic local T0/private hosted T1 under the working
+B00-016 matrix.
+
+Accepted implementation head `e4c2070644f35667a9cb71b0f0de4934db152d19` has matching hosted
+[run 36429200636](https://github.com/dynamicet/hallelujah-website/actions/runs/36429200636), which
+passes every hosted gate. The
+[completion evidence](evidence/B03-017-controlled-appointment-page-2026-09-26.md#controlled-acceptance)
+retains the local and hosted proofs; no scoped controlled-implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #75](https://github.com/dynamicet/hallelujah-website/pull/75). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #74](https://github.com/dynamicet/hallelujah-website/issues/74)
+and PR #75. Dependent execution waits for passing exact-main CI. B03-018 is not promoted by this
+acceptance.
+
+This closeout accepts only the synthetic, English-only loopback/noindex composition. B03-011/
+APPT-01, LANG-01, authentic CARE-01/CARE-04 selectors, final privacy and operations approval,
+named recipients and staff access, B03-018 provider delivery, SEC-02, DEL-01, remote persistence,
+personal-data collection, production and publication remain gated.
