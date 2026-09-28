@@ -165,6 +165,10 @@ try {
           submitDisabled: document.querySelector('[data-form-submit]')?.disabled,
           visibleStates: [...document.querySelectorAll('[data-form-status]:not([hidden])')].map(el => el.dataset.formStatus),
           text: document.body.innerText,
+          languageReason: (() => {
+            const unavailable = document.querySelector('[data-language-switcher] [aria-disabled="true"]');
+            return document.getElementById(unavailable?.getAttribute('aria-describedby'))?.textContent.trim();
+          })(),
         })`)
         const label = `${state}/${width}/${capability}`
         assert.equal(result.overflow, false, `${label}: ${JSON.stringify({ viewport: result.viewport, elements: result.overflowElements })}`)
@@ -185,7 +189,7 @@ try {
         assert.equal(result.level, '0', label)
         assert.match(result.text, /Controlled preview only/u, label)
         assert.match(result.text, /Patient Experience Team — synthetic recipient label/u, label)
-        assert.match(result.text, /Approved Amharic appointment wording is unavailable/u, label)
+        assert.match(result.languageReason, /Approved Amharic appointment wording is unavailable/u, label)
         assert.doesNotMatch(result.text, /WhatsApp|Telegram|response within|we will call/iu, label)
         assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)
         if (capability === 'no-js' && !unavailable) assert.equal(result.submitDisabled, true, label)

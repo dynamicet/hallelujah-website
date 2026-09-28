@@ -37,13 +37,18 @@ export interface LanguageSwitcherProps {
   readonly label: string
 }
 
+export type SiteHeaderNavigationMode = 'compact' | 'responsive'
+
 export interface SiteHeaderProps {
   readonly brandMark?: ReactNode
   readonly brandName: string
   readonly emergencyAction: ReactNode
   readonly homeHref: string
+  readonly homeLabel: string
+  readonly identityLanguage: string
   readonly languageSwitcher: ReactNode
   readonly menuLabel: string
+  readonly navigationMode: SiteHeaderNavigationMode
   readonly navigationItems: readonly NavigationItem[]
   readonly primaryNavigationLabel: string
   readonly routineAction?: ReactNode
@@ -146,17 +151,32 @@ export function SiteHeader({
   brandName,
   emergencyAction,
   homeHref,
+  homeLabel,
+  identityLanguage,
   languageSwitcher,
   menuLabel,
+  navigationMode,
   navigationItems,
   primaryNavigationLabel,
   routineAction,
   searchItem,
 }: SiteHeaderProps) {
+  if (!homeLabel.trim()) throw new Error('SiteHeader homeLabel must not be empty')
+
   return (
-    <header className={styles.header} data-site-header>
+    <header
+      className={styles.header}
+      data-navigation-mode={navigationMode}
+      data-site-header
+    >
       <div className={styles.headerInner}>
-        <Link aria-label={`${brandName} home`} className={styles.identity} href={homeHref}>
+        <Link
+          aria-label={homeLabel}
+          className={styles.identity}
+          data-shell-identity
+          href={homeHref}
+          lang={identityLanguage}
+        >
           {brandMark ? (
             <span aria-hidden="true" className={styles.brandMark}>
               {brandMark}
@@ -164,6 +184,10 @@ export function SiteHeader({
           ) : null}
           <span>{brandName}</span>
         </Link>
+
+        <div className={styles.headerEmergency} data-shell-emergency>
+          {emergencyAction}
+        </div>
 
         <button
           aria-controls="primary-navigation-panel"
@@ -181,6 +205,7 @@ export function SiteHeader({
           </span>
           <span>{menuLabel}</span>
         </button>
+
         <div
           className={styles.navigationPanel}
           data-navigation-panel
@@ -189,22 +214,22 @@ export function SiteHeader({
           tabIndex={-1}
         >
           <PrimaryNavigation items={navigationItems} label={primaryNavigationLabel} />
-        </div>
-
-        <div className={styles.headerUtilities}>
-          <Link
-            aria-current={searchItem.current ? 'page' : undefined}
-            className={styles.utilityLink}
-            href={searchItem.href}
-          >
-            {searchItem.label}
-          </Link>
-          {languageSwitcher}
-        </div>
-
-        <div className={styles.headerActions} data-shell-actions>
-          {emergencyAction}
-          {routineAction}
+          <div className={styles.headerUtilities} data-shell-utilities>
+            <Link
+              aria-current={searchItem.current ? 'page' : undefined}
+              className={styles.utilityLink}
+              data-shell-search
+              href={searchItem.href}
+            >
+              {searchItem.label}
+            </Link>
+            {languageSwitcher}
+          </div>
+          {routineAction ? (
+            <div className={styles.headerRoutine} data-shell-routine>
+              {routineAction}
+            </div>
+          ) : null}
         </div>
       </div>
     </header>

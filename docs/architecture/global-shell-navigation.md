@@ -1,7 +1,16 @@
 # Global Shell and Navigation Architecture
 
 **Backlog authority:** `B01-006`  
-**Status:** Complete for controlled development; production and publication gates remain open
+**Status:** Focused controlled-development correction accepted on 28 September 2026; final
+acceptance-documentation CI, checked merge and exact-main closeout remain pending, while
+production/publication gates remain open
+
+## Reopened correction boundary
+
+Review of the current implementation found that wide CSS reorders visible header regions relative
+to DOM/keyboard order, compact disclosure contains only primary navigation, there is no explicit
+forced-compact mode, and identity naming appends an English-only token. The target architecture
+below is binding for the correction; the historical evidence does not accept these reopened cases.
 
 ## Boundary
 
@@ -13,9 +22,18 @@ hospital facts, contacts, translations, providers, collection, or external asset
 
 ## Responsive navigation model
 
-One `nav` list is used at every viewport. Wide layouts place that list directly in the header grid.
-Compact layouts expose the same list through the browser-native Popover API. This prevents desktop
-and mobile copies from drifting in route order, current-page state, accessible names, or content.
+One `nav` list is used at every viewport. Wide layouts place that list and the associated Search,
+Language and routine actions directly in the header without changing their logical source/focus
+sequence. Compact layouts expose those same controls through the browser-native Popover API while
+keeping governed identity, Menu and the distinct Emergency action available in the closed header.
+This prevents desktop and mobile copies from drifting in route order, current-page state,
+accessible names or content. CSS placement must agree with the source and sequential keyboard
+order; positive `tabindex` is not an ordering mechanism.
+
+`SiteHeader` accepts an explicit generic `responsive | compact` layout mode. Shell orchestration,
+not label-text inspection inside the component, selects forced compact for Amharic and configured
+expanded-navigation cases. Forced compact remains active at wide viewports and is covered as a
+first-class rendered state.
 
 The native trigger and `popover="auto"` baseline work without JavaScript. Escape and light-dismiss
 behavior remain browser-owned. A deferred first-party script served from `/shell-navigation.js`
@@ -32,8 +50,9 @@ that a hydrated React client boundary would impose on the currently static route
 ## Component contracts
 
 - `SiteShell` owns one skip target, one main landmark, and the footer boundary.
-- `SiteHeader` accepts governed route labels, an optional governed brand-mark slot, and action slots;
-  it does not invent or own hospital identity assets or facts.
+- `SiteHeader` accepts governed route labels, a governed current-language identity-link label, an
+  optional governed brand-mark slot, explicit layout mode, and action slots; it does not construct
+  English naming or invent/own hospital identity assets or facts.
 - `PrimaryNavigation` emits a semantic list and an `aria-current="page"` state with a persistent
   border marker.
 - `Breadcrumbs` wraps naturally and represents the current item as text.
@@ -49,7 +68,10 @@ checks. Final route labels remain governed by `LANG-01`; verified contact data r
 ## Evidence and residual gates
 
 The repeatable source contract is `pnpm shell:check`; the rendered matrix is `pnpm shell:smoke`.
-Sanitized captures and results are indexed in the
-[`B01-006` evidence record](../backlog/evidence/B01-006-global-shell-navigation-2026-09-14.md).
+The [historical implementation evidence](../backlog/evidence/B01-006-global-shell-navigation-2026-09-14.md)
+and [reopening review](../backlog/evidence/B01-006-header-review-2026-09-28.md) are retained. The
+[dated correction record](../backlog/evidence/B01-006-header-correction-2026-09-28.md) and exact
+review-head hosted `T1` support controlled acceptance; final acceptance-documentation CI, checked
+merge and passing exact-main CI remain to be recorded.
 Physical-device, screen-reader, switch-control, professional Amharic, final-content, and production
 acceptance remain outside this controlled implementation result.

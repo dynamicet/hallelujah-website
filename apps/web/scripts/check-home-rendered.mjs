@@ -134,6 +134,10 @@ try {
         videoSource: !!document.querySelector('video[src],track[src]'),
         accentEnabled: document.querySelector('[data-motion-accent]').dataset.motionEnabled,
         text: document.body.innerText,
+        languageReason: (() => {
+          const unavailable = document.querySelector('[data-language-switcher] [aria-disabled="true"]');
+          return document.getElementById(unavailable?.getAttribute('aria-describedby'))?.textContent.trim();
+        })(),
         hasFields: !!document.querySelector('form,input,iframe'),
         contactState: document.querySelector('[data-home-contact-state]')?.dataset.homeContactState,
         contactFacts: [...document.querySelectorAll('[data-home-contact-fact]')].map(el => ({key: el.dataset.homeContactFact, label: el.querySelector('dt').innerText, value: el.querySelector('dd').innerText})),
@@ -169,7 +173,7 @@ try {
           assert.doesNotMatch(result.text, /555|hospital\.invalid|Synthetic address/u)
         }
       }
-      assert.match(result.text, /An approved Amharic Home page is not available/u)
+      assert.match(result.languageReason, /An approved Amharic Home page is not available/u)
       if (governed) {
         const sections = await evaluate(`[...document.querySelectorAll('[data-home-governed-section]')].map(el => el.dataset.homeGovernedSection)`)
         const expected = ({

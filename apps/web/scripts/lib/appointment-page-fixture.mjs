@@ -69,7 +69,10 @@ export function appointmentPageFixture(state = 'controlled') {
       header: {
         brandName: 'Hallelujah Hospital — controlled identity',
         homeHref: '#appointment-title',
+        homeLabel: 'Hallelujah Hospital controlled Appointment home',
+        identityLanguage: 'en',
         menuLabel: 'Menu',
+        navigationMode: expanded ? 'compact' : 'responsive',
         navigationItems: unavailable
           ? [links.appointment, links.support]
           : [links.appointment, links.care, links.states, links.support],
