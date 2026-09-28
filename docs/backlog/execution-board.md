@@ -1398,3 +1398,70 @@ and exact-main result must be retained in [issue #72](https://github.com/dynamic
 and PR #73. Dependent execution waits for passing exact-main CI. B03-017 is not promoted by this
 acceptance, and no collection, remote persistence, authentic data, provider, staff access,
 production or publication authority is granted.
+
+## B03-016 exact-main closeout — 25 September 2026
+
+Final acceptance-documentation
+[run 36108985856](https://github.com/dynamicet/hallelujah-website/actions/runs/36108985856)
+passed for exact head `9b5577482045c276fcda101220aba94d4ae933e7`.
+[PR #73](https://github.com/dynamicet/hallelujah-website/pull/73) then merged as
+`aa92d695302de3fa5b153c3bc8e756dcd70593e8`, automatically closing
+[issue #72](https://github.com/dynamicet/hallelujah-website/issues/72). Exact-main
+[run 36110485980](https://github.com/dynamicet/hallelujah-website/actions/runs/36110485980)
+passed for that merge commit. This clears the dependent-execution pause and completes B03-016
+closeout. B03-017 may now undergo its own controlled-readiness review but is not promoted by this
+record. Personal-data collection, authentic content, external messaging providers, staff access,
+remote persistence, production and publication remain disabled.
+
+## B03-017 controlled Appointment implementation start — 26 September 2026
+
+The client directed use of synthetic content and an English-only controlled implementation, with
+“Patient Experience Team” as a synthetic recipient label. B03-017 moves Proposed → Ready → **In
+progress** on `b03-017-appointment-page` under `befikadusata` directing Codex in temporary
+Frontend, Backend-contract and QA roles, with the same identity as controlled-development review
+authority. [Issue #74](https://github.com/dynamicet/hallelujah-website/issues/74) and the
+[execution brief](b03-017-controlled-appointment-page.md) govern the pull.
+
+The controlled sequencing exception permits an English-only A0–A8 loopback/noindex composition
+using visibly synthetic selectors and operating labels. It mounts no public `/appointments/`
+route, accepts or persists no request, keeps `PERSONAL_DATA_COLLECTION=disabled`, and activates no
+recipient account, staff access, WhatsApp, Telegram or other provider. A later approved messaging
+integration remains notification-only; database acceptance remains authoritative.
+
+B03-011/APPT-01, LANG-01, authentic CARE-01/CARE-04 selectors, final privacy/operations approval,
+named recipients and staff access, SEC-02, B03-018–B03-019, DEL-01, remote persistence, production
+and publication remain unresolved. This controlled start closes none of those gates.
+
+On 28 September 2026, B03-017 moves In progress → **In review** after all required local T0 gates
+passed. The [execution evidence](evidence/B03-017-controlled-appointment-page-2026-09-26.md)
+records the 20-case server-rendered contract, 284-case responsive/capability/interaction matrix,
+production build, full repository verification, independent frozen clean reconstruction,
+dependency audit, reachable-history secret scan and sanitized visual review. The optimized build
+still has no public Appointment page route; collection and providers remain disabled. Hosted
+exact-head CI and explicit controlled acceptance remain required before Done, and the unresolved
+gates listed above remain unchanged.
+
+## B03-017 controlled acceptance — 28 September 2026
+
+The client directed “B03-017 is In Review, close out”. B03-017 moves In review → **Done** for
+controlled development under `befikadusata` as responsible and controlled acceptance person,
+directing Codex in temporary Frontend, Backend-contract and QA roles on 28 September 2026,
+Africa/Addis_Ababa. The target remains synthetic local T0/private hosted T1 under the working
+B00-016 matrix.
+
+Accepted implementation head `e4c2070644f35667a9cb71b0f0de4934db152d19` has matching hosted
+[run 36429200636](https://github.com/dynamicet/hallelujah-website/actions/runs/36429200636), which
+passes every hosted gate. The
+[completion evidence](evidence/B03-017-controlled-appointment-page-2026-09-26.md#controlled-acceptance)
+retains the local and hosted proofs; no scoped controlled-implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #75](https://github.com/dynamicet/hallelujah-website/pull/75). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #74](https://github.com/dynamicet/hallelujah-website/issues/74)
+and PR #75. Dependent execution waits for passing exact-main CI. B03-018 is not promoted by this
+acceptance.
+
+This closeout accepts only the synthetic, English-only loopback/noindex composition. B03-011/
+APPT-01, LANG-01, authentic CARE-01/CARE-04 selectors, final privacy and operations approval,
+named recipients and staff access, B03-018 provider delivery, SEC-02, DEL-01, remote persistence,
+personal-data collection, production and publication remain gated.

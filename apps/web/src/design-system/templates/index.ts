@@ -17,3 +17,8 @@ export { HomeGovernedContent } from './home-governed-content'
 export type { HomeGovernedContentProps } from './home-governed-content'
 export { EmergencyTemplate } from './emergency-template'
 export type { EmergencyRouteChoice, EmergencyTemplateProps } from './emergency-template'
+export { AppointmentTemplate } from './appointment-template'
+export type {
+  AppointmentReviewStateKind,
+  AppointmentTemplateProps,
+} from './appointment-template'

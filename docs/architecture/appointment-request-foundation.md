@@ -28,6 +28,28 @@ public references are absent from audit events. B03-017 must supply the host-onl
 cookie, random intent and form; activation review must confirm the deployment's trusted client-
 signal strategy before the route can be enabled.
 
+## Controlled Appointment presentation boundary
+
+The [B03-017 controlled execution brief](../backlog/b03-017-controlled-appointment-page.md) adds a
+reusable server-rendered A0–A8 template without mounting `/appointments/`. Its review adapter is a
+loopback-only HTTP server under `apps/web/scripts/`; the fixture, renderer, server and browser-only
+enhancement remain outside the application import graph and deployable public assets. The adapter
+accepts only GET/HEAD on an exact loopback host, rejects query state and bodies, and returns
+`no-store`, `noindex`, `connect-src 'none'` and `form-action 'none'` controls.
+
+The preview demonstrates conditional synthetic doctor/service selection, persistent labels,
+privacy-boundary acknowledgment, linked error summary/focus, pending, known failure, unknown
+outcome, reconciliation, receipt and delivery-warning presentation. Its enhancement calls
+`preventDefault()` before local validation and contains no fetch, storage, cookie, URL-state or
+logging path. Without JavaScript, the submit control remains disabled; CSP separately prevents an
+implicit form navigation.
+
+This controlled slice deliberately does not issue a CSRF cookie or idempotency key and cannot call
+the POST route. Those values may be issued only from a same-host server boundary when collection is
+separately approved and enabled. The eventual adapter must map the existing POST statuses to the
+reviewed UI states without treating a notification as acceptance. PostgreSQL remains authoritative;
+B03-018 owns WhatsApp, Telegram or any other separately approved notification provider.
+
 ## Data access and authorization
 
 `PostgresAppointmentRepository` is the sole application data-access adapter. The environment

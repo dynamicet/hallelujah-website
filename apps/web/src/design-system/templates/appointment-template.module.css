@@ -1,0 +1,211 @@
+.frame {
+  inline-size: 100%;
+  margin-inline: auto;
+  max-inline-size: calc(var(--semantic-size-reading) + 2 * var(--semantic-space-page));
+  padding-inline: var(--semantic-space-page);
+}
+
+.introduction,
+.section,
+.formSection {
+  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  padding-block: var(--semantic-space-section);
+}
+
+.introduction,
+.section,
+.formSection,
+.sectionHeading,
+.stateStack,
+.consent > span {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  grid-template-columns: minmax(0, 1fr);
+  min-inline-size: 0;
+}
+
+.introduction > *,
+.section > *,
+.formSection > *,
+.sectionHeading > *,
+.consent span,
+.errorSummary,
+.fieldError {
+  margin-block: 0;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.eyebrow,
+.panelLabel,
+.fixtureBoundary {
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--semantic-type-small-size);
+  line-height: var(--semantic-type-small-line);
+}
+
+.eyebrow,
+.panelLabel {
+  font-weight: var(--semantic-font-weight-strong);
+  letter-spacing: var(--semantic-type-eyebrow-tracking);
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: var(--semantic-type-body-large-size);
+  line-height: var(--semantic-type-body-large-line);
+}
+
+.fixtureNotice,
+.warning,
+.privacy,
+.support,
+.unavailable,
+.errorSummary,
+.noScriptBoundary {
+  border: var(--semantic-border-emphasis) solid currentColor;
+  border-radius: var(--semantic-radius-card);
+  padding: var(--semantic-space-page);
+}
+
+.fixtureNotice,
+.warning {
+  background: var(--semantic-color-surface-error);
+  color: var(--semantic-color-text-error);
+}
+
+.privacy {
+  background: var(--semantic-color-surface-information);
+  color: var(--semantic-color-text-information);
+}
+
+.support,
+.unavailable {
+  background: var(--semantic-color-surface-subtle);
+}
+
+.errorSummary {
+  background: var(--semantic-color-surface-error);
+  color: var(--semantic-color-text-error);
+}
+
+.errorSummary[hidden],
+.errorSummary li[hidden],
+.careSelector[hidden],
+.statePanel > [hidden] {
+  display: none;
+}
+
+.errorSummary:focus-visible {
+  outline: var(--semantic-border-focus) solid var(--semantic-color-focus);
+  outline-offset: var(--semantic-border-focus);
+}
+
+.errorSummary ul {
+  display: grid;
+  gap: var(--semantic-space-compact);
+  margin: 0;
+  padding-inline-start: var(--semantic-space-page);
+}
+
+.errorSummary a {
+  align-items: center;
+  color: currentColor;
+  display: flex;
+  min-block-size: var(--semantic-size-touch);
+}
+
+.consent {
+  align-items: start;
+  cursor: pointer;
+  display: grid;
+  gap: var(--semantic-space-regular);
+  grid-template-columns: auto minmax(0, 1fr);
+  min-block-size: var(--semantic-size-touch);
+  padding-block: var(--semantic-space-compact);
+}
+
+.consent input {
+  block-size: var(--semantic-space-page);
+  inline-size: var(--semantic-space-page);
+  margin: var(--semantic-space-fine) 0 0;
+}
+
+.consent span span {
+  font-size: var(--semantic-type-small-size);
+  line-height: var(--semantic-type-small-line);
+}
+
+.fieldError {
+  color: var(--semantic-color-text-error);
+  font-size: var(--semantic-type-small-size);
+  line-height: var(--semantic-type-small-line);
+}
+
+.noScriptBoundary {
+  background: var(--semantic-color-surface-warning);
+  color: var(--semantic-color-text-warning);
+}
+
+@media (min-width: 48rem) {
+  .frame {
+    max-inline-size: calc(var(--semantic-size-reading) + 2 * var(--semantic-space-gutter-regular));
+    padding-inline: var(--semantic-space-gutter-regular);
+  }
+}
+
+@media (min-width: 64rem) {
+  .frame {
+    max-inline-size: calc(var(--semantic-size-reading) + 2 * var(--semantic-space-gutter-wide));
+    padding-inline: var(--semantic-space-gutter-wide);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame * {
+    scroll-behavior: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .fixtureNotice,
+  .warning,
+  .privacy,
+  .support,
+  .unavailable,
+  .errorSummary,
+  .noScriptBoundary {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+
+  .consent input[aria-invalid='true'] {
+    outline: var(--semantic-border-focus) double CanvasText;
+  }
+}
+
+@media print {
+  .frame {
+    max-inline-size: none;
+    padding: 0;
+  }
+
+  .introduction,
+  .section,
+  .formSection {
+    break-inside: avoid;
+    padding-block: var(--semantic-space-regular);
+  }
+
+  .fixtureNotice,
+  .warning,
+  .privacy,
+  .support,
+  .unavailable,
+  .errorSummary,
+  .noScriptBoundary {
+    background: transparent;
+    color: CanvasText;
+  }
+}

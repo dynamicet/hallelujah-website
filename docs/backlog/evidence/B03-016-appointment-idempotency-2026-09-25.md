@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b03-016-appointment-idempotency` |
 | Scope | Synthetic local T0 and private hosted T1 only |
-| Status | Done for controlled development; final closeout CI and checked merge tracked below |
+| Status | Done for controlled development; checked merge and exact-main closeout complete |
 | Tracking | [issue #72](https://github.com/dynamicet/hallelujah-website/issues/72) |
 | Review | [PR #73](https://github.com/dynamicet/hallelujah-website/pull/73) |
 | Collection | Disabled; route returns `503` before configuration or body processing |
@@ -59,11 +59,15 @@ independent frozen clean reconstruction. All recorded local gates pass and no sc
 controlled-implementation defect remains open. The corrected restricted-sandbox and asset-tool
 setup attempts remain in this evidence record.
 
-Final acceptance-documentation CI must pass for its exact SHA before checked merge of
-[PR #73](https://github.com/dynamicet/hallelujah-website/pull/73). Its matching SHA/run, merge SHA
-and exact-main result must be retained in [issue #72](https://github.com/dynamicet/hallelujah-website/issues/72)
-and PR #73. Dependent execution waits for passing exact-main CI. B03-017 is not promoted by this
-acceptance.
+Final acceptance-documentation
+[run 36108985856](https://github.com/dynamicet/hallelujah-website/actions/runs/36108985856)
+passed for exact head `9b5577482045c276fcda101220aba94d4ae933e7`.
+[PR #73](https://github.com/dynamicet/hallelujah-website/pull/73) then merged as
+`aa92d695302de3fa5b153c3bc8e756dcd70593e8` on 25 September 2026. Exact-main
+[run 36110485980](https://github.com/dynamicet/hallelujah-website/actions/runs/36110485980)
+passed for that merge commit, and [issue #72](https://github.com/dynamicet/hallelujah-website/issues/72)
+is closed. The checked merge and exact-main evidence clear the dependent-execution pause and
+complete B03-016 closeout. B03-017 is not promoted by this acceptance.
 
 Hospital/privacy/security approvals, authentic selectors/notices, personal-data collection, staff
 access, providers, remote infrastructure, production and all activation/release gates remain open.
