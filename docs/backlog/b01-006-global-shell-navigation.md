@@ -1,7 +1,6 @@
 # `B01-006` — Global Shell and Navigation
 
-**Status:** Done for the focused controlled-development correction; final acceptance-documentation
-CI, checked merge and exact-main closeout remain pending
+**Status:** Done for the focused controlled-development correction; exact-main closeout complete
 
 **Execution date:** 14 September 2026, Africa/Addis_Ababa
 
@@ -175,7 +174,20 @@ The final checkbox remains an external production gate. `LANG-01` owns final lan
 - [x] Static and rendered regressions fail on each reviewed defect and pass the complete viewport, language and capability matrix.
 - [x] Sanitized correction captures receive visual review and the dated correction evidence records targeted and full local gates.
 - [x] Exact review-head hosted `T1` and controlled acceptance are recorded.
-- [ ] Final acceptance-documentation CI, checked merge and exact-main CI are recorded.
+- [x] Final acceptance-documentation CI, checked merge and exact-main CI are recorded.
+
+## Exact-main closeout — 28 September 2026
+
+Final acceptance-documentation
+[run 36460415859](https://github.com/dynamicet/hallelujah-website/actions/runs/36460415859)
+passed for exact head `a453d686834ebc981af0f43bb10c4c9337c1070d`.
+[PR #76](https://github.com/dynamicet/hallelujah-website/pull/76) then merged as
+`430ef0f29a7509f553377f9ce8ab9472c6180642`. Exact-main
+[run 36462238838](https://github.com/dynamicet/hallelujah-website/actions/runs/36462238838)
+passed for that merge commit, and [issue #10](https://github.com/dynamicet/hallelujah-website/issues/10)
+was closed with the matching evidence. This completes the focused B01-006 controlled-development
+closeout. Production/publication, authentic language/content, canonical contact, physical-device
+and assistive-technology gates remain with their owning controls.
 
 ## References
 

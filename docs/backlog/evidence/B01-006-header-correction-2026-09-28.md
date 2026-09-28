@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b01-006-header-correction` |
 | Scope | Focused global-header correction in synthetic local `T0` and private hosted `T1` |
-| Status | Done for the focused controlled-development correction; final acceptance-documentation CI and checked merge pending |
+| Status | Done for the focused controlled-development correction; exact-main closeout complete |
 | Responsible / review identity | `befikadusata` directing Codex in temporary Frontend Lead and QA roles / same controlled-review identity |
 | Tracking | Reopened [issue #10](https://github.com/dynamicet/hallelujah-website/issues/10) |
 | Review | Correction [PR #76](https://github.com/dynamicet/hallelujah-website/pull/76); implementation commit `bc76a58` |
@@ -85,3 +85,15 @@ Final acceptance-documentation CI must pass for its exact SHA before checked mer
 exact-main result must be retained in [issue #10](https://github.com/dynamicet/hallelujah-website/issues/10)
 and PR #76. `LANG-01`, `SAFE-01`, authentic content/translation, named production roles, public
 routes, providers, personal-data collection, deployment, production and publication remain gated.
+
+## Exact-main closeout
+
+Final acceptance-documentation
+[run 36460415859](https://github.com/dynamicet/hallelujah-website/actions/runs/36460415859)
+passed for exact head `a453d686834ebc981af0f43bb10c4c9337c1070d`.
+[PR #76](https://github.com/dynamicet/hallelujah-website/pull/76) then merged as
+`430ef0f29a7509f553377f9ce8ab9472c6180642`. Exact-main
+[run 36462238838](https://github.com/dynamicet/hallelujah-website/actions/runs/36462238838)
+passed for that merge commit, and [issue #10](https://github.com/dynamicet/hallelujah-website/issues/10)
+was closed with the same evidence. This completes the focused correction closeout. All production,
+publication and authentic-data gates below remain unchanged.
