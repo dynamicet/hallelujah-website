@@ -1465,3 +1465,18 @@ This closeout accepts only the synthetic, English-only loopback/noindex composit
 APPT-01, LANG-01, authentic CARE-01/CARE-04 selectors, final privacy and operations approval,
 named recipients and staff access, B03-018 provider delivery, SEC-02, DEL-01, remote persistence,
 personal-data collection, production and publication remain gated.
+
+## B03-017 exact-main closeout — 28 September 2026
+
+Final acceptance-documentation
+[run 36432057419](https://github.com/dynamicet/hallelujah-website/actions/runs/36432057419)
+passed for exact head `37b88354590837b017316b38a46f66464339e535`.
+[PR #75](https://github.com/dynamicet/hallelujah-website/pull/75) then merged as
+`6e8686fe6b768d0e13900d48c258755164e0d910`, automatically closing
+[issue #74](https://github.com/dynamicet/hallelujah-website/issues/74). Exact-main
+[run 36434020886](https://github.com/dynamicet/hallelujah-website/actions/runs/36434020886)
+passed for that merge commit. This clears the dependent-execution pause and completes B03-017
+closeout. B03-018 remains unpromoted and blocked by B00-014, B03-011, the activation boundary of
+B03-013, SEC-02 and provider approval. B03-019 consequently remains blocked by B03-018 and DEL-01.
+No personal-data collection, external delivery, staff access, remote persistence, production or
+publication authority is granted.

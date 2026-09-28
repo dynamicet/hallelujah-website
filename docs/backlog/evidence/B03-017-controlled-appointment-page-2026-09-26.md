@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b03-017-appointment-page` |
 | Scope | Synthetic English local T0 and private hosted T1 preparation only |
-| Status | Done for controlled development; final closeout CI and checked merge pending |
+| Status | Done for controlled development; exact-main closeout complete |
 | Tracking | [issue #74](https://github.com/dynamicet/hallelujah-website/issues/74) |
 | Review | [PR #75](https://github.com/dynamicet/hallelujah-website/pull/75) |
 | Collection | Disabled; no public Appointment route or token issuer exists |
@@ -76,6 +76,18 @@ Final acceptance-documentation CI must pass for its exact SHA before checked mer
 and exact-main result must be retained in [issue #74](https://github.com/dynamicet/hallelujah-website/issues/74)
 and PR #75. Dependent execution waits for passing exact-main CI. B03-018 is not promoted by this
 acceptance.
+
+## Exact-main closeout
+
+Final acceptance-documentation
+[run 36432057419](https://github.com/dynamicet/hallelujah-website/actions/runs/36432057419)
+passed for exact head `37b88354590837b017316b38a46f66464339e535`.
+[PR #75](https://github.com/dynamicet/hallelujah-website/pull/75) then merged as
+`6e8686fe6b768d0e13900d48c258755164e0d910`, automatically closing
+[issue #74](https://github.com/dynamicet/hallelujah-website/issues/74). Exact-main
+[run 36434020886](https://github.com/dynamicet/hallelujah-website/actions/runs/36434020886)
+passed for that merge commit. This clears the dependent-execution pause and completes B03-017
+closeout. B03-018 remains unpromoted; all activation and release gates below remain unchanged.
 
 ## Remaining gates
 
