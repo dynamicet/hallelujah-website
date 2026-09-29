@@ -27,3 +27,8 @@ export type {
   ClinicianDirectoryReviewState,
   ClinicianDirectoryTemplateProps,
 } from './clinician-directory-template'
+export { ClinicianProfileTemplate } from './clinician-profile-template'
+export type {
+  ClinicianProfileReviewState,
+  ClinicianProfileTemplateProps,
+} from './clinician-profile-template'
