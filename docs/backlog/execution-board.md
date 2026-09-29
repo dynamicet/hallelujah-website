@@ -1663,3 +1663,33 @@ passed for exact head `13fe2a6d0e5f75f3a4bac29e536c4e03521107d5`.
 [run 36578216932](https://github.com/dynamicet/hallelujah-website/actions/runs/36578216932)
 passed for that merge commit. B04-008 closeout is complete; the unresolved gates and B04-009 state
 remain unchanged.
+
+## B04-009 controlled clinician-profile start — 29 September 2026
+
+The client directed “start B04-009”. B04-009 moves Proposed → Ready → **In progress** on branch
+`b04-009-controlled-clinician-profile` under `befikadusata` directing Codex in temporary Frontend,
+Backend-contract and QA roles, with the same identity as controlled-development review authority,
+on 29 September 2026, Africa/Addis_Ababa. [Issue #81](https://github.com/dynamicet/hallelujah-website/issues/81)
+and the [execution brief](b04-009-controlled-clinician-profile.md) govern the pull. B02-004,
+B02-006 and B04-007–B04-008 are Done for controlled development, and B04-008 exact-main CI passed.
+
+The controlled sequencing exception permits a synthetic English P0–P7 clinician-profile
+composition through the existing governed clinician and care-relationship projections, with
+deterministic partial, missing-media, missing-relationship, route-failure, lifecycle and successor
+states. It remains a loopback-only noindex review tool. No public profile route, authentic roster,
+portrait, schedule, availability, staffed contact, active appointment action, provider, personal
+data, production or publication capability is authorized.
+
+B04-001–B04-003, B04-006, CARE-01–CARE-03, CARE-06, APPT-01, LANG-01/LANG-02 and DEL-01 remain
+unresolved. This start closes none of those gates and does not promote B04-010 or any later
+care-discovery ticket.
+
+B04-009 subsequently moves In progress → **In review** on 29 September 2026,
+Africa/Addis_Ababa, after its 29-case focused contract, 128-case responsive/capability browser
+matrix, predecessor clinician/directory/relationship suites, full configured repository gate,
+optimized-build route isolation, frozen clean reconstruction, dependency audit, reachable-history
+secret scan and diff-integrity check passed. The browser matrix exposed and corrected a 320 px at
+200% text portrait-fallback overflow and absent-section shell targets. The
+[sanitized evidence record](evidence/B04-009-controlled-clinician-profile-2026-09-29.md) retains
+the attempts, corrections and inspected visual specimens. Hosted exact-head T1 and explicit client
+controlled acceptance remain required before Done; B04-010 is not promoted.
