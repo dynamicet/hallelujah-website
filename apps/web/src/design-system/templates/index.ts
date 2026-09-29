@@ -22,3 +22,8 @@ export type {
   AppointmentReviewStateKind,
   AppointmentTemplateProps,
 } from './appointment-template'
+export { ClinicianDirectoryTemplate } from './clinician-directory-template'
+export type {
+  ClinicianDirectoryReviewState,
+  ClinicianDirectoryTemplateProps,
+} from './clinician-directory-template'

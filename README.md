@@ -62,6 +62,14 @@ The [B02-004 execution brief](docs/backlog/b02-004-governed-clinician-records.md
 [architecture](docs/architecture/governed-clinician-records.md) define its synthetic-only scope.
 Public clinicians, schedules, portraits and appointment actions remain withheld.
 
+The controlled clinician directory projects only synthetic governed clinician records into a
+loopback/noindex D0–D6 composition. Run `pnpm clinician-directory:check` for bounded GET search,
+filter, pagination, lifecycle and build-isolation contracts; use `pnpm clinician-directory:smoke`
+for its responsive capability matrix or `pnpm clinician-directory:preview` for local review. The
+[B04-007 execution brief](docs/backlog/b04-007-controlled-clinician-directory.md) and
+[architecture](docs/architecture/clinician-directory.md) keep the authentic roster, `/doctors/`,
+profiles, schedules, portraits, appointment actions and publication withheld.
+
 Controlled service records use the same authenticated CMS boundary. Run `pnpm services:check`
 for taxonomy, claim-level clinical approval, duplicate/lifecycle negatives and bilingual inert rendering.
 The [B02-005 execution brief](docs/backlog/b02-005-governed-service-records.md) and
