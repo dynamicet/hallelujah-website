@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b04-008-clinician-directory-validation` |
 | Scope | Synthetic English loopback T0/private T1 validation only |
-| Status | Done for controlled validation; final documentation CI and checked merge required |
+| Status | Done for controlled validation; checked merge and exact-main closeout complete |
 | Tracking | [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79) · [PR #80](https://github.com/dynamicet/hallelujah-website/pull/80) |
 | Public route | Absent; no `/doctors/` route is authorized |
 | Production/publication authority | Not granted |
@@ -80,3 +80,15 @@ acceptance.
 assistive-technology/content acceptance, authentic relevance and clinician data, public routes,
 profiles, providers, production and publication remain gated; controlled acceptance closes none of
 those dependencies or release gates.
+
+## Exact-main closeout
+
+Final acceptance-documentation
+[run 36575818482](https://github.com/dynamicet/hallelujah-website/actions/runs/36575818482)
+passed for exact head `13fe2a6d0e5f75f3a4bac29e536c4e03521107d5`.
+[PR #80](https://github.com/dynamicet/hallelujah-website/pull/80) then merged as
+`5726e1f87dae6735041b0b23a6173f606db7b531`, automatically closing
+[issue #79](https://github.com/dynamicet/hallelujah-website/issues/79). Exact-main
+[run 36578216932](https://github.com/dynamicet/hallelujah-website/actions/runs/36578216932)
+passed every gate for that merge commit, including independent frozen clean reconstruction. This
+completes B04-008 controlled-validation closeout without promoting B04-009 or any remaining gate.

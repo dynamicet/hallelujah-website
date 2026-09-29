@@ -2,8 +2,7 @@
 
 **Lane / priority / phase:** EVIDENCE / P1 / Phase 1 preparation
 
-**Status:** Done for controlled validation; final acceptance-documentation CI and checked merge
-tracked below
+**Status:** Done for controlled validation; checked merge and exact-main closeout complete
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary QA,
 Accessibility-test and Content-contract roles
@@ -136,6 +135,19 @@ This closeout accepts only the automated synthetic English loopback/noindex vali
 B04-001, B04-002, CARE-01, CARE-02, SEARCH-01, LANG-01, named human assistive-technology/content
 acceptance, authentic relevance and clinician data, public routes, profiles, providers, production
 and publication remain gated.
+
+## Exact-main closeout — 29 September 2026
+
+Final acceptance-documentation
+[run 36575818482](https://github.com/dynamicet/hallelujah-website/actions/runs/36575818482)
+passed for exact head `13fe2a6d0e5f75f3a4bac29e536c4e03521107d5`.
+[PR #80](https://github.com/dynamicet/hallelujah-website/pull/80) then merged as
+`5726e1f87dae6735041b0b23a6173f606db7b531`, automatically closing
+[issue #79](https://github.com/dynamicet/hallelujah-website/issues/79). Exact-main
+[run 36578216932](https://github.com/dynamicet/hallelujah-website/actions/runs/36578216932)
+passed for that merge commit. This completes B04-008 controlled-validation closeout. B04-009 is
+not promoted by this record, and every human-acceptance, authentic-data, production and publication
+gate listed above remains withheld.
 
 ## Source contract
 

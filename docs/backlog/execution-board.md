@@ -1653,3 +1653,13 @@ This closeout accepts only the automated synthetic English loopback/noindex vali
 B04-001, B04-002, CARE-01, CARE-02, SEARCH-01, LANG-01, named human assistive-technology/content
 acceptance, authentic relevance and clinician data, public routes, profiles, providers, production
 and publication remain gated.
+
+Final acceptance-documentation
+[run 36575818482](https://github.com/dynamicet/hallelujah-website/actions/runs/36575818482)
+passed for exact head `13fe2a6d0e5f75f3a4bac29e536c4e03521107d5`.
+[PR #80](https://github.com/dynamicet/hallelujah-website/pull/80) merged as
+`5726e1f87dae6735041b0b23a6173f606db7b531`, automatically closing
+[issue #79](https://github.com/dynamicet/hallelujah-website/issues/79), and exact-main
+[run 36578216932](https://github.com/dynamicet/hallelujah-website/actions/runs/36578216932)
+passed for that merge commit. B04-008 closeout is complete; the unresolved gates and B04-009 state
+remain unchanged.
