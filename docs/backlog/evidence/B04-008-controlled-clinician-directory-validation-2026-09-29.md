@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b04-008-clinician-directory-validation` |
 | Scope | Synthetic English loopback T0/private T1 validation only |
-| Status | In review; local T0 complete, hosted T1 pending |
+| Status | In review; local T0 and hosted implementation T1 pass |
 | Tracking | [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79) · [PR #80](https://github.com/dynamicet/hallelujah-website/pull/80) |
 | Public route | Absent; no `/doctors/` route is authorized |
 | Production/publication authority | Not granted |
@@ -27,7 +27,7 @@
 | `pnpm audit:dependencies` | Pass: 650 dependencies; zero moderate, high or critical known vulnerabilities |
 | `pnpm secrets:check --history` | Pass: current text files plus reachable Git history; matches would be redacted |
 | `git diff --check` | Pass |
-| Hosted exact-head gate | Pending |
+| Hosted implementation T1 | Pass: [run 36572857997](https://github.com/dynamicet/hallelujah-website/actions/runs/36572857997) completed every gate for review head `ce8088db89c139b92d254351cd461fc6928f4a0c` |
 
 ## Defect found and corrected
 
@@ -46,8 +46,11 @@ proof; the product markup did not change for this correction.
 ## Local review result
 
 On 29 September 2026, Africa/Addis_Ababa, B04-008 moves In progress → **In review** after every
-focused and full local gate above passed. A matching private hosted exact-head run and explicit
-client acceptance are required before Done.
+focused and full local gate above passed. Hosted implementation
+[run 36572857997](https://github.com/dynamicet/hallelujah-website/actions/runs/36572857997)
+subsequently passed for review head `ce8088db89c139b92d254351cd461fc6928f4a0c`, including the full
+repository gate, appointment isolation and frozen clean reconstruction. Explicit client acceptance,
+final acceptance-documentation CI and checked merge are required before Done.
 
 Human assistive-technology, authentic relevance/content, language, medical-staff, production and
 publication acceptance remain open under `DEL-01` and the applicable CARE/SEARCH/LANG gates.

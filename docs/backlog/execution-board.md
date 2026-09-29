@@ -1625,4 +1625,7 @@ Africa/Addis_Ababa, after its predecessor 18-case contract and 142-case browser 
 static and 12-case rendered validations, shared search-control checks, full repository gate,
 optimized-build isolation, frozen clean reconstruction, dependency audit, reachable-history secret
 scan and diff-integrity check passed. The build retains no `/doctors/` route. Private hosted
-exact-head CI and explicit client controlled acceptance remain required before Done.
+implementation [run 36572857997](https://github.com/dynamicet/hallelujah-website/actions/runs/36572857997)
+then passed every gate for review head `ce8088db89c139b92d254351cd461fc6928f4a0c`. Explicit client
+controlled acceptance, final acceptance-documentation CI and checked merge remain required before
+Done.

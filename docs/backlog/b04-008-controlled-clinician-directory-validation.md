@@ -105,8 +105,11 @@ evidence may contain synthetic fixtures only.
 On 29 September 2026, Africa/Addis_Ababa, B04-008 moves In progress → **In review** after the
 focused predecessor and validation suites, full repository verification, independent frozen clean
 reconstruction, dependency audit, reachable-history secret scan and diff-integrity check passed.
-The optimized build retains no `/doctors/` route. Private hosted exact-head CI and explicit client
-controlled acceptance remain required before Done.
+The optimized build retains no `/doctors/` route. Hosted implementation
+[run 36572857997](https://github.com/dynamicet/hallelujah-website/actions/runs/36572857997)
+then passed every gate for review head `ce8088db89c139b92d254351cd461fc6928f4a0c`.
+Explicit client controlled acceptance, final acceptance-documentation CI and checked merge remain
+required before Done.
 
 ## Source contract
 
