@@ -69,6 +69,9 @@ contact, location, portrait or hospital capability claim.
 
 ## Review state
 
-B04-009 is ready for controlled repository review. Hosted exact-head T1, explicit client
-acceptance, final acceptance-documentation CI, checked merge and exact-main CI remain outstanding.
-B04-010 is not promoted by this evidence.
+B04-009 is ready for controlled repository review in
+[PR #82](https://github.com/dynamicet/hallelujah-website/pull/82). Private hosted exact-head
+[run 36617331632](https://github.com/dynamicet/hallelujah-website/actions/runs/36617331632)
+passed every gate for implementation head `0ab75d464f5bffb4f4b1b2fc4acc1a5e37b1cd69`.
+Explicit client acceptance, final acceptance-documentation CI, checked merge and exact-main CI
+remain outstanding. B04-010 is not promoted by this evidence.

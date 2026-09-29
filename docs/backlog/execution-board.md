@@ -1691,5 +1691,12 @@ optimized-build route isolation, frozen clean reconstruction, dependency audit, 
 secret scan and diff-integrity check passed. The browser matrix exposed and corrected a 320 px at
 200% text portrait-fallback overflow and absent-section shell targets. The
 [sanitized evidence record](evidence/B04-009-controlled-clinician-profile-2026-09-29.md) retains
-the attempts, corrections and inspected visual specimens. Hosted exact-head T1 and explicit client
-controlled acceptance remain required before Done; B04-010 is not promoted.
+the attempts, corrections and inspected visual specimens. Explicit client controlled acceptance
+remains required before Done; B04-010 is not promoted.
+
+Private hosted implementation
+[run 36617331632](https://github.com/dynamicet/hallelujah-website/actions/runs/36617331632)
+then passed every gate for exact review head `0ab75d464f5bffb4f4b1b2fc4acc1a5e37b1cd69` in
+[PR #82](https://github.com/dynamicet/hallelujah-website/pull/82). Explicit client controlled
+acceptance, final acceptance-documentation CI and checked merge remain required before Done.
+B04-010 remains unpromoted.

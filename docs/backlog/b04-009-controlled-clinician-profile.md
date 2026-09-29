@@ -103,7 +103,10 @@ build retains no `/doctors/` route.
 
 The [sanitized completion evidence](evidence/B04-009-controlled-clinician-profile-2026-09-29.md)
 records the exact checks, corrected 320 px/200% portrait reflow and failure-shell target defects,
-and inspected mobile/desktop specimens. Hosted exact-head T1, explicit client controlled
+and inspected mobile/desktop specimens. Private hosted exact-head
+[run 36617331632](https://github.com/dynamicet/hallelujah-website/actions/runs/36617331632)
+passed every gate for implementation head `0ab75d464f5bffb4f4b1b2fc4acc1a5e37b1cd69` in
+[PR #82](https://github.com/dynamicet/hallelujah-website/pull/82). Explicit client controlled
 acceptance, final acceptance-documentation CI and checked merge remain required before Done.
 
 ## Source contract
