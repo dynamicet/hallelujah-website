@@ -5,7 +5,7 @@
 | Branch | `b04-008-clinician-directory-validation` |
 | Scope | Synthetic English loopback T0/private T1 validation only |
 | Status | In review; local T0 complete, hosted T1 pending |
-| Tracking | [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79) |
+| Tracking | [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79) · [PR #80](https://github.com/dynamicet/hallelujah-website/pull/80) |
 | Public route | Absent; no `/doctors/` route is authorized |
 | Production/publication authority | Not granted |
 

@@ -7,7 +7,8 @@
 **Responsible/review identity:** `befikadusata` directing Codex in temporary QA,
 Accessibility-test and Content-contract roles
 
-**Tracking:** [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79)
+**Tracking:** [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79) ·
+[PR #80](https://github.com/dynamicet/hallelujah-website/pull/80)
 
 **Production/publication authority:** Not granted
 

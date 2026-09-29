@@ -1601,8 +1601,9 @@ The client directed “start”. B04-008 moves Proposed → Ready → **In progr
 `b04-008-clinician-directory-validation` under `befikadusata` directing Codex in temporary QA,
 Accessibility-test and Content-contract roles, with the same identity as controlled-development
 review authority, on 29 September 2026, Africa/Addis_Ababa. [Issue #79](https://github.com/dynamicet/hallelujah-website/issues/79),
-the [execution brief](b04-008-controlled-clinician-directory-validation.md) and working B00-016
-matrix govern the pull. B04-007 is Done and exact-main CI passed.
+[PR #80](https://github.com/dynamicet/hallelujah-website/pull/80), the
+[execution brief](b04-008-controlled-clinician-directory-validation.md) and working B00-016 matrix
+govern the pull. B04-007 is Done and exact-main CI passed.
 
 The controlled sequencing exception permits automated local T0/private hosted T1 evidence against
 the synthetic English loopback/noindex directory only. `DEL-01`, B04-001, B04-002, CARE-01,
