@@ -1724,3 +1724,13 @@ This closeout accepts only the synthetic English loopback/noindex composition. B
 B04-006, CARE-01–CARE-03, CARE-06, APPT-01, LANG-01/LANG-02 and DEL-01 remain unresolved.
 Authentic clinicians and claims, portraits, schedules, availability, staffed contact, active
 appointment actions, public routes, providers, production and publication remain gated.
+
+Final acceptance-documentation
+[run 36623096620](https://github.com/dynamicet/hallelujah-website/actions/runs/36623096620)
+passed for exact head `7cc8378345421b28c49d306c7cd8443954ad86bb`.
+[PR #82](https://github.com/dynamicet/hallelujah-website/pull/82) merged as
+`b89b11c60185c2c8bddbcb503d0d215e3fd47dca`, and exact-main
+[run 36625303171](https://github.com/dynamicet/hallelujah-website/actions/runs/36625303171)
+passed for that merge commit. [Issue #81](https://github.com/dynamicet/hallelujah-website/issues/81)
+is closed explicitly after this record reaches main. B04-009 closeout is complete; the unresolved
+gates and B04-010 state remain unchanged.

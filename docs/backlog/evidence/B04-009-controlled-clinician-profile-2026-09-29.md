@@ -92,3 +92,16 @@ B04-001–B04-003, B04-006, CARE-01–CARE-03, CARE-06, APPT-01, LANG-01/LANG-02
 unresolved. Authentic clinicians and claims, portraits, schedules, availability, staffed contact,
 active appointment actions, public routes, providers, production and publication remain gated;
 controlled acceptance closes none of those dependencies or release gates.
+
+## Exact-main closeout
+
+Final acceptance-documentation
+[run 36623096620](https://github.com/dynamicet/hallelujah-website/actions/runs/36623096620)
+passed for exact head `7cc8378345421b28c49d306c7cd8443954ad86bb`.
+[PR #82](https://github.com/dynamicet/hallelujah-website/pull/82) then merged as
+`b89b11c60185c2c8bddbcb503d0d215e3fd47dca`. Exact-main
+[run 36625303171](https://github.com/dynamicet/hallelujah-website/actions/runs/36625303171)
+passed every gate for that merge commit, including independent frozen clean reconstruction.
+[Issue #81](https://github.com/dynamicet/hallelujah-website/issues/81) is closed explicitly after
+this record reaches main. This completes B04-009 controlled-development closeout without promoting
+B04-010 or any remaining gate.

@@ -2,8 +2,7 @@
 
 **Lane / priority / phase:** DELIVERY / P1 / Phase 1 preparation
 
-**Status:** Done for controlled development; final acceptance-documentation CI and checked merge
-tracked below
+**Status:** Done for controlled development; checked merge and exact-main closeout complete
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary Frontend,
 Backend-contract and QA roles
@@ -134,6 +133,19 @@ This closeout accepts only the synthetic English loopback/noindex composition. B
 B04-006, CARE-01–CARE-03, CARE-06, APPT-01, LANG-01/LANG-02 and DEL-01 remain unresolved.
 Authentic clinicians and claims, portraits, schedules, availability, staffed contact, active
 appointment actions, public routes, providers, production and publication remain gated.
+
+## Exact-main closeout — 29 September 2026
+
+Final acceptance-documentation
+[run 36623096620](https://github.com/dynamicet/hallelujah-website/actions/runs/36623096620)
+passed for exact head `7cc8378345421b28c49d306c7cd8443954ad86bb`.
+[PR #82](https://github.com/dynamicet/hallelujah-website/pull/82) then merged as
+`b89b11c60185c2c8bddbcb503d0d215e3fd47dca`. Exact-main
+[run 36625303171](https://github.com/dynamicet/hallelujah-website/actions/runs/36625303171)
+passed for that merge commit. This completes B04-009 controlled-development closeout;
+[issue #81](https://github.com/dynamicet/hallelujah-website/issues/81) is closed explicitly after
+this record reaches main. B04-010 is not promoted by this record, and every authentic-data,
+human-acceptance, production and publication gate listed above remains withheld.
 
 ## Source contract
 
