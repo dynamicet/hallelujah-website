@@ -1584,3 +1584,13 @@ on 29 September 2026, Africa/Addis_Ababa. Final acceptance-documentation CI, che
 retained in [issue #77](https://github.com/dynamicet/hallelujah-website/issues/77). B04-008 is not
 promoted. B04-001, B04-002, CARE-01, CARE-02, SEARCH-01, LANG-01, DEL-01, authentic clinician data,
 profiles, providers, production and publication remain gated.
+
+Final acceptance-documentation
+[run 36541780392](https://github.com/dynamicet/hallelujah-website/actions/runs/36541780392)
+passed for exact head `b48aa336edb75dfcbcfb9a860a610a878fc1b15b`.
+[PR #78](https://github.com/dynamicet/hallelujah-website/pull/78) merged as
+`908fad5242e778901cbbdfe6ed20c79c9555d109`, automatically closing
+[issue #77](https://github.com/dynamicet/hallelujah-website/issues/77), and exact-main
+[run 36564303277](https://github.com/dynamicet/hallelujah-website/actions/runs/36564303277)
+passed for that merge commit. B04-007 closeout is complete; the unresolved gates and B04-008 state
+remain unchanged.

@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b04-007-controlled-clinician-directory` |
 | Scope | Synthetic English loopback T0 preparation only |
-| Status | Done for controlled development; final documentation CI and checked merge required |
+| Status | Done for controlled development; checked merge and exact-main closeout complete |
 | Tracking | [issue #77](https://github.com/dynamicet/hallelujah-website/issues/77) |
 | Public route | Absent; no `/doctors/` route exists |
 | Providers and collection | Disabled; no external request, analytics or personal-data collection exists |
@@ -78,6 +78,18 @@ Final acceptance-documentation CI must pass for its exact SHA before checked mer
 and exact-main result must be retained in [issue #77](https://github.com/dynamicet/hallelujah-website/issues/77)
 and PR #78. Dependent execution waits for passing exact-main CI. B04-008 is not promoted by this
 acceptance.
+
+## Exact-main closeout
+
+Final acceptance-documentation
+[run 36541780392](https://github.com/dynamicet/hallelujah-website/actions/runs/36541780392)
+passed for exact head `b48aa336edb75dfcbcfb9a860a610a878fc1b15b`.
+[PR #78](https://github.com/dynamicet/hallelujah-website/pull/78) then merged as
+`908fad5242e778901cbbdfe6ed20c79c9555d109`, automatically closing
+[issue #77](https://github.com/dynamicet/hallelujah-website/issues/77). Exact-main
+[run 36564303277](https://github.com/dynamicet/hallelujah-website/actions/runs/36564303277)
+passed every gate for that merge commit, including independent frozen clean reconstruction. This
+completes B04-007 controlled-development closeout without promoting B04-008 or any remaining gate.
 
 ## Remaining gates
 
