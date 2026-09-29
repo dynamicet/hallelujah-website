@@ -2,7 +2,8 @@
 
 **Lane / priority / phase:** DELIVERY / P1 / Phase 1 preparation
 
-**Status:** In review for controlled development
+**Status:** Done for controlled development; final acceptance-documentation CI and checked merge
+tracked below
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary Frontend,
 Backend-contract and QA roles
@@ -108,6 +109,31 @@ and inspected mobile/desktop specimens. Private hosted exact-head
 passed every gate for implementation head `0ab75d464f5bffb4f4b1b2fc4acc1a5e37b1cd69` in
 [PR #82](https://github.com/dynamicet/hallelujah-website/pull/82). Explicit client controlled
 acceptance, final acceptance-documentation CI and checked merge remain required before Done.
+
+## Controlled acceptance — 29 September 2026
+
+The client directed “B04-009 in review, close it out”. B04-009 moves In review → **Done** for
+controlled development under `befikadusata` as responsible and controlled acceptance person,
+directing Codex in temporary Frontend, Backend-contract and QA roles on 29 September 2026,
+Africa/Addis_Ababa. The target remains synthetic local T0/private hosted T1 under the working
+B00-016 matrix.
+
+Accepted implementation head `0ab75d464f5bffb4f4b1b2fc4acc1a5e37b1cd69` has matching hosted
+[run 36617331632](https://github.com/dynamicet/hallelujah-website/actions/runs/36617331632), which
+passes every hosted gate. The
+[completion evidence](evidence/B04-009-controlled-clinician-profile-2026-09-29.md#controlled-acceptance)
+retains the local and hosted proofs; no scoped controlled-development defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #82](https://github.com/dynamicet/hallelujah-website/pull/82). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #81](https://github.com/dynamicet/hallelujah-website/issues/81)
+and PR #82. Dependent execution waits for passing exact-main CI. B04-010 is not promoted by this
+acceptance.
+
+This closeout accepts only the synthetic English loopback/noindex composition. B04-001–B04-003,
+B04-006, CARE-01–CARE-03, CARE-06, APPT-01, LANG-01/LANG-02 and DEL-01 remain unresolved.
+Authentic clinicians and claims, portraits, schedules, availability, staffed contact, active
+appointment actions, public routes, providers, production and publication remain gated.
 
 ## Source contract
 
