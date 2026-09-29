@@ -1571,7 +1571,16 @@ publication capability is authorized.
 B04-001, B04-002, CARE-01, CARE-02, SEARCH-01, LANG-01 and DEL-01 remain unresolved. This start
 closes none of those gates and does not promote B04-008 or any later care-discovery ticket.
 
-The controlled implementation now has passing local focused, full-workspace and frozen clean-copy
+The controlled implementation has passing local focused, full-workspace and frozen clean-copy
 verification. Its [sanitized evidence record](evidence/B04-007-controlled-clinician-directory-2026-09-29.md)
-retains the exact checks, corrected execution attempts and visual specimens. B04-007 remains **In
-progress**; hosted review, explicit promotion and controlled acceptance are not inferred.
+retains the exact checks, corrected execution attempts and visual specimens. Hosted
+[run 36539369658](https://github.com/dynamicet/hallelujah-website/actions/runs/36539369658)
+passes for accepted implementation head `2a24c83c065b98ef7d79d7559bf1e89e6c993982`.
+
+The client subsequently directed “close it out”. B04-007 moves In progress → In review →
+**Done** for controlled development under the same responsible and controlled-acceptance identity
+on 29 September 2026, Africa/Addis_Ababa. Final acceptance-documentation CI, checked merge of
+[PR #78](https://github.com/dynamicet/hallelujah-website/pull/78), and exact-main CI must pass and be
+retained in [issue #77](https://github.com/dynamicet/hallelujah-website/issues/77). B04-008 is not
+promoted. B04-001, B04-002, CARE-01, CARE-02, SEARCH-01, LANG-01, DEL-01, authentic clinician data,
+profiles, providers, production and publication remain gated.

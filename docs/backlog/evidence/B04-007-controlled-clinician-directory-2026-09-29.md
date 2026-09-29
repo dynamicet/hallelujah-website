@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b04-007-controlled-clinician-directory` |
 | Scope | Synthetic English loopback T0 preparation only |
-| Status | In progress; local implementation and verification complete |
+| Status | Done for controlled development; final documentation CI and checked merge required |
 | Tracking | [issue #77](https://github.com/dynamicet/hallelujah-website/issues/77) |
 | Public route | Absent; no `/doctors/` route exists |
 | Providers and collection | Disabled; no external request, analytics or personal-data collection exists |
@@ -58,9 +58,30 @@ was published for transitive version 7.29.0. The repository now applies the narr
 fresh clean reconstruction all pass on the patched graph; the failed hosted run is not counted as
 acceptance evidence.
 
+## Controlled acceptance
+
+The client directed “close it out”. B04-007 moves In progress → In review → **Done** for
+controlled development under `befikadusata` as responsible and controlled acceptance person,
+directing Codex in temporary Frontend, Backend-contract and QA roles on 29 September 2026,
+Africa/Addis_Ababa. The target remains synthetic local T0/private hosted T1 under the working
+B00-016 matrix.
+
+Accepted implementation head: `2a24c83c065b98ef7d79d7559bf1e89e6c993982`. Matching hosted
+[run 36539369658](https://github.com/dynamicet/hallelujah-website/actions/runs/36539369658)
+passes every step, including the focused server-rendered and browser matrices, optimized-build
+isolation, history secret scan, dependency audit, full repository verification and independent
+frozen clean reconstruction. All recorded local gates pass and no scoped controlled-development
+defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #78](https://github.com/dynamicet/hallelujah-website/pull/78). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #77](https://github.com/dynamicet/hallelujah-website/issues/77)
+and PR #78. Dependent execution waits for passing exact-main CI. B04-008 is not promoted by this
+acceptance.
+
 ## Remaining gates
 
 B04-001, B04-002, CARE-01, CARE-02, SEARCH-01, LANG-01 and DEL-01 remain unresolved. Authentic
 roster approval, specialty vocabulary, profile destinations, portraits, schedule/availability,
 staffed contact, appointment actions, provider integration, production and publication remain
-gated. This local evidence does not promote B04-007 to In review or close any dependency.
+gated. Controlled acceptance closes no dependency or publication gate.

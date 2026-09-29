@@ -2,7 +2,8 @@
 
 **Lane / priority / phase:** DELIVERY / P1 / Phase 1 preparation
 
-**Status:** In progress for controlled development
+**Status:** Done for controlled development; final acceptance-documentation CI and checked merge
+tracked below
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary Frontend,
 Backend-contract and QA roles
@@ -111,7 +112,31 @@ only.
 
 Local implementation and verification evidence is recorded in
 [B04-007 controlled clinician-directory evidence](evidence/B04-007-controlled-clinician-directory-2026-09-29.md).
-The ticket remains In progress until an explicit review promotion.
+
+## Controlled acceptance — 29 September 2026
+
+The client directed “close it out”. B04-007 moves In progress → In review → **Done** for
+controlled development under `befikadusata` as responsible and controlled acceptance person,
+directing Codex in temporary Frontend, Backend-contract and QA roles on 29 September 2026,
+Africa/Addis_Ababa. The target remains synthetic local T0/private hosted T1 under the working
+B00-016 matrix.
+
+Accepted implementation head `2a24c83c065b98ef7d79d7559bf1e89e6c993982` has matching hosted
+[run 36539369658](https://github.com/dynamicet/hallelujah-website/actions/runs/36539369658), which
+passes every hosted gate. The
+[completion evidence](evidence/B04-007-controlled-clinician-directory-2026-09-29.md#controlled-acceptance)
+retains the local and hosted proofs; no scoped controlled-implementation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #78](https://github.com/dynamicet/hallelujah-website/pull/78). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #77](https://github.com/dynamicet/hallelujah-website/issues/77)
+and PR #78. Dependent execution waits for passing exact-main CI. B04-008 is not promoted by this
+acceptance.
+
+This closeout accepts only the synthetic English loopback/noindex composition. B04-001, B04-002,
+CARE-01, CARE-02, SEARCH-01, LANG-01, DEL-01, authentic roster and vocabulary approval, profiles,
+portraits, schedules, availability, staffed contact, appointment actions, providers, production
+and publication remain gated.
 
 ## Source contract
 
