@@ -1552,3 +1552,26 @@ passed for that merge commit, and [issue #10](https://github.com/dynamicet/halle
 was closed with the matching evidence. This completes the focused B01-006 controlled-development
 closeout. Production/publication, authentic language/content, canonical contact, physical-device
 and assistive-technology gates remain with their owning controls.
+
+## B04-007 controlled clinician-directory start — 29 September 2026
+
+The client directed “let's start B04-007”. B04-007 moves Proposed → Ready → **In progress** on
+branch `b04-007-controlled-clinician-directory` under `befikadusata` directing Codex in temporary
+Frontend, Backend-contract and QA roles, with the same identity as controlled-development review
+authority, on 29 September 2026, Africa/Addis_Ababa. [Issue #77](https://github.com/dynamicet/hallelujah-website/issues/77)
+and the [execution brief](b04-007-controlled-clinician-directory.md) govern the pull.
+
+The controlled sequencing exception permits a synthetic English D0–D6 clinician-directory
+composition through the existing governed clinician projection, with bounded GET search,
+synthetic specialty filter, deterministic pagination and complete controlled states. It remains a
+loopback-only noindex review tool; no public `/doctors/` route, authentic roster, profile, portrait,
+schedule, availability, staffed contact, appointment action, provider, personal data, production or
+publication capability is authorized.
+
+B04-001, B04-002, CARE-01, CARE-02, SEARCH-01, LANG-01 and DEL-01 remain unresolved. This start
+closes none of those gates and does not promote B04-008 or any later care-discovery ticket.
+
+The controlled implementation now has passing local focused, full-workspace and frozen clean-copy
+verification. Its [sanitized evidence record](evidence/B04-007-controlled-clinician-directory-2026-09-29.md)
+retains the exact checks, corrected execution attempts and visual specimens. B04-007 remains **In
+progress**; hosted review, explicit promotion and controlled acceptance are not inferred.

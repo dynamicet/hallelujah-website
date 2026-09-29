@@ -1,0 +1,205 @@
+.frame {
+  inline-size: 100%;
+  margin-inline: auto;
+  max-inline-size: calc(var(--semantic-size-wide) + 2 * var(--semantic-space-page));
+  padding-inline: var(--semantic-space-page);
+}
+
+.introduction,
+.directory,
+.resultsSection,
+.support {
+  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  display: grid;
+  gap: var(--semantic-space-regular);
+  min-inline-size: 0;
+  padding-block: var(--semantic-space-section);
+}
+
+.introduction > *,
+.directory > *,
+.resultsSection > *,
+.support > *,
+.card > *,
+.statePanel > * {
+  margin-block: 0;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.introduction {
+  max-inline-size: var(--semantic-size-reading);
+}
+
+.eyebrow,
+.cardLabel {
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--semantic-type-small-size);
+  font-weight: var(--semantic-font-weight-strong);
+  letter-spacing: var(--semantic-type-eyebrow-tracking);
+  line-height: var(--semantic-type-small-line);
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: var(--semantic-type-body-large-size);
+  line-height: var(--semantic-type-body-large-line);
+}
+
+.fixtureNotice,
+.statePanel,
+.support {
+  border: var(--semantic-border-emphasis) solid currentColor;
+  border-radius: var(--semantic-radius-card);
+  padding: var(--semantic-space-page);
+}
+
+.fixtureNotice {
+  background: var(--semantic-color-surface-warning);
+  color: var(--semantic-color-text-warning);
+}
+
+.results {
+  display: grid;
+  gap: var(--semantic-space-page);
+  grid-template-columns: minmax(0, 1fr);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.results > li,
+.card {
+  min-inline-size: 0;
+}
+
+.card {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  display: grid;
+  gap: var(--semantic-space-regular);
+  min-block-size: 100%;
+  padding: var(--semantic-space-page);
+}
+
+.card h2 {
+  font-size: var(--semantic-type-h3-size);
+  line-height: var(--semantic-type-h3-line);
+}
+
+.specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--semantic-space-compact);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.specialties li {
+  background: var(--semantic-color-surface-subtle);
+  border-radius: var(--semantic-radius-control);
+  padding: var(--semantic-space-fine) var(--semantic-space-compact);
+}
+
+.withheld {
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--semantic-type-small-size);
+  line-height: var(--semantic-type-small-line);
+}
+
+.disabledAction {
+  align-items: center;
+  border: var(--semantic-border-default) solid var(--semantic-color-border-strong);
+  border-radius: var(--semantic-radius-control);
+  color: var(--semantic-color-text-secondary);
+  display: inline-flex;
+  min-block-size: var(--semantic-size-touch);
+  padding: var(--semantic-space-compact) var(--semantic-space-page);
+  width: fit-content;
+}
+
+.statePanel,
+.support {
+  background: var(--semantic-color-surface-subtle);
+  max-inline-size: var(--semantic-size-reading);
+}
+
+.visuallyHidden {
+  block-size: 1px;
+  clip-path: inset(50%);
+  inline-size: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+@media (min-width: 48rem) {
+  .frame {
+    padding-inline: var(--semantic-space-gutter-regular);
+  }
+
+  .results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 72rem) {
+  .frame {
+    padding-inline: var(--semantic-space-gutter-wide);
+  }
+
+  .directory {
+    grid-template-columns: minmax(15rem, 0.45fr) minmax(0, 1fr);
+  }
+
+  .directory > h2 {
+    grid-column: 1 / -1;
+  }
+
+  .results {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame * {
+    scroll-behavior: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .fixtureNotice,
+  .statePanel,
+  .support,
+  .card,
+  .specialties li,
+  .disabledAction {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+}
+
+@media print {
+  .frame {
+    max-inline-size: none;
+    padding: 0;
+  }
+
+  .results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fixtureNotice,
+  .statePanel,
+  .support,
+  .card,
+  .specialties li,
+  .disabledAction {
+    background: transparent;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+}
