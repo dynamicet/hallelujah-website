@@ -50,12 +50,16 @@ const [{ ClinicianDirectoryTemplate }, { controlledClinicianDirectory }, compone
   import('../../src/design-system/components/index.ts'),
 ])
 
-export function resolveClinicianDirectory(fixture, searchParameters = new URLSearchParams()) {
+export function resolveClinicianDirectory(
+  fixture,
+  searchParameters = new URLSearchParams(),
+  now = new Date('2026-09-29T09:01:00Z'),
+) {
   return controlledClinicianDirectory({
     filters: fixture.filters,
     locale: 'en',
     mode: 'controlled-fixture',
-    now: new Date('2026-09-29T09:01:00Z'),
+    now,
     pageSize: 4,
     records: fixture.records,
     searchParameters,

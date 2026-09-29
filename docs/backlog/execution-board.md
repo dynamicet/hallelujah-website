@@ -1594,3 +1594,34 @@ passed for exact head `b48aa336edb75dfcbcfb9a860a610a878fc1b15b`.
 [run 36564303277](https://github.com/dynamicet/hallelujah-website/actions/runs/36564303277)
 passed for that merge commit. B04-007 closeout is complete; the unresolved gates and B04-008 state
 remain unchanged.
+
+## B04-008 controlled clinician-directory validation start — 29 September 2026
+
+The client directed “start”. B04-008 moves Proposed → Ready → **In progress** on branch
+`b04-008-clinician-directory-validation` under `befikadusata` directing Codex in temporary QA,
+Accessibility-test and Content-contract roles, with the same identity as controlled-development
+review authority, on 29 September 2026, Africa/Addis_Ababa. [Issue #79](https://github.com/dynamicet/hallelujah-website/issues/79),
+the [execution brief](b04-008-controlled-clinician-directory-validation.md) and working B00-016
+matrix govern the pull. B04-007 is Done and exact-main CI passed.
+
+The controlled sequencing exception permits automated local T0/private hosted T1 evidence against
+the synthetic English loopback/noindex directory only. `DEL-01`, B04-001, B04-002, CARE-01,
+CARE-02, SEARCH-01 and LANG-01 remain unresolved; named human assistive-technology/content
+acceptance, authentic relevance, public routes, profiles, providers, production and publication
+remain gated.
+
+The focused static validation currently passes 24 relevance, URL, lifecycle, canonicality,
+semantics and resilience cases. The rendered validation passes 12 history, keyboard, Chromium
+accessibility-tree, 320/360 reflow and fail-closed cases. It exposed and corrected a scoped preview
+integration defect: the existing first-party search-controls enhancement was not loaded, allowing
+browser-restored checkbox state to disagree with the URL after Back navigation. The
+[sanitized evidence record](evidence/B04-008-controlled-clinician-directory-validation-2026-09-29.md)
+retains the attempt and correction. Full local, clean-copy and hosted evidence remain required
+before promotion.
+
+B04-008 subsequently moves In progress → **In review** on 29 September 2026,
+Africa/Addis_Ababa, after its predecessor 18-case contract and 142-case browser matrix, new 24-case
+static and 12-case rendered validations, shared search-control checks, full repository gate,
+optimized-build isolation, frozen clean reconstruction, dependency audit, reachable-history secret
+scan and diff-integrity check passed. The build retains no `/doctors/` route. Private hosted
+exact-head CI and explicit client controlled acceptance remain required before Done.
