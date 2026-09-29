@@ -1629,3 +1629,27 @@ implementation [run 36572857997](https://github.com/dynamicet/hallelujah-website
 then passed every gate for review head `ce8088db89c139b92d254351cd461fc6928f4a0c`. Explicit client
 controlled acceptance, final acceptance-documentation CI and checked merge remain required before
 Done.
+
+## B04-008 controlled acceptance — 29 September 2026
+
+The client directed “B04-008 is In Review, close it out”. B04-008 moves In review → **Done** for
+controlled validation under `befikadusata` as responsible and controlled acceptance person,
+directing Codex in temporary QA, Accessibility-test and Content-contract roles on 29 September
+2026, Africa/Addis_Ababa. The target remains synthetic local T0/private hosted T1 under the working
+B00-016 matrix.
+
+Accepted implementation head `ce8088db89c139b92d254351cd461fc6928f4a0c` has matching hosted
+[run 36572857997](https://github.com/dynamicet/hallelujah-website/actions/runs/36572857997), which
+passes every hosted gate. The
+[completion evidence](evidence/B04-008-controlled-clinician-directory-validation-2026-09-29.md#controlled-acceptance)
+retains the local and hosted proofs; no scoped controlled-validation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #80](https://github.com/dynamicet/hallelujah-website/pull/80). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79)
+and PR #80. Dependent execution waits for passing exact-main CI. B04-009 is not promoted.
+
+This closeout accepts only the automated synthetic English loopback/noindex validation. `DEL-01`,
+B04-001, B04-002, CARE-01, CARE-02, SEARCH-01, LANG-01, named human assistive-technology/content
+acceptance, authentic relevance and clinician data, public routes, profiles, providers, production
+and publication remain gated.

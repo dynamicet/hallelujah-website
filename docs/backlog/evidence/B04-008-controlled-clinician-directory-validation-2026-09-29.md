@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b04-008-clinician-directory-validation` |
 | Scope | Synthetic English loopback T0/private T1 validation only |
-| Status | In review; local T0 and hosted implementation T1 pass |
+| Status | Done for controlled validation; final documentation CI and checked merge required |
 | Tracking | [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79) · [PR #80](https://github.com/dynamicet/hallelujah-website/pull/80) |
 | Public route | Absent; no `/doctors/` route is authorized |
 | Production/publication authority | Not granted |
@@ -54,3 +54,29 @@ final acceptance-documentation CI and checked merge are required before Done.
 
 Human assistive-technology, authentic relevance/content, language, medical-staff, production and
 publication acceptance remain open under `DEL-01` and the applicable CARE/SEARCH/LANG gates.
+
+## Controlled acceptance
+
+The client directed “B04-008 is In Review, close it out”. B04-008 moves In review → **Done** for
+controlled validation under `befikadusata` as responsible and controlled acceptance person,
+directing Codex in temporary QA, Accessibility-test and Content-contract roles on 29 September
+2026, Africa/Addis_Ababa. The target remains synthetic local T0/private hosted T1 under the working
+B00-016 matrix.
+
+Accepted implementation head: `ce8088db89c139b92d254351cd461fc6928f4a0c`. Matching hosted
+[run 36572857997](https://github.com/dynamicet/hallelujah-website/actions/runs/36572857997)
+passes every step, including the predecessor and validation matrices, optimized-build isolation,
+history secret scan, dependency audit, full repository verification and independent frozen clean
+reconstruction. All recorded local gates pass and no scoped controlled-validation defect remains
+open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #80](https://github.com/dynamicet/hallelujah-website/pull/80). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79)
+and PR #80. Dependent execution waits for passing exact-main CI. B04-009 is not promoted by this
+acceptance.
+
+`DEL-01`, B04-001, B04-002, CARE-01, CARE-02, SEARCH-01 and LANG-01 remain unresolved. Named human
+assistive-technology/content acceptance, authentic relevance and clinician data, public routes,
+profiles, providers, production and publication remain gated; controlled acceptance closes none of
+those dependencies or release gates.
