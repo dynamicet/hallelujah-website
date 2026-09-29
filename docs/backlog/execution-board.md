@@ -1594,3 +1594,62 @@ passed for exact head `b48aa336edb75dfcbcfb9a860a610a878fc1b15b`.
 [run 36564303277](https://github.com/dynamicet/hallelujah-website/actions/runs/36564303277)
 passed for that merge commit. B04-007 closeout is complete; the unresolved gates and B04-008 state
 remain unchanged.
+
+## B04-008 controlled clinician-directory validation start — 29 September 2026
+
+The client directed “start”. B04-008 moves Proposed → Ready → **In progress** on branch
+`b04-008-clinician-directory-validation` under `befikadusata` directing Codex in temporary QA,
+Accessibility-test and Content-contract roles, with the same identity as controlled-development
+review authority, on 29 September 2026, Africa/Addis_Ababa. [Issue #79](https://github.com/dynamicet/hallelujah-website/issues/79),
+[PR #80](https://github.com/dynamicet/hallelujah-website/pull/80), the
+[execution brief](b04-008-controlled-clinician-directory-validation.md) and working B00-016 matrix
+govern the pull. B04-007 is Done and exact-main CI passed.
+
+The controlled sequencing exception permits automated local T0/private hosted T1 evidence against
+the synthetic English loopback/noindex directory only. `DEL-01`, B04-001, B04-002, CARE-01,
+CARE-02, SEARCH-01 and LANG-01 remain unresolved; named human assistive-technology/content
+acceptance, authentic relevance, public routes, profiles, providers, production and publication
+remain gated.
+
+The focused static validation currently passes 24 relevance, URL, lifecycle, canonicality,
+semantics and resilience cases. The rendered validation passes 12 history, keyboard, Chromium
+accessibility-tree, 320/360 reflow and fail-closed cases. It exposed and corrected a scoped preview
+integration defect: the existing first-party search-controls enhancement was not loaded, allowing
+browser-restored checkbox state to disagree with the URL after Back navigation. The
+[sanitized evidence record](evidence/B04-008-controlled-clinician-directory-validation-2026-09-29.md)
+retains the attempt and correction. Full local, clean-copy and hosted evidence remain required
+before promotion.
+
+B04-008 subsequently moves In progress → **In review** on 29 September 2026,
+Africa/Addis_Ababa, after its predecessor 18-case contract and 142-case browser matrix, new 24-case
+static and 12-case rendered validations, shared search-control checks, full repository gate,
+optimized-build isolation, frozen clean reconstruction, dependency audit, reachable-history secret
+scan and diff-integrity check passed. The build retains no `/doctors/` route. Private hosted
+implementation [run 36572857997](https://github.com/dynamicet/hallelujah-website/actions/runs/36572857997)
+then passed every gate for review head `ce8088db89c139b92d254351cd461fc6928f4a0c`. Explicit client
+controlled acceptance, final acceptance-documentation CI and checked merge remain required before
+Done.
+
+## B04-008 controlled acceptance — 29 September 2026
+
+The client directed “B04-008 is In Review, close it out”. B04-008 moves In review → **Done** for
+controlled validation under `befikadusata` as responsible and controlled acceptance person,
+directing Codex in temporary QA, Accessibility-test and Content-contract roles on 29 September
+2026, Africa/Addis_Ababa. The target remains synthetic local T0/private hosted T1 under the working
+B00-016 matrix.
+
+Accepted implementation head `ce8088db89c139b92d254351cd461fc6928f4a0c` has matching hosted
+[run 36572857997](https://github.com/dynamicet/hallelujah-website/actions/runs/36572857997), which
+passes every hosted gate. The
+[completion evidence](evidence/B04-008-controlled-clinician-directory-validation-2026-09-29.md#controlled-acceptance)
+retains the local and hosted proofs; no scoped controlled-validation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #80](https://github.com/dynamicet/hallelujah-website/pull/80). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #79](https://github.com/dynamicet/hallelujah-website/issues/79)
+and PR #80. Dependent execution waits for passing exact-main CI. B04-009 is not promoted.
+
+This closeout accepts only the automated synthetic English loopback/noindex validation. `DEL-01`,
+B04-001, B04-002, CARE-01, CARE-02, SEARCH-01, LANG-01, named human assistive-technology/content
+acceptance, authentic relevance and clinician data, public routes, profiles, providers, production
+and publication remain gated.

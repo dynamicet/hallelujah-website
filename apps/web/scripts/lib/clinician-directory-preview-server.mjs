@@ -7,6 +7,7 @@ import { clinicianDirectoryStyles, renderClinicianDirectory, resolveClinicianDir
 
 const appRoot = new URL('../../', import.meta.url)
 const shellScript = new URL('public/shell-navigation.js', appRoot)
+const searchControlsScript = new URL('public/search-controls.js', appRoot)
 const allowedKeys = new Set(['page', 'q', 'type'])
 
 function routeState(pathname) {
@@ -20,7 +21,7 @@ export function clinicianDirectoryPreviewDocument(state = 'controlled', searchPa
   const viewState = ['failure', 'offline', 'empty'].includes(state) ? state : 'ready'
   const pathname = state === 'controlled' ? '/' : `/${state}`
   const body = renderClinicianDirectory({ directory, pathname, state: viewState })
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Clinician directory — controlled B04-007 preview</title><link rel="stylesheet" href="/clinician-directory.css"></head><body data-clinician-directory-preview="synthetic-inert-b04-007" data-clinician-directory-preview-state="${state}">${body}</body></html>`
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Clinician directory — controlled B04-007 preview</title><link rel="stylesheet" href="/clinician-directory.css"><script defer src="/search-controls.js"></script></head><body data-clinician-directory-preview="synthetic-inert-b04-007" data-clinician-directory-preview-state="${state}">${body}</body></html>`
 }
 
 export async function createClinicianDirectoryPreviewServer({ port = 0 } = {}) {
@@ -50,16 +51,21 @@ export async function createClinicianDirectoryPreviewServer({ port = 0 } = {}) {
       requestLog.push(`${url.pathname}${url.search}`)
       if (url.pathname === '/clinician-directory.css') return finish(200, 'text/css', clinicianDirectoryStyles())
       if (url.pathname === '/shell-navigation.js') return finish(200, 'text/javascript', await readFile(shellScript))
+      if (url.pathname === '/search-controls.js') {
+        return finish(200, 'text/javascript', await readFile(searchControlsScript))
+      }
       const state = routeState(url.pathname)
       if (!state) return finish(404, 'text/plain', 'No preview route.')
       const html = clinicianDirectoryPreviewDocument(state, url.searchParams)
       const css = clinicianDirectoryStyles()
       const shell = await readFile(shellScript)
+      const searchControls = await readFile(searchControlsScript)
       samples[state] = {
         externalRequests: 0,
-        initialGzipBytes: gzipSync(html).byteLength + gzipSync(css).byteLength + gzipSync(shell).byteLength,
-        initialRequests: 3,
-        javascriptGzipBytes: gzipSync(shell).byteLength,
+        initialGzipBytes: gzipSync(html).byteLength + gzipSync(css).byteLength
+          + gzipSync(shell).byteLength + gzipSync(searchControls).byteLength,
+        initialRequests: 4,
+        javascriptGzipBytes: gzipSync(shell).byteLength + gzipSync(searchControls).byteLength,
         mediaBytes: 0,
       }
       return finish(200, 'text/html; charset=utf-8', html)
