@@ -101,7 +101,8 @@
   "pnpm": {
     "overrides": {
       "@esbuild-kit/core-utils>esbuild": "0.25.12",
-      "dompurify": "3.4.15"
+      "dompurify": "3.4.15",
+      "payload>undici": "7.29.1"
     }
   }
 }

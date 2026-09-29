@@ -22,7 +22,7 @@
 | Loopback policy | Pass: exact loopback host, GET/HEAD only, unknown-query rejection, no-store/noindex, `connect-src 'none'`, `form-action 'self'`, no external request |
 | `pnpm lint`, `pnpm typecheck`, `pnpm format:check` | Pass |
 | `pnpm verify` | Pass: complete repository gate, optimized Next.js build and absence of a deployable `/doctors/` route |
-| `pnpm rebuild:verify` | Pass from a fresh temporary copy and frozen lockfile; lockfile graph `dce7a390f7f3656a26128375d00e376c859aa4c2f7ea64acdbf22f43262edb91`, importer graph `335e58984a447fd383e00d86b2d3579b39c1d26df9f14be8b32201440ad130f3` |
+| `pnpm rebuild:verify` | Pass from a fresh temporary copy and frozen lockfile; lockfile graph `4087343a2a551525c7658e758d82063f9f3167dc9dddc425a4d80a14ee1b0db3`, importer graph `335e58984a447fd383e00d86b2d3579b39c1d26df9f14be8b32201440ad130f3` |
 | `pnpm audit:dependencies` | Pass: 650 dependencies; zero moderate, high or critical known vulnerabilities |
 | `pnpm secrets:check --history` | Pass: current text files plus reachable Git history; matched values would be redacted |
 | `git diff --check` | Pass |
@@ -51,6 +51,12 @@ prerequisite because the system Python did not include `fontTools`. The successf
 verification runs used `ASSET_FORMAT_PYTHON` with the repository-pinned `fontTools 4.65.0` and
 `brotli 1.2.0`, plus the repository-pinned Node.js 24.21.0 and pnpm 10.27.0. This was an execution
 environment correction, not a product-code bypass.
+
+The first hosted exact-head run stopped at dependency audit after a new moderate `undici` advisory
+was published for transitive version 7.29.0. The repository now applies the narrow
+`payload>undici` 7.29.1 patched override. The live audit, frozen install, full verification and
+fresh clean reconstruction all pass on the patched graph; the failed hosted run is not counted as
+acceptance evidence.
 
 ## Remaining gates
 
