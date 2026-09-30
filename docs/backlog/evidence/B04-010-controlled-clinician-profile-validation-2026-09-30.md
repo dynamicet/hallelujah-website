@@ -106,3 +106,17 @@ failed closed at the live dependency audit after the registry published low-seve
 `GHSA-p98j-92pf-mc4p` against the prior `3.4.15` override. The exact override moves to patched
 `3.4.16`; no application surface or public route is added. A new exact-head hosted pass remains
 required before merge.
+
+## Exact-main closeout
+
+Final acceptance-documentation
+[run 36768495648](https://github.com/dynamicet/hallelujah-website/actions/runs/36768495648)
+passed for exact head `cf5cd988d075a817ae1f15d5e9d8740d74d0deb0`, including the patched
+DOMPurify graph, full configured verification and independent frozen clean reconstruction.
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84) then merged as
+`0b845e52a4d67191a574bcbf21b69000f5faf839`. Exact-main
+[run 36778354463](https://github.com/dynamicet/hallelujah-website/actions/runs/36778354463)
+passed every gate for that merge commit. [Issue #83](https://github.com/dynamicet/hallelujah-website/issues/83)
+is closed explicitly after this record reaches main. This completes B04-010 controlled-validation
+closeout without promoting B04-011 or any authentic-data, named-human, production or publication
+gate.

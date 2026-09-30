@@ -2,8 +2,7 @@
 
 **Lane / priority / phase:** EVIDENCE / P1 / Phase 1 preparation
 
-**Status:** Done for controlled validation; final acceptance-documentation CI and checked merge
-tracked below
+**Status:** Done for controlled validation; checked merge and exact-main closeout complete
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary QA,
 Accessibility-test and Content-contract roles
@@ -147,6 +146,20 @@ The first acceptance-documentation head failed closed in the live dependency aud
 registry published low-severity DOMPurify `GHSA-p98j-92pf-mc4p`. The already authorized exact
 transitive override moves from `3.4.15` to patched `3.4.16`; no application surface or public route
 is added. A new exact-head hosted pass remains required before merge.
+
+## Exact-main closeout — 1 October 2026
+
+Final acceptance-documentation
+[run 36768495648](https://github.com/dynamicet/hallelujah-website/actions/runs/36768495648)
+passed for exact head `cf5cd988d075a817ae1f15d5e9d8740d74d0deb0` after the DOMPurify
+remediation. [PR #84](https://github.com/dynamicet/hallelujah-website/pull/84) then merged as
+`0b845e52a4d67191a574bcbf21b69000f5faf839`. Exact-main
+[run 36778354463](https://github.com/dynamicet/hallelujah-website/actions/runs/36778354463)
+passed every gate for that merge commit, including the live dependency audit and independent
+frozen clean reconstruction. This completes B04-010 controlled-validation closeout;
+[issue #83](https://github.com/dynamicet/hallelujah-website/issues/83) is closed explicitly after
+this record reaches main. B04-011 is not promoted, and every authentic-data, named-human,
+production and publication gate listed above remains withheld.
 
 ## Source contract
 

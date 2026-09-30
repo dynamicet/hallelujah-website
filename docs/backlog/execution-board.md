@@ -1788,3 +1788,14 @@ Acceptance-documentation
 failed closed after the registry published low-severity DOMPurify `GHSA-p98j-92pf-mc4p`. The
 already authorized exact override moves from `3.4.15` to patched `3.4.16`, without adding an
 application surface or public route. A new exact-head hosted pass remains required before merge.
+
+Final acceptance-documentation
+[run 36768495648](https://github.com/dynamicet/hallelujah-website/actions/runs/36768495648)
+passed for exact patched head `cf5cd988d075a817ae1f15d5e9d8740d74d0deb0`.
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84) merged as
+`0b845e52a4d67191a574bcbf21b69000f5faf839`, and exact-main
+[run 36778354463](https://github.com/dynamicet/hallelujah-website/actions/runs/36778354463)
+passed every gate for that merge commit, including the live audit and independent frozen clean
+reconstruction. B04-010 closeout is complete; [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83)
+is closed explicitly after this record reaches main. B04-011 and every unresolved authentic-data,
+named-human, production and publication gate remain unpromoted.
