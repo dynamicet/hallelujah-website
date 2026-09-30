@@ -2,12 +2,14 @@
 
 **Lane / priority / phase:** EVIDENCE / P1 / Phase 1 preparation
 
-**Status:** In review for controlled validation; hosted exact-head evidence pending
+**Status:** In review for controlled validation; hosted implementation evidence complete and
+explicit client acceptance pending
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary QA,
 Accessibility-test and Content-contract roles
 
-**Tracking:** [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83)
+**Tracking:** [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83) and
+[pull request #84](https://github.com/dynamicet/hallelujah-website/pull/84)
 
 **Production/publication authority:** Not granted
 
@@ -106,8 +108,12 @@ passed. The optimized production build retains no `/doctors/` route.
 The [sanitized evidence record](evidence/B04-010-controlled-clinician-profile-validation-2026-09-30.md)
 records completeness/omission, portrait and schedule withholding, long mixed-script reflow,
 withdrawn/expired relationship removal, record review/expiry withdrawal, genuine-successor,
-accessibility-tree, no-JavaScript, print and isolation results. Hosted exact-head T1 and explicit
-client controlled acceptance remain required before Done.
+accessibility-tree, no-JavaScript, print and isolation results. Private hosted implementation T1
+[run 36637389706](https://github.com/dynamicet/hallelujah-website/actions/runs/36637389706)
+passed every gate, including clean reconstruction, for exact review head
+`af457e4b951e2f225875541b8094a93d0b84e0c5` under
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Explicit client controlled
+acceptance remains required before Done.
 
 ## Source contract
 

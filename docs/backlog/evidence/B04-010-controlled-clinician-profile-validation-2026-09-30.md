@@ -4,8 +4,8 @@
 | --- | --- |
 | Branch | `b04-010-clinician-profile-validation` |
 | Scope | Synthetic English loopback T0/private T1 validation only |
-| Status | In review; local T0 complete, hosted exact-head T1 pending |
-| Tracking | [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83) |
+| Status | In review; local T0 and hosted implementation T1 complete, explicit client acceptance pending |
+| Tracking | [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83) and [pull request #84](https://github.com/dynamicet/hallelujah-website/pull/84) |
 | Public route | Absent; no `/doctors/{doctor-slug}/` route is authorized |
 | Production/publication authority | Not granted |
 
@@ -29,7 +29,7 @@
 | `pnpm rebuild:verify` | Pass from a fresh temporary copy and frozen lockfile; lockfile graph `4087343a2a551525c7658e758d82063f9f3167dc9dddc425a4d80a14ee1b0db3`, importer graph `335e58984a447fd383e00d86b2d3579b39c1d26df9f14be8b32201440ad130f3` |
 | `pnpm audit:dependencies` | Pass: 650 dependencies; zero moderate, high or critical known vulnerabilities |
 | `pnpm secrets:check --history` | Pass: 567 current text files plus reachable Git history; matches would be redacted |
-| Hosted implementation T1 | Pending exact-head private CI |
+| Hosted implementation T1 | Pass: [run 36637389706](https://github.com/dynamicet/hallelujah-website/actions/runs/36637389706) completed every gate, including clean reconstruction, for exact implementation head `af457e4b951e2f225875541b8094a93d0b84e0c5` under [PR #84](https://github.com/dynamicet/hallelujah-website/pull/84) |
 
 ## Defects found and corrected
 
@@ -49,8 +49,11 @@ the alias was added and the complete configured gate subsequently passed end to 
 
 On 30 September 2026, Africa/Addis_Ababa, B04-010 moves In progress → **In review** after every
 focused, predecessor, full-repository, clean-reconstruction, dependency, history-secret and diff
-gate above passed. Hosted exact-head T1 and explicit client controlled acceptance remain required
-before Done.
+gate above passed. Private hosted implementation T1 then passed every gate in
+[run 36637389706](https://github.com/dynamicet/hallelujah-website/actions/runs/36637389706)
+for exact review head `af457e4b951e2f225875541b8094a93d0b84e0c5` under
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Explicit client controlled
+acceptance remains required before Done.
 
 Human assistive-technology, authentic content, language, medical-staff, production and publication
 acceptance remain open under `DEL-01` and the applicable CARE/APPT/LANG gates. Automated controlled

@@ -1759,5 +1759,9 @@ Africa/Addis_Ababa, under the same responsible/review identity after its 20-case
 independent frozen clean reconstruction, dependency audit, reachable-history secret scan and
 diff-integrity check passed. The optimized build retains no `/doctors/` route. The
 [sanitized evidence record](evidence/B04-010-controlled-clinician-profile-validation-2026-09-30.md)
-retains local T0 results. Private hosted exact-head T1 and explicit client controlled acceptance
-remain required before Done; B04-011 remains unpromoted.
+retains local T0 results. Private hosted implementation T1
+[run 36637389706](https://github.com/dynamicet/hallelujah-website/actions/runs/36637389706)
+then passed every gate, including clean reconstruction, for exact review head
+`af457e4b951e2f225875541b8094a93d0b84e0c5` under
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Explicit client controlled
+acceptance remains required before Done; B04-011 remains unpromoted.
