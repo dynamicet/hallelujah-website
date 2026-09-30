@@ -37,7 +37,7 @@
   },
   "securityOverrides": {
     "@esbuild-kit/core-utils>esbuild": "0.25.12",
-    "dompurify": "3.4.15"
+    "dompurify": "3.4.16"
   },
   "assetProcessors": {
     "fontTools": "4.65.0",

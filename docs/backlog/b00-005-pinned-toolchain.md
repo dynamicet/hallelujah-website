@@ -49,7 +49,10 @@ This ticket changes no application route, CMS collection, database connection, e
 - Payload `3.89.0` supports Next.js `16.2.6+` below 17 and Node.js `20.9+`; see the [Payload installation requirements](https://payloadcms.com/docs/getting-started/installation). All three Payload direct packages remain on one exact release.
 - PostgreSQL supports each major for five years and recommends the current minor. The [upstream version policy](https://www.postgresql.org/support/versioning/) lists `18.6` as the current PostgreSQL 18 minor.
 - Docker `29.8.0` is the current selected patch baseline in the [official Engine 29 release notes](https://docs.docker.com/engine/release-notes/29/). Mutable image tags are insufficient, so the selected Node and PostgreSQL official-image tags also carry verified index digests.
-- The first audit found transitive DOMPurify and legacy esbuild advisories. Scoped exact overrides move them to `3.4.15` and `0.25.12`; the post-change `pnpm audit --audit-level moderate` reports no known vulnerabilities. The clean build verifies compatibility of those overrides.
+- The first audit found transitive DOMPurify and legacy esbuild advisories. Scoped exact overrides
+  initially moved them to `3.4.15` and `0.25.12`; a subsequently published DOMPurify advisory moves
+  the former to `3.4.16`. The post-change audit reports no known vulnerabilities, and the clean
+  build verifies compatibility of those overrides.
 
 ## Enforcement
 

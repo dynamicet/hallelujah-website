@@ -99,3 +99,10 @@ unresolved. Authentic clinicians or claims, portraits, schedules, availability, 
 active appointment actions, public routes, providers, named human acceptance, production and
 publication remain gated; controlled acceptance closes none of those dependencies or release
 gates.
+
+Acceptance-documentation
+[run 36767977642](https://github.com/dynamicet/hallelujah-website/actions/runs/36767977642)
+failed closed at the live dependency audit after the registry published low-severity DOMPurify
+`GHSA-p98j-92pf-mc4p` against the prior `3.4.15` override. The exact override moves to patched
+`3.4.16`; no application surface or public route is added. A new exact-head hosted pass remains
+required before merge.

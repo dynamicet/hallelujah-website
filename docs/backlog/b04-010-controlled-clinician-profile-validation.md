@@ -143,6 +143,11 @@ Authentic clinicians or claims, portraits, schedules, availability, staffed cont
 appointment actions, public routes, providers, named human acceptance, production and publication
 remain gated.
 
+The first acceptance-documentation head failed closed in the live dependency audit after the
+registry published low-severity DOMPurify `GHSA-p98j-92pf-mc4p`. The already authorized exact
+transitive override moves from `3.4.15` to patched `3.4.16`; no application surface or public route
+is added. A new exact-head hosted pass remains required before merge.
+
 ## Source contract
 
 1. [Epic scope](epic-04-care-discovery.md#doctor-profile-doctorsdoctor-slug-p0p7)

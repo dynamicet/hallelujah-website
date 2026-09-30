@@ -1782,3 +1782,9 @@ exact-main result must be retained in [issue #83](https://github.com/dynamicet/h
 and PR #84. Dependent execution waits for exact-main CI, and B04-011 remains unpromoted. This
 acceptance closes no authentic-data, human-acceptance, production, publication or unresolved
 dependency gate.
+
+Acceptance-documentation
+[run 36767977642](https://github.com/dynamicet/hallelujah-website/actions/runs/36767977642)
+failed closed after the registry published low-severity DOMPurify `GHSA-p98j-92pf-mc4p`. The
+already authorized exact override moves from `3.4.15` to patched `3.4.16`, without adding an
+application surface or public route. A new exact-head hosted pass remains required before merge.
