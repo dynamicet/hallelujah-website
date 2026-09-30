@@ -72,3 +72,30 @@ acceptance remains required before Done.
 Human assistive-technology, authentic content, language, medical-staff, production and publication
 acceptance remain open under `DEL-01` and the applicable CARE/APPT/LANG gates. Automated controlled
 validation closes none of those dependencies.
+
+## Controlled acceptance
+
+The client directed “close it out” while B04-010 was In review. B04-010 moves In review →
+**Done** for controlled validation under `befikadusata` as responsible and controlled acceptance
+person, directing Codex in temporary QA, Accessibility-test and Content-contract roles on
+30 September 2026, Africa/Addis_Ababa. The target remains synthetic English local T0/private
+hosted T1 under the working B00-016 matrix.
+
+Accepted validation head: `262b0582f8b2279fd6a58cdebbd50b7307bdbc09`. Matching hosted
+[run 36754859509](https://github.com/dynamicet/hallelujah-website/actions/runs/36754859509)
+passes every step, including the focused static and rendered validation suites, predecessor
+contracts, optimized-build isolation, history secret scan, dependency audit, full repository
+verification and independent frozen clean reconstruction. All recorded local gates pass and no
+scoped controlled-validation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83)
+and PR #84. Dependent execution waits for passing exact-main CI. B04-011 is not promoted by this
+acceptance.
+
+`DEL-01`, B04-001–B04-003, B04-006, CARE-01–CARE-03, CARE-06, APPT-01 and LANG-01/LANG-02 remain
+unresolved. Authentic clinicians or claims, portraits, schedules, availability, staffed contact,
+active appointment actions, public routes, providers, named human acceptance, production and
+publication remain gated; controlled acceptance closes none of those dependencies or release
+gates.

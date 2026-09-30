@@ -1768,3 +1768,17 @@ then passed every gate, including the live audit and clean reconstruction, for e
 `a9a8f8437e37c3a4fec697c101ce7cd6c6277230` under
 [PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Explicit client controlled
 acceptance remains required before Done; B04-011 remains unpromoted.
+
+The client subsequently directed “close it out” while B04-010 was In review. B04-010 moves
+In review → **Done** for controlled validation on 30 September 2026, Africa/Addis_Ababa, under
+`befikadusata` as responsible and controlled acceptance person directing Codex in the same
+temporary roles. Accepted validation head `262b0582f8b2279fd6a58cdebbd50b7307bdbc09` has matching
+hosted [run 36754859509](https://github.com/dynamicet/hallelujah-website/actions/runs/36754859509),
+which passes every gate. No scoped controlled-validation defect remains open.
+
+Final acceptance-documentation CI must pass before checked merge of
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84); the matching run, merge SHA and
+exact-main result must be retained in [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83)
+and PR #84. Dependent execution waits for exact-main CI, and B04-011 remains unpromoted. This
+acceptance closes no authentic-data, human-acceptance, production, publication or unresolved
+dependency gate.

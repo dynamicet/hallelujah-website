@@ -2,8 +2,8 @@
 
 **Lane / priority / phase:** EVIDENCE / P1 / Phase 1 preparation
 
-**Status:** In review for controlled validation; hosted implementation evidence complete and
-explicit client acceptance pending
+**Status:** Done for controlled validation; final acceptance-documentation CI and checked merge
+tracked below
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary QA,
 Accessibility-test and Content-contract roles
@@ -116,6 +116,32 @@ passed every gate, including the live dependency audit and clean reconstruction,
 head `a9a8f8437e37c3a4fec697c101ce7cd6c6277230` under
 [PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Explicit client controlled
 acceptance remains required before Done.
+
+## Controlled acceptance — 30 September 2026
+
+The client directed “close it out” while B04-010 was In review. B04-010 moves In review →
+**Done** for controlled validation under `befikadusata` as responsible and controlled acceptance
+person, directing Codex in temporary QA, Accessibility-test and Content-contract roles on
+30 September 2026, Africa/Addis_Ababa. The target remains synthetic English local T0/private
+hosted T1 under the working B00-016 matrix.
+
+Accepted validation head `262b0582f8b2279fd6a58cdebbd50b7307bdbc09` has matching hosted
+[run 36754859509](https://github.com/dynamicet/hallelujah-website/actions/runs/36754859509), which
+passes every hosted gate. The
+[completion evidence](evidence/B04-010-controlled-clinician-profile-validation-2026-09-30.md#controlled-acceptance)
+retains the local and hosted proofs; no scoped controlled-validation defect remains open.
+
+Final acceptance-documentation CI must pass for its exact SHA before checked merge of
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Its matching SHA/run, merge SHA
+and exact-main result must be retained in [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83)
+and PR #84. Dependent execution waits for passing exact-main CI. B04-011 is not promoted by this
+acceptance.
+
+This closeout accepts only the synthetic English loopback/noindex validation. `DEL-01`,
+B04-001–B04-003, B04-006, CARE-01–CARE-03, CARE-06, APPT-01 and LANG-01/LANG-02 remain unresolved.
+Authentic clinicians or claims, portraits, schedules, availability, staffed contact, active
+appointment actions, public routes, providers, named human acceptance, production and publication
+remain gated.
 
 ## Source contract
 
