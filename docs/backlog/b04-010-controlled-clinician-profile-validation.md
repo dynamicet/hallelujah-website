@@ -69,10 +69,12 @@ profile feature contract.
 
 - focused static and rendered validation scripts under `apps/web/scripts/`;
 - the synthetic clinician-profile fixture/loopback preview only for a deterministic validation seam;
-- package commands plus this brief, execution board and sanitized evidence record.
+- package commands plus this brief, execution board and sanitized evidence record;
+- fail-closed dependency remediation discovered during review, limited to exact patched transitive
+  overrides and the patched Next.js release with its matching lint/toolchain pins.
 
-No dependency, public route, authentic content, CMS mutation, provider, collection path, database,
-deployment, production configuration or unrelated refactor is authorized.
+No unrelated dependency, public route, authentic content, CMS mutation, provider, collection path,
+database, deployment, production configuration or unrelated refactor is authorized.
 
 ## Verification plan
 
@@ -108,10 +110,10 @@ passed. The optimized production build retains no `/doctors/` route.
 The [sanitized evidence record](evidence/B04-010-controlled-clinician-profile-validation-2026-09-30.md)
 records completeness/omission, portrait and schedule withholding, long mixed-script reflow,
 withdrawn/expired relationship removal, record review/expiry withdrawal, genuine-successor,
-accessibility-tree, no-JavaScript, print and isolation results. Private hosted implementation T1
-[run 36637389706](https://github.com/dynamicet/hallelujah-website/actions/runs/36637389706)
-passed every gate, including clean reconstruction, for exact review head
-`af457e4b951e2f225875541b8094a93d0b84e0c5` under
+accessibility-tree, no-JavaScript, print and isolation results. Private hosted exact-head T1
+[run 36751207972](https://github.com/dynamicet/hallelujah-website/actions/runs/36751207972)
+passed every gate, including the live dependency audit and clean reconstruction, for exact review
+head `a9a8f8437e37c3a4fec697c101ce7cd6c6277230` under
 [PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Explicit client controlled
 acceptance remains required before Done.
 

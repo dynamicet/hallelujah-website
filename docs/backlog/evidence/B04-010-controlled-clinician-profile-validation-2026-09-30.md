@@ -26,10 +26,10 @@
 | `pnpm clinicians:check`, `pnpm care-relationships:check` | Pass |
 | Format, lint, typecheck and `git diff --check` | Pass |
 | `pnpm verify` | Pass: complete configured repository gate, optimized build and all rendered matrices |
-| `pnpm rebuild:verify` | Pass from a fresh temporary copy and frozen lockfile; lockfile graph `4087343a2a551525c7658e758d82063f9f3167dc9dddc425a4d80a14ee1b0db3`, importer graph `335e58984a447fd383e00d86b2d3579b39c1d26df9f14be8b32201440ad130f3` |
+| `pnpm rebuild:verify` | Pass from a fresh temporary copy and frozen lockfile after security remediation; lockfile graph `7ae05ad383cb734d68403151110c80a5e37c15ce4e403c784ccce6f140f777f3`, importer graph `2fb83f002b80a6efbc16ef014310132a2aeef1342849797942a0d583d7e315b0` |
 | `pnpm audit:dependencies` | Pass: 650 dependencies; zero moderate, high or critical known vulnerabilities |
 | `pnpm secrets:check --history` | Pass: 567 current text files plus reachable Git history; matches would be redacted |
-| Hosted implementation T1 | Pass: [run 36637389706](https://github.com/dynamicet/hallelujah-website/actions/runs/36637389706) completed every gate, including clean reconstruction, for exact implementation head `af457e4b951e2f225875541b8094a93d0b84e0c5` under [PR #84](https://github.com/dynamicet/hallelujah-website/pull/84) |
+| Hosted exact-head T1 | Pass: [run 36751207972](https://github.com/dynamicet/hallelujah-website/actions/runs/36751207972) completed every gate, including the live dependency audit and clean reconstruction, for exact review head `a9a8f8437e37c3a4fec697c101ce7cd6c6277230` under [PR #84](https://github.com/dynamicet/hallelujah-website/pull/84) |
 
 ## Defects found and corrected
 
@@ -45,13 +45,27 @@ environment with hash-locked `fontTools 4.65.0` and Brotli 1.2.0. The first conf
 then exposed a missing root forwarding alias for the new app-level rendered validation command;
 the alias was added and the complete configured gate subsequently passed end to end.
 
+Initial hosted implementation [run 36637389706](https://github.com/dynamicet/hallelujah-website/actions/runs/36637389706)
+passed for `af457e4b951e2f225875541b8094a93d0b84e0c5`. While the evidence head was being
+verified, the registry published advisories that made
+[run 36681191386](https://github.com/dynamicet/hallelujah-website/actions/runs/36681191386)
+fail closed with three moderate and four high findings in `fast-uri` and `brace-expansion`.
+Exact scoped overrides moved those transitive lines to `fast-uri 3.1.8`,
+`brace-expansion 1.1.21` and `brace-expansion 5.0.12`. Before that remediation head could pass,
+the registry published the critical Next.js `GHSA-vcvr-r3jv-pc5j` advisory, so
+[run 36744943907](https://github.com/dynamicet/hallelujah-website/actions/runs/36744943907)
+also failed closed. Next.js and its matching ESLint config/toolchain pin moved from `16.3.5` to
+`16.3.6`. Full local verification, the clean reconstruction and the zero-finding audit then passed;
+[run 36751207972](https://github.com/dynamicet/hallelujah-website/actions/runs/36751207972)
+passed every hosted gate for exact head `a9a8f8437e37c3a4fec697c101ce7cd6c6277230`.
+
 ## Local review result
 
 On 30 September 2026, Africa/Addis_Ababa, B04-010 moves In progress → **In review** after every
 focused, predecessor, full-repository, clean-reconstruction, dependency, history-secret and diff
-gate above passed. Private hosted implementation T1 then passed every gate in
-[run 36637389706](https://github.com/dynamicet/hallelujah-website/actions/runs/36637389706)
-for exact review head `af457e4b951e2f225875541b8094a93d0b84e0c5` under
+gate above passed. Private hosted exact-head T1 then passed every gate in
+[run 36751207972](https://github.com/dynamicet/hallelujah-website/actions/runs/36751207972)
+for exact review head `a9a8f8437e37c3a4fec697c101ce7cd6c6277230` under
 [PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Explicit client controlled
 acceptance remains required before Done.
 
