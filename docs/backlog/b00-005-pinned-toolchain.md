@@ -34,7 +34,7 @@ This ticket changes no application route, CMS collection, database connection, e
 | --- | --- | --- |
 | Node.js | `24.21.0` | Exact `.nvmrc` and manifest engine; Active LTS through 19 October 2026, then Maintenance LTS through April 2028 |
 | pnpm | `10.27.0` | Exact `packageManager` and manifest engines |
-| Next.js | `16.3.5` | Exact direct dependency and matching `eslint-config-next` |
+| Next.js | `16.3.6` | Exact direct dependency and matching `eslint-config-next`; patched from `16.3.5` after the 30 September 2026 `GHSA-vcvr-r3jv-pc5j` critical advisory |
 | Payload CMS | `3.89.0` | Exact `payload`, `@payloadcms/next`, and `@payloadcms/db-postgres` versions |
 | TypeScript | `5.9.3` | Exact direct development dependency; current stable TypeScript 5 line selected instead of a new major |
 | PostgreSQL | `18.6` | Current supported PostgreSQL 18 minor; upstream support ends 14 November 2030 |
