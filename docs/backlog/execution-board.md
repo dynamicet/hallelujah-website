@@ -1734,3 +1734,57 @@ passed for exact head `7cc8378345421b28c49d306c7cd8443954ad86bb`.
 passed for that merge commit. [Issue #81](https://github.com/dynamicet/hallelujah-website/issues/81)
 is closed explicitly after this record reaches main. B04-009 closeout is complete; the unresolved
 gates and B04-010 state remain unchanged.
+
+## B04-010 controlled clinician-profile validation start — 30 September 2026
+
+The client directed “do 1” after identifying B04-010 as the next controlled work item. B04-010
+moves Proposed → Ready → **In progress** on branch
+`b04-010-clinician-profile-validation` under workspace identity `befikadusata` directing Codex in
+temporary QA, Accessibility-test and Content-contract roles, with the same identity as controlled-
+development review authority, on 30 September 2026, Africa/Addis_Ababa. B04-009 is Done and its
+exact-main run passed. The [execution brief](b04-010-controlled-clinician-profile-validation.md)
+and [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83) govern the pull.
+
+The controlled sequencing exception permits synthetic English local T0/private hosted T1 checks
+for completeness, omission, lifecycle and relationship withdrawal, appointment continuity,
+accessibility-tree behavior, no-JavaScript, reflow, print and internal index withdrawal. `DEL-01`,
+B04-001–B04-003, B04-006, CARE-01–CARE-03, CARE-06, APPT-01 and LANG-01/LANG-02 remain unresolved.
+Authentic clinicians or claims, portraits, schedules, availability, staffed contact, active
+appointment actions, public routes, providers, production and publication remain gated. B04-011
+is not promoted.
+
+B04-010 subsequently moves In progress → **In review** on 30 September 2026,
+Africa/Addis_Ababa, under the same responsible/review identity after its 20-case focused and
+10-case rendered validation suites, predecessor profile suites, full configured repository gate,
+independent frozen clean reconstruction, dependency audit, reachable-history secret scan and
+diff-integrity check passed. The optimized build retains no `/doctors/` route. The
+[sanitized evidence record](evidence/B04-010-controlled-clinician-profile-validation-2026-09-30.md)
+retains local T0 results. Newly published `fast-uri`, `brace-expansion` and critical Next.js
+advisories caused two subsequent hosted audit heads to fail closed; exact transitive overrides and
+Next.js/ESLint-config `16.3.6` corrected the graph without adding a public route. Private hosted
+exact-head T1
+[run 36751207972](https://github.com/dynamicet/hallelujah-website/actions/runs/36751207972)
+then passed every gate, including the live audit and clean reconstruction, for exact review head
+`a9a8f8437e37c3a4fec697c101ce7cd6c6277230` under
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84). Explicit client controlled
+acceptance remains required before Done; B04-011 remains unpromoted.
+
+The client subsequently directed “close it out” while B04-010 was In review. B04-010 moves
+In review → **Done** for controlled validation on 30 September 2026, Africa/Addis_Ababa, under
+`befikadusata` as responsible and controlled acceptance person directing Codex in the same
+temporary roles. Accepted validation head `262b0582f8b2279fd6a58cdebbd50b7307bdbc09` has matching
+hosted [run 36754859509](https://github.com/dynamicet/hallelujah-website/actions/runs/36754859509),
+which passes every gate. No scoped controlled-validation defect remains open.
+
+Final acceptance-documentation CI must pass before checked merge of
+[PR #84](https://github.com/dynamicet/hallelujah-website/pull/84); the matching run, merge SHA and
+exact-main result must be retained in [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83)
+and PR #84. Dependent execution waits for exact-main CI, and B04-011 remains unpromoted. This
+acceptance closes no authentic-data, human-acceptance, production, publication or unresolved
+dependency gate.
+
+Acceptance-documentation
+[run 36767977642](https://github.com/dynamicet/hallelujah-website/actions/runs/36767977642)
+failed closed after the registry published low-severity DOMPurify `GHSA-p98j-92pf-mc4p`. The
+already authorized exact override moves from `3.4.15` to patched `3.4.16`, without adding an
+application surface or public route. A new exact-head hosted pass remains required before merge.

@@ -9,6 +9,7 @@ export const clinicianProfileFixtureStates = [
   'partial',
   'portrait-omitted',
   'long-content',
+  'long-multilingual-name',
   'missing-related',
   'appointment-unavailable',
   'failure',
@@ -98,6 +99,15 @@ function customize(fixtures, state) {
       specialties: [`Synthetic adult care${extension}`],
       interests: [`Synthetic care interest${extension}`],
       languages: [`Fixture language${extension}`],
+    }
+  }
+  if (state === 'long-multilingual-name') {
+    const name = 'Dr Synthetic መሮን የረጅም ስም ምሳሌ — controlled multilingual-name shaping specimen'
+    fixtures.doctor.localized.en.title = name
+    fixtures.doctor.clinician.localized.en = {
+      ...fixtures.doctor.clinician.localized.en,
+      name,
+      professionalTitle: 'Synthetic multilingual-name layout fixture — not reviewed hospital wording',
     }
   }
   if (state === 'portrait-omitted') {
