@@ -4,8 +4,8 @@
 | --- | --- |
 | Branch | `b04-011-controlled-service-directory` |
 | Scope | Synthetic English loopback T0/private T1 composition only |
-| Status | In review; local T0 complete, hosted exact-head T1 and explicit client acceptance pending |
-| Tracking | [issue #85](https://github.com/dynamicet/hallelujah-website/issues/85) |
+| Status | In review; local T0 and hosted implementation T1 complete, explicit client acceptance pending |
+| Tracking | [issue #85](https://github.com/dynamicet/hallelujah-website/issues/85) and [pull request #86](https://github.com/dynamicet/hallelujah-website/pull/86) |
 | Public route | Absent; no `/services/` route is authorized |
 | Production/publication authority | Not granted |
 
@@ -45,6 +45,7 @@ readiness or publication authority.
 | `pnpm rebuild:verify` | Pass from a fresh temporary copy and frozen lockfile; lockfile graph `c3b5bb34419974d6475a3baa65d47bfd690976172d45bec737b4d43c86a28a01`, importer graph `2fb83f002b80a6efbc16ef014310132a2aeef1342849797942a0d583d7e315b0` |
 | `pnpm audit:dependencies` | Pass: 650 dependencies; zero moderate, high or critical known vulnerabilities |
 | `pnpm secrets:check --history` | Pass: 579 current text files plus reachable Git history; matches would be redacted |
+| Hosted exact-head T1 | Pass: [run 36859060799](https://github.com/dynamicet/hallelujah-website/actions/runs/36859060799) completed every gate, including the live audit and clean reconstruction, for implementation head `1351461c43d457e165a83f5935f298179d9865f3` under [PR #86](https://github.com/dynamicet/hallelujah-website/pull/86) |
 
 ## Sanitized visual review
 
@@ -70,8 +71,12 @@ after loopback execution was authorized.
 
 On 1 October 2026, Africa/Addis_Ababa, B04-011 moves In progress → **In review** after every
 focused, predecessor, full-repository, clean-reconstruction, dependency, reachable-history secret,
-diff-integrity and sanitized visual-review gate above passed. Hosted exact-head T1 and explicit
-client controlled acceptance remain required before Done.
+diff-integrity and sanitized visual-review gate above passed. Private hosted implementation T1
+then passed every gate in
+[run 36859060799](https://github.com/dynamicet/hallelujah-website/actions/runs/36859060799)
+for exact implementation head `1351461c43d457e165a83f5935f298179d9865f3` under
+[PR #86](https://github.com/dynamicet/hallelujah-website/pull/86). Explicit client controlled
+acceptance remains required before Done.
 
 Human assistive-technology, authentic taxonomy/content, language, clinical/operations,
 production and publication acceptance remain open under `DEL-01` and the applicable CARE/SEARCH/

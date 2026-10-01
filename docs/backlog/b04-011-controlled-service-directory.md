@@ -136,7 +136,11 @@ sanitized visual review passed. The optimized application build still exposes no
 route and imports no preview fixture or adapter.
 
 The [evidence record](evidence/B04-011-controlled-service-directory-2026-10-01.md) retains the
-local T0 results and artifact hashes. Hosted exact-head T1 and explicit client controlled
-acceptance remain required before Done. This review state does not approve authentic taxonomy,
-services, claims, urgent wording, staffed contacts, appointment behavior, translation, production
-or publication, and it does not promote B04-012.
+local T0 results and artifact hashes. Hosted implementation
+[run 36859060799](https://github.com/dynamicet/hallelujah-website/actions/runs/36859060799)
+passed every gate for exact implementation head
+`1351461c43d457e165a83f5935f298179d9865f3` under
+[PR #86](https://github.com/dynamicet/hallelujah-website/pull/86). Explicit client controlled
+acceptance remains required. This review state does not approve authentic taxonomy, services,
+claims, urgent wording, staffed contacts, appointment behavior, translation, production or
+publication, and it does not promote B04-012.

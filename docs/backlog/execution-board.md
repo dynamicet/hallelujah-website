@@ -1827,5 +1827,9 @@ independent frozen clean reconstruction, zero-finding dependency audit, reachabl
 scan, diff-integrity check and sanitized visual review passed. The optimized build retains no
 `/services/` route. The
 [sanitized evidence record](evidence/B04-011-controlled-service-directory-2026-10-01.md) retains
-local T0 results. Hosted exact-head T1 and explicit client controlled acceptance remain required
-before Done; B04-012 remains unpromoted.
+local T0 results. Private hosted exact-head T1
+[run 36859060799](https://github.com/dynamicet/hallelujah-website/actions/runs/36859060799)
+then passed every gate for exact implementation head
+`1351461c43d457e165a83f5935f298179d9865f3` under
+[PR #86](https://github.com/dynamicet/hallelujah-website/pull/86). Explicit client controlled
+acceptance remains required before Done; B04-012 remains unpromoted.
