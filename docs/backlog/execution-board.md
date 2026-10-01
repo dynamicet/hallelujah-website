@@ -1799,3 +1799,33 @@ passed every gate for that merge commit, including the live audit and independen
 reconstruction. B04-010 closeout is complete; [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83)
 is closed explicitly after this record reaches main. B04-011 and every unresolved authentic-data,
 named-human, production and publication gate remain unpromoted.
+
+## B04-011 controlled service-directory start — 1 October 2026
+
+The client directed “Start B04-011”. B04-011 moves Proposed → Ready → **In progress** on branch
+`b04-011-controlled-service-directory` under workspace identity `befikadusata` directing Codex in
+temporary Frontend, Backend-contract and QA roles, with the same identity as controlled-development
+review authority, on 1 October 2026, Africa/Addis_Ababa. B04-010 is Done and its exact-main run
+passed. The [execution brief](b04-011-controlled-service-directory.md) and
+[issue #85](https://github.com/dynamicet/hallelujah-website/issues/85) govern the pull.
+
+The controlled sequencing exception permits a synthetic English S1–S7 service-directory
+composition through the existing governed service projection, with bounded GET search, one
+fictional taxonomy, group filtering, deterministic pagination, complete controlled states and an
+exact fictional urgent-term placement boundary. It remains a loopback-only noindex review tool;
+no public `/services/` route, authentic taxonomy/service/claim, staffed contact, treatment or care
+recommendation, appointment action, provider, personal data, production or publication capability
+is authorized.
+
+B04-004, B04-005, CARE-04, CARE-05, SEARCH-01, LANG-01 and DEL-01 remain unresolved. This start
+closes none of those gates and does not promote B04-012 or any later care-discovery ticket.
+
+B04-011 subsequently moves In progress → **In review** on 1 October 2026,
+Africa/Addis_Ababa, under the same responsible/review identity after its 22-case focused suite,
+173-case rendered browser matrix, predecessor checks, full configured repository gate,
+independent frozen clean reconstruction, zero-finding dependency audit, reachable-history secret
+scan, diff-integrity check and sanitized visual review passed. The optimized build retains no
+`/services/` route. The
+[sanitized evidence record](evidence/B04-011-controlled-service-directory-2026-10-01.md) retains
+local T0 results. Hosted exact-head T1 and explicit client controlled acceptance remain required
+before Done; B04-012 remains unpromoted.
