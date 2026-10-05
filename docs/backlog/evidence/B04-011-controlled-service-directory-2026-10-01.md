@@ -117,3 +117,25 @@ in these checks. The audit gate remains enforced. PR #86 stays open and unmerged
 issue #85 stays open, and exact-main closeout is blocked pending dependency remediation
 and a new passing exact-head run. Controlled implementation acceptance remains recorded;
 B04-012 and all production/publication gates remain unpromoted.
+
+
+## Dependency remediation — 5 October 2026
+
+The client directed “fix the vulnrability”. The scoped override
+`@next/eslint-plugin-next>fast-glob` now resolves to `tinyglobby@0.2.17`. A pinned
+[pnpm compatibility patch](../../../patches/@next__eslint-plugin-next@16.3.6.patch)
+disables implicit directory expansion and preserves absolute and root paths and
+trailing-slash behavior for the plugin's root-directory discovery. `sass@1.105.1`
+replaces the optional older Sass graph, removing its `chokidar@3` dependency on
+`braces`. The frozen lockfile contains no `braces`, `micromatch` or `fast-glob` package.
+The overrides are enforced by the toolchain policy. No advisory suppression or
+security-gate exception is introduced.
+
+`pnpm lint-glob:check`, now included in `pnpm verify`, exercises the installed patched
+Next.js plugin for literal, wildcard, brace, array, Windows-separator, absolute, root,
+missing and file paths. It also proves the actual internal-link ESLint rule still
+reports an invalid anchor, checks Sass compilation and asserts exclusion of the
+vulnerable package graph. The focused regression check passes. The live dependency
+audit passes with 644 dependencies and zero moderate, high or critical findings.
+Full verification, frozen clean reconstruction and exact-head hosted CI remain
+required before merge.

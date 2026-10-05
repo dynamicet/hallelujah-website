@@ -1866,3 +1866,13 @@ in these checks. The audit gate remains enforced. PR #86 stays open and unmerged
 issue #85 stays open, and exact-main closeout is blocked pending dependency remediation
 and a new passing exact-head run. Controlled implementation acceptance remains recorded;
 B04-012 and all production/publication gates remain unpromoted.
+
+
+On 5 October 2026 the client directed dependency remediation. The scoped lint glob
+replacement, pinned compatibility patch and Sass override remove both paths to
+`braces` without suppressing the advisory or weakening the audit. The focused
+installed-plugin/Sass regression check and live dependency audit pass; the
+[evidence record](evidence/B04-011-controlled-service-directory-2026-10-01.md#dependency-remediation--5-october-2026)
+retains the remediation contract. Full verification, frozen reconstruction and a
+new passing exact-head hosted run remain required before checked merge and exact-main
+closeout. B04-012 remains unpromoted.
