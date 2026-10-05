@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b04-011-controlled-service-directory` |
 | Scope | Synthetic English loopback T0/private T1 composition only |
-| Status | Done for controlled development; client accepted 5 October 2026; merge closeout blocked by unpatched dependency advisory |
+| Status | Done for controlled development; client accepted 5 October 2026; dependency remediation verified locally |
 | Tracking | [issue #85](https://github.com/dynamicet/hallelujah-website/issues/85) and [pull request #86](https://github.com/dynamicet/hallelujah-website/pull/86) |
 | Public route | Absent; no `/services/` route is authorized |
 | Production/publication authority | Not granted |
@@ -139,3 +139,25 @@ vulnerable package graph. The focused regression check passes. The live dependen
 audit passes with 644 dependencies and zero moderate, high or critical findings.
 Full verification, frozen clean reconstruction and exact-head hosted CI remain
 required before merge.
+
+
+## Remediation verification result — 5 October 2026
+
+The independent frozen clean reconstruction passed the complete `pnpm verify` suite,
+including the installed-plugin compatibility regression, lint, types, application
+contracts, optimized build, accessibility, budgets, runtime and all rendered matrices,
+including the 173-case service-directory matrix. Lockfile graph SHA-256:
+`8056d55de822a1e38f68ac909a2c199f798cd86b849f29151a5e3c2949ed33c8`; workspace importer
+graph SHA-256: `2fb83f002b80a6efbc16ef014310132a2aeef1342849797942a0d583d7e315b0`.
+The live audit passes with zero moderate, high or critical findings. Reachable-history
+secret scanning and documentation/diff integrity checks pass.
+
+The initial local attempt lacked the pinned Python asset processors; a temporary
+environment with the repository's exact FontTools/Brotli requirements supplied them
+for the successful complete clean run. No test or security gate was skipped.
+
+The recorded vulnerability blocker is remediated. Final acceptance-documentation
+hosted CI must pass before checked merge; exact-head, merge and exact-main results
+are retained in [issue #85](https://github.com/dynamicet/hallelujah-website/issues/85)
+and [PR #86](https://github.com/dynamicet/hallelujah-website/pull/86). Explicit issue
+closure follows passing exact-main CI. B04-012 and the remaining gates stay unpromoted.

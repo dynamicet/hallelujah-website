@@ -1876,3 +1876,14 @@ installed-plugin/Sass regression check and live dependency audit pass; the
 retains the remediation contract. Full verification, frozen reconstruction and a
 new passing exact-head hosted run remain required before checked merge and exact-main
 closeout. B04-012 remains unpromoted.
+
+
+The dependency remediation passed independent frozen clean reconstruction and the
+complete configured verification suite, including the installed-plugin compatibility
+regression and all rendered matrices. The live audit reports zero moderate, high or
+critical findings; the frozen graph contains no vulnerable `braces` package. The
+[remediation result](evidence/B04-011-controlled-service-directory-2026-10-01.md#remediation-verification-result--5-october-2026)
+records the lockfile and importer hashes. This resolves the dependency-remediation
+blocker without an audit exception. Final hosted CI, checked merge and exact-main
+closeout evidence are retained in issue #85 and PR #86; issue closure waits for their
+passing result. B04-012 remains unpromoted and all remaining gates stay open.
