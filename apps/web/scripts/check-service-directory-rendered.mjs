@@ -189,6 +189,25 @@ try {
     cases.push({ capability: 'default', state: label, width })
   }
 
+  // B04-012: copied links and native history retain canonical filter/query state.
+  await navigate('controlled', 'default', 360, '?q=heart&group=synthetic-medicine')
+  await send('Page.navigate', { url: `${server.origin}/?page=2` })
+  await until("document.readyState === 'complete' && new URL(location.href).searchParams.get('page') === '2' && document.querySelectorAll('[data-service-public-id]').length === 4")
+  const history = await send('Page.getNavigationHistory')
+  await send('Page.navigateToHistoryEntry', { entryId: history.entries[history.currentIndex - 1].id })
+  await until("document.querySelector('#service-search-query')?.value === 'heart'")
+  assert.equal(await evaluate("document.querySelectorAll('[data-service-public-id]').length"), 1)
+  await send('Page.navigateToHistoryEntry', { entryId: history.entries[history.currentIndex].id })
+  await until("new URL(location.href).searchParams.get('page') === '2' && document.querySelectorAll('[data-service-public-id]').length === 4")
+  cases.push({ capability: 'default', state: 'back-forward', width: 360 })
+
+  await navigate('controlled', 'no-js', 320, '?q=mobility+term')
+  const tree = await send('Accessibility.getFullAXTree')
+  assert.ok(tree.nodes.some(node => !node.ignored && node.role?.value === 'heading' && /Synthetic rehabilitation care/u.test(node.name?.value ?? '')))
+  assert.ok(tree.nodes.some(node => !node.ignored && node.role?.value === 'searchbox' && node.name?.value))
+  assert.equal(await evaluate("document.querySelectorAll('[data-service-public-id]').length"), 1)
+  cases.push({ capability: 'no-js', state: 'synonym-accessibility-tree', width: 320 })
+
   console.log(`Service-directory browser matrix passed: ${cases.length} responsive, capability, safety, isolation and GET-state cases.`)
 } finally {
   try { socket?.close() } catch {}
