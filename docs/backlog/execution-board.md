@@ -1799,3 +1799,91 @@ passed every gate for that merge commit, including the live audit and independen
 reconstruction. B04-010 closeout is complete; [issue #83](https://github.com/dynamicet/hallelujah-website/issues/83)
 is closed explicitly after this record reaches main. B04-011 and every unresolved authentic-data,
 named-human, production and publication gate remain unpromoted.
+
+## B04-011 controlled service-directory start — 1 October 2026
+
+The client directed “Start B04-011”. B04-011 moves Proposed → Ready → **In progress** on branch
+`b04-011-controlled-service-directory` under workspace identity `befikadusata` directing Codex in
+temporary Frontend, Backend-contract and QA roles, with the same identity as controlled-development
+review authority, on 1 October 2026, Africa/Addis_Ababa. B04-010 is Done and its exact-main run
+passed. The [execution brief](b04-011-controlled-service-directory.md) and
+[issue #85](https://github.com/dynamicet/hallelujah-website/issues/85) govern the pull.
+
+The controlled sequencing exception permits a synthetic English S1–S7 service-directory
+composition through the existing governed service projection, with bounded GET search, one
+fictional taxonomy, group filtering, deterministic pagination, complete controlled states and an
+exact fictional urgent-term placement boundary. It remains a loopback-only noindex review tool;
+no public `/services/` route, authentic taxonomy/service/claim, staffed contact, treatment or care
+recommendation, appointment action, provider, personal data, production or publication capability
+is authorized.
+
+B04-004, B04-005, CARE-04, CARE-05, SEARCH-01, LANG-01 and DEL-01 remain unresolved. This start
+closes none of those gates and does not promote B04-012 or any later care-discovery ticket.
+
+B04-011 subsequently moves In progress → **In review** on 1 October 2026,
+Africa/Addis_Ababa, under the same responsible/review identity after its 22-case focused suite,
+173-case rendered browser matrix, predecessor checks, full configured repository gate,
+independent frozen clean reconstruction, zero-finding dependency audit, reachable-history secret
+scan, diff-integrity check and sanitized visual review passed. The optimized build retains no
+`/services/` route. The
+[sanitized evidence record](evidence/B04-011-controlled-service-directory-2026-10-01.md) retains
+local T0 results. Private hosted exact-head T1
+[run 36859060799](https://github.com/dynamicet/hallelujah-website/actions/runs/36859060799)
+then passed every gate for exact implementation head
+`1351461c43d457e165a83f5935f298179d9865f3` under
+[PR #86](https://github.com/dynamicet/hallelujah-website/pull/86). Explicit client controlled
+acceptance remains required before Done; B04-012 remains unpromoted.
+
+
+The client directed “close out b04-011” on 5 October 2026, Africa/Addis_Ababa. B04-011
+moves In review → **Done** for controlled development under `befikadusata` as responsible
+and controlled acceptance person directing Codex in the same temporary roles. Accepted
+implementation head `1351461c43d457e165a83f5935f298179d9865f3` passed hosted implementation
+[run 36859060799](https://github.com/dynamicet/hallelujah-website/actions/runs/36859060799);
+review-documentation head `9c406a940441cf5df932dff8042fa8dd7af1f42b` passed
+[run 36861289193](https://github.com/dynamicet/hallelujah-website/actions/runs/36861289193).
+No scoped controlled-development defect remains open.
+
+Final acceptance-documentation CI must pass before checked merge of
+[PR #86](https://github.com/dynamicet/hallelujah-website/pull/86). The exact-head run, merge SHA
+and exact-main result must be retained in
+[issue #85](https://github.com/dynamicet/hallelujah-website/issues/85) and PR #86 before explicit
+issue closure. Dependent execution waits for exact-main CI; B04-012 remains unpromoted.
+This acceptance closes no authentic-data, named-human, production, publication or unresolved
+dependency gate.
+
+
+Final acceptance-documentation
+[run 37312102957](https://github.com/dynamicet/hallelujah-website/actions/runs/37312102957)
+failed the live dependency audit for exact acceptance head
+`75f49b0c3af884ecc1734056ade9a8df016f6f6e`. The registry reports high-severity
+[`GHSA-vfj7-8cjw-p6xm`](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) in
+`braces@3.0.3`, reached through `eslint-config-next` → `@next/eslint-plugin-next` →
+`fast-glob` → `micromatch`. On 5 October 2026 the registry's latest `braces` is `3.0.3`,
+the advisory lists no patched release, and latest `@next/eslint-plugin-next@16.3.8`
+still depends on `fast-glob@3.3.1`. No compatible upstream version fix was available
+in these checks. The audit gate remains enforced. PR #86 stays open and unmerged,
+issue #85 stays open, and exact-main closeout is blocked pending dependency remediation
+and a new passing exact-head run. Controlled implementation acceptance remains recorded;
+B04-012 and all production/publication gates remain unpromoted.
+
+
+On 5 October 2026 the client directed dependency remediation. The scoped lint glob
+replacement, pinned compatibility patch and Sass override remove both paths to
+`braces` without suppressing the advisory or weakening the audit. The focused
+installed-plugin/Sass regression check and live dependency audit pass; the
+[evidence record](evidence/B04-011-controlled-service-directory-2026-10-01.md#dependency-remediation--5-october-2026)
+retains the remediation contract. Full verification, frozen reconstruction and a
+new passing exact-head hosted run remain required before checked merge and exact-main
+closeout. B04-012 remains unpromoted.
+
+
+The dependency remediation passed independent frozen clean reconstruction and the
+complete configured verification suite, including the installed-plugin compatibility
+regression and all rendered matrices. The live audit reports zero moderate, high or
+critical findings; the frozen graph contains no vulnerable `braces` package. The
+[remediation result](evidence/B04-011-controlled-service-directory-2026-10-01.md#remediation-verification-result--5-october-2026)
+records the lockfile and importer hashes. This resolves the dependency-remediation
+blocker without an audit exception. Final hosted CI, checked merge and exact-main
+closeout evidence are retained in issue #85 and PR #86; issue closure waits for their
+passing result. B04-012 remains unpromoted and all remaining gates stay open.

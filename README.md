@@ -116,3 +116,13 @@ Run `pnpm content-integrity:check` for fixed-time cross-model content/lifecycle 
 for authored content fixture leakage. Both are included in full verification; the approved
 bootstrap review surface remains a controlled-development exception. See the
 [B02-014 execution brief](docs/backlog/b02-014-content-integrity-lifecycle.md).
+
+The controlled service directory projects only synthetic governed service records into a
+loopback/noindex S1–S7 composition. Run `pnpm service-directory:check` for bounded GET search,
+group filtering, pagination, withheld-claim and lifecycle contracts; use
+`pnpm service-directory:smoke` for its responsive capability matrix or
+`pnpm service-directory:preview` for local review. The
+[B04-011 execution brief](docs/backlog/b04-011-controlled-service-directory.md) and
+[architecture](docs/architecture/service-directory.md) keep authentic taxonomy, claims,
+urgent wording, `/services/`, detail pages, staffed contacts, appointment actions and publication
+withheld.

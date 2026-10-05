@@ -25,6 +25,9 @@
     "clinician-profile:smoke": "pnpm --dir apps/web clinician-profile:smoke",
     "clinician-profile:validate": "pnpm --dir apps/web clinician-profile:validate",
     "clinician-profile:validate:smoke": "pnpm --dir apps/web clinician-profile:validate:smoke",
+    "service-directory:check": "pnpm --dir apps/web service-directory:check",
+    "service-directory:preview": "pnpm --dir apps/web service-directory:preview",
+    "service-directory:smoke": "pnpm --dir apps/web service-directory:smoke",
     "actions:smoke": "node scripts/check-rendered-foundations.mjs --capture-prefix b01-005-essential-actions",
     "accessibility:smoke": "node scripts/check-built-accessibility.mjs",
     "audit:dependencies": "node scripts/check-dependency-audit.mjs",
@@ -76,7 +79,7 @@
     "tokens:check": "pnpm --dir apps/web tokens:check",
     "tokens:generate": "pnpm --dir apps/web tokens:generate",
     "typecheck": "pnpm --dir apps/web typecheck",
-    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm content-reconciliation:check && pnpm brand:check && pnpm introduction:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm content-build:check && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke && pnpm review-harness:check && pnpm review-harness:smoke && pnpm foundations:smoke && pnpm governed-cards:smoke && pnpm optional-map:smoke && pnpm utility-statements:smoke && pnpm assets:smoke && pnpm home:smoke && pnpm home-contacts:smoke && pnpm home-governed:smoke && pnpm emergency:smoke && pnpm appointment-page:smoke && pnpm clinician-directory:smoke && pnpm clinician-directory:validate:smoke && pnpm clinician-profile:smoke && pnpm clinician-profile:validate:smoke",
+    "verify": "pnpm toolchain:check && pnpm format:check && pnpm ci:policy && pnpm ci:controls:test && pnpm links:check && pnpm secrets:check && pnpm backlog:check && pnpm content-reconciliation:check && pnpm brand:check && pnpm introduction:check && pnpm lint-glob:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm content-build:check && pnpm accessibility:smoke && pnpm budgets:smoke && pnpm runtime:smoke && pnpm review-harness:check && pnpm review-harness:smoke && pnpm foundations:smoke && pnpm governed-cards:smoke && pnpm optional-map:smoke && pnpm utility-statements:smoke && pnpm assets:smoke && pnpm home:smoke && pnpm home-contacts:smoke && pnpm home-governed:smoke && pnpm emergency:smoke && pnpm appointment-page:smoke && pnpm clinician-directory:smoke && pnpm clinician-directory:validate:smoke && pnpm clinician-profile:smoke && pnpm clinician-profile:validate:smoke && pnpm service-directory:smoke",
     "review-harness:serve": "node scripts/serve-review-harness.mjs",
     "review-harness:check": "node scripts/check-review-harness.mjs",
     "review-harness:smoke": "node scripts/check-rendered-foundations.mjs --review-harness --capture-prefix b01-013-review-harness",
@@ -103,7 +106,8 @@
     "content-transfer": "pnpm --dir apps/web content-transfer",
     "content-integrity:check": "pnpm --dir apps/web content-integrity:check",
     "content-build:policy": "node scripts/check-content-build.mjs --policy-only",
-    "content-build:check": "node scripts/check-content-build.mjs"
+    "content-build:check": "node scripts/check-content-build.mjs",
+    "lint-glob:check": "node scripts/check-lint-glob-remediation.mjs"
   },
   "pnpm": {
     "overrides": {
@@ -112,7 +116,12 @@
       "minimatch@3.1.5>brace-expansion": "1.1.21",
       "minimatch@10.2.6>brace-expansion": "5.0.12",
       "dompurify": "3.4.16",
-      "payload>undici": "7.29.1"
+      "payload>undici": "7.29.1",
+      "@next/eslint-plugin-next>fast-glob": "npm:tinyglobby@0.2.17",
+      "sass": "1.105.1"
+    },
+    "patchedDependencies": {
+      "@next/eslint-plugin-next@16.3.6": "patches/@next__eslint-plugin-next@16.3.6.patch"
     }
   }
 }

@@ -32,3 +32,8 @@ export type {
   ClinicianProfileReviewState,
   ClinicianProfileTemplateProps,
 } from './clinician-profile-template'
+export { ServiceDirectoryTemplate } from './service-directory-template'
+export type {
+  ServiceDirectoryReviewState,
+  ServiceDirectoryTemplateProps,
+} from './service-directory-template'
