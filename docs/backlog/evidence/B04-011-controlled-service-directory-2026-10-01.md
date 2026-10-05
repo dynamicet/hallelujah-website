@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b04-011-controlled-service-directory` |
 | Scope | Synthetic English loopback T0/private T1 composition only |
-| Status | In review; local T0 and hosted implementation T1 complete, explicit client acceptance pending |
+| Status | Done for controlled development; client accepted 5 October 2026; final CI and merge closeout pending |
 | Tracking | [issue #85](https://github.com/dynamicet/hallelujah-website/issues/85) and [pull request #86](https://github.com/dynamicet/hallelujah-website/pull/86) |
 | Public route | Absent; no `/services/` route is authorized |
 | Production/publication authority | Not granted |
@@ -87,3 +87,18 @@ LANG gates. Automated controlled verification closes none of those dependencies.
 B04-004, B04-005, CARE-04, CARE-05, SEARCH-01, LANG-01 and DEL-01 remain unresolved. Authentic
 taxonomy, services, claims, urgent wording, staffed contacts, public routes, providers, production
 and publication remain gated.
+
+
+## Controlled acceptance — 5 October 2026
+
+The client directed “close out b04-011” on 5 October 2026, Africa/Addis_Ababa, accepting
+the controlled-development result under `befikadusata` as responsible and controlled
+acceptance person directing Codex in the same temporary roles. B04-011 moves In review →
+**Done** for controlled development. No scoped defect remains open.
+
+Hosted review-documentation
+[run 36861289193](https://github.com/dynamicet/hallelujah-website/actions/runs/36861289193)
+passed for exact head `9c406a940441cf5df932dff8042fa8dd7af1f42b`. Final acceptance-documentation
+CI must pass before checked merge of PR #86. Exact-head, merge and exact-main evidence will
+be retained in issue #85 and PR #86 before explicit issue closure. B04-012 remains unpromoted
+until its own readiness assessment; all remaining gates above stay open.
