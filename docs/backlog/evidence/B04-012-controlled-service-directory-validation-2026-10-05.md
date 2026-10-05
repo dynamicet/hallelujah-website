@@ -37,3 +37,18 @@ approved spelling/synonyms, clinical wording, translation or human assistive-tec
 DEL-01 and all authentic-data, production and publication gates remain open. No public service
 route or active appointment action is introduced. B04-012 is In review after passing local T0; hosted exact-head T1 and explicit controlled acceptance
 remain pending; B04-013 is not promoted.
+
+## B04-012 controlled acceptance — 5 October 2026
+
+The client directed “B04-012 is in review, close it out”. B04-012 moves In review → **Done**
+for controlled development under `befikadusata` as responsible and controlled acceptance person
+directing Codex in temporary QA and Content-contract roles. Local T0 results and clean graph
+hashes recorded above are accepted; no scoped product defect remains open.
+
+[Issue #87](https://github.com/dynamicet/hallelujah-website/issues/87) and
+[PR #88](https://github.com/dynamicet/hallelujah-website/pull/88) retain the current-head hosted
+run, final acceptance-documentation CI, checked merge SHA and exact-main result before explicit
+issue closure. These hosted checks remain pending at acceptance recording. Dependent execution
+waits for passing exact-main CI; B04-013 is not promoted. Authentic taxonomy/claims, clinical and
+language approvals, patient comprehension, human assistive-technology acceptance, production
+and publication remain gated.

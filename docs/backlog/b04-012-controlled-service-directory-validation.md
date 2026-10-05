@@ -2,7 +2,7 @@
 
 **Lane / priority:** EVIDENCE / P1
 
-**Status:** In review after passing local T0; hosted review and controlled acceptance pending
+**Status:** Done for controlled development by client acceptance on 5 October 2026; final hosted CI, checked merge and exact-main closeout pending
 
 **Responsible/review identity:** `befikadusata` directing Codex in temporary QA and Content-contract roles.
 
@@ -72,3 +72,18 @@ The 20-case focused suite, 175-case browser matrix, full repository verification
 reconstruction, live dependency audit, reachable-history secret scan and diff check pass on
 5 October 2026. B04-012 moves In progress → In review. Hosted exact-head validation and explicit
 controlled acceptance remain pending; no named-human or production gate is closed.
+
+## Client-directed controlled acceptance — 5 October 2026
+
+The client directed “B04-012 is in review, close it out”. `befikadusata` is the responsible
+and controlled acceptance person directing Codex in temporary QA and Content-contract roles.
+B04-012 moves In review → **Done** for the validated synthetic English loopback/noindex scope.
+Local T0 evidence above is accepted; no scoped product defect remains open.
+
+[Issue #87](https://github.com/dynamicet/hallelujah-website/issues/87) and
+[PR #88](https://github.com/dynamicet/hallelujah-website/pull/88) track hosted current-head
+validation, final acceptance-documentation CI, checked merge and passing exact-main CI.
+The exact run/head, merge SHA and exact-main result must be retained there before explicit
+issue closure. Dependent execution waits for passing exact-main CI; B04-013 is not promoted.
+This acceptance closes no authentic-content, patient comprehension, clinical, language, human
+assistive-technology, production or publication gate.
