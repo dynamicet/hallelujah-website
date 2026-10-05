@@ -4,7 +4,7 @@
 | --- | --- |
 | Branch | `b04-011-controlled-service-directory` |
 | Scope | Synthetic English loopback T0/private T1 composition only |
-| Status | Done for controlled development; client accepted 5 October 2026; final CI and merge closeout pending |
+| Status | Done for controlled development; client accepted 5 October 2026; merge closeout blocked by unpatched dependency advisory |
 | Tracking | [issue #85](https://github.com/dynamicet/hallelujah-website/issues/85) and [pull request #86](https://github.com/dynamicet/hallelujah-website/pull/86) |
 | Public route | Absent; no `/services/` route is authorized |
 | Production/publication authority | Not granted |
@@ -102,3 +102,18 @@ passed for exact head `9c406a940441cf5df932dff8042fa8dd7af1f42b`. Final acceptan
 CI must pass before checked merge of PR #86. Exact-head, merge and exact-main evidence will
 be retained in issue #85 and PR #86 before explicit issue closure. B04-012 remains unpromoted
 until its own readiness assessment; all remaining gates above stay open.
+
+
+Final acceptance-documentation
+[run 37312102957](https://github.com/dynamicet/hallelujah-website/actions/runs/37312102957)
+failed the live dependency audit for exact acceptance head
+`75f49b0c3af884ecc1734056ade9a8df016f6f6e`. The registry reports high-severity
+[`GHSA-vfj7-8cjw-p6xm`](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) in
+`braces@3.0.3`, reached through `eslint-config-next` → `@next/eslint-plugin-next` →
+`fast-glob` → `micromatch`. On 5 October 2026 the registry's latest `braces` is `3.0.3`,
+the advisory lists no patched release, and latest `@next/eslint-plugin-next@16.3.8`
+still depends on `fast-glob@3.3.1`. No compatible upstream version fix was available
+in these checks. The audit gate remains enforced. PR #86 stays open and unmerged,
+issue #85 stays open, and exact-main closeout is blocked pending dependency remediation
+and a new passing exact-head run. Controlled implementation acceptance remains recorded;
+B04-012 and all production/publication gates remain unpromoted.

@@ -1851,3 +1851,18 @@ and exact-main result must be retained in
 issue closure. Dependent execution waits for exact-main CI; B04-012 remains unpromoted.
 This acceptance closes no authentic-data, named-human, production, publication or unresolved
 dependency gate.
+
+
+Final acceptance-documentation
+[run 37312102957](https://github.com/dynamicet/hallelujah-website/actions/runs/37312102957)
+failed the live dependency audit for exact acceptance head
+`75f49b0c3af884ecc1734056ade9a8df016f6f6e`. The registry reports high-severity
+[`GHSA-vfj7-8cjw-p6xm`](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) in
+`braces@3.0.3`, reached through `eslint-config-next` → `@next/eslint-plugin-next` →
+`fast-glob` → `micromatch`. On 5 October 2026 the registry's latest `braces` is `3.0.3`,
+the advisory lists no patched release, and latest `@next/eslint-plugin-next@16.3.8`
+still depends on `fast-glob@3.3.1`. No compatible upstream version fix was available
+in these checks. The audit gate remains enforced. PR #86 stays open and unmerged,
+issue #85 stays open, and exact-main closeout is blocked pending dependency remediation
+and a new passing exact-head run. Controlled implementation acceptance remains recorded;
+B04-012 and all production/publication gates remain unpromoted.
