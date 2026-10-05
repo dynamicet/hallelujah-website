@@ -107,7 +107,8 @@
     "content-integrity:check": "pnpm --dir apps/web content-integrity:check",
     "content-build:policy": "node scripts/check-content-build.mjs --policy-only",
     "content-build:check": "node scripts/check-content-build.mjs",
-    "lint-glob:check": "node scripts/check-lint-glob-remediation.mjs"
+    "lint-glob:check": "node scripts/check-lint-glob-remediation.mjs",
+    "service-directory:validate": "pnpm --dir apps/web service-directory:validate"
   },
   "pnpm": {
     "overrides": {

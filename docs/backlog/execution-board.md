@@ -1887,3 +1887,38 @@ records the lockfile and importer hashes. This resolves the dependency-remediati
 blocker without an audit exception. Final hosted CI, checked merge and exact-main
 closeout evidence are retained in issue #85 and PR #86; issue closure waits for their
 passing result. B04-012 remains unpromoted and all remaining gates stay open.
+
+## B04-012 controlled validation start — 5 October 2026
+
+The client directed “start b04-012”. B04-012 moves Proposed → Ready → **In progress**
+under `befikadusata` directing Codex in temporary QA and Content-contract roles, with the
+same workspace identity as controlled review authority, on 5 October 2026, Africa/Addis_Ababa.
+The target is synthetic English local T0 on branch `b04-012-service-directory-validation`.
+B04-011 is Done and PR #86 merged as `c34d1aa773bb5d3a0d014402c02a68fb49434cd0`;
+[exact-main run 37317948582](https://github.com/dynamicet/hallelujah-website/actions/runs/37317948582)
+passed. The [execution brief](b04-012-controlled-service-directory-validation.md) and working
+B00-016 matrix define acceptance. DEL-01 and the unresolved authentic taxonomy, clinical,
+search and language gates remain open. Human patient-task and assistive-technology acceptance,
+production and publication are not granted; B04-013 is not promoted.
+
+B04-012 moves In progress → **In review** under the same identity and controlled scope on
+5 October 2026 after its 20-case focused suite, 175-case browser matrix, full local verification,
+frozen clean reconstruction, live dependency audit, reachable-history secret scan and diff checks
+passed. The [evidence record](evidence/B04-012-controlled-service-directory-validation-2026-10-05.md)
+retains results and clean graph hashes. Hosted exact-head T1 and explicit controlled acceptance
+remain pending. No human, authentic-content, production or publication gate is promoted.
+
+## B04-012 controlled acceptance — 5 October 2026
+
+The client directed “B04-012 is in review, close it out”. B04-012 moves In review → **Done**
+for controlled development under `befikadusata` as responsible and controlled acceptance person
+directing Codex in temporary QA and Content-contract roles. Local T0 results and clean graph
+hashes recorded above are accepted; no scoped product defect remains open.
+
+[Issue #87](https://github.com/dynamicet/hallelujah-website/issues/87) and
+[PR #88](https://github.com/dynamicet/hallelujah-website/pull/88) retain the current-head hosted
+run, final acceptance-documentation CI, checked merge SHA and exact-main result before explicit
+issue closure. These hosted checks remain pending at acceptance recording. Dependent execution
+waits for passing exact-main CI; B04-013 is not promoted. Authentic taxonomy/claims, clinical and
+language approvals, patient comprehension, human assistive-technology acceptance, production
+and publication remain gated.
