@@ -29,6 +29,7 @@ The backlog does not approve hospital facts, clinical wording, operational behav
 14. [Backlog integrity audit](audit-backlog.mjs) — local, read-only structural gate for ticket counts, traceability, routes, and links.
 15. [Implementation acceptance matrix](../validation/implementation-acceptance-matrix.md) — accepted controlled-development evidence tiers, platforms, quality thresholds, exceptions, and per-ticket benchmark proof; formal production acceptance remains deferred.
 16. [`B00-003` project control registers](b00-003-project-control-registers.md) — stable decision, dependency, risk, assumption, exception, and evidence IDs for controlled execution.
+17. [Visual direction baseline and correction criteria](visual-direction-baseline.md) — current template captures, verified composition drift, intentional adaptations, and acceptance criteria for the visual correction branch.
 
 The epic tables define baseline scope, not live issue status. Until an approved issue tracker is selected, [the execution board](execution-board.md) is the only place that may promote an item to `Ready`. Every other item remains `Proposed` or `Blocked` even when its implementation contract is detailed.
 

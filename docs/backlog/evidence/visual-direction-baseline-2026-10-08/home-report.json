@@ -1,0 +1,33 @@
+{
+  "browser": "Chrome/153.0.8010.47",
+  "javascript": "enabled",
+  "motion": "reduced",
+  "deviceScaleFactor": 1,
+  "scope": "Controlled local preview adapters; appearance baseline only",
+  "captures": [
+    {
+      "file": "home-360.png",
+      "state": "static",
+      "width": 360,
+      "height": 3910,
+      "viewport": 360,
+      "documentWidth": 345,
+      "headerHeight": 224.96875,
+      "h1Count": 1,
+      "mainCount": 1,
+      "externalRequests": 0
+    },
+    {
+      "file": "home-1440.png",
+      "state": "static",
+      "width": 1440,
+      "height": 3786,
+      "viewport": 1440,
+      "documentWidth": 1425,
+      "headerHeight": 234.59375,
+      "h1Count": 1,
+      "mainCount": 1,
+      "externalRequests": 0
+    }
+  ]
+}
