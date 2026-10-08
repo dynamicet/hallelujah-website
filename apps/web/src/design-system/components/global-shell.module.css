@@ -20,6 +20,7 @@
 }
 
 .header {
+  container-type: inline-size;
   background: var(--component-shell-surface-raised);
   border-block-end: var(--component-shell-border-width) solid var(--component-shell-border-default);
 }
@@ -37,7 +38,7 @@
   align-items: center;
   display: grid;
   gap: var(--component-shell-space-regular);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) auto;
   padding-block: var(--component-shell-space-regular);
 }
 
@@ -47,7 +48,7 @@
   display: inline-flex;
   font-weight: var(--component-shell-font-weight-strong);
   gap: var(--component-shell-space-compact);
-  grid-column: 1 / -1;
+  grid-column: 1;
   min-block-size: var(--component-shell-target-minimum);
   min-inline-size: 0;
   text-decoration: none;
@@ -81,11 +82,12 @@
   gap: var(--component-shell-space-compact);
   justify-content: center;
   grid-column: 2;
+  grid-row: 1;
   justify-self: end;
   max-inline-size: 100%;
   min-block-size: var(--component-shell-target-minimum);
   min-inline-size: var(--component-shell-target-minimum);
-  padding: var(--component-shell-space-compact) var(--component-shell-space-page);
+  padding: var(--component-shell-space-compact);
   text-decoration: none;
 }
 
@@ -114,7 +116,7 @@
   box-shadow: var(--component-shell-overlay-shadow);
   gap: var(--component-shell-space-regular);
   inset-block-start: calc(
-    var(--component-shell-target-minimum) + 2 * var(--component-shell-space-section)
+    var(--component-shell-target-minimum) + 2 * var(--component-shell-space-page)
   );
   inset-inline: var(--component-shell-space-page);
   inline-size: auto;
@@ -181,9 +183,14 @@
 }
 
 .headerEmergency {
-  grid-column: 1;
-  justify-self: start;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-self: stretch;
   max-inline-size: 100%;
+}
+
+.headerEmergency > * {
+  inline-size: 100%;
 }
 
 .headerUtilities {
@@ -258,8 +265,10 @@
 }
 
 .footer {
-  background: var(--component-shell-surface-subtle);
-  border-block-start: var(--component-shell-border-width) solid var(--component-shell-border-default);
+  margin-block-start: var(--component-shell-space-section);
+  background: var(--component-shell-footer-background);
+  color: var(--component-shell-footer-foreground);
+  border-block-start: var(--component-shell-border-width) solid var(--component-shell-footer-border);
 }
 
 .footerInner {
@@ -273,7 +282,7 @@
 }
 
 .footerIdentity p {
-  color: var(--component-shell-text-secondary);
+  color: var(--component-shell-footer-muted);
   margin-block-start: var(--component-shell-space-compact);
 }
 
@@ -283,6 +292,7 @@
 }
 
 .footerNavigation h2 {
+  color: var(--component-shell-footer-foreground);
   font-size: var(--component-shell-body-font-size);
   line-height: var(--component-shell-body-line-height);
 }
@@ -293,33 +303,32 @@
   margin-block-start: var(--component-shell-space-regular);
 }
 
+.footerNavigation a:focus-visible {
+  outline-color: var(--component-shell-footer-foreground);
+}
+
 .footerNavigation a {
+  color: var(--component-shell-footer-foreground);
+  text-underline-offset: var(--component-shell-space-fine);
   align-items: center;
   display: inline-flex;
   min-block-size: var(--component-shell-target-minimum);
 }
 
-@media (max-width: 29.999rem) {
+/* Enlarged text can need a source-ordered stack even at a phone viewport. */
+@container (max-width: 17rem) {
   .headerInner {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .identity,
-  .headerEmergency,
   .menuTrigger {
     grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
   }
 
   .headerEmergency {
-    justify-self: stretch;
-  }
-
-  .headerEmergency > * {
-    inline-size: 100%;
-  }
-
-  .menuTrigger {
-    justify-self: start;
+    grid-row: 3;
   }
 }
 
@@ -349,7 +358,8 @@
   }
 
   .header[data-navigation-mode='responsive'] .headerInner {
-    grid-template-columns: minmax(12rem, 1fr) auto;
+    grid-template-columns: minmax(12rem, 1fr) minmax(0, 3fr) minmax(17rem, 1fr);
+    gap: var(--component-shell-space-page);
   }
 
   .header[data-navigation-mode='responsive'] .identity {
@@ -362,16 +372,16 @@
   }
 
   .header[data-navigation-mode='responsive'] .headerEmergency {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1;
   }
 
   .header[data-navigation-mode='responsive'] .navigationPanel[popover] {
     border: 0;
     display: grid;
-    gap: var(--component-shell-space-regular);
-    grid-column: 1 / -1;
-    grid-row: 2;
+    gap: var(--component-shell-space-compact);
+    grid-column: 2;
+    grid-row: 1;
     grid-template-columns: minmax(0, 1fr) auto;
     inline-size: auto;
     inset: auto;
@@ -385,6 +395,16 @@
 
   .header[data-navigation-mode='responsive'] .primaryNavigation {
     grid-column: 1 / -1;
+  }
+
+  .header[data-navigation-mode='responsive'] .headerEmergency > * {
+    inline-size: auto;
+  }
+
+  .header[data-navigation-mode='responsive'] .navigationLink,
+  .header[data-navigation-mode='responsive'] .utilityLink {
+    font-size: var(--component-shell-small-font-size);
+    padding-inline: var(--component-shell-space-compact);
   }
 
   .header[data-navigation-mode='responsive'] .primaryNavigation ul {
@@ -403,16 +423,24 @@
 
   .header[data-navigation-mode='responsive'] .headerUtilities {
     grid-column: 1;
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
     justify-content: flex-start;
   }
 
   .header[data-navigation-mode='responsive'] .headerRoutine {
     grid-column: 2;
+    max-inline-size: 12rem;
     justify-content: flex-end;
   }
 
   .footerInner {
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+
+  .footerNavigation {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   }
 }
 
@@ -439,6 +467,10 @@
   .utilityLink[aria-current='page'] {
     border-color: Highlight;
   }
+
+  .footerNavigation a:focus-visible {
+    outline-color: Highlight;
+  }
 }
 
 @media print {
@@ -449,14 +481,26 @@
     display: none;
   }
 
+  .footer,
+  .footerIdentity p,
+  .footerNavigation h2,
+  .footerNavigation a {
+    color: CanvasText;
+  }
+
   .header,
   .footer {
     background: transparent;
     border-color: CanvasText;
   }
 
+  .headerInner {
+    display: block;
+  }
+
   .navigationPanel[popover] {
     display: block;
+    max-block-size: none;
     position: static;
   }
 }

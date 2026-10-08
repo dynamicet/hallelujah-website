@@ -34,7 +34,7 @@ const requiredShellContracts = [
   ['focusable main target', /<main id=\{mainId\} tabIndex=\{-1\}>/u],
   ['native popover trigger', /<button[\s\S]*popoverTarget="primary-navigation-panel"/u],
   ['native popover panel', /id="primary-navigation-panel"[\s\S]*popover="auto"/u],
-  ['distinct emergency before disclosure', /data-shell-emergency[\s\S]*data-navigation-panel/u],
+  ['emergency independent of disclosure', /data-navigation-panel[\s\S]*<\/div>[\s\S]*<div className=\{styles.headerEmergency\} data-shell-emergency/u],
   ['complete compact disclosure', /data-navigation-panel[\s\S]*<PrimaryNavigation[\s\S]*data-shell-utilities[\s\S]*data-shell-routine/u],
   ['first-party deferred enhancement', /<script data-shell-navigation-script defer src="\/shell-navigation\.js"/u],
 ]

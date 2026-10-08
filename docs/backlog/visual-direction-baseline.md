@@ -2,7 +2,7 @@
 
 The implemented hospital templates preserve the color foundation and much of the functional hierarchy, but their composition has drifted from Calm Wayfinding. The largest corrections are the shared shell, Home, and desktop discovery layouts. Emergency, Appointment, and clinician profiles retain useful structure but lose the reference's surface hierarchy, grouping, and support treatments.
 
-This is step 1 of the visual correction plan on `fix/visual-direction-alignment`, recorded on 8 October 2026 against source commit `43c1f5706d89040602b90b929026eedd7e5378ce`. It establishes the before state and correction criteria; implementation corrections remain outstanding. Existing ticket completion records continue to describe their original controlled-development scope.
+This is step 1 of the visual correction plan on `fix/visual-direction-alignment`, recorded on 8 October 2026 against source commit `43c1f5706d89040602b90b929026eedd7e5378ce`. It establishes the before state and correction criteria. The step 2 record below tracks the shared-shell correction; page composition corrections remain outstanding. Existing ticket completion records continue to describe their original controlled-development scope.
 
 ## Governing references
 
@@ -73,7 +73,33 @@ Each slice needs a before/after comparison against its linked section specificat
 | Interaction preservation | Affected existing keyboard, native disclosure, no-JavaScript, reduced-motion, focus, target-size, omission, and safe-state checks pass. Urgent, privacy, error, and unavailable content retain stable presentation. |
 | Review record | Save captures with source revision, fixture, viewport, capability, and browser. Explain remaining differences and link the correction evidence to the existing epic/ticket scope. Accept corrected baselines only after visual review. |
 
-The first implementation slice is the shared shell plus Home. It establishes the section and component treatments for subsequent discovery and remaining-page corrections. This baseline commit makes no claim that those corrections have passed.
+The first implementation slice is the shared shell plus Home. It establishes the section and component treatments for subsequent discovery and remaining-page corrections. The original baseline commit makes no claim that those corrections have passed.
+
+## Step 2: shared shell correction
+
+The shared shell correction was implemented on 8 October 2026 from baseline commit `5c16534`, on `fix/visual-direction-alignment`. These after captures represent the working-tree implementation. The original before evidence remains intact. This slice addresses Epic 01 B01-005/B01-006/B01-013; it retains the current approved brand and component contracts.
+
+The mobile shell now groups identity and Menu in the first row, with a full-width Emergency action below. At wide widths, identity, the navigation group, and Emergency share a horizontal composition. Navigation links use the existing small type token and retain minimum touch height. Search, language availability, and the optional routine action stay within the navigation group. The native popover and one navigation tree remain in use. DOM order follows identity, Menu, navigation, then Emergency; Emergency remains outside the disclosure and visible when it is closed. Enlarged text switches to a source-ordered stack through a container query. Print uses a block layout so its visible navigation has sufficient width.
+
+Shared action labels wrap within their copy instead of pushing icons/arrows onto a separate flex row. The explicit Emergency word cannot shrink into fragments. The footer uses new inverse semantic/component aliases to the approved mineral and white palette, with readable supporting text, an inverse focus indicator, responsive link groups, and deliberate separation from page content. Two token contrast policies cover its text colors. Forced-colors focus and print foregrounds retain system colors.
+
+| After evidence | Scope |
+| --- | --- |
+| Home [320](evidence/visual-shell-correction-2026-10-08/home-320.png), [360](evidence/visual-shell-correction-2026-10-08/home-360.png), [768](evidence/visual-shell-correction-2026-10-08/home-768.png), [1280](evidence/visual-shell-correction-2026-10-08/home-1280.png), [1440](evidence/visual-shell-correction-2026-10-08/home-1440.png) | Compact, tablet, desktop, and 1280-at-400%-zoom reflow equivalent. [Geometry report](evidence/visual-shell-correction-2026-10-08/home-report.json). |
+| Expanded English/mixed script [360](evidence/visual-shell-correction-2026-10-08/long-labels/home-360.png), [1440](evidence/visual-shell-correction-2026-10-08/long-labels/home-1440.png) | Intentional compact navigation mode at both sizes, truthful language status, stable action cues. These strings do not establish approved translations. [Report](evidence/visual-shell-correction-2026-10-08/long-labels/home-report.json). |
+| Appointment [360](evidence/visual-shell-correction-2026-10-08/appointment-360.png), [1440](evidence/visual-shell-correction-2026-10-08/appointment-1440.png) | Longer synthetic navigation/action labels and two footer groups. [Geometry report](evidence/visual-shell-correction-2026-10-08/appointment-report.json). |
+
+Manual comparison against the linked references accepts the corrected shared-shell grouping, stable label/cue treatment, inverse footer, and separation. Home's desktop header is approximately 173 px rather than 235 px; its 360 px header is approximately 159 px rather than 225 px. The reference's shorter single-row header is an intentional remaining difference: controlled identity text, visible language unavailability explanations, and an optional routine action need additional room. Appointment retains approximately 240 px on desktop for its longer synthetic labels and language explanation, down from approximately 291 px. Content is allowed to determine height rather than being clipped or hidden to meet a fixed measurement.
+
+Validation covers the Home browser matrix (165 cases), Appointment browser matrix (284 cases), shell/action/foundation contracts, token generation and 20 contrast policies, component boundaries, TypeScript, and changed-script/component lint. Browser matrices include native keyboard disclosure, no-JavaScript, reduced motion, forced colors, print, long content, and enlarged text. All nine saved captures have no horizontal document overflow and no external HTTP requests. This accepts the shared correction within controlled development; Home/page composition and page-specific support bands/review panels remain in their planned slices. It does not establish production release readiness or visual acceptance for the remaining pages.
+
+The capture runner now accepts `VISUAL_CAPTURE_WIDTHS` and `VISUAL_CAPTURE_STATE` and records shell control geometry and footer background. To reproduce the Home shell matrix without overwriting saved evidence:
+
+```sh
+VISUAL_CAPTURE_WIDTHS=320,360,768,1280,1440 node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-shell-review home
+VISUAL_CAPTURE_STATE=long-labels node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-shell-long-labels home
+node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-shell-appointment appointment
+```
 
 ## Reproduce captures
 

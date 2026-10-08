@@ -17,6 +17,8 @@ const previews = [
 ]
 const captureRoot = path.resolve(process.argv[2] ?? 'docs/backlog/evidence/visual-direction-baseline-2026-10-08')
 const selected = process.argv[3]
+const widths = (process.env.VISUAL_CAPTURE_WIDTHS ?? '360,1440').split(',').map(Number)
+assert.ok(widths.every(width => Number.isInteger(width) && width >= 320), 'Invalid capture width')
 // Each renderer owns a CSS-module registry. Isolate it from Node's module cache.
 if (!selected) {
   const reports = []
@@ -99,9 +101,10 @@ try {
   await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
   for (const [name, module, factory, state] of previews.filter(([name]) => name === selected)) {
     server = await (await import(`./lib/${module}-preview-server.mjs`))[factory]()
-    for (const width of [360, 1440]) {
+    for (const width of widths) {
       await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: false })
-      const url = `${server.origin}/${state}`
+      const fixtureState = process.env.VISUAL_CAPTURE_STATE ?? state
+      const url = `${server.origin}/${fixtureState}`
       const requestStart = requests.length
       await send('Page.navigate', { url })
       await until(`document.readyState === 'complete' && !!document.querySelector('main h1') && location.href === ${JSON.stringify(url)}`)
@@ -113,6 +116,11 @@ try {
         headerHeight: document.querySelector('header')?.getBoundingClientRect().height,
         h1Count: document.querySelectorAll('h1').length,
         mainCount: document.querySelectorAll('main').length,
+        footerBackground: getComputedStyle(document.querySelector('footer')).backgroundColor,
+        shellControls: [...document.querySelectorAll('[data-shell-identity], [data-menu-trigger], [data-shell-emergency], [data-navigation-panel]')].map(element => {
+          const box = element.getBoundingClientRect();
+          return { marker: Object.keys(element.dataset)[0], x: box.x, y: box.y, width: box.width, height: box.height };
+        }),
       })`)
       const { cssContentSize } = await send('Page.getLayoutMetrics')
       const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true,
@@ -123,7 +131,8 @@ try {
       assert.equal(externalRequests, 0, `${name}/${width}: external request`)
       assert.equal(geometry.h1Count, 1, `${name}/${width}: missing template`)
       assert.equal(geometry.mainCount, 1, `${name}/${width}: main landmark`)
-      captures.push({ file, state, width, height: cssContentSize.height, ...geometry, externalRequests })
+      assert.ok(geometry.documentWidth <= width, `${name}/${width}: horizontal overflow`)
+      captures.push({ file, state: fixtureState, width, height: cssContentSize.height, ...geometry, externalRequests })
       console.log(`Captured ${file}`)
     }
     await server.close()

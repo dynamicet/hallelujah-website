@@ -185,10 +185,6 @@ export function SiteHeader({
           <span>{brandName}</span>
         </Link>
 
-        <div className={styles.headerEmergency} data-shell-emergency>
-          {emergencyAction}
-        </div>
-
         <button
           aria-controls="primary-navigation-panel"
           aria-expanded="false"
@@ -230,6 +226,10 @@ export function SiteHeader({
               {routineAction}
             </div>
           ) : null}
+        </div>
+
+        <div className={styles.headerEmergency} data-shell-emergency>
+          {emergencyAction}
         </div>
       </div>
     </header>
