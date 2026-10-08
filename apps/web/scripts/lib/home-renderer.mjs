@@ -45,7 +45,7 @@ registerHooks({
   },
 })
 
-const { ActionLink, EmergencyAction, HomeTemplate, HomeContactTemplate, HomeGovernedContent, LanguageSwitcher } = {
+const { EmergencyAction, HomeTemplate, HomeContactTemplate, HomeGovernedContent, LanguageSwitcher } = {
   ...await import('../../src/design-system/templates/index.ts'),
   ...await import('../../src/design-system/components/index.ts'),
 }
@@ -58,11 +58,8 @@ export function renderHome(props) {
         reason: 'An approved Amharic Home page is not available. English remains visible.' },
       currentLabel: 'English', currentLang: 'en', label: 'Language',
     }),
-    emergencyAction: createElement(EmergencyAction, {
+    emergencyAction: createElement(EmergencyAction, { compact: true,
       href: props.tasks.emergency.href, label: props.tasks.emergency.label,
-    }),
-    routineAction: createElement(ActionLink, {
-      href: props.tasks.appointment.href, label: props.tasks.appointment.label,
     }),
   }
   const governedContent = governed ? createElement(HomeGovernedContent, governed) : undefined

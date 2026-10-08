@@ -20,12 +20,14 @@
 }
 
 .header {
+  anchor-name: --shell-header;
   container-type: inline-size;
   background: var(--component-shell-surface-raised);
   border-block-end: var(--component-shell-border-width) solid var(--component-shell-border-default);
 }
 
 .headerInner,
+.noticeInner,
 .breadcrumbFrame,
 .footerInner {
   inline-size: var(--component-shell-width-full);
@@ -39,7 +41,7 @@
   display: grid;
   gap: var(--component-shell-space-regular);
   grid-template-columns: minmax(0, 1fr) auto;
-  padding-block: var(--component-shell-space-regular);
+  padding-block: var(--component-shell-space-page);
 }
 
 .identity {
@@ -116,7 +118,7 @@
   box-shadow: var(--component-shell-overlay-shadow);
   gap: var(--component-shell-space-regular);
   inset-block-start: calc(
-    var(--component-shell-target-minimum) + 2 * var(--component-shell-space-page)
+    3 * var(--component-shell-target-minimum) + 3 * var(--component-shell-space-page)
   );
   inset-inline: var(--component-shell-space-page);
   inline-size: auto;
@@ -127,6 +129,13 @@
   max-inline-size: none;
   overflow-y: auto;
   padding: var(--component-shell-space-page);
+}
+
+@supports (top: anchor(bottom)) {
+  .navigationPanel {
+    position-anchor: --shell-header;
+    inset-block-start: calc(anchor(bottom) + var(--component-shell-space-compact));
+  }
 }
 
 .navigationPanel:popover-open {
@@ -202,33 +211,78 @@
 }
 
 .languageSwitcher {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--component-shell-space-compact);
   min-inline-size: 0;
+  position: relative;
 }
 
-.languageSwitcher > :where(a, span) {
+.languageTrigger {
   align-items: center;
+  border: var(--component-shell-border-width) solid var(--component-shell-border-default);
+  border-radius: var(--component-shell-radius);
+  color: var(--component-shell-text-primary);
+  cursor: pointer;
   display: inline-flex;
+  gap: var(--component-shell-space-compact);
   min-block-size: var(--component-shell-target-minimum);
+  padding-inline: var(--component-shell-space-regular);
+  list-style: none;
+}
+
+.languageTrigger::-webkit-details-marker {
+  display: none;
+}
+
+.languageTrigger::marker {
+  content: '';
+}
+
+.languageTrigger:hover,
+.languageSwitcher[open] .languageTrigger {
+  background: var(--component-shell-surface-subtle);
+  border-color: var(--component-shell-border-strong);
+}
+
+.languageChevron {
+  block-size: var(--component-shell-icon-size);
+  flex: 0 0 auto;
+  inline-size: var(--component-shell-icon-size);
 }
 
 .currentLanguage {
-  font-weight: var(--component-shell-font-weight-strong);
+  font-weight: var(--component-shell-font-weight-emphasis);
 }
 
-.languageSwitcher [aria-disabled='true'] {
+.languageOptions {
+  background: var(--component-shell-surface-raised);
+  border: var(--component-shell-border-width) solid var(--component-shell-border-default);
+  border-radius: var(--component-shell-radius);
+  margin-block-start: var(--component-shell-space-compact);
+  padding: var(--component-shell-space-page);
+}
+
+.languageOptions > :where(a, span) {
+  align-items: center;
+  display: flex;
+  min-block-size: var(--component-shell-target-minimum);
+}
+
+.languageOptions [aria-disabled='true'] {
   color: var(--component-shell-text-secondary);
-  text-decoration: line-through;
 }
 
 .languageReason {
   color: var(--component-shell-text-secondary);
-  flex-basis: 100%;
   font-size: var(--component-shell-small-font-size);
   line-height: var(--component-shell-small-line-height);
+  margin-block-start: var(--component-shell-space-compact);
+}
+
+.reviewNotice {
+  background: var(--component-shell-surface-subtle);
+  color: var(--component-shell-text-secondary);
+  font-size: var(--component-shell-small-font-size);
+  line-height: var(--component-shell-small-line-height);
+  padding-block: var(--component-shell-space-fine);
 }
 
 .breadcrumbFrame {
@@ -334,6 +388,7 @@
 
 @media (min-width: 48rem) {
   .headerInner,
+  .noticeInner,
   .breadcrumbFrame,
   .footerInner {
     max-inline-size: calc(
@@ -349,6 +404,7 @@
 
 @media (min-width: 64rem) {
   .headerInner,
+  .noticeInner,
   .breadcrumbFrame,
   .footerInner {
     max-inline-size: calc(
@@ -358,7 +414,7 @@
   }
 
   .header[data-navigation-mode='responsive'] .headerInner {
-    grid-template-columns: minmax(12rem, 1fr) minmax(0, 3fr) minmax(17rem, 1fr);
+    grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr) auto;
     gap: var(--component-shell-space-page);
   }
 
@@ -377,6 +433,7 @@
   }
 
   .header[data-navigation-mode='responsive'] .navigationPanel[popover] {
+    align-items: center;
     border: 0;
     display: grid;
     gap: var(--component-shell-space-compact);
@@ -393,16 +450,13 @@
     box-shadow: none;
   }
 
-  .header[data-navigation-mode='responsive'] .primaryNavigation {
-    grid-column: 1 / -1;
-  }
-
   .header[data-navigation-mode='responsive'] .headerEmergency > * {
     inline-size: auto;
   }
 
   .header[data-navigation-mode='responsive'] .navigationLink,
-  .header[data-navigation-mode='responsive'] .utilityLink {
+  .header[data-navigation-mode='responsive'] .utilityLink,
+  .header[data-navigation-mode='responsive'] .languageTrigger {
     font-size: var(--component-shell-small-font-size);
     padding-inline: var(--component-shell-space-compact);
   }
@@ -422,17 +476,23 @@
   }
 
   .header[data-navigation-mode='responsive'] .headerUtilities {
-    grid-column: 1;
     align-items: center;
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    justify-content: flex-start;
+    flex-wrap: nowrap;
+    grid-column: 2;
+    justify-content: flex-end;
   }
 
   .header[data-navigation-mode='responsive'] .headerRoutine {
-    grid-column: 2;
-    max-inline-size: 12rem;
-    justify-content: flex-end;
+    grid-column: 1 / -1;
+  }
+
+  .header[data-navigation-mode='responsive'] .languageOptions {
+    box-shadow: var(--component-shell-overlay-shadow);
+    inline-size: min(20rem, calc(100vw - 2 * var(--component-shell-space-page)));
+    inset-block-start: 100%;
+    inset-inline-end: 0;
+    position: absolute;
+    z-index: 5;
   }
 
   .footerInner {
@@ -489,6 +549,7 @@
   }
 
   .header,
+  .reviewNotice,
   .footer {
     background: transparent;
     border-color: CanvasText;
@@ -501,6 +562,11 @@
   .navigationPanel[popover] {
     display: block;
     max-block-size: none;
+    position: static;
+  }
+
+  .languageSwitcher .languageOptions {
+    display: block;
     position: static;
   }
 }

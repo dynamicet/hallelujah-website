@@ -75,7 +75,7 @@ Each slice needs a before/after comparison against its linked section specificat
 
 The first implementation slice is the shared shell plus Home. It establishes the section and component treatments for subsequent discovery and remaining-page corrections. The original baseline commit makes no claim that those corrections have passed.
 
-## Step 2: shared shell correction
+## Step 2: first shared shell pass (superseded)
 
 The shared shell correction was implemented on 8 October 2026 from baseline commit `5c16534`, on `fix/visual-direction-alignment`. These after captures represent the working-tree implementation. The original before evidence remains intact. This slice addresses Epic 01 B01-005/B01-006/B01-013; it retains the current approved brand and component contracts.
 
@@ -89,9 +89,9 @@ Shared action labels wrap within their copy instead of pushing icons/arrows onto
 | Expanded English/mixed script [360](evidence/visual-shell-correction-2026-10-08/long-labels/home-360.png), [1440](evidence/visual-shell-correction-2026-10-08/long-labels/home-1440.png) | Intentional compact navigation mode at both sizes, truthful language status, stable action cues. These strings do not establish approved translations. [Report](evidence/visual-shell-correction-2026-10-08/long-labels/home-report.json). |
 | Appointment [360](evidence/visual-shell-correction-2026-10-08/appointment-360.png), [1440](evidence/visual-shell-correction-2026-10-08/appointment-1440.png) | Longer synthetic navigation/action labels and two footer groups. [Geometry report](evidence/visual-shell-correction-2026-10-08/appointment-report.json). |
 
-Manual comparison against the linked references accepts the corrected shared-shell grouping, stable label/cue treatment, inverse footer, and separation. Home's desktop header is approximately 173 px rather than 235 px; its 360 px header is approximately 159 px rather than 225 px. The reference's shorter single-row header is an intentional remaining difference: controlled identity text, visible language unavailability explanations, and an optional routine action need additional room. Appointment retains approximately 240 px on desktop for its longer synthetic labels and language explanation, down from approximately 291 px. Content is allowed to determine height rather than being clipped or hidden to meet a fixed measurement.
+The first manual review accepted the grouping and footer, but subsequent user review of the actual localhost root found the header still oversized and cluttered. That acceptance was premature; this first pass is superseded by the revision below. Home's desktop header is approximately 173 px rather than 235 px; its 360 px header is approximately 159 px rather than 225 px. The reference's shorter single-row header is an intentional remaining difference: controlled identity text, visible language unavailability explanations, and an optional routine action need additional room. Appointment retains approximately 240 px on desktop for its longer synthetic labels and language explanation, down from approximately 291 px. Content is allowed to determine height rather than being clipped or hidden to meet a fixed measurement.
 
-Validation covers the Home browser matrix (165 cases), Appointment browser matrix (284 cases), shell/action/foundation contracts, token generation and 20 contrast policies, component boundaries, TypeScript, and changed-script/component lint. Browser matrices include native keyboard disclosure, no-JavaScript, reduced motion, forced colors, print, long content, and enlarged text. All nine saved captures have no horizontal document overflow and no external HTTP requests. This accepts the shared correction within controlled development; Home/page composition and page-specific support bands/review panels remain in their planned slices. It does not establish production release readiness or visual acceptance for the remaining pages.
+Validation covers the Home browser matrix (165 cases), Appointment browser matrix (284 cases), shell/action/foundation contracts, token generation and 20 contrast policies, component boundaries, TypeScript, and changed-script/component lint. Browser matrices include native keyboard disclosure, no-JavaScript, reduced motion, forced colors, print, long content, and enlarged text. All nine saved captures have no horizontal document overflow and no external HTTP requests. These functional checks did not establish adequate header design quality; Home/page composition and page-specific support bands/review panels remain in their planned slices. It does not establish production release readiness or visual acceptance for the remaining pages.
 
 The capture runner now accepts `VISUAL_CAPTURE_WIDTHS` and `VISUAL_CAPTURE_STATE` and records shell control geometry and footer background. To reproduce the Home shell matrix without overwriting saved evidence:
 
@@ -99,6 +99,44 @@ The capture runner now accepts `VISUAL_CAPTURE_WIDTHS` and `VISUAL_CAPTURE_STATE
 VISUAL_CAPTURE_WIDTHS=320,360,768,1280,1440 node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-shell-review home
 VISUAL_CAPTURE_STATE=long-labels node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-shell-long-labels home
 node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-shell-appointment appointment
+```
+
+## Step 2 revision: compact shell and review-message hierarchy
+
+User review of the actual localhost root reopened step 2 after commit `8a64900`. The first pass rearranged controls while keeping three competing layers: primary navigation, review/availability explanations, and large repeated actions. Its approximately 173 px Home header and oversized root controls were insufficiently close to the approved compact direction. This revision corrects that hierarchy and verifies the actual Next.js route as well as the template adapters. It supersedes the first pass's visual acceptance.
+
+The header now presents one compact row on desktop: hospital name, primary navigation, Search where it supplies a distinct destination, an English language disclosure, and an Emergency navigation link. The existing menu and one navigation tree serve compact widths. The full language explanation is available inside a native details disclosure rather than continuously stretching the header. The unavailable alternate retains its language metadata, disabled semantics, and explanation; it never navigates to an unavailable translation. Enter opens the disclosure, Escape closes it and restores focus, and another Escape can close the surrounding mobile menu. Native Enter toggling also works without JavaScript.
+
+Controlled-only brand qualifiers and development context move into a separate quiet review strip through an optional `SiteShell.notice` prop. The localhost fixture's navigation uses concise Home, Foundations, and Actions labels. Template adapters likewise shorten navigation-only review labels while preserving body warnings, descriptions, and destinations. Redundant routine header actions are removed from these controlled compositions; their destinations remain in navigation/body content and the reusable optional slot remains supported. Search is omitted as a second utility link when its destination already exists in primary navigation.
+
+Emergency uses a compact navigation presentation with the explicit visible word and icon; the original purpose remains in its accessible name. Detailed Emergency actions elsewhere retain their existing anatomy. On mobile, identity/Menu precede the full-width Emergency link. The menu is positioned below the header with progressive CSS anchor positioning and a fallback inset, so opening it preserves the visible urgent action. The dark footer, focus treatment, and separation from the first pass remain in place. No page-body correction is claimed by this slice.
+
+| Actual Next.js root after evidence | Review |
+| --- | --- |
+| Header [320](evidence/visual-shell-revision-2026-10-08/bootstrap-320-header.png), [360](evidence/visual-shell-revision-2026-10-08/bootstrap-360-header.png), [768](evidence/visual-shell-revision-2026-10-08/bootstrap-768-header.png), [1280](evidence/visual-shell-revision-2026-10-08/bootstrap-1280-header.png), [1440](evidence/visual-shell-revision-2026-10-08/bootstrap-1440-header.png) | Actual application `/` served by Next.js 16.3.6 on loopback port 3000. These are viewport excerpts for direct header comparison with the user's report. |
+| Language/menu [360](evidence/visual-shell-revision-2026-10-08/bootstrap-360-language.png), language [1440](evidence/visual-shell-revision-2026-10-08/bootstrap-1440-language.png) | Language explanation stays readable in its disclosure; mobile Emergency remains visible above the open menu. |
+| [Actual-route report](evidence/visual-shell-revision-2026-10-08/bootstrap-report.json) | Five widths, geometry, browser version, no horizontal document overflow, no external HTTP requests, native Enter/Escape and focus restoration. |
+
+| Template after evidence | Desktop | Mobile |
+| --- | --- | --- |
+| Home | [1440](evidence/visual-shell-revision-2026-10-08/templates/home-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/home-360.png) |
+| Emergency | [1440](evidence/visual-shell-revision-2026-10-08/templates/emergency-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/emergency-360.png) |
+| Appointment | [1440](evidence/visual-shell-revision-2026-10-08/templates/appointment-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/appointment-360.png) |
+| Clinician directory | [1440](evidence/visual-shell-revision-2026-10-08/templates/clinician-directory-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/clinician-directory-360.png) |
+| Clinician profile | [1440](evidence/visual-shell-revision-2026-10-08/templates/clinician-profile-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/clinician-profile-360.png) |
+| Service directory | [1440](evidence/visual-shell-revision-2026-10-08/templates/service-directory-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/service-directory-360.png) |
+| Expanded/mixed-script Home | [1440](evidence/visual-shell-revision-2026-10-08/long-labels/home-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/long-labels/home-360.png) |
+
+The actual root and Home desktop headers are approximately 79 px, including header padding/border and excluding the separate review strip. Compact headers are approximately 136 px, with no clipped labels or hidden urgent action. The [template report](evidence/visual-shell-revision-2026-10-08/templates/capture-report.json) and [expanded-label report](evidence/visual-shell-revision-2026-10-08/long-labels/home-report.json) record each fixture. Manual review compares the header/footer roles against the original linked design references; fixture destinations continue to describe review infrastructure rather than published hospital routes. This is controlled implementation acceptance, not hospital content approval or production release acceptance.
+
+Validation includes Home's 165 browser cases (now exercising native Language inside Menu with and without JavaScript), Appointment's 284 browser cases, Emergency's 255 browser cases, all six template contract checks, shell/action/foundation contracts, token/contrast checks, component boundaries, TypeScript, and changed-source lint. The actual-root capture check also asserts that the responsive desktop header stays below 110 px and tests language/Menu Enter, Escape, and focus recovery. Page composition and page-specific support bands remain outstanding in steps 3–6.
+
+For actual-route reproduction, start the normal project development server, then capture into a new directory:
+
+```sh
+VISUAL_CAPTURE_ORIGIN=http://127.0.0.1:3000 VISUAL_CAPTURE_WIDTHS=320,360,768,1280,1440 VISUAL_CAPTURE_SHELL_CHECK=1 node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-root-review bootstrap
+node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-template-review
+VISUAL_CAPTURE_STATE=long-labels VISUAL_CAPTURE_SHELL_CHECK=1 node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-expanded-review home
 ```
 
 ## Reproduce captures

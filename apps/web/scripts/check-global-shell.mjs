@@ -29,6 +29,7 @@ const requiredShellContracts = [
   ['breadcrumb navigation list', /data-breadcrumbs[\s\S]*<ol>/u],
   ['breadcrumb current page', /<span aria-current="page">/u],
   ['language names carry language metadata', /lang=\{currentLang\}[\s\S]*lang=\{alternate\.lang\}/u],
+  ['native language disclosure', /<details[\s\S]*data-language-switcher[\s\S]*<summary/u],
   ['unavailable language explanation', /aria-describedby=\{reasonId\}[\s\S]*alternate\.reason/u],
   ['semantic footer', /<footer[\s\S]*data-site-footer/u],
   ['focusable main target', /<main id=\{mainId\} tabIndex=\{-1\}>/u],

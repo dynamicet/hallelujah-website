@@ -24,9 +24,10 @@ export function homeFixture(state = 'static') {
     searchDescription: 'Search is unavailable in this preview. Use the task links above to review the available journeys.',
     tasks,
     shell: {
+      notice: 'Local preview · Hospital content, contacts and services are not published.',
       skipLinkLabel: 'Skip to main content',
       header: {
-        brandName: 'Hallelujah Hospital — controlled identity', homeHref: '#main-content',
+        brandName: 'Hallelujah Hospital', homeHref: '#main-content',
         homeLabel: 'Hallelujah Hospital controlled home', identityLanguage: 'en',
         menuLabel: 'Menu', primaryNavigationLabel: 'Primary',
         navigationMode: state === 'long-labels' ? 'compact' : 'responsive',

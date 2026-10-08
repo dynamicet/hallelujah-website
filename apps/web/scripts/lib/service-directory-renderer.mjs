@@ -68,7 +68,7 @@ export function resolveServiceDirectory(
 }
 
 export function renderServiceDirectory({ directory, pathname = '/', state = 'ready' }) {
-  const { ActionLink, EmergencyAction, LanguageSwitcher } = components
+  const { EmergencyAction, LanguageSwitcher } = components
   const links = {
     directory: { current: true, href: '#service-directory-title', label: 'Synthetic services' },
     filters: { href: '#service-search-title', label: 'Search and groups' },
@@ -76,10 +76,11 @@ export function renderServiceDirectory({ directory, pathname = '/', state = 'rea
     support: { href: '#service-directory-support', label: 'Controlled support boundary' },
   }
   const shell = {
+    notice: 'Local preview · Hospital content, contacts and services are not published.',
     skipLinkLabel: 'Skip to main content',
     header: {
-      brandName: 'Hallelujah Hospital — controlled identity',
-      emergencyAction: createElement(EmergencyAction, {
+      brandName: 'Hallelujah Hospital',
+      emergencyAction: createElement(EmergencyAction, { compact: true,
         href: '#service-directory-support',
         label: 'Emergency route unavailable',
       }),
@@ -92,14 +93,9 @@ export function renderServiceDirectory({ directory, pathname = '/', state = 'rea
         currentLabel: 'English', currentLang: 'en', label: 'Language',
       }),
       menuLabel: 'Menu',
-      navigationItems: [links.directory, links.filters, links.results, links.support],
+      navigationItems: [{ ...links.directory, label: 'Services' }, { ...links.filters, label: 'Search and groups' }, { ...links.results, label: 'Results' }, { ...links.support, label: 'Support' }],
       navigationMode: 'responsive',
       primaryNavigationLabel: 'Primary',
-      routineAction: createElement(ActionLink, {
-        href: '#service-directory-support',
-        label: 'Staffed contact unavailable',
-        variant: 'secondary',
-      }),
       searchItem: links.filters,
     },
     footer: {

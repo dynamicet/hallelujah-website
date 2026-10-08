@@ -167,6 +167,11 @@
   padding-inline-end: var(--component-action-content-gap);
 }
 
+.emergencyNavigation .emergencyWord {
+  border-inline-end: 0;
+  padding-inline-end: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .action {
     transition-duration: var(--component-action-emergency-motion-duration);

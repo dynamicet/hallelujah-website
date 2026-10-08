@@ -15,6 +15,11 @@ const previews = [
   ['clinician-profile', 'clinician-profile', 'createClinicianProfilePreviewServer', 'controlled'],
   ['service-directory', 'service-directory', 'createServiceDirectoryPreviewServer', 'controlled'],
 ]
+if (process.env.VISUAL_CAPTURE_ORIGIN) {
+  const origin = new URL(process.env.VISUAL_CAPTURE_ORIGIN)
+  assert.ok(['localhost', '127.0.0.1'].includes(origin.hostname), 'Application captures require loopback')
+  previews.push(['bootstrap', undefined, undefined, ''])
+}
 const captureRoot = path.resolve(process.argv[2] ?? 'docs/backlog/evidence/visual-direction-baseline-2026-10-08')
 const selected = process.argv[3]
 const widths = (process.env.VISUAL_CAPTURE_WIDTHS ?? '360,1440').split(',').map(Number)
@@ -100,7 +105,9 @@ try {
   await send('Network.setCacheDisabled', { cacheDisabled: true })
   await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
   for (const [name, module, factory, state] of previews.filter(([name]) => name === selected)) {
-    server = await (await import(`./lib/${module}-preview-server.mjs`))[factory]()
+    server = name === 'bootstrap'
+      ? { origin: process.env.VISUAL_CAPTURE_ORIGIN, close: async () => {} }
+      : await (await import(`./lib/${module}-preview-server.mjs`))[factory]()
     for (const width of widths) {
       await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: false })
       const fixtureState = process.env.VISUAL_CAPTURE_STATE ?? state
@@ -127,12 +134,49 @@ try {
         clip: { x: 0, y: 0, width: cssContentSize.width, height: cssContentSize.height, scale: 1 } })
       const file = `${name}-${width}.png`
       await writeFile(path.join(captureRoot, file), Buffer.from(shot.data, 'base64'))
+      if (name === 'bootstrap') {
+        const header = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false,
+          clip: { x: 0, y: 0, width: cssContentSize.width, height: 360, scale: 1 } })
+        await writeFile(path.join(captureRoot, `${name}-${width}-header.png`), Buffer.from(header.data, 'base64'))
+      }
       const externalRequests = requests.slice(requestStart).filter(url => !url.startsWith(server.origin) && /^https?:/u.test(url)).length
       assert.equal(externalRequests, 0, `${name}/${width}: external request`)
       assert.equal(geometry.h1Count, 1, `${name}/${width}: missing template`)
       assert.equal(geometry.mainCount, 1, `${name}/${width}: main landmark`)
       assert.ok(geometry.documentWidth <= width, `${name}/${width}: horizontal overflow`)
       captures.push({ file, state: fixtureState, width, height: cssContentSize.height, ...geometry, externalRequests })
+      if (process.env.VISUAL_CAPTURE_SHELL_CHECK === '1') {
+        if (name === 'bootstrap' && width >= 1280) assert.ok(geometry.headerHeight < 110, 'Application header lost compact composition')
+        const key = async (value, code) => {
+          await send('Input.dispatchKeyEvent', { type: 'keyDown', key: value, code: value, windowsVirtualKeyCode: code, nativeVirtualKeyCode: code, ...(value === 'Enter' ? { text: '\r', unmodifiedText: '\r' } : {}) });
+          await send('Input.dispatchKeyEvent', { type: 'keyUp', key: value, code: value, windowsVirtualKeyCode: code });
+        }
+        const compact = await evaluate("document.querySelector('[data-menu-trigger]').getBoundingClientRect().width > 0")
+        if (compact) {
+          await evaluate("document.querySelector('[data-menu-trigger]').focus()")
+          await key('Enter', 13)
+          await until("document.querySelector('[data-navigation-panel]').matches(':popover-open')")
+        }
+        await evaluate("document.querySelector('[data-language-switcher] summary').focus()")
+        await key('Enter', 13)
+        await until("document.querySelector('[data-language-switcher]').open")
+        assert.ok(await evaluate(`(() => {
+          const box = document.querySelector('[data-language-switcher] [role="group"]').getBoundingClientRect();
+          return box.width > 0 && box.x >= 0 && box.right <= innerWidth && box.y >= 0;
+        })()`), `${name}/${width}: language disclosure outside viewport`)
+        if ([360, 1440].includes(width)) {
+          const shot = await send('Page.captureScreenshot', { format: 'png' })
+          await writeFile(path.join(captureRoot, `${name}-${width}-language.png`), Buffer.from(shot.data, 'base64'))
+        }
+        await key('Escape', 27)
+        await until("!document.querySelector('[data-language-switcher]').open")
+        assert.ok(await evaluate("document.activeElement.matches('[data-language-switcher] summary')"), 'Language Escape restores focus')
+        if (compact) {
+          await key('Escape', 27)
+          await until("!document.querySelector('[data-navigation-panel]').matches(':popover-open')")
+        }
+        captures.at(-1).shellKeyboard = 'Menu/Language Enter, Escape, focus restoration passed'
+      }
       console.log(`Captured ${file}`)
     }
     await server.close()
