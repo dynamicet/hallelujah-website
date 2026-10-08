@@ -15,10 +15,18 @@ This repository contains the clean, controlled implementation workspace for the 
 Prerequisites: Node.js 24.21.0 LTS and pnpm 10.27.0. The canonical [`toolchain-versions.json`](toolchain-versions.json), `.nvmrc`, package manifests, lockfile, and automated policy check pin and enforce the tested baseline. See [`B00-005`](docs/backlog/b00-005-pinned-toolchain.md) for compatibility, support, security, container-image, and update policy.
 
 ```sh
+nvm install
+nvm use
 pnpm install --frozen-lockfile
 pnpm --dir apps/web config:check
 pnpm dev
 ```
+
+Run `nvm use` when entering this repository in a new shell; it selects the version in
+`.nvmrc`. If pnpm reports `ERR_PNPM_UNSUPPORTED_ENGINE`, check `node --version` and
+`command -v node`: another Node installation on `PATH` may be taking precedence.
+If `nvm use` still leaves the wrong version active, run `export PATH="$NVM_BIN:$PATH"`
+after it to put the selected nvm installation first.
 
 The local bootstrap surface is available at `http://localhost:3000`; its health endpoint is `http://localhost:3000/health`.
 Configure an ignored `apps/web/.env.local` from the names-only example before starting the
