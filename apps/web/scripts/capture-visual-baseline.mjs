@@ -124,6 +124,16 @@ try {
         h1Count: document.querySelectorAll('h1').length,
         mainCount: document.querySelectorAll('main').length,
         footerBackground: getComputedStyle(document.querySelector('footer')).backgroundColor,
+        homeComposition: document.querySelector('[data-home-template]') ? {
+          heroColumns: getComputedStyle(document.querySelector('[data-home-section="H1"]')).gridTemplateColumns,
+          taskColumns: getComputedStyle(document.querySelector('[data-home-section="H2"] ul')).gridTemplateColumns,
+          tasks: [...document.querySelectorAll('[data-task-card]')].map(element => {
+            const box = element.getBoundingClientRect();
+            const cue = element.querySelector('[data-icon="arrow-right"]').getBoundingClientRect();
+            return { x: box.x, y: box.y, width: box.width, height: box.height,
+              cueBottom: cue.bottom, cueContained: cue.x >= box.x && cue.right <= box.right && cue.bottom <= box.bottom };
+          }),
+        } : undefined,
         shellControls: [...document.querySelectorAll('[data-shell-identity], [data-menu-trigger], [data-shell-emergency], [data-navigation-panel]')].map(element => {
           const box = element.getBoundingClientRect();
           return { marker: Object.keys(element.dataset)[0], x: box.x, y: box.y, width: box.width, height: box.height };
@@ -144,6 +154,15 @@ try {
       assert.equal(geometry.h1Count, 1, `${name}/${width}: missing template`)
       assert.equal(geometry.mainCount, 1, `${name}/${width}: main landmark`)
       assert.ok(geometry.documentWidth <= width, `${name}/${width}: horizontal overflow`)
+      if (geometry.homeComposition) {
+        assert.equal(geometry.homeComposition.tasks.length, 5, 'Home task card count');
+        assert.ok(geometry.homeComposition.tasks.every(task => task.cueContained), 'Home task cue escaped its card');
+        const rows = Map.groupBy(geometry.homeComposition.tasks, task => Math.round(task.y));
+        for (const row of rows.values()) {
+          assert.ok(Math.max(...row.map(task => task.cueBottom)) - Math.min(...row.map(task => task.cueBottom)) < 1,
+            'Home task cues lost row alignment');
+        }
+      }
       captures.push({ file, state: fixtureState, width, height: cssContentSize.height, ...geometry, externalRequests })
       if (process.env.VISUAL_CAPTURE_SHELL_CHECK === '1') {
         if (name === 'bootstrap' && width >= 1280) assert.ok(geometry.headerHeight < 110, 'Application header lost compact composition')
@@ -184,6 +203,8 @@ try {
   }
   const version = await sendRaw('Browser.getVersion')
   await writeFile(path.join(captureRoot, `${selected}-report.json`), JSON.stringify({
+    sourceRevision: spawnSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).stdout.trim(),
+    sourceState: spawnSync('git', ['status', '--porcelain'], { encoding: 'utf8' }).stdout.trim() ? 'working-tree' : 'committed',
     browser: version.product, javascript: 'enabled', motion: 'reduced', deviceScaleFactor: 1,
     scope: 'Controlled local preview adapters; appearance baseline only', captures,
   }, null, 2) + '\n')

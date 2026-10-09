@@ -8,6 +8,8 @@ import {
   MotionAccent,
   OptInMedia,
   SiteShell,
+  TaskCard,
+  type IconName,
   type NavigationItem,
   type OptInMediaProps,
   type SiteShellProps,
@@ -15,13 +17,17 @@ import {
 
 import styles from './home-template.module.css'
 
+export interface HomeTaskLink extends NavigationItem {
+  readonly description?: string
+}
+
 export interface HomeTaskLinks {
-  readonly appointment: NavigationItem
-  readonly call: NavigationItem
-  readonly directions: NavigationItem
-  readonly doctor: NavigationItem
+  readonly appointment: HomeTaskLink
+  readonly call: HomeTaskLink
+  readonly directions: HomeTaskLink
+  readonly doctor: HomeTaskLink
   readonly emergency: NavigationItem
-  readonly service: NavigationItem
+  readonly service: HomeTaskLink
   readonly search: NavigationItem
 }
 
@@ -57,13 +63,24 @@ export function HomeTemplate({
   searchDescription,
   searchHeading,
 }: HomeTemplateProps) {
-  const routineTasks = [tasks.doctor, tasks.service, tasks.appointment, tasks.call, tasks.directions]
+  const routineTasks: readonly { link: HomeTaskLink; icon: IconName; description: string }[] = [
+    { link: tasks.doctor, icon: 'person', description: 'Browse clinician information' },
+    { link: tasks.service, icon: 'care', description: 'Browse service information' },
+    { link: tasks.appointment, icon: 'calendar', description: 'Review how to request care' },
+    { link: tasks.call, icon: 'phone', description: 'Review contact information' },
+    { link: tasks.directions, icon: 'directions', description: 'Review arrival information' },
+  ]
 
   return (
     <SiteShell {...shell}>
       <div className={styles.frame} data-home-template>
         <section aria-labelledby="home-title" className={styles.introduction} data-home-section="H1">
-          <div className="ds-flow ds-reading">
+          <div className={`ds-flow ${styles.heroCopy}`}>
+            <div className={styles.wayfinding}>
+              <ExperienceRegion area="home-hero" requestedLevel={3}>
+                <MotionAccent level={3} />
+              </ExperienceRegion>
+            </div>
             <p className={styles.eyebrow}>{eyebrow}</p>
             <h1 id="home-title">{title}</h1>
             <p className={styles.description}>{description}</p>
@@ -75,29 +92,29 @@ export function HomeTemplate({
               <EmergencyAction href={tasks.emergency.href} label={tasks.emergency.label} />
             </div>
           </div>
-          <ExperienceRegion area="home-hero" requestedLevel={3}>
-            <MotionAccent level={3} />
-          </ExperienceRegion>
           {media?.placement === 'hero' ? (
             <div className={styles.media} data-home-media="hero">
               <OptInMedia {...media.presentation} />
               <noscript><p>Video playback requires JavaScript. The written still and transcript remain available.</p></noscript>
             </div>
-          ) : null}
+          ) : (
+            <div aria-hidden="true" className={styles.orientation} data-home-abstract-plane />
+          )}
         </section>
 
-        <section aria-labelledby="home-tasks-title" className={styles.section} data-home-section="H2">
+        <section aria-labelledby="home-tasks-title" className={`${styles.section} ${styles.taskSection}`} data-home-section="H2">
           <h2 id="home-tasks-title">{tasksHeading}</h2>
           <ul className={styles.tasks}>
-            {routineTasks.map((task) => (
-              <li key={`${task.href}-${task.label}`}>
-                <ActionLink href={task.href} label={task.label} variant="secondary" />
+            {routineTasks.map(({ link, icon, description }) => (
+              <li key={`${link.href}-${link.label}`}>
+                <TaskCard href={link.href} label={link.label} icon={icon}
+                  description={link.description ?? description} />
               </li>
             ))}
           </ul>
         </section>
 
-        <section aria-labelledby="home-search-title" className={styles.section} data-home-section="H3">
+        <section aria-labelledby="home-search-title" className={`${styles.section} ${styles.search}`} data-home-section="H3">
           <div className="ds-flow ds-reading">
             <h2 id="home-search-title">{searchHeading}</h2>
             <p>{searchDescription}</p>
@@ -108,7 +125,7 @@ export function HomeTemplate({
         {governedContent}
 
         {media?.placement === 'story' ? (
-          <section aria-label={media.presentation.heading} className={styles.section} data-home-section="H8">
+          <section aria-label={media.presentation.heading} className={`${styles.section} ${styles.story}`} data-home-section="H8">
             <div className={styles.media} data-home-media="story">
               <OptInMedia {...media.presentation} />
               <noscript><p>Video playback requires JavaScript. The written still and transcript remain available.</p></noscript>
@@ -116,7 +133,7 @@ export function HomeTemplate({
           </section>
         ) : null}
         {contactDetails ? (
-          <div className={styles.section} data-home-section="H9" data-experience-level="0">
+          <div className={`${styles.section} ${styles.support}`} data-home-section="H9" data-experience-level="0">
             {contactDetails}
           </div>
         ) : null}

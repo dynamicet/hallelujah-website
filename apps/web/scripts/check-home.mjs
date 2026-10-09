@@ -41,7 +41,7 @@ assert.throws(() => homeFixture('unknown'), /Unsupported/u)
 cases++
 const source = await readFile(new URL('../src/design-system/templates/home-template.tsx', import.meta.url), 'utf8')
 assert.ok(!/use client|process\.env|fetch\(|dangerouslySetInnerHTML/u.test(source))
-assert.ok(!/<ExperienceRegion[^>]*>[\s\S]*<EmergencyAction/u.test(source), 'Safety cannot inherit expressive choreography')
+assert.ok(!/<ExperienceRegion\b(?:(?!<\/ExperienceRegion>)[\s\S])*<EmergencyAction/u.test(source), 'Safety cannot inherit expressive choreography')
 const css = homeStyles()
 const declarations = new Set([...css.matchAll(/(--[\w-]+)\s*:/gu)].map((match) => match[1]))
 for (const match of css.matchAll(/var\((--[\w-]+)\)/gu)) assert.ok(declarations.has(match[1]), `Undefined token ${match[1]}`)

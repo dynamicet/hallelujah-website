@@ -1,6 +1,13 @@
 .collection {
-  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
   padding-block: var(--semantic-space-section);
+}
+
+.collection[data-home-governed-section="doctors"],
+.collection[data-home-governed-section="institutional"] {
+  background: var(--semantic-color-surface-subtle);
+  border-radius: var(--semantic-radius-card);
+  margin-block: var(--semantic-space-gutter-regular);
+  padding: var(--semantic-space-surface);
 }
 
 .headingGroup {
