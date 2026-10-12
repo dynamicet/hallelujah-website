@@ -336,9 +336,12 @@
 }
 
 .footerInner {
+  align-items: start;
   display: grid;
   gap: var(--component-shell-space-page);
-  padding-block: var(--component-shell-space-section);
+  padding-block: calc(
+    var(--component-shell-space-page) + var(--component-shell-space-regular)
+  );
 }
 
 .footerIdentity {
@@ -351,6 +354,7 @@
 }
 
 .footerNavigation {
+  align-items: start;
   display: grid;
   gap: var(--component-shell-space-page);
 }
