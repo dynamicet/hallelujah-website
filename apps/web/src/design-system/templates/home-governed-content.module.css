@@ -39,6 +39,34 @@
   padding: var(--semantic-space-page);
 }
 
+.card {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  display: grid;
+  gap: var(--semantic-space-compact);
+  padding: var(--semantic-space-page);
+}
+
+.card > * { margin: 0; }
+.directoryCard { align-content: start; }
+.directoryCard a { margin-block-start: auto; }
+
+.editorial {
+  border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+}
+
+.editorialGrid {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  margin-block-start: var(--semantic-space-regular);
+}
+
+@media (min-width: 54rem) {
+  .editorial { display: grid; grid-template-columns: minmax(14rem, .7fr) minmax(0, 1.3fr); gap: var(--semantic-space-surface); }
+  .editorialGrid { margin-block-start: 0; }
+}
+
 .institution h3,
 .institution p {
   margin: 0;

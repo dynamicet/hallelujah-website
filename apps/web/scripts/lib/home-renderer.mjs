@@ -62,9 +62,13 @@ export function renderHome(props) {
       href: props.tasks.emergency.href, label: props.tasks.emergency.label,
     }),
   }
-  const governedContent = governed ? createElement(HomeGovernedContent, governed) : undefined
+  const careContent = governed ? createElement(HomeGovernedContent, { ...governed, scope: 'care' }) : undefined
+  const institutionalContent = governed
+    ? createElement(HomeGovernedContent, { ...governed, scope: 'institutional' }) : undefined
   return renderToStaticMarkup(createElement(props.documents ? HomeContactTemplate : HomeTemplate,
-    { ...pageProps, governedContent, shell: { ...props.shell, header } }))
+    { ...pageProps, careContent, institutionalContent,
+      showJourneyGuidance: Boolean(props.documents || governed), showSupportBand: Boolean(props.documents || governed),
+      shell: { ...props.shell, header } }))
 }
 
 export function homeStyles() {

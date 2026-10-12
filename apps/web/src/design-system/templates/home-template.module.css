@@ -105,13 +105,70 @@
   max-inline-size: var(--semantic-size-reading);
 }
 
-.support {
+.contact {
   background: var(--semantic-color-surface-information);
   border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-border-default);
   border-radius: var(--semantic-radius-card);
   margin-block-start: var(--semantic-space-section);
   padding: var(--semantic-space-surface);
 }
+
+.contactContent { min-inline-size: 0; }
+
+.arrivalPlane {
+  background: var(--semantic-color-surface-subtle);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  min-block-size: 14rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.arrivalPlane::before,
+.arrivalPlane::after {
+  border: var(--semantic-border-emphasis) solid var(--semantic-color-action-primary);
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+}
+
+.arrivalPlane::before { inline-size: 12rem; block-size: 12rem; inset: -3rem auto auto -2rem; }
+.arrivalPlane::after { inline-size: 6rem; block-size: 6rem; inset: auto 2rem 1.5rem auto; border-color: var(--semantic-color-brand-warm); }
+
+.sectionHeading { max-inline-size: var(--semantic-size-reading); }
+
+.visitGrid {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  margin-block-start: var(--semantic-space-regular);
+}
+
+.visitCard {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  border-radius: var(--semantic-radius-card);
+  display: grid;
+  gap: var(--semantic-space-compact);
+  padding: var(--semantic-space-page);
+}
+
+.visitCard > * { margin: 0; }
+.stage { color: var(--semantic-color-text-secondary); font-size: var(--semantic-type-small-size); font-weight: var(--semantic-font-weight-strong); text-transform: uppercase; }
+
+.supportBand {
+  align-items: center;
+  background: var(--semantic-color-surface-information);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--semantic-space-regular);
+  justify-content: space-between;
+  margin-block-start: var(--semantic-space-section);
+  padding: var(--semantic-space-surface);
+}
+
+.supportBand h2,
+.supportBand p { margin: 0; }
 
 /* Reserve two label lines as Play becomes Pause in the narrower media plane. */
 .media [data-media-play],
@@ -134,6 +191,8 @@
 @media (min-width: 54rem) {
   .introduction { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
   .orientation { min-block-size: 24rem; }
+  .visitGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .contact { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .85fr); gap: var(--semantic-space-surface); }
 }
 
 @media (min-width: 64rem) {
@@ -149,7 +208,7 @@
   .orientation::before,
   .orientation::after,
   .search,
-  .support { border-color: CanvasText; }
+  .contact { border-color: CanvasText; }
   .wayfinding [data-motion-accent] { background: CanvasText; }
 }
 
@@ -158,6 +217,6 @@
   .introduction { display: block; }
   .orientation { display: none; }
   .section, .introduction { padding-block: var(--semantic-space-regular); }
-  .taskSection, .search, .story, .support { background: transparent; }
+  .taskSection, .search, .story, .contact, .supportBand { background: transparent; }
   .tasks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

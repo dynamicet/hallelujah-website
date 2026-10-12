@@ -4,7 +4,7 @@ import {
   type HomeFeatureSelection,
 } from '../../content/home-governed-view'
 import type { GovernedLocale } from '../../content/governed-record'
-import { GovernedCard } from '../components'
+import { ActionLink, GovernedCard } from '../components'
 
 import styles from './home-governed-content.module.css'
 
@@ -16,6 +16,7 @@ export interface HomeGovernedContentProps {
   readonly records: readonly unknown[]
   readonly relationships: readonly unknown[]
   readonly selection: HomeFeatureSelection
+  readonly scope?: 'all' | 'care' | 'institutional'
 }
 
 /** Whole optional sections disappear when their governed projection has no eligible records. */
@@ -29,10 +30,13 @@ export function HomeGovernedContent(props: HomeGovernedContentProps) {
     props.now,
     props.mode,
   )
+  const scope = props.scope ?? 'all'
+  const showCare = scope !== 'institutional'
+  const showInstitutional = scope !== 'care'
 
   return (
     <>
-      {view.services.length ? (
+      {showCare && view.services.length ? (
         <section aria-labelledby="home-services-title" className={styles.collection}
           data-home-section="H4" data-home-governed-section="services">
           <div className={styles.headingGroup}>
@@ -45,11 +49,17 @@ export function HomeGovernedContent(props: HomeGovernedContentProps) {
                 controlledDestination="canonical-path" href={service.canonicalPath} key={service.publicId}
                 locale={props.locale} mode={props.mode} now={props.now} record={service.record} />
             ))}
+            <article className={`${styles.directoryCard} ${styles.card}`}>
+              <p className={styles.fixture}>Directory route</p>
+              <h3>View all approved services</h3>
+              <p>Browse the complete governed service directory.</p>
+              <ActionLink href="#home-service" label="Explore services" variant="tertiary" />
+            </article>
           </div>
         </section>
       ) : null}
 
-      {view.doctors.length ? (
+      {showCare && view.doctors.length ? (
         <section aria-labelledby="home-doctors-title" className={styles.collection}
           data-home-section="H5" data-home-governed-section="doctors">
           <div className={styles.headingGroup}>
@@ -63,18 +73,24 @@ export function HomeGovernedContent(props: HomeGovernedContentProps) {
                 controlledDestination="canonical-path" href={doctor.canonicalPath} key={doctor.publicId}
                 locale={props.locale} mode={props.mode} now={props.now} record={doctor.record} />
             ))}
+            <article className={`${styles.directoryCard} ${styles.card}`}>
+              <p className={styles.fixture}>Directory route</p>
+              <h3>View all approved doctors</h3>
+              <p>Browse the current governed clinician directory.</p>
+              <ActionLink href="#home-doctor" label="Find a doctor" variant="tertiary" />
+            </article>
           </div>
         </section>
       ) : null}
 
-      {view.institutions.length ? (
-        <section aria-labelledby="home-institution-title" className={styles.collection}
+      {showInstitutional && view.institutions.length ? (
+        <section aria-labelledby="home-institution-title" className={`${styles.collection} ${styles.editorial}`}
           data-home-section="H8" data-home-governed-section="institutional">
           <div className={styles.headingGroup}>
             <p className={styles.fixture} lang="en">Synthetic institutional evidence — no hospital fact, person, partner, or claim is represented.</p>
             <h2 id="home-institution-title">About the hospital</h2>
           </div>
-          <div className={styles.grid}>
+          <div className={styles.editorialGrid}>
             {view.institutions.map((institution) => (
               <article className={styles.institution} data-institution-type={institution.type}
                 key={institution.publicId} lang={props.locale}>
