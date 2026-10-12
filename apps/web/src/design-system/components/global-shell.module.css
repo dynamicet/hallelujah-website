@@ -39,9 +39,10 @@
 .headerInner {
   align-items: center;
   display: grid;
-  gap: var(--component-shell-space-regular);
+  column-gap: var(--component-shell-space-regular);
   grid-template-columns: minmax(0, 1fr) auto;
-  padding-block: var(--component-shell-space-page);
+  padding-block: var(--component-shell-space-compact);
+  row-gap: var(--component-shell-space-compact);
 }
 
 .identity {
@@ -54,6 +55,15 @@
   min-block-size: var(--component-shell-target-minimum);
   min-inline-size: 0;
   text-decoration: none;
+}
+
+.identity::before {
+  background: var(--semantic-color-brand-warm);
+  border-radius: var(--component-shell-radius);
+  content: '';
+  flex: 0 0 auto;
+  inline-size: var(--component-shell-border-emphasis);
+  block-size: calc(var(--component-shell-target-minimum) / 2);
 }
 
 .identity:hover,
@@ -327,7 +337,7 @@
 
 .footerInner {
   display: grid;
-  gap: var(--component-shell-space-section);
+  gap: var(--component-shell-space-page);
   padding-block: var(--component-shell-space-section);
 }
 
@@ -342,7 +352,7 @@
 
 .footerNavigation {
   display: grid;
-  gap: var(--component-shell-space-section);
+  gap: var(--component-shell-space-page);
 }
 
 .footerNavigation h2 {
@@ -400,6 +410,16 @@
   .footerNavigation {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .footerNavigation section:only-child {
+    grid-column: 1 / -1;
+  }
+
+  .footerNavigation section:only-child ul {
+    column-gap: var(--component-shell-space-section);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 64rem) {
@@ -414,8 +434,9 @@
   }
 
   .header[data-navigation-mode='responsive'] .headerInner {
-    grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr) auto;
+    grid-template-columns: minmax(11rem, 12rem) minmax(0, 1fr) auto;
     gap: var(--component-shell-space-page);
+    padding-block: var(--component-shell-space-regular);
   }
 
   .header[data-navigation-mode='responsive'] .identity {
@@ -496,7 +517,7 @@
   }
 
   .footerInner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-columns: minmax(14rem, 0.8fr) minmax(0, 2.2fr);
   }
 
   .footerNavigation {

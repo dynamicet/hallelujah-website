@@ -170,6 +170,7 @@ export function SiteHeader({
   searchItem,
 }: SiteHeaderProps) {
   if (!homeLabel.trim()) throw new Error('SiteHeader homeLabel must not be empty')
+  const primaryNavigationItems = navigationItems.filter((item) => item.href !== searchItem.href)
 
   return (
     <header
@@ -217,16 +218,16 @@ export function SiteHeader({
           popover="auto"
           tabIndex={-1}
         >
-          <PrimaryNavigation items={navigationItems} label={primaryNavigationLabel} />
+          <PrimaryNavigation items={primaryNavigationItems} label={primaryNavigationLabel} />
           <div className={styles.headerUtilities} data-shell-utilities>
-            {navigationItems.some((item) => item.href === searchItem.href) ? null : <Link
+            <Link
               aria-current={searchItem.current ? 'page' : undefined}
               className={styles.utilityLink}
               data-shell-search
               href={searchItem.href}
             >
               {searchItem.label}
-            </Link>}
+            </Link>
             {languageSwitcher}
           </div>
           {routineAction ? (
