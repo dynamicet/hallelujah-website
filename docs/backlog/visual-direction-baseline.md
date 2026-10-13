@@ -167,6 +167,20 @@ The repository-wide secret scan reports the pre-existing, Git-ignored `apps/web/
 
 This is controlled Home implementation and visual review, not hospital-content approval or production release acceptance. The next slice is clinician directory D2/D3 (B04-007), followed by service directory S3/S5 (B04-011).
 
+## Step 4: clinician directory discovery correction
+
+Implemented in `d5e12cc80b539f52ec4e73c8887be0037cae8611` and visually reviewed on 13 October 2026. This slice corrects D2/D3 under B04-007 while preserving the controlled GET search, governed checkbox filters, result states, pagination, and non-public fixture boundary.
+
+Search now spans the full discovery region instead of occupying the narrow first track of a section-wide grid. Below it, the filter rail precedes the results in source order and becomes a sticky left rail at 64 rem, while the count, active filters, cards, states, and pagination remain together in the wider result region. Result cards use one column compact and two columns from 48 rem; their column count follows the actual result width rather than the outer page width. The introduction, directory surface, state panel, support band, and neutral portrait treatment now have distinct roles consistent with Calm Wayfinding.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled directory [320](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-320.png), [360](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-360.png), [768](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-768.png), [1280](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-1280.png), [1440](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-1440.png) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Search and workspace share their outer edges; the rail/results split appears only when sufficient width exists. [Geometry report](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-report.json). |
+
+The capture runner now records the search/workspace edge relationship, discovery and card columns, and filter-before-results source order. The rendered browser matrix asserts those relationships across 320, 360, 768, and 1440 px for ready, failure, offline, and unavailable-roster fixtures under default, no-JavaScript, reduced-motion, forced-colors, print, 200%-text, and no-CSS capabilities. Separate cases cover committed search/filter state and no-match recovery. The matrix totals 142 responsive/capability cases; 18 directory contract cases, 24 validation cases, and 12 rendered history/keyboard/assistive-technology/reflow cases also pass.
+
+This remains controlled template evidence, not roster, hospital-content, or production-release approval. The next slice is service directory S3/S5 (B04-011).
+
 ## Reproduce captures
 
 From the repository root, use the [capture runner](../../apps/web/scripts/capture-visual-baseline.mjs) with a new output directory so the before evidence stays intact:

@@ -134,6 +134,18 @@ try {
               cueBottom: cue.bottom, cueContained: cue.x >= box.x && cue.right <= box.right && cue.bottom <= box.bottom };
           }),
         } : undefined,
+        clinicianDirectoryComposition: document.querySelector('[data-clinician-directory-template]') ? (() => {
+          const search = document.querySelector('[class*="searchPanel"]').getBoundingClientRect();
+          const workspace = document.querySelector('[class*="discoveryWorkspace"]').getBoundingClientRect();
+          const filter = document.querySelector('[class*="filterRail"]');
+          const results = document.querySelector('[class*="resultsSection"]');
+          return {
+            searchWorkspaceEdgeDelta: Math.max(Math.abs(search.left - workspace.left), Math.abs(search.right - workspace.right)),
+            workspaceColumns: getComputedStyle(document.querySelector('[class*="discoveryWorkspace"]')).gridTemplateColumns,
+            resultColumns: getComputedStyle(document.querySelector('[data-directory-section="D4"]')).gridTemplateColumns,
+            filterBeforeResults: !!(filter.compareDocumentPosition(results) & Node.DOCUMENT_POSITION_FOLLOWING),
+          };
+        })() : undefined,
         shellControls: [...document.querySelectorAll('[data-shell-identity], [data-menu-trigger], [data-shell-emergency], [data-navigation-panel]')].map(element => {
           const box = element.getBoundingClientRect();
           return { marker: Object.keys(element.dataset)[0], x: box.x, y: box.y, width: box.width, height: box.height };
@@ -162,6 +174,12 @@ try {
           assert.ok(Math.max(...row.map(task => task.cueBottom)) - Math.min(...row.map(task => task.cueBottom)) < 1,
             'Home task cues lost row alignment');
         }
+      }
+      if (geometry.clinicianDirectoryComposition) {
+        assert.ok(geometry.clinicianDirectoryComposition.searchWorkspaceEdgeDelta < 1,
+          'Clinician search does not span the discovery workspace');
+        assert.equal(geometry.clinicianDirectoryComposition.filterBeforeResults, true,
+          'Clinician filter rail must precede results in source order');
       }
       captures.push({ file, state: fixtureState, width, height: cssContentSize.height, ...geometry, externalRequests })
       if (process.env.VISUAL_CAPTURE_SHELL_CHECK === '1') {
