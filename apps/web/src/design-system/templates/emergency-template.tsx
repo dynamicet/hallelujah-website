@@ -285,7 +285,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
 
         <section
           aria-labelledby="hospital-scope-title"
-          className={`${styles.section} ${styles.reading}`}
+          className={`${styles.section} ${styles.reading} ${styles.scope}`}
           data-emergency-section="E4"
         >
           <h2 id="hospital-scope-title">Emergency care at this hospital</h2>
@@ -304,7 +304,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
         <div className={styles.arrivalGrid}>
           <section
             aria-labelledby="where-to-go-title"
-            className={styles.section}
+            className={`${styles.section} ${styles.arrivalCard}`}
             data-emergency-section="E5"
           >
             <h2 id="where-to-go-title">Where to go</h2>
@@ -321,7 +321,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
 
           <section
             aria-labelledby="arriving-safely-title"
-            className={styles.section}
+            className={`${styles.section} ${styles.arrivalCard}`}
             data-emergency-section="E6"
           >
             <h2 id="arriving-safely-title">Arriving safely</h2>

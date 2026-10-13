@@ -213,6 +213,22 @@ Validation passes 30 profile projection/omission/lifecycle/SSR/isolation contrac
 
 This remains controlled template evidence, not clinician roster, hospital-content, appointment-operation, or production-release approval. The next slice is Emergency E1/E2/E3/E5/E6.
 
+## Step 7: Emergency composition correction
+
+Implemented and visually reviewed on 13 October 2026. This slice corrects E1/E2/E3/E5/E6 under B03-008/B03-009 while preserving the Level 0 experience, immediate route distinction, inert controlled contacts, fail-closed required-content states, optional-map failure boundary, and map-independent text directions.
+
+The two E1 route choices remain the dominant first action group. E2 route definitions and the E3 safety warning now occupy separate raised cards within one deliberate surface band; at paired widths the warning aligns to its own content instead of stretching to the much taller route-definition card. E4 uses a distinct governed-scope surface with the established warm wayfinding edge. E5 and E6 are equal-width arrival cards inside a second grouped band, while compact widths retain the existing linear source order. Long route labels and ordered directions now wrap safely under enlarged text.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled Emergency [320](evidence/visual-emergency-correction-2026-10-13/emergency-320.png), [360](evidence/visual-emergency-correction-2026-10-13/emergency-360.png), [768](evidence/visual-emergency-correction-2026-10-13/emergency-768.png), [1280](evidence/visual-emergency-correction-2026-10-13/emergency-1280.png), [1440](evidence/visual-emergency-correction-2026-10-13/emergency-1440.png) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Route and arrival pairs appear only with sufficient width; the E3 warning remains intrinsically compact. [Geometry report](evidence/visual-emergency-correction-2026-10-13/emergency-report.json). |
+
+Manual review compares the saved 360 and 1440 compositions directly with the governing E0–E8 references and inspects 768 and 1280 for breakpoint continuity. No clipping, horizontal overflow, stretched warning, or broken arrival pairing is visible. Inert synthetic contact values, withheld call actions, disabled map loading, controlled copy, and current approved shell branding remain intentional adaptations.
+
+Validation passes 52 fail-closed lifecycle, controlled SSR, isolation, escaping, announcement, static-motion, and token contracts plus 255 responsive, capability, accessibility, and isolation browser cases. The browser matrix covers controlled and expanded content, required-content withheld/expired/unavailable states, unsupported handoff, map failure/blocking, default/no-JavaScript/reduced-motion/forced-colors/print/200%-text/no-CSS capabilities, inert interaction, focus, and response policy. TypeScript and repository lint also pass. The capture runner records paired route/arrival columns, warning and route heights, one main and H1, document width, and external requests at all five widths.
+
+This remains controlled template evidence, not emergency-content, contact, route, clinical, hospital-content, or production-release approval. The next slice is Appointment A3/A4/A5/A6 (B03-017).
+
 ## Reproduce captures
 
 From the repository root, use the [capture runner](../../apps/web/scripts/capture-visual-baseline.mjs) with a new output directory so the before evidence stays intact:

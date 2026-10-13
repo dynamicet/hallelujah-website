@@ -7,7 +7,6 @@
 
 .introduction,
 .section {
-  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
   padding-block: var(--semantic-space-section);
 }
 
@@ -102,6 +101,14 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
+.pairedSections,
+.arrivalGrid {
+  background: var(--semantic-color-surface-subtle);
+  border-radius: var(--semantic-radius-card);
+  margin-block: var(--semantic-space-section);
+  padding: var(--semantic-space-compact);
+}
+
 .callCard {
   background: var(--semantic-color-surface-raised);
   border: var(--semantic-border-default) solid var(--semantic-color-border-strong);
@@ -109,6 +116,18 @@
   border-radius: var(--semantic-radius-card);
   min-inline-size: 0;
   padding: var(--semantic-space-surface);
+}
+
+.pairedSections > .section,
+.arrivalCard {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  padding: var(--semantic-space-regular);
+}
+
+.pairedSections > .warning {
+  border: var(--semantic-border-emphasis) solid currentColor;
 }
 
 .inertCallValue {
@@ -149,6 +168,8 @@
 .scopeFacts dt,
 .locationFacts dt {
   font-weight: var(--semantic-font-weight-strong);
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
 }
 
 .routeDefinitions dd,
@@ -165,6 +186,15 @@
   margin-block: var(--semantic-space-section);
 }
 
+.scope {
+  background: var(--semantic-color-surface-subtle);
+  border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  border-radius: var(--semantic-radius-card);
+  margin-block: var(--semantic-space-section);
+  max-inline-size: none;
+  padding: var(--semantic-space-surface);
+}
+
 .support {
   background: var(--semantic-color-surface-subtle);
   margin-block-end: var(--semantic-space-section);
@@ -174,6 +204,12 @@
   display: grid;
   gap: var(--semantic-space-regular);
   margin: 0;
+  padding-inline-start: var(--semantic-space-page);
+}
+
+.directionSteps li {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
 }
 
 @media (min-width: 48rem) {
@@ -186,6 +222,10 @@
   .pairedSections,
   .arrivalGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .warning {
+    align-self: start;
   }
 
 }
@@ -202,6 +242,10 @@
   .stateNotice,
   .warning,
   .callCard,
+  .pairedSections,
+  .arrivalGrid,
+  .arrivalCard,
+  .scope,
   .inertCallValue,
   .mapPanel,
   .support {
@@ -227,10 +271,20 @@
   .stateNotice,
   .warning,
   .callCard,
+  .pairedSections,
+  .arrivalGrid,
+  .arrivalCard,
+  .scope,
   .inertCallValue,
   .mapPanel,
   .support {
     background: transparent;
     color: CanvasText;
+  }
+
+  .pairedSections,
+  .arrivalGrid,
+  .scope {
+    margin-block: var(--semantic-space-regular);
   }
 }

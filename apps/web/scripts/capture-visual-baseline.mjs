@@ -173,6 +173,19 @@ try {
             reviewSupportGap: review && support ? support.getBoundingClientRect().top - review.getBoundingClientRect().bottom : null,
           };
         })() : undefined,
+        emergencyComposition: document.querySelector('[data-emergency-template]') && document.querySelector('[data-emergency-section="E2"]') ? (() => {
+          const routes = document.querySelector('[data-emergency-section="E2"]');
+          const warning = document.querySelector('[data-emergency-section="E3"]');
+          const arrival = [...document.querySelectorAll('[data-emergency-section="E5"], [data-emergency-section="E6"]')];
+          return {
+            pairedColumns: getComputedStyle(routes.parentElement).gridTemplateColumns,
+            warningHeight: warning.getBoundingClientRect().height,
+            routeHeight: routes.getBoundingClientRect().height,
+            warningCompact: warning.getBoundingClientRect().height < routes.getBoundingClientRect().height,
+            arrivalColumns: getComputedStyle(arrival[0].parentElement).gridTemplateColumns,
+            arrivalWidths: arrival.map(element => element.getBoundingClientRect().width),
+          };
+        })() : undefined,
         shellControls: [...document.querySelectorAll('[data-shell-identity], [data-menu-trigger], [data-shell-emergency], [data-navigation-panel]')].map(element => {
           const box = element.getBoundingClientRect();
           return { marker: Object.keys(element.dataset)[0], x: box.x, y: box.y, width: box.width, height: box.height };
@@ -213,6 +226,12 @@ try {
           'Service search does not span the discovery workspace');
         assert.equal(geometry.serviceDirectoryComposition.filterBeforeResults, true,
           'Service group rail must precede results in source order');
+      }
+      if (geometry.emergencyComposition && width >= 768) {
+        assert.equal(geometry.emergencyComposition.warningCompact, true,
+          'Emergency warning must remain compact beside the route definitions');
+        assert.ok(Math.abs(geometry.emergencyComposition.arrivalWidths[0] - geometry.emergencyComposition.arrivalWidths[1]) < 1,
+          'Emergency arrival cards lost their paired relationship');
       }
       captures.push({ file, state: fixtureState, width, height: cssContentSize.height, ...geometry, externalRequests })
       if (process.env.VISUAL_CAPTURE_SHELL_CHECK === '1') {
