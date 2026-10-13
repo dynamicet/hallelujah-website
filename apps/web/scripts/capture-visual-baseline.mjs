@@ -146,6 +146,19 @@ try {
             filterBeforeResults: !!(filter.compareDocumentPosition(results) & Node.DOCUMENT_POSITION_FOLLOWING),
           };
         })() : undefined,
+        serviceDirectoryComposition: document.querySelector('[data-service-directory-template]') ? (() => {
+          const search = document.querySelector('[class*="searchPanel"]').getBoundingClientRect();
+          const workspace = document.querySelector('[class*="discoveryWorkspace"]').getBoundingClientRect();
+          const filter = document.querySelector('[class*="filterRail"]');
+          const results = document.querySelector('[class*="resultsSection"]');
+          return {
+            searchWorkspaceEdgeDelta: Math.max(Math.abs(search.left - workspace.left), Math.abs(search.right - workspace.right)),
+            workspaceColumns: getComputedStyle(document.querySelector('[class*="discoveryWorkspace"]')).gridTemplateColumns,
+            resultColumns: [...document.querySelectorAll('[data-directory-section="S5"] [class*="results"]')]
+              .map(element => getComputedStyle(element).gridTemplateColumns),
+            filterBeforeResults: !!(filter.compareDocumentPosition(results) & Node.DOCUMENT_POSITION_FOLLOWING),
+          };
+        })() : undefined,
         shellControls: [...document.querySelectorAll('[data-shell-identity], [data-menu-trigger], [data-shell-emergency], [data-navigation-panel]')].map(element => {
           const box = element.getBoundingClientRect();
           return { marker: Object.keys(element.dataset)[0], x: box.x, y: box.y, width: box.width, height: box.height };
@@ -180,6 +193,12 @@ try {
           'Clinician search does not span the discovery workspace');
         assert.equal(geometry.clinicianDirectoryComposition.filterBeforeResults, true,
           'Clinician filter rail must precede results in source order');
+      }
+      if (geometry.serviceDirectoryComposition) {
+        assert.ok(geometry.serviceDirectoryComposition.searchWorkspaceEdgeDelta < 1,
+          'Service search does not span the discovery workspace');
+        assert.equal(geometry.serviceDirectoryComposition.filterBeforeResults, true,
+          'Service group rail must precede results in source order');
       }
       captures.push({ file, state: fixtureState, width, height: cssContentSize.height, ...geometry, externalRequests })
       if (process.env.VISUAL_CAPTURE_SHELL_CHECK === '1') {

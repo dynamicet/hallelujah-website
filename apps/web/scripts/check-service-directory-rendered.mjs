@@ -131,6 +131,23 @@ try {
           external: document.querySelectorAll('a[href^="http"],a[href^="tel:"],a[href^="mailto:"],iframe,img,video').length,
           form: document.querySelector('form')?.method,
           cards: document.querySelectorAll('[data-service-public-id]').length,
+          composition: (() => {
+            const search = document.querySelector('[class*="searchPanel"]');
+            const workspace = document.querySelector('[class*="discoveryWorkspace"]');
+            const filter = document.querySelector('[class*="filterRail"]');
+            const results = document.querySelector('[class*="resultsSection"]');
+            const cardGrid = document.querySelector('[data-directory-section="S5"] [class*="results"]');
+            if (!search || !workspace || !filter || !results) return null;
+            const searchBox = search.getBoundingClientRect();
+            const workspaceBox = workspace.getBoundingClientRect();
+            return {
+              searchWorkspaceEdgeDelta: Math.max(
+                Math.abs(searchBox.left - workspaceBox.left), Math.abs(searchBox.right - workspaceBox.right)),
+              workspaceColumns: getComputedStyle(workspace).gridTemplateColumns.split(' ').length,
+              cardColumns: cardGrid ? getComputedStyle(cardGrid).gridTemplateColumns.split(' ').length : 0,
+              filterBeforeResults: !!(filter.compareDocumentPosition(results) & Node.DOCUMENT_POSITION_FOLLOWING),
+            };
+          })(),
           text: document.body.innerText,
         })`)
         const label = `${state}/${width}/${capability}`
@@ -144,6 +161,17 @@ try {
         assert.equal(result.external, 0, label)
         assert.equal(result.form, 'get', label)
         assert.equal(result.cards, unavailable || loading ? 0 : 4, label)
+        if (capability !== 'no-css') {
+          assert.ok(result.composition, label)
+          assert.ok(result.composition.searchWorkspaceEdgeDelta < 1, `${label}: search must span workspace`)
+          assert.equal(result.composition.filterBeforeResults, true, `${label}: filter must precede results`)
+          assert.equal(result.composition.workspaceColumns, width >= 1024 ? 2 : 1,
+            `${label}: workspace columns`)
+          if (!unavailable && !loading) {
+            assert.equal(result.composition.cardColumns, width >= 768 || capability === 'print' ? 2 : 1,
+              `${label}: service card columns`)
+          }
+        }
         assert.match(result.text, /Controlled preview only/u, label)
         assert.doesNotMatch(result.text, /Retired Synthetic Service|high-consequence statement that must never render/u, label)
         assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)

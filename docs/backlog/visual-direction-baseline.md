@@ -181,6 +181,22 @@ The capture runner now records the search/workspace edge relationship, discovery
 
 This remains controlled template evidence, not roster, hospital-content, or production-release approval. The next slice is service directory S3/S5 (B04-011).
 
+## Step 5: service directory discovery correction
+
+Implemented and visually reviewed on 13 October 2026. This slice corrects S3/S5 under B04-011 while preserving the controlled GET search, single governed taxonomy, grouped result states, pagination, urgent-term boundary, and non-public fixture boundary.
+
+Search now spans the full discovery region instead of occupying the narrow first track of a section-wide grid. Below it, the group rail precedes the results in source order and becomes a sticky left rail at 64 rem, while the count, active groups, group headings, cards, states, and pagination remain together in the wider result region. Each group uses one card column compact and two from 48 rem; the former three-column desktop rule is removed so readable card width and the approved two-card group rhythm govern the composition.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled directory [320](evidence/visual-service-directory-correction-2026-10-13/service-directory-320.png), [360](evidence/visual-service-directory-correction-2026-10-13/service-directory-360.png), [768](evidence/visual-service-directory-correction-2026-10-13/service-directory-768.png), [1280](evidence/visual-service-directory-correction-2026-10-13/service-directory-1280.png), [1440](evidence/visual-service-directory-correction-2026-10-13/service-directory-1440.png) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Search and workspace share their outer edges; the rail/results split appears only when sufficient width exists. Every populated group uses two cards at tablet/desktop widths and one compact. [Geometry report](evidence/visual-service-directory-correction-2026-10-13/service-directory-report.json). |
+
+Manual review compares the saved 360 and 1440 compositions directly with the governing S0–S7 references and inspects the intermediate captures for breakpoint continuity. No clipping, horizontal overflow, vacant layout track, or awkward one-to-two-column transition is visible. Controlled copy, unavailable detail actions, fixture record counts, and current shell branding remain intentional adaptations rather than visual defects.
+
+The rendered browser matrix now asserts search/workspace edge alignment, group-before-results source order, the compact/desktop workspace transition, and one/two-column group cards. It passes 175 responsive, capability, safety, isolation, and GET-state cases across 320, 360, 768, and 1440 px for ready, loading, failure, offline, and unavailable-taxonomy fixtures under default, no-JavaScript, reduced-motion, forced-colors, print, 200%-text, and no-CSS capabilities. The 22-case directory contract and 20-case validation suites also pass.
+
+This remains controlled template evidence, not taxonomy, service, hospital-content, or production-release approval. The next slice is clinician profile P2/P4/P5 (B04-009).
+
 ## Reproduce captures
 
 From the repository root, use the [capture runner](../../apps/web/scripts/capture-visual-baseline.mjs) with a new output directory so the before evidence stays intact:
