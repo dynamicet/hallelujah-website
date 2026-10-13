@@ -92,58 +92,64 @@ export function ClinicianProfileTemplate({ profile, shell, state }: ClinicianPro
               </p>
             </section>
 
-            {clinician.details.interests.length ? (
-              <section aria-labelledby="clinician-profile-care-title" className={styles.section} data-profile-section="P2">
-                <h2 id="clinician-profile-care-title">Synthetic areas of care</h2>
-                <ul className={styles.plainList}>
-                  {clinician.details.interests.map((interest) => <li key={interest}>{interest}</li>)}
-                </ul>
-              </section>
-            ) : null}
-
-            {clinician.details.credentials.length || clinician.details.languages.length ? (
-              <section aria-labelledby="clinician-profile-about-title" className={styles.section} data-profile-section="P3">
-                <h2 id="clinician-profile-about-title">About this synthetic record</h2>
-                {clinician.details.credentials.length ? (
-                  <div className={styles.detailGroup}>
-                    <h3>Controlled credentials</h3>
+            <div className={styles.contentLayout} data-profile-content-layout>
+              <div className={styles.editorialColumn}>
+                {clinician.details.interests.length ? (
+                  <section aria-labelledby="clinician-profile-care-title" className={styles.section} data-profile-section="P2">
+                    <h2 id="clinician-profile-care-title">Synthetic areas of care</h2>
                     <ul className={styles.plainList}>
-                      {clinician.details.credentials.map((credential) => <li key={credential}>{credential}</li>)}
+                      {clinician.details.interests.map((interest) => <li key={interest}>{interest}</li>)}
                     </ul>
-                  </div>
+                  </section>
                 ) : null}
-                {clinician.details.languages.length ? (
-                  <div className={styles.detailGroup}>
-                    <h3>Fixture languages</h3>
-                    <ul className={styles.inlineList}>
-                      {clinician.details.languages.map((language) => <li key={language}>{language}</li>)}
-                    </ul>
-                  </div>
-                ) : null}
-              </section>
-            ) : null}
 
-            <section aria-labelledby="clinician-profile-request-title" className={`${styles.section} ${styles.requestPanel}`} data-profile-section="P4">
-              <h2 id="clinician-profile-request-title">Where and how to request care</h2>
-              {profile.locations.length ? (
-                <div className={styles.detailGroup}>
-                  <h3>Controlled location</h3>
-                  <ul className={styles.plainList}>
-                    {profile.locations.map((location) => (
-                      <li data-location-public-id={location.publicId} key={location.publicId}>{location.title}</li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-              <p>Online appointment requests and staffed telephone guidance are unavailable in this preview.</p>
-              {state === 'appointment-unavailable' ? (
-                <p className={styles.stateMessage} role="status">The controlled appointment route is unavailable. No request was started.</p>
-              ) : null}
-              <span aria-disabled="true" className={styles.disabledAction}>Request action withheld</span>
-            </section>
+                {clinician.details.credentials.length || clinician.details.languages.length ? (
+                  <section aria-labelledby="clinician-profile-about-title" className={styles.section} data-profile-section="P3">
+                    <h2 id="clinician-profile-about-title">About this synthetic record</h2>
+                    {clinician.details.credentials.length ? (
+                      <div className={styles.detailGroup}>
+                        <h3>Controlled credentials</h3>
+                        <ul className={styles.plainList}>
+                          {clinician.details.credentials.map((credential) => <li key={credential}>{credential}</li>)}
+                        </ul>
+                      </div>
+                    ) : null}
+                    {clinician.details.languages.length ? (
+                      <div className={styles.detailGroup}>
+                        <h3>Fixture languages</h3>
+                        <ul className={styles.inlineList}>
+                          {clinician.details.languages.map((language) => <li key={language}>{language}</li>)}
+                        </ul>
+                      </div>
+                    ) : null}
+                  </section>
+                ) : null}
+              </div>
+
+              <aside aria-label="Care request information" className={styles.requestRail}>
+                <section aria-labelledby="clinician-profile-request-title" className={`${styles.section} ${styles.requestPanel}`} data-profile-section="P4">
+                  <h2 id="clinician-profile-request-title">Where and how to request care</h2>
+                  {profile.locations.length ? (
+                    <div className={styles.detailGroup}>
+                      <h3>Controlled location</h3>
+                      <ul className={styles.plainList}>
+                        {profile.locations.map((location) => (
+                          <li data-location-public-id={location.publicId} key={location.publicId}>{location.title}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                  <p>Online appointment requests and staffed telephone guidance are unavailable in this preview.</p>
+                  {state === 'appointment-unavailable' ? (
+                    <p className={styles.stateMessage} role="status">The controlled appointment route is unavailable. No request was started.</p>
+                  ) : null}
+                  <span aria-disabled="true" className={styles.disabledAction}>Request action withheld</span>
+                </section>
+              </aside>
+            </div>
 
             {profile.relatedServices.length ? (
-              <section aria-labelledby="clinician-profile-services-title" className={styles.section} data-profile-section="P5">
+              <section aria-labelledby="clinician-profile-services-title" className={`${styles.section} ${styles.relatedServices}`} data-profile-section="P5">
                 <h2 id="clinician-profile-services-title">Related synthetic services</h2>
                 <ul className={styles.serviceList}>
                   {profile.relatedServices.map((service) => (

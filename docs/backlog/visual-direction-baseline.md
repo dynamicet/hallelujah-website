@@ -197,6 +197,22 @@ The rendered browser matrix now asserts search/workspace edge alignment, group-b
 
 This remains controlled template evidence, not taxonomy, service, hospital-content, or production-release approval. The next slice is clinician profile P2/P4/P5 (B04-009).
 
+## Step 6: clinician profile composition correction
+
+Implemented and visually reviewed on 13 October 2026. This slice corrects P2/P4/P5 under B04-009 while preserving the controlled profile projection, optional-field omission, appointment-withdrawal states, stable public-ID boundary, and non-public fixture boundary.
+
+P2 and P3 now form the desktop editorial column beside a wayfinding-edged P4 request rail at 64 rem and above. The rail remains after the editorial sections in DOM order and returns to normal flow at constrained widths. Its unavailable request treatment stays explicit and does not imply scheduling, availability, staffed telephone guidance, or an active action. P5 now occupies a wider, distinct related-services surface instead of inheriting the reading-width cap. P6 review currency is visually quieter, while P7 support is a separate broad band with deliberate spacing before the inverse footer. Optional sections continue to disappear individually without leaving empty headings or reserved columns.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled profile [320](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-320.png), [360](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-360.png), [768](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-768.png), [1280](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-1280.png), [1440](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-1440.png) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. The editorial/request split appears only when sufficient width exists; related services return to the wide region and review/support remain visually separate. [Geometry report](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-report.json). |
+
+Manual review compares the saved 360 and 1440 compositions directly with the governing P0–P7 references and inspects the intermediate captures for breakpoint continuity. No clipping, horizontal overflow, empty desktop track, or touching review/support panels is visible. The controlled portrait placeholder, unavailable operations, synthetic record count, and current approved shell branding remain intentional adaptations.
+
+Validation passes 30 profile projection/omission/lifecycle/SSR/isolation contracts, 20 completeness/relationship/withdrawal validation cases, 142 responsive/capability/omission browser cases, and 10 rendered semantics/assistive-technology/no-JavaScript/reflow/print/withdrawal cases. TypeScript and repository lint also pass. The capture runner records profile columns, editorial-before-request DOM order, related-services width, review/support spacing, one main and H1, document width, and external requests at all five widths.
+
+This remains controlled template evidence, not clinician roster, hospital-content, appointment-operation, or production-release approval. The next slice is Emergency E1/E2/E3/E5/E6.
+
 ## Reproduce captures
 
 From the repository root, use the [capture runner](../../apps/web/scripts/capture-visual-baseline.mjs) with a new output directory so the before evidence stays intact:

@@ -17,6 +17,21 @@
   padding-block: var(--semantic-space-section);
 }
 
+.contentLayout,
+.editorialColumn,
+.requestRail {
+  min-inline-size: 0;
+}
+
+.contentLayout,
+.editorialColumn {
+  display: grid;
+}
+
+.contentLayout {
+  gap: var(--semantic-space-section);
+}
+
 .introduction > *,
 .identity > *,
 .section > *,
@@ -109,6 +124,30 @@
   background: var(--semantic-color-surface-subtle);
 }
 
+.requestPanel {
+  border-block-start-color: var(--semantic-color-text-warning);
+}
+
+.relatedServices {
+  background: var(--semantic-color-surface-subtle);
+  border-radius: var(--semantic-radius-card);
+  margin-block: var(--semantic-space-section);
+  padding-inline: var(--semantic-space-page);
+}
+
+.review {
+  border-color: var(--semantic-color-border-default);
+  color: var(--semantic-color-text-secondary);
+}
+
+.review h2 {
+  color: var(--semantic-color-text-primary);
+}
+
+.support {
+  margin-block: var(--semantic-space-section);
+}
+
 .stateMessage {
   background: var(--semantic-color-surface-information);
   color: var(--semantic-color-text-information);
@@ -172,16 +211,35 @@
   }
 }
 
+@media (min-width: 64rem) {
+  .contentLayout {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.42fr);
+  }
+
+  .requestRail {
+    padding-block-start: var(--semantic-space-section);
+  }
+
+  .requestPanel {
+    position: sticky;
+    top: var(--semantic-space-page);
+  }
+}
+
 @media (min-width: 72rem) {
   .frame {
     padding-inline: var(--semantic-space-gutter-wide);
   }
 
-  .section,
-  .review,
-  .support,
   .statePanel {
     max-inline-size: var(--semantic-size-reading);
+  }
+
+  .review {
+    margin-inline: auto;
+    max-inline-size: var(--semantic-size-wide);
+    width: calc(100% - 2 * var(--semantic-space-section));
   }
 }
 

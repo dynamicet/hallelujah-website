@@ -159,6 +159,20 @@ try {
             filterBeforeResults: !!(filter.compareDocumentPosition(results) & Node.DOCUMENT_POSITION_FOLLOWING),
           };
         })() : undefined,
+        clinicianProfileComposition: document.querySelector('[data-clinician-profile-template]') ? (() => {
+          const layout = document.querySelector('[data-profile-content-layout]');
+          const request = document.querySelector('[data-profile-section="P4"]');
+          const related = document.querySelector('[data-profile-section="P5"]');
+          const review = document.querySelector('[data-profile-section="P6"]');
+          const support = document.querySelector('[data-profile-section="P7"]');
+          return {
+            contentColumns: layout ? getComputedStyle(layout).gridTemplateColumns : null,
+            requestAfterEditorial: !!document.querySelector('[data-profile-section="P3"]')
+              && !!(document.querySelector('[data-profile-section="P3"]').compareDocumentPosition(request) & Node.DOCUMENT_POSITION_FOLLOWING),
+            relatedWidth: related?.getBoundingClientRect().width,
+            reviewSupportGap: review && support ? support.getBoundingClientRect().top - review.getBoundingClientRect().bottom : null,
+          };
+        })() : undefined,
         shellControls: [...document.querySelectorAll('[data-shell-identity], [data-menu-trigger], [data-shell-emergency], [data-navigation-panel]')].map(element => {
           const box = element.getBoundingClientRect();
           return { marker: Object.keys(element.dataset)[0], x: box.x, y: box.y, width: box.width, height: box.height };
