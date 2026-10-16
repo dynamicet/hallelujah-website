@@ -18,14 +18,16 @@ The application root currently mounts [EssentialActionsFixtureTemplate](../../ap
 
 Twelve fresh full-document captures use Chromium, 360 and 1440 CSS px widths, a 1000 px viewport height, device scale 1, English controlled fixtures, JavaScript enabled, and reduced motion. The [capture report](evidence/visual-direction-baseline-2026-10-08/capture-report.json) records browser version, dimensions, header height, heading/main counts, and external requests. All twelve captures have one main, one H1, and zero external HTTP requests. Screenshots and source inspection establish the findings below; this capture run is not an interaction or production acceptance test.
 
+Generated screenshots are local review artifacts under `artifacts/visual/` and are intentionally excluded from Git. The repository retains capture scripts and machine-readable JSON reports so each capture set can be reproduced. “Local capture” below records the reviewed viewport without claiming that the bitmap is available in a fresh clone. Governing design references remain tracked because they are maintained design inputs rather than generated review output.
+
 | Template | Current desktop | Current mobile | Design desktop | Design mobile |
 | --- | --- | --- | --- | --- |
-| Home | [1440](evidence/visual-direction-baseline-2026-10-08/home-1440.png) | [360](evidence/visual-direction-baseline-2026-10-08/home-360.png) | [1440](../visual-design/pages/critical-journeys/evidence/home-H0-H9-1440-en-standard.png) | [360](../visual-design/pages/critical-journeys/evidence/home-H0-H9-360-en-standard.png) |
-| Emergency | [1440](evidence/visual-direction-baseline-2026-10-08/emergency-1440.png) | [360](evidence/visual-direction-baseline-2026-10-08/emergency-360.png) | [1440](../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-1440-en-reduced.png) | [360](../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-360-en-reduced.png) |
-| Appointment | [1440](evidence/visual-direction-baseline-2026-10-08/appointment-1440.png) | [360](evidence/visual-direction-baseline-2026-10-08/appointment-360.png) | [1280](../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-1280-en-standard.png) | [360](../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-360-en-standard.png) |
-| Clinician directory | [1440](evidence/visual-direction-baseline-2026-10-08/clinician-directory-1440.png) | [360](evidence/visual-direction-baseline-2026-10-08/clinician-directory-360.png) | [1440](../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-1440-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-360-en-standard.png) |
-| Clinician profile | [1440](evidence/visual-direction-baseline-2026-10-08/clinician-profile-1440.png) | [360](evidence/visual-direction-baseline-2026-10-08/clinician-profile-360.png) | [1280](../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-1280-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-360-en-standard.png) |
-| Service directory | [1440](evidence/visual-direction-baseline-2026-10-08/service-directory-1440.png) | [360](evidence/visual-direction-baseline-2026-10-08/service-directory-360.png) | [1440](../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-1440-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-360-en-standard.png) |
+| Home | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/critical-journeys/evidence/home-H0-H9-1440-en-standard.png) | [360](../visual-design/pages/critical-journeys/evidence/home-H0-H9-360-en-standard.png) |
+| Emergency | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-1440-en-reduced.png) | [360](../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-360-en-reduced.png) |
+| Appointment | 1440 (local capture) | 360 (local capture) | [1280](../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-1280-en-standard.png) | [360](../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-360-en-standard.png) |
+| Clinician directory | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-1440-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-360-en-standard.png) |
+| Clinician profile | 1440 (local capture) | 360 (local capture) | [1280](../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-1280-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-360-en-standard.png) |
+| Service directory | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-1440-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-360-en-standard.png) |
 
 Appointment and profile desktop references are 1280 px; compare hierarchy and relationships rather than exact pixel positions against their 1440 px captures. Reference captures use different controlled copy and data. Their standard-motion frames establish static composition, not animation parity.
 
@@ -85,9 +87,9 @@ Shared action labels wrap within their copy instead of pushing icons/arrows onto
 
 | After evidence | Scope |
 | --- | --- |
-| Home [320](evidence/visual-shell-correction-2026-10-08/home-320.png), [360](evidence/visual-shell-correction-2026-10-08/home-360.png), [768](evidence/visual-shell-correction-2026-10-08/home-768.png), [1280](evidence/visual-shell-correction-2026-10-08/home-1280.png), [1440](evidence/visual-shell-correction-2026-10-08/home-1440.png) | Compact, tablet, desktop, and 1280-at-400%-zoom reflow equivalent. [Geometry report](evidence/visual-shell-correction-2026-10-08/home-report.json). |
-| Expanded English/mixed script [360](evidence/visual-shell-correction-2026-10-08/long-labels/home-360.png), [1440](evidence/visual-shell-correction-2026-10-08/long-labels/home-1440.png) | Intentional compact navigation mode at both sizes, truthful language status, stable action cues. These strings do not establish approved translations. [Report](evidence/visual-shell-correction-2026-10-08/long-labels/home-report.json). |
-| Appointment [360](evidence/visual-shell-correction-2026-10-08/appointment-360.png), [1440](evidence/visual-shell-correction-2026-10-08/appointment-1440.png) | Longer synthetic navigation/action labels and two footer groups. [Geometry report](evidence/visual-shell-correction-2026-10-08/appointment-report.json). |
+| Home 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 1280-at-400%-zoom reflow equivalent. [Geometry report](evidence/visual-shell-correction-2026-10-08/home-report.json). |
+| Expanded English/mixed script 360 (local capture), 1440 (local capture) | Intentional compact navigation mode at both sizes, truthful language status, stable action cues. These strings do not establish approved translations. [Report](evidence/visual-shell-correction-2026-10-08/long-labels/home-report.json). |
+| Appointment 360 (local capture), 1440 (local capture) | Longer synthetic navigation/action labels and two footer groups. [Geometry report](evidence/visual-shell-correction-2026-10-08/appointment-report.json). |
 
 The first manual review accepted the grouping and footer, but subsequent user review of the actual localhost root found the header still oversized and cluttered. That acceptance was premature; this first pass is superseded by the revision below. Home's desktop header is approximately 173 px rather than 235 px; its 360 px header is approximately 159 px rather than 225 px. The reference's shorter single-row header is an intentional remaining difference: controlled identity text, visible language unavailability explanations, and an optional routine action need additional room. Appointment retains approximately 240 px on desktop for its longer synthetic labels and language explanation, down from approximately 291 px. Content is allowed to determine height rather than being clipped or hidden to meet a fixed measurement.
 
@@ -96,9 +98,9 @@ Validation covers the Home browser matrix (165 cases), Appointment browser matri
 The capture runner now accepts `VISUAL_CAPTURE_WIDTHS` and `VISUAL_CAPTURE_STATE` and records shell control geometry and footer background. To reproduce the Home shell matrix without overwriting saved evidence:
 
 ```sh
-VISUAL_CAPTURE_WIDTHS=320,360,768,1280,1440 node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-shell-review home
-VISUAL_CAPTURE_STATE=long-labels node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-shell-long-labels home
-node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-shell-appointment appointment
+VISUAL_CAPTURE_WIDTHS=320,360,768,1280,1440 node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/shell-review home
+VISUAL_CAPTURE_STATE=long-labels node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/shell-long-labels home
+node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/shell-appointment appointment
 ```
 
 ## Step 2 revision: compact shell and review-message hierarchy
@@ -113,19 +115,19 @@ Emergency uses a compact navigation presentation with the explicit visible word 
 
 | Actual Next.js root after evidence | Review |
 | --- | --- |
-| Header [320](evidence/visual-shell-revision-2026-10-08/bootstrap-320-header.png), [360](evidence/visual-shell-revision-2026-10-08/bootstrap-360-header.png), [768](evidence/visual-shell-revision-2026-10-08/bootstrap-768-header.png), [1280](evidence/visual-shell-revision-2026-10-08/bootstrap-1280-header.png), [1440](evidence/visual-shell-revision-2026-10-08/bootstrap-1440-header.png) | Actual application `/` served by Next.js 16.3.6 on loopback port 3000. These are viewport excerpts for direct header comparison with the user's report. |
-| Language/menu [360](evidence/visual-shell-revision-2026-10-08/bootstrap-360-language.png), language [1440](evidence/visual-shell-revision-2026-10-08/bootstrap-1440-language.png) | Language explanation stays readable in its disclosure; mobile Emergency remains visible above the open menu. |
+| Header 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Actual application `/` served by Next.js 16.3.6 on loopback port 3000. These are viewport excerpts for direct header comparison with the user's report. |
+| Language/menu 360 (local capture), language 1440 (local capture) | Language explanation stays readable in its disclosure; mobile Emergency remains visible above the open menu. |
 | [Actual-route report](evidence/visual-shell-revision-2026-10-08/bootstrap-report.json) | Five widths, geometry, browser version, no horizontal document overflow, no external HTTP requests, native Enter/Escape and focus restoration. |
 
 | Template after evidence | Desktop | Mobile |
 | --- | --- | --- |
-| Home | [1440](evidence/visual-shell-revision-2026-10-08/templates/home-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/home-360.png) |
-| Emergency | [1440](evidence/visual-shell-revision-2026-10-08/templates/emergency-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/emergency-360.png) |
-| Appointment | [1440](evidence/visual-shell-revision-2026-10-08/templates/appointment-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/appointment-360.png) |
-| Clinician directory | [1440](evidence/visual-shell-revision-2026-10-08/templates/clinician-directory-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/clinician-directory-360.png) |
-| Clinician profile | [1440](evidence/visual-shell-revision-2026-10-08/templates/clinician-profile-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/clinician-profile-360.png) |
-| Service directory | [1440](evidence/visual-shell-revision-2026-10-08/templates/service-directory-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/templates/service-directory-360.png) |
-| Expanded/mixed-script Home | [1440](evidence/visual-shell-revision-2026-10-08/long-labels/home-1440.png) | [360](evidence/visual-shell-revision-2026-10-08/long-labels/home-360.png) |
+| Home | 1440 (local capture) | 360 (local capture) |
+| Emergency | 1440 (local capture) | 360 (local capture) |
+| Appointment | 1440 (local capture) | 360 (local capture) |
+| Clinician directory | 1440 (local capture) | 360 (local capture) |
+| Clinician profile | 1440 (local capture) | 360 (local capture) |
+| Service directory | 1440 (local capture) | 360 (local capture) |
+| Expanded/mixed-script Home | 1440 (local capture) | 360 (local capture) |
 
 The actual root and Home desktop headers are approximately 79 px, including header padding/border and excluding the separate review strip. Compact headers are approximately 136 px, with no clipped labels or hidden urgent action. The [template report](evidence/visual-shell-revision-2026-10-08/templates/capture-report.json) and [expanded-label report](evidence/visual-shell-revision-2026-10-08/long-labels/home-report.json) record each fixture. Manual review compares the header/footer roles against the original linked design references; fixture destinations continue to describe review infrastructure rather than published hospital routes. This is controlled implementation acceptance, not hospital content approval or production release acceptance.
 
@@ -134,9 +136,9 @@ Validation includes Home's 165 browser cases (now exercising native Language ins
 For actual-route reproduction, start the normal project development server, then capture into a new directory:
 
 ```sh
-VISUAL_CAPTURE_ORIGIN=http://127.0.0.1:3000 VISUAL_CAPTURE_WIDTHS=320,360,768,1280,1440 VISUAL_CAPTURE_SHELL_CHECK=1 node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-root-review bootstrap
-node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-template-review
-VISUAL_CAPTURE_STATE=long-labels VISUAL_CAPTURE_SHELL_CHECK=1 node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-expanded-review home
+VISUAL_CAPTURE_ORIGIN=http://127.0.0.1:3000 VISUAL_CAPTURE_WIDTHS=320,360,768,1280,1440 VISUAL_CAPTURE_SHELL_CHECK=1 node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/root-review bootstrap
+node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/template-review
+VISUAL_CAPTURE_STATE=long-labels VISUAL_CAPTURE_SHELL_CHECK=1 node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/expanded-review home
 ```
 
 ## Step 3: Home composition correction
@@ -151,11 +153,11 @@ H3 is a white, warm-edged panel that keeps search availability copy and its real
 
 | After evidence | Review |
 | --- | --- |
-| Static [320](evidence/visual-home-correction-2026-10-09/static/home-320.png), [360](evidence/visual-home-correction-2026-10-09/static/home-360.png), [640](evidence/visual-home-correction-2026-10-09/static/home-640.png), [768](evidence/visual-home-correction-2026-10-09/static/home-768.png), [1280](evidence/visual-home-correction-2026-10-09/static/home-1280.png), [1440](evidence/visual-home-correction-2026-10-09/static/home-1440.png) | Compact, tablet, desktop, and 200%/400% reflow equivalents. [Report](evidence/visual-home-correction-2026-10-09/static/home-report.json). |
-| Hero [360](evidence/visual-home-correction-2026-10-09/hero/home-360.png), [1440](evidence/visual-home-correction-2026-10-09/hero/home-1440.png); story [360](evidence/visual-home-correction-2026-10-09/story/home-360.png), [1440](evidence/visual-home-correction-2026-10-09/story/home-1440.png); media-failure fixture [360](evidence/visual-home-correction-2026-10-09/media-failure/home-360.png), [1440](evidence/visual-home-correction-2026-10-09/media-failure/home-1440.png) | Static-first abstract media variants. Failure-fixture captures show the initial still; activated failure and stable playback geometry are verified by the browser matrix. |
-| Expanded/mixed-script [360](evidence/visual-home-correction-2026-10-09/long-labels/home-360.png), [1440](evidence/visual-home-correction-2026-10-09/long-labels/home-1440.png) | Long labels wrap within equal-height cards and retain aligned arrow cues. These strings do not establish approved translation. |
-| Contacts current [360](evidence/visual-home-correction-2026-10-09/contacts-current/home-360.png), [1440](evidence/visual-home-correction-2026-10-09/contacts-current/home-1440.png); missing [360](evidence/visual-home-correction-2026-10-09/contacts-missing/home-360.png), [1440](evidence/visual-home-correction-2026-10-09/contacts-missing/home-1440.png) | Grouped practical access, truthful missing-contact presentation, and no active telephone/map actions. |
-| Governed current [360](evidence/visual-home-correction-2026-10-09/governed-current/home-360.png), [1440](evidence/visual-home-correction-2026-10-09/governed-current/home-1440.png); empty [360](evidence/visual-home-correction-2026-10-09/governed-empty/home-360.png), [1440](evidence/visual-home-correction-2026-10-09/governed-empty/home-1440.png) | Distinct collection surfaces; omitted collections leave no heading, showcase, or reserved space. |
+| Static 320 (local capture), 360 (local capture), 640 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow equivalents. [Report](evidence/visual-home-correction-2026-10-09/static/home-report.json). |
+| Hero 360 (local capture), 1440 (local capture); story 360 (local capture), 1440 (local capture); media-failure fixture 360 (local capture), 1440 (local capture) | Static-first abstract media variants. Failure-fixture captures show the initial still; activated failure and stable playback geometry are verified by the browser matrix. |
+| Expanded/mixed-script 360 (local capture), 1440 (local capture) | Long labels wrap within equal-height cards and retain aligned arrow cues. These strings do not establish approved translation. |
+| Contacts current 360 (local capture), 1440 (local capture); missing 360 (local capture), 1440 (local capture) | Grouped practical access, truthful missing-contact presentation, and no active telephone/map actions. |
+| Governed current 360 (local capture), 1440 (local capture); empty 360 (local capture), 1440 (local capture) | Distinct collection surfaces; omitted collections leave no heading, showcase, or reserved space. |
 
 Visual review compares the saved mobile/desktop and expanded-label compositions with the governing H1–H9 reference. Intentional adaptations: bands remain within the shared content container rather than copying prototype full-bleed CSS; generic navigation descriptions replace prototype operational outcomes while contacts and appointment operations remain withheld; collection width follows the actual eligible record count rather than filling reference columns with fictional records; contact safety groups remain explicit instead of copying the prototype's single practical-access card. The preview adapter's destination review and transcript remain outside the Home composition and are preserved in screenshots. The application root still mounts the Actions fixture, so these captures establish reusable Home template evidence.
 
@@ -175,7 +177,7 @@ Search now spans the full discovery region instead of occupying the narrow first
 
 | After evidence | Review |
 | --- | --- |
-| Controlled directory [320](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-320.png), [360](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-360.png), [768](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-768.png), [1280](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-1280.png), [1440](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-1440.png) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Search and workspace share their outer edges; the rail/results split appears only when sufficient width exists. [Geometry report](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-report.json). |
+| Controlled directory 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Search and workspace share their outer edges; the rail/results split appears only when sufficient width exists. [Geometry report](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-report.json). |
 
 The capture runner now records the search/workspace edge relationship, discovery and card columns, and filter-before-results source order. The rendered browser matrix asserts those relationships across 320, 360, 768, and 1440 px for ready, failure, offline, and unavailable-roster fixtures under default, no-JavaScript, reduced-motion, forced-colors, print, 200%-text, and no-CSS capabilities. Separate cases cover committed search/filter state and no-match recovery. The matrix totals 142 responsive/capability cases; 18 directory contract cases, 24 validation cases, and 12 rendered history/keyboard/assistive-technology/reflow cases also pass.
 
@@ -189,7 +191,7 @@ Search now spans the full discovery region instead of occupying the narrow first
 
 | After evidence | Review |
 | --- | --- |
-| Controlled directory [320](evidence/visual-service-directory-correction-2026-10-13/service-directory-320.png), [360](evidence/visual-service-directory-correction-2026-10-13/service-directory-360.png), [768](evidence/visual-service-directory-correction-2026-10-13/service-directory-768.png), [1280](evidence/visual-service-directory-correction-2026-10-13/service-directory-1280.png), [1440](evidence/visual-service-directory-correction-2026-10-13/service-directory-1440.png) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Search and workspace share their outer edges; the rail/results split appears only when sufficient width exists. Every populated group uses two cards at tablet/desktop widths and one compact. [Geometry report](evidence/visual-service-directory-correction-2026-10-13/service-directory-report.json). |
+| Controlled directory 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Search and workspace share their outer edges; the rail/results split appears only when sufficient width exists. Every populated group uses two cards at tablet/desktop widths and one compact. [Geometry report](evidence/visual-service-directory-correction-2026-10-13/service-directory-report.json). |
 
 Manual review compares the saved 360 and 1440 compositions directly with the governing S0–S7 references and inspects the intermediate captures for breakpoint continuity. No clipping, horizontal overflow, vacant layout track, or awkward one-to-two-column transition is visible. Controlled copy, unavailable detail actions, fixture record counts, and current shell branding remain intentional adaptations rather than visual defects.
 
@@ -205,7 +207,7 @@ P2 and P3 now form the desktop editorial column beside a wayfinding-edged P4 req
 
 | After evidence | Review |
 | --- | --- |
-| Controlled profile [320](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-320.png), [360](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-360.png), [768](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-768.png), [1280](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-1280.png), [1440](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-1440.png) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. The editorial/request split appears only when sufficient width exists; related services return to the wide region and review/support remain visually separate. [Geometry report](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-report.json). |
+| Controlled profile 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. The editorial/request split appears only when sufficient width exists; related services return to the wide region and review/support remain visually separate. [Geometry report](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-report.json). |
 
 Manual review compares the saved 360 and 1440 compositions directly with the governing P0–P7 references and inspects the intermediate captures for breakpoint continuity. No clipping, horizontal overflow, empty desktop track, or touching review/support panels is visible. The controlled portrait placeholder, unavailable operations, synthetic record count, and current approved shell branding remain intentional adaptations.
 
@@ -221,7 +223,7 @@ The two E1 route choices remain the dominant first action group. E2 route defini
 
 | After evidence | Review |
 | --- | --- |
-| Controlled Emergency [320](evidence/visual-emergency-correction-2026-10-13/emergency-320.png), [360](evidence/visual-emergency-correction-2026-10-13/emergency-360.png), [768](evidence/visual-emergency-correction-2026-10-13/emergency-768.png), [1280](evidence/visual-emergency-correction-2026-10-13/emergency-1280.png), [1440](evidence/visual-emergency-correction-2026-10-13/emergency-1440.png) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Route and arrival pairs appear only with sufficient width; the E3 warning remains intrinsically compact. [Geometry report](evidence/visual-emergency-correction-2026-10-13/emergency-report.json). |
+| Controlled Emergency 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Route and arrival pairs appear only with sufficient width; the E3 warning remains intrinsically compact. [Geometry report](evidence/visual-emergency-correction-2026-10-13/emergency-report.json). |
 
 Manual review compares the saved 360 and 1440 compositions directly with the governing E0–E8 references and inspects 768 and 1280 for breakpoint continuity. No clipping, horizontal overflow, stretched warning, or broken arrival pairing is visible. Inert synthetic contact values, withheld call actions, disabled map loading, controlled copy, and current approved shell branding remain intentional adaptations.
 
@@ -231,10 +233,10 @@ This remains controlled template evidence, not emergency-content, contact, route
 
 ## Reproduce captures
 
-From the repository root, use the [capture runner](../../apps/web/scripts/capture-visual-baseline.mjs) with a new output directory so the before evidence stays intact:
+From the repository root, use the [capture runner](../../apps/web/scripts/capture-visual-baseline.mjs) with a new directory under the ignored `artifacts/visual/` tree so prior local evidence stays intact:
 
 ```sh
-node apps/web/scripts/capture-visual-baseline.mjs /tmp/hallelujah-visual-review
+node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/visual-review
 ```
 
 The runner uses existing preview servers on allocated loopback ports and isolates each renderer's CSS registry in its own process. It captures six templates at two widths, validates shell styling and template presence, records geometry/external requests, and closes its own servers/browser profiles. It requires Chromium and permission to launch local browser processes and loopback listeners. These screenshots cover static appearance with reduced motion; use the existing page smoke commands for behavioral/state validation.

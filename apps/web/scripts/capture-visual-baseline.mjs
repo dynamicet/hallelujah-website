@@ -20,7 +20,7 @@ if (process.env.VISUAL_CAPTURE_ORIGIN) {
   assert.ok(['localhost', '127.0.0.1'].includes(origin.hostname), 'Application captures require loopback')
   previews.push(['bootstrap', undefined, undefined, ''])
 }
-const captureRoot = path.resolve(process.argv[2] ?? 'docs/backlog/evidence/visual-direction-baseline-2026-10-08')
+const captureRoot = path.resolve(process.argv[2] ?? 'artifacts/visual/visual-review')
 const selected = process.argv[3]
 const widths = (process.env.VISUAL_CAPTURE_WIDTHS ?? '360,1440').split(',').map(Number)
 assert.ok(widths.every(width => Number.isInteger(width) && width >= 320), 'Invalid capture width')
