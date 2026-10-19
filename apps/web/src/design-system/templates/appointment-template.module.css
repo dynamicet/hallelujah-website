@@ -3,13 +3,82 @@
   margin-inline: auto;
   max-inline-size: calc(var(--semantic-size-reading) + 2 * var(--semantic-space-page));
   padding-inline: var(--semantic-space-page);
+  padding-block-end: var(--semantic-space-section);
 }
 
-.introduction,
-.section,
-.formSection {
-  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+.introduction {
   padding-block: var(--semantic-space-section);
+}
+
+.frame > .section,
+.frame > [data-appointment-form-controller] {
+  margin-block-end: var(--semantic-space-surface);
+}
+
+.frame [data-form-primitive] {
+  max-inline-size: none;
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  gap: var(--semantic-space-page);
+  padding: var(--semantic-space-page);
+}
+
+.frame [data-appointment-section='A3']:has(> [hidden]),
+.stateStack:not(:has([data-form-status]:not([hidden]))),
+.statePanel:has(> [hidden]) {
+  display: none;
+}
+
+.formSection {
+  padding-block: var(--semantic-space-page);
+}
+
+.formSection:first-of-type {
+  padding-block-start: 0;
+}
+
+.formSection:last-child {
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  padding-block-end: 0;
+}
+
+.careGroup,
+.fieldGroup {
+  display: grid;
+  gap: var(--semantic-space-page);
+  min-inline-size: 0;
+}
+
+.fieldGroup {
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  padding-block-start: var(--semantic-space-page);
+}
+
+.fieldGroup > h3 {
+  margin: 0;
+}
+
+.careGroup [data-choice-group] label {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  padding: var(--semantic-space-regular);
+}
+
+.careGroup [data-choice-group] label:has(input:checked) {
+  background: var(--semantic-color-surface-subtle);
+  border-color: var(--semantic-color-action-primary);
+}
+
+.frame [data-form-submit] {
+  inline-size: 100%;
+}
+
+@media (min-width: 40rem) {
+  .frame [data-form-submit] {
+    inline-size: auto;
+  }
 }
 
 .introduction,
@@ -79,9 +148,14 @@
   color: var(--semantic-color-text-information);
 }
 
-.support,
+.support {
+  background: var(--semantic-color-surface-information);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+}
+
 .unavailable {
-  background: var(--semantic-color-surface-subtle);
+  background: var(--semantic-color-surface-raised);
+  border-color: var(--semantic-color-border-default);
 }
 
 .errorSummary {
@@ -109,9 +183,8 @@
 }
 
 .errorSummary a {
-  align-items: center;
   color: currentColor;
-  display: flex;
+  display: block;
   min-block-size: var(--semantic-size-touch);
 }
 
@@ -178,6 +251,11 @@
     background: Canvas;
     border-color: CanvasText;
     color: CanvasText;
+  }
+
+  .careGroup [data-choice-group] label:has(input:checked) {
+    background: Canvas;
+    border-color: Highlight;
   }
 
   .consent input[aria-invalid='true'] {

@@ -179,92 +179,100 @@ function AppointmentForm({
           <p>Use only the exact synthetic values described below. No notes or medical information are collected.</p>
         </div>
 
-        <ChoiceGroup
-          error={fieldError('care-route', hasError('care-route'))}
-          hint="Choose one route. Doctor and service are never required together."
-          hintId="care-route-hint"
-          id="care-route"
-          legend="Type of care"
-          name="care_route"
-          options={[
-            { description: 'Choose from fictional doctor records.', label: 'A specific synthetic doctor', value: 'doctor' },
-            { description: 'Choose from fictional service records.', label: 'A synthetic service', value: 'service' },
-            { description: 'Continue without a doctor or service identifier.', label: 'Not sure', value: 'not_sure' },
-          ]}
-          required
-          selectedValues={selectedCareRoute ? [selectedCareRoute] : []}
-          type="radio"
-        />
-
-        <div className={styles.careSelector} data-care-selector="doctor" hidden={selectedCareRoute !== 'doctor'}>
-          <SelectField
-            defaultValue={selectedCareRoute === 'doctor' ? doctorOptions[1]?.value : ''}
-            error={fieldError('doctor-id', hasError('doctor-id'))}
-            hint="Fictional option for controlled layout and validation only."
-            hintId="doctor-id-hint"
-            id="doctor-id"
-            label="Synthetic doctor"
-            name="doctor_id"
-            options={doctorOptions}
-            required={selectedCareRoute === 'doctor'}
+        <div className={styles.careGroup}>
+          <ChoiceGroup
+            error={fieldError('care-route', hasError('care-route'))}
+            hint="Choose one route. Doctor and service are never required together."
+            hintId="care-route-hint"
+            id="care-route"
+            legend="Type of care"
+            name="care_route"
+            options={[
+              { description: 'Choose from fictional doctor records.', label: 'A specific synthetic doctor', value: 'doctor' },
+              { description: 'Choose from fictional service records.', label: 'A synthetic service', value: 'service' },
+              { description: 'Continue without a doctor or service identifier.', label: 'Not sure', value: 'not_sure' },
+            ]}
+            required
+            selectedValues={selectedCareRoute ? [selectedCareRoute] : []}
+            type="radio"
           />
+
+          <div className={styles.careSelector} data-care-selector="doctor" hidden={selectedCareRoute !== 'doctor'}>
+            <SelectField
+              defaultValue={selectedCareRoute === 'doctor' ? doctorOptions[1]?.value : ''}
+              error={fieldError('doctor-id', hasError('doctor-id'))}
+              hint="Fictional option for controlled layout and validation only."
+              hintId="doctor-id-hint"
+              id="doctor-id"
+              label="Synthetic doctor"
+              name="doctor_id"
+              options={doctorOptions}
+              required={selectedCareRoute === 'doctor'}
+            />
+          </div>
+
+          <div className={styles.careSelector} data-care-selector="service" hidden={selectedCareRoute !== 'service'}>
+            <SelectField
+              defaultValue={selectedCareRoute === 'service' ? serviceOptions[1]?.value : ''}
+              error={fieldError('service-id', hasError('service-id'))}
+              hint="Fictional option for controlled layout and validation only."
+              hintId="service-id-hint"
+              id="service-id"
+              label="Synthetic service"
+              name="service_id"
+              options={serviceOptions}
+              required={selectedCareRoute === 'service'}
+            />
+          </div>
         </div>
 
-        <div className={styles.careSelector} data-care-selector="service" hidden={selectedCareRoute !== 'service'}>
-          <SelectField
-            defaultValue={selectedCareRoute === 'service' ? serviceOptions[1]?.value : ''}
-            error={fieldError('service-id', hasError('service-id'))}
-            hint="Fictional option for controlled layout and validation only."
-            hintId="service-id-hint"
-            id="service-id"
-            label="Synthetic service"
-            name="service_id"
-            options={serviceOptions}
-            required={selectedCareRoute === 'service'}
+        <section aria-labelledby="appointment-contact-title" className={styles.fieldGroup}>
+          <h3 id="appointment-contact-title">Your contact details</h3>
+          <TextField
+            autoComplete="off"
+            defaultValue={state === 'validation' ? 'TEST PATIENT' : undefined}
+            error={fieldError('full-name', hasError('full-name'))}
+            hint="Controlled test value: TEST PATIENT. Never enter a real name."
+            hintId="full-name-hint"
+            id="full-name"
+            label="Synthetic full name"
+            maximumLength={120}
+            minimumLength={2}
+            name="full_name"
+            required
           />
-        </div>
 
-        <TextField
-          autoComplete="off"
-          defaultValue={state === 'validation' ? 'TEST PATIENT' : undefined}
-          error={fieldError('full-name', hasError('full-name'))}
-          hint="Controlled test value: TEST PATIENT. Never enter a real name."
-          hintId="full-name-hint"
-          id="full-name"
-          label="Synthetic full name"
-          maximumLength={120}
-          minimumLength={2}
-          name="full_name"
-          required
-        />
+          <TextField
+            autoComplete="off"
+            error={fieldError('phone', hasError('phone'))}
+            hint="Controlled test value: +0 000 000 0000. Never enter a real telephone number."
+            hintId="phone-hint"
+            id="phone"
+            inputMode="tel"
+            label="Synthetic telephone"
+            maximumLength={32}
+            name="phone"
+            required
+            type="tel"
+          />
+        </section>
 
-        <TextField
-          autoComplete="off"
-          error={fieldError('phone', hasError('phone'))}
-          hint="Controlled test value: +0 000 000 0000. Never enter a real telephone number."
-          hintId="phone-hint"
-          id="phone"
-          inputMode="tel"
-          label="Synthetic telephone"
-          maximumLength={32}
-          name="phone"
-          required
-          type="tel"
-        />
-
-        <TextField
-          autoComplete="off"
-          error={fieldError('preferred-date', hasError('preferred-date'))}
-          hint="Optional YYYY-MM-DD fixture within the next 365 days."
-          hintId="preferred-date-hint"
-          id="preferred-date"
-          inputMode="numeric"
-          label="Synthetic preferred date"
-          maximumLength={10}
-          name="preferred_date"
-          optionalLabel="Optional"
-          pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-        />
+        <section aria-labelledby="appointment-preference-title" className={styles.fieldGroup}>
+          <h3 id="appointment-preference-title">Your preference</h3>
+          <TextField
+            autoComplete="off"
+            error={fieldError('preferred-date', hasError('preferred-date'))}
+            hint="Optional YYYY-MM-DD fixture within the next 365 days."
+            hintId="preferred-date-hint"
+            id="preferred-date"
+            inputMode="numeric"
+            label="Synthetic preferred date"
+            maximumLength={10}
+            name="preferred_date"
+            optionalLabel="Optional"
+            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+          />
+        </section>
       </section>
 
       <section aria-labelledby="appointment-privacy-title" className={`${styles.formSection} ${styles.privacy}`} data-appointment-section="A5">

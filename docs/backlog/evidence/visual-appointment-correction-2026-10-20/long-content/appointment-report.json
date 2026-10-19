@@ -1,0 +1,97 @@
+{
+  "sourceRevision": "7ecb84ecf8ce2160e9552f401f76e1a1f8ca720f",
+  "sourceState": "working-tree",
+  "browser": "Chrome/153.0.8010.47",
+  "javascript": "enabled",
+  "motion": "reduced",
+  "deviceScaleFactor": 1,
+  "scope": "Controlled local preview adapters; appearance baseline only",
+  "captures": [
+    {
+      "file": "appointment-360.png",
+      "state": "long-content",
+      "width": 360,
+      "height": 4579,
+      "viewport": 360,
+      "documentWidth": 345,
+      "headerHeight": 116.1875,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 16,
+          "y": 58.796875,
+          "width": 203.421875,
+          "height": 44
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 231.421875,
+          "y": 58,
+          "width": 97.578125,
+          "height": 45.59375
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 16,
+          "y": 111.59375,
+          "width": 313,
+          "height": 45.59375
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "appointment-1440.png",
+      "state": "long-content",
+      "width": 1440,
+      "height": 3399,
+      "viewport": 1440,
+      "documentWidth": 1425,
+      "headerHeight": 116.1875,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 72.5,
+          "y": 37.796875,
+          "width": 1170.421875,
+          "height": 44
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 1254.921875,
+          "y": 37,
+          "width": 97.578125,
+          "height": 45.59375
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 72.5,
+          "y": 90.59375,
+          "width": 1280,
+          "height": 45.59375
+        }
+      ],
+      "externalRequests": 0
+    }
+  ]
+}

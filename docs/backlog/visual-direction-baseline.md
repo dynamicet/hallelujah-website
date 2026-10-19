@@ -2,7 +2,7 @@
 
 The implemented hospital templates preserve the color foundation and much of the functional hierarchy, but their composition has drifted from Calm Wayfinding. The largest corrections are the shared shell, Home, and desktop discovery layouts. Emergency, Appointment, and clinician profiles retain useful structure but lose the reference's surface hierarchy, grouping, and support treatments.
 
-This is step 1 of the visual correction plan on `fix/visual-direction-alignment`, recorded on 8 October 2026 against source commit `43c1f5706d89040602b90b929026eedd7e5378ce`. It establishes the before state and correction criteria. The step 2 record below tracks the shared-shell correction; the step 3 record tracks the Home composition correction. Discovery and remaining-page corrections remain outstanding. Existing ticket completion records continue to describe their original controlled-development scope.
+This is step 1 of the visual correction plan on `fix/visual-direction-alignment`, recorded on 8 October 2026 against source commit `43c1f5706d89040602b90b929026eedd7e5378ce`. It establishes the before state and correction criteria. Steps 2–8 below track the shared shell, Home, discovery, clinician profile, Emergency, and Appointment corrections. All template composition slices in this inventory now have implementation records; these are controlled review results, not production acceptance. Existing ticket completion records continue to describe their original controlled-development scope.
 
 ## Governing references
 
@@ -230,6 +230,25 @@ Manual review compares the saved 360 and 1440 compositions directly with the gov
 Validation passes 52 fail-closed lifecycle, controlled SSR, isolation, escaping, announcement, static-motion, and token contracts plus 255 responsive, capability, accessibility, and isolation browser cases. The browser matrix covers controlled and expanded content, required-content withheld/expired/unavailable states, unsupported handoff, map failure/blocking, default/no-JavaScript/reduced-motion/forced-colors/print/200%-text/no-CSS capabilities, inert interaction, focus, and response policy. TypeScript and repository lint also pass. The capture runner records paired route/arrival columns, warning and route heights, one main and H1, document width, and external requests at all five widths.
 
 This remains controlled template evidence, not emergency-content, contact, route, clinical, hospital-content, or production-release approval. The next slice is Appointment A3/A4/A5/A6 (B03-017).
+
+## Step 8: Appointment form composition correction
+
+Implemented and visually reviewed on 20 October 2026 against `7ecb84ecf8ce2160e9552f401f76e1a1f8ca720f` plus the working-tree changes. This slice addresses A3/A4/A5/A6 under B03-017.
+
+The form now occupies one raised white panel aligned with the introduction, emergency warning, and support panel. Care-route radios have bordered choice cards and a selected treatment while retaining native controls and mutually exclusive conditional selectors. Contact fields and date preference have separate labeled, single-column groups. The visible blue privacy panel stays immediately before the consequence/action section, with deliberate dividers and compact spacing. The submit action spans the available width on compact screens and uses intrinsic width on desktop. Hidden error/status panels no longer reserve empty grid gaps. Error-summary links wrap as continuous text rather than squeezing their labels into narrow flex columns. Support and workflow-unavailable panels retain distinct surfaces and spacing before the footer.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled 320, 360, 640, 768, 1280, 1440 (local captures) | Single-column form at every width, including 200%/400% reflow equivalents. [Report](evidence/visual-appointment-correction-2026-10-20/controlled/appointment-report.json). |
+| Validation 360, 1440 (local captures) | Visible linked summary, selected doctor route, retained synthetic name, inline telephone and acknowledgment errors. [Report](evidence/visual-appointment-correction-2026-10-20/validation/appointment-report.json). |
+| Workflow unavailable 360, 1440 (local captures) | Form omitted; unavailable panel and support remain. [Report](evidence/visual-appointment-correction-2026-10-20/unavailable/appointment-report.json). |
+| Long content 360, 1440 (local captures) | Expanded headings, disclosure, and support copy wrap within their panels. [Report](evidence/visual-appointment-correction-2026-10-20/long-content/appointment-report.json). |
+
+Mobile and desktop compositions were visually inspected against the governing Appointment reference. All twelve captures report one main and H1, no document overflow, and zero external HTTP requests. The current reading-width token, approved palette, synthetic warnings, disabled operational submission, and withheld contact details remain intentional adaptations. Screenshots stay under ignored `artifacts/visual/visual-appointment-correction-2026-10-20/`; JSON reports are tracked.
+
+Validation: 20 Appointment page SSR/state/isolation/token contracts, form primitive contracts, 284 responsive/capability/interaction/accessibility/isolation browser cases, TypeScript, and lint pass. The repository boundary check separately reports an existing violation in unchanged `src/app/page.tsx`: it imports components directly instead of consuming only the templates public API. This correction does not change that route.
+
+This completes the composition slices listed in this baseline for controlled template review. Hospital-content, operating-workflow, and production-release acceptance remain separate.
 
 ## Reproduce captures
 
