@@ -105,7 +105,8 @@ try {
       : capability === 'no-css' ? ['*/home.css'] : [] })
     await send('Page.navigate', { url: state === 'static' ? server.origin : `${server.origin}/${state}` })
     await until(`document.readyState === 'complete' && !!document.querySelector('[data-home-template]') ${capability === 'no-js' ? '' : "&& document.documentElement.dataset.motionMediaEnhanced === 'true'"}`)
-    if (capability === '200%-text') await evaluate("document.documentElement.style.fontSize = '200%'")
+    if (capability.startsWith('200%-text')) await evaluate("document.documentElement.style.fontSize = '200%'")
+    if (capability === '200%-text-wide-font') await evaluate("document.body.style.fontFamily = 'monospace'")
     await pause(45)
   }
   const captureOnly = process.argv.includes('--capture-only')
@@ -114,11 +115,14 @@ try {
     ? reviewStates.filter(state => (governed ? ['governed-current', 'governed-empty', 'governed-expired']
       : contacts ? ['contacts-current', 'contacts-missing', 'contacts-expired'] : ['static', 'hero', 'story']).includes(state)) : reviewStates))
     for (const width of (captureOnly ? [320, 1440] : [320, 360, 768, 1440]))
-    for (const capability of (captureOnly ? ['no-js'] : ['default', 'no-js', 'reduced-motion', 'forced-colors', 'save-data', 'images-fonts-blocked', 'print', '200%-text', ...(contacts ? ['no-css'] : [])])) {
+    for (const capability of (captureOnly ? ['no-js'] : ['default', 'no-js', 'reduced-motion', 'forced-colors', 'save-data', 'images-fonts-blocked', 'print', '200%-text', ...(contacts ? ['no-css', '200%-text-wide-font'] : [])])) {
       const requestStart = requests.length
       await navigate(state, capability, width)
       const result = await evaluate(`({
         overflow: document.documentElement.scrollWidth > innerWidth + 1,
+        overflowingElements: [...document.querySelectorAll('main *')].filter(el => {
+          const r = el.getBoundingClientRect(); return r.width > 0 && r.right > innerWidth + 1;
+        }).slice(0, 12).map(el => ({tag: el.tagName, className: el.className, width: el.getBoundingClientRect().width})),
         mainCount: document.querySelectorAll('main').length, h1Count: document.querySelectorAll('h1').length,
         taskCount: document.querySelector('[data-home-section="H2"] ul').children.length,
         targets: [...document.querySelectorAll('[data-action-link],[data-emergency-action],[data-media-play],[data-controlled-fixture="true"] a')].every(el => {
@@ -144,7 +148,7 @@ try {
         metrics: window.homeMetrics ?? null,
       })`)
       const label = `${state}/${width}/${capability}`
-      assert.equal(result.overflow, false, label)
+      assert.equal(result.overflow, false, `${label}: ${JSON.stringify(result.overflowingElements)}`)
       assert.equal(result.mainCount, 1, label)
       assert.equal(result.h1Count, 1, label)
       assert.equal(result.taskCount, 5, label)
@@ -265,11 +269,18 @@ try {
     await evaluate("document.querySelector('[data-menu-trigger]').focus()")
     await key()
     await until("document.querySelector('[data-navigation-panel]').matches(':popover-open')")
-    await evaluate("document.querySelector('[data-primary-navigation] a').focus()")
+    await evaluate("document.querySelector('[data-language-switcher] summary').focus()")
+    await key()
+    await until("document.querySelector('[data-language-switcher]').open")
+    assert.ok(await evaluate("document.querySelector('[data-language-switcher] [aria-disabled]').getBoundingClientRect().height >= 44"))
+    assert.ok(await evaluate("document.querySelector('[data-language-switcher] p').getBoundingClientRect().height > 0"))
+    await key(capability === 'no-js' ? 'Enter' : 'Escape', capability === 'no-js' ? 13 : 27)
+    await until("!document.querySelector('[data-language-switcher]').open")
+    assert.ok(await evaluate("document.activeElement.matches('[data-language-switcher] summary')"))
     await key('Escape', 27)
     await until("!document.querySelector('[data-navigation-panel]').matches(':popover-open')")
     if (capability === 'default') assert.equal(await evaluate("document.activeElement.matches('[data-menu-trigger]')"), true)
-    cases.push({ capability, state: 'compact-menu-keyboard', passed: true })
+    cases.push({ capability, state: 'compact-menu-language-keyboard', passed: true })
   }
   for (const state of (contacts || governed ? [] : ['hero', 'story'])) {
     await navigate(state)

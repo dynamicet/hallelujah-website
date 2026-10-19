@@ -130,6 +130,24 @@ try {
           external: document.querySelectorAll('a[href^="http"],a[href^="tel:"],a[href^="mailto:"],iframe,img,video').length,
           form: document.querySelector('form')?.method,
           cards: document.querySelectorAll('[data-clinician-public-id]').length,
+          composition: (() => {
+            const search = document.querySelector('[class*="searchPanel"]')?.getBoundingClientRect()
+            const workspace = document.querySelector('[class*="discoveryWorkspace"]')?.getBoundingClientRect()
+            const filter = document.querySelector('[class*="filterRail"]')
+            const results = document.querySelector('[class*="resultsSection"]')
+            const cards = document.querySelector('[data-directory-section="D4"]')
+            return {
+              searchWorkspaceEdgeDelta: search && workspace
+                ? Math.max(Math.abs(search.left - workspace.left), Math.abs(search.right - workspace.right))
+                : null,
+              workspaceColumns: workspace
+                ? getComputedStyle(document.querySelector('[class*="discoveryWorkspace"]')).gridTemplateColumns.split(' ').length
+                : 0,
+              cardColumns: cards ? getComputedStyle(cards).gridTemplateColumns.split(' ').length : 0,
+              filterBeforeResults: !!filter && !!results
+                && !!(filter.compareDocumentPosition(results) & Node.DOCUMENT_POSITION_FOLLOWING),
+            }
+          })(),
           text: document.body.innerText,
         })`)
         const label = `${state}/${width}/${capability}`
@@ -143,6 +161,14 @@ try {
         assert.equal(result.external, 0, label)
         assert.equal(result.form, 'get', label)
         assert.equal(result.cards, unavailable ? 0 : 4, label)
+        assert.equal(result.composition.filterBeforeResults, true, label)
+        if (capability !== 'no-css') {
+          assert.ok(result.composition.searchWorkspaceEdgeDelta < 1, `${label}: search must span the discovery workspace`)
+          assert.equal(result.composition.workspaceColumns, capability === 'print' || width >= 1024 ? 2 : 1,
+            `${label}: discovery columns`)
+          if (!unavailable) assert.equal(result.composition.cardColumns, capability === 'print' || width >= 768 ? 2 : 1,
+            `${label}: result columns`)
+        }
         assert.match(result.text, /Controlled preview only/u, label)
         assert.doesNotMatch(result.text, /Retired Synthetic Record/u, label)
         assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)

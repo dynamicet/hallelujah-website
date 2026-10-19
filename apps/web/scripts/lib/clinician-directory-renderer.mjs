@@ -67,7 +67,7 @@ export function resolveClinicianDirectory(
 }
 
 export function renderClinicianDirectory({ directory, pathname = '/', state = 'ready' }) {
-  const { ActionLink, EmergencyAction, LanguageSwitcher } = components
+  const { EmergencyAction, LanguageSwitcher } = components
   const links = {
     directory: { current: true, href: '#clinician-directory-title', label: 'Synthetic clinicians' },
     filters: { href: '#directory-search-title', label: 'Search and filters' },
@@ -75,10 +75,11 @@ export function renderClinicianDirectory({ directory, pathname = '/', state = 'r
     support: { href: '#directory-support', label: 'Controlled support boundary' },
   }
   const shell = {
+    notice: 'Local preview · Hospital content, contacts and services are not published.',
     skipLinkLabel: 'Skip to main content',
     header: {
-      brandName: 'Hallelujah Hospital — controlled identity',
-      emergencyAction: createElement(EmergencyAction, { href: '#directory-support', label: 'Emergency route unavailable' }),
+      brandName: 'Hallelujah Hospital',
+      emergencyAction: createElement(EmergencyAction, { compact: true, href: '#directory-support', label: 'Emergency route unavailable' }),
       homeHref: '#clinician-directory-title',
       homeLabel: 'Hallelujah Hospital controlled clinician directory',
       identityLanguage: 'en',
@@ -88,10 +89,9 @@ export function renderClinicianDirectory({ directory, pathname = '/', state = 'r
         currentLabel: 'English', currentLang: 'en', label: 'Language',
       }),
       menuLabel: 'Menu',
-      navigationItems: [links.directory, links.filters, links.results, links.support],
+      navigationItems: [{ ...links.directory, label: 'Clinicians' }, { ...links.filters, label: 'Search and filters' }, { ...links.results, label: 'Results' }, { ...links.support, label: 'Support' }],
       navigationMode: 'responsive',
       primaryNavigationLabel: 'Primary',
-      routineAction: createElement(ActionLink, { href: '#directory-support', label: 'Staffed contact unavailable', variant: 'secondary' }),
       searchItem: links.filters,
     },
     footer: {

@@ -46,7 +46,7 @@ registerHooks({
   },
 })
 
-const { ActionLink, AppointmentTemplate, EmergencyAction, LanguageSwitcher } = {
+const { AppointmentTemplate, EmergencyAction, LanguageSwitcher } = {
   ...await import('../../src/design-system/templates/index.ts'),
   ...await import('../../src/design-system/components/index.ts'),
 }
@@ -65,14 +65,9 @@ export function renderAppointmentPage(props) {
       currentLang: 'en',
       label: 'Language',
     }),
-    emergencyAction: createElement(EmergencyAction, {
+    emergencyAction: createElement(EmergencyAction, { compact: true,
       href: '#appointment-warning-title',
       label: 'Controlled emergency warning',
-    }),
-    routineAction: createElement(ActionLink, {
-      href: '#appointment-support',
-      label: 'Synthetic support boundary',
-      variant: 'secondary',
     }),
   }
   return renderToStaticMarkup(createElement(AppointmentTemplate, {

@@ -141,3 +141,6 @@ export { GovernedCard } from './governed-cards'
 export type {
   GovernedCardContent, GovernedCardKind, GovernedCardProps, GovernedCardReview,
 } from './governed-cards'
+
+export { TaskCard } from './task-card'
+export type { TaskCardProps } from './task-card'

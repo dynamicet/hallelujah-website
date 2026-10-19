@@ -1,0 +1,261 @@
+# Visual direction baseline and correction criteria
+
+The implemented hospital templates preserve the color foundation and much of the functional hierarchy, but their composition has drifted from Calm Wayfinding. The largest corrections are the shared shell, Home, and desktop discovery layouts. Emergency, Appointment, and clinician profiles retain useful structure but lose the reference's surface hierarchy, grouping, and support treatments.
+
+This is step 1 of the visual correction plan on `fix/visual-direction-alignment`, recorded on 8 October 2026 against source commit `43c1f5706d89040602b90b929026eedd7e5378ce`. It establishes the before state and correction criteria. Steps 2–8 below track the shared shell, Home, discovery, clinician profile, Emergency, and Appointment corrections. All template composition slices in this inventory now have implementation records; these are controlled review results, not production acceptance. Existing ticket completion records continue to describe their original controlled-development scope.
+
+## Governing references
+
+Use the [source priority](../visual-design/README.md#source-priority), [approved project brand](../brand/README.md), [Calm Wayfinding direction](../visual-design/direction/visual-directions.md), [foundation contracts](../design-system/foundations.md), and [page handoff matrix](../visual-design/handoff/page-handoff-matrix.md). The brand approval supersedes provisional prototype identity and palette decisions. Restore the composition using the current token system rather than copying obsolete values or importing prototype CSS.
+
+The [critical journey specifications](../visual-design/pages/critical-journeys/critical-journey-specifications.md) and [care discovery specifications](../visual-design/pages/care-discovery/care-discovery-specifications.md) explain the section treatments behind the screenshots. The [production component architecture](../architecture/production-component-architecture.md) governs implementation boundaries.
+
+## Scope and evidence
+
+The inventory covers all six implemented hospital page templates and their shared shell. Home contact and governed-content modules belong to Home. Bootstrap and component fixture templates are review infrastructure, not additional designed hospital pages. Service Detail and the Epic 05 practical/institutional pages have design references but no corresponding page template in this inventory.
+
+At the original baseline, the application root mounted EssentialActionsFixtureTemplate. The [current root route](../../apps/web/src/app/page.tsx) now renders the controlled Home composition through HomePageTemplate; it does not establish published hospital content or production readiness. The original baseline captures render the reusable React templates through their controlled local preview adapters.
+
+Twelve fresh full-document captures use Chromium, 360 and 1440 CSS px widths, a 1000 px viewport height, device scale 1, English controlled fixtures, JavaScript enabled, and reduced motion. The [capture report](evidence/visual-direction-baseline-2026-10-08/capture-report.json) records browser version, dimensions, header height, heading/main counts, and external requests. All twelve captures have one main, one H1, and zero external HTTP requests. Screenshots and source inspection establish the findings below; this capture run is not an interaction or production acceptance test.
+
+Generated screenshots are local review artifacts under `artifacts/visual/` and are intentionally excluded from Git. The repository retains capture scripts and machine-readable JSON reports so each capture set can be reproduced. “Local capture” below records the reviewed viewport without claiming that the bitmap is available in a fresh clone. Governing design references remain tracked because they are maintained design inputs rather than generated review output.
+
+| Template | Current desktop | Current mobile | Design desktop | Design mobile |
+| --- | --- | --- | --- | --- |
+| Home | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/critical-journeys/evidence/home-H0-H9-1440-en-standard.png) | [360](../visual-design/pages/critical-journeys/evidence/home-H0-H9-360-en-standard.png) |
+| Emergency | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-1440-en-reduced.png) | [360](../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-360-en-reduced.png) |
+| Appointment | 1440 (local capture) | 360 (local capture) | [1280](../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-1280-en-standard.png) | [360](../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-360-en-standard.png) |
+| Clinician directory | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-1440-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-360-en-standard.png) |
+| Clinician profile | 1440 (local capture) | 360 (local capture) | [1280](../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-1280-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-360-en-standard.png) |
+| Service directory | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-1440-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-360-en-standard.png) |
+
+Appointment and profile desktop references are 1280 px; compare hierarchy and relationships rather than exact pixel positions against their 1440 px captures. Reference captures use different controlled copy and data. Their standard-motion frames establish static composition, not animation parity.
+
+Home's preview adapter appends a controlled destination review and abstract transcript after H3. Those large sections belong to the harness and must not be counted as Home composition drift or removed from functional tests merely to improve a screenshot. The static Home fixture omits governed sections; [existing governed-content evidence](evidence/b03-006-artifacts/governed-current-1440-no-js.png) and [contact evidence](evidence/b03-005-artifacts/contacts-current-1440-no-js.png) cover those additional modules.
+
+## Verified differences and correction criteria
+
+Priority describes implementation sequence within this correction, not a change to backlog priority.
+
+| Area | Verified difference | Correction acceptance | Priority and existing scope |
+| --- | --- | --- | --- |
+| Desktop header | The shell puts identity/emergency, primary navigation, and utilities/routine action on successive rows. Home's measured header is approximately 235 px high. The reference keeps a compact horizontal task navigation with distinct language and emergency controls. | At 1280/1440, identity, navigation, language, and emergency form a compact, coherent composition. Available width and actual labels determine wrapping; required explanations remain readable. Visual, DOM, and keyboard order agree. | First; Epic 01 B01-006/B01-013 |
+| Mobile header | Current identity, a tall wrapping emergency action, and Menu occupy separate rows. This repeats across all six captures. The reference groups identity/Menu before a separate emergency action. | At 320/360, group identity and Menu coherently; keep Emergency visible and easy to reach. Long labels may wrap without clipping or causing a second accidental action hierarchy. | First; Epic 01 B01-005/B01-006 |
+| Footer and support | The footer is a pale surface continuous with the page. Support frequently appears as a reading-width bordered box, sometimes directly touching the next box/footer. References distinguish a broad support band from a dark footer. | Give support, review metadata, and footer distinct visual roles, consistent container edges, readable contrast, and deliberate spacing. Preserve truthful available exits. | First shell, then page slices; Epics 01/03/04 |
+| Home H1 | Copy and actions occupy the left reading measure without the reference's asymmetric hero plane. Optional hero media is placed below the copy rather than alongside it. The orientation accent is a short teal line. | Provide a balanced desktop hero and text-first mobile stack. Define an intentional no-media composition and an abstract or approved static-first media variant. Use the established warm wayfinding accent where appropriate; tasks remain primary under media failure/reduced motion. | Next; Epic 03 B03-004 and Epic 01 B01-012 |
+| Home H2/H3 | Five routine tasks are secondary button links, without the reference's icon, supporting label, or card hierarchy. At 1440, two arrow cues wrap onto their own row and create uneven heights. H3 is plain unavailable copy/action rather than a composed panel. | Five task cards have consistent icon/title/support/cue anatomy and stable alignment with long labels. Search and its unavailable variant retain purposeful grouping. No active search is implied when unavailable. | Next; Epic 03 B03-004 |
+| Home section rhythm | Introduction and sections reuse a border-and-padding treatment on the same surface. This loses the reference's alternating section roles, heading/supporting-copy pairs, and practical-access composition. | Restore distinct section surfaces and content groups while retaining H section order. Review governed/contact variants as well as static Home; whole-section omissions leave no empty showcase or unexplained space. | Next; Epic 03 B03-004/B03-005/B03-006 |
+| Clinician directory D2/D3 | The desktop two-column grid belongs to the search section, which contains only the form; results are in a later section. Search/filter occupy the narrow left column and the right column remains vacant. | Search spans the discovery region above filters/results. Desktop filters sit beside the count, cards, and pagination. Mobile filters precede results in reading order and retain a usable disclosure. Loading/no-match/failure do not move the results into a new disconnected layout. | After Home; Epic 04 B04-007 |
+| Service directory S3/S5 | The same misplaced form grid leaves a blank right column, with group results below. Three-column cards differ from the reference's two-card groups and need review within the corrected results width. | Search, group rail, result count, group headings, cards, and pagination form one coherent discovery region. Select card columns from the actual results width and readable copy; record any intentional departure from the two-card reference. | After Home; Epic 04 B04-011 |
+| Clinician profile P2/P4/P5 | Identity/portrait already pair on desktop. Subsequent sections are capped at reading width and stacked left, losing the reference's request rail beside editorial content and wider related-services region. Review/support panels touch in the current capture. | Preserve the balanced identity. Restore an intentional desktop relationship between editorial content and request panel, then return the rail to DOM order on mobile. Related services, quiet metadata, and support have separate spacing and hierarchy; omitted fields do not leave empty headings. | Later page slice; Epic 04 B04-009 |
+| Emergency E1/E2/E3/E5/E6 | Two route cards and paired arrival sections survive. A warning stretches to the tall route-definition row, distributing its short content over excessive vertical space. Sections share the general pale canvas instead of the reference's clearly grouped bands/cards. | Keep immediate route distinction dominant and stable. Compact warning content within its panel; preserve readable route and arrival pairs, deliberate surface changes, and text directions independent of maps. All urgent content remains Level 0. | Later page slice; Epic 03 B03-008/B03-009 |
+| Appointment A3/A4/A5/A6 | The centered one-column measure survives. Fields and care-choice radios sit on the general background without the reference's white form panel, grouped choice cards, and contact/preference hierarchy. Large generic section gaps weaken continuity. | Keep one-column request flow, with cohesive form surface, clear choice and field groups, visible privacy/consent, and a distinct consequence/action area. Validation and unavailable states use the same layout roles. Retain request-versus-booking language. | Later page slice; Epic 03 B03-017 |
+
+The implementation sources supporting these findings are the [shell CSS](../../apps/web/src/design-system/components/global-shell.module.css), [Home template](../../apps/web/src/design-system/templates/home-template.tsx) and [CSS](../../apps/web/src/design-system/templates/home-template.module.css), [clinician directory](../../apps/web/src/design-system/templates/clinician-directory-template.tsx) and [CSS](../../apps/web/src/design-system/templates/clinician-directory-template.module.css), [service directory](../../apps/web/src/design-system/templates/service-directory-template.tsx) and [CSS](../../apps/web/src/design-system/templates/service-directory-template.module.css), [profile CSS](../../apps/web/src/design-system/templates/clinician-profile-template.module.css), [Emergency CSS](../../apps/web/src/design-system/templates/emergency-template.module.css), and [Appointment CSS](../../apps/web/src/design-system/templates/appointment-template.module.css).
+
+## Intentional adaptations to retain
+
+- The current approved cyan/orange identity and mineral/teal UI foundation supersede older provisional branding. Visual correction does not require replacing the palette.
+- Authentic logos, hospital imagery, clinician portraits, and font binaries follow asset intake. Missing approved media may be omitted or represented by neutral geometry. System font fallback is allowed; a named Noto stack does not establish that a font binary was loaded.
+- Controlled fixtures deliberately withhold real records, clinical facts, callable contacts, schedules, availability, translations, and appointment operations. Missing operational actions are not layout defects. Style their unavailable states truthfully.
+- Current directories use governed checkbox filters; reference radio fixtures do not authorize changing filter semantics or backend contracts. Preserve committed GET state and safe recovery while changing composition.
+- Home governed collections disappear when no eligible records exist. Restore layout only for data the contract permits; do not add fictional production content to fill reference sections.
+- Preview notices, synthetic labels, and destination adapters identify non-public evidence. Keep that status clear while assessing the template separately from harness additions.
+
+## Visual acceptance for implementation slices
+
+Each slice needs a before/after comparison against its linked section specification. Record deliberate differences with their content, accessibility, or implementation reason. A green functional check does not establish visual fidelity, and exact screenshot equality across different fixture content is not the target.
+
+| Review dimension | Required acceptance evidence |
+| --- | --- |
+| Composition | Section order, container edges, hero balance, discovery rails, support bands, and footer roles match the governing composition or have a documented adaptation. No accidentally vacant grid track or stretched short warning remains. |
+| Component finish | Consistent card padding, borders, type hierarchy, icons, and action alignment. Long labels wrap inside the component; arrow cues remain aligned and controls retain touch size. |
+| Responsive layout | Review 320, 360, representative tablet, 1280, and 1440 px. Capture 200%/400% reflow equivalents and long/mixed-script labels. No horizontal page overflow, clipped content, or visual/DOM-order conflict. |
+| Content variants | Home static/media/contacts/governed omissions; directory applied filters/no-match/loading/failure/offline; profile partial/unavailable; Emergency missing/expired contacts; Appointment validation/unavailable and existing request states. Use each template's supported fixtures. |
+| Interaction preservation | Affected existing keyboard, native disclosure, no-JavaScript, reduced-motion, focus, target-size, omission, and safe-state checks pass. Urgent, privacy, error, and unavailable content retain stable presentation. |
+| Review record | Save captures with source revision, fixture, viewport, capability, and browser. Explain remaining differences and link the correction evidence to the existing epic/ticket scope. Accept corrected baselines only after visual review. |
+
+The first implementation slice is the shared shell plus Home. It establishes the section and component treatments for subsequent discovery and remaining-page corrections. The original baseline commit makes no claim that those corrections have passed.
+
+## Step 2: first shared shell pass (superseded)
+
+The shared shell correction was implemented on 8 October 2026 from baseline commit `5c16534`, on `fix/visual-direction-alignment`. These after captures represent the working-tree implementation. The original before evidence remains intact. This slice addresses Epic 01 B01-005/B01-006/B01-013; it retains the current approved brand and component contracts.
+
+The mobile shell now groups identity and Menu in the first row, with a full-width Emergency action below. At wide widths, identity, the navigation group, and Emergency share a horizontal composition. Navigation links use the existing small type token and retain minimum touch height. Search, language availability, and the optional routine action stay within the navigation group. The native popover and one navigation tree remain in use. DOM order follows identity, Menu, navigation, then Emergency; Emergency remains outside the disclosure and visible when it is closed. Enlarged text switches to a source-ordered stack through a container query. Print uses a block layout so its visible navigation has sufficient width.
+
+Shared action labels wrap within their copy instead of pushing icons/arrows onto a separate flex row. The explicit Emergency word cannot shrink into fragments. The footer uses new inverse semantic/component aliases to the approved mineral and white palette, with readable supporting text, an inverse focus indicator, responsive link groups, and deliberate separation from page content. Two token contrast policies cover its text colors. Forced-colors focus and print foregrounds retain system colors.
+
+| After evidence | Scope |
+| --- | --- |
+| Home 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 1280-at-400%-zoom reflow equivalent. [Geometry report](evidence/visual-shell-correction-2026-10-08/home-report.json). |
+| Expanded English/mixed script 360 (local capture), 1440 (local capture) | Intentional compact navigation mode at both sizes, truthful language status, stable action cues. These strings do not establish approved translations. [Report](evidence/visual-shell-correction-2026-10-08/long-labels/home-report.json). |
+| Appointment 360 (local capture), 1440 (local capture) | Longer synthetic navigation/action labels and two footer groups. [Geometry report](evidence/visual-shell-correction-2026-10-08/appointment-report.json). |
+
+The first manual review accepted the grouping and footer, but subsequent user review of the actual localhost root found the header still oversized and cluttered. That acceptance was premature; this first pass is superseded by the revision below. Home's desktop header is approximately 173 px rather than 235 px; its 360 px header is approximately 159 px rather than 225 px. The reference's shorter single-row header is an intentional remaining difference: controlled identity text, visible language unavailability explanations, and an optional routine action need additional room. Appointment retains approximately 240 px on desktop for its longer synthetic labels and language explanation, down from approximately 291 px. Content is allowed to determine height rather than being clipped or hidden to meet a fixed measurement.
+
+Validation covers the Home browser matrix (165 cases), Appointment browser matrix (284 cases), shell/action/foundation contracts, token generation and 20 contrast policies, component boundaries, TypeScript, and changed-script/component lint. Browser matrices include native keyboard disclosure, no-JavaScript, reduced motion, forced colors, print, long content, and enlarged text. All nine saved captures have no horizontal document overflow and no external HTTP requests. These functional checks did not establish adequate header design quality; Home/page composition and page-specific support bands/review panels remain in their planned slices. It does not establish production release readiness or visual acceptance for the remaining pages.
+
+The capture runner now accepts `VISUAL_CAPTURE_WIDTHS` and `VISUAL_CAPTURE_STATE` and records shell control geometry and footer background. To reproduce the Home shell matrix without overwriting saved evidence:
+
+```sh
+VISUAL_CAPTURE_WIDTHS=320,360,768,1280,1440 node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/shell-review home
+VISUAL_CAPTURE_STATE=long-labels node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/shell-long-labels home
+node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/shell-appointment appointment
+```
+
+## Step 2 revision: compact shell and review-message hierarchy
+
+User review of the actual localhost root reopened step 2 after commit `8a64900`. The first pass rearranged controls while keeping three competing layers: primary navigation, review/availability explanations, and large repeated actions. Its approximately 173 px Home header and oversized root controls were insufficiently close to the approved compact direction. This revision corrects that hierarchy and verifies the actual Next.js route as well as the template adapters. It supersedes the first pass's visual acceptance.
+
+The header now presents one compact row on desktop: hospital name, primary navigation, Search where it supplies a distinct destination, an English language disclosure, and an Emergency navigation link. The existing menu and one navigation tree serve compact widths. The full language explanation is available inside a native details disclosure rather than continuously stretching the header. The unavailable alternate retains its language metadata, disabled semantics, and explanation; it never navigates to an unavailable translation. Enter opens the disclosure, Escape closes it and restores focus, and another Escape can close the surrounding mobile menu. Native Enter toggling also works without JavaScript.
+
+Controlled-only brand qualifiers and development context move into a separate quiet review strip through an optional `SiteShell.notice` prop. The localhost fixture's navigation uses concise Home, Foundations, and Actions labels. Template adapters likewise shorten navigation-only review labels while preserving body warnings, descriptions, and destinations. Redundant routine header actions are removed from these controlled compositions; their destinations remain in navigation/body content and the reusable optional slot remains supported. Search is omitted as a second utility link when its destination already exists in primary navigation.
+
+Emergency uses a compact navigation presentation with the explicit visible word and icon; the original purpose remains in its accessible name. Detailed Emergency actions elsewhere retain their existing anatomy. On mobile, identity/Menu precede the full-width Emergency link. The menu is positioned below the header with progressive CSS anchor positioning and a fallback inset, so opening it preserves the visible urgent action. The dark footer, focus treatment, and separation from the first pass remain in place. No page-body correction is claimed by this slice.
+
+| Actual Next.js root after evidence | Review |
+| --- | --- |
+| Header 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Actual application `/` served by Next.js 16.3.6 on loopback port 3000. These are viewport excerpts for direct header comparison with the user's report. |
+| Language/menu 360 (local capture), language 1440 (local capture) | Language explanation stays readable in its disclosure; mobile Emergency remains visible above the open menu. |
+| [Actual-route report](evidence/visual-shell-revision-2026-10-08/bootstrap-report.json) | Five widths, geometry, browser version, no horizontal document overflow, no external HTTP requests, native Enter/Escape and focus restoration. |
+
+| Template after evidence | Desktop | Mobile |
+| --- | --- | --- |
+| Home | 1440 (local capture) | 360 (local capture) |
+| Emergency | 1440 (local capture) | 360 (local capture) |
+| Appointment | 1440 (local capture) | 360 (local capture) |
+| Clinician directory | 1440 (local capture) | 360 (local capture) |
+| Clinician profile | 1440 (local capture) | 360 (local capture) |
+| Service directory | 1440 (local capture) | 360 (local capture) |
+| Expanded/mixed-script Home | 1440 (local capture) | 360 (local capture) |
+
+The actual root and Home desktop headers are approximately 79 px, including header padding/border and excluding the separate review strip. Compact headers are approximately 136 px, with no clipped labels or hidden urgent action. The [template report](evidence/visual-shell-revision-2026-10-08/templates/capture-report.json) and [expanded-label report](evidence/visual-shell-revision-2026-10-08/long-labels/home-report.json) record each fixture. Manual review compares the header/footer roles against the original linked design references; fixture destinations continue to describe review infrastructure rather than published hospital routes. This is controlled implementation acceptance, not hospital content approval or production release acceptance.
+
+Validation includes Home's 165 browser cases (now exercising native Language inside Menu with and without JavaScript), Appointment's 284 browser cases, Emergency's 255 browser cases, all six template contract checks, shell/action/foundation contracts, token/contrast checks, component boundaries, TypeScript, and changed-source lint. The actual-root capture check also asserts that the responsive desktop header stays below 110 px and tests language/Menu Enter, Escape, and focus recovery. Home composition is addressed in step 3 below. Discovery and remaining-page corrections were subsequently completed in steps 4–8.
+
+For actual-route reproduction, start the normal project development server, then capture into a new directory:
+
+```sh
+VISUAL_CAPTURE_ORIGIN=http://127.0.0.1:3000 VISUAL_CAPTURE_WIDTHS=320,360,768,1280,1440 VISUAL_CAPTURE_SHELL_CHECK=1 node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/root-review bootstrap
+node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/template-review
+VISUAL_CAPTURE_STATE=long-labels VISUAL_CAPTURE_SHELL_CHECK=1 node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/expanded-review home
+```
+
+## Step 3: Home composition correction
+
+Implemented on 9 October 2026 from `5a94fde551732aea0b74ece2e0007ba6c4979e84` on `fix/visual-direction-alignment`. The saved captures represent the working-tree changes committed with this record. Scope is B03-004/B03-005/B03-006 and the Home use of B01-012 media; the shared shell revision remains the governing shell baseline.
+
+H1 now pairs task-led copy with a separate media plane at 54 rem and above, returning to text-first source order below that width. Without hero media, an explicitly decorative abstract plane supplies balance without suggesting a hospital photograph or location. A warm token-based orientation rule stays independent of urgent content. Hero and story media remain opt-in, with written stills and transcripts. Play/Pause and Stop reserve two label lines and the unavailable Stop footprint to keep activation from moving the media frame or subsequent tasks.
+
+H2 uses a reusable `TaskCard` component: local outline icon, explicit task label, supporting navigation description, and a separate aligned arrow cue. Cards use one column compact, three at intermediate widths, and five at 75 rem and above. All five routes and native link behavior are preserved. Link names retain the task label; supporting descriptions are associated separately. Adapters can supply each task's description without changing destination semantics.
+
+H3 is a white, warm-edged panel that keeps search availability copy and its real exit grouped; it adds no search field or unavailable submit action. H2, governed clinician/institutional collections, and story media now have distinct surface roles. Eligible governed records retain their existing cards and omission policy. H9 uses a broad information surface with separate emergency, contact, and arrival groups; contact and arrival sit beside each other on desktop and remain source-ordered on mobile. The footer remains inverse, with deliberate separation.
+
+| After evidence | Review |
+| --- | --- |
+| Static 320 (local capture), 360 (local capture), 640 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow equivalents. [Report](evidence/visual-home-correction-2026-10-09/static/home-report.json). |
+| Hero 360 (local capture), 1440 (local capture); story 360 (local capture), 1440 (local capture); media-failure fixture 360 (local capture), 1440 (local capture) | Static-first abstract media variants. Failure-fixture captures show the initial still; activated failure and stable playback geometry are verified by the browser matrix. |
+| Expanded/mixed-script 360 (local capture), 1440 (local capture) | Long labels wrap within equal-height cards and retain aligned arrow cues. These strings do not establish approved translation. |
+| Contacts current 360 (local capture), 1440 (local capture); missing 360 (local capture), 1440 (local capture) | Grouped practical access, truthful missing-contact presentation, and no active telephone/map actions. |
+| Governed current 360 (local capture), 1440 (local capture); empty 360 (local capture), 1440 (local capture) | Distinct collection surfaces; omitted collections leave no heading, showcase, or reserved space. |
+
+Visual review compares the saved mobile/desktop and expanded-label compositions with the governing H1–H9 reference. Intentional adaptations: bands remain within the shared content container rather than copying prototype full-bleed CSS; generic navigation descriptions replace prototype operational outcomes while contacts and appointment operations remain withheld; collection width follows the actual eligible record count rather than filling reference columns with fictional records; contact safety groups remain explicit instead of copying the prototype's single practical-access card. The preview adapter's destination review and transcript remain outside the Home composition and are preserved in screenshots. These captures establish reusable Home template evidence; the current application root also renders the controlled Home composition through HomePageTemplate.
+
+All 22 captures record browser, source revision/working-tree status, fixture, width, JavaScript and reduced-motion capability. They have one main and H1, no document overflow, and no external HTTP requests. The capture runner additionally checks arrow containment and alignment for each task-card row.
+
+Validation: Home/contact/governed SSR contracts, Home browser matrix (165 cases), contact browser matrix (293 cases), and governed browser matrix (289 cases), token/contrast and foundation/action contracts, component boundaries, TypeScript, changed-source lint, and production build. Browser matrices cover native task/skip/menu keyboard, no-JavaScript, reduced motion, forced colors, print, enlarged text, contact lifecycle/omissions, governed omissions, and media lifecycle/failure/history. The source safety assertion now stops at the closing ExperienceRegion so an earlier sibling accent is not mistaken for an ancestor of Emergency; rendered safety checks remain in place.
+
+The repository-wide secret scan reports the pre-existing, Git-ignored `apps/web/.env.local` as a prohibited environment file; it reports no secret signatures. That local configuration is outside this correction and is not included in the commit.
+
+This is controlled Home implementation and visual review, not hospital-content approval or production release acceptance. The subsequent slice was clinician directory D2/D3 (B04-007), followed by service directory S3/S5 (B04-011).
+
+## Step 4: clinician directory discovery correction
+
+Implemented in `d5e12cc80b539f52ec4e73c8887be0037cae8611` and visually reviewed on 13 October 2026. This slice corrects D2/D3 under B04-007 while preserving the controlled GET search, governed checkbox filters, result states, pagination, and non-public fixture boundary.
+
+Search now spans the full discovery region instead of occupying the narrow first track of a section-wide grid. Below it, the filter rail precedes the results in source order and becomes a sticky left rail at 64 rem, while the count, active filters, cards, states, and pagination remain together in the wider result region. Result cards use one column compact and two columns from 48 rem; their column count follows the actual result width rather than the outer page width. The introduction, directory surface, state panel, support band, and neutral portrait treatment now have distinct roles consistent with Calm Wayfinding.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled directory 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Search and workspace share their outer edges; the rail/results split appears only when sufficient width exists. [Geometry report](evidence/visual-clinician-directory-correction-2026-10-13/clinician-directory-report.json). |
+
+The capture runner now records the search/workspace edge relationship, discovery and card columns, and filter-before-results source order. The rendered browser matrix asserts those relationships across 320, 360, 768, and 1440 px for ready, failure, offline, and unavailable-roster fixtures under default, no-JavaScript, reduced-motion, forced-colors, print, 200%-text, and no-CSS capabilities. Separate cases cover committed search/filter state and no-match recovery. The matrix totals 142 responsive/capability cases; 18 directory contract cases, 24 validation cases, and 12 rendered history/keyboard/assistive-technology/reflow cases also pass.
+
+This remains controlled template evidence, not roster, hospital-content, or production-release approval. The subsequent slice was service directory S3/S5 (B04-011).
+
+## Step 5: service directory discovery correction
+
+Implemented and visually reviewed on 13 October 2026. This slice corrects S3/S5 under B04-011 while preserving the controlled GET search, single governed taxonomy, grouped result states, pagination, urgent-term boundary, and non-public fixture boundary.
+
+Search now spans the full discovery region instead of occupying the narrow first track of a section-wide grid. Below it, the group rail precedes the results in source order and becomes a sticky left rail at 64 rem, while the count, active groups, group headings, cards, states, and pagination remain together in the wider result region. Each group uses one card column compact and two from 48 rem; the former three-column desktop rule is removed so readable card width and the approved two-card group rhythm govern the composition.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled directory 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Search and workspace share their outer edges; the rail/results split appears only when sufficient width exists. Every populated group uses two cards at tablet/desktop widths and one compact. [Geometry report](evidence/visual-service-directory-correction-2026-10-13/service-directory-report.json). |
+
+Manual review compares the saved 360 and 1440 compositions directly with the governing S0–S7 references and inspects the intermediate captures for breakpoint continuity. No clipping, horizontal overflow, vacant layout track, or awkward one-to-two-column transition is visible. Controlled copy, unavailable detail actions, fixture record counts, and current shell branding remain intentional adaptations rather than visual defects.
+
+The rendered browser matrix now asserts search/workspace edge alignment, group-before-results source order, the compact/desktop workspace transition, and one/two-column group cards. It passes 175 responsive, capability, safety, isolation, and GET-state cases across 320, 360, 768, and 1440 px for ready, loading, failure, offline, and unavailable-taxonomy fixtures under default, no-JavaScript, reduced-motion, forced-colors, print, 200%-text, and no-CSS capabilities. The 22-case directory contract and 20-case validation suites also pass.
+
+This remains controlled template evidence, not taxonomy, service, hospital-content, or production-release approval. The subsequent slice was clinician profile P2/P4/P5 (B04-009).
+
+## Step 6: clinician profile composition correction
+
+Implemented and visually reviewed on 13 October 2026. This slice corrects P2/P4/P5 under B04-009 while preserving the controlled profile projection, optional-field omission, appointment-withdrawal states, stable public-ID boundary, and non-public fixture boundary.
+
+P2 and P3 now form the desktop editorial column beside a wayfinding-edged P4 request rail at 64 rem and above. The rail remains after the editorial sections in DOM order and returns to normal flow at constrained widths. Its unavailable request treatment stays explicit and does not imply scheduling, availability, staffed telephone guidance, or an active action. P5 now occupies a wider, distinct related-services surface instead of inheriting the reading-width cap. P6 review currency is visually quieter, while P7 support is a separate broad band with deliberate spacing before the inverse footer. Optional sections continue to disappear individually without leaving empty headings or reserved columns.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled profile 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. The editorial/request split appears only when sufficient width exists; related services return to the wide region and review/support remain visually separate. [Geometry report](evidence/visual-clinician-profile-correction-2026-10-13/clinician-profile-report.json). |
+
+Manual review compares the saved 360 and 1440 compositions directly with the governing P0–P7 references and inspects the intermediate captures for breakpoint continuity. No clipping, horizontal overflow, empty desktop track, or touching review/support panels is visible. The controlled portrait placeholder, unavailable operations, synthetic record count, and current approved shell branding remain intentional adaptations.
+
+Validation passes 30 profile projection/omission/lifecycle/SSR/isolation contracts, 20 completeness/relationship/withdrawal validation cases, 142 responsive/capability/omission browser cases, and 10 rendered semantics/assistive-technology/no-JavaScript/reflow/print/withdrawal cases. TypeScript and repository lint also pass. The capture runner records profile columns, editorial-before-request DOM order, related-services width, review/support spacing, one main and H1, document width, and external requests at all five widths.
+
+This remains controlled template evidence, not clinician roster, hospital-content, appointment-operation, or production-release approval. The subsequent slice was Emergency E1/E2/E3/E5/E6.
+
+## Step 7: Emergency composition correction
+
+Implemented and visually reviewed on 13 October 2026. This slice corrects E1/E2/E3/E5/E6 under B03-008/B03-009 while preserving the Level 0 experience, immediate route distinction, inert controlled contacts, fail-closed required-content states, optional-map failure boundary, and map-independent text directions.
+
+The two E1 route choices remain the dominant first action group. E2 route definitions and the E3 safety warning now occupy separate raised cards within one deliberate surface band; at paired widths the warning aligns to its own content instead of stretching to the much taller route-definition card. E4 uses a distinct governed-scope surface with the established warm wayfinding edge. E5 and E6 are equal-width arrival cards inside a second grouped band, while compact widths retain the existing linear source order. Long route labels and ordered directions now wrap safely under enlarged text.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled Emergency 320 (local capture), 360 (local capture), 768 (local capture), 1280 (local capture), 1440 (local capture) | Compact, tablet, desktop, and 200%/400% reflow-equivalent widths. Route and arrival pairs appear only with sufficient width; the E3 warning remains intrinsically compact. [Geometry report](evidence/visual-emergency-correction-2026-10-13/emergency-report.json). |
+
+Manual review compares the saved 360 and 1440 compositions directly with the governing E0–E8 references and inspects 768 and 1280 for breakpoint continuity. No clipping, horizontal overflow, stretched warning, or broken arrival pairing is visible. Inert synthetic contact values, withheld call actions, disabled map loading, controlled copy, and current approved shell branding remain intentional adaptations.
+
+Validation passes 52 fail-closed lifecycle, controlled SSR, isolation, escaping, announcement, static-motion, and token contracts plus 255 responsive, capability, accessibility, and isolation browser cases. The browser matrix covers controlled and expanded content, required-content withheld/expired/unavailable states, unsupported handoff, map failure/blocking, default/no-JavaScript/reduced-motion/forced-colors/print/200%-text/no-CSS capabilities, inert interaction, focus, and response policy. TypeScript and repository lint also pass. The capture runner records paired route/arrival columns, warning and route heights, one main and H1, document width, and external requests at all five widths.
+
+This remains controlled template evidence, not emergency-content, contact, route, clinical, hospital-content, or production-release approval. The subsequent slice was Appointment A3/A4/A5/A6 (B03-017).
+
+## Step 8: Appointment form composition correction
+
+Implemented and visually reviewed on 20 October 2026 against `7ecb84ecf8ce2160e9552f401f76e1a1f8ca720f` plus the working-tree changes. This slice addresses A3/A4/A5/A6 under B03-017.
+
+The form now occupies one raised white panel aligned with the introduction, emergency warning, and support panel. Care-route radios have bordered choice cards and a selected treatment while retaining native controls and mutually exclusive conditional selectors. Contact fields and date preference have separate labeled, single-column groups. The visible blue privacy panel stays immediately before the consequence/action section, with deliberate dividers and compact spacing. The submit action spans the available width on compact screens and uses intrinsic width on desktop. Hidden error/status panels no longer reserve empty grid gaps. Error-summary links wrap as continuous text rather than squeezing their labels into narrow flex columns. Support and workflow-unavailable panels retain distinct surfaces and spacing before the footer.
+
+| After evidence | Review |
+| --- | --- |
+| Controlled 320, 360, 640, 768, 1280, 1440 (local captures) | Single-column form at every width, including 200%/400% reflow equivalents. [Report](evidence/visual-appointment-correction-2026-10-20/controlled/appointment-report.json). |
+| Validation 360, 1440 (local captures) | Visible linked summary, selected doctor route, retained synthetic name, inline telephone and acknowledgment errors. [Report](evidence/visual-appointment-correction-2026-10-20/validation/appointment-report.json). |
+| Workflow unavailable 360, 1440 (local captures) | Form omitted; unavailable panel and support remain. [Report](evidence/visual-appointment-correction-2026-10-20/unavailable/appointment-report.json). |
+| Long content 360, 1440 (local captures) | Expanded headings, disclosure, and support copy wrap within their panels. [Report](evidence/visual-appointment-correction-2026-10-20/long-content/appointment-report.json). |
+
+Mobile and desktop compositions were visually inspected against the governing Appointment reference. All twelve captures report one main and H1, no document overflow, and zero external HTTP requests. The current reading-width token, approved palette, synthetic warnings, disabled operational submission, and withheld contact details remain intentional adaptations. Screenshots stay under ignored `artifacts/visual/visual-appointment-correction-2026-10-20/`; JSON reports are tracked.
+
+Validation: 20 Appointment page SSR/state/isolation/token contracts, form primitive contracts, 284 responsive/capability/interaction/accessibility/isolation browser cases, TypeScript, and lint pass. The boundary check initially reported an existing direct component import in `src/app/page.tsx`. Follow-up commit `c8cb202` resolved it by moving shell-control composition into HomePageTemplate and making the route consume only the templates public API. The boundary check then passed for 121 source/config files; 14 Home contract cases, 134 canonical-contact cases, TypeScript, changed-source lint, and an exact before/after SSR comparison also passed.
+
+This completes the composition slices listed in this baseline for controlled template review. Hospital-content, operating-workflow, and production-release acceptance remain separate.
+
+## Reproduce captures
+
+From the repository root, use the [capture runner](../../apps/web/scripts/capture-visual-baseline.mjs) with a new directory under the ignored `artifacts/visual/` tree so prior local evidence stays intact:
+
+```sh
+node apps/web/scripts/capture-visual-baseline.mjs artifacts/visual/visual-review
+```
+
+The runner uses existing preview servers on allocated loopback ports and isolates each renderer's CSS registry in its own process. It captures six templates at two widths, validates shell styling and template presence, records geometry/external requests, and closes its own servers/browser profiles. It requires Chromium and permission to launch local browser processes and loopback listeners. These screenshots cover static appearance with reduced motion; use the existing page smoke commands for behavioral/state validation.

@@ -2,11 +2,19 @@
   margin-inline: auto;
   max-inline-size: calc(var(--semantic-size-wide) + 2 * var(--semantic-space-page));
   padding-inline: var(--semantic-space-page);
+  padding-block-end: var(--semantic-space-section);
 }
 
 .introduction {
-  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  display: grid;
+  align-items: center;
+  gap: var(--semantic-space-surface);
   padding-block: var(--semantic-space-section);
+}
+
+.heroCopy {
+  min-inline-size: 0;
+  max-inline-size: var(--semantic-size-reading);
 }
 
 .eyebrow {
@@ -20,17 +28,52 @@
   line-height: var(--semantic-type-body-large-line);
 }
 
+/* Abstract wayfinding geometry carries no hospital, location, or care meaning. */
+.orientation {
+  background: var(--semantic-color-surface-subtle);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  min-block-size: 12rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.orientation::before,
+.orientation::after {
+  border: var(--semantic-border-emphasis) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  content: '';
+  position: absolute;
+  inset: 20% 12% 15% 30%;
+}
+
+.orientation::after {
+  inset: 35% 30% 30% 12%;
+  background: var(--semantic-color-surface-raised);
+  border-inline-start-color: var(--semantic-color-brand-warm);
+}
+
+.wayfinding [data-motion-accent] {
+  background: var(--semantic-color-brand-warm);
+  margin: 0;
+}
+
 .section {
-  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
   padding-block: var(--semantic-space-section);
+}
+
+.taskSection {
+  background: var(--semantic-color-surface-subtle);
+  border-radius: var(--semantic-radius-card);
+  padding: var(--semantic-space-surface);
 }
 
 .tasks {
   display: grid;
   gap: var(--semantic-space-regular);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   list-style: none;
-  margin-block-start: var(--semantic-space-regular);
+  margin-block: var(--semantic-space-gutter-regular) 0;
   padding: 0;
 }
 
@@ -38,51 +81,142 @@
   min-inline-size: 0;
 }
 
-.tasks a {
-  inline-size: var(--semantic-size-full);
-  justify-content: space-between;
-  text-align: start;
+.search {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  border-radius: var(--semantic-radius-card);
+  margin-block: var(--semantic-space-gutter-regular);
+  padding: var(--semantic-space-surface);
 }
 
 .media {
-  margin-block-start: var(--semantic-space-section);
+  min-inline-size: 0;
+}
+
+.story {
+  background: var(--semantic-color-surface-subtle);
+  border-radius: var(--semantic-radius-card);
+  margin-block: var(--semantic-space-gutter-regular);
+  padding: var(--semantic-space-surface);
+}
+
+.story .media {
   max-inline-size: var(--semantic-size-reading);
 }
 
-/* Keep the Stop control's footprint while it is unavailable. Activation must not
-   shift the written still, adjacent controls, or essential tasks below hero media. */
+.contact {
+  background: var(--semantic-color-surface-information);
+  border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  margin-block-start: var(--semantic-space-section);
+  padding: var(--semantic-space-surface);
+}
+
+.contactContent { min-inline-size: 0; }
+
+.arrivalPlane {
+  background: var(--semantic-color-surface-subtle);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  min-block-size: 14rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.arrivalPlane::before,
+.arrivalPlane::after {
+  border: var(--semantic-border-emphasis) solid var(--semantic-color-action-primary);
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+}
+
+.arrivalPlane::before { inline-size: 12rem; block-size: 12rem; inset: -3rem auto auto -2rem; }
+.arrivalPlane::after { inline-size: 6rem; block-size: 6rem; inset: auto 2rem 1.5rem auto; border-color: var(--semantic-color-brand-warm); }
+
+.sectionHeading { max-inline-size: var(--semantic-size-reading); }
+
+.visitGrid {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  margin-block-start: var(--semantic-space-regular);
+}
+
+.visitCard {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  border-radius: var(--semantic-radius-card);
+  display: grid;
+  gap: var(--semantic-space-compact);
+  padding: var(--semantic-space-page);
+}
+
+.visitCard > * { margin: 0; }
+.stage { color: var(--semantic-color-text-secondary); font-size: var(--semantic-type-small-size); font-weight: var(--semantic-font-weight-strong); text-transform: uppercase; }
+
+.supportBand {
+  align-items: center;
+  background: var(--semantic-color-surface-information);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--semantic-space-regular);
+  justify-content: space-between;
+  margin-block-start: var(--semantic-space-section);
+  padding: var(--semantic-space-surface);
+}
+
+.supportBand h2,
+.supportBand p { margin: 0; }
+
+/* Reserve two label lines as Play becomes Pause in the narrower media plane. */
+.media [data-media-play],
+.media [data-media-stop] {
+  flex: 1 1 100%;
+  min-block-size: calc(2lh + 2 * var(--semantic-space-compact) + 2 * var(--semantic-border-default));
+}
+
+/* Keep unavailable Stop controls from shifting media or the tasks below it. */
 .media [data-media-stop][hidden] {
   display: inline-block;
   visibility: hidden;
 }
 
 @media (min-width: 48rem) {
-  .frame {
-    padding-inline: var(--semantic-space-gutter-regular);
-  }
+  .frame { padding-inline: var(--semantic-space-gutter-regular); }
+  .tasks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 54rem) {
+  .introduction { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+  .orientation { min-block-size: 24rem; }
+  .visitGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .contact { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .85fr); gap: var(--semantic-space-surface); }
 }
 
 @media (min-width: 64rem) {
-  .frame {
-    padding-inline: var(--semantic-space-gutter-wide);
-  }
+  .frame { padding-inline: var(--semantic-space-gutter-wide); }
+}
+
+@media (min-width: 75rem) {
+  .tasks { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 
 @media (forced-colors: active) {
-  .introduction,
-  .section {
-    border-color: CanvasText;
-  }
+  .orientation,
+  .orientation::before,
+  .orientation::after,
+  .search,
+  .contact { border-color: CanvasText; }
+  .wayfinding [data-motion-accent] { background: CanvasText; }
 }
 
 @media print {
-  .frame {
-    max-inline-size: none;
-    padding: 0;
-  }
-
-  .introduction,
-  .section {
-    padding-block: var(--semantic-space-regular);
-  }
+  .frame { max-inline-size: none; padding: 0; }
+  .introduction { display: block; }
+  .orientation { display: none; }
+  .section, .introduction { padding-block: var(--semantic-space-regular); }
+  .taskSection, .search, .story, .contact, .supportBand { background: transparent; }
+  .tasks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

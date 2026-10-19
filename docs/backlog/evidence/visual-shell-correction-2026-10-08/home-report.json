@@ -1,0 +1,224 @@
+{
+  "browser": "Chrome/153.0.8010.47",
+  "javascript": "enabled",
+  "motion": "reduced",
+  "deviceScaleFactor": 1,
+  "scope": "Controlled local preview adapters; appearance baseline only",
+  "captures": [
+    {
+      "file": "home-320.png",
+      "state": "static",
+      "width": 320,
+      "height": 3995,
+      "viewport": 320,
+      "documentWidth": 305,
+      "headerHeight": 184.96875,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 16,
+          "y": 12,
+          "width": 163.421875,
+          "height": 76.78125
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 191.421875,
+          "y": 27.59375,
+          "width": 97.578125,
+          "height": 45.59375
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 16,
+          "y": 100.78125,
+          "width": 273,
+          "height": 71.1875
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "home-360.png",
+      "state": "static",
+      "width": 360,
+      "height": 3868,
+      "viewport": 360,
+      "documentWidth": 345,
+      "headerHeight": 159.375,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 16,
+          "y": 12,
+          "width": 203.421875,
+          "height": 51.1875
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 231.421875,
+          "y": 14.796875,
+          "width": 97.578125,
+          "height": 45.59375
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 16,
+          "y": 75.1875,
+          "width": 313,
+          "height": 71.1875
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "home-768.png",
+      "state": "static",
+      "width": 768,
+      "height": 3488,
+      "viewport": 768,
+      "documentWidth": 753,
+      "headerHeight": 128.1875,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 24,
+          "y": 12.796875,
+          "width": 595.421875,
+          "height": 44
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 631.421875,
+          "y": 12,
+          "width": 97.578125,
+          "height": 45.59375
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 24,
+          "y": 69.59375,
+          "width": 705,
+          "height": 45.59375
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "home-1280.png",
+      "state": "static",
+      "width": 1280,
+      "height": 3782,
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "headerHeight": 173,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 32,
+          "y": 60.40625,
+          "width": 224.25,
+          "height": 51.1875
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 272.25,
+          "y": 12,
+          "width": 672.75,
+          "height": 148
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 961,
+          "y": 50.40625,
+          "width": 272,
+          "height": 71.1875
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "home-1440.png",
+      "state": "static",
+      "width": 1440,
+      "height": 3782,
+      "viewport": 1440,
+      "documentWidth": 1425,
+      "headerHeight": 173,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 72.5,
+          "y": 60.40625,
+          "width": 244,
+          "height": 51.1875
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 332.5,
+          "y": 12,
+          "width": 732,
+          "height": 148
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 1080.5,
+          "y": 50.40625,
+          "width": 272,
+          "height": 71.1875
+        }
+      ],
+      "externalRequests": 0
+    }
+  ]
+}

@@ -78,6 +78,7 @@ export interface SiteShellProps {
   readonly footer: SiteFooterProps
   readonly header: SiteHeaderProps
   readonly mainId?: string
+  readonly notice?: string
   readonly skipLinkLabel: string
 }
 
@@ -124,25 +125,32 @@ export function LanguageSwitcher({
   const reasonId = `language-${alternate.lang}-availability`
 
   return (
-    <div aria-label={label} className={styles.languageSwitcher} data-language-switcher role="group">
-      <span aria-current="true" className={styles.currentLanguage} lang={currentLang}>
-        {currentLabel}
-      </span>
-      {alternate.available ? (
-        <Link href={alternate.href} hrefLang={alternate.hrefLang} lang={alternate.lang}>
-          {alternate.label}
-        </Link>
-      ) : (
-        <>
-          <span aria-describedby={reasonId} aria-disabled="true" lang={alternate.lang}>
+    <details className={styles.languageSwitcher} data-language-switcher>
+      <summary aria-label={`${label}: ${currentLabel}`} className={styles.languageTrigger}>
+        <span aria-current="true" className={styles.currentLanguage} lang={currentLang}>
+          {currentLabel}
+        </span>
+        <svg aria-hidden="true" className={styles.languageChevron} focusable="false" viewBox="0 0 24 24">
+          <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" />
+        </svg>
+      </summary>
+      <div aria-label={label} className={styles.languageOptions} role="group">
+        {alternate.available ? (
+          <Link href={alternate.href} hrefLang={alternate.hrefLang} lang={alternate.lang}>
             {alternate.label}
-          </span>
-          <span className={styles.languageReason} id={reasonId}>
-            {alternate.reason}
-          </span>
-        </>
-      )}
-    </div>
+          </Link>
+        ) : (
+          <>
+            <span aria-describedby={reasonId} aria-disabled="true" lang={alternate.lang}>
+              {alternate.label}
+            </span>
+            <p className={styles.languageReason} id={reasonId}>
+              {alternate.reason}
+            </p>
+          </>
+        )}
+      </div>
+    </details>
   )
 }
 
@@ -162,6 +170,7 @@ export function SiteHeader({
   searchItem,
 }: SiteHeaderProps) {
   if (!homeLabel.trim()) throw new Error('SiteHeader homeLabel must not be empty')
+  const primaryNavigationItems = navigationItems.filter((item) => item.href !== searchItem.href)
 
   return (
     <header
@@ -184,10 +193,6 @@ export function SiteHeader({
           ) : null}
           <span>{brandName}</span>
         </Link>
-
-        <div className={styles.headerEmergency} data-shell-emergency>
-          {emergencyAction}
-        </div>
 
         <button
           aria-controls="primary-navigation-panel"
@@ -213,7 +218,7 @@ export function SiteHeader({
           popover="auto"
           tabIndex={-1}
         >
-          <PrimaryNavigation items={navigationItems} label={primaryNavigationLabel} />
+          <PrimaryNavigation items={primaryNavigationItems} label={primaryNavigationLabel} />
           <div className={styles.headerUtilities} data-shell-utilities>
             <Link
               aria-current={searchItem.current ? 'page' : undefined}
@@ -230,6 +235,10 @@ export function SiteHeader({
               {routineAction}
             </div>
           ) : null}
+        </div>
+
+        <div className={styles.headerEmergency} data-shell-emergency>
+          {emergencyAction}
         </div>
       </div>
     </header>
@@ -292,11 +301,17 @@ export function SiteShell({
   footer,
   header,
   mainId = 'main-content',
+  notice,
   skipLinkLabel,
 }: SiteShellProps) {
   return (
     <>
       <SkipLink label={skipLinkLabel} targetId={mainId} />
+      {notice ? (
+        <div className={styles.reviewNotice} data-shell-review-notice>
+          <div className={styles.noticeInner}>{notice}</div>
+        </div>
+      ) : null}
       <SiteHeader {...header} />
       {breadcrumbs ? (
         <div className={styles.breadcrumbFrame}>

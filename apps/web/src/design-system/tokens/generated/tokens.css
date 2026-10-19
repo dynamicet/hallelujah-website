@@ -101,6 +101,7 @@
   --semantic-color-surface-success: var(--primitive-color-green-050);
   --semantic-color-surface-warning: var(--primitive-color-amber-050);
   --semantic-color-surface-error: var(--primitive-color-red-050);
+  --semantic-color-surface-inverse: var(--primitive-color-mineral-900);
   --semantic-color-brand-cool: var(--primitive-color-brand-cyan);
   --semantic-color-brand-warm: var(--primitive-color-brand-orange);
   --semantic-color-text-primary: var(--primitive-color-mineral-900);
@@ -110,6 +111,8 @@
   --semantic-color-text-information: var(--primitive-color-blue-800);
   --semantic-color-text-success: var(--primitive-color-green-800);
   --semantic-color-text-warning: var(--primitive-color-amber-900);
+  --semantic-color-text-inverse: var(--primitive-color-white);
+  --semantic-color-text-inverse-muted: var(--primitive-color-mineral-200);
   --semantic-color-border-default: var(--primitive-color-mineral-200);
   --semantic-color-border-strong: var(--primitive-color-mineral-400);
   --semantic-color-action-primary: var(--primitive-color-teal-700);
@@ -223,6 +226,7 @@
   --component-action-disabled-background: var(--semantic-color-surface-subtle);
   --component-action-disabled-foreground: var(--semantic-color-text-secondary);
   --component-action-disabled-border-color: var(--semantic-color-border-strong);
+  --component-shell-identity-accent: var(--semantic-color-brand-warm);
   --component-shell-surface-raised: var(--semantic-color-surface-raised);
   --component-shell-surface-subtle: var(--semantic-color-surface-subtle);
   --component-shell-text-primary: var(--semantic-color-text-primary);
@@ -258,6 +262,10 @@
   --component-shell-feedback-easing: var(--semantic-motion-functional-easing);
   --component-shell-static-duration: var(--semantic-motion-static-duration);
   --component-shell-overlay-shadow: var(--semantic-shadow-overlay);
+  --component-shell-footer-background: var(--semantic-color-surface-inverse);
+  --component-shell-footer-foreground: var(--semantic-color-text-inverse);
+  --component-shell-footer-muted: var(--semantic-color-text-inverse-muted);
+  --component-shell-footer-border: var(--semantic-color-border-strong);
   --component-search-controls-surface-raised: var(--semantic-color-surface-raised);
   --component-search-controls-surface-subtle: var(--semantic-color-surface-subtle);
   --component-search-controls-text-primary: var(--semantic-color-text-primary);

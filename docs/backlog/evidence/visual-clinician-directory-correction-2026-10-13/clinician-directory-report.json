@@ -1,0 +1,256 @@
+{
+  "sourceRevision": "d5e12cc80b539f52ec4e73c8887be0037cae8611",
+  "sourceState": "working-tree",
+  "browser": "Chrome/153.0.8010.47",
+  "javascript": "enabled",
+  "motion": "reduced",
+  "deviceScaleFactor": 1,
+  "scope": "Controlled local preview adapters; appearance baseline only",
+  "captures": [
+    {
+      "file": "clinician-directory-320.png",
+      "state": "controlled",
+      "width": 320,
+      "height": 3914,
+      "viewport": 320,
+      "documentWidth": 305,
+      "headerHeight": 116.1875,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "clinicianDirectoryComposition": {
+        "searchWorkspaceEdgeDelta": 0,
+        "workspaceColumns": "273px",
+        "resultColumns": "273px",
+        "filterBeforeResults": true
+      },
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 16,
+          "y": 58.796875,
+          "width": 163.421875,
+          "height": 44
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 191.421875,
+          "y": 58,
+          "width": 97.578125,
+          "height": 45.59375
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 16,
+          "y": 111.59375,
+          "width": 273,
+          "height": 45.59375
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "clinician-directory-360.png",
+      "state": "controlled",
+      "width": 360,
+      "height": 3841,
+      "viewport": 360,
+      "documentWidth": 345,
+      "headerHeight": 116.1875,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "clinicianDirectoryComposition": {
+        "searchWorkspaceEdgeDelta": 0,
+        "workspaceColumns": "313px",
+        "resultColumns": "313px",
+        "filterBeforeResults": true
+      },
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 16,
+          "y": 58.796875,
+          "width": 203.421875,
+          "height": 44
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 231.421875,
+          "y": 58,
+          "width": 97.578125,
+          "height": 45.59375
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 16,
+          "y": 111.59375,
+          "width": 313,
+          "height": 45.59375
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "clinician-directory-768.png",
+      "state": "controlled",
+      "width": 768,
+      "height": 2476,
+      "viewport": 768,
+      "documentWidth": 753,
+      "headerHeight": 116.1875,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "clinicianDirectoryComposition": {
+        "searchWorkspaceEdgeDelta": 0,
+        "workspaceColumns": "705px",
+        "resultColumns": "344.5px 344.5px",
+        "filterBeforeResults": true
+      },
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 24,
+          "y": 37.796875,
+          "width": 595.421875,
+          "height": 44
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 631.421875,
+          "y": 37,
+          "width": 97.578125,
+          "height": 45.59375
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 24,
+          "y": 90.59375,
+          "width": 705,
+          "height": 45.59375
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "clinician-directory-1280.png",
+      "state": "controlled",
+      "width": 1280,
+      "height": 2332,
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "headerHeight": 70.59375,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "clinicianDirectoryComposition": {
+        "searchWorkspaceEdgeDelta": 0,
+        "workspaceColumns": "287.266px 897.734px",
+        "resultColumns": "440.859px 440.875px",
+        "filterBeforeResults": true
+      },
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 32,
+          "y": 41.796875,
+          "width": 192,
+          "height": 44
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 240,
+          "y": 41.796875,
+          "width": 820.34375,
+          "height": 44
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 1076.34375,
+          "y": 41,
+          "width": 156.65625,
+          "height": 45.59375
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "clinician-directory-1440.png",
+      "state": "controlled",
+      "width": 1440,
+      "height": 2346,
+      "viewport": 1440,
+      "documentWidth": 1425,
+      "headerHeight": 70.59375,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "clinicianDirectoryComposition": {
+        "searchWorkspaceEdgeDelta": 0,
+        "workspaceColumns": "298.656px 933.344px",
+        "resultColumns": "458.672px 458.672px",
+        "filterBeforeResults": true
+      },
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 72.5,
+          "y": 41.796875,
+          "width": 192,
+          "height": 44
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 280.5,
+          "y": 41.796875,
+          "width": 899.34375,
+          "height": 44
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 1195.84375,
+          "y": 41,
+          "width": 156.65625,
+          "height": 45.59375
+        }
+      ],
+      "externalRequests": 0
+    }
+  ]
+}

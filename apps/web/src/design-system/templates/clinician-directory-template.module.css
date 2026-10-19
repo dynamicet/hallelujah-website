@@ -7,32 +7,51 @@
 
 .introduction,
 .directory,
-.resultsSection,
 .support {
-  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  display: grid;
-  gap: var(--semantic-space-regular);
   min-inline-size: 0;
   padding-block: var(--semantic-space-section);
 }
 
-.introduction > *,
-.directory > *,
+.introduction {
+  display: grid;
+  gap: var(--semantic-space-section);
+}
+
+.introductionCopy,
+.directory,
+.directoryHeading,
+.resultsSection,
+.resultsToolbar,
+.cardContent,
+.statePanel,
+.support,
+.guidance {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  min-inline-size: 0;
+}
+
+.introductionCopy > *,
+.directoryHeading > *,
 .resultsSection > *,
+.resultsToolbar > *,
+.cardContent > *,
+.statePanel > *,
 .support > *,
-.card > *,
-.statePanel > * {
+.guidance > * {
   margin-block: 0;
   min-inline-size: 0;
   overflow-wrap: anywhere;
 }
 
-.introduction {
+.introductionCopy {
+  align-content: start;
   max-inline-size: var(--semantic-size-reading);
 }
 
 .eyebrow,
-.cardLabel {
+.cardLabel,
+.stateLabel {
   color: var(--semantic-color-text-secondary);
   font-size: var(--semantic-type-small-size);
   font-weight: var(--semantic-font-weight-strong);
@@ -46,17 +65,75 @@
   line-height: var(--semantic-type-body-large-line);
 }
 
-.fixtureNotice,
-.statePanel,
-.support {
+.fixtureNotice {
+  background: var(--semantic-color-surface-warning);
   border: var(--semantic-border-emphasis) solid currentColor;
+  border-radius: var(--semantic-radius-card);
+  color: var(--semantic-color-text-warning);
+  margin-block: var(--semantic-space-compact) 0;
+  padding: var(--semantic-space-page);
+}
+
+.guidance {
+  align-self: end;
+  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  max-inline-size: var(--semantic-size-reading);
+  padding-inline-start: var(--semantic-space-page);
+}
+
+.guidance h2 {
+  font-size: var(--semantic-type-h3-size);
+  line-height: var(--semantic-type-h3-line);
+}
+
+.guidance a,
+.statePanel a,
+.support a {
+  align-items: center;
+  display: inline-flex;
+  min-block-size: var(--semantic-size-touch);
+  min-inline-size: var(--semantic-size-touch);
+  width: fit-content;
+}
+
+.directory {
+  background: var(--semantic-color-surface-subtle);
+  border-block: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  margin-inline: calc(-1 * var(--semantic-space-page));
+  padding-inline: var(--semantic-space-page);
+}
+
+.directoryHeading {
+  margin-block-end: var(--semantic-space-regular);
+}
+
+.searchPanel {
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
   border-radius: var(--semantic-radius-card);
   padding: var(--semantic-space-page);
 }
 
-.fixtureNotice {
-  background: var(--semantic-color-surface-warning);
-  color: var(--semantic-color-text-warning);
+.searchPanel > * {
+  max-inline-size: none;
+}
+
+.discoveryWorkspace {
+  display: grid;
+  gap: var(--semantic-space-page);
+  min-inline-size: 0;
+}
+
+.filterRail {
+  min-inline-size: 0;
+}
+
+.resultsToolbar {
+  align-items: start;
+}
+
+.resultsToolbar [data-result-count] {
+  margin-block-start: 0;
 }
 
 .results {
@@ -78,8 +155,45 @@
   border: var(--semantic-border-default) solid var(--semantic-color-border-default);
   border-radius: var(--semantic-radius-card);
   display: grid;
-  gap: var(--semantic-space-regular);
   min-block-size: 100%;
+  overflow: hidden;
+}
+
+.portraitPlaceholder {
+  align-items: center;
+  aspect-ratio: 16 / 7;
+  background: var(--semantic-color-surface-subtle);
+  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  display: flex;
+  justify-content: center;
+  min-block-size: 7.5rem;
+  position: relative;
+}
+
+.portraitPlaceholder::before,
+.portraitPlaceholder span {
+  border: var(--semantic-border-default) solid var(--semantic-color-border-strong);
+  position: absolute;
+}
+
+.portraitPlaceholder::before {
+  border-radius: 50%;
+  content: '';
+  block-size: 3.5rem;
+  inline-size: 3.5rem;
+  inset-block-start: 1.35rem;
+}
+
+.portraitPlaceholder span {
+  border-block-end: 0;
+  border-radius: 5rem 5rem 0 0;
+  block-size: 3rem;
+  inline-size: 7rem;
+  inset-block-end: 1rem;
+}
+
+.cardContent {
+  align-content: start;
   padding: var(--semantic-space-page);
 }
 
@@ -111,6 +225,7 @@
 
 .disabledAction {
   align-items: center;
+  align-self: end;
   border: var(--semantic-border-default) solid var(--semantic-color-border-strong);
   border-radius: var(--semantic-radius-control);
   color: var(--semantic-color-text-secondary);
@@ -120,10 +235,26 @@
   width: fit-content;
 }
 
-.statePanel,
+.statePanel {
+  align-content: center;
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  border-radius: var(--semantic-radius-card);
+  min-block-size: 16rem;
+  padding: var(--semantic-space-section);
+}
+
 .support {
-  background: var(--semantic-color-surface-subtle);
-  max-inline-size: var(--semantic-size-reading);
+  background: var(--semantic-color-surface-raised);
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  margin-inline: calc(-1 * var(--semantic-space-page));
+  padding-inline: var(--semantic-space-page);
+}
+
+.support h2 {
+  font-size: var(--semantic-type-h2-size);
+  line-height: var(--semantic-type-h2-line);
 }
 
 .visuallyHidden {
@@ -140,8 +271,57 @@
     padding-inline: var(--semantic-space-gutter-regular);
   }
 
+  .directory,
+  .support {
+    margin-inline: calc(-1 * var(--semantic-space-gutter-regular));
+    padding-inline: var(--semantic-space-gutter-regular);
+  }
+
+  .introduction {
+    grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.8fr);
+  }
+
+  .resultsToolbar {
+    grid-template-columns: minmax(10rem, auto) minmax(0, 1fr);
+  }
+
+  .resultsToolbar [data-active-filters] {
+    justify-self: end;
+  }
+
   .results {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .support {
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .support h2,
+  .support p {
+    grid-column: 1;
+  }
+
+  .support a {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (min-width: 64rem) {
+  .discoveryWorkspace {
+    align-items: start;
+    grid-template-columns: minmax(15rem, 0.32fr) minmax(0, 1fr);
+  }
+
+  .filterRail {
+    background: var(--semantic-color-surface-raised);
+    border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+    border-radius: var(--semantic-radius-card);
+    padding: var(--semantic-space-page);
+    position: sticky;
+    top: var(--semantic-space-page);
   }
 }
 
@@ -150,16 +330,10 @@
     padding-inline: var(--semantic-space-gutter-wide);
   }
 
-  .directory {
-    grid-template-columns: minmax(15rem, 0.45fr) minmax(0, 1fr);
-  }
-
-  .directory > h2 {
-    grid-column: 1 / -1;
-  }
-
-  .results {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .directory,
+  .support {
+    margin-inline: calc(-1 * var(--semantic-space-gutter-wide));
+    padding-inline: var(--semantic-space-gutter-wide);
   }
 }
 
@@ -171,11 +345,14 @@
 
 @media (forced-colors: active) {
   .fixtureNotice,
+  .searchPanel,
+  .filterRail,
   .statePanel,
-  .support,
   .card,
+  .portraitPlaceholder,
   .specialties li,
-  .disabledAction {
+  .disabledAction,
+  .support {
     background: Canvas;
     border-color: CanvasText;
     color: CanvasText;
@@ -188,16 +365,33 @@
     padding: 0;
   }
 
+  .directory,
+  .support {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .discoveryWorkspace {
+    grid-template-columns: minmax(12rem, 0.3fr) minmax(0, 1fr);
+  }
+
   .results {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .filterRail {
+    position: static;
+  }
+
   .fixtureNotice,
+  .searchPanel,
+  .filterRail,
   .statePanel,
-  .support,
   .card,
+  .portraitPlaceholder,
   .specialties li,
-  .disabledAction {
+  .disabledAction,
+  .support {
     background: transparent;
     border-color: CanvasText;
     color: CanvasText;

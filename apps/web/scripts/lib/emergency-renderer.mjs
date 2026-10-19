@@ -46,7 +46,7 @@ registerHooks({
   },
 })
 
-const { ActionLink, EmergencyAction, EmergencyTemplate, LanguageSwitcher } = {
+const { EmergencyAction, EmergencyTemplate, LanguageSwitcher } = {
   ...await import('../../src/design-system/templates/index.ts'),
   ...await import('../../src/design-system/components/index.ts'),
 }
@@ -59,11 +59,8 @@ export function renderEmergency(props) {
         reason: 'Approved Amharic emergency guidance is unavailable. English test copy remains visible.' },
       currentLabel: 'English', currentLang: 'en', label: 'Language',
     }),
-    emergencyAction: createElement(EmergencyAction, {
+    emergencyAction: createElement(EmergencyAction, { compact: true,
       href: '#emergency-title', label: 'Controlled Emergency preview',
-    }),
-    routineAction: createElement(ActionLink, {
-      href: '#non-emergency-support', label: 'Non-emergency support', variant: 'secondary',
     }),
   }
   const failClosed = ['expired', 'unavailable'].includes(props.state.kind)

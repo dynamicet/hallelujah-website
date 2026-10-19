@@ -6,7 +6,7 @@ import { assetCurrent, assetDigest, assetHash, applyAssetCommand, requireAssetIn
 import { clamAvScanner, ControlledAssetStore } from '../src/content/asset-intake.ts'
 import { assetFixture, assetPixels, fixtureAssetScanner } from './lib/asset-fixture.mjs'
 
-assert.equal(sharp.versions.sharp, '0.35.4')
+assert.equal(sharp.versions.sharp, '0.35.5')
 const store = await ControlledAssetStore.create(process.env.ASSET_TEST_TEMP_PARENT ?? '/tmp')
 const input = assetFixture()
 const bytes = await assetPixels()

@@ -1,5 +1,46 @@
+.contactLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--semantic-space-gutter-regular);
+}
+
+.contactLayout > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  max-inline-size: var(--semantic-size-reading);
+}
+
+.contactGroup {
+  overflow-wrap: anywhere;
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  min-inline-size: 0;
+  padding: var(--semantic-space-gutter-regular);
+}
+
+.contactGroup h2 {
+  font-size: var(--semantic-type-body-large-size);
+  line-height: var(--semantic-type-body-large-line);
+}
+
+@media (min-width: 54rem) {
+  .contactLayout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contactGroup:first-of-type { grid-column: 1 / -1; }
+}
+
+@media (forced-colors: active) {
+  .contactGroup { border-color: CanvasText; }
+}
+
+@media print {
+  .contactLayout { display: block; }
+  .contactGroup { background: transparent; break-inside: avoid; }
+}
+
 .contactFacts {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--semantic-space-regular);
   max-inline-size: var(--semantic-size-reading);
 }

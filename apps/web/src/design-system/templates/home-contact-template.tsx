@@ -27,7 +27,7 @@ const groups = [
 
 function ContactDetails({ view, locale }: { readonly view: ContactView; readonly locale: GovernedLocale }) {
   return (
-    <div className="ds-flow" data-home-contact-state={view.state}>
+    <div className={styles.contactLayout} data-home-contact-state={view.state}>
       <p lang="en">{view.state === 'controlled-fixture'
         ? 'Synthetic contact fixture — not hospital contact or arrival information. Calls, email and maps are disabled.'
         : 'Contact and arrival information is withheld pending verification.'}</p>
@@ -35,7 +35,7 @@ function ContactDetails({ view, locale }: { readonly view: ContactView; readonly
         <p lang="en">Unreviewed Amharic shaping fixture. No approved Amharic guidance is available.</p>
       ) : null}
       {groups.map((group) => (
-        <section className="ds-flow" data-experience-level="0" data-protected-context="contact-directions"
+        <section className={`ds-flow ${styles.contactGroup}`} data-experience-level="0" data-protected-context="contact-directions"
           id={`home-${group.id}`} key={group.id} tabIndex={-1} aria-labelledby={`home-${group.id}-title`}>
           <h2 id={`home-${group.id}-title`} lang="en">{group.heading}</h2>
           {view.state === 'controlled-fixture' ? (
@@ -58,8 +58,8 @@ function ContactDetails({ view, locale }: { readonly view: ContactView; readonly
 export function HomeContactTemplate({ documents, locale, now, mode, tasks, ...props }: HomeContactTemplateProps) {
   const view = homeContactView(documents, locale, now, mode)
   return <HomeTemplate {...props} tasks={{ ...tasks,
-    call: { label: tasks.call.label, href: '#home-call' },
-    directions: { label: tasks.directions.label, href: '#home-directions' },
+    call: { ...tasks.call, href: '#home-call' },
+    directions: { ...tasks.directions, href: '#home-directions' },
     emergency: { label: tasks.emergency.label, href: '#home-emergency' },
   }} contactDetails={<ContactDetails view={view} locale={locale} />} />
 }

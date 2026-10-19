@@ -39,7 +39,7 @@ const environment = {
   PERSONAL_DATA_COLLECTION: 'disabled',
 }
 const usesProcessGroup = process.platform !== 'win32'
-const server = spawn('pnpm', ['--dir', 'apps/web', 'start', '--hostname', host, '--port', String(appPort)], {
+const server = spawn(process.execPath, ['apps/web/scripts/serve-foundations-preview.mjs', String(appPort)], {
   cwd: repositoryRoot,
   detached: usesProcessGroup,
   env: environment,
@@ -272,16 +272,7 @@ try {
   if (shellMode) {
     if (!reviewHarnessMode) {
       const wideTabOrder = await readShellTabOrder(client, sessionId)
-      const expectedWideOrder = [
-        'identity',
-        'emergency',
-        'navigation',
-        'navigation',
-        'navigation',
-        'navigation',
-        'search',
-        'routine',
-      ]
+      const expectedWideOrder = ['identity', 'navigation', 'navigation', 'navigation', 'search', 'language', 'emergency']
       if (JSON.stringify(wideTabOrder) !== JSON.stringify(expectedWideOrder)) {
         fail(`wide actual Tab order is incorrect: ${JSON.stringify(wideTabOrder)}`)
       }
@@ -301,7 +292,7 @@ try {
     await settleLayout()
     if (!reviewHarnessMode) {
       const closedTabOrder = await readShellTabOrder(client, sessionId)
-      if (JSON.stringify(closedTabOrder) !== JSON.stringify(['identity', 'emergency', 'menu'])) {
+      if (JSON.stringify(closedTabOrder) !== JSON.stringify(['identity', 'menu', 'emergency'])) {
         fail(`compact closed actual Tab order is incorrect: ${JSON.stringify(closedTabOrder)}`)
       }
     }
@@ -317,10 +308,10 @@ try {
         const language = panel.querySelector('[data-language-switcher]')
         const routine = panel.querySelector('[data-shell-routine]')
         const emergency = document.querySelector('[data-shell-emergency]')
-        const visible = (element) => element.getBoundingClientRect().height > 0
+        const visible = (element) => Boolean(element?.getBoundingClientRect().height > 0)
         return {
           complete: panel.contains(document.querySelector('[data-primary-navigation]'))
-            && panel.contains(utilities) && panel.contains(language) && panel.contains(routine)
+            && panel.contains(utilities) && panel.contains(language) && routine === null
             && !panel.contains(emergency),
           emergencyVisible: visible(emergency),
           languageVisible: visible(language),
@@ -333,23 +324,13 @@ try {
     )
     if (!openMenu.open || openMenu.panelHeight === 0 || !openMenu.complete
       || !openMenu.emergencyVisible || !openMenu.languageVisible
-      || !openMenu.routineVisible || !openMenu.utilitiesVisible) {
+      || openMenu.routineVisible || !openMenu.utilitiesVisible) {
       fail(`compact menu did not expose its controlled panel: ${JSON.stringify(openMenu)}`)
     }
 
     if (!reviewHarnessMode) {
       const openTabOrder = await readShellTabOrder(client, sessionId)
-      const expectedOpenOrder = [
-        'identity',
-        'emergency',
-        'menu',
-        'navigation',
-        'navigation',
-        'navigation',
-        'navigation',
-        'search',
-        'routine',
-      ]
+      const expectedOpenOrder = ['identity', 'menu', 'navigation', 'navigation', 'navigation', 'search', 'language', 'emergency']
       if (JSON.stringify(openTabOrder) !== JSON.stringify(expectedOpenOrder)) {
         fail(`compact open actual Tab order is incorrect: ${JSON.stringify(openTabOrder)}`)
       }
@@ -1658,7 +1639,7 @@ function assertShellViewport(label, width, result) {
     fail(`${label}: identity link lacks governed localized naming`)
   }
   if (!result.panelContainsNavigation || !result.panelContainsUtilities
-    || !result.panelContainsRoutine || result.panelContainsEmergency) {
+    || result.routinePresent || result.panelContainsEmergency) {
     fail(`${label}: compact panel ownership is incorrect`)
   }
   if (!result.visualOrderMatchesDom) {
@@ -1672,13 +1653,13 @@ function assertShellViewport(label, width, result) {
     fail(`${label}: wide navigation state is incorrect`)
   }
   const expectedClosedRoles = compactLayout
-    ? ['identity', 'emergency', 'menu']
-    : ['identity', 'emergency', 'navigation', 'navigation', 'navigation', 'navigation', 'search', 'routine']
+    ? ['identity', 'menu', 'emergency']
+    : ['identity', 'navigation', 'navigation', 'navigation', 'search', 'language', 'emergency']
   if (JSON.stringify(result.focusRoles) !== JSON.stringify(expectedClosedRoles)) {
     fail(`${label}: unexpected closed header focus order ${JSON.stringify(result.focusRoles)}`)
   }
   if (!result.emergencyVisible || result.utilitiesVisible !== !compactLayout
-    || result.routineVisible !== !compactLayout) {
+    || result.routineVisible) {
     fail(`${label}: header regions do not match the ${compactLayout ? 'compact' : 'wide'} composition`)
   }
   for (const target of result.visibleTargets) {
@@ -1864,25 +1845,15 @@ async function assertForcedCompactShell({
     fail(`forced compact localized identity is incomplete: ${JSON.stringify(closed)}`)
   }
   const closedTabOrder = await readShellTabOrder(client, sessionId)
-  if (JSON.stringify(closedTabOrder) !== JSON.stringify(['identity', 'emergency', 'menu'])) {
+  if (JSON.stringify(closedTabOrder) !== JSON.stringify(['identity', 'menu', 'emergency'])) {
     fail(`forced compact closed actual Tab order is incorrect: ${JSON.stringify(closedTabOrder)}`)
   }
 
   await evaluate(client, sessionId, "document.querySelector('[data-menu-trigger]').click()")
   await settleLayout()
   const open = await evaluate(client, sessionId, renderedShellChecksSource())
-  const expectedOpenOrder = [
-    'identity',
-    'emergency',
-    'menu',
-    'navigation',
-    'navigation',
-    'navigation',
-    'navigation',
-    'search',
-    'routine',
-  ]
-  if (open.panelHeight === 0 || !open.utilitiesVisible || !open.routineVisible
+  const expectedOpenOrder = ['identity', 'menu', 'navigation', 'navigation', 'navigation', 'search', 'language', 'emergency']
+  if (open.panelHeight === 0 || !open.utilitiesVisible || open.routineVisible
     || !open.visualOrderMatchesDom
     || JSON.stringify(open.focusRoles) !== JSON.stringify(expectedOpenOrder)) {
     fail(`forced compact open composition is incorrect: ${JSON.stringify(open)}`)
@@ -1921,7 +1892,8 @@ async function assertForcedCompactShell({
     return {
       complete: panel.contains(document.querySelector('[data-primary-navigation]'))
         && panel.contains(document.querySelector('[data-shell-utilities]'))
-        && panel.contains(document.querySelector('[data-shell-routine]')),
+        && panel.contains(document.querySelector('[data-language-switcher]'))
+        && !document.querySelector('[data-shell-routine]'),
       enhanced: document.documentElement.dataset.shellNavigationEnhanced ?? null,
       open: panel.matches(':popover-open'),
     }
@@ -2045,7 +2017,7 @@ function renderedShellChecksSource() {
     : 'other'
   const targetGeometry = focusableTargets.map((target) => {
     const rect = target.getBoundingClientRect()
-    return { left: rect.left, role: role(target), top: rect.top }
+    return { left: rect.left, role: role(target), top: rect.top, overlay: panel.matches(':popover-open') && panel.contains(target) }
   })
   const visibleTargets = focusableTargets.map((target) => {
       const rect = target.getBoundingClientRect()
@@ -2073,18 +2045,21 @@ function renderedShellChecksSource() {
     panelHeight: panel.getBoundingClientRect().height,
     panelContainsEmergency: panel.contains(emergency),
     panelContainsNavigation: panel.contains(header.querySelector('[data-primary-navigation]')),
-    panelContainsRoutine: panel.contains(routine),
+    routinePresent: Boolean(routine),
     panelContainsUtilities: panel.contains(utilities),
     primaryNavigationCount: header.querySelectorAll('[data-primary-navigation]').length,
     routineVisible: visible(routine),
     triggerDisplay: getComputedStyle(trigger).display,
     utilitiesVisible: visible(utilities),
-    visualOrderMatchesDom: targetGeometry.every((target, index) => {
-      if (index === 0) return true
-      const previous = targetGeometry[index - 1]
-      return target.top > previous.top + 4
-        || (Math.abs(target.top - previous.top) <= 4 && target.left >= previous.left - 4)
-    }),
+    // An open popover is a separate visual layer. Check order within each layer;
+    // actual Tab order is asserted independently across the entire header.
+    visualOrderMatchesDom: [false, true].every(overlay =>
+      targetGeometry.filter(target => target.overlay === overlay).every((target, index, group) => {
+        if (index === 0) return true
+        const previous = group[index - 1]
+        return target.top > previous.top + 4
+          || (Math.abs(target.top - previous.top) <= 4 && target.left >= previous.left - 4)
+      })),
     visibleTargets,
   }
 })()`

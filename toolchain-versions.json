@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "selectedAt": "2026-09-13",
-  "reviewDue": "2026-10-13",
+  "selectedAt": "2026-10-20",
+  "reviewDue": "2026-11-20",
   "runtime": {
     "node": {
       "version": "24.21.0",
       "releaseLine": "24",
-      "supportStatus": "Active LTS",
+      "supportStatus": "Maintenance LTS",
       "supportUntil": "2028-04-30"
     },
     "pnpm": {
@@ -19,10 +19,10 @@
     }
   },
   "application": {
-    "next": "16.3.6",
-    "payload": "3.89.0",
+    "next": "16.3.8",
+    "payload": "3.90.0",
     "typescript": "5.9.3",
-    "sharp": "0.35.4"
+    "sharp": "0.35.5"
   },
   "database": {
     "postgresql": {
@@ -39,7 +39,8 @@
     "@esbuild-kit/core-utils>esbuild": "0.25.12",
     "dompurify": "3.4.16",
     "@next/eslint-plugin-next>fast-glob": "npm:tinyglobby@0.2.17",
-    "sass": "1.105.1"
+    "sass": "1.105.1",
+    "source-map-js": "1.2.2"
   },
   "assetProcessors": {
     "fontTools": "4.65.0",

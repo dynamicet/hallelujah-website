@@ -1,0 +1,95 @@
+{
+  "browser": "Chrome/153.0.8010.47",
+  "javascript": "enabled",
+  "motion": "reduced",
+  "deviceScaleFactor": 1,
+  "scope": "Controlled local preview adapters; appearance baseline only",
+  "captures": [
+    {
+      "file": "appointment-360.png",
+      "state": "controlled",
+      "width": 360,
+      "height": 3771,
+      "viewport": 360,
+      "documentWidth": 345,
+      "headerHeight": 184.96875,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 16,
+          "y": 12,
+          "width": 203.421875,
+          "height": 51.1875
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 231.421875,
+          "y": 14.796875,
+          "width": 97.578125,
+          "height": 45.59375
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 16,
+          "y": 75.1875,
+          "width": 313,
+          "height": 96.78125
+        }
+      ],
+      "externalRequests": 0
+    },
+    {
+      "file": "appointment-1440.png",
+      "state": "controlled",
+      "width": 1440,
+      "height": 3113,
+      "viewport": 1440,
+      "documentWidth": 1425,
+      "headerHeight": 240,
+      "h1Count": 1,
+      "mainCount": 1,
+      "footerBackground": "rgb(23, 50, 58)",
+      "shellControls": [
+        {
+          "marker": "shellIdentity",
+          "x": 72.5,
+          "y": 93.90625,
+          "width": 244,
+          "height": 51.1875
+        },
+        {
+          "marker": "menuTrigger",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "marker": "navigationPanel",
+          "x": 332.5,
+          "y": 12,
+          "width": 732,
+          "height": 215
+        },
+        {
+          "marker": "shellEmergency",
+          "x": 1080.5,
+          "y": 71.109375,
+          "width": 272,
+          "height": 96.78125
+        }
+      ],
+      "externalRequests": 0
+    }
+  ]
+}

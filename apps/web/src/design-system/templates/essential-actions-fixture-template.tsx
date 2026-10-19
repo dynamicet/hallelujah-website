@@ -7,6 +7,7 @@ import {
   LanguageSwitcher,
   SiteShell,
   TextLink,
+  TaskCard,
   type StatusSummaryItem,
 } from '../components'
 
@@ -32,10 +33,11 @@ export function EssentialActionsFixtureTemplate({
   const amharicHeaderReview = firstParameter(searchParameters['shell-review']) === 'amharic'
   const headerBrandName = amharicHeaderReview
     ? 'ሃሌሉያ ሆስፒታል — ያልተገመገመ የቁጥጥር ምሳሌ'
-    : 'Hallelujah Hospital — controlled identity'
+    : 'Hallelujah Hospital'
 
   return (
     <SiteShell
+      notice="Local preview · Hospital content, contacts and services are not published."
       breadcrumbs={{
         items: [
           { href: '#main-content', label: 'Controlled home' },
@@ -59,8 +61,7 @@ export function EssentialActionsFixtureTemplate({
             label: 'Access and governance',
             links: [
               { href: '#language-availability', label: 'Language scope' },
-              { href: '#controlled-emergency-explanation', label: 'Safety boundary' },
-            ],
+                ],
           },
         ],
         navigationLabel: 'Footer',
@@ -69,6 +70,7 @@ export function EssentialActionsFixtureTemplate({
         brandName: headerBrandName,
         emergencyAction: (
           <EmergencyAction
+            compact
             href="#controlled-emergency-explanation"
             label="View controlled urgent guidance"
           />
@@ -94,15 +96,11 @@ export function EssentialActionsFixtureTemplate({
         menuLabel: 'Menu',
         navigationMode: amharicHeaderReview ? 'compact' : 'responsive',
         navigationItems: [
-          { current: true, href: '#main-content', label: 'Controlled home' },
-          { href: '#foundation-evidence', label: 'Foundation evidence' },
-          { href: '#action-evidence', label: 'Essential actions' },
-          { href: '#controlled-emergency-explanation', label: 'Safety boundary' },
+          { current: true, href: '#main-content', label: 'Home' },
+          { href: '#foundation-evidence', label: 'Foundations' },
+          { href: '#action-evidence', label: 'Actions' },
         ],
         primaryNavigationLabel: 'Primary',
-        routineAction: (
-          <ActionLink href="#action-evidence" label="Review appointment action" />
-        ),
         searchItem: { href: '#shell-evidence', label: 'Search' },
       }}
       skipLinkLabel="Skip to main content"
@@ -189,6 +187,13 @@ export function EssentialActionsFixtureTemplate({
               variant="tertiary"
             />
           </ActionGroup>
+
+          <TaskCard
+            href="#controlled-emergency-explanation"
+            icon="directions"
+            label="Review the controlled safety boundary"
+            description="Synthetic task-card specimen; no hospital destination is published."
+          />
 
           <form action="#action-evidence" method="get">
             <ActionGroup label="Button state examples">

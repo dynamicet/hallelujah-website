@@ -179,7 +179,11 @@ try {
           : ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'], label)
         assert.equal(result.headingOrder[0], 1, label)
         assert.ok(result.headingOrder.slice(1).every((level, index) => level <= result.headingOrder[index] + 1), label)
-        if (capability !== 'no-css') assert.equal(result.targets, true, label)
+        if (capability !== 'no-css') assert.equal(result.targets, true, `${label}: ${JSON.stringify(await evaluate(`
+          [...document.querySelectorAll('a[href],button,label:has(input)')].filter(el => !el.closest('[hidden]')).map(el => {
+            const r = el.getBoundingClientRect(); return { text: el.textContent?.trim().slice(0, 80), width: r.width, height: r.height };
+          }).filter(r => (r.width || r.height) && (r.width < 43.5 || r.height < 43.5))
+        `))}`)
         assert.equal(result.anchors, true, label)
         assert.equal(result.currentAppointment, true, label)
         assert.equal(result.activeContacts, 0, label)

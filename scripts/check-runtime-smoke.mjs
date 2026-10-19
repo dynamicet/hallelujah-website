@@ -83,6 +83,10 @@ try {
   if (home.status !== 200 || !/<main\b[^>]*\bid="main-content"/u.test(body)) {
     throw new Error('bootstrap page did not return its main content')
   }
+  if (!body.includes('data-home-template') || body.includes('data-foundation-fixture')
+    || body.includes('data-review-harness')) {
+    throw new Error('root must render controlled Home without component review specimens')
+  }
   expectHeader(home, 'content-security-policy', "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'")
   expectHeader(home, 'referrer-policy', 'no-referrer')
   expectHeader(home, 'x-content-type-options', 'nosniff')

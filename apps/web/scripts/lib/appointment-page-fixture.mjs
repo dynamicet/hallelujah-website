@@ -65,17 +65,19 @@ export function appointmentPageFixture(state = 'controlled') {
       { label: `Synthetic Service Beta — fictional record${suffix}`, value: 'svc_synthetic_beta_00002' },
     ],
     shell: {
+      notice: 'Local preview · Hospital content, contacts and services are not published.',
       skipLinkLabel: 'Skip to main content',
       header: {
-        brandName: 'Hallelujah Hospital — controlled identity',
+        brandName: 'Hallelujah Hospital',
         homeHref: '#appointment-title',
         homeLabel: 'Hallelujah Hospital controlled Appointment home',
         identityLanguage: 'en',
         menuLabel: 'Menu',
         navigationMode: expanded ? 'compact' : 'responsive',
         navigationItems: unavailable
-          ? [links.appointment, links.support]
-          : [links.appointment, links.care, links.states, links.support],
+          ? [{ ...links.appointment, label: 'Appointment' }, { ...links.support, label: 'Support' }]
+          : [{ ...links.appointment, label: `Appointment${suffix}` }, { ...links.care, label: `Request form${suffix}` },
+            { ...links.states, label: `Request status${suffix}` }, { ...links.support, label: `Support${suffix}` }],
         primaryNavigationLabel: 'Primary',
         searchItem: links.support,
       },

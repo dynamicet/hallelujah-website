@@ -62,7 +62,7 @@ export function resolveClinicianProfile(fixture, now = new Date('2026-09-29T12:0
 }
 
 export function renderClinicianProfile({ profile, state = 'ready' }) {
-  const { ActionLink, EmergencyAction, LanguageSwitcher } = components
+  const { EmergencyAction, LanguageSwitcher } = components
   const name = profile.clinician?.details.name ?? 'Unavailable synthetic clinician'
   const renderable = profile.clinician && !['failure', 'gone', 'unavailable'].includes(state)
   const profileTarget = renderable ? '#clinician-profile-title' : '#clinician-profile-state-title'
@@ -78,10 +78,11 @@ export function renderClinicianProfile({ profile, state = 'ready' }) {
     breadcrumbs: { items: [
       { current: true, href: profileTarget, label: name },
     ], label: 'Breadcrumb' },
+    notice: 'Local preview · Hospital content, contacts and services are not published.',
     skipLinkLabel: 'Skip to main content',
     header: {
-      brandName: 'Hallelujah Hospital — controlled identity',
-      emergencyAction: createElement(EmergencyAction, { href: '#profile-support', label: 'Emergency route unavailable' }),
+      brandName: 'Hallelujah Hospital',
+      emergencyAction: createElement(EmergencyAction, { compact: true, href: '#profile-support', label: 'Emergency route unavailable' }),
       homeHref: profileTarget,
       homeLabel: 'Hallelujah Hospital controlled clinician profile',
       identityLanguage: 'en',
@@ -91,10 +92,9 @@ export function renderClinicianProfile({ profile, state = 'ready' }) {
         currentLabel: 'English', currentLang: 'en', label: 'Language',
       }),
       menuLabel: 'Menu',
-      navigationItems: [links.identity, links.request, links.review, links.support],
+      navigationItems: [{ ...links.identity, label: 'Profile' }, { ...links.request, label: 'Request information' }, { ...links.review, label: 'Review' }, { ...links.support, label: 'Support' }],
       navigationMode: 'responsive',
       primaryNavigationLabel: 'Primary',
-      routineAction: createElement(ActionLink, { href: '#profile-support', label: 'Staffed contact unavailable', variant: 'secondary' }),
       searchItem: { href: '#profile-support', label: 'Search unavailable' },
     },
     footer: {

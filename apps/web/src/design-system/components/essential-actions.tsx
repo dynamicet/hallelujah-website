@@ -64,6 +64,7 @@ export type CallActionProps = (CallAvailabilityProps | CallWithoutAvailabilityPr
 }
 
 export interface EmergencyActionProps {
+  readonly compact?: boolean
   readonly href: string
   readonly label: string
 }
@@ -186,16 +187,17 @@ export function CallAction({
   )
 }
 
-export function EmergencyAction({ href, label }: EmergencyActionProps) {
+export function EmergencyAction({ compact = false, href, label }: EmergencyActionProps) {
   return (
     <a
-      className={`${styles.action} ${styles.emergency}`}
+      aria-label={compact ? `Emergency: ${label}` : undefined}
+      className={`${styles.action} ${styles.emergency} ${compact ? styles.emergencyNavigation : ''}`}
       data-emergency-action
       data-experience-level="0"
       href={href}
     >
       <span className={styles.emergencyWord}>Emergency</span>
-      <span className={styles.actionCopy}>{label}</span>
+      {compact ? null : <span className={styles.actionCopy}>{label}</span>}
       <Icon name="emergency" />
     </a>
   )
