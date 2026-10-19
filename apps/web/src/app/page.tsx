@@ -1,5 +1,4 @@
-import { EmergencyAction, LanguageSwitcher } from '@/design-system/components'
-import { HomeContactTemplate } from '@/design-system/templates'
+import { HomePageTemplate } from '@/design-system/templates'
 
 const link = (id: string, label: string) => ({ href: `#home-${id}`, label })
 const tasks = {
@@ -14,7 +13,7 @@ const tasks = {
 
 export default function HomePage() {
   return (
-    <HomeContactTemplate
+    <HomePageTemplate
       description="Find a doctor, explore services, or review appointment information. Hospital content remains controlled until it is approved for publication."
       documents={[]}
       eyebrow="Care access, clearly organized"
@@ -32,8 +31,8 @@ export default function HomePage() {
           primaryNavigationLabel: 'Primary navigation',
           navigationItems: [tasks.doctor, tasks.service, tasks.appointment, tasks.directions],
           searchItem: tasks.search,
-          languageSwitcher: <LanguageSwitcher alternate={{ available: false, label: 'አማርኛ', lang: 'am', reason: 'An approved Amharic Home page is not available.' }} currentLabel="English" currentLang="en" label="Language" />,
-          emergencyAction: <EmergencyAction compact href={tasks.emergency.href} label={tasks.emergency.label} />,
+          languageSwitcher: { alternate: { available: false, label: 'አማርኛ', lang: 'am', reason: 'An approved Amharic Home page is not available.' }, currentLabel: 'English', currentLang: 'en', label: 'Language' },
+          emergencyAction: { compact: true, href: tasks.emergency.href, label: tasks.emergency.label },
         },
         footer: {
           brandName: 'Hallelujah Hospital — controlled identity',

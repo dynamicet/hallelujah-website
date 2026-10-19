@@ -13,6 +13,8 @@ export { HomeTemplate, HomeSupportBand, HomeVisitGuidance } from './home-templat
 export type { HomeTaskLink, HomeTaskLinks, HomeTemplateProps } from './home-template'
 export { HomeContactTemplate } from './home-contact-template'
 export type { HomeContactTemplateProps } from './home-contact-template'
+export { HomePageTemplate } from './home-page-template'
+export type { HomePageTemplateProps } from './home-page-template'
 export { HomeGovernedContent } from './home-governed-content'
 export type { HomeGovernedContentProps } from './home-governed-content'
 export { EmergencyTemplate } from './emergency-template'
