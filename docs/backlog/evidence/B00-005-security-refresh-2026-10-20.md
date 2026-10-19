@@ -37,3 +37,9 @@ Any retained local CMS database must acquire the new field through the existing 
 - `pnpm appointment:db-local`: passed migration, permissions, atomicity, reconciliation, and independent backup/restore.
 - `pnpm links:check`, `pnpm backlog:check`, and `git diff --check`: passed.
 - `pnpm rebuild:verify` runs in an isolated copy assembled from tracked/non-ignored source, excluding the existing ignored local environment file. At this record's commit, frozen installation, lockfile/importer parity, policy, lint, types, tests, production build, content isolation, accessibility, budgets, runtime, shared-component browser checks, Home and Home-contact checks had passed; remaining page matrices were still running. Final clean-rebuild and current-head CI results are recorded on PR #89 before merge.
+
+## Hosted reflow follow-up
+
+Run 39334346744 passed dependency audit, history scanning, build, shared browser checks, and Home, then found horizontal overflow in contacts-current at 320 px with 200% text. Contact grids used implicit min-content tracks, and fact labels could set a wider minimum with the runner's font metrics. Explicit zero-minimum tracks and wrapping on the contact group now allow labels to reflow. The Home-contact matrix adds a 200%-text monospace fallback case at every viewport/state and reports overflowing element geometry on failure.
+
+Regression proof: the added monospace/200%-text case fails on the previous CSS at contacts-current/320, with fact tracks wider than the available viewport. With the correction, `pnpm home-contacts:smoke` passes 325 cases and `pnpm home-governed:smoke` passes 289 cases. Lint, types, backlog integrity, and diff whitespace checks also pass. The preceding full local clean rebuild passed before this three-line CSS follow-up; hosted CI rechecks the final head before merge.

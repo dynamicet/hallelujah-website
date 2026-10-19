@@ -1,5 +1,6 @@
 .contactLayout {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--semantic-space-gutter-regular);
 }
 
@@ -10,6 +11,7 @@
 }
 
 .contactGroup {
+  overflow-wrap: anywhere;
   background: var(--semantic-color-surface-raised);
   border: var(--semantic-border-default) solid var(--semantic-color-border-default);
   border-radius: var(--semantic-radius-card);
@@ -38,6 +40,7 @@
 
 .contactFacts {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--semantic-space-regular);
   max-inline-size: var(--semantic-size-reading);
 }
