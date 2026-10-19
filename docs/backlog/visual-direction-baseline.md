@@ -14,7 +14,7 @@ The [critical journey specifications](../visual-design/pages/critical-journeys/c
 
 The inventory covers all six implemented hospital page templates and their shared shell. Home contact and governed-content modules belong to Home. Bootstrap and component fixture templates are review infrastructure, not additional designed hospital pages. Service Detail and the Epic 05 practical/institutional pages have design references but no corresponding page template in this inventory.
 
-The application root currently mounts [EssentialActionsFixtureTemplate](../../apps/web/src/app/page.tsx), so it is not evidence of the finished Home route. These captures render the actual reusable React templates through their controlled local preview adapters.
+At the original baseline, the application root mounted EssentialActionsFixtureTemplate. The [current root route](../../apps/web/src/app/page.tsx) now renders the controlled Home composition through HomePageTemplate; it does not establish published hospital content or production readiness. The original baseline captures render the reusable React templates through their controlled local preview adapters.
 
 Twelve fresh full-document captures use Chromium, 360 and 1440 CSS px widths, a 1000 px viewport height, device scale 1, English controlled fixtures, JavaScript enabled, and reduced motion. The [capture report](evidence/visual-direction-baseline-2026-10-08/capture-report.json) records browser version, dimensions, header height, heading/main counts, and external requests. All twelve captures have one main, one H1, and zero external HTTP requests. Screenshots and source inspection establish the findings below; this capture run is not an interaction or production acceptance test.
 
@@ -131,7 +131,7 @@ Emergency uses a compact navigation presentation with the explicit visible word 
 
 The actual root and Home desktop headers are approximately 79 px, including header padding/border and excluding the separate review strip. Compact headers are approximately 136 px, with no clipped labels or hidden urgent action. The [template report](evidence/visual-shell-revision-2026-10-08/templates/capture-report.json) and [expanded-label report](evidence/visual-shell-revision-2026-10-08/long-labels/home-report.json) record each fixture. Manual review compares the header/footer roles against the original linked design references; fixture destinations continue to describe review infrastructure rather than published hospital routes. This is controlled implementation acceptance, not hospital content approval or production release acceptance.
 
-Validation includes Home's 165 browser cases (now exercising native Language inside Menu with and without JavaScript), Appointment's 284 browser cases, Emergency's 255 browser cases, all six template contract checks, shell/action/foundation contracts, token/contrast checks, component boundaries, TypeScript, and changed-source lint. The actual-root capture check also asserts that the responsive desktop header stays below 110 px and tests language/Menu Enter, Escape, and focus recovery. Home composition is addressed in step 3 below. Discovery and remaining-page support bands remain outstanding in steps 4–6.
+Validation includes Home's 165 browser cases (now exercising native Language inside Menu with and without JavaScript), Appointment's 284 browser cases, Emergency's 255 browser cases, all six template contract checks, shell/action/foundation contracts, token/contrast checks, component boundaries, TypeScript, and changed-source lint. The actual-root capture check also asserts that the responsive desktop header stays below 110 px and tests language/Menu Enter, Escape, and focus recovery. Home composition is addressed in step 3 below. Discovery and remaining-page corrections were subsequently completed in steps 4–8.
 
 For actual-route reproduction, start the normal project development server, then capture into a new directory:
 
@@ -159,7 +159,7 @@ H3 is a white, warm-edged panel that keeps search availability copy and its real
 | Contacts current 360 (local capture), 1440 (local capture); missing 360 (local capture), 1440 (local capture) | Grouped practical access, truthful missing-contact presentation, and no active telephone/map actions. |
 | Governed current 360 (local capture), 1440 (local capture); empty 360 (local capture), 1440 (local capture) | Distinct collection surfaces; omitted collections leave no heading, showcase, or reserved space. |
 
-Visual review compares the saved mobile/desktop and expanded-label compositions with the governing H1–H9 reference. Intentional adaptations: bands remain within the shared content container rather than copying prototype full-bleed CSS; generic navigation descriptions replace prototype operational outcomes while contacts and appointment operations remain withheld; collection width follows the actual eligible record count rather than filling reference columns with fictional records; contact safety groups remain explicit instead of copying the prototype's single practical-access card. The preview adapter's destination review and transcript remain outside the Home composition and are preserved in screenshots. The application root still mounts the Actions fixture, so these captures establish reusable Home template evidence.
+Visual review compares the saved mobile/desktop and expanded-label compositions with the governing H1–H9 reference. Intentional adaptations: bands remain within the shared content container rather than copying prototype full-bleed CSS; generic navigation descriptions replace prototype operational outcomes while contacts and appointment operations remain withheld; collection width follows the actual eligible record count rather than filling reference columns with fictional records; contact safety groups remain explicit instead of copying the prototype's single practical-access card. The preview adapter's destination review and transcript remain outside the Home composition and are preserved in screenshots. These captures establish reusable Home template evidence; the current application root also renders the controlled Home composition through HomePageTemplate.
 
 All 22 captures record browser, source revision/working-tree status, fixture, width, JavaScript and reduced-motion capability. They have one main and H1, no document overflow, and no external HTTP requests. The capture runner additionally checks arrow containment and alignment for each task-card row.
 
@@ -167,7 +167,7 @@ Validation: Home/contact/governed SSR contracts, Home browser matrix (165 cases)
 
 The repository-wide secret scan reports the pre-existing, Git-ignored `apps/web/.env.local` as a prohibited environment file; it reports no secret signatures. That local configuration is outside this correction and is not included in the commit.
 
-This is controlled Home implementation and visual review, not hospital-content approval or production release acceptance. The next slice is clinician directory D2/D3 (B04-007), followed by service directory S3/S5 (B04-011).
+This is controlled Home implementation and visual review, not hospital-content approval or production release acceptance. The subsequent slice was clinician directory D2/D3 (B04-007), followed by service directory S3/S5 (B04-011).
 
 ## Step 4: clinician directory discovery correction
 
@@ -181,7 +181,7 @@ Search now spans the full discovery region instead of occupying the narrow first
 
 The capture runner now records the search/workspace edge relationship, discovery and card columns, and filter-before-results source order. The rendered browser matrix asserts those relationships across 320, 360, 768, and 1440 px for ready, failure, offline, and unavailable-roster fixtures under default, no-JavaScript, reduced-motion, forced-colors, print, 200%-text, and no-CSS capabilities. Separate cases cover committed search/filter state and no-match recovery. The matrix totals 142 responsive/capability cases; 18 directory contract cases, 24 validation cases, and 12 rendered history/keyboard/assistive-technology/reflow cases also pass.
 
-This remains controlled template evidence, not roster, hospital-content, or production-release approval. The next slice is service directory S3/S5 (B04-011).
+This remains controlled template evidence, not roster, hospital-content, or production-release approval. The subsequent slice was service directory S3/S5 (B04-011).
 
 ## Step 5: service directory discovery correction
 
@@ -197,7 +197,7 @@ Manual review compares the saved 360 and 1440 compositions directly with the gov
 
 The rendered browser matrix now asserts search/workspace edge alignment, group-before-results source order, the compact/desktop workspace transition, and one/two-column group cards. It passes 175 responsive, capability, safety, isolation, and GET-state cases across 320, 360, 768, and 1440 px for ready, loading, failure, offline, and unavailable-taxonomy fixtures under default, no-JavaScript, reduced-motion, forced-colors, print, 200%-text, and no-CSS capabilities. The 22-case directory contract and 20-case validation suites also pass.
 
-This remains controlled template evidence, not taxonomy, service, hospital-content, or production-release approval. The next slice is clinician profile P2/P4/P5 (B04-009).
+This remains controlled template evidence, not taxonomy, service, hospital-content, or production-release approval. The subsequent slice was clinician profile P2/P4/P5 (B04-009).
 
 ## Step 6: clinician profile composition correction
 
@@ -213,7 +213,7 @@ Manual review compares the saved 360 and 1440 compositions directly with the gov
 
 Validation passes 30 profile projection/omission/lifecycle/SSR/isolation contracts, 20 completeness/relationship/withdrawal validation cases, 142 responsive/capability/omission browser cases, and 10 rendered semantics/assistive-technology/no-JavaScript/reflow/print/withdrawal cases. TypeScript and repository lint also pass. The capture runner records profile columns, editorial-before-request DOM order, related-services width, review/support spacing, one main and H1, document width, and external requests at all five widths.
 
-This remains controlled template evidence, not clinician roster, hospital-content, appointment-operation, or production-release approval. The next slice is Emergency E1/E2/E3/E5/E6.
+This remains controlled template evidence, not clinician roster, hospital-content, appointment-operation, or production-release approval. The subsequent slice was Emergency E1/E2/E3/E5/E6.
 
 ## Step 7: Emergency composition correction
 
@@ -229,7 +229,7 @@ Manual review compares the saved 360 and 1440 compositions directly with the gov
 
 Validation passes 52 fail-closed lifecycle, controlled SSR, isolation, escaping, announcement, static-motion, and token contracts plus 255 responsive, capability, accessibility, and isolation browser cases. The browser matrix covers controlled and expanded content, required-content withheld/expired/unavailable states, unsupported handoff, map failure/blocking, default/no-JavaScript/reduced-motion/forced-colors/print/200%-text/no-CSS capabilities, inert interaction, focus, and response policy. TypeScript and repository lint also pass. The capture runner records paired route/arrival columns, warning and route heights, one main and H1, document width, and external requests at all five widths.
 
-This remains controlled template evidence, not emergency-content, contact, route, clinical, hospital-content, or production-release approval. The next slice is Appointment A3/A4/A5/A6 (B03-017).
+This remains controlled template evidence, not emergency-content, contact, route, clinical, hospital-content, or production-release approval. The subsequent slice was Appointment A3/A4/A5/A6 (B03-017).
 
 ## Step 8: Appointment form composition correction
 
@@ -246,7 +246,7 @@ The form now occupies one raised white panel aligned with the introduction, emer
 
 Mobile and desktop compositions were visually inspected against the governing Appointment reference. All twelve captures report one main and H1, no document overflow, and zero external HTTP requests. The current reading-width token, approved palette, synthetic warnings, disabled operational submission, and withheld contact details remain intentional adaptations. Screenshots stay under ignored `artifacts/visual/visual-appointment-correction-2026-10-20/`; JSON reports are tracked.
 
-Validation: 20 Appointment page SSR/state/isolation/token contracts, form primitive contracts, 284 responsive/capability/interaction/accessibility/isolation browser cases, TypeScript, and lint pass. The repository boundary check separately reports an existing violation in unchanged `src/app/page.tsx`: it imports components directly instead of consuming only the templates public API. This correction does not change that route.
+Validation: 20 Appointment page SSR/state/isolation/token contracts, form primitive contracts, 284 responsive/capability/interaction/accessibility/isolation browser cases, TypeScript, and lint pass. The boundary check initially reported an existing direct component import in `src/app/page.tsx`. Follow-up commit `c8cb202` resolved it by moving shell-control composition into HomePageTemplate and making the route consume only the templates public API. The boundary check then passed for 121 source/config files; 14 Home contract cases, 134 canonical-contact cases, TypeScript, changed-source lint, and an exact before/after SSR comparison also passed.
 
 This completes the composition slices listed in this baseline for controlled template review. Hospital-content, operating-workflow, and production-release acceptance remain separate.
 
