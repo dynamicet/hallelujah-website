@@ -56,7 +56,7 @@ See [`B00-004`](docs/backlog/b00-004-clean-application-bootstrap.md) for the app
 [`B00-011`](docs/backlog/b00-011-ci-quality-security.md) for the completed controlled-development CI
 contract. The private/free-plan merge-enforcement limitation remains explicit under `B00-012`.
 
-The controlled component review tool is separate from application routes. After `pnpm build`, run
+The controlled component review tool renders specimens through a loopback-only preview adapter, separate from application routes. Run
 `pnpm review-harness:serve` and open `http://127.0.0.1:3213`. The index covers component states,
 English/unreviewed Amharic shaping and byte reporting. See the
 [harness architecture](docs/architecture/component-review-harness.md) and

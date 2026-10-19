@@ -1,8 +1,9 @@
-import { withBuiltApplication } from './lib/built-application.mjs'
+import { createFoundationsPreviewServer } from '../apps/web/scripts/lib/foundations-preview-server.mjs'
 import { createReviewHarnessServer } from './review-harness/server.mjs'
 
-await withBuiltApplication(async (upstreamOrigin) => {
-  const harness = await createReviewHarnessServer({ upstreamOrigin, port: 3213 })
+const specimens = await createFoundationsPreviewServer()
+try {
+  const harness = await createReviewHarnessServer({ upstreamOrigin: specimens.origin, port: 3213 })
   console.log(`B01-013 controlled component review: ${harness.origin}`)
   console.log('English and unreviewed Amharic shaping fixtures; loopback only; collection and providers disabled.')
   try {
@@ -13,4 +14,6 @@ await withBuiltApplication(async (upstreamOrigin) => {
   } finally {
     await harness.close()
   }
-})
+} finally {
+  await specimens.close()
+}

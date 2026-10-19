@@ -34,8 +34,8 @@ This ticket changes no application route, CMS collection, database connection, e
 | --- | --- | --- |
 | Node.js | `24.21.0` | Exact `.nvmrc` and manifest engine; Active LTS through 19 October 2026, then Maintenance LTS through April 2028 |
 | pnpm | `10.27.0` | Exact `packageManager` and manifest engines |
-| Next.js | `16.3.6` | Exact direct dependency and matching `eslint-config-next`; patched from `16.3.5` after the 30 September 2026 `GHSA-vcvr-r3jv-pc5j` critical advisory |
-| Payload CMS | `3.89.0` | Exact `payload`, `@payloadcms/next`, and `@payloadcms/db-postgres` versions |
+| Next.js | `16.3.8` | Exact direct dependency and matching `eslint-config-next`; October security refresh recorded below |
+| Payload CMS | `3.90.0` | Exact `payload`, `@payloadcms/next`, and `@payloadcms/db-postgres` versions |
 | TypeScript | `5.9.3` | Exact direct development dependency; current stable TypeScript 5 line selected instead of a new major |
 | PostgreSQL | `18.6` | Current supported PostgreSQL 18 minor; upstream support ends 14 November 2030 |
 | Docker Engine / CLI | `29.8.0` | Selected packaging baseline; the host gate rejects any other version |
@@ -44,9 +44,9 @@ This ticket changes no application route, CMS collection, database connection, e
 
 ## Compatibility and security rationale
 
-- Node.js 24 is an upstream Active LTS line, scheduled to enter Maintenance LTS on 20 October 2026 and remain supported through April 2028; the exact `24.21.0` release is available in the [official archive](https://nodejs.org/en/download/archive/v24). Odd Node.js 25 is EOL and is rejected.
+- Node.js 24 enters Maintenance LTS on 20 October 2026 and remains supported through April 2028; the exact `24.21.0` release is available in the [official archive](https://nodejs.org/en/download/archive/v24). Odd Node.js 25 is EOL and is rejected.
 - Next.js 16 requires Node.js `20.9+` and TypeScript `5.1+`; see the [official Next.js 16 upgrade requirements](https://nextjs.org/docs/app/guides/upgrading/version-16).
-- Payload `3.89.0` supports Next.js `16.2.6+` below 17 and Node.js `20.9+`; see the [Payload installation requirements](https://payloadcms.com/docs/getting-started/installation). All three Payload direct packages remain on one exact release.
+- Payload `3.90.0` supports the selected Next.js `16.3.8` through its `>=16.3.3 <17.0.0` peer range and Node.js `20.9+`; see the [Payload installation requirements](https://payloadcms.com/docs/getting-started/installation). All three Payload direct packages remain on one exact release.
 - PostgreSQL supports each major for five years and recommends the current minor. The [upstream version policy](https://www.postgresql.org/support/versioning/) lists `18.6` as the current PostgreSQL 18 minor.
 - Docker `29.8.0` is the current selected patch baseline in the [official Engine 29 release notes](https://docs.docker.com/engine/release-notes/29/). Mutable image tags are insufficient, so the selected Node and PostgreSQL official-image tags also carry verified index digests.
 - The first audit found transitive DOMPurify and legacy esbuild advisories. Scoped exact overrides
@@ -65,7 +65,7 @@ This ticket changes no application route, CMS collection, database connection, e
 
 ## Update policy
 
-1. Review the baseline at least monthly; `reviewDue` is enforced as a failing policy date and currently expires after 13 October 2026.
+1. Review the baseline at least monthly; `reviewDue` is enforced as a failing policy date and was reviewed on 20 October 2026 and next expires after 20 November 2026.
 2. Review immediately for an upstream security notice, EOL/status change, incompatible peer range, lockfile integrity concern, or base-image rebuild. Critical/high findings are triaged before further dependency-bearing delivery; no affected release is promoted until patched or covered by a dated exception.
 3. Apply supported patch/minor updates in a dedicated change. Update the canonical policy first, regenerate the lockfile explicitly, refresh image digests from official registries, run the full commands below, and record the result.
 4. Treat Node.js, pnpm, Next.js, Payload, TypeScript, PostgreSQL, Docker, or distribution-family major changes as architecture changes. Record compatibility, migration, rollback, and security review before promotion.
@@ -88,3 +88,7 @@ This ticket changes no application route, CMS collection, database connection, e
 ## Completion
 
 The controlled-development acceptance result and exact hashes are in the [13 September 2026 completion record](evidence/B00-005-pinned-toolchain-2026-09-13.md). `B00-006` subsequently completed, followed by the local and hosted `B00-011` CI gates. Named Delivery and Security acceptance, a passing Docker `29.8.0` host check before container work, and `B00-012` repository enforcement remain later boundaries.
+
+## 20 October 2026 security refresh
+
+PR #89's dependency audit reported 7 moderate, 13 high, 3 critical, and 1 low advisory across Next.js, Payload, Sharp, and source-map-js. The [dated remediation record](evidence/B00-005-security-refresh-2026-10-20.md) records patched versions, compatibility, database implications, and verification. The audit gate and monthly-review enforcement remain unchanged.

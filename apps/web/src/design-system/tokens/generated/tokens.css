@@ -226,6 +226,7 @@
   --component-action-disabled-background: var(--semantic-color-surface-subtle);
   --component-action-disabled-foreground: var(--semantic-color-text-secondary);
   --component-action-disabled-border-color: var(--semantic-color-border-strong);
+  --component-shell-identity-accent: var(--semantic-color-brand-warm);
   --component-shell-surface-raised: var(--semantic-color-surface-raised);
   --component-shell-surface-subtle: var(--semantic-color-surface-subtle);
   --component-shell-text-primary: var(--semantic-color-text-primary);

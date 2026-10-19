@@ -3,13 +3,13 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const applicationRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const [controls, state, styles, enhancement, fixture, page, configuration] = await Promise.all([
+const [controls, state, styles, enhancement, fixture, preview, configuration] = await Promise.all([
   read('src/design-system/components/search-controls.tsx'),
   read('src/design-system/components/search-state.ts'),
   read('src/design-system/components/search-controls.module.css'),
   read('public/search-controls.js'),
   read('src/design-system/templates/search-controls-fixture-template.tsx'),
-  read('src/app/page.tsx'),
+  read('scripts/lib/foundations-preview-server.mjs'),
   read('next.config.ts'),
 ])
 const failures = []
@@ -103,8 +103,9 @@ for (const marker of [
   if (!fixture.includes(marker)) failures.push(`controlled fixture: missing ${marker}`)
 }
 
-if (!/searchParams:\s*Promise/u.test(page) || !/searchParameters=\{await searchParams\}/u.test(page)) {
-  failures.push('application route: server search parameters are not passed through the template API')
+if (!/url\.searchParams\.getAll\(key\)/u.test(preview)
+  || !/createElement\(EssentialActionsFixtureTemplate, \{ searchParameters, statuses \}\)/u.test(preview)) {
+  failures.push('controlled preview: repeated server search parameters must reach the template API')
 }
 if (!/form-action 'self'/u.test(configuration) || /form-action 'none'/u.test(configuration)) {
   failures.push('application configuration: same-origin GET form submissions must be permitted')

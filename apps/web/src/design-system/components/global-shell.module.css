@@ -58,7 +58,7 @@
 }
 
 .identity::before {
-  background: var(--semantic-color-brand-warm);
+  background: var(--component-shell-identity-accent);
   border-radius: var(--component-shell-radius);
   content: '';
   flex: 0 0 auto;

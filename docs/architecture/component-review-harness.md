@@ -1,30 +1,32 @@
 # Controlled component review harness
 
-`B01-013` reviews the actual built, server-rendered component fixtures through a separate
-loopback-only Node server. Its code lives under `scripts/`; application code cannot import its
+`B01-013` reviews the actual React component fixtures through a separate
+loopback-only Node server. Its code lives under `scripts/` and `apps/web/scripts/`; application code cannot import its
 inventory, stress text or review controls. No application route or production runtime is added.
 
 ## Review surface
 
-After `pnpm build`, `pnpm review-harness:serve` starts a temporary local application with collection
+`pnpm review-harness:serve` starts the isolated component preview adapter with collection
 and providers disabled, then exposes `http://127.0.0.1:3213`. Stop it with Ctrl+C; both servers close.
 The index links the nine specimen groups and exposes a state inventory, language mode and byte
 report. English keeps original source wording. Amharic mode adds explicitly unreviewed Ethiopic
 shaping spans beside English text throughout the specimens; input values, IDs and relationships
 remain literal. This stress mode supports wrapping/glyph review and cannot certify translation.
 
-The review server removes Next hydration scripts/flight data and JavaScript preloads from its copy
-of the built HTML, retaining existing first-party component enhancements and compiled CSS. Thus
-review markup does not conflict with hydration. The production application is still verified
+The preview adapter renders EssentialActionsFixtureTemplate with the shared local TypeScript/CSS
+loader and passes repeated GET query values through the existing search-state adapter. It serves
+first-party enhancements and token/component CSS without mounting a Next route. The review
+server also strips framework scripts if an upstream supplies them, so stress markup cannot conflict
+with hydration. The production application is still verified
 independently with its normal framework runtime, CSP and asset budgets.
 
 ## Network and publication boundary
 
 Only an HTTP `127.0.0.1` upstream and loopback Host are accepted. The server admits the root
-specimen, health, compiled assets discovered in built HTML, existing first-party enhancements,
+specimen, health, specimen CSS and compiled assets discovered in upstream HTML, existing first-party enhancements,
 abstract fixture media, and review CSS/report. Unknown routes, ambiguous language state,
 unsupported query keys and overlong values fail closed. Only bounded `q`, `type`, `page` reach
-the application's existing allowlisted search adapter; `review-language` stays in review tooling.
+the specimen's existing allowlisted search adapter; `review-language` stays in review tooling.
 POST is rejected before an upstream request or body processing. No credentials/cookies are
 forwarded, redirects followed, external providers enabled, or restricted evidence logged.
 

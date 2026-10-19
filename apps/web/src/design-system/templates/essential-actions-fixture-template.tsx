@@ -7,6 +7,7 @@ import {
   LanguageSwitcher,
   SiteShell,
   TextLink,
+  TaskCard,
   type StatusSummaryItem,
 } from '../components'
 
@@ -186,6 +187,13 @@ export function EssentialActionsFixtureTemplate({
               variant="tertiary"
             />
           </ActionGroup>
+
+          <TaskCard
+            href="#controlled-emergency-explanation"
+            icon="directions"
+            label="Review the controlled safety boundary"
+            description="Synthetic task-card specimen; no hospital destination is published."
+          />
 
           <form action="#action-evidence" method="get">
             <ActionGroup label="Button state examples">

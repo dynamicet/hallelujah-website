@@ -22,7 +22,7 @@
   border-radius: var(--component-action-radius);
   cursor: pointer;
   display: inline-flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   font-weight: var(--component-action-font-weight);
   gap: var(--component-action-content-gap);
   justify-content: center;
@@ -127,7 +127,8 @@
 
 .actionCopy,
 .callCopy {
-  min-width: 0;
+  min-inline-size: min(100%, 2ch);
+  max-inline-size: 100%;
 }
 
 .callCopy {
@@ -135,6 +136,11 @@
   display: flex;
   flex-direction: column;
   text-align: start;
+}
+
+.callCopy > * {
+  min-inline-size: 0;
+  max-inline-size: 100%;
 }
 
 .purpose,
@@ -162,7 +168,9 @@
 }
 
 .emergencyWord {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  min-inline-size: 0;
+  max-inline-size: 100%;
   border-inline-end: var(--component-action-border-width) solid currentColor;
   padding-inline-end: var(--component-action-content-gap);
 }
