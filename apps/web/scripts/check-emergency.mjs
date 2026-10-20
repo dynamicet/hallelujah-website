@@ -51,16 +51,16 @@ for (const state of emergencyFixtureStates) {
   }
 
   if (failClosed) {
-    assert.match(html, /fail-closed/u, state)
-    assert.match(html, /Controlled preview boundary/u, state)
+    assert.match(html, /Emergency contact and arrival information is unavailable/u, state)
+    assert.match(html, /Contact information/u, state)
     assert.doesNotMatch(html, /INVALID TEST VALUE|Synthetic Emergency Entrance|How the routes differ/u, state)
     assert.equal((html.match(/data-inert-call-choice="true"/gu) ?? []).length, 0, state)
     assert.equal((html.match(/data-call-action=/gu) ?? []).length, 0, state)
   } else {
-    assert.match(html, /Controlled preview only/u, state)
+    assert.doesNotMatch(html, />\s*Controlled preview only/u, state)
     assert.match(html, /INVALID TEST VALUE/u, state)
-    assert.match(html, /This page provides no emergency advice/u, state)
-    assert.match(html, /No map, coordinates, geolocation, external link or provider request is enabled/u, state)
+    assert.match(html, /Do not use the contact or arrival details on this page for emergency care/u, state)
+    assert.match(html, /Map unavailable/u, state)
     assert.equal((html.match(/data-inert-call-choice="true"/gu) ?? []).length, 2, state)
     assert.equal((html.match(/data-call-action=/gu) ?? []).length, 2, state)
   }
@@ -83,7 +83,7 @@ for (const state of emergencyFixtureStates) {
     assert.match(html, /No map or generic direction substitutes/u, state)
   }
   if (state === 'optional-map-failed' || state === 'optional-map-blocked') {
-    assert.match(html, /Landmark-based test directions[\s\S]*data-map-state=/u, state)
+    assert.match(html, /Directions[\s\S]*data-map-state=/u, state)
     assert.match(html, /Complete text directions/u, state)
   }
   cases++

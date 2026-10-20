@@ -4,12 +4,12 @@ import type { ReactNode } from 'react'
 import './styles.css'
 
 export const metadata: Metadata = {
-  description: 'Controlled local application bootstrap. Not approved for publication.',
+  description: 'Find care and visitor information at Hallelujah Hospital.',
   robots: {
     follow: false,
     index: false,
   },
-  title: 'Controlled local bootstrap',
+  title: 'Hallelujah Hospital',
 }
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

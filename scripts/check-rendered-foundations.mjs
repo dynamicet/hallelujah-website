@@ -812,7 +812,7 @@ try {
     })()`)
     if (activeMap.state !== 'active' || !activeMap.focused || !activeMap.surfaceVisible
       || !activeMap.removeVisible || !activeMap.directionsVisible || activeMap.live !== 'polite'
-      || !activeMap.statusAvailable || !activeMap.status.includes('No map provider was contacted')
+      || !activeMap.statusAvailable || !activeMap.status.includes('Map unavailable. Written directions remain available.')
       || mapRequests.length !== requestCountBeforeIntent) {
       fail(`optional-map intent or request boundary: ${JSON.stringify(activeMap)}; new requests ${mapRequests.length - requestCountBeforeIntent}`)
     }

@@ -60,8 +60,8 @@ for (const state of clinicianDirectoryFixtureStates) {
   assert.match(html, /<main id="main-content" tabindex="-1">/u, state)
   assert.match(html, /noindex,nofollow/u, state)
   assert.match(html, /synthetic-inert-b04-007/u, state)
-  assert.match(html, /Controlled preview only/u, state)
-  assert.match(html, /Approved Amharic directory wording is unavailable/u, state)
+  assert.doesNotMatch(html, />\s*Controlled preview only/u, state)
+  assert.match(html, /This page is unavailable in Amharic/u, state)
   assert.doesNotMatch(html, /href="(?:tel:|mailto:|https?:)|<iframe\b|<video\b|<img\b|<textarea\b/iu, state)
   assert.doesNotMatch(html, /book now|available today|accepting patients/iu, state)
   assert.equal((html.match(/data-site-header/gu) ?? []).length, 1, state)
@@ -75,7 +75,7 @@ for (const state of clinicianDirectoryFixtureStates) {
 }
 
 const noMatchHtml = clinicianDirectoryPreviewDocument('controlled', new URLSearchParams({ q: 'no synthetic match' }))
-assert.match(noMatchHtml, /No synthetic clinicians match/u)
+assert.match(noMatchHtml, /No clinicians match/u)
 assert.equal((noMatchHtml.match(/data-clinician-public-id/gu) ?? []).length, 0)
 assert.deepEqual([...noMatchHtml.matchAll(/data-directory-section="(D\d)"/gu)].map((match) => match[1]),
   ['D1', 'D2', 'D3', 'D5', 'D6'])

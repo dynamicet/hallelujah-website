@@ -26,7 +26,7 @@
       activate.setAttribute('aria-expanded', 'false')
       if (clearChoice) acknowledgement.checked = false
       activate.disabled = !acknowledgement.checked
-      live.textContent = announce ? 'Controlled placeholder removed. Written directions remain available.' : ''
+      live.textContent = announce ? 'Written directions remain available.' : ''
       if (restoreFocus) activate.focus()
     }
 
@@ -42,7 +42,7 @@
       activate.setAttribute('aria-expanded', 'true')
       surface.hidden = false
       remove.hidden = false
-      live.textContent = 'Controlled placeholder displayed. No map provider was contacted.'
+      live.textContent = 'Map unavailable. Written directions remain available.'
       surface.focus()
     })
     remove.addEventListener('click', () => reset({ announce: true, restoreFocus: true }))

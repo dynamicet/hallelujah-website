@@ -36,7 +36,7 @@ export function emergencySourceFixture({ expanded = false } = {}) {
   }
 
   const links = {
-    home: { href: '#main-content', label: 'Controlled Emergency' },
+    home: { href: '#main-content', label: 'Emergency' },
     routes: { href: '#route-difference-title', label: `Route distinction${suffix}` },
     scope: { href: '#hospital-scope-title', label: `Hospital scope${suffix}` },
     directions: { href: '#where-to-go-title', label: `Arrival guidance${suffix}` },
@@ -58,7 +58,7 @@ export function emergencySourceFixture({ expanded = false } = {}) {
       ],
     },
     description: `Review the distinction between two fictional routes before the inert call placeholders. No value on this page can be used to obtain help${suffix}`,
-    eyebrow: 'Controlled Emergency preview — synthetic and non-public',
+    eyebrow: 'Emergency information',
     hospitalChoice,
     lifecycle: { expiresOn: '2026-10-23T12:00:00+03:00' },
     publicChoice,
@@ -71,12 +71,11 @@ export function emergencySourceFixture({ expanded = false } = {}) {
       summary: `Synthetic scope copy reserves the governed content position without claiming any capability, patient group, service or operating status${suffix}`,
     },
     shell: {
-      notice: 'Local preview · Hospital content, contacts and services are not published.',
       skipLinkLabel: 'Skip to main content',
       header: {
         brandName: 'Hallelujah Hospital',
         homeHref: '#main-content',
-        homeLabel: 'Hallelujah Hospital controlled home',
+        homeLabel: 'Hallelujah Hospital home',
         identityLanguage: 'en',
         menuLabel: 'Menu',
         navigationMode: expanded ? 'compact' : 'responsive',
@@ -91,11 +90,11 @@ export function emergencySourceFixture({ expanded = false } = {}) {
         searchItem: links.support,
       },
       footer: {
-        brandName: 'Hallelujah Hospital — controlled identity',
-        description: 'Loopback-only Emergency preview. Safety facts, calls, routes, providers and publication remain disabled.',
+        brandName: 'Hallelujah Hospital',
+        description: 'Find information for your care and visit.',
         groups: [
-          { label: 'Controlled safety review', links: [links.routes, links.scope, links.directions] },
-          { label: 'Access and governance', links: [links.support, links.home] },
+          { label: 'Emergency information', links: [links.routes, links.scope, links.directions] },
+          { label: 'Information', links: [links.support, links.home] },
         ],
         navigationLabel: 'Footer',
       },
@@ -232,7 +231,7 @@ const requiredEmergencyPaths = [
 
 function failClosedFixture(shell, state) {
   return {
-    eyebrow: 'Controlled Emergency preview — synthetic and non-public',
+    eyebrow: 'Emergency information',
     shell: failClosedShell(shell),
     state: { announcement: 'static', ...state },
     title: 'Emergency information unavailable',
@@ -249,7 +248,7 @@ function failClosedShell(shell) {
     },
     header: {
       ...shell.header,
-      navigationItems: [{ current: true, href: '#main-content', label: 'Controlled Emergency' }, safeLink],
+      navigationItems: [{ current: true, href: '#main-content', label: 'Emergency' }, safeLink],
       searchItem: safeLink,
     },
   }

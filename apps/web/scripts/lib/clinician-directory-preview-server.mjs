@@ -21,7 +21,7 @@ export function clinicianDirectoryPreviewDocument(state = 'controlled', searchPa
   const viewState = ['failure', 'offline', 'empty'].includes(state) ? state : 'ready'
   const pathname = state === 'controlled' ? '/' : `/${state}`
   const body = renderClinicianDirectory({ directory, pathname, state: viewState })
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Clinician directory — controlled B04-007 preview</title><link rel="stylesheet" href="/clinician-directory.css"><script defer src="/search-controls.js"></script></head><body data-clinician-directory-preview="synthetic-inert-b04-007" data-clinician-directory-preview-state="${state}">${body}</body></html>`
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Clinician directory — Hallelujah Hospital</title><link rel="stylesheet" href="/clinician-directory.css"><script defer src="/search-controls.js"></script></head><body data-clinician-directory-preview="synthetic-inert-b04-007" data-clinician-directory-preview-state="${state}">${body}</body></html>`
 }
 
 export async function createClinicianDirectoryPreviewServer({ port = 0 } = {}) {

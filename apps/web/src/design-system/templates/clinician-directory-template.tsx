@@ -30,16 +30,16 @@ export interface ClinicianDirectoryTemplateProps {
 
 function recovery(state: Exclude<ClinicianDirectoryReviewState, 'ready'>) {
   if (state === 'offline') return {
-    heading: 'The controlled directory is offline',
-    copy: 'No cached clinician is shown as current. Restore the local review connection and retry.',
+    heading: 'The directory is offline',
+    copy: 'No cached clinician is shown as current. Check your connection and try again.',
   }
   if (state === 'failure') return {
-    heading: 'The controlled directory could not load',
-    copy: 'No clinician result is shown. Retry this local review or return to the synthetic search controls.',
+    heading: 'The directory could not load',
+    copy: 'No clinician result is shown. Try again or return to the search controls.',
   }
   return {
-    heading: 'No approved clinician set is available',
-    copy: 'A public directory must remain unavailable until the hospital approves a current roster.',
+    heading: 'Clinician information is unavailable',
+    copy: 'Please try again later.',
   }
 }
 
@@ -72,19 +72,11 @@ export function ClinicianDirectoryTemplate({ directory, pathname, shell, state }
       <div className={styles.frame} data-clinician-directory-state={state} data-clinician-directory-template>
         <section aria-labelledby="clinician-directory-title" className={styles.introduction} data-directory-section="D1">
           <div className={styles.introductionCopy}>
-            <p className={styles.eyebrow}>Controlled clinician-directory preview</p>
-            <h1 id="clinician-directory-title">Find a synthetic clinician</h1>
-            <p className={styles.description}>
-              Review a directory pattern using fictional names and specialties. It does not represent
-              the hospital roster, capability, schedule or availability.
-            </p>
-            <p className={styles.fixtureNotice}>
-              Controlled preview only. Do not use these records to seek care or request an appointment.
-            </p>
+            <h1 id="clinician-directory-title">Find a clinician</h1>
           </div>
           <aside aria-labelledby="directory-guidance-title" className={styles.guidance}>
             <h2 id="directory-guidance-title">Not sure where to begin?</h2>
-            <p>Service recommendations and staffed routing are not approved for this controlled preview.</p>
+            <p>Contact information is unavailable.</p>
             <a className="ds-touch-target" href="#directory-support">Review available help</a>
           </aside>
         </section>
@@ -92,16 +84,16 @@ export function ClinicianDirectoryTemplate({ directory, pathname, shell, state }
         <section aria-labelledby="directory-search-title" className={styles.directory} data-directory-section="D2">
           <div className={styles.directoryHeading}>
             <p className={styles.eyebrow}>Search and filters</p>
-            <h2 id="directory-search-title">Search synthetic clinicians</h2>
+            <h2 id="directory-search-title">Search clinicians</h2>
           </div>
-          <SearchControlsForm action={pathname} label="Search synthetic clinicians">
+          <SearchControlsForm action={pathname} label="Search clinicians">
             <div className={styles.searchPanel}>
               <SearchBox
                 clearHref={clinicianDirectoryUrl(pathname, { ...searchState, page: 1, query: '' }, allowedFilters)}
-                hint="Search fictional names or synthetic specialties only. Do not enter personal or medical information."
+                hint="Search by name or specialty. Do not enter personal or medical information."
                 hintId="clinician-search-hint"
                 inputId="clinician-search-query"
-                label="Name or synthetic specialty"
+                label="Name or specialty"
                 maximumLength={clinicianDirectoryQueryMaximum}
                 query={searchState.query}
                 submitLabel="Search"
@@ -109,10 +101,10 @@ export function ClinicianDirectoryTemplate({ directory, pathname, shell, state }
             </div>
 
             <div className={styles.discoveryWorkspace}>
-              <aside aria-label="Synthetic clinician filters" className={styles.filterRail}>
-                <FilterDisclosure label={`Filter synthetic clinicians (${activeFilters.length})`} open>
+              <aside aria-label="Clinician filters" className={styles.filterRail}>
+                <FilterDisclosure label={`Filter clinicians (${activeFilters.length})`} open>
                   <FilterGroup
-                    legend="Synthetic specialty"
+                    legend="Specialty"
                     options={directory.filters}
                     selectedValues={searchState.filters}
                   />
@@ -121,18 +113,18 @@ export function ClinicianDirectoryTemplate({ directory, pathname, shell, state }
               </aside>
 
               <section aria-labelledby="directory-results-title" className={styles.resultsSection} data-directory-section="D3">
-                <h2 className={styles.visuallyHidden} id="directory-results-title">Synthetic clinician results</h2>
+                <h2 className={styles.visuallyHidden} id="directory-results-title">Clinician results</h2>
                 <div className={styles.resultsToolbar}>
                   {!unavailable ? (
                     <ResultCount id="clinician-result-count">
-                      {directory.resultCount} synthetic {directory.resultCount === 1 ? 'clinician' : 'clinicians'}
+                      {directory.resultCount} {directory.resultCount === 1 ? 'clinician' : 'clinicians'}
                     </ResultCount>
                   ) : <p className={styles.stateLabel}>Directory status</p>}
                   <ActiveFilterList
                     clearAllHref={clinicianDirectoryUrl(pathname, { page: 1, query: '', filters: [] }, allowedFilters)}
                     clearAllLabel="Clear search and filters"
                     filters={activeFilters}
-                    label="Active synthetic specialty filters"
+                    label="Active specialty filters"
                   />
                 </div>
 
@@ -140,13 +132,13 @@ export function ClinicianDirectoryTemplate({ directory, pathname, shell, state }
                   <div className={styles.statePanel} data-directory-section="D5" data-directory-unavailable>
                     <h2>{recovery(state).heading}</h2>
                     <p>{recovery(state).copy}</p>
-                    <a className="ds-touch-target" href={pathname}>Return to the controlled directory</a>
+                    <a className="ds-touch-target" href={pathname}>Return to the directory</a>
                   </div>
                 ) : noMatches ? (
                   <div className={styles.statePanel} data-directory-section="D5" data-directory-empty>
-                    <h2>No synthetic clinicians match</h2>
-                    <p>Check the fictional name, remove a filter, or reset this controlled directory.</p>
-                    <a className="ds-touch-target" href={pathname}>Reset controlled search</a>
+                    <h2>No clinicians match</h2>
+                    <p>Check the name, remove a filter, or reset this directory.</p>
+                    <a className="ds-touch-target" href={pathname}>Reset search</a>
                   </div>
                 ) : (
                   <>
@@ -159,20 +151,19 @@ export function ClinicianDirectoryTemplate({ directory, pathname, shell, state }
                               <span />
                             </div>
                             <div className={styles.cardContent}>
-                              <p className={styles.cardLabel}>Synthetic clinician record</p>
+                              <p className={styles.cardLabel}>Clinician</p>
                               <h2>{clinician.details.name}</h2>
-                              <ul className={styles.specialties} aria-label="Synthetic specialties">
+                              <ul className={styles.specialties} aria-label="Specialties">
                                 {clinician.details.specialties.map((specialty) => <li key={specialty}>{specialty}</li>)}
                               </ul>
-                              <p className={styles.withheld}>Portrait, schedule, availability and appointment actions are withheld.</p>
-                              <span aria-disabled="true" className={styles.disabledAction}>Profile unavailable in controlled preview</span>
+                              <span aria-disabled="true" className={styles.disabledAction}>Profile unavailable</span>
                             </div>
                           </article>
                         </li>
                       ))}
                     </ol>
                     <Pagination
-                      label="Synthetic clinician result pages"
+                      label="clinician result pages"
                       next={searchState.page < directory.pageCount ? { ...pages[searchState.page], label: 'Next' } : undefined}
                       pages={pages}
                       previous={searchState.page > 1 ? { ...pages[searchState.page - 2], label: 'Previous' } : undefined}
@@ -186,8 +177,8 @@ export function ClinicianDirectoryTemplate({ directory, pathname, shell, state }
 
         <section aria-labelledby="directory-support-title" className={styles.support} data-directory-section="D6" id="directory-support">
           <h2 id="directory-support-title">Need help choosing?</h2>
-          <p>No staffed contact or service recommendation is approved for this controlled preview.</p>
-          <a className="ds-touch-target" href="#directory-search-title">Return to synthetic search</a>
+
+          <a className="ds-touch-target" href="#directory-search-title">Return to search</a>
         </section>
       </div>
     </SiteShell>

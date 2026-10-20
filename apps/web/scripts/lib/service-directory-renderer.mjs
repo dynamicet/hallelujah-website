@@ -70,13 +70,12 @@ export function resolveServiceDirectory(
 export function renderServiceDirectory({ directory, pathname = '/', state = 'ready' }) {
   const { EmergencyAction, LanguageSwitcher } = components
   const links = {
-    directory: { current: true, href: '#service-directory-title', label: 'Synthetic services' },
+    directory: { current: true, href: '#service-directory-title', label: 'Services' },
     filters: { href: '#service-search-title', label: 'Search and groups' },
-    results: { href: '#service-results', label: 'Synthetic results' },
-    support: { href: '#service-directory-support', label: 'Controlled support boundary' },
+    results: { href: '#service-results', label: 'Results' },
+    support: { href: '#service-directory-support', label: 'Support' },
   }
   const shell = {
-    notice: 'Local preview · Hospital content, contacts and services are not published.',
     skipLinkLabel: 'Skip to main content',
     header: {
       brandName: 'Hallelujah Hospital',
@@ -85,11 +84,11 @@ export function renderServiceDirectory({ directory, pathname = '/', state = 'rea
         label: 'Emergency route unavailable',
       }),
       homeHref: '#service-directory-title',
-      homeLabel: 'Hallelujah Hospital controlled service directory',
+      homeLabel: 'Hallelujah Hospital service directory',
       identityLanguage: 'en',
       languageSwitcher: createElement(LanguageSwitcher, {
         alternate: { available: false, label: 'አማርኛ', lang: 'am',
-          reason: 'Approved Amharic service-directory wording is unavailable. English controlled copy remains visible.' },
+          reason: 'This page is unavailable in Amharic.' },
         currentLabel: 'English', currentLang: 'en', label: 'Language',
       }),
       menuLabel: 'Menu',
@@ -99,11 +98,11 @@ export function renderServiceDirectory({ directory, pathname = '/', state = 'rea
       searchItem: links.filters,
     },
     footer: {
-      brandName: 'Hallelujah Hospital — controlled identity',
-      description: 'Loopback-only service-directory preview. Authentic taxonomy, services and publication remain disabled.',
+      brandName: 'Hallelujah Hospital',
+      description: 'Find information for your care and visit.',
       groups: [
-        { label: 'Controlled directory review', links: [links.filters, links.results] },
-        { label: 'Access and governance', links: [links.support, links.directory] },
+        { label: 'Directory', links: [links.filters, links.results] },
+        { label: 'Information', links: [links.support, links.directory] },
       ],
       navigationLabel: 'Footer',
     },

@@ -107,7 +107,7 @@ export function OptionalMap(props: OptionalMapProps) {
         {state === 'loading' ? (
           <div className={styles.loadingStatus} data-map-loading>
             <span aria-hidden="true" className={styles.spinner} />
-            <span>Controlled loading-state specimen; no provider request is running.</span>
+            <span>Map unavailable.</span>
           </div>
         ) : null}
 
@@ -126,7 +126,7 @@ export function OptionalMap(props: OptionalMapProps) {
         {isInteractiveFixture ? (
           <label className={styles.acknowledgement} htmlFor={`${id}-acknowledgement`}>
             <input autoComplete="off" data-map-acknowledgement disabled id={`${id}-acknowledgement`} type="checkbox" />
-            <span>I understand this is a local test, not consent to a map provider.</span>
+            <span>I understand that no interactive map is available.</span>
           </label>
         ) : null}
 
@@ -160,8 +160,8 @@ export function OptionalMap(props: OptionalMapProps) {
             tabIndex={-1}
           >
             <MapPinIcon />
-            <strong id={`${id}-preview-heading`}>Controlled local map placeholder</strong>
-            <p>No coordinates, tiles, provider code, or hospital location are loaded.</p>
+            <strong id={`${id}-preview-heading`}>Map unavailable</strong>
+            <p>Use the written directions above.</p>
           </div>
         ) : null}
 

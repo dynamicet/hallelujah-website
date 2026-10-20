@@ -127,7 +127,7 @@ try {
     brokenLabels: 0,
     disabledActions: [
       'Appointment requests unavailable',
-      'Request action withheld',
+      'Appointment requests unavailable',
       'አማርኛ',
     ].sort(),
     duplicateIds: 0,
@@ -143,7 +143,7 @@ try {
     .map((node) => node.name?.value)
   assert.ok(headingNames.includes('Dr Synthetic Meron'))
   assert.ok(headingNames.includes('Where and how to request care'))
-  assert.ok(headingNames.includes('Controlled review metadata'))
+  assert.ok(!headingNames.includes('Controlled review metadata'))
   cases.push('semantic and accessibility-tree completeness')
 
   await navigate('/appointment-unavailable', { scripts: false })
@@ -180,9 +180,9 @@ try {
 
   await navigate('/', { media: 'print', scripts: false, width: 360 })
   assert.equal(await evaluate('document.documentElement.scrollWidth > innerWidth + 1'), false)
-  assert.equal(await evaluate("document.querySelectorAll('[data-profile-section=P6]').length"), 1)
+  assert.equal(await evaluate("document.querySelectorAll('[data-profile-section=P6]').length"), 0)
   assert.equal(await evaluate(`document.querySelectorAll('a[href^="http"],a[href^="tel:"],a[href^="mailto:"]').length`), 0)
-  cases.push('print review metadata and isolation')
+  cases.push('print metadata omission and isolation')
 
   for (const state of ['failure', 'unapproved', 'gone']) {
     await navigate(`/${state}`, { scripts: false, width: 320 })

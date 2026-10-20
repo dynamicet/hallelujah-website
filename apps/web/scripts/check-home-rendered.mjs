@@ -162,7 +162,7 @@ try {
       assert.match(result.text, /Online appointment requests are unavailable/u)
       if ((contacts && ['contacts-current', 'contacts-updated'].includes(state)) || governed) {
         assert.equal(result.contactState, 'controlled-fixture', label)
-        assert.match(result.text, /Synthetic contact fixture/u)
+        assert.match(result.text, /Do not use these contact or arrival details for care/u)
         const enquiry = result.contactFacts.find(fact => fact.key === 'publicPhone')
         assert.equal(enquiry.label, 'Public enquiry phone', label)
         assert.equal(enquiry.value, state === 'contacts-updated' ? '+1 (202) 555-0199' : '+1 (202) 555-0101', label)
@@ -170,14 +170,14 @@ try {
           assert.ok(result.contactFacts.some(fact => fact.key === id), label + '/' + id)
         }
       } else {
-        assert.match(result.text, /Hospital telephone contacts are withheld/u)
+        assert.match(result.text, /Telephone contact information is unavailable/u)
         if (contacts) {
           assert.equal(result.contactState, 'unavailable', label)
           assert.equal(result.contactFacts.length, 0, label)
           assert.doesNotMatch(result.text, /555|hospital\.invalid|Synthetic address/u)
         }
       }
-      assert.match(result.languageReason, /An approved Amharic Home page is not available/u)
+      assert.match(result.languageReason, /This page is unavailable in Amharic/u)
       if (governed) {
         const sections = await evaluate(`[...document.querySelectorAll('[data-home-governed-section]')].map(el => el.dataset.homeGovernedSection)`)
         const expected = ({
@@ -188,12 +188,12 @@ try {
         })[state] ?? []
         assert.deepEqual(sections, expected, label)
         if (state === 'governed-current') {
-          assert.match(result.text, /Synthetic featured services/u)
-          assert.match(result.text, /Synthetic featured clinicians/u)
-          assert.match(result.text, /Synthetic institutional evidence/u)
+          assert.match(result.text, /Browse care by need/u)
+          assert.match(result.text, /View all doctors/u)
+          assert.match(result.text, /About the hospital/u)
           assert.equal(await evaluate(`document.querySelectorAll('[data-card-state="current"]').length`), 2, label)
         } else if (!expected.length) {
-          assert.doesNotMatch(result.text, /Browse care by need|Synthetic featured clinicians|About the hospital/u, label)
+          assert.doesNotMatch(result.text, /Browse care by need|View all doctors|About the hospital/u, label)
         }
       }
       if (['no-js', 'reduced-motion', 'save-data'].includes(capability)) assert.equal(result.accentEnabled, 'false', label)

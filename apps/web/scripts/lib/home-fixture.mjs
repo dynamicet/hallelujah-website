@@ -16,27 +16,26 @@ export function homeFixture(state = 'static') {
     for (const task of Object.values(tasks)) task.label += ' — expanded English label / የቁጥጥር ምሳሌ (unreviewed shaping)'
   }
   return {
-    description: 'Find a doctor, explore services, or review appointment information. This controlled preview has no live hospital actions.',
-    eyebrow: 'Controlled Home preview — draft copy',
+    description: 'Find a doctor, explore services, or review appointment information.',
+    eyebrow: 'Care access, clearly organized',
     title: 'Find the next step for your care',
     tasksHeading: 'How can we help?',
     searchHeading: 'Search this website',
-    searchDescription: 'Search is unavailable in this preview. Use the task links above to review the available journeys.',
+    searchDescription: 'Search is unavailable. Use the care routes above to continue.',
     tasks,
     shell: {
-      notice: 'Local preview · Hospital content, contacts and services are not published.',
       skipLinkLabel: 'Skip to main content',
       header: {
         brandName: 'Hallelujah Hospital', homeHref: '#main-content',
-        homeLabel: 'Hallelujah Hospital controlled home', identityLanguage: 'en',
+        homeLabel: 'Hallelujah Hospital home', identityLanguage: 'en',
         menuLabel: 'Menu', primaryNavigationLabel: 'Primary',
         navigationMode: state === 'long-labels' ? 'compact' : 'responsive',
         navigationItems: [tasks.doctor, tasks.service, tasks.appointment, tasks.directions],
         searchItem: tasks.search,
       },
       footer: {
-        brandName: 'Hallelujah Hospital — controlled identity',
-        description: 'Local preview only. Hospital content, contacts, media and route publication remain withheld.',
+        brandName: 'Hallelujah Hospital',
+        description: 'Find information for your care and visit.',
         navigationLabel: 'Footer', groups: [{ label: 'Care access', links: Object.values(tasks) }],
       },
     },
@@ -53,11 +52,11 @@ export function homeFixture(state = 'static') {
 }
 
 export const homeDestinationDescriptions = {
-  emergency: ['Emergency information', 'Verified emergency guidance and telephone contacts are withheld pending hospital approval. This preview provides no urgent advice.'],
-  doctor: ['Find a doctor', 'The doctor directory is not available in this preview. No clinician or availability is represented.'],
-  service: ['Explore services', 'The service directory is not available in this preview. No clinical capability is represented.'],
+  emergency: ['Emergency information', 'Emergency contact information is unavailable.'],
+  doctor: ['Find a doctor', 'The doctor directory is unavailable.'],
+  service: ['Explore services', 'The service directory is unavailable.'],
   appointment: ['Request an appointment', 'Online appointment requests are unavailable. No request is submitted and no booking is confirmed.'],
-  call: ['Call the hospital', 'Hospital telephone contacts are withheld until a canonical record is approved. No telephone link is active.'],
-  directions: ['Locations and directions', 'Verified address, entrance and text directions are withheld pending hospital approval. No map or geolocation is enabled.'],
-  'search-status': ['Search availability', 'Search is unavailable. This preview accepts no search queries.'],
+  call: ['Call the hospital', 'Telephone contact information is unavailable.'],
+  directions: ['Locations and directions', 'Location and arrival information is unavailable.'],
+  'search-status': ['Search availability', 'Search is unavailable.'],
 }

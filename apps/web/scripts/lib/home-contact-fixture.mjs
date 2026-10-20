@@ -38,7 +38,7 @@ export function homeContactFixture(state = 'contacts-current') {
     return { ...homeFixture(), documents: [retired], locale: 'en', now: homeContactTime, mode: 'controlled-fixture' }
   }
   return { ...homeFixture(),
-    eyebrow: 'Controlled Home preview — synthetic canonical contacts',
+    eyebrow: 'Care access, clearly organized',
     documents: state === 'contacts-missing' ? [] : [doc],
     locale: state === 'contacts-amharic-unavailable' ? 'am' : 'en',
     now: state === 'contacts-expired' ? new Date(homeContactTime.getTime() + 7 * 86400000) : homeContactTime,

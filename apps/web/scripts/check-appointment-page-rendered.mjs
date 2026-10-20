@@ -191,13 +191,17 @@ try {
         assert.equal(result.formCount, unavailable ? 0 : 1, label)
         assert.equal(result.controlCount, unavailable ? 0 : 9, label)
         assert.equal(result.level, '0', label)
-        assert.match(result.text, /Controlled preview only/u, label)
-        assert.match(result.text, /Patient Experience Team — synthetic recipient label/u, label)
-        assert.match(result.languageReason, /Approved Amharic appointment wording is unavailable/u, label)
+        assert.doesNotMatch(result.text, /Controlled preview only/u, label)
+        assert.match(result.text, /Patient Experience Team/u, label)
+        assert.match(result.languageReason, /This page is unavailable in Amharic/u, label)
         assert.doesNotMatch(result.text, /WhatsApp|Telegram|response within|we will call/iu, label)
         assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)
         if (capability === 'no-js' && !unavailable) assert.equal(result.submitDisabled, true, label)
-        if (state === 'receipt') assert.deepEqual(result.visibleStates, ['receipt'], label)
+        if (state === 'receipt') {
+          assert.deepEqual(result.visibleStates, ['warning'], label)
+          assert.match(result.text, /No appointment request was sent/u, label)
+          assert.doesNotMatch(result.text, /CONTROLLED-REQUEST-001/u, label)
+        }
         if (state === 'delivery-warning') assert.deepEqual(result.visibleStates, ['warning'], label)
         if (state === 'pending') assert.deepEqual(result.visibleStates, ['pending'], label)
         if (state === 'known-failure') assert.deepEqual(result.visibleStates, ['failure'], label)
@@ -264,7 +268,7 @@ try {
   const tree = await send('Accessibility.getFullAXTree')
   const nodes = tree.nodes.filter((node) => !node.ignored)
   for (const heading of ['Request an appointment', 'Do not use this form for emergency help',
-    'Request details', 'Before the synthetic submission', 'Review the request state']) {
+    'Request details', 'Before continuing', 'Review your details']) {
     assert.ok(nodes.some((node) => node.role?.value === 'heading' && node.name?.value === heading), heading)
   }
   cases.push({ capability: 'accessibility-tree-form-structure', passed: true, state: 'controlled', width: 360 })

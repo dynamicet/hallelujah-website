@@ -59,7 +59,7 @@ for (const state of clinicianProfileFixtureStates.filter((value) => value !== 'r
   assert.match(html, /<main id="main-content" tabindex="-1">/u, state)
   assert.match(html, /noindex,nofollow/u, state)
   assert.match(html, /synthetic-inert-b04-009/u, state)
-  assert.match(html, /Approved Amharic clinician-profile wording is unavailable/u, state)
+  assert.match(html, /This page is unavailable in Amharic/u, state)
   assert.doesNotMatch(html, /href="(?:tel:|mailto:|https?:)|<iframe\b|<video\b|<img\b|<form\b|<input\b|<textarea\b/iu, state)
   assert.doesNotMatch(html, /book now|available today|accepting patients|schedule with/iu, state)
   assert.equal((html.match(/data-site-header/gu) ?? []).length, 1, state)
@@ -70,19 +70,19 @@ for (const state of clinicianProfileFixtureStates.filter((value) => value !== 'r
     assert.doesNotMatch(html, /data-appointment-doctor-public-id/u, state)
   } else {
     assert.match(html, /data-appointment-doctor-public-id="pub_09090909090901"/u, state)
-    assert.match(html, /Portrait withheld/u, state)
+    assert.match(html, /data-portrait-omitted/u, state)
     assert.doesNotMatch(html, /availabilityGuidance|Synthetic portrait metadata only/u, state)
   }
   cases++
 }
 
 const partialHtml = clinicianProfilePreviewDocument('partial')
-assert.doesNotMatch(partialHtml, /About this synthetic record|Synthetic areas of care|Related synthetic services|Controlled location/u)
+assert.doesNotMatch(partialHtml, /About this clinician|areas of care|Related services|Location/u)
 assert.doesNotMatch(partialHtml, /location relationship/u)
 cases++
 
 const missingHtml = clinicianProfilePreviewDocument('missing-related')
-assert.doesNotMatch(missingHtml, /Related synthetic services|Synthetic support service/u)
+assert.doesNotMatch(missingHtml, /Related services|Synthetic support service/u)
 cases++
 
 const hostile = {

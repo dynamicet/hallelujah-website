@@ -113,7 +113,7 @@ for (const state of homeContactFixtureStates) {
   assert.doesNotMatch(html, /href="(?:tel:|mailto:|https?:)|<form\b|<iframe\b/u)
   if (['contacts-current', 'contacts-updated'].includes(state)) {
     assert.match(html, /data-home-contact-state="controlled-fixture"/u)
-    assert.match(html, /Synthetic contact fixture/u)
+    assert.match(html, /Do not use these contact or arrival details for care/u)
     assert.match(html, /data-home-contact-fact="publicPhone"><dt>Public enquiry phone<\/dt>/u)
   } else {
     assert.match(html, /data-home-contact-state="unavailable"/u)
@@ -139,7 +139,7 @@ const am = homeContactView([doc], 'am', now, mode)
 assert.equal(am.facts.length, siteFactKeys.length)
 props.documents = [doc]
 props.locale = 'am'
-assert.match(renderHome(props), /Unreviewed Amharic shaping fixture/u)
+assert.doesNotMatch(renderHome(props), /Unreviewed Amharic shaping fixture/u)
 assert.match(renderHome(props), /<dl[^>]* lang="am">/u)
 cases++
 console.log(`Home canonical contacts passed: ${cases} projection, independent workflow, purpose/target, omission, lifecycle, invalidation, bilingual and escaped SSR cases.`)

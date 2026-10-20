@@ -172,7 +172,7 @@ try {
               `${label}: service card columns`)
           }
         }
-        assert.match(result.text, /Controlled preview only/u, label)
+        assert.doesNotMatch(result.text, /Controlled preview only/u, label)
         assert.doesNotMatch(result.text, /Retired Synthetic Service|high-consequence statement that must never render/u, label)
         assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)
         if (capability !== 'print') {
@@ -192,13 +192,13 @@ try {
   cases.push({ capability: 'no-js', state: 'searched-grouped', width: 360 })
 
   await navigate('controlled', 'default', 360, '?q=no-match')
-  assert.match(await evaluate("document.body.innerText"), /No synthetic services match/u)
+  assert.match(await evaluate("document.body.innerText"), /No services match/u)
   assert.equal(await evaluate("document.querySelectorAll('[data-service-public-id]').length"), 0)
   cases.push({ capability: 'default', state: 'no-match', width: 360 })
 
   await navigate('controlled', 'default', 360, '?q=synthetic+urgent+review')
   assert.match(await evaluate("document.body.innerText"), /Emergency guidance must take priority/u)
-  assert.match(await evaluate("document.body.innerText"), /does not estimate urgency/u)
+  assert.match(await evaluate("document.body.innerText"), /does not assess medical urgency/u)
   assert.equal(await evaluate("document.querySelectorAll('[data-service-public-id]').length"), 0)
   cases.push({ capability: 'default', state: 'urgent-boundary', width: 360 })
 

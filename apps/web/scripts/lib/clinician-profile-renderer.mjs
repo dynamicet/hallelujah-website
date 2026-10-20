@@ -67,28 +67,27 @@ export function renderClinicianProfile({ profile, state = 'ready' }) {
   const renderable = profile.clinician && !['failure', 'gone', 'unavailable'].includes(state)
   const profileTarget = renderable ? '#clinician-profile-title' : '#clinician-profile-state-title'
   const detailTarget = renderable ? '#clinician-profile-request-title' : '#profile-support'
-  const reviewTarget = renderable ? '#clinician-profile-review-title' : '#profile-support'
+  const reviewTarget = profileTarget
   const links = {
-    identity: { current: true, href: profileTarget, label: 'Synthetic profile' },
-    request: { href: detailTarget, label: 'Request boundary' },
-    review: { href: reviewTarget, label: 'Review metadata' },
-    support: { href: '#profile-support', label: 'Controlled support' },
+    identity: { current: true, href: profileTarget, label: 'Clinician profile' },
+    request: { href: detailTarget, label: 'Appointment information' },
+    review: { href: reviewTarget, label: 'Profile information' },
+    support: { href: '#profile-support', label: 'Support' },
   }
   const shell = {
     breadcrumbs: { items: [
       { current: true, href: profileTarget, label: name },
     ], label: 'Breadcrumb' },
-    notice: 'Local preview · Hospital content, contacts and services are not published.',
     skipLinkLabel: 'Skip to main content',
     header: {
       brandName: 'Hallelujah Hospital',
       emergencyAction: createElement(EmergencyAction, { compact: true, href: '#profile-support', label: 'Emergency route unavailable' }),
       homeHref: profileTarget,
-      homeLabel: 'Hallelujah Hospital controlled clinician profile',
+      homeLabel: 'Hallelujah Hospital clinician profile',
       identityLanguage: 'en',
       languageSwitcher: createElement(LanguageSwitcher, {
         alternate: { available: false, label: 'አማርኛ', lang: 'am',
-          reason: 'Approved Amharic clinician-profile wording is unavailable. English controlled copy remains visible.' },
+          reason: 'This page is unavailable in Amharic.' },
         currentLabel: 'English', currentLang: 'en', label: 'Language',
       }),
       menuLabel: 'Menu',
@@ -98,11 +97,11 @@ export function renderClinicianProfile({ profile, state = 'ready' }) {
       searchItem: { href: '#profile-support', label: 'Search unavailable' },
     },
     footer: {
-      brandName: 'Hallelujah Hospital — controlled identity',
-      description: 'Loopback-only clinician-profile preview. Authentic roster and publication remain disabled.',
+      brandName: 'Hallelujah Hospital',
+      description: 'Find information for your care and visit.',
       groups: [
-        { label: 'Controlled profile review', links: [links.identity, links.review] },
-        { label: 'Access and governance', links: [links.request, links.support] },
+        { label: 'Profile', links: [links.identity, links.review] },
+        { label: 'Information', links: [links.request, links.support] },
       ],
       navigationLabel: 'Footer',
     },

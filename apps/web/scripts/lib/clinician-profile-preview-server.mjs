@@ -25,7 +25,7 @@ export function clinicianProfilePreviewDocument(state = 'controlled') {
   const fixture = clinicianProfileFixture(state)
   const profile = resolveClinicianProfile(fixture)
   const body = renderClinicianProfile({ profile, state: reviewState(state) })
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Clinician profile — controlled B04-009 preview</title><link rel="stylesheet" href="/clinician-profile.css"></head><body data-clinician-profile-preview="synthetic-inert-b04-009" data-clinician-profile-preview-state="${state}">${body}<script defer src="/shell-navigation.js"></script></body></html>`
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Clinician profile — Hallelujah Hospital</title><link rel="stylesheet" href="/clinician-profile.css"></head><body data-clinician-profile-preview="synthetic-inert-b04-009" data-clinician-profile-preview-state="${state}">${body}<script defer src="/shell-navigation.js"></script></body></html>`
 }
 
 export async function createClinicianProfilePreviewServer({ port = 0 } = {}) {

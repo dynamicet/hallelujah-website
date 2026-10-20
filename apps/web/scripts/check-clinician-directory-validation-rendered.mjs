@@ -131,7 +131,7 @@ try {
     return true
   })()`)
   await until(`location.search === '?q=Aster' && document.querySelectorAll('[data-clinician-public-id]').length === 1`)
-  assert.equal(await evaluate("document.querySelector('[data-result-count]').innerText"), '1 synthetic clinician')
+  assert.equal(await evaluate("document.querySelector('[data-result-count]').innerText"), '1 clinician')
   cases.push('native GET search')
 
   await evaluate(`(() => {
@@ -178,7 +178,7 @@ try {
   const statuses = nodes.filter((node) => node.role?.value === 'status')
   assert.equal(statuses.length, 1)
   assert.ok(nodes.some((node) => node.parentId === statuses[0].nodeId
-    && node.name?.value === '1 synthetic clinician'))
+    && node.name?.value === '1 clinician'))
   assert.equal(await evaluate("document.querySelectorAll('[role=status][aria-live=polite][aria-atomic=true]').length"), 1)
   assert.equal(await evaluate("document.querySelectorAll('ol[aria-labelledby=clinician-result-count]').length"), 1)
   cases.push('single assistive-technology count')
