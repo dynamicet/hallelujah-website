@@ -197,7 +197,11 @@ try {
         assert.doesNotMatch(result.text, /WhatsApp|Telegram|response within|we will call/iu, label)
         assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)
         if (capability === 'no-js' && !unavailable) assert.equal(result.submitDisabled, true, label)
-        if (state === 'receipt') assert.deepEqual(result.visibleStates, ['receipt'], label)
+        if (state === 'receipt') {
+          assert.deepEqual(result.visibleStates, ['warning'], label)
+          assert.match(result.text, /No appointment request was sent/u, label)
+          assert.doesNotMatch(result.text, /CONTROLLED-REQUEST-001/u, label)
+        }
         if (state === 'delivery-warning') assert.deepEqual(result.visibleStates, ['warning'], label)
         if (state === 'pending') assert.deepEqual(result.visibleStates, ['pending'], label)
         if (state === 'known-failure') assert.deepEqual(result.visibleStates, ['failure'], label)

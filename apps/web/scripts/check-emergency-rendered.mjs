@@ -192,15 +192,15 @@ try {
         assert.doesNotMatch(result.text, /Controlled preview only/u, label)
         if (failClosed) {
           assert.doesNotMatch(result.text, /INVALID TEST VALUE|Synthetic Emergency Entrance/u, label)
-          assert.match(result.text, /Controlled preview boundary/u, label)
+          assert.match(result.text, /Emergency contact and arrival information is unavailable/u, label)
         } else {
           assert.match(result.text, /INVALID TEST VALUE/u, label)
-          assert.match(result.text, /provides no emergency advice/u, label)
-          assert.match(result.text, /No map, coordinates, geolocation/u, label)
+          assert.match(result.text, /Do not use the contact or arrival details on this page for emergency care/u, label)
+          assert.match(result.text, /Map unavailable/u, label)
         }
-        if (handoffUnsupported) assert.match(result.text, /Automatic call handoff is unsupported/u, label)
+        if (handoffUnsupported) assert.match(result.text, /Calling is unavailable/u, label)
         if (state === 'optional-map-failed' || state === 'optional-map-blocked') {
-          assert.match(result.text, /Landmark-based test directions[\s\S]*Complete text directions/u, label)
+          assert.match(result.text, /Directions[\s\S]*Complete text directions/u, label)
           assert.deepEqual(result.mapStates, [expectedState], label)
         }
         assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)
