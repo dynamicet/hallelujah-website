@@ -247,9 +247,6 @@ export function NonCriticalSkeleton({
           <span key={index} />
         ))}
       </div>
-      <p className={styles.boundaryCopy}>
-        Only predictable, non-critical record shapes may use this reserved placeholder.
-      </p>
     </section>
   )
 }

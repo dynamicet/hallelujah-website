@@ -41,3 +41,17 @@ reuse fails without exposing a request record. See the
 [appointment foundation](../../docs/architecture/appointment-request-foundation.md).
 
 Do not add CMS routes or collections here until their own backlog and security/content gates permit them.
+
+## Client-facing interface copy
+
+Keep development labels, implementation notes, fixture provenance, approval workflows,
+and content-verification reminders in documentation and the backlog, outside the
+patient-facing interface. Content and information will be verified before publication.
+The component review harness remains an internal developer tool.
+
+Unavailable actions must remain disabled and clearly identified. Local appointment
+forms must not imply a request was accepted, display an accepted-request reference,
+or confirm a booking. Emergency warnings, privacy instructions, coverage limitations,
+and warnings against using inert contact/arrival details for care remain necessary.
+Removing development copy does not authorize publication, activate contact links,
+or change content eligibility and backend acceptance rules.

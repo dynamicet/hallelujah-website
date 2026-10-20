@@ -113,7 +113,7 @@ export function homeGovernedFixture(state = 'governed-current') {
   }
   return {
     ...homeFixture(),
-    eyebrow: 'Controlled Home preview — synthetic governed omissions',
+    eyebrow: 'Care access, clearly organized',
     documents: [homeContactDocument(homeContactTime)],
     governed: {
       institutionalDocuments: [institution],

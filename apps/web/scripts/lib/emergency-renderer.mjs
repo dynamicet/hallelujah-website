@@ -56,11 +56,11 @@ export function renderEmergency(props) {
     ...props.shell.header,
     languageSwitcher: createElement(LanguageSwitcher, {
       alternate: { available: false, label: 'አማርኛ', lang: 'am',
-        reason: 'Approved Amharic emergency guidance is unavailable. English test copy remains visible.' },
+        reason: 'This page is unavailable in Amharic.' },
       currentLabel: 'English', currentLang: 'en', label: 'Language',
     }),
     emergencyAction: createElement(EmergencyAction, { compact: true,
-      href: '#emergency-title', label: 'Controlled Emergency preview',
+      href: '#emergency-title', label: 'Emergency information',
     }),
   }
   const failClosed = ['expired', 'unavailable'].includes(props.state.kind)

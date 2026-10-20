@@ -69,23 +69,22 @@ export function resolveClinicianDirectory(
 export function renderClinicianDirectory({ directory, pathname = '/', state = 'ready' }) {
   const { EmergencyAction, LanguageSwitcher } = components
   const links = {
-    directory: { current: true, href: '#clinician-directory-title', label: 'Synthetic clinicians' },
+    directory: { current: true, href: '#clinician-directory-title', label: 'Clinicians' },
     filters: { href: '#directory-search-title', label: 'Search and filters' },
-    results: { href: '#directory-results-title', label: 'Synthetic results' },
-    support: { href: '#directory-support', label: 'Controlled support boundary' },
+    results: { href: '#directory-results-title', label: 'Results' },
+    support: { href: '#directory-support', label: 'Support' },
   }
   const shell = {
-    notice: 'Local preview · Hospital content, contacts and services are not published.',
     skipLinkLabel: 'Skip to main content',
     header: {
       brandName: 'Hallelujah Hospital',
       emergencyAction: createElement(EmergencyAction, { compact: true, href: '#directory-support', label: 'Emergency route unavailable' }),
       homeHref: '#clinician-directory-title',
-      homeLabel: 'Hallelujah Hospital controlled clinician directory',
+      homeLabel: 'Hallelujah Hospital clinician directory',
       identityLanguage: 'en',
       languageSwitcher: createElement(LanguageSwitcher, {
         alternate: { available: false, label: 'አማርኛ', lang: 'am',
-          reason: 'Approved Amharic directory wording is unavailable. English controlled copy remains visible.' },
+          reason: 'This page is unavailable in Amharic.' },
         currentLabel: 'English', currentLang: 'en', label: 'Language',
       }),
       menuLabel: 'Menu',
@@ -95,11 +94,11 @@ export function renderClinicianDirectory({ directory, pathname = '/', state = 'r
       searchItem: links.filters,
     },
     footer: {
-      brandName: 'Hallelujah Hospital — controlled identity',
-      description: 'Loopback-only clinician-directory preview. Authentic roster and publication remain disabled.',
+      brandName: 'Hallelujah Hospital',
+      description: 'Find information for your care and visit.',
       groups: [
-        { label: 'Controlled directory review', links: [links.filters, links.results] },
-        { label: 'Access and governance', links: [links.support, links.directory] },
+        { label: 'Directory', links: [links.filters, links.results] },
+        { label: 'Information', links: [links.support, links.directory] },
       ],
       navigationLabel: 'Footer',
     },

@@ -21,8 +21,8 @@ for (const state of homeFixtureStates) {
   assert.deepEqual(sectionIds, state === 'story' ? ['H1', 'H2', 'H3', 'H8'] : ['H1', 'H2', 'H3'])
   assert.equal(html.includes('<video'), ['hero', 'story', 'media-failure'].includes(state))
   assert.match(html, /Online appointment requests are unavailable/u)
-  assert.match(html, /Hospital telephone contacts are withheld/u)
-  assert.match(html, /An approved Amharic Home page is not available/u)
+  assert.match(html, /Telephone contact information is unavailable/u)
+  assert.match(html, /This page is unavailable in Amharic/u)
   cases++
 }
 for (const field of ['title', 'description', 'eyebrow', 'tasksHeading', 'searchHeading', 'searchDescription']) {

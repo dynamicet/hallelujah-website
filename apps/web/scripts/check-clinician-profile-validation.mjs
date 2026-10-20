@@ -39,7 +39,7 @@ cases++
 const partialHtml = clinicianProfilePreviewDocument('partial')
 assert.doesNotMatch(partialHtml, /<h[1-6][^>]*>\s*<\/h[1-6]>/u)
 assert.doesNotMatch(partialHtml, /<li[^>]*>\s*<\/li>/u)
-assert.doesNotMatch(partialHtml, /Synthetic areas of care|About this synthetic record|Related synthetic services|Controlled location/u)
+assert.doesNotMatch(partialHtml, /areas of care|About this clinician|Related services|Location/u)
 cases++
 
 const portraitFixture = clinicianProfileFixture('portrait-omitted')
@@ -131,7 +131,7 @@ assert.deepEqual(
 cases++
 
 const unavailableAppointment = clinicianProfilePreviewDocument('appointment-unavailable')
-assert.match(unavailableAppointment, /role="status"[^>]*>The controlled appointment route is unavailable/u)
+assert.match(unavailableAppointment, /role="status"[^>]*>The appointment route is unavailable/u)
 assert.doesNotMatch(unavailableAppointment, /href="[^"]*appointments|<form\b|<input\b/u)
 assert.match(unavailableAppointment, /data-appointment-doctor-public-id="pub_09090909090901"/u)
 cases++

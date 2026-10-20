@@ -59,7 +59,7 @@ export function renderAppointmentPage(props) {
         available: false,
         label: 'አማርኛ',
         lang: 'am',
-        reason: 'Approved Amharic appointment wording is unavailable. English controlled copy remains visible.',
+        reason: 'This page is unavailable in Amharic.',
       },
       currentLabel: 'English',
       currentLang: 'en',

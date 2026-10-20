@@ -169,7 +169,7 @@ try {
           if (!unavailable) assert.equal(result.composition.cardColumns, capability === 'print' || width >= 768 ? 2 : 1,
             `${label}: result columns`)
         }
-        assert.match(result.text, /Controlled preview only/u, label)
+        assert.doesNotMatch(result.text, /Controlled preview only/u, label)
         assert.doesNotMatch(result.text, /Retired Synthetic Record/u, label)
         assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)
         if (capability !== 'print') {
@@ -189,7 +189,7 @@ try {
   cases.push({ capability: 'no-js', state: 'searched-filtered', width: 360 })
 
   await navigate('controlled', 'default', 360, '?q=no-match')
-  assert.match(await evaluate("document.body.innerText"), /No synthetic clinicians match/u)
+  assert.match(await evaluate("document.body.innerText"), /No clinicians match/u)
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 0)
   cases.push({ capability: 'default', state: 'no-match', width: 360 })
 

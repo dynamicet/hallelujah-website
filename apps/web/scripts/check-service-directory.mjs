@@ -75,8 +75,8 @@ for (const state of serviceDirectoryFixtureStates) {
   assert.match(html, /<main id="main-content" tabindex="-1">/u, state)
   assert.match(html, /noindex,nofollow/u, state)
   assert.match(html, /synthetic-inert-b04-011/u, state)
-  assert.match(html, /Controlled preview only/u, state)
-  assert.match(html, /Approved Amharic service-directory wording is unavailable/u, state)
+  assert.doesNotMatch(html, />\s*Controlled preview only/u, state)
+  assert.match(html, /This page is unavailable in Amharic/u, state)
   assert.doesNotMatch(html, /href="(?:tel:|mailto:|https?:)|<iframe\b|<video\b|<img\b|<textarea\b/iu, state)
   assert.doesNotMatch(html, /book now|available today|recommended treatment|you have/iu, state)
   assert.doesNotMatch(html, /Synthetic high-consequence statement that must never render/u, state)
@@ -92,15 +92,15 @@ for (const state of serviceDirectoryFixtureStates) {
 }
 
 const noMatchHtml = serviceDirectoryPreviewDocument('controlled', new URLSearchParams({ q: 'no synthetic match' }))
-assert.match(noMatchHtml, /No synthetic services match/u)
+assert.match(noMatchHtml, /No services match/u)
 assert.equal((noMatchHtml.match(/data-service-public-id/gu) ?? []).length, 0)
 assert.deepEqual([...noMatchHtml.matchAll(/data-directory-section="(S\d)"/gu)].map((match) => match[1]),
   ['S1', 'S3', 'S4', 'S6', 'S7'])
 cases++
 
 const urgentHtml = serviceDirectoryPreviewDocument('controlled', new URLSearchParams({ q: 'synthetic urgent review' }))
-assert.match(urgentHtml, /Synthetic urgent-term boundary/u)
-assert.match(urgentHtml, /does not estimate urgency/u)
+assert.match(urgentHtml, /Emergency information/u)
+assert.match(urgentHtml, /does not assess medical urgency/u)
 assert.deepEqual([...urgentHtml.matchAll(/data-directory-section="(S\d)"/gu)].map((match) => match[1]),
   ['S1', 'S2', 'S3', 'S4', 'S6', 'S7'])
 cases++

@@ -21,7 +21,7 @@ export function serviceDirectoryPreviewDocument(state = 'controlled', searchPara
   const viewState = ['loading', 'failure', 'offline', 'empty'].includes(state) ? state : 'ready'
   const pathname = state === 'controlled' ? '/' : `/${state}`
   const body = renderServiceDirectory({ directory, pathname, state: viewState })
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Service directory — controlled B04-011 preview</title><link rel="stylesheet" href="/service-directory.css"><script defer src="/search-controls.js"></script></head><body data-service-directory-preview="synthetic-inert-b04-011" data-service-directory-preview-state="${state}">${body}</body></html>`
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Service directory — Hallelujah Hospital</title><link rel="stylesheet" href="/service-directory.css"><script defer src="/search-controls.js"></script></head><body data-service-directory-preview="synthetic-inert-b04-011" data-service-directory-preview-state="${state}">${body}</body></html>`
 }
 
 export async function createServiceDirectoryPreviewServer({ port = 0 } = {}) {

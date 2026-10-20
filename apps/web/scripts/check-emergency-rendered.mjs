@@ -189,7 +189,7 @@ try {
           state === 'call-handoff-unsupported-injected' && capability !== 'no-js' ? 1 : 0, label)
         assert.equal(result.stateAnnouncements, handoffUnsupported || failClosed ? 1 : 0, label)
         if (capability !== 'no-css') assert.equal(result.moving, false, label)
-        assert.match(result.text, /Controlled preview only/u, label)
+        assert.doesNotMatch(result.text, /Controlled preview only/u, label)
         if (failClosed) {
           assert.doesNotMatch(result.text, /INVALID TEST VALUE|Synthetic Emergency Entrance/u, label)
           assert.match(result.text, /Controlled preview boundary/u, label)

@@ -101,7 +101,7 @@ assert.equal((resultDocument.match(/role="status"/gu) ?? []).length, 1)
 assert.equal((resultDocument.match(/aria-live="polite"/gu) ?? []).length, 1)
 assert.equal((resultDocument.match(/aria-atomic="true"/gu) ?? []).length, 1)
 assert.match(resultDocument, /<ol aria-labelledby="clinician-result-count"/u)
-assert.match(resultDocument, /1 synthetic clinician/u)
+assert.match(resultDocument, /1 clinician/u)
 cases++
 
 const lifecycleDeadline = new Date(clinicianDirectoryTime.getTime() + 60 * 86_400_000)

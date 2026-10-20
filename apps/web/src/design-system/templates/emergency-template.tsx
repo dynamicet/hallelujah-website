@@ -80,7 +80,6 @@ function InertRouteChoice({
 
   return (
     <article className={styles.callCard} data-inert-call-choice>
-      <p className={styles.choiceType}>Synthetic route placeholder</p>
       <h2>{choice.label}</h2>
       <p id={descriptionId}>{choice.purpose}</p>
       <div
@@ -88,13 +87,13 @@ function InertRouteChoice({
         className={styles.inertCallValue}
         data-call-action={handoffUnsupported ? 'unsupported' : 'withheld'}
       >
-        <span>{handoffUnsupported ? 'Automatic handoff unsupported' : 'Call action withheld'}</span>
+        <span>{handoffUnsupported ? 'Automatic handoff unsupported' : 'Calling unavailable'}</span>
         <strong>{choice.displayValue}</strong>
       </div>
       <p className={styles.fixtureBoundary}>
         {handoffUnsupported
-          ? 'The synthetic display value remains readable for unsupported-handoff review. It is inert and must not be called.'
-          : 'Inert test value — do not call or use for care.'}
+          ? 'Do not call this number or use it for care.'
+          : 'Do not call this number or use it for care.'}
       </p>
     </article>
   )
@@ -158,8 +157,7 @@ function UnavailableEmergencyTemplate({
             <p className={styles.eyebrow}>{eyebrow}</p>
             <h1 id="emergency-title">{title}</h1>
             <p className={styles.fixtureNotice}>
-              Controlled preview only. Required Emergency information is fail-closed and no
-              contact, route, scope or arrival value is published.
+              Emergency contact and arrival information is unavailable.
             </p>
           </div>
           <StateAnnouncement announcement={state.announcement}>
@@ -178,10 +176,9 @@ function UnavailableEmergencyTemplate({
           id="non-emergency-support"
           tabIndex={-1}
         >
-          <h2 id="support-title">Controlled preview boundary</h2>
+          <h2 id="support-title">Contact information</h2>
           <p>
-            Return to the controlled review owner. This specimen performs no call, request,
-            retry, lookup or safety-data substitution.
+            Emergency contact information is unavailable.
           </p>
           <a className="ds-touch-target" href="#emergency-title">Return to state explanation</a>
         </section>
@@ -237,18 +234,17 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
             <h1 id="emergency-title">{title}</h1>
             <p className={styles.description}>{description}</p>
             <p className={styles.fixtureNotice}>
-              Controlled preview only. Every contact, route, scope and arrival value below is
-              synthetic and inert. This page provides no emergency advice.
+              Do not use the contact or arrival details on this page for emergency care.
             </p>
           </div>
           {handoffUnsupported ? (
             <StateAnnouncement announcement={state.announcement}>
-              <strong>Automatic call handoff is unsupported in this controlled specimen.</strong>
+              <strong>Calling is unavailable.</strong>
               <p>{state.description}</p>
             </StateAnnouncement>
           ) : null}
           <div
-            aria-label="Synthetic emergency route choices"
+            aria-label="Emergency contacts"
             className={styles.callGrid}
             data-route-choice-group
             role="group"
@@ -276,10 +272,8 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
             className={`${styles.section} ${styles.warning}`}
             data-emergency-section="E3"
           >
-            <p className={styles.choiceType}>Safety warning placeholder</p>
             <h2 id="online-warning-title">Do not use online contact for emergencies</h2>
             <p>{warning}</p>
-            <p className={styles.fixtureBoundary}>Synthetic wording — clinical approval is pending.</p>
           </section>
         </div>
 
@@ -291,13 +285,8 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
           <h2 id="hospital-scope-title">Emergency care at this hospital</h2>
           <p>{scope.summary}</p>
           <dl className={styles.scopeFacts}>
-            <div><dt>Availability placeholder</dt><dd>{scope.availability}</dd></div>
-            <div><dt>Limitations placeholder</dt><dd>{scope.limitations}</dd></div>
-            <div><dt>Fixture owner</dt><dd>{scope.owner}</dd></div>
-            <div>
-              <dt>Fixture review date</dt>
-              <dd><time dateTime={scope.reviewedOn}>{scope.reviewedLabel}</time></dd>
-            </div>
+            <div><dt>Availability</dt><dd>{scope.availability}</dd></div>
+            <div><dt>Limitations</dt><dd>{scope.limitations}</dd></div>
           </dl>
         </section>
 
@@ -309,10 +298,10 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
           >
             <h2 id="where-to-go-title">Where to go</h2>
             <dl className={styles.locationFacts}>
-              <div><dt>Synthetic address</dt><dd>{arrival.address}</dd></div>
-              <div><dt>Synthetic emergency entrance</dt><dd>{arrival.entrance}</dd></div>
+              <div><dt>Address</dt><dd>{arrival.address}</dd></div>
+              <div><dt>Emergency entrance</dt><dd>{arrival.entrance}</dd></div>
             </dl>
-            <h3>Landmark-based test directions</h3>
+            <h3>Directions</h3>
             <ol className={styles.directionSteps}>
               {arrival.steps.map((step) => <li key={step}>{step}</li>)}
             </ol>
@@ -326,9 +315,9 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
           >
             <h2 id="arriving-safely-title">Arriving safely</h2>
             <dl className={styles.locationFacts}>
-              <div><dt>Vehicle and parking placeholder</dt><dd>{arrival.parking}</dd></div>
-              <div><dt>Public transport placeholder</dt><dd>{arrival.publicTransport}</dd></div>
-              <div><dt>Accessible entrance placeholder</dt><dd>{arrival.accessibleEntrance}</dd></div>
+              <div><dt>Vehicle and parking</dt><dd>{arrival.parking}</dd></div>
+              <div><dt>Public transport</dt><dd>{arrival.publicTransport}</dd></div>
+              <div><dt>Accessible entrance</dt><dd>{arrival.accessibleEntrance}</dd></div>
             </dl>
           </section>
         </div>
@@ -342,7 +331,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
           <h2 id="map-title">Optional map</h2>
           {mapStatus}
           <p className={styles.fixtureBoundary}>
-            No map, coordinates, geolocation, external link or provider request is enabled.
+            Map unavailable.
           </p>
         </section>
 

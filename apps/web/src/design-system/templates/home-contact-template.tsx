@@ -16,24 +16,19 @@ export interface HomeContactTemplateProps extends Omit<HomeTemplateProps, 'conta
 const groups = [
   { id: 'emergency', heading: 'Emergency contact information',
     keys: ['emergencyPhone', 'ambulancePhone', 'emergencyEntrance'],
-    withheld: 'Verified emergency guidance and contacts are withheld pending hospital approval. This preview provides no urgent advice.' },
+    withheld: 'Emergency contact information is unavailable.' },
   { id: 'call', heading: 'Call and contact information',
     keys: ['publicPhone', 'switchboardPhone', 'email', 'hours', 'staffedFallback'],
-    withheld: 'Hospital telephone contacts are withheld pending verification. No telephone link is active.' },
+    withheld: 'Telephone contact information is unavailable.' },
   { id: 'directions', heading: 'Locations and text directions',
     keys: ['address', 'publicEntrance', 'accessibleEntrance'],
-    withheld: 'Verified address, entrance and text directions are withheld pending hospital approval. No map or geolocation is enabled.' },
+    withheld: 'Location and arrival information is unavailable.' },
 ] as const
 
 function ContactDetails({ view, locale }: { readonly view: ContactView; readonly locale: GovernedLocale }) {
   return (
     <div className={styles.contactLayout} data-home-contact-state={view.state}>
-      <p lang="en">{view.state === 'controlled-fixture'
-        ? 'Synthetic contact fixture — not hospital contact or arrival information. Calls, email and maps are disabled.'
-        : 'Contact and arrival information is withheld pending verification.'}</p>
-      {view.state === 'controlled-fixture' && locale === 'am' ? (
-        <p lang="en">Unreviewed Amharic shaping fixture. No approved Amharic guidance is available.</p>
-      ) : null}
+      {view.state === 'controlled-fixture' ? <p lang="en">Do not use these contact or arrival details for care.</p> : null}
       {groups.map((group) => (
         <section className={`ds-flow ${styles.contactGroup}`} data-experience-level="0" data-protected-context="contact-directions"
           id={`home-${group.id}`} key={group.id} tabIndex={-1} aria-labelledby={`home-${group.id}-title`}>

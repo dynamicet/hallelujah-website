@@ -40,7 +40,6 @@ export function HomeGovernedContent(props: HomeGovernedContentProps) {
         <section aria-labelledby="home-services-title" className={styles.collection}
           data-home-section="H4" data-home-governed-section="services">
           <div className={styles.headingGroup}>
-            <p className={styles.fixture} lang="en">Synthetic featured services — no hospital capability is represented.</p>
             <h2 id="home-services-title">Browse care by need</h2>
           </div>
           <div className={styles.grid}>
@@ -50,9 +49,8 @@ export function HomeGovernedContent(props: HomeGovernedContentProps) {
                 locale={props.locale} mode={props.mode} now={props.now} record={service.record} />
             ))}
             <article className={`${styles.directoryCard} ${styles.card}`}>
-              <p className={styles.fixture}>Directory route</p>
-              <h3>View all approved services</h3>
-              <p>Browse the complete governed service directory.</p>
+              <h3>View all services</h3>
+              <p>Browse the service directory.</p>
               <ActionLink href="#home-service" label="Explore services" variant="tertiary" />
             </article>
           </div>
@@ -63,7 +61,6 @@ export function HomeGovernedContent(props: HomeGovernedContentProps) {
         <section aria-labelledby="home-doctors-title" className={styles.collection}
           data-home-section="H5" data-home-governed-section="doctors">
           <div className={styles.headingGroup}>
-            <p className={styles.fixture} lang="en">Synthetic featured clinicians — no real roster or availability is represented.</p>
             <h2 id="home-doctors-title">Find a doctor</h2>
           </div>
           <div className={styles.grid}>
@@ -74,9 +71,8 @@ export function HomeGovernedContent(props: HomeGovernedContentProps) {
                 locale={props.locale} mode={props.mode} now={props.now} record={doctor.record} />
             ))}
             <article className={`${styles.directoryCard} ${styles.card}`}>
-              <p className={styles.fixture}>Directory route</p>
-              <h3>View all approved doctors</h3>
-              <p>Browse the current governed clinician directory.</p>
+              <h3>View all doctors</h3>
+              <p>Browse the clinician directory.</p>
               <ActionLink href="#home-doctor" label="Find a doctor" variant="tertiary" />
             </article>
           </div>
@@ -87,7 +83,6 @@ export function HomeGovernedContent(props: HomeGovernedContentProps) {
         <section aria-labelledby="home-institution-title" className={`${styles.collection} ${styles.editorial}`}
           data-home-section="H8" data-home-governed-section="institutional">
           <div className={styles.headingGroup}>
-            <p className={styles.fixture} lang="en">Synthetic institutional evidence — no hospital fact, person, partner, or claim is represented.</p>
             <h2 id="home-institution-title">About the hospital</h2>
           </div>
           <div className={styles.editorialGrid}>

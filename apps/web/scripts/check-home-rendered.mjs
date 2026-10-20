@@ -170,14 +170,14 @@ try {
           assert.ok(result.contactFacts.some(fact => fact.key === id), label + '/' + id)
         }
       } else {
-        assert.match(result.text, /Hospital telephone contacts are withheld/u)
+        assert.match(result.text, /Telephone contact information is unavailable/u)
         if (contacts) {
           assert.equal(result.contactState, 'unavailable', label)
           assert.equal(result.contactFacts.length, 0, label)
           assert.doesNotMatch(result.text, /555|hospital\.invalid|Synthetic address/u)
         }
       }
-      assert.match(result.languageReason, /An approved Amharic Home page is not available/u)
+      assert.match(result.languageReason, /This page is unavailable in Amharic/u)
       if (governed) {
         const sections = await evaluate(`[...document.querySelectorAll('[data-home-governed-section]')].map(el => el.dataset.homeGovernedSection)`)
         const expected = ({

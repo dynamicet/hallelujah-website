@@ -41,36 +41,35 @@ export function appointmentPageFixture(state = 'controlled') {
       : undefined
 
   const links = {
-    appointment: { current: true, href: '#appointment-title', label: `Controlled Appointment${suffix}` },
-    care: { href: '#appointment-request-form', label: `Synthetic request form${suffix}` },
-    privacy: { href: '#appointment-privacy-title', label: `Controlled privacy boundary${suffix}` },
-    states: { href: '#appointment-submit-title', label: `Request-state review${suffix}` },
-    support: { href: '#appointment-support', label: `Synthetic support boundary${suffix}` },
+    appointment: { current: true, href: '#appointment-title', label: `Appointment${suffix}` },
+    care: { href: '#appointment-request-form', label: `Request form${suffix}` },
+    privacy: { href: '#appointment-privacy-title', label: `Privacy${suffix}` },
+    states: { href: '#appointment-submit-title', label: `Request information${suffix}` },
+    support: { href: '#appointment-support', label: `Support${suffix}` },
   }
   const unavailable = state === 'workflow-unavailable'
 
   return {
-    description: `Review a request-form composition without collecting, recording or sending any value. A request is not a confirmed booking${suffix}`,
+    description: `Online appointment requests are unavailable. No booking is confirmed${suffix}`,
     doctorOptions: [
-      { disabled: true, label: 'Choose a synthetic doctor', value: '' },
-      { label: `Dr Test Alpha — fictional record${suffix}`, value: 'doc_synthetic_alpha_0001' },
-      { label: `Dr Test Beta — fictional record${suffix}`, value: 'doc_synthetic_beta_00002' },
+      { disabled: true, label: 'Choose a doctor', value: '' },
+      { label: `Dr Test Alpha${suffix}`, value: 'doc_synthetic_alpha_0001' },
+      { label: `Dr Test Beta${suffix}`, value: 'doc_synthetic_beta_00002' },
     ],
-    eyebrow: 'Controlled Appointment preview — synthetic and non-public',
-    privacyDisclosure: `This local specimen makes no network request and stores no value. Do not enter a real name, telephone number, preferred date or health information${suffix}`,
-    recipientLabel: `Patient Experience Team — synthetic recipient label${suffix}`,
+    eyebrow: 'Appointment information',
+    privacyDisclosure: `Do not enter personal or medical information. No appointment request will be sent${suffix}`,
+    recipientLabel: `Patient Experience Team${suffix}`,
     serviceOptions: [
-      { disabled: true, label: 'Choose a synthetic service', value: '' },
-      { label: `Synthetic Service Alpha — fictional record${suffix}`, value: 'svc_synthetic_alpha_0001' },
-      { label: `Synthetic Service Beta — fictional record${suffix}`, value: 'svc_synthetic_beta_00002' },
+      { disabled: true, label: 'Choose a service', value: '' },
+      { label: `Service Alpha${suffix}`, value: 'svc_synthetic_alpha_0001' },
+      { label: `Service Beta${suffix}`, value: 'svc_synthetic_beta_00002' },
     ],
     shell: {
-      notice: 'Local preview · Hospital content, contacts and services are not published.',
       skipLinkLabel: 'Skip to main content',
       header: {
         brandName: 'Hallelujah Hospital',
         homeHref: '#appointment-title',
-        homeLabel: 'Hallelujah Hospital controlled Appointment home',
+        homeLabel: 'Hallelujah Hospital Appointment home',
         identityLanguage: 'en',
         menuLabel: 'Menu',
         navigationMode: expanded ? 'compact' : 'responsive',
@@ -82,13 +81,13 @@ export function appointmentPageFixture(state = 'controlled') {
         searchItem: links.support,
       },
       footer: {
-        brandName: 'Hallelujah Hospital — controlled identity',
-        description: 'Loopback-only Appointment preview. Collection, recipients, messaging providers and publication remain disabled.',
+        brandName: 'Hallelujah Hospital',
+        description: 'Find information for your care and visit.',
         groups: unavailable
-          ? [{ label: 'Access and governance', links: [links.support, links.appointment] }]
+          ? [{ label: 'Information', links: [links.support, links.appointment] }]
           : [
-              { label: 'Controlled request review', links: [links.care, links.privacy, links.states] },
-              { label: 'Access and governance', links: [links.support, links.appointment] },
+              { label: 'Appointment information', links: [links.care, links.privacy, links.states] },
+              { label: 'Information', links: [links.support, links.appointment] },
             ],
         navigationLabel: 'Footer',
       },
@@ -101,6 +100,6 @@ export function appointmentPageFixture(state = 'controlled') {
       specimenReference: 'CONTROLLED-REQUEST-001',
     },
     title: `Request an appointment${suffix}`,
-    warning: `This controlled English placeholder does not provide emergency instructions or a real contact route. Approved hospital wording is still required${suffix}`,
+    warning: `This form cannot provide emergency help${suffix}`,
   }
 }

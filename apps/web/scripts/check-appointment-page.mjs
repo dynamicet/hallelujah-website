@@ -18,8 +18,8 @@ for (const state of appointmentPageFixtureStates) {
   assert.match(html, new RegExp(`data-appointment-preview-state="${state}"`, 'u'), state)
   assert.doesNotMatch(html, /href="(?:tel:|mailto:|https?:)|<iframe\b|<video\b|<img\b/iu, state)
   assert.equal((html.match(/data-experience-level="0"/gu) ?? []).length >= 2, true, state)
-  assert.match(html, /Patient Experience Team — synthetic recipient label/u, state)
-  assert.match(html, /Approved Amharic appointment wording is unavailable/u, state)
+  assert.match(html, /Patient Experience Team/u, state)
+  assert.match(html, /This page is unavailable in Amharic/u, state)
   assert.doesNotMatch(html, /WhatsApp|Telegram|response within|we will call/iu, state)
 
   const sections = [...html.matchAll(/data-appointment-section="(A\d)"/gu)]
@@ -37,16 +37,16 @@ for (const state of appointmentPageFixtureStates) {
 
   if (unavailable) {
     assert.doesNotMatch(html, /<form\b|<input\b|<select\b/u, state)
-    assert.match(html, /operating workflow is not approved/iu, state)
+    assert.match(html, /No appointment request can be sent at this time/iu, state)
   } else {
     assert.equal((html.match(/<form\b/gu) ?? []).length, 1, state)
     assert.match(html, /action="\/controlled-appointment-submission-disabled"/u, state)
-    assert.match(html, /No notes or medical information are collected/u, state)
+    assert.match(html, /Do not enter personal or medical information/u, state)
     assert.doesNotMatch(html, /<textarea\b|name="(?:notes|diagnosis|symptoms|medical_history)"/iu, state)
     assert.equal((html.match(/name="care_route"/gu) ?? []).length, 3, state)
     assert.equal((html.match(/name="privacy_acknowledged"/gu) ?? []).length, 1, state)
-    assert.match(html, /data-appointment-state-panel="receipt"[\s\S]*data-authoritative-acceptance="true"/u, state)
-    assert.match(html, /data-appointment-state-panel="delivery-warning"[\s\S]*CONTROLLED-REQUEST-001/u, state)
+    assert.doesNotMatch(html, /data-authoritative-acceptance="true"/u, state)
+    assert.doesNotMatch(html, /CONTROLLED-REQUEST-001/u, state)
   }
 
   if (state === 'validation') {
@@ -58,16 +58,16 @@ for (const state of appointmentPageFixtureStates) {
   }
   if (state === 'receipt') {
     assert.match(html, /data-appointment-state="receipt"/u, state)
-    assert.match(html, /database-authoritative acceptance response/iu, state)
-    assert.match(html, /does not confirm a booking/iu, state)
+    assert.match(html, /No appointment request was sent/iu, state)
+    assert.match(html, /no booking is confirmed/iu, state)
   }
   if (state === 'delivery-warning') {
-    assert.match(html, /notification delivery failed/iu, state)
-    assert.match(html, /Do not resubmit/iu, state)
+    assert.match(html, /No appointment request was sent/iu, state)
+    assert.match(html, /No appointment request was sent/iu, state)
   }
   if (state === 'unknown') {
-    assert.match(html, /outcome is not known/iu, state)
-    assert.match(html, /Reconcile the original intent/iu, state)
+    assert.match(html, /Appointment requests unavailable/iu, state)
+    assert.match(html, /No appointment request was sent/iu, state)
   }
   cases++
 }

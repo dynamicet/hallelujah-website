@@ -14,15 +14,14 @@ const tasks = {
 export default function HomePage() {
   return (
     <HomePageTemplate
-      description="Find a doctor, explore services, or review appointment information. Hospital content remains controlled until it is approved for publication."
+      description="Find a doctor, explore services, or review appointment information."
       documents={[]}
       eyebrow="Care access, clearly organized"
       locale="en"
       now={new Date('2026-10-12T00:00:00Z')}
-      searchDescription="Search is not available yet. Use the care routes above to continue."
+      searchDescription="Search is unavailable. Use the care routes above to continue."
       searchHeading="Search this website"
       shell={{
-        notice: 'Local preview · Hospital content, contacts and services are not published.',
         skipLinkLabel: 'Skip to main content',
         header: {
           brandName: 'Hallelujah Hospital', homeHref: '#main-content',
@@ -31,12 +30,12 @@ export default function HomePage() {
           primaryNavigationLabel: 'Primary navigation',
           navigationItems: [tasks.doctor, tasks.service, tasks.appointment, tasks.directions],
           searchItem: tasks.search,
-          languageSwitcher: { alternate: { available: false, label: 'አማርኛ', lang: 'am', reason: 'An approved Amharic Home page is not available.' }, currentLabel: 'English', currentLang: 'en', label: 'Language' },
+          languageSwitcher: { alternate: { available: false, label: 'አማርኛ', lang: 'am', reason: 'This page is unavailable in Amharic.' }, currentLabel: 'English', currentLang: 'en', label: 'Language' },
           emergencyAction: { compact: true, href: tasks.emergency.href, label: tasks.emergency.label },
         },
         footer: {
-          brandName: 'Hallelujah Hospital — controlled identity',
-          description: 'Hospital content and contact details remain withheld until approved.',
+          brandName: 'Hallelujah Hospital',
+          description: 'Find information for your care and visit.',
           navigationLabel: 'Footer navigation',
           groups: [{ label: 'Care access', links: Object.values(tasks) }],
         },
