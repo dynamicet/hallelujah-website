@@ -1,4 +1,4 @@
-import { ExperienceRegion, LogoReveal, MotionAccent, OptInMedia } from '../components'
+import { ExperienceRegion, MotionAccent, OptInMedia } from '../components'
 
 import styles from './motion-media-fixture-template.module.css'
 
@@ -38,12 +38,6 @@ export function MotionMediaFixtureTemplate() {
           <p>The appointment area clamps expressive motion to functional Level 1.</p>
           <MotionAccent level={3} />
         </ExperienceRegion>
-      </div>
-
-      <div className="ds-reading">
-        <h3>Completed homepage identity</h3>
-        <p>Static artwork specimen. Session entrance timing is checked on the homepage.</p>
-        <LogoReveal />
       </div>
 
       <div className={styles.media}>

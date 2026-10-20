@@ -73,7 +73,7 @@ export async function createReviewHarnessServer({ upstreamOrigin, port = 0 }) {
   if (upstream.hostname !== '127.0.0.1' || upstream.protocol !== 'http:') {
     throw new Error('review upstream must be HTTP loopback')
   }
-  const assets = new Set(['/brand/hallelujah-emblem.png', '/logo-reveal.js', '/foundations.css', '/motion-media.js', '/optional-map.js', '/form-primitives.js', '/search-controls.js', '/global-shell.js', '/fixtures/b01-012-abstract-motion.webm', '/fixtures/b01-012-abstract-motion.vtt'])
+  const assets = new Set(['/brand/hallelujah-emblem.png', '/foundations.css', '/motion-media.js', '/optional-map.js', '/form-primitives.js', '/search-controls.js', '/global-shell.js', '/fixtures/b01-012-abstract-motion.webm', '/fixtures/b01-012-abstract-motion.vtt'])
   const samples = new Map()
   const server = createServer(async (request, response) => {
     const finish = (status, contentType, body) => {

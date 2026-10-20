@@ -14,7 +14,7 @@ const statuses = [
 ]
 const assets = new Map([
   ['/brand/hallelujah-emblem.png', ['image/png', new URL('../../public/brand/hallelujah-emblem.png', import.meta.url)]],
-  ...['shell-navigation', 'global-shell', 'search-controls', 'form-primitives', 'motion-media', 'optional-map', 'logo-reveal']
+  ...['shell-navigation', 'global-shell', 'search-controls', 'form-primitives', 'motion-media', 'optional-map']
     .map(name => [`/${name}.js`, ['text/javascript', new URL(`../../public/${name}.js`, import.meta.url)]]),
   ['/fixtures/b01-012-abstract-motion.webm', ['video/webm', new URL('../../public/fixtures/b01-012-abstract-motion.webm', import.meta.url)]],
   ['/fixtures/b01-012-abstract-motion.vtt', ['text/vtt', new URL('../../public/fixtures/b01-012-abstract-motion.vtt', import.meta.url)]],

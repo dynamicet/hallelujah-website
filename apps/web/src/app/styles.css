@@ -244,13 +244,3 @@ h3 {
     display: none;
   }
 }
-
-/* CSS also releases content if the entry script's cleanup cannot run. */
-html[data-logo-entry="pending"] [data-home-entry-content] {
-  visibility: hidden;
-  animation: release-home-entry 1.8s step-end forwards;
-}
-
-@keyframes release-home-entry {
-  to { visibility: visible; }
-}
