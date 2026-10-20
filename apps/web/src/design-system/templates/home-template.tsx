@@ -5,7 +5,6 @@ import {
   ActionLink,
   EmergencyAction,
   ExperienceRegion,
-  LogoReveal,
   MotionAccent,
   OptInMedia,
   SiteShell,
@@ -123,7 +122,6 @@ export function HomeTemplate({
     <SiteShell {...shell}>
       <div className={styles.frame} data-home-template>
         <section aria-labelledby="home-title" className={styles.introduction} data-home-section="H1">
-          {media?.placement !== 'hero' ? <LogoReveal /> : null}
           <div className={`ds-flow ${styles.heroCopy}`}>
             <div className={styles.wayfinding}>
               <ExperienceRegion area="home-hero" requestedLevel={3}>

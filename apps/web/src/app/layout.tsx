@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
+import { LogoReveal } from '../design-system/components/logo-reveal'
+
 import './styles.css'
 
 export const metadata: Metadata = {
@@ -18,7 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <head>
         <script defer blocking="render" src="/logo-entry.js" />
       </head>
-      <body>{children}</body>
+      <body><LogoReveal overlay /><div data-home-entry-content>{children}</div></body>
     </html>
   )
 }

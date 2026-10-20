@@ -22,12 +22,10 @@ try {
   await new Promise((resolve) => socket.addEventListener('open', resolve, { once: true }))
   let id = 0
   let sessionId
-  let filmstrip
   const pending = new Map()
   socket.addEventListener('message', ({ data }) => {
     const message = JSON.parse(data)
     if (message.method === 'Page.screencastFrame') {
-      filmstrip?.push(message.params)
       void send('Page.screencastFrameAck', { sessionId: message.params.sessionId })
       return
     }
@@ -64,107 +62,74 @@ try {
     await writeFile(path.join(output, `${name}.png`), Buffer.from(data, 'base64'))
   }
   await send('Page.enable')
+  await send('Network.enable')
+  await send('Page.addScriptToEvaluateOnNewDocument', { source: `
+    window.entryPaints = [];
+    function sample() {
+      const content = document.querySelector('[data-home-entry-content]');
+      if (content) window.entryPaints.push(getComputedStyle(content).visibility);
+      if (performance.now() < 3000) requestAnimationFrame(sample);
+    }
+    requestAnimationFrame(sample);
+  ` })
+  const visible = 'getComputedStyle(document.querySelector("[data-home-entry-content]")).visibility === "visible"'
   for (const [width, height] of [[1440, 1000], [360, 640], [390, 844]]) {
     await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: width < 500 })
     await navigate()
     await evaluate('sessionStorage.clear()')
-    // Freeze only the six logo animations to inspect exact choreography frames.
-    const hook = await send('Page.addScriptToEvaluateOnNewDocument', { source: `const original = Element.prototype.animate; Element.prototype.animate = function(...args) { const a = original.apply(this, args); if (this.hasAttribute('data-logo-part')) a.pause(); return a }` })
     await navigate()
-    await until('document.querySelector("[data-logo-reveal]").dataset.logoState === "revealing"')
-    for (const time of [0, 450, 900, 1500]) {
-      await evaluate(`document.getAnimations().forEach(a => { if (a.effect.target.hasAttribute('data-logo-part')) a.currentTime = ${time} })`)
-      await capture(`${width}-${time}`)
-      if (width === 1440 && time === 450) {
-        await evaluate('document.querySelector("[data-logo-reveal] svg").style.filter = "grayscale(1)"')
-        await capture('monochrome-study')
-        await evaluate('document.querySelector("[data-logo-reveal] svg").style.filter = ""')
-      }
-    }
-    await until('document.querySelector("[data-logo-reveal]").dataset.logoState === "complete"')
-    await capture(`${width}-final`)
+    await until('document.querySelector("[data-logo-overlay]").dataset.logoState === "revealing"')
+    assert.equal(await evaluate(visible), false, 'Home must be hidden during the entrance')
+    assert.equal(await evaluate('!!document.querySelector("[data-home-section=H1] [data-logo-reveal]")'), false)
+    await pause(500)
+    await capture(`${width}-outline`)
+    await until(visible)
+    await capture(`${width}-home`)
+    const paints = await evaluate('window.entryPaints')
+    assert.equal(paints[0], 'hidden', 'First content frame must be behind the overlay')
+    const firstVisible = paints.indexOf('visible')
+    assert.ok(paints.slice(firstVisible).every((value) => value === 'visible'), 'Home must not flash before entry')
     assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true)
-    assert.equal(await evaluate('document.querySelector("[data-logo-reveal]").getBoundingClientRect().bottom < innerHeight'), true, 'Entire identity must be in the initial viewport')
-    assert.equal(await evaluate('getComputedStyle(document.querySelector("h1")).visibility'), 'visible')
-    await send('Page.removeScriptToEvaluateOnNewDocument', { identifier: hook.identifier })
     await navigate()
-    assert.equal(await evaluate('document.querySelector("[data-logo-reveal]").dataset.logoState ?? "static"'), 'static')
-    await evaluate(`document.querySelector('a[href="#home-appointment"]').click()`)
-    assert.equal(await evaluate('location.hash'), '#home-appointment')
+    assert.equal(await evaluate(visible), true, 'Session reload must skip entrance')
+    assert.equal(await evaluate('document.documentElement.dataset.logoEntry'), undefined)
   }
-  // Exercise the real clock as well as the deterministic storyboard above.
   await evaluate('sessionStorage.clear()')
-  await navigate()
-  await until('document.querySelector("[data-logo-reveal]").dataset.logoState === "revealing"')
-  const liveStart = Date.now()
-  await until('document.querySelector("[data-logo-reveal]").dataset.logoState === "complete"')
-  assert.ok(Date.now() - liveStart < 2200, 'Reveal must finish without prolonging entry')
-  await evaluate('sessionStorage.clear()')
-  await navigate()
-  await until('document.querySelector("[data-logo-reveal]").dataset.logoState === "revealing"')
   await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
-  await until('document.querySelector("[data-logo-reveal]").dataset.logoState === "complete"')
-
-  await evaluate('sessionStorage.clear()')
   await navigate()
-  assert.equal(await evaluate('document.getAnimations().filter(a => a.effect.target.hasAttribute("data-logo-part")).length'), 0)
-  assert.equal(await evaluate('getComputedStyle(document.querySelector("[data-logo-complete]")).visibility'), 'visible')
+  await until('document.querySelector("[data-logo-overlay]").dataset.logoState === "static"')
+  assert.equal(await evaluate('document.querySelector("[data-logo-overlay] svg").getAnimations().length'), 0)
   await capture('reduced-motion')
-  await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'no-preference' }] })
-  // Unmodified playback, including actual render opportunities before enhancement.
-  const paintHook = await send('Page.addScriptToEvaluateOnNewDocument', { source: `
-    window.logoPaints = [];
-    function sample(time) {
-      const image = document.querySelector('[data-logo-complete]');
-      if (image) window.logoPaints.push({ time, visible: getComputedStyle(image).visibility === 'visible' });
-      if (time < 3500) requestAnimationFrame(sample);
-    }
-    requestAnimationFrame(sample);
-  ` })
-  await send('Network.enable')
-  for (const mode of ['cold', 'warm', 'throttled']) {
-    await evaluate('sessionStorage.clear()')
-    await send('Network.setCacheDisabled', { cacheDisabled: mode !== 'warm' })
-    await send('Emulation.setCPUThrottlingRate', { rate: mode === 'throttled' ? 4 : 1 })
-    await send('Network.emulateNetworkConditions', { offline: false, latency: mode === 'throttled' ? 150 : 0, downloadThroughput: -1, uploadThroughput: -1 })
-    filmstrip = []
-    await send('Page.startScreencast', { format: 'png', everyNthFrame: 1 })
-    await navigate()
-    await pause(2500)
-    await send('Page.stopScreencast')
-    const paints = await evaluate('window.logoPaints')
-    const firstVisible = paints.findIndex((paint) => paint.visible)
-    assert.ok(firstVisible >= 0, `${mode}: complete image must become visible`)
-    assert.ok(paints.slice(firstVisible).every((paint) => paint.visible), `${mode}: completed logo must never disappear after a rendered frame`)
-    await writeFile(path.join(output, `${mode}-paint-log.json`), `${JSON.stringify(paints, null, 2)}\n`)
-    for (const [index, frame] of filmstrip.entries()) {
-      await writeFile(path.join(output, `${mode}-film-${String(index).padStart(3, '0')}.png`), Buffer.from(frame.data, 'base64'))
-    }
-    filmstrip = undefined
-  }
-  await send('Page.removeScriptToEvaluateOnNewDocument', { identifier: paintHook.identifier })
-  await send('Emulation.setCPUThrottlingRate', { rate: 1 })
-  await send('Network.emulateNetworkConditions', { offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1 })
+  await until(visible)
+  await send('Emulation.setEmulatedMedia', { features: [] })
   for (const script of ['logo-reveal.js', 'logo-entry.js']) {
     await evaluate('sessionStorage.clear()')
     await send('Network.setBlockedURLs', { urls: [`*${script}`] })
     await navigate()
-    await pause(2200)
-    assert.equal(await evaluate('getComputedStyle(document.querySelector("[data-logo-complete]")).visibility'), 'visible', `${script} failure must restore identity`)
+    await pause(1900)
+    assert.equal(await evaluate(visible), true, `${script} failure must release content`)
   }
   await send('Network.setBlockedURLs', { urls: [] })
   await evaluate('sessionStorage.clear()')
+  const failureHook = await send('Page.addScriptToEvaluateOnNewDocument', { source: "Element.prototype.animate = () => { throw new Error('Animation unavailable') }" })
+  await navigate()
+  await until(visible)
+  await send('Page.removeScriptToEvaluateOnNewDocument', { identifier: failureHook.identifier })
+  await evaluate('history.pushState({}, "", "/services"); history.pushState({}, "", "/")')
+  await evaluate('new Promise(resolve => { const script = document.createElement("script"); script.src = "/logo-reveal.js"; script.onload = resolve; document.body.append(script) })')
+  assert.equal(await evaluate(visible), true, 'Route updates and script remounts must not replay')
+  await evaluate('sessionStorage.clear()')
   const storageHook = await send('Page.addScriptToEvaluateOnNewDocument', { source: "Storage.prototype.getItem = () => { throw new Error('Storage unavailable') }" })
   await navigate()
-  assert.equal(await evaluate('document.querySelector("[data-logo-reveal]").dataset.logoState ?? "static"'), 'static')
+  assert.equal(await evaluate(visible), true)
   await send('Page.removeScriptToEvaluateOnNewDocument', { identifier: storageHook.identifier })
   await send('Emulation.setScriptExecutionDisabled', { value: true })
   await send('Page.navigate', { url: origin })
   await pause(1000)
   await capture('no-javascript')
   await send('Emulation.setScriptExecutionDisabled', { value: false })
-  assert.equal(await evaluate('getComputedStyle(document.querySelector("[data-logo-complete]")).visibility'), 'visible')
-  console.log('Logo reveal passed: desktop/mobile frames, session reload, navigation, reduced motion, no JavaScript, overflow, and visible content.')
+  assert.equal(await evaluate(visible), true)
+  console.log('Passed: pre-home overlay, mobile/desktop, session reload, reduced motion, failed scripts, unavailable storage, and no JavaScript.')
 } finally {
   socket?.close()
   browser.kill('SIGTERM')

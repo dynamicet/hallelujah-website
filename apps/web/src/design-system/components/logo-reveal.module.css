@@ -1,63 +1,28 @@
 .frame {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  place-items: center;
   background: #fff;
-  border-radius: var(--semantic-radius-card);
-  padding: .75rem;
-  overflow: hidden;
 }
 
-.identity {
-  flex: 1 1 10rem;
-  min-inline-size: 0;
-  overflow-wrap: anywhere;
-  margin: 0;
-  font-weight: var(--semantic-font-weight-strong);
-}
-
-.identity span {
-  display: block;
-  margin-block-start: .25rem;
-  color: var(--semantic-color-text-secondary);
-  font-size: var(--semantic-type-small-size);
-  font-weight: normal;
-}
-
-:global(html[data-logo-entry="pending"]) .logo [data-logo-complete] {
-  visibility: hidden;
-  animation: restore-logo 2s step-end forwards;
-}
-
-@keyframes restore-logo {
-  to { visibility: visible; }
+:global(html[data-logo-entry="pending"]) .overlay {
+  display: grid;
+  animation: dismiss-overlay 1.8s step-end forwards;
 }
 
 .logo {
   display: block;
-  inline-size: 80px;
-  max-inline-size: 100%;
+  inline-size: min(280px, 65vw);
   block-size: auto;
-  overflow: visible;
 }
 
-@media (min-width: 54rem) {
-  .frame {
-    grid-column: 2;
-    grid-row: 1;
-    flex-direction: column;
-    justify-self: center;
-    inline-size: min(100%, 22rem);
-    padding: 2rem;
-    text-align: center;
-  }
-  .identity { flex: initial; }
-  .logo { inline-size: min(100%, 280px); }
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-  .logo [data-logo-complete] { visibility: visible !important; }
-  .logo [data-logo-parts] { visibility: hidden !important; }
+@keyframes dismiss-overlay {
+  to { visibility: hidden; pointer-events: none; }
 }
