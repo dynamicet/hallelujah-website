@@ -31,6 +31,7 @@ export function LogoReveal() {
           ))}
         </g>
       </svg>
+      <p className={styles.identity}>Hallelujah Hospital<span>People united in care</span></p>
       <script defer src="/logo-reveal.js" />
     </div>
   )

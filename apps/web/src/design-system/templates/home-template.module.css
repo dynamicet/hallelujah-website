@@ -165,7 +165,7 @@
 
 @media (min-width: 54rem) {
   .introduction { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
-  .orientation { min-block-size: 24rem; }
+  .heroCopy { grid-column: 1; grid-row: 1; }
   .visitGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .contact { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .85fr); gap: var(--semantic-space-surface); }
 }

@@ -1,11 +1,47 @@
 .frame {
   display: grid;
-  place-items: center;
+  grid-template-columns: 80px minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
   background: #fff;
   border-radius: var(--semantic-radius-card);
-  min-block-size: 19rem;
-  padding: 2rem;
+  padding: .75rem;
   overflow: hidden;
+}
+
+.identity {
+  margin: 0;
+  font-weight: var(--semantic-font-weight-strong);
+}
+
+.identity span {
+  display: block;
+  margin-block-start: .25rem;
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--semantic-type-small-size);
+  font-weight: normal;
+}
+
+:global(html[data-logo-entry="pending"]) .logo [data-logo-complete] {
+  visibility: hidden;
+  animation: restore-logo 2s step-end forwards;
+}
+
+@keyframes restore-logo {
+  to { visibility: visible; }
+}
+
+@media (min-width: 54rem) {
+  .frame {
+    grid-column: 2;
+    grid-row: 1;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    justify-self: center;
+    inline-size: min(100%, 22rem);
+    padding: 2rem;
+    text-align: center;
+  }
 }
 
 .logo {
