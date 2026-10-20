@@ -198,7 +198,7 @@ try {
 
   await navigate('controlled', 'default', 360, '?q=synthetic+urgent+review')
   assert.match(await evaluate("document.body.innerText"), /Emergency guidance must take priority/u)
-  assert.match(await evaluate("document.body.innerText"), /does not estimate urgency/u)
+  assert.match(await evaluate("document.body.innerText"), /does not assess medical urgency/u)
   assert.equal(await evaluate("document.querySelectorAll('[data-service-public-id]').length"), 0)
   cases.push({ capability: 'default', state: 'urgent-boundary', width: 360 })
 
