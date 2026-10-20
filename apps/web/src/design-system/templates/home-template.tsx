@@ -15,6 +15,8 @@ import {
   type SiteShellProps,
 } from '../components'
 
+import { LogoReveal } from '../components/logo-reveal'
+
 import styles from './home-template.module.css'
 
 export interface HomeTaskLink extends NavigationItem {
@@ -145,7 +147,7 @@ export function HomeTemplate({
               <noscript><p>Video playback requires JavaScript. The written still and transcript remain available.</p></noscript>
             </div>
           ) : (
-            <div aria-hidden="true" className={styles.orientation} data-home-abstract-plane />
+            <LogoReveal />
           )}
         </section>
 

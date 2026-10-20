@@ -1,0 +1,21 @@
+.frame {
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border-radius: var(--semantic-radius-card);
+  min-block-size: 19rem;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.logo {
+  display: block;
+  inline-size: min(100%, 280px);
+  block-size: auto;
+  overflow: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo [data-logo-complete] { visibility: visible !important; }
+  .logo [data-logo-parts] { visibility: hidden !important; }
+}
