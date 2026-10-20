@@ -74,3 +74,8 @@ Order 3 is complete as a prototype direction. Static screenshots do not validate
 ## Order 4 handoff — consumed
 
 Order 4 promoted the accepted candidates from [motion and storytelling direction](motion-and-storytelling.md#7-token-candidates-for-order-4) into the [shared foundation source](../foundations/tokens.css), reconciled the functional token names, rendered English/Ethiopic and system-font specimens, and kept every Level 0 exclusion intact. Those sources remain the tested prototype baseline. Production inherits the content-first sequence and prohibition on inferred approval, but uses the amendment for expanded timing, media, and runtime decisions.
+
+## Homepage logo entrance
+
+The integrated [first-entry logo reveal](logo-reveal.md) documents the supplied artwork,
+1.8-second choreography, session and accessibility behavior, and reproducible browser checks.

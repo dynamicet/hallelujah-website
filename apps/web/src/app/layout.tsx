@@ -14,7 +14,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script defer blocking="render" src="/logo-entry.js" />
+      </head>
       <body>{children}</body>
     </html>
   )

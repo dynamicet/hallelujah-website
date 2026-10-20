@@ -28,31 +28,6 @@
   line-height: var(--semantic-type-body-large-line);
 }
 
-/* Abstract wayfinding geometry carries no hospital, location, or care meaning. */
-.orientation {
-  background: var(--semantic-color-surface-subtle);
-  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  border-radius: var(--semantic-radius-card);
-  min-block-size: 12rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.orientation::before,
-.orientation::after {
-  border: var(--semantic-border-emphasis) solid var(--semantic-color-border-default);
-  border-radius: var(--semantic-radius-card);
-  content: '';
-  position: absolute;
-  inset: 20% 12% 15% 30%;
-}
-
-.orientation::after {
-  inset: 35% 30% 30% 12%;
-  background: var(--semantic-color-surface-raised);
-  border-inline-start-color: var(--semantic-color-brand-warm);
-}
-
 .wayfinding [data-motion-accent] {
   background: var(--semantic-color-brand-warm);
   margin: 0;
@@ -190,7 +165,7 @@
 
 @media (min-width: 54rem) {
   .introduction { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
-  .orientation { min-block-size: 24rem; }
+  .heroCopy { grid-column: 1; grid-row: 1; }
   .visitGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .contact { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .85fr); gap: var(--semantic-space-surface); }
 }

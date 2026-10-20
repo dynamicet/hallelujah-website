@@ -13,7 +13,8 @@ const statuses = [
   { description: 'Not mounted', term: 'CMS routes and content models' },
 ]
 const assets = new Map([
-  ...['shell-navigation', 'global-shell', 'search-controls', 'form-primitives', 'motion-media', 'optional-map']
+  ['/brand/hallelujah-emblem.png', ['image/png', new URL('../../public/brand/hallelujah-emblem.png', import.meta.url)]],
+  ...['shell-navigation', 'global-shell', 'search-controls', 'form-primitives', 'motion-media', 'optional-map', 'logo-reveal']
     .map(name => [`/${name}.js`, ['text/javascript', new URL(`../../public/${name}.js`, import.meta.url)]]),
   ['/fixtures/b01-012-abstract-motion.webm', ['video/webm', new URL('../../public/fixtures/b01-012-abstract-motion.webm', import.meta.url)]],
   ['/fixtures/b01-012-abstract-motion.vtt', ['text/vtt', new URL('../../public/fixtures/b01-012-abstract-motion.vtt', import.meta.url)]],

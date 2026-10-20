@@ -5,6 +5,7 @@ import {
   ActionLink,
   EmergencyAction,
   ExperienceRegion,
+  LogoReveal,
   MotionAccent,
   OptInMedia,
   SiteShell,
@@ -122,6 +123,7 @@ export function HomeTemplate({
     <SiteShell {...shell}>
       <div className={styles.frame} data-home-template>
         <section aria-labelledby="home-title" className={styles.introduction} data-home-section="H1">
+          {media?.placement !== 'hero' ? <LogoReveal /> : null}
           <div className={`ds-flow ${styles.heroCopy}`}>
             <div className={styles.wayfinding}>
               <ExperienceRegion area="home-hero" requestedLevel={3}>
@@ -136,7 +138,7 @@ export function HomeTemplate({
               <ActionLink href={tasks.doctor.href} label={tasks.doctor.label} variant="secondary" />
             </ActionGroup>
             <div data-experience-level="0" data-protected-context="emergency">
-              <EmergencyAction href={tasks.emergency.href} label={tasks.emergency.label} />
+              <EmergencyAction compact href={tasks.emergency.href} label={tasks.emergency.label} />
             </div>
           </div>
           {media?.placement === 'hero' ? (
@@ -144,9 +146,7 @@ export function HomeTemplate({
               <OptInMedia {...media.presentation} />
               <noscript><p>Video playback requires JavaScript. The written still and transcript remain available.</p></noscript>
             </div>
-          ) : (
-            <div aria-hidden="true" className={styles.orientation} data-home-abstract-plane />
-          )}
+          ) : null}
         </section>
 
         <section aria-labelledby="home-tasks-title" className={`${styles.section} ${styles.taskSection}`} data-home-section="H2">
