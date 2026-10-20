@@ -43,6 +43,7 @@ export type {
   TextFieldProps,
 } from './form-primitives'
 export { Icon, iconNames } from './icon'
+export { LogoReveal } from './logo-reveal'
 export type { IconName, IconProps } from './icon'
 export {
   Breadcrumbs,

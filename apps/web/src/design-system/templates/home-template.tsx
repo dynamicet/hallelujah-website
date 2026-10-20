@@ -5,6 +5,7 @@ import {
   ActionLink,
   EmergencyAction,
   ExperienceRegion,
+  LogoReveal,
   MotionAccent,
   OptInMedia,
   SiteShell,
@@ -14,8 +15,6 @@ import {
   type OptInMediaProps,
   type SiteShellProps,
 } from '../components'
-
-import { LogoReveal } from '../components/logo-reveal'
 
 import styles from './home-template.module.css'
 
