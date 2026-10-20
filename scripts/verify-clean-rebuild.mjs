@@ -64,7 +64,12 @@ try {
     throw new Error(`workspace importer drift: source ${sourceGraphHash}, clean ${cleanGraphHash}`)
   }
 
-  run('pnpm', ['verify'], cleanRoot)
+  // CI runs the complete source and browser suite before this independent
+  // reconstruction. Recheck the clean build and its output without replaying
+  // those suites; installation and graph comparisons above still fail closed.
+  for (const command of ['build', 'content-build:check', 'accessibility:smoke', 'budgets:smoke', 'runtime:smoke']) {
+    run('pnpm', [command], cleanRoot)
+  }
   console.log(`Clean rebuild passed; full lockfile graph sha256 ${sourceLockHash}; workspace importer graph sha256 ${cleanGraphHash}.`)
 } finally {
   await rm(cleanRoot, { recursive: true, force: true })
