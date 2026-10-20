@@ -25,6 +25,8 @@ export async function createHomePreviewServer({ port = 0 } = {}) {
   const requestLog = []
   const samples = {}
   const assets = new Map([
+    ['/brand/hallelujah-emblem.png', ['image/png', new URL('../../public/brand/hallelujah-emblem.png', import.meta.url)]],
+    ['/logo-reveal.js', ['text/javascript', new URL('../../public/logo-reveal.js', import.meta.url)]],
     ['/shell-navigation.js', ['text/javascript', new URL('../../public/shell-navigation.js', import.meta.url)]],
     ['/motion-media.js', ['text/javascript', new URL('../../public/motion-media.js', import.meta.url)]],
     ['/fixtures/b01-012-abstract-motion.webm', ['video/webm', new URL('../../public/fixtures/b01-012-abstract-motion.webm', import.meta.url)]],
@@ -55,6 +57,7 @@ export async function createHomePreviewServer({ port = 0 } = {}) {
       if (![...homeFixtureStates, ...homeContactFixtureStates, ...homeGovernedFixtureStates].includes(state)) return finish(404, 'text/plain', 'No preview route.')
       const html = homePreviewDocument(state)
       const initialAssets = ['/home.css', '/shell-navigation.js', '/motion-media.js']
+      if (html.includes('data-logo-reveal')) initialAssets.push('/logo-reveal.js', '/brand/hallelujah-emblem.png')
       let initialBytes = gzipSync(html).byteLength
       let javascriptBytes = 0
       for (const asset of initialAssets) {
@@ -64,7 +67,7 @@ export async function createHomePreviewServer({ port = 0 } = {}) {
         if (asset.endsWith('.js')) javascriptBytes += bytes
       }
       samples[state] = { initialGzipBytes: initialBytes, javascriptGzipBytes: javascriptBytes,
-        initialRequests: 4, initialMediaBytes: 0, posterAssetBytes: 0, externalRuntimeBytes: 0 }
+        initialRequests: initialAssets.length + 1, initialMediaBytes: 0, posterAssetBytes: 0, externalRuntimeBytes: 0 }
       return finish(200, 'text/html; charset=utf-8', html)
     } catch {
       return finish(500, 'text/plain', 'Controlled Home preview unavailable.')

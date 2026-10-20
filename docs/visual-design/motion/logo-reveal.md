@@ -103,3 +103,10 @@ Limitations: this is a raster-backed SVG, not a resolution-independent vector ma
 The supplied raster limits high-density sharpness. Native browser tests cover Chromium;
 Safari/Firefox and physical-device performance remain unverified. Current live homepage
 links are existing in-page destinations, so navigation verification uses those routes.
+
+The component is exported through the component library public API and included in
+the motion/media review inventory as a completed-identity specimen. Local preview
+servers serve the original PNG and enhancement script explicitly. The identity row
+wraps under enlarged text instead of squeezing its name into a zero-width column;
+the review matrix covers 200% text, forced colors, blocked images, and both language
+stress modes. Full entrance timing remains verified on the actual homepage.

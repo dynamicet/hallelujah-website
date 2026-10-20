@@ -1,6 +1,6 @@
 .frame {
-  display: grid;
-  grid-template-columns: 80px minmax(0, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
   background: #fff;
@@ -10,6 +10,9 @@
 }
 
 .identity {
+  flex: 1 1 10rem;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
   margin: 0;
   font-weight: var(--semantic-font-weight-strong);
 }
@@ -31,25 +34,28 @@
   to { visibility: visible; }
 }
 
+.logo {
+  display: block;
+  inline-size: 80px;
+  max-inline-size: 100%;
+  block-size: auto;
+  overflow: visible;
+}
+
 @media (min-width: 54rem) {
   .frame {
     grid-column: 2;
     grid-row: 1;
-    grid-template-columns: minmax(0, 1fr);
-    justify-items: center;
+    flex-direction: column;
     justify-self: center;
     inline-size: min(100%, 22rem);
     padding: 2rem;
     text-align: center;
   }
+  .identity { flex: initial; }
+  .logo { inline-size: min(100%, 280px); }
 }
 
-.logo {
-  display: block;
-  inline-size: min(100%, 280px);
-  block-size: auto;
-  overflow: visible;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .logo [data-logo-complete] { visibility: visible !important; }
