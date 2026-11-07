@@ -26,10 +26,13 @@ No database service or persistent volume is required.
 4. Deploy. Set the project's **Production Branch** to `staging/development` so
    subsequent staging pushes update its main demo URL.
 
-`apps/web/vercel.json` supplies the install/build commands and the demo variables
-for both build time and runtime. Keep the output directory at the Next.js default.
-Vercel manages Node patch releases, so the install command permits its Node 24
-patch version while preserving the frozen lockfile and pinned dependencies.
+`apps/web/vercel.json` supplies the build command and demo variables for both build
+time and runtime. Leave the Install Command override disabled so Vercel detects
+pnpm from the workspace lockfile. Keep the output directory at the Next.js default.
+Vercel manages Node patch releases. Both workspace manifests accept Node `24.x`,
+including Vercel's `24.22.2`, while `.nvmrc`, CI, and container images retain the
+tested `24.21.0` development baseline. Strict engine checking stays enabled for
+normal installs; the lockfile and application dependency versions stay pinned.
 
 Use a separate project from any future live hospital deployment. The Vercel
 "Production" label refers to this demo project's primary URL; the application

@@ -7,7 +7,8 @@
       "version": "24.21.0",
       "releaseLine": "24",
       "supportStatus": "Maintenance LTS",
-      "supportUntil": "2028-04-30"
+      "supportUntil": "2028-04-30",
+      "engineRange": "24.x"
     },
     "pnpm": {
       "version": "10.27.0",

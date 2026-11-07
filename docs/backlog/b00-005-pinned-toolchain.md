@@ -32,7 +32,7 @@ This ticket changes no application route, CMS collection, database connection, e
 
 | Area | Selected version | Pin / support boundary |
 | --- | --- | --- |
-| Node.js | `24.21.0` | Exact `.nvmrc` and manifest engine; Active LTS through 19 October 2026, then Maintenance LTS through April 2028 |
+| Node.js | `24.21.0` | Exact `.nvmrc`, CI and container baseline; manifest engine `24.x` permits host-managed patches for staging deployment; Maintenance LTS through April 2028 |
 | pnpm | `10.27.0` | Exact `packageManager` and manifest engines |
 | Next.js | `16.3.8` | Exact direct dependency and matching `eslint-config-next`; October security refresh recorded below |
 | Payload CMS | `3.90.0` | Exact `payload`, `@payloadcms/next`, and `@payloadcms/db-postgres` versions |
@@ -56,7 +56,7 @@ This ticket changes no application route, CMS collection, database connection, e
 
 ## Enforcement
 
-- `pnpm toolchain:check` validates the policy schema, support/review dates, `.nvmrc`, exact engines, direct application pins, Payload parity, security overrides, lockfile entries, immutable image references, workflow pins, and active Node.js/pnpm versions.
+- `pnpm toolchain:check` validates the policy schema, support/review dates, `.nvmrc`, Node engine release line, exact pnpm engine, direct application pins, Payload parity, security overrides, lockfile entries, immutable image references, workflow pins, and active Node.js/pnpm versions. Hosted staging installs accept Node 24 patches; local verification still enforces the exact tested runtime.
 - `pnpm toolchain:check:containers` additionally verifies the local Docker CLI, Docker Engine, and PostgreSQL client. The current host PostgreSQL `18.6` passes; Docker CLI and Engine `29.2.1` are intentionally rejected until both are upgraded to `29.8.0`. No container packaging or provisioning may claim acceptance before that gate passes.
 - `pnpm verify` begins with the policy check, so ordinary lint/type/test/build execution fails on repository or active-runtime drift.
 - The minimal [toolchain policy workflow](../../.github/workflows/toolchain-policy.yml) uses immutable GitHub Action SHAs, exact Node.js and pnpm versions, a frozen install, the full application verification command, the isolated rebuild verifier, and the backlog audit. Its remote run subsequently passed under `B00-011`; technical repository enforcement remains `B00-012`. Committing the workflow does not activate a third-party application integration.
