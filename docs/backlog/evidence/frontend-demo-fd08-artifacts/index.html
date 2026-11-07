@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FD-08 connected demo comparison</title>
+<style>
+  :root { font: 16px/1.5 system-ui, sans-serif; color: #12394d; background: #f4f8f8 }
+  body { margin: 0 }
+  main { max-width: 1500px; margin: auto; padding: 2rem }
+  h1 { line-height: 1.15 }
+  a { color: #006a73 }
+  nav { display: flex; flex-wrap: wrap; gap: 1rem }
+  section { margin-block: 2rem; padding: 1.5rem; background: white; border: 1px solid #c8d9da; border-radius: 8px }
+  .compare { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem }
+  figure { min-width: 0; margin: 0 }
+  figcaption { font-weight: 700; padding-block: .5rem }
+  img { display: block; width: 100%; height: auto; border: 1px solid #c8d9da }
+  .mobile { grid-template-columns: repeat(2, minmax(0, 360px)) }
+  .links { display: flex; flex-wrap: wrap; gap: .8rem; margin-block: 1rem }
+  .note { border-left: 4px solid #f26522; padding-left: 1rem }
+  @media (max-width: 850px) { main { padding: 1rem } .compare { grid-template-columns: 1fr } }
+</style>
+<main>
+  <h1>FD-08 connected demo comparison</h1>
+  <p>21 October 2026 · Source revision <code>dc323f6</code> plus the FD-08 evidence script change. The before images are connected-route captures from 20 October; the design studies predate the client palette amendment. Compare composition and journey purpose, not exact historical colors or wording.</p>
+  <p class="note">This is internal visual evidence. The client visual decision is still pending. Captures show fictional demonstration content and do not establish hospital facts, a live appointment request, or public release readiness.</p>
+  <nav id="page-nav" aria-label="Page comparisons"></nav>
+  <div id="comparisons"></div>
+  <section>
+    <h2>Focused states</h2>
+    <p>The connected regression also exercises focus, keyboard, client navigation, reduced motion, history, conditional fields, and recovery. These still frames show selected alternate layouts.</p>
+    <div id="states" class="compare"></div>
+  </section>
+</main>
+<script>
+const pages = [
+  ['home', 'Home'], ['doctors', 'Doctors directory'], ['profile', 'Doctor profile'],
+  ['services', 'Services directory'], ['emergency', 'Emergency'], ['appointment', 'Appointment']
+]
+const figure = (file, label) => `<figure><figcaption>${label}</figcaption><a href="${file}"><img loading="lazy" src="${file}" alt="${label}"></a></figure>`
+document.querySelector('#page-nav').innerHTML = pages.map(([id, name]) => `<a href="#${id}">${name}</a>`).join('')
+document.querySelector('#comparisons').innerHTML = pages.map(([id, name]) => `
+  <section id="${id}">
+    <h2>${name}</h2>
+    <p class="links">Fresh connected-route widths: ${[320, 360, 768, 1280, 1440].map(width => `<a href="${id}-${width}.png">${width} px</a>`).join(' · ')}</p>
+    <h3>Desktop</h3>
+    <div class="compare">
+      ${figure(`before-${id}-1440.png`, 'Before · 1440 px')}
+      ${figure(`${id}-1440.png`, 'After · 1440 px')}
+      ${figure(`reference-${id}.png`, 'Design study · desktop')}
+    </div>
+    <h3>Mobile</h3>
+    <div class="compare mobile">
+      ${figure(`before-${id}-360.png`, 'Before · 360 px')}
+      ${figure(`${id}-360.png`, 'After · 360 px')}
+    </div>
+  </section>
+`).join('')
+document.querySelector('#states').innerHTML = [
+  ['profile-partial-360', 'Partial profile'], ['doctors-failure-360', 'Doctors failure'],
+  ['services-empty-360', 'Services empty'], ['emergency-unavailable-360', 'Emergency unavailable'],
+  ['appointment-validation-360', 'Appointment validation'], ['appointment-receipt-360', 'Appointment receipt']
+].map(([file, label]) => figure(`${file}.png`, label)).join('')
+</script>
+</html>

@@ -1,0 +1,352 @@
+{
+  "checks": [
+    "Six widths from 320 to 1440: no overflow, two-line heading, 44px actions, task order; both searches visible at 390 × 844",
+    "Native Enter submits doctor and service queries to matching records; JavaScript enabled",
+    "Native Enter submits doctor and service queries to matching records; JavaScript disabled",
+    "Blank queries browse each directory",
+    "Distinct accessible search landmarks",
+    "Native Tab order and visible focus",
+    "Blocked image leaves all patient actions visible",
+    "Reduced motion removes image entrance",
+    "Forced colors preserves outlined actions",
+    "Appointment and visit-guide destinations work"
+  ],
+  "viewports": [
+    {
+      "width": 320,
+      "overflow": 0,
+      "photo": {
+        "top": 857.828125,
+        "bottom": 1062.625,
+        "width": 296,
+        "height": 204.796875
+      },
+      "doctors": {
+        "top": 553.046875,
+        "bottom": 683.4375,
+        "width": 248,
+        "height": 130.390625
+      },
+      "services": {
+        "top": 703.4375,
+        "bottom": 833.828125,
+        "width": 248,
+        "height": 130.390625
+      },
+      "appointment": {
+        "top": 415.453125,
+        "bottom": 469.046875,
+        "width": 246.078125,
+        "height": 53.59375
+      },
+      "h1Lines": 2,
+      "toolsBottom": 857.828125,
+      "controls": [
+        {
+          "label": "Request an appointment ↗",
+          "height": 53.59375
+        },
+        {
+          "label": "Prepare for your visit ↗",
+          "height": 44
+        },
+        {
+          "label": "View all doctors ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 46
+        },
+        {
+          "label": "View all services ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 46
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "overflow": 0,
+      "photo": {
+        "top": 813.421875,
+        "bottom": 1063.015625,
+        "width": 366,
+        "height": 249.59375
+      },
+      "doctors": {
+        "top": 561.421875,
+        "bottom": 665.421875,
+        "width": 318,
+        "height": 104
+      },
+      "services": {
+        "top": 685.421875,
+        "bottom": 789.421875,
+        "width": 318,
+        "height": 104
+      },
+      "appointment": {
+        "top": 423.828125,
+        "bottom": 477.421875,
+        "width": 246.078125,
+        "height": 53.59375
+      },
+      "h1Lines": 2,
+      "toolsBottom": 813.421875,
+      "controls": [
+        {
+          "label": "Request an appointment ↗",
+          "height": 53.59375
+        },
+        {
+          "label": "Prepare for your visit ↗",
+          "height": 44
+        },
+        {
+          "label": "View all doctors ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 46
+        },
+        {
+          "label": "View all services ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 46
+        }
+      ]
+    },
+    {
+      "width": 600,
+      "overflow": 0,
+      "photo": {
+        "top": 173.5,
+        "bottom": 593.5,
+        "width": 270.484375,
+        "height": 420
+      },
+      "doctors": {
+        "top": 613.5,
+        "bottom": 755.484375,
+        "width": 242,
+        "height": 141.984375
+      },
+      "services": {
+        "top": 613.5,
+        "bottom": 755.484375,
+        "width": 242,
+        "height": 141.984375
+      },
+      "appointment": {
+        "top": 435.328125,
+        "bottom": 492.921875,
+        "width": 234.078125,
+        "height": 57.59375
+      },
+      "h1Lines": 2,
+      "toolsBottom": 783.484375,
+      "controls": [
+        {
+          "label": "Request an appointment ↗",
+          "height": 57.59375
+        },
+        {
+          "label": "Prepare for your visit ↗",
+          "height": 44
+        },
+        {
+          "label": "View all doctors ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 49.59375
+        },
+        {
+          "label": "View all services ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 49.59375
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "overflow": 0,
+      "photo": {
+        "top": 173.5,
+        "bottom": 593.5,
+        "width": 350.484375,
+        "height": 420
+      },
+      "doctors": {
+        "top": 613.5,
+        "bottom": 729.09375,
+        "width": 326,
+        "height": 115.59375
+      },
+      "services": {
+        "top": 613.5,
+        "bottom": 729.09375,
+        "width": 326,
+        "height": 115.59375
+      },
+      "appointment": {
+        "top": 444.328125,
+        "bottom": 503.515625,
+        "width": 281.734375,
+        "height": 59.1875
+      },
+      "h1Lines": 2,
+      "toolsBottom": 757.09375,
+      "controls": [
+        {
+          "label": "Request an appointment ↗",
+          "height": 59.1875
+        },
+        {
+          "label": "Prepare for your visit ↗",
+          "height": 44
+        },
+        {
+          "label": "View all doctors ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 49.59375
+        },
+        {
+          "label": "View all services ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 49.59375
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "overflow": 0,
+      "photo": {
+        "top": 185.5,
+        "bottom": 637.40625,
+        "width": 488,
+        "height": 451.90625
+      },
+      "doctors": {
+        "top": 661.40625,
+        "bottom": 777,
+        "width": 436,
+        "height": 115.59375
+      },
+      "services": {
+        "top": 661.40625,
+        "bottom": 777,
+        "width": 436,
+        "height": 115.59375
+      },
+      "appointment": {
+        "top": 486.21875,
+        "bottom": 545.40625,
+        "width": 281.734375,
+        "height": 59.1875
+      },
+      "h1Lines": 2,
+      "toolsBottom": 809,
+      "controls": [
+        {
+          "label": "Request an appointment ↗",
+          "height": 59.1875
+        },
+        {
+          "label": "Prepare for your visit ↗",
+          "height": 44
+        },
+        {
+          "label": "View all doctors ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 49.59375
+        },
+        {
+          "label": "View all services ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 49.59375
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "overflow": 0,
+      "photo": {
+        "top": 185.5,
+        "bottom": 687.96875,
+        "width": 696,
+        "height": 502.46875
+      },
+      "doctors": {
+        "top": 711.96875,
+        "bottom": 827.5625,
+        "width": 602.40625,
+        "height": 115.59375
+      },
+      "services": {
+        "top": 711.96875,
+        "bottom": 827.5625,
+        "width": 602.40625,
+        "height": 115.59375
+      },
+      "appointment": {
+        "top": 536.78125,
+        "bottom": 595.96875,
+        "width": 281.734375,
+        "height": 59.1875
+      },
+      "h1Lines": 2,
+      "toolsBottom": 859.5625,
+      "controls": [
+        {
+          "label": "Request an appointment ↗",
+          "height": 59.1875
+        },
+        {
+          "label": "Prepare for your visit ↗",
+          "height": 44
+        },
+        {
+          "label": "View all doctors ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 49.59375
+        },
+        {
+          "label": "View all services ↗",
+          "height": 44
+        },
+        {
+          "label": "Search ↗",
+          "height": 49.59375
+        }
+      ]
+    }
+  ]
+}

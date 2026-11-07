@@ -1,0 +1,434 @@
+[
+  {
+    "state": "appointment-errors",
+    "width": 390,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-review",
+    "width": 390,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "help-menu",
+    "width": 390,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 280,
+        "scrollWidth": 280,
+        "height": 192,
+        "scrollHeight": 192,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide",
+    "width": 390,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 388,
+        "scrollWidth": 388,
+        "height": 886,
+        "scrollHeight": 961,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide-answer",
+    "width": 390,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 388,
+        "scrollWidth": 388,
+        "height": 886,
+        "scrollHeight": 1364,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "expanded-home",
+    "width": 390,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-errors",
+    "width": 390,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-review",
+    "width": 390,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "help-menu",
+    "width": 390,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 280,
+        "scrollWidth": 280,
+        "height": 455,
+        "scrollHeight": 455,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide",
+    "width": 390,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 886,
+        "scrollHeight": 1971,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide-answer",
+    "width": 390,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 886,
+        "scrollHeight": 2663,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "expanded-home",
+    "width": 390,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-errors",
+    "width": 768,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-review",
+    "width": 768,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "help-menu",
+    "width": 768,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 280,
+        "scrollWidth": 280,
+        "height": 192,
+        "scrollHeight": 192,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide",
+    "width": 768,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 438,
+        "scrollWidth": 438,
+        "height": 738,
+        "scrollHeight": 1017,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide-answer",
+    "width": 768,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 438,
+        "scrollWidth": 438,
+        "height": 738,
+        "scrollHeight": 1396,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "expanded-home",
+    "width": 768,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-errors",
+    "width": 768,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-review",
+    "width": 768,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "help-menu",
+    "width": 768,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 280,
+        "scrollWidth": 280,
+        "height": 455,
+        "scrollHeight": 455,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide",
+    "width": 768,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 438,
+        "scrollWidth": 438,
+        "height": 738,
+        "scrollHeight": 1880,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide-answer",
+    "width": 768,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 438,
+        "scrollWidth": 438,
+        "height": 738,
+        "scrollHeight": 2524,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "expanded-home",
+    "width": 768,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-errors",
+    "width": 1440,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-review",
+    "width": 1440,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "help-menu",
+    "width": 1440,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 280,
+        "scrollWidth": 280,
+        "height": 192,
+        "scrollHeight": 192,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide",
+    "width": 1440,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 438,
+        "scrollWidth": 438,
+        "height": 738,
+        "scrollHeight": 1017,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide-answer",
+    "width": 1440,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 438,
+        "scrollWidth": 438,
+        "height": 738,
+        "scrollHeight": 1396,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "expanded-home",
+    "width": 1440,
+    "mode": "normal",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-errors",
+    "width": 1440,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "appointment-review",
+    "width": 1440,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  },
+  {
+    "state": "help-menu",
+    "width": 1440,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 280,
+        "scrollWidth": 280,
+        "height": 455,
+        "scrollHeight": 455,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide",
+    "width": 1440,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 438,
+        "scrollWidth": 438,
+        "height": 738,
+        "scrollHeight": 1880,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "patient-guide-answer",
+    "width": 1440,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [
+      {
+        "width": 438,
+        "scrollWidth": 438,
+        "height": 738,
+        "scrollHeight": 2524,
+        "overflow": "auto"
+      }
+    ],
+    "clipped": []
+  },
+  {
+    "state": "expanded-home",
+    "width": 1440,
+    "mode": "text200",
+    "overflow": false,
+    "dialogs": [],
+    "clipped": []
+  }
+]

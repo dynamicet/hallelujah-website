@@ -1,0 +1,702 @@
+[
+  {
+    "width": 320,
+    "height": 740,
+    "layout": {
+      "header": {
+        "x": 0,
+        "y": 51,
+        "width": 320,
+        "height": 156,
+        "bottom": 207
+      },
+      "topBar": {
+        "x": 0,
+        "y": 51,
+        "width": 320,
+        "height": 92,
+        "bottom": 143
+      },
+      "main": {
+        "x": 0,
+        "y": 207,
+        "width": 320,
+        "height": 11930.796875,
+        "bottom": 12137.796875
+      },
+      "overflow": 0,
+      "contacts": [
+        {
+          "text": "Call reception",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "WhatsApp",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "Telegram",
+          "disabled": "true",
+          "height": 44
+        }
+      ],
+      "doctorLinks": [
+        {
+          "text": "Find a doctor",
+          "href": "/doctors"
+        }
+      ]
+    },
+    "menuOpen": {
+      "open": true,
+      "expanded": "true",
+      "triggerText": "Close",
+      "closeTarget": 44,
+      "panelHeight": 417,
+      "scrollHeight": 417,
+      "links": [
+        {
+          "text": "Find a doctor",
+          "href": "/doctors"
+        },
+        {
+          "text": "Care & services",
+          "href": "/services"
+        },
+        {
+          "text": "Patients & Visitors",
+          "href": "/patients-visitors"
+        },
+        {
+          "text": "About Hallelujah",
+          "href": "/#about-hallelujah"
+        },
+        {
+          "text": "Request an appointment ↗",
+          "href": "/appointment"
+        }
+      ]
+    },
+    "menuTabFocus": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Close navigation",
+      "menu": false,
+      "help": false
+    },
+    "menuEscape": {
+      "closed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "text": "MenuClose",
+        "label": null,
+        "menu": true,
+        "help": false
+      }
+    },
+    "menuCloseButtonFocus": {
+      "tag": "BUTTON",
+      "text": "MenuClose",
+      "label": null,
+      "menu": true,
+      "help": false
+    },
+    "menuToggleCloses": true,
+    "scrollDown": {
+      "y": 650,
+      "headerBottom": -1.55999755859375
+    },
+    "scrollUp": {
+      "y": 500,
+      "headerTop": 0
+    },
+    "helpOpen": true,
+    "helpEscape": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Help",
+      "menu": false,
+      "help": true
+    },
+    "guide": {
+      "open": true,
+      "box": {
+        "x": 0,
+        "y": 12,
+        "width": 320,
+        "height": 728
+      },
+      "text": "Hallelujah Patient GuideAutomated website helpPreview · Sample informationStart over ↺Let’s find your next step.Find a doctor, explore care or plan your visit. Choose a topic, or ask a short question below.Find a doctor↗Explore services↗Appointments↗Plan my visit↗Common questions↗Contact & directions↗Try “visiting hours” or a doctor’s name.Ask the Patient GuidePlease leave out personal and medical details.Website guidance · No medical adviceEmergency help ↗"
+    },
+    "guideInitialFocus": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Close patient guide",
+      "menu": false,
+      "help": false
+    },
+    "guideFocusContained": true,
+    "guideEscape": {
+      "closed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "text": "",
+        "label": "Help",
+        "menu": false,
+        "help": true
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "layout": {
+      "header": {
+        "x": 0,
+        "y": 51,
+        "width": 390,
+        "height": 156,
+        "bottom": 207
+      },
+      "topBar": {
+        "x": 0,
+        "y": 51,
+        "width": 390,
+        "height": 92,
+        "bottom": 143
+      },
+      "main": {
+        "x": 0,
+        "y": 207,
+        "width": 390,
+        "height": 11314.65625,
+        "bottom": 11521.65625
+      },
+      "overflow": 0,
+      "contacts": [
+        {
+          "text": "Call reception",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "WhatsApp",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "Telegram",
+          "disabled": "true",
+          "height": 44
+        }
+      ],
+      "doctorLinks": [
+        {
+          "text": "Find a doctor",
+          "href": "/doctors"
+        }
+      ]
+    },
+    "menuOpen": {
+      "open": true,
+      "expanded": "true",
+      "triggerText": "Close",
+      "closeTarget": 44,
+      "panelHeight": 392,
+      "scrollHeight": 392,
+      "links": [
+        {
+          "text": "Find a doctor",
+          "href": "/doctors"
+        },
+        {
+          "text": "Care & services",
+          "href": "/services"
+        },
+        {
+          "text": "Patients & Visitors",
+          "href": "/patients-visitors"
+        },
+        {
+          "text": "About Hallelujah",
+          "href": "/#about-hallelujah"
+        },
+        {
+          "text": "Request an appointment ↗",
+          "href": "/appointment"
+        }
+      ]
+    },
+    "menuTabFocus": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Close navigation",
+      "menu": false,
+      "help": false
+    },
+    "menuEscape": {
+      "closed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "text": "MenuClose",
+        "label": null,
+        "menu": true,
+        "help": false
+      }
+    },
+    "menuCloseButtonFocus": {
+      "tag": "BUTTON",
+      "text": "MenuClose",
+      "label": null,
+      "menu": true,
+      "help": false
+    },
+    "menuToggleCloses": true,
+    "scrollDown": {
+      "y": 650,
+      "headerBottom": -1.55999755859375
+    },
+    "scrollUp": {
+      "y": 500,
+      "headerTop": 0
+    },
+    "helpOpen": true,
+    "helpEscape": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Help",
+      "menu": false,
+      "help": true
+    },
+    "guide": {
+      "open": true,
+      "box": {
+        "x": 0,
+        "y": 12,
+        "width": 390,
+        "height": 832
+      },
+      "text": "Hallelujah Patient GuideAutomated website helpPreview · Sample informationStart over ↺Let’s find your next step.Find a doctor, explore care or plan your visit. Choose a topic, or ask a short question below.Find a doctor↗Explore services↗Appointments↗Plan my visit↗Common questions↗Contact & directions↗Try “visiting hours” or a doctor’s name.Ask the Patient GuidePlease leave out personal and medical details.Website guidance · No medical adviceEmergency help ↗"
+    },
+    "guideInitialFocus": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Close patient guide",
+      "menu": false,
+      "help": false
+    },
+    "guideFocusContained": true,
+    "guideEscape": {
+      "closed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "text": "",
+        "label": "Help",
+        "menu": false,
+        "help": true
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "layout": {
+      "header": {
+        "x": 0,
+        "y": 29.5,
+        "width": 768,
+        "height": 140,
+        "bottom": 169.5
+      },
+      "topBar": {
+        "x": 0,
+        "y": 29.5,
+        "width": 768,
+        "height": 52,
+        "bottom": 81.5
+      },
+      "main": {
+        "x": 0,
+        "y": 181.5,
+        "width": 768,
+        "height": 8997.46875,
+        "bottom": 9178.96875
+      },
+      "overflow": 0,
+      "contacts": [
+        {
+          "text": "Call reception",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "WhatsApp",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "Telegram",
+          "disabled": "true",
+          "height": 44
+        }
+      ],
+      "doctorLinks": [
+        {
+          "text": "Find a doctor",
+          "href": "/doctors"
+        }
+      ]
+    },
+    "menuOpen": {
+      "open": true,
+      "expanded": "true",
+      "triggerText": "Close",
+      "closeTarget": 44,
+      "panelHeight": 392,
+      "scrollHeight": 392,
+      "links": [
+        {
+          "text": "Find a doctor",
+          "href": "/doctors"
+        },
+        {
+          "text": "Care & services",
+          "href": "/services"
+        },
+        {
+          "text": "Patients & Visitors",
+          "href": "/patients-visitors"
+        },
+        {
+          "text": "About Hallelujah",
+          "href": "/#about-hallelujah"
+        },
+        {
+          "text": "Request an appointment ↗",
+          "href": "/appointment"
+        }
+      ]
+    },
+    "menuTabFocus": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Close navigation",
+      "menu": false,
+      "help": false
+    },
+    "menuEscape": {
+      "closed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "text": "MenuClose",
+        "label": null,
+        "menu": true,
+        "help": false
+      }
+    },
+    "menuCloseButtonFocus": {
+      "tag": "BUTTON",
+      "text": "MenuClose",
+      "label": null,
+      "menu": true,
+      "help": false
+    },
+    "menuToggleCloses": true,
+    "scrollDown": {
+      "y": 650,
+      "headerBottom": -1.4000244140625
+    },
+    "scrollUp": {
+      "y": 500,
+      "headerTop": 0
+    },
+    "helpOpen": true,
+    "helpEscape": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Help",
+      "menu": false,
+      "help": true
+    },
+    "guide": {
+      "open": true,
+      "box": {
+        "x": 304,
+        "y": 260,
+        "width": 440,
+        "height": 740
+      },
+      "text": "Hallelujah Patient GuideAutomated website helpPreview · Sample informationStart over ↺Let’s find your next step.Find a doctor, explore care or plan your visit. Choose a topic, or ask a short question below.Find a doctor↗Explore services↗Appointments↗Plan my visit↗Common questions↗Contact & directions↗Try “visiting hours” or a doctor’s name.Ask the Patient GuidePlease leave out personal and medical details.Website guidance · No medical adviceEmergency help ↗"
+    },
+    "guideInitialFocus": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Close patient guide",
+      "menu": false,
+      "help": false
+    },
+    "guideFocusContained": true,
+    "guideEscape": {
+      "closed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "text": "",
+        "label": "Help",
+        "menu": false,
+        "help": true
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "layout": {
+      "header": {
+        "x": 0,
+        "y": 29.5,
+        "width": 844,
+        "height": 140,
+        "bottom": 169.5
+      },
+      "topBar": {
+        "x": 0,
+        "y": 29.5,
+        "width": 844,
+        "height": 52,
+        "bottom": 81.5
+      },
+      "main": {
+        "x": 0,
+        "y": 181.5,
+        "width": 844,
+        "height": 8964.09375,
+        "bottom": 9145.59375
+      },
+      "overflow": 0,
+      "contacts": [
+        {
+          "text": "Call reception",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "WhatsApp",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "Telegram",
+          "disabled": "true",
+          "height": 44
+        }
+      ],
+      "doctorLinks": [
+        {
+          "text": "Find a doctor",
+          "href": "/doctors"
+        }
+      ]
+    },
+    "menuOpen": {
+      "open": true,
+      "expanded": "true",
+      "triggerText": "Close",
+      "closeTarget": 44,
+      "panelHeight": 270,
+      "scrollHeight": 270,
+      "links": [
+        {
+          "text": "Find a doctor",
+          "href": "/doctors"
+        },
+        {
+          "text": "Care & services",
+          "href": "/services"
+        },
+        {
+          "text": "Patients & Visitors",
+          "href": "/patients-visitors"
+        },
+        {
+          "text": "About Hallelujah",
+          "href": "/#about-hallelujah"
+        },
+        {
+          "text": "Request an appointment ↗",
+          "href": "/appointment"
+        }
+      ]
+    },
+    "menuTabFocus": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Close navigation",
+      "menu": false,
+      "help": false
+    },
+    "menuEscape": {
+      "closed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "text": "MenuClose",
+        "label": null,
+        "menu": true,
+        "help": false
+      }
+    },
+    "menuCloseButtonFocus": {
+      "tag": "BUTTON",
+      "text": "MenuClose",
+      "label": null,
+      "menu": true,
+      "help": false
+    },
+    "menuToggleCloses": true,
+    "scrollDown": {
+      "y": 650,
+      "headerBottom": -480.5
+    },
+    "scrollUp": {
+      "y": 500,
+      "headerTop": -470.5
+    },
+    "helpOpen": true,
+    "helpEscape": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Help",
+      "menu": false,
+      "help": true
+    },
+    "guide": {
+      "open": true,
+      "box": {
+        "x": 12,
+        "y": 8,
+        "width": 820,
+        "height": 374
+      },
+      "text": "Hallelujah Patient GuideAutomated website helpPreview · Sample informationStart over ↺Let’s find your next step.Find a doctor, explore care or plan your visit. Choose a topic, or ask a short question below.Find a doctor↗Explore services↗Appointments↗Plan my visit↗Common questions↗Contact & directions↗Try “visiting hours” or a doctor’s name.Ask the Patient GuidePlease leave out personal and medical details.Website guidance · No medical adviceEmergency help ↗"
+    },
+    "guideInitialFocus": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Close patient guide",
+      "menu": false,
+      "help": false
+    },
+    "guideFocusContained": true,
+    "guideEscape": {
+      "closed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "text": "",
+        "label": "Help",
+        "menu": false,
+        "help": true
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "layout": {
+      "header": {
+        "x": 0,
+        "y": 29.5,
+        "width": 1440,
+        "height": 152,
+        "bottom": 181.5
+      },
+      "topBar": {
+        "x": 0,
+        "y": 29.5,
+        "width": 1440,
+        "height": 52,
+        "bottom": 81.5
+      },
+      "main": {
+        "x": 0,
+        "y": 193.5,
+        "width": 1440,
+        "height": 7981.203125,
+        "bottom": 8174.703125
+      },
+      "overflow": 0,
+      "contacts": [
+        {
+          "text": "Call reception",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "WhatsApp",
+          "disabled": "true",
+          "height": 44
+        },
+        {
+          "text": "Telegram",
+          "disabled": "true",
+          "height": 44
+        }
+      ],
+      "doctorLinks": [
+        {
+          "text": "Find a doctor",
+          "href": "/doctors"
+        }
+      ]
+    },
+    "scrollDown": {
+      "y": 650,
+      "headerBottom": -1.52001953125
+    },
+    "scrollUp": {
+      "y": 500,
+      "headerTop": 0
+    },
+    "helpOpen": true,
+    "helpEscape": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Help",
+      "menu": false,
+      "help": true
+    },
+    "guide": {
+      "open": true,
+      "box": {
+        "x": 976,
+        "y": 136,
+        "width": 440,
+        "height": 740
+      },
+      "text": "Hallelujah Patient GuideAutomated website helpPreview · Sample informationStart over ↺Let’s find your next step.Find a doctor, explore care or plan your visit. Choose a topic, or ask a short question below.Find a doctor↗Explore services↗Appointments↗Plan my visit↗Common questions↗Contact & directions↗Try “visiting hours” or a doctor’s name.Ask the Patient GuidePlease leave out personal and medical details.Website guidance · No medical adviceEmergency help ↗"
+    },
+    "guideInitialFocus": {
+      "tag": "BUTTON",
+      "text": "",
+      "label": "Close patient guide",
+      "menu": false,
+      "help": false
+    },
+    "guideFocusContained": true,
+    "guideEscape": {
+      "closed": true,
+      "focus": {
+        "tag": "BUTTON",
+        "text": "",
+        "label": "Help",
+        "menu": false,
+        "help": true
+      }
+    },
+    "errors": []
+  }
+]

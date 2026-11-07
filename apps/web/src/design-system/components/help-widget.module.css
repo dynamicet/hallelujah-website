@@ -1,0 +1,196 @@
+.widget {
+  --help-edge: 16px;
+  --help-bottom: max(var(--help-edge), env(safe-area-inset-bottom, 0px));
+  --help-lift: 0px;
+  min-block-size: calc(80px + env(safe-area-inset-bottom, 0px));
+  background: var(--site-pale);
+}
+
+:global(html:has([data-help-widget])) {
+  scroll-padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+}
+
+.trigger {
+  position: fixed;
+  z-index: 45;
+  inset-inline-end: max(var(--help-edge), env(safe-area-inset-right, 0px));
+  bottom: var(--help-bottom);
+  /* Collision avoidance changes only the painted position, not layout. */
+  transform: translateY(calc(-1 * var(--help-lift)));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 48px;
+  block-size: 48px;
+  padding: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--site-ink);
+  color: var(--site-white);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #073e5326; /* taste-skill-ignore: the launcher floats above light and dark page sections. */
+}
+
+.widget[data-help-hidden] .trigger { visibility: hidden; }
+.widget[data-help-hidden] .trigger:focus-visible { visibility: visible; }
+.widget:has(dialog[open]) .trigger { visibility: hidden; }
+
+/* Collision avoidance needs JavaScript; the native fallback stays in the footer. */
+:global(html[data-hydration='pending']) .trigger {
+  position: static;
+  transform: none;
+  margin: 16px;
+}
+
+.trigger:hover,
+.widget:has(.panel:popover-open) .trigger {
+  background: var(--site-accent);
+  color: var(--site-ink);
+}
+
+.trigger:focus-visible {
+  outline-color: var(--site-link);
+  box-shadow: 0 0 0 3px var(--site-white); /* taste-skill-ignore: two-color focus ring stays visible on light and dark page sections. */
+}
+
+.trigger svg {
+  display: block;
+  inline-size: 24px;
+  block-size: 24px;
+}
+
+.closeGlyph,
+.widget:has(.panel:popover-open) .helpGlyph {
+  display: none;
+}
+
+.widget:has(.panel:popover-open) .closeGlyph {
+  display: block;
+}
+
+.panel {
+  position: fixed;
+  inset: auto max(var(--help-edge), env(safe-area-inset-right, 0px)) calc(var(--help-bottom) + var(--help-lift) + 56px) auto;
+  inline-size: min(280px, calc(100vw - 2 * var(--help-edge)));
+  max-block-size: calc(100dvh - var(--help-bottom) - var(--help-lift) - 72px - env(safe-area-inset-top, 0px));
+  margin: 0;
+  padding: 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 0;
+  border-radius: 16px;
+  background: var(--site-pale);
+  color: var(--site-ink);
+  box-shadow: 0 3px 12px #073e5326; /* taste-skill-ignore: the open Help menu needs separation from the page. */
+}
+
+.panelHeader { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-inline-start: 12px; }
+.dismiss { display: grid; place-items: center; flex: 0 0 44px; inline-size: 44px; block-size: 44px; padding: 10px; border: 0; background: transparent; color: var(--site-ink); cursor: pointer; }
+.dismiss svg { inline-size: 24px; block-size: 24px; }
+.dismiss:hover { background: var(--site-white); }
+
+.panel::backdrop {
+  background: transparent;
+}
+
+.actions {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.actions > li {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-block-size: 44px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--site-white);
+  color: var(--site-ink);
+  text-align: start;
+  text-decoration: none;
+}
+
+.actionIcon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 20px;
+  inline-size: 20px;
+  block-size: 20px;
+}
+
+.actionIcon svg {
+  inline-size: 20px;
+  block-size: 20px;
+}
+
+.label {
+  min-inline-size: 0;
+}
+
+.action strong {
+  display: block;
+  font-size: var(--site-support);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.action small {
+  display: block;
+  margin-block-start: 1px;
+  color: var(--site-muted);
+  font-size: var(--site-support);
+  line-height: 1.4;
+}
+
+.action:disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.action:disabled .actionIcon {
+  color: var(--site-muted);
+}
+
+.appointment {
+  background: var(--site-accent);
+}
+
+.appointment:hover {
+  background: var(--site-pale);
+  color: var(--site-ink);
+}
+
+.action:focus-visible {
+  outline-offset: 2px;
+}
+
+.noScript { margin: 10px 0 0; padding: 16px; border-radius: 16px; background: var(--site-white); color: var(--site-ink); font-size: var(--site-support); }
+.noScript a { color: var(--site-link); text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .trigger, .action { transition: none; }
+}
+
+@media (forced-colors: active) {
+  .trigger, .action, .dismiss { border: 1px solid ButtonText; }
+  .action:disabled, .action:disabled .actionIcon, .action:disabled small { color: GrayText; }
+}
+
+@media print {
+  .widget { display: none; }
+}

@@ -1,0 +1,36 @@
+Hallelujah homepage concept assets — 2 November 2026
+
+All people, premises and scenes are fictional. These assets do not establish actual
+hospital staff, facilities, services or accessibility arrangements. Replace them
+with approved photography before publication. No reference-site images were used.
+
+Existing sources reused:
+hope-care.webp -> hero-care-{640,960,1536}.{avif,webp}
+together-care.webp -> human-care-{960,1600}.{avif,webp}
+Existing clinician identity portraits remain assigned to the same preview records.
+The human-care source was already a suitable wide scene, so it was reused.
+Original provenance: CARE-IMAGERY.txt and clinicians/SOURCES.txt.
+
+Built-in imagegen generated three specialty scenes and one arrival illustration.
+Source directory in this session:
+$CODEX_HOME/generated_images/01a19c46-bedd-7881-85e5-e8cddeec5fe3/
+General: exec-da234b7a-cf1e-41c4-aa56-7db319f8cb3f.png
+Heart: exec-b15ebd8d-f0b8-4606-bd07-1d3e78c94628.png
+Recovery: exec-7121493b-1b93-459f-9199-a6faa126582e.png
+Arrival: exec-6fca0e43-8b97-47f3-9f45-48e0bda1b267.png
+
+Responsive derivatives are stored here as specialty-{general,heart,recovery}-
+{640,1100}.{avif,webp} and arrival-{640,1100}.{avif,webp}.
+Reproduce them using apps/web/scripts/prepare-home-imagery.mjs SOURCE_DIRECTORY.
+Source PNGs remain in the imagegen library; the application uses local derivatives.
+
+Exact specialty prompt prefix:
+Use case: photorealistic-natural. Asset type: landscape 3:2 editorial image for Ethiopian hospital specialty explorer. Fictional Ethiopian people and clinic, no real hospital claims. Soft warm window light, pale blue walls, navy teal scrubs, natural skin texture, restrained candid documentary photography, eye-level, central subjects safe for square crops. No text, logos, watermark.
+
+Append one of:
+General medicine: female clinician listening to a middle-aged woman seated across a desk, relaxed natural conversation.
+Heart care: male clinician discussing a simple anatomical heart model with an older man in a light shirt, seated, no procedure or diagnostic claims.
+Rehabilitation: female physiotherapist guiding an adult woman through gentle standing shoulder mobility in a light airy rehabilitation room, natural accurate anatomy.
+
+Exact arrival prompt:
+Use case: illustration-story. Asset type: landscape 3:2 arrival illustration for an Ethiopian hospital visit guide. A fictional Ethiopian woman and older man walking toward a welcoming reception entrance, an attendant greeting them at the open door, clearly visible gently sloped accessible approach. Elegant editorial gouache illustration, warm natural daylight, muted pale blue, deep teal, leafy green, cream and warm oak. Contemporary Addis Ababa atmosphere with distant hills. Wide composition with figures near the centre safe for 2:1 crop. This is a fictional place, not the actual Hallelujah Hospital or evidence of its access facilities. No text, letters, symbols, logos or watermark.

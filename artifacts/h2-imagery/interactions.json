@@ -1,0 +1,44 @@
+[
+  {
+    "width": 1440,
+    "serviceChoices": 3,
+    "keyboardTab": "passed",
+    "duplicateHomepagePhotos": 0,
+    "feedbackReviewFocus": "passed",
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "serviceChoices": 3,
+    "keyboardTab": "passed",
+    "duplicateHomepagePhotos": 0,
+    "feedbackReviewFocus": "passed",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "serviceChoices": 3,
+    "keyboardTab": "passed",
+    "duplicateHomepagePhotos": 0,
+    "feedbackReviewFocus": "passed",
+    "overflow": false
+  },
+  {
+    "width": 320,
+    "serviceChoices": 3,
+    "keyboardTab": "passed",
+    "duplicateHomepagePhotos": 0,
+    "feedbackReviewFocus": "passed",
+    "overflow": false
+  },
+  {
+    "mode": "no-javascript",
+    "consultationImage": "family-care",
+    "noScriptServiceLinks": 3
+  },
+  {
+    "mode": "reduced-motion",
+    "consultationImage": "family-care",
+    "noScriptServiceLinks": 0
+  }
+]

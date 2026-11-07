@@ -1,0 +1,46 @@
+N3 reassessment and implementation — 2 November 2026
+
+Scope
+Rechecked the current rendered homepage and affected service, doctor, news, visitor and feedback pages before editing. Existing partner content, all 19 source-mapped logos/names, guidance, native scrolling, previous/next and expanded view were retained. Relationship categories and explanations are deferred at the user's request until the hospital provides them. No new claims or assets were introduced.
+
+Reassessment
+The original assessment predates an already-working partner carousel with manual arrows and View all partners. The remaining visual opportunity was a stronger logo presentation and automatic sliding. Generic request labels persisted in service and clinician pages; news cards still said Read More. before/results.json and before screenshots record the current baseline.
+
+Implementation
+A quiet existing ground-color band, larger optically balanced logos, square controls matching the shared actions, and a 3.5-second slide interval. Pause/play, hover/focus pause, pause after manual interaction, reduced-motion disablement, hidden/offscreen suspension, and no-JavaScript native scrolling. All partners remains a static grid. At the end the row resets to its start; this is a cycling carousel, not a continuously duplicated marquee.
+Appointment destinations say Request an appointment, with doctor/service context where appropriate. Directory actions identify services, doctors or stories. News cards distinguish reading an article from viewing event details. The appointment step says Enter your details. Internal links use right arrows; content-choice, print and feedback-review controls no longer imply navigation. Existing hrefs and query parameters are preserved.
+
+Design direction
+Single-section change: retained existing hospital palette, typography and surrounding composition; no draw, seed or redraw required by the skill's single-section exception.
+Idea: Hallelujah's existing published partner marks become one browsable horizontal strip.
+Live interaction: auto-sliding row with manual control and the complete expanded list.
+
+ROUND 1 — baseline
+Seen in one second: recognizable logos but a static-looking white row.
+Idea (one sentence): The existing partner roster becomes a horizontal identity strip.
+Live thing: manual row browsing and View all partners.
+Layout words by section: partners=white horizontal list / news=editorial cards.
+Scores: design 7 · usability 7 · creativity 6 · content 6 → overall 6.7
+Caps applied: relationship information remains unverified; no new factual claims permitted.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. before/partners-1440.jpg: small marks lose prominence in white space; enlarge and use a shared tonal band.
+2. before/partners-390.jpg: no visible movement or pause affordance; add controlled automatic sliding.
+3. before/services.jpg and before/news-resources.jpg: generic action cues; name the destination and next task.
+
+ROUND 2 — final
+Seen in one second: a unified partner strip with larger marks and explicit slideshow controls.
+Idea (one sentence): Hallelujah's existing published partner marks become one browsable horizontal strip.
+Live thing: pauseable automatic sliding, manual arrows and complete expanded view.
+Layout words by section: partners=tonal horizontal strip / news=editorial cards.
+Scores: design 8 · usability 8 · creativity 6 · content 6 → overall 7.4
+Caps applied: existing hospital relationship/content uncertainty limits content, and this familiar carousel does not claim unique creative direction.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. Partner relationship explanations remain absent by instruction; hospital evidence is required before adding categories.
+2. 200% root-font checks reveal existing consultation overflow at 390px and consultation/team overflow at 320px, outside this N3 change; do not claim a whole-page enlarged-text pass.
+3. Whole-home inspector retains card-row, type-size-count and no-footage warnings; these predate N3. The fourth warning, side-scroll, reflects the requested partner carousel with manual and full-list alternatives.
+
+Verification
+TypeScript, focused ESLint, production build, partner records/assets, tokens/contrast, service-directory, clinician-profile, appointment-page, patient-guide and shell contracts passed. Source design lint passed. Homepage inspector before and after: 0 FAIL / 4 WARN at 1440, 768 and 390px. Final inspector screenshots were opened and reviewed. Captures at 1440, 768, 390 and 320px and affected mobile routes show no normal-size page overflow. Captured href lists match before/after. Browser interaction assertions and enlarged partner-control checks are in interactions.json.
+
+Assets and limits
+No new imagery, downloads, generated assets or sample facts. Existing illustrative people/news content and hospital verification notices remain. Partner relationship explanations remain an open hospital dependency. No public deployment performed.

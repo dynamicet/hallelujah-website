@@ -1,0 +1,709 @@
+{
+  "routes": 44,
+  "checks": [
+    {
+      "route": "/doctors",
+      "width": 1440,
+      "h1": 1,
+      "title": "Find a doctor",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services",
+      "width": 1440,
+      "h1": 1,
+      "title": "Find a service",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/appointment",
+      "width": 1440,
+      "h1": 1,
+      "title": "Request an appointment",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/patients-visitors",
+      "width": 1440,
+      "h1": 1,
+      "title": "Patients & Visitors",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/referrals",
+      "width": 1440,
+      "h1": 1,
+      "title": "Refer a patient",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/feedback",
+      "width": 1440,
+      "h1": 1,
+      "title": "Patient feedback",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics",
+      "width": 1440,
+      "h1": 1,
+      "title": "Health & care topics",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources",
+      "width": 1440,
+      "h1": 1,
+      "title": "News & resources",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/emergency",
+      "width": 1440,
+      "h1": 1,
+      "title": "Emergency help",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-151515151515",
+      "width": 1440,
+      "h1": 1,
+      "title": "Heart medicine",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-232323232323",
+      "width": 1440,
+      "h1": 1,
+      "title": "Brain & nerve care",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-242424242424",
+      "width": 1440,
+      "h1": 1,
+      "title": "Kidney care",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-252525252525",
+      "width": 1440,
+      "h1": 1,
+      "title": "Bones & joints",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-101010101010",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Aster",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-111111111111",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Bekele",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-121212121212",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Chala",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources/make-room-for-your-questions",
+      "width": 1440,
+      "h1": 1,
+      "title": "Make room for your questions.",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources/understanding-medical-breakthroughs",
+      "width": 1440,
+      "h1": 1,
+      "title": "Behind the breakthrough.",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources/a-conversation-about-care",
+      "width": 1440,
+      "h1": 1,
+      "title": "Let’s talk about care.",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-101010101010/",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Aster",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-111111111111/",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Bekele",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-121212121212/",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Chala",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-131313131313/",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Desta",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-141414141414/",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Eden",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-151515151515/",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Fikru",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-161616161616/",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Genet",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-171717171717/",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Hana",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-181818181818/",
+      "width": 1440,
+      "h1": 1,
+      "title": "Dr Imani Alemu Tesfaye-Mekonnen",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-111111111111",
+      "width": 1440,
+      "h1": 1,
+      "title": "Admission guidance",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-161616161616",
+      "width": 1440,
+      "h1": 1,
+      "title": "Breathing medicine",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-141414141414",
+      "width": 1440,
+      "h1": 1,
+      "title": "General medicine",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-121212121212",
+      "width": 1440,
+      "h1": 1,
+      "title": "Preparing for a hospital stay",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-131313131313",
+      "width": 1440,
+      "h1": 1,
+      "title": "Preparing for a day visit",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-191919191919",
+      "width": 1440,
+      "h1": 1,
+      "title": "Preparing for a therapy conversation",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-212121212121",
+      "width": 1440,
+      "h1": 1,
+      "title": "Follow-up support",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-171717171717",
+      "width": 1440,
+      "h1": 1,
+      "title": "Rehabilitation care",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-181818181818",
+      "width": 1440,
+      "h1": 1,
+      "title": "Speech support",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources/keep-your-visit-information-together",
+      "width": 1440,
+      "h1": 1,
+      "title": "A little less to remember.",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/allergies",
+      "width": 1440,
+      "h1": 1,
+      "title": "Allergies",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/asthma",
+      "width": 1440,
+      "h1": 1,
+      "title": "Asthma",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/back-pain",
+      "width": 1440,
+      "h1": 1,
+      "title": "Back pain",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/diabetes",
+      "width": 1440,
+      "h1": 1,
+      "title": "Diabetes",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/digestive-concerns",
+      "width": 1440,
+      "h1": 1,
+      "title": "Digestive concerns",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/everyday-wellbeing",
+      "width": 1440,
+      "h1": 1,
+      "title": "Everyday wellbeing",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors",
+      "width": 390,
+      "h1": 1,
+      "title": "Find a doctor",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services",
+      "width": 390,
+      "h1": 1,
+      "title": "Find a service",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/appointment",
+      "width": 390,
+      "h1": 1,
+      "title": "Request an appointment",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/patients-visitors",
+      "width": 390,
+      "h1": 1,
+      "title": "Patients & Visitors",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/referrals",
+      "width": 390,
+      "h1": 1,
+      "title": "Refer a patient",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/feedback",
+      "width": 390,
+      "h1": 1,
+      "title": "Patient feedback",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics",
+      "width": 390,
+      "h1": 1,
+      "title": "Health & care topics",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources",
+      "width": 390,
+      "h1": 1,
+      "title": "News & resources",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/emergency",
+      "width": 390,
+      "h1": 1,
+      "title": "Emergency help",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-151515151515",
+      "width": 390,
+      "h1": 1,
+      "title": "Heart medicine",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-232323232323",
+      "width": 390,
+      "h1": 1,
+      "title": "Brain & nerve care",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-242424242424",
+      "width": 390,
+      "h1": 1,
+      "title": "Kidney care",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-252525252525",
+      "width": 390,
+      "h1": 1,
+      "title": "Bones & joints",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-101010101010",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Aster",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-111111111111",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Bekele",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-121212121212",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Chala",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources/make-room-for-your-questions",
+      "width": 390,
+      "h1": 1,
+      "title": "Make room for your questions.",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources/understanding-medical-breakthroughs",
+      "width": 390,
+      "h1": 1,
+      "title": "Behind the breakthrough.",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources/a-conversation-about-care",
+      "width": 390,
+      "h1": 1,
+      "title": "Let’s talk about care.",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-101010101010/",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Aster",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-111111111111/",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Bekele",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-121212121212/",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Chala",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-131313131313/",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Desta",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-141414141414/",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Eden",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-151515151515/",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Fikru",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-161616161616/",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Genet",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-171717171717/",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Hana",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/doctors/synthetic-clinician-181818181818/",
+      "width": 390,
+      "h1": 1,
+      "title": "Dr Imani Alemu Tesfaye-Mekonnen",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-111111111111",
+      "width": 390,
+      "h1": 1,
+      "title": "Admission guidance",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-161616161616",
+      "width": 390,
+      "h1": 1,
+      "title": "Breathing medicine",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-141414141414",
+      "width": 390,
+      "h1": 1,
+      "title": "General medicine",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-121212121212",
+      "width": 390,
+      "h1": 1,
+      "title": "Preparing for a hospital stay",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-131313131313",
+      "width": 390,
+      "h1": 1,
+      "title": "Preparing for a day visit",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-191919191919",
+      "width": 390,
+      "h1": 1,
+      "title": "Preparing for a therapy conversation",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-212121212121",
+      "width": 390,
+      "h1": 1,
+      "title": "Follow-up support",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-171717171717",
+      "width": 390,
+      "h1": 1,
+      "title": "Rehabilitation care",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/services/synthetic-service-181818181818",
+      "width": 390,
+      "h1": 1,
+      "title": "Speech support",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/news-resources/keep-your-visit-information-together",
+      "width": 390,
+      "h1": 1,
+      "title": "A little less to remember.",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/allergies",
+      "width": 390,
+      "h1": 1,
+      "title": "Allergies",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/asthma",
+      "width": 390,
+      "h1": 1,
+      "title": "Asthma",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/back-pain",
+      "width": 390,
+      "h1": 1,
+      "title": "Back pain",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/diabetes",
+      "width": 390,
+      "h1": 1,
+      "title": "Diabetes",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/digestive-concerns",
+      "width": 390,
+      "h1": 1,
+      "title": "Digestive concerns",
+      "overflow": false,
+      "duplicates": []
+    },
+    {
+      "route": "/health-topics/everyday-wellbeing",
+      "width": 390,
+      "h1": 1,
+      "title": "Everyday wellbeing",
+      "overflow": false,
+      "duplicates": []
+    }
+  ]
+}

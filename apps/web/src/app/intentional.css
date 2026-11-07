@@ -1,0 +1,269 @@
+/* HH editorial presentation: one warm ground, navy ink, clear care actions.
+   Shared tokens carry the decisions into directories, profiles and appointments. */
+:root {
+  --site-display: Editorial, Ethiopic, Georgia, serif;
+  --site-frame: min(1280px, calc(100% - 80px));
+  --site-panel-radius: 12px;
+  --site-image-radius: 20px;
+  --site-control-radius: 8px;
+  --site-heading: clamp(2rem, 2.3vw + 1rem, 3.5rem);
+  --site-title: clamp(2.75rem, 3vw + 1rem, 4.75rem);
+  --site-page-title: clamp(2.5rem, 2.5vw + 1rem, 4rem);
+}
+body { font-synthesis: none; }
+body :where(h1,h2) { font-weight: 400; letter-spacing: -.025em; line-height: 1.16; text-wrap: balance; }
+body :where(h3,h4) { font-family: var(--site-font); letter-spacing: -.01em; line-height: 1.3; }
+body :where(p) { text-wrap: pretty; }
+body :where(select,textarea):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
+body :where([lang='am']) { font-family: Ethiopic, sans-serif; letter-spacing: normal; line-height: 1.5; }
+[data-site-header] [class*='wordmark'] { font-family: 'Clash Grotesk', sans-serif; letter-spacing: -.035em; }
+[data-site-header] [class*='wordmark'] > span { font-family: var(--site-font); letter-spacing: .01em; }
+[data-site-header] [class*='utilityBar'] { background: var(--site-ground); }
+[data-site-header] [class*='appointmentLink'] {
+  min-height: 48px; padding: 12px 20px; gap: 16px;
+  font-size: 16px; font-weight: var(--site-action-weight); line-height: 24px;
+}
+[data-site-header] [class*='appointmentLink']:hover { transform: none; }
+[data-site-header] [class*='navigationLink'], [data-site-header] [class*='aboutLink'] { font-family: var(--site-font); letter-spacing: normal; }
+[data-site-footer] [class*='footerIdentity'] h2 { font-weight: 400; }
+[data-site-footer] { background: var(--site-surface-inverse); color: var(--site-white); }
+[data-site-footer] :is(h2,p,a,strong) { color: inherit; }
+[data-site-footer] [class*='footerAction'] { background: white; color: var(--site-ink); }
+[data-site-footer] [class*='footerAction']:hover { background: var(--site-pale); }
+[data-site-footer] [class*='footerAction']:active { background: var(--site-selection); }
+[data-site-footer] a:focus-visible { outline-color: var(--site-white); box-shadow: 0 0 0 4px var(--site-surface-inverse); }
+[data-site-footer] [class*='footerClose'] > strong { font-family: var(--site-display); font-weight: 400; letter-spacing: -.025em; }
+
+.enhanced-home {
+  --home-gutter: 40px;
+  --home-space: clamp(64px, 7.5vw, 112px);
+  --site-frame: min(1280px, calc(100% - var(--home-gutter) * 2));
+  --site-heading: clamp(2rem, 2.3vw + 1rem, 3.5rem);
+}
+/* Hero contract: one edge-to-edge care scene, never adjacent text/image columns.
+   Mobile moves the reading area below the faces inside the same navy scene. */
+.enhanced-home .welcome { width: 100%; margin: 0; background: var(--site-ground); padding: 0; }
+.enhanced-home .welcome-story {
+  position: relative; isolation: isolate; overflow: hidden;
+  width: 100%; margin: 0; display: grid;
+  grid-template-columns: minmax(0, 1fr); grid-template-areas: 'story';
+  gap: 0; min-height: clamp(560px, 41vw, 660px); padding: 0;
+  background: #102c3c; align-items: stretch;
+}
+.enhanced-home .welcome-copy {
+  grid-area: story; z-index: 1; display: flex; flex-direction: column;
+  width: min(540px, 42%); margin: 0;
+  margin-left: max(var(--home-gutter), calc((100% - 1280px) / 2));
+  padding: 48px 0; min-height: 0; color: white; background: transparent;
+  align-items: flex-start; justify-content: center; text-align: left;
+}
+.enhanced-home .welcome h1 {
+  color: inherit; font-family: var(--site-display); font-weight: 400;
+  font-size: clamp(64px, 6vw, 88px); line-height: 1.02;
+  letter-spacing: -.035em; max-width: 7em; text-align: left;
+}
+.enhanced-home .welcome-copy > p {
+  margin-top: 18px; max-width: 36ch; font-size: 18px; line-height: 1.6;
+}
+.enhanced-home .welcome-location {
+  display: inline-grid; grid-template-columns: 18px minmax(0, 1fr); align-items: start; align-content: center;
+  gap: 8px; min-height: 44px; max-width: 100%; margin-bottom: 20px;
+  color: inherit; font-size: 16px; line-height: 1.4; text-decoration: none;
+}
+.enhanced-home .welcome-location svg { margin-top: 2px; }
+.enhanced-home .welcome-location-text { display: flex; flex-wrap: wrap; column-gap: 5px; }
+.enhanced-home .welcome-location-city { white-space: nowrap; }
+.enhanced-home .welcome-location:hover .welcome-location-text { text-decoration: underline; text-underline-offset: 4px; }
+.enhanced-home .welcome-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 24px; }
+.enhanced-home .welcome-appointment {
+  width: fit-content; justify-content: center;
+  margin-top: 0; background: white; color: var(--site-ink); min-height: 56px;
+  padding: 16px 24px; font-size: 16px; font-weight: var(--site-action-weight); line-height: 24px; gap: 16px;
+}
+.enhanced-home .welcome-appointment:hover { background: var(--site-pale); color: var(--site-ink); }
+.enhanced-home .welcome-appointment:active { background: var(--site-selection); }
+.enhanced-home .welcome-copy :is(a,button):focus-visible { outline: 3px solid white; outline-offset: 5px; }
+.enhanced-home .welcome-secondary-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; }
+.enhanced-home .welcome-secondary-links :is(.text-link, .welcome-visit, .welcome-call) {
+  color: white; margin: 0; min-height: 44px; font-size: 16px; line-height: 24px;
+  font-weight: 400; justify-content: flex-start; gap: 8px; text-decoration: none;
+}
+.enhanced-home .welcome-call { display: inline-flex; align-items: center; padding: 0; border: 0; background: transparent; font-family: inherit; }
+.enhanced-home .welcome-call svg { width: 20px; height: 20px; }
+.enhanced-home .welcome-call[href]:hover { text-decoration: underline; text-underline-offset: 5px; }
+.enhanced-home .welcome-actions .welcome-action-label { transform: none; }
+.enhanced-home .welcome-secondary-links a:is(:hover, :focus-visible) .welcome-action-label {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px;
+}
+.enhanced-home .welcome-action-arrow { display: inline-flex; align-items: center; flex: 0 0 20px; width: 20px; height: 20px; }
+.enhanced-home .welcome-action-arrow svg { display: block; }
+.enhanced-home .welcome-media {
+  grid-area: story; position: absolute; inset: 0; width: 100%; margin: 0;
+  min-height: 0; height: 100%; border-radius: 0; overflow: hidden; background: #102c3c;
+}
+.enhanced-home .welcome-media picture { display: block; height: 100%; }
+.enhanced-home .welcome-media::after {
+  content: ''; position: absolute; inset: 0; display: block;
+  /* Neutral photo scrim: a readable left edge without dimming the care encounter. */
+  background: linear-gradient(90deg, rgb(5 19 28 / .78), rgb(5 19 28 / .6) 36%, transparent 65%);
+  pointer-events: none;
+}
+.enhanced-home .welcome-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%; max-height: none;
+  object-fit: cover; object-position: center 15%;
+}
+@media (max-width: 1099px) {
+  .enhanced-home .welcome-story { min-height: 0; }
+  .enhanced-home .welcome-media { position: absolute; height: 100%; }
+  .enhanced-home .welcome-media picture { height: clamp(300px, 38vw, 370px); }
+  .enhanced-home .welcome-photo { height: 100%; object-position: right 28%; }
+  .enhanced-home .welcome-media picture { position: relative; }
+  .enhanced-home .welcome-media::after {
+    background: linear-gradient(to bottom, transparent 52%, #102c3c 100%);
+    height: clamp(300px, 38vw, 370px);
+  }
+  .enhanced-home .welcome-copy {
+    width: var(--site-frame); margin-inline: auto;
+    padding: clamp(220px, 24vw, 264px) 0 32px;
+    justify-content: flex-end;
+  }
+  .enhanced-home .welcome h1 { font-size: clamp(48px, 7vw, 64px); max-width: 9em; }
+  .enhanced-home .welcome-copy > p { max-width: 44ch; }
+}
+@media (max-width: 599px) {
+  .enhanced-home .welcome-media picture, .enhanced-home .welcome-media::after { height: 300px; }
+  .enhanced-home .welcome-copy { padding-top: 260px; padding-bottom: 28px; }
+  .enhanced-home .welcome h1 { font-size: clamp(44px, 12vw, 58px); max-width: 7em; }
+  .enhanced-home .welcome-copy > p { font-size: 16px; line-height: 1.55; margin-top: 18px; max-width: 36ch; }
+  .enhanced-home .welcome-actions { width: 100%; align-items: stretch; margin-top: 24px; }
+  .enhanced-home .welcome-actions .welcome-appointment { width: 100%; }
+  .enhanced-home .welcome-secondary-links { justify-content: center; column-gap: 24px; }
+}
+@media (max-width: 599px) and (max-height: 700px) {
+  .enhanced-home .welcome-media picture, .enhanced-home .welcome-media::after { height: 240px; }
+  .enhanced-home .welcome-copy { padding-top: 200px; }
+}
+@media (max-width: 359px) {
+  .enhanced-home .welcome-actions .welcome-appointment { padding: 12px 16px; font-size: 16px; }
+  .enhanced-home .welcome-secondary-links { justify-content: space-between; column-gap: 8px; }
+  .enhanced-home .welcome-secondary-links .text-link { font-size: 15px; gap: 6px; white-space: nowrap; }
+  .enhanced-home .welcome-secondary-links .welcome-call { gap: 6px; }
+}
+@media (min-width: 600px) and (max-width: 1099px) and (max-height: 850px) {
+  .enhanced-home .welcome-media picture, .enhanced-home .welcome-media::after { height: 280px; }
+  .enhanced-home .welcome-photo { object-position: right 10%; }
+  .enhanced-home .welcome-copy { padding-top: 220px; }
+}
+/* One discovery bar, aligned to the same frame as the rest of the page. */
+.enhanced-home .care-search-panel { padding: 32px max(var(--home-gutter), calc((100% - 1280px) / 2)); background: var(--site-white); }
+.enhanced-home .care-search-panel form { grid-template-columns: 220px 1fr; gap: 32px; }
+.enhanced-home .care-search-panel select, .enhanced-home .care-query-field { background: var(--site-ground); }
+.enhanced-home .care-query input { background: transparent; font-size: 16px; }
+.enhanced-home .care-query button { font-size: 16px; font-weight: var(--site-action-weight); }
+.enhanced-home .care-search-links { font-size: 16px; }
+.enhanced-home .care-areas { background: var(--site-ground); }
+.enhanced-home .section-intro { grid-template-columns: 1.1fr 1fr; gap: 8%; align-items: end; }
+.enhanced-home .section-intro p { max-width: 43ch; }
+.enhanced-home .care-spotlight { padding: 0; background: transparent; gap: 7%; }
+.enhanced-home .specialty-images { border-radius: 16px; }
+.enhanced-home .care-spotlight-choice { padding: 20px 24px; border-radius: 12px; }
+.enhanced-home .care-spotlight-choice[aria-pressed=true] { background: white; color: var(--site-ink); }
+.enhanced-home .care-spotlight-label { font-size: 24px; font-weight: 400; }
+.enhanced-home .care-spotlight-copy { padding-inline: 24px; }
+.enhanced-home .care-spotlight-all { margin-left: 24px; }
+.enhanced-home .team-guide { background: white; }
+.enhanced-home .team-person h3 { font-size: 22px; font-weight: 700; line-height: 1.35; }
+.enhanced-home .team-person-details { padding-top: 20px; }
+.enhanced-home .team-portrait-frame { border-radius: 16px; background: var(--site-ground); }
+.enhanced-home .human-care { background: var(--site-pale); }
+.enhanced-home .human-support > p { font-family: var(--site-display); font-size: clamp(24px, 2.5vw, 34px); line-height: 1.35; max-width: 38ch; }
+.enhanced-home .hospital-film-copy h2 { line-height: 1.12; }
+.enhanced-home .visit-guide { background: var(--site-ground); }
+.enhanced-home .visit-copy > p { max-width: 43ch; }
+.enhanced-home .visit-questions summary { font-family: var(--site-font); font-size: 18px; line-height: 1.4; }
+.enhanced-home .human-story summary { font-family: var(--site-font); font-size: 20px; line-height: 1.4; }
+.enhanced-home .human-story blockquote { font-family: var(--site-display); font-size: 26px; line-height: 1.4; }
+.enhanced-home [data-health-library] { margin-block: var(--home-space); }
+/* Appointment steps use the same action language as the route into them. */
+main [data-appointment-template] :is([class*='continueButton'], [data-form-submit]) { background: var(--site-action-primary); color: var(--site-white); min-height: 52px; border-radius: var(--site-action-radius); font-size: 16px; }
+main [data-appointment-template] :is([class*='continueButton'], [data-form-submit]):hover { background: var(--site-link); color: white; transform: none; }
+main [data-appointment-template] :is([class*='continueButton'], [data-form-submit]):active:not(:disabled) { background: var(--site-action-active); }
+main [data-clinician-public-id] h3 { font-family: var(--site-font); font-weight: 700; font-size: 22px; }
+/* The directories retain a visible page title on small screens. */
+@media (max-width: 767px) {
+ main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='directoryHeading'] { position: static; width: auto; height: auto; overflow: visible; clip-path: none; }
+}
+@media (max-width: 1023px) {
+ :root { --site-frame: calc(100% - 48px); }
+ .enhanced-home { --home-gutter: 24px; }
+}
+@media (max-width: 599px) {
+ :root { --site-frame: calc(100% - 40px); }
+ .enhanced-home { --home-gutter: 20px; }
+ .enhanced-home .care-search-panel { padding-block: 24px; }
+ .enhanced-home .care-search-panel form { grid-template-columns: 1fr; gap: 16px; }
+ .enhanced-home .care-query button { gap: 8px; padding-inline: 16px; }
+ .enhanced-home .section-intro { display: block; }
+ .enhanced-home .care-spotlight { gap: 24px; }
+ .enhanced-home .care-spotlight-choice { padding: 10px 6px; }
+ .enhanced-home .care-spotlight-label { font-size: 16px; }
+ .enhanced-home .care-spotlight-copy { padding: 0; }
+ .enhanced-home .care-spotlight-all { margin-left: 0; }
+ .enhanced-home .team-person h3 { font-size: 20px; }
+ .enhanced-home .hospital-film-copy p { font-size: 17px; }
+}
+/* Motion follows reading order. The static HTML is always the finished state;
+   no essential action waits for hydration or an entrance to finish. */
+:root {
+ --hh-motion-feedback: var(--motion-fast);
+ --hh-motion-change: var(--motion-change);
+ --hh-motion-ease: var(--motion-ease);
+}
+@keyframes hh-hero-type {
+ from { opacity: .8; transform: translateY(12px); }
+ to { opacity: 1; transform: none; }
+}
+@keyframes hh-photo-settle {
+ from { transform: scale(1.035); }
+ to { transform: scale(1); }
+}
+@keyframes hh-answer-change {
+ from { opacity: .6; transform: translateX(6px); }
+ to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+ .enhanced-home .welcome-copy h1 { animation: hh-hero-type 300ms var(--hh-motion-ease) backwards; }
+ .enhanced-home .welcome-copy > p { animation: hh-hero-type 300ms var(--hh-motion-ease) 40ms backwards; }
+ .enhanced-home .welcome-photo { animation: hh-photo-settle 400ms cubic-bezier(.33,1,.68,1) backwards; }
+ .enhanced-home .care-spotlight-answer { animation: hh-answer-change var(--hh-motion-change) var(--hh-motion-ease); }
+ .enhanced-home .specialty-images picture { transition: opacity 360ms ease; }
+ .enhanced-home .specialty-images picture img { transform: scale(1.025); transition: transform 500ms var(--hh-motion-ease); }
+ .enhanced-home .specialty-images picture[data-selected=true] img { transform: scale(1); }
+ .enhanced-home :is(.welcome-appointment, .hospital-film-primary, .care-query button) {
+  transition: background-color var(--site-action-duration) ease, color var(--site-action-duration) ease;
+ }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+ .enhanced-home .team-portrait { transition: transform 360ms var(--hh-motion-ease); }
+ .enhanced-home .team-person:hover .team-portrait { transform: scale(1.025); }
+}
+@media print {
+ [data-site-footer] { background: white; color: black; }
+ .enhanced-home .welcome-story { display: block; min-height: 0; background: white; }
+ .enhanced-home .welcome-copy { width: 100%; margin: 0; padding: 24px; color: black; }
+ .enhanced-home .welcome-copy :is(h1,a) { color: black; }
+ .enhanced-home .welcome-media { display: none; }
+}
+@media (forced-colors: active) {
+ body :where(a,button,summary,input,select,textarea):focus-visible,
+ [data-site-footer] a:focus-visible {
+  outline-color: Highlight;
+  box-shadow: none;
+ }
+ .enhanced-home .welcome-story { background: Canvas; }
+ .enhanced-home .welcome-copy { color: CanvasText; padding-block: 40px; }
+ .enhanced-home .welcome-copy :is(h1,a) { color: CanvasText; }
+ .enhanced-home .welcome-media { visibility: hidden; }
+ .enhanced-home .welcome-appointment { background: ButtonFace; color: ButtonText; outline: 2px solid ButtonText; }
+ .enhanced-home .welcome-copy :is(a,button):focus-visible { outline-color: Highlight; }
+}

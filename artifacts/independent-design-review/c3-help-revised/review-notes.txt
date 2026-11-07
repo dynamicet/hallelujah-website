@@ -1,0 +1,25 @@
+ROUND 1 — C3 revision, 31 October 2026
+Seen in one second: hospital care and the main appointment action; Help is a small chat icon at the bottom-right.
+Idea (one sentence): familiar floating help stays secondary to reading and page actions.
+Live thing: Help opens a compact two-action menu, then the existing patient guide.
+Layout words by section: existing homepage unchanged / Help=48px circle / menu=compact action list.
+Scores: design 7 · usability 8 · creativity 6 · content 6 → overall 6.0
+Caps applied: whole-page inspector still reports two existing news layout findings; this component revision does not resolve the full assessment.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. Previous header placement removed the expected chatbot entry point (../c3-help/c3-header-390.png). Restored the bottom-right position with a 48px icon (c3-launcher-390.png).
+2. Previous three-action opening menu took excessive space and included an unavailable phone action (../c3-help/c3-help-open-390.png). Reduced to a 280px two-action menu with explicit close and no backdrop dimming (c3-help-open-390.png).
+3. A fixed launcher can cover reading or page controls (original ../mobile-home-faq.jpg). It now moves upward within 144px or collapses until the corner clears (c3-faq-390.png); mobile form focus hides it (c3-mobile-form-focus.png).
+
+Reviewed focused launcher/menu screenshots at 1440, 768 and 390px, the original news/FAQ collision areas, and all ten whole-page inspector screenshots.
+No draw: component revision follows the existing hospital brand and surrounding interface.
+Source design lint: 0 FAIL, 1 WARN for the forced-colors accessibility border.
+Whole-page inspector: 2 existing FAIL (news metadata eyebrow detection, tablet news heading wrap), 3 existing WARN (font-size count, no footage, sideways partner row).
+
+Verification:
+TMPDIR=/var/tmp GUIDE_EVIDENCE_DIR=artifacts/independent-design-review/c3-help-revised node apps/web/scripts/check-patient-guide-rendered.mjs --help-clearance
+Passed 45 page/viewport combinations, 325 scroll positions, 755 focused controls; 39 sampled scroll positions collapsed Help to protect content. No visible launcher collisions.
+Passed deterministic obstacle reposition/collapse/recovery, mobile page-field focus/blur, menu dimensions, transparent backdrop, visible close/focus return, Escape and native no-JavaScript menu open/close.
+Existing guide browser suite passed four widths, a short viewport, focus containment/return, typed answers, input escaping, reset, privacy, doctor/service handoffs, emergency navigation and reduced motion.
+TypeScript, focused ESLint, guide engine, shell contract and production build passed.
+
+Limits: automatic collision avoidance requires JavaScript. Real mobile on-screen keyboard behavior still needs a physical-device check; C3 remains unchecked.

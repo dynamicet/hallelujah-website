@@ -1,0 +1,250 @@
+[
+  {
+    "width": 1440,
+    "tone": "paper",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 1440,
+    "tone": "mist",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 1440,
+    "tone": "inverse",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(255, 255, 255)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 1440,
+    "tone": "supporting",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 1440,
+    "tone": "expressive",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 1440,
+    "contrastPairs": 41,
+    "minimumContrast": 4.956076082461528,
+    "noOverflow": true,
+    "nestedContextReset": true
+  },
+  {
+    "width": 768,
+    "tone": "paper",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 768,
+    "tone": "mist",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 768,
+    "tone": "inverse",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(255, 255, 255)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 768,
+    "tone": "supporting",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 768,
+    "tone": "expressive",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 768,
+    "contrastPairs": 41,
+    "minimumContrast": 4.956076082461528,
+    "noOverflow": true,
+    "nestedContextReset": true
+  },
+  {
+    "width": 390,
+    "tone": "paper",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 390,
+    "tone": "mist",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 390,
+    "tone": "inverse",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(255, 255, 255)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 390,
+    "tone": "supporting",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 390,
+    "tone": "expressive",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 390,
+    "contrastPairs": 41,
+    "minimumContrast": 4.956076082461528,
+    "noOverflow": true,
+    "nestedContextReset": true
+  },
+  {
+    "width": 320,
+    "tone": "paper",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 320,
+    "tone": "mist",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 320,
+    "tone": "inverse",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(255, 255, 255)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 320,
+    "tone": "supporting",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 320,
+    "tone": "expressive",
+    "focus": {
+      "width": "3px",
+      "color": "rgb(0, 68, 93)"
+    },
+    "forcedColors": true,
+    "hover": true,
+    "pressed": true
+  },
+  {
+    "width": 320,
+    "contrastPairs": 41,
+    "minimumContrast": 4.956076082461528,
+    "noOverflow": true,
+    "nestedContextReset": true
+  }
+]

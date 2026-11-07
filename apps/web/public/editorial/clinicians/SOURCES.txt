@@ -1,0 +1,27 @@
+Six fictional clinician portraits generated with OpenAI image generation, 2026-10-30.
+These are illustrative demo assets, not photographs of hospital employees.
+Replace with approved staff portraits before publication.
+
+Files: aster.webp, bekele.webp, chala.webp, desta.webp, eden.webp, fikru.webp
+Generated as a coordinated 3-column, 2-row contact sheet, split and encoded as WebP.
+No external photographs, reference images, logos, or real identities were used.
+The homepage identifies these profiles and AI-generated portraits as illustrative.
+
+Transparent portrait variants — 2026-11-01
+Files: aster-cutout.webp, bekele-cutout.webp, chala-cutout.webp,
+       desta-cutout.webp, eden-cutout.webp, fikru-cutout.webp
+Created using the built-in OpenAI image generation tool, one background-extraction
+edit per existing fictional portrait. These are illustrative generated variants,
+not approved hospital staff photography. The original files are retained.
+Outputs were encoded as 512 × 512 WebP with their alpha channels preserved.
+No external reference portraits or third-party images were incorporated.
+
+Shared edit prompt (each matching original WebP was the sole edit target):
+"Use case: background-extraction. Edit target: the supplied fictional clinician
+portrait. Remove only the blue studio background and return a precise photographic
+cutout on a genuinely transparent background. Preserve the person's exact identity,
+face, hair, expression, pose, body proportions, clothing, lighting, skin texture and
+colors. Retain the original square composition and all visible shoulders, no
+extension of the body, no new objects, no restyling, no shadow, no backdrop.
+Hair-edge detail must be clean and natural. Person and clothing are opaque. This
+is a production web portrait asset, not a new portrait."

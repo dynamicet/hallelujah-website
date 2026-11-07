@@ -1,0 +1,80 @@
+/* D4: direct manipulation and state continuity. Hit targets stay in place. */
+/* The label supplies the full-size focus ring; avoid a second ring around the radio. */
+.care-mode-options label:focus-within input:focus-visible { outline: none; box-shadow: none; }
+.care-mode-options { position: relative; isolation: isolate; }
+/* A continuous selection rail connects the two care directories. Labels and
+   their high-contrast selected backgrounds update immediately, even mid-slide. */
+.care-mode-options::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 4px;
+  inset-block-end: 1px;
+  inline-size: calc(50% - 4px);
+  block-size: 2px;
+  border-radius: 1px;
+  background: var(--site-action-primary);
+  pointer-events: none;
+  transform: translateX(0);
+}
+.care-mode-options:has(input[value="services"]:checked)::after { transform: translateX(100%); }
+/* Direction follows the control's inline axis if a translated page uses RTL. */
+.care-mode-options:dir(rtl):has(input[value="services"]:checked)::after { transform: translateX(-100%); }
+.partners-toggle span { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--site-pale); }
+.partners-toggle[aria-expanded="true"] span { transform: rotate(45deg); }
+.partners-list { overflow-anchor: none; }
+[data-public-shell] [data-primary-navigation] a { position: relative; }
+[data-public-shell] [data-primary-navigation] a::after {
+  content: ""; position: absolute; inset: auto 0 3px; height: 2px;
+  background: currentColor; transform: scaleX(0); transform-origin: left; pointer-events: none;
+}
+[data-public-shell] [data-primary-navigation] a:is(:hover, :focus-visible)::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: no-preference) {
+  .care-mode-options::after { transition: transform var(--motion-change) var(--motion-ease); }
+  .partners-toggle span { transition: transform var(--motion-change) var(--motion-ease), background-color var(--motion-fast); }
+  .enhanced-home #specialized-care .home-care-card { transition: background-color var(--motion-change); }
+  [data-public-shell] [data-primary-navigation] a::after { transition: transform var(--motion-change) var(--motion-ease); }
+  .home-care-card svg, .care-query-field button span,
+  .care-search-links a span, .enhanced-home .text-link span {
+    display: inline-block; transition: transform var(--motion-change) var(--motion-ease);
+  }
+  .home-quick-access-list a:not(.home-quick-access-urgent) > span:last-child { transition: transform var(--motion-change) var(--motion-ease); }
+  .home-care-card:is(:hover, :focus-visible) svg,
+  .care-query-field button:is(:hover, :focus-visible) span,
+  .care-search-links a:is(:hover, :focus-visible) span,
+  .enhanced-home .text-link:is(:hover, :focus-visible) span,
+  .home-quick-access-list a:not(.home-quick-access-urgent):is(:hover, :focus-visible) > span:last-child { transform: translateX(4px); }
+  .care-query-field button:active span, .home-care-card:active svg { transform: translateX(1px); }
+  .partners-controls button:enabled { transition: background-color var(--motion-fast), color var(--motion-fast), box-shadow var(--motion-fast); }
+  .partners-controls button:enabled:active { box-shadow: inset 0 0 0 2px currentColor; }
+}
+@media (max-width: 1023px) {
+  /* Stable glyph geometry allows the three strokes to become a close mark. */
+  [data-public-shell] [data-menu-trigger] [class*="menuGlyph"] { position: relative; width: 22px; height: 22px; display: block; }
+  [data-public-shell] [data-menu-trigger] [class*="menuGlyph"] span { position: absolute; left: 0; top: 10px; width: 22px; display: block; }
+  [data-public-shell] [data-menu-trigger] [class*="menuGlyph"] span:first-child { transform: translateY(-6px); }
+  [data-public-shell] [data-menu-trigger] [class*="menuGlyph"] span:last-child { transform: translateY(6px); }
+  [data-public-shell]:has(:popover-open) [data-menu-trigger] [class*="menuGlyph"] span:first-child { transform: rotate(45deg); }
+  [data-public-shell]:has(:popover-open) [data-menu-trigger] [class*="menuGlyph"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  [data-public-shell]:has(:popover-open) [data-menu-trigger] [class*="menuGlyph"] span:last-child { transform: rotate(-45deg); }
+  [data-public-shell] [data-navigation-panel] { animation: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    [data-public-shell] [class*="menuGlyph"] span { transition: transform var(--motion-change) var(--motion-ease), opacity var(--motion-fast); }
+    /* Animate ordinary navigation only; the emergency resource stays stationary. */
+    [data-public-shell] [data-navigation-panel] [data-primary-navigation] a {
+      opacity: .75; translate: 0 6px;
+      transition: translate var(--motion-change) var(--motion-ease), opacity var(--motion-fast);
+    }
+    [data-public-shell] [data-navigation-panel]:popover-open [data-primary-navigation] a { opacity: 1; translate: 0 0; }
+    @starting-style {
+      [data-public-shell] [data-navigation-panel]:popover-open [data-primary-navigation] a { opacity: .75; translate: 0 6px; }
+    }
+    @supports (transition-behavior: allow-discrete) {
+      [data-public-shell] [data-navigation-panel] { transition: display var(--motion-fast) allow-discrete, overlay var(--motion-fast) allow-discrete; }
+      [data-public-shell] [data-navigation-panel]:not(:popover-open) { pointer-events: none; }
+    }
+  }
+}
+@media (forced-colors: active) {
+  .care-mode-options::after { display: none; }
+  .care-mode-options label:has(:checked) { outline: 2px solid Highlight; outline-offset: -3px; }
+}

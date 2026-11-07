@@ -37,7 +37,7 @@
 
 .requirement {
   color: var(--component-form-text-secondary);
-  font-size: var(--component-form-small-font-size);
+  font-size: var(--component-form-support-font-size);
   font-weight: var(--component-form-font-weight-emphasis);
   line-height: var(--component-form-small-line-height);
 }
@@ -45,7 +45,7 @@
 .hint,
 .choiceDescription {
   color: var(--component-form-text-secondary);
-  font-size: var(--component-form-small-font-size);
+  font-size: var(--component-form-support-font-size);
   line-height: var(--component-form-small-line-height);
 }
 
@@ -76,6 +76,26 @@
 .choiceGroup[aria-invalid='true'] {
   border-color: var(--component-form-text-error);
 }
+
+.control { min-block-size: var(--component-form-target-minimum); }
+.control:hover:not(:disabled) { border-color: var(--component-form-link-color); }
+.control[aria-invalid='true']:hover { border-color: var(--component-form-text-error); }
+.control:focus-visible,
+.choice input:focus-visible,
+.submit:focus-visible,
+.errorSummary:focus-visible {
+  outline: var(--component-form-focus-width) solid var(--component-form-focus-color);
+  outline-offset: var(--component-form-focus-offset);
+  box-shadow: 0 0 0 var(--component-form-focus-offset) var(--component-form-focus-gap);
+}
+.control:disabled {
+  background: var(--component-form-surface-subtle);
+  color: var(--component-form-text-secondary);
+  cursor: not-allowed;
+  opacity: 1;
+}
+.choice input { accent-color: var(--component-form-action); }
+.choice:has(input:disabled) { color: var(--component-form-text-secondary); cursor: not-allowed; }
 
 .control[aria-invalid='true'] {
   border-inline-start-width: var(--component-form-space-fine);
@@ -120,7 +140,7 @@
 
 .fieldError {
   color: var(--component-form-text-error);
-  font-size: var(--component-form-small-font-size);
+  font-size: var(--component-form-support-font-size);
   line-height: var(--component-form-small-line-height);
 }
 
@@ -204,6 +224,7 @@
 }
 
 .submit {
+  font-size: var(--site-support, 1rem);
   appearance: none;
   background: var(--component-form-action);
   border: var(--component-form-border-emphasis) solid var(--component-form-action);
@@ -237,6 +258,15 @@
   opacity: 1;
 }
 
+.submit:active:not(:disabled) {
+  background: var(--component-form-active-color);
+  border-color: var(--component-form-active-color);
+}
+
+@media (max-width: 599px) {
+  .submit { inline-size: 100%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .submit {
     transition-duration: var(--component-form-protected-duration);
@@ -244,6 +274,11 @@
 }
 
 @media (forced-colors: active) {
+  .control:focus-visible,
+  .choice input:focus-visible,
+  .submit:focus-visible,
+  .errorSummary:focus-visible { outline-color: Highlight; box-shadow: none; }
+  .control:disabled { color: GrayText; border-style: dashed; }
   .control,
   .choiceGroup[aria-invalid='true'],
   .errorSummary,
@@ -277,3 +312,8 @@
     transition: none;
   }
 }
+
+/* Labels, controls and feedback have separate visual responsibilities. */
+.label { color: var(--component-form-label-color); }
+.control:not(:disabled):not([aria-invalid='true']):focus-visible { border-color: var(--component-form-link-color); }
+.choice:has(input:checked) { border-inline-start: 3px solid var(--component-form-action); padding-inline-start: var(--component-form-space-compact); background: var(--component-form-surface-subtle); }

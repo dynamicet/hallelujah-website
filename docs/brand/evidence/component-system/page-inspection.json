@@ -1,0 +1,2445 @@
+{
+  "url": "http://127.0.0.1:3000/component-library",
+  "at": "2026-11-04T16:48:12.950Z",
+  "allow": [
+    "hairline",
+    "outlined-box"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "load": "load",
+      "screens": 5,
+      "filled": [
+        0.29,
+        0.86,
+        0.54,
+        0.67,
+        0.49
+      ],
+      "motion": {
+        "elements": 1,
+        "css": 0,
+        "transitions": 0,
+        "scripted": 1,
+        "videos": 0,
+        "playingVideos": 0
+      },
+      "metrics": {
+        "viewport": {
+          "w": 1440,
+          "h": 900
+        },
+        "page": {
+          "height": 4122,
+          "screens": 4.6,
+          "words": 396,
+          "img": 0,
+          "video": 0,
+          "canvas": 0,
+          "svg": 25,
+          "sections": 13,
+          "horizontalOverflow": 0,
+          "overflowCulprits": [],
+          "uiFragments": 0,
+          "uiAbuse": false,
+          "realPictures": 0,
+          "videoCount": 0,
+          "uiPictures": 0,
+          "pictureSamples": [],
+          "blendText": 0,
+          "sideScrollers": 0,
+          "brokenImages": [],
+          "emoji": [],
+          "videosNoPoster": 0
+        },
+        "hero": {
+          "text": "Color in practice.",
+          "words": 3,
+          "chars": 18,
+          "lines": 1,
+          "size": 86.4,
+          "vw": 6,
+          "font": "Editorial",
+          "weight": 400,
+          "tracking": -0.025,
+          "leading": 1,
+          "upper": false,
+          "italic": false,
+          "mono": false,
+          "align": "left",
+          "position": "center",
+          "widthRatio": 0.92,
+          "top": 118,
+          "tag": "h1",
+          "kind": "heading"
+        },
+        "h1": {
+          "text": "Color in practice.",
+          "words": 3,
+          "lines": 1,
+          "size": 86.4,
+          "font": "Editorial"
+        },
+        "headings": [
+          {
+            "text": "Color in practice.",
+            "words": 3,
+            "chars": 18,
+            "lines": 1,
+            "size": 86.4,
+            "vw": 6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 118,
+            "tag": "h1",
+            "kind": "heading"
+          },
+          {
+            "text": "A warm foundation",
+            "words": 3,
+            "chars": 17,
+            "lines": 1,
+            "size": 40,
+            "vw": 2.8,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.88,
+            "top": 450,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Space to explore care",
+            "words": 4,
+            "chars": 21,
+            "lines": 1,
+            "size": 40,
+            "vw": 2.8,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.88,
+            "top": 738,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "A confident blue field",
+            "words": 4,
+            "chars": 22,
+            "lines": 1,
+            "size": 40,
+            "vw": 2.8,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.88,
+            "top": 1026,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Prepare with confidence",
+            "words": 3,
+            "chars": 23,
+            "lines": 1,
+            "size": 40,
+            "vw": 2.8,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.88,
+            "top": 1494,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "The people behind care",
+            "words": 4,
+            "chars": 22,
+            "lines": 1,
+            "size": 40,
+            "vw": 2.8,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.88,
+            "top": 1782,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Cards with a purpose.",
+            "words": 4,
+            "chars": 21,
+            "lines": 1,
+            "size": 40,
+            "vw": 2.8,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 2108,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Clear at every state.",
+            "words": 4,
+            "chars": 21,
+            "lines": 1,
+            "size": 40,
+            "vw": 2.8,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 2684,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Meaning beyond brand color.",
+            "words": 4,
+            "chars": 27,
+            "lines": 1,
+            "size": 40,
+            "vw": 2.8,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 3684,
+            "tag": "h2",
+            "kind": "heading"
+          }
+        ],
+        "headingSummary": {
+          "count": 9,
+          "maxLines": 1,
+          "over2Lines": 0,
+          "statements": 0,
+          "centered": 0,
+          "medianWords": 4,
+          "mixedFontHeadings": 0
+        },
+        "type": {
+          "families": [
+            {
+              "family": "Lato",
+              "share": 0.92,
+              "mono": false
+            },
+            {
+              "family": "Editorial",
+              "share": 0.08,
+              "mono": false
+            }
+          ],
+          "familyCount": 2,
+          "sizes": [
+            14,
+            16,
+            24,
+            40,
+            86
+          ],
+          "sizeCount": 5,
+          "notLoaded": [],
+          "body": {
+            "font": "Lato",
+            "size": 16,
+            "leading": 1.6,
+            "weight": 400,
+            "tracking": 0,
+            "contrast": 12.9
+          },
+          "measureChars": 75,
+          "max": {
+            "size": 86.4,
+            "vw": 6,
+            "font": "Editorial",
+            "text": "Color in practice."
+          },
+          "monoShare": 0,
+          "monoProseShare": 0,
+          "monoFamilies": [],
+          "monoSamples": [],
+          "microLabels": 0,
+          "microLabelShare": 0,
+          "microSamples": [],
+          "upperShare": 0,
+          "centerShare": 0.14,
+          "smallText": 0
+        },
+        "eyebrows": [],
+        "numbered": [],
+        "color": {
+          "bodyBg": "#fbf8f6",
+          "bodyBgHsl": {
+            "h": 24,
+            "s": 0.38,
+            "l": 0.97
+          },
+          "dark": false,
+          "sectionBgs": [
+            {
+              "color": "#00445d",
+              "top": 994,
+              "hsl": {
+                "h": 196,
+                "s": 1,
+                "l": 0.18
+              }
+            },
+            {
+              "color": "#ffffff",
+              "top": 2786,
+              "hsl": {
+                "h": 0,
+                "s": 0,
+                "l": 1
+              }
+            }
+          ],
+          "textColors": [
+            {
+              "color": "#17313d",
+              "share": 0.34
+            },
+            {
+              "color": "#00678d",
+              "share": 0.18
+            },
+            {
+              "color": "#52636b",
+              "share": 0.13
+            },
+            {
+              "color": "#ffffff",
+              "share": 0.12
+            },
+            {
+              "color": "#00445d",
+              "share": 0.09
+            }
+          ],
+          "button": {
+            "bg": "#0078a6",
+            "hsl": {
+              "h": 197,
+              "s": 1,
+              "l": 0.33
+            },
+            "fg": "#ffffff"
+          },
+          "lowContrast": []
+        },
+        "buttons": {
+          "count": 19,
+          "inHero": 6,
+          "radius": 8,
+          "height": 46,
+          "withShadow": 0,
+          "withGradient": 0,
+          "mono": 0,
+          "upper": 0,
+          "heroLabels": [
+            "Find your next step",
+            "Explore care",
+            "Read the guidance",
+            "Find your next step",
+            "Explore care"
+          ]
+        },
+        "surfaces": {
+          "shadowStatic": 0,
+          "shadowOverlay": 0,
+          "shadowSamples": [],
+          "gradients": 0,
+          "scrims": 0,
+          "gradientSamples": [],
+          "gradientText": 0,
+          "hairlines": 5,
+          "hairlineSamples": [
+            "section#study-pending.form-primitives-module__iVhMEG__status 622px",
+            "section#study-information.system-states-module__qaQFQG__pane 654px",
+            "section#study-success.system-states-module__qaQFQG__panel.sy 654px",
+            "section#study-warning.system-states-module__qaQFQG__panel.sy 654px",
+            "section#study-error.system-states-module__qaQFQG__panel.syst 654px"
+          ],
+          "outlinedBoxes": 1,
+          "dashed": 0,
+          "blurred": 0,
+          "roundedBoxes": 11,
+          "boxRadius": 16,
+          "squareMedia": 0,
+          "roundedMedia": 0,
+          "mediaRadius": 0,
+          "textShadow": 0,
+          "cardRows": [
+            {
+              "count": 3,
+              "iconTopped": false,
+              "rounded": true,
+              "top": 2169
+            },
+            {
+              "count": 4,
+              "iconTopped": true,
+              "rounded": true,
+              "top": 3786
+            }
+          ]
+        },
+        "heroMedia": [],
+        "nav": {
+          "links": 1,
+          "fixed": false,
+          "height": 274,
+          "floatingPill": false,
+          "blur": false
+        },
+        "fontsLoaded": [
+          "lato",
+          "editorial"
+        ]
+      },
+      "layout": {
+        "viewport": {
+          "w": 1440,
+          "h": 900
+        },
+        "pageH": 4122,
+        "margins": {
+          "left": 58,
+          "right": 303
+        },
+        "sections": [
+          {
+            "sel": "header.page-module__2Vc9sa__intro",
+            "tag": "header",
+            "top": 58,
+            "height": 274,
+            "words": 28,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Color in practice.",
+              "size": 86,
+              "tag": "h1"
+            },
+            "left": 58,
+            "right": 829,
+            "textLeft": 58,
+            "textRight": 829,
+            "fullBleed": false,
+            "footer": false,
+            "hero": true,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 418,
+            "height": 272,
+            "words": 27,
+            "media": 0,
+            "middle": 6,
+            "heading": {
+              "text": "A warm foundation",
+              "size": 40,
+              "tag": "h2"
+            },
+            "left": 90,
+            "right": 817,
+            "textLeft": 90,
+            "textRight": 817,
+            "fullBleed": false,
+            "footer": false,
+            "hero": true,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 706,
+            "height": 272,
+            "words": 27,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Space to explore care",
+              "size": 40,
+              "tag": "h2"
+            },
+            "left": 90,
+            "right": 817,
+            "textLeft": 90,
+            "textRight": 817,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 994,
+            "height": 452,
+            "words": 47,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "A confident blue field",
+              "size": 40,
+              "tag": "h2"
+            },
+            "left": 90,
+            "right": 794,
+            "textLeft": 90,
+            "textRight": 794,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 1462,
+            "height": 272,
+            "words": 28,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Prepare with confidence",
+              "size": 40,
+              "tag": "h2"
+            },
+            "left": 90,
+            "right": 817,
+            "textLeft": 90,
+            "textRight": 817,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 1750,
+            "height": 272,
+            "words": 29,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "The people behind care",
+              "size": 40,
+              "tag": "h2"
+            },
+            "left": 90,
+            "right": 807,
+            "textLeft": 90,
+            "textRight": 807,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.page-module__2Vc9sa__study",
+            "tag": "section",
+            "top": 2108,
+            "height": 489,
+            "words": 64,
+            "media": 0,
+            "middle": 249,
+            "heading": {
+              "text": "Cards with a purpose.",
+              "size": 40,
+              "tag": "h2"
+            },
+            "left": 58,
+            "right": 303,
+            "textLeft": 58,
+            "textRight": 303,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "section.page-module__2Vc9sa__study",
+            "tag": "section",
+            "top": 2684,
+            "height": 914,
+            "words": 90,
+            "media": 0,
+            "middle": 48,
+            "heading": {
+              "text": "Clear at every state.",
+              "size": 40,
+              "tag": "h2"
+            },
+            "left": 58,
+            "right": 299,
+            "textLeft": 58,
+            "textRight": 299,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "section.page-module__2Vc9sa__study",
+            "tag": "section",
+            "top": 3684,
+            "height": 381,
+            "words": 67,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Meaning beyond brand color.",
+              "size": 40,
+              "tag": "h2"
+            },
+            "left": 58,
+            "right": 141,
+            "textLeft": 58,
+            "textRight": 141,
+            "fullBleed": false,
+            "footer": true,
+            "hero": false,
+            "continues": false,
+            "pinned": false
+          }
+        ],
+        "gaps": [],
+        "h1s": [
+          {
+            "text": "Color in practice.",
+            "size": 86,
+            "top": 118,
+            "firstScreen": true
+          }
+        ],
+        "edgeText": [],
+        "edges": [
+          {
+            "x": 90,
+            "n": 10
+          },
+          {
+            "x": 58,
+            "n": 7
+          },
+          {
+            "x": 106,
+            "n": 4
+          },
+          {
+            "x": 744,
+            "n": 3
+          },
+          {
+            "x": 74,
+            "n": 2
+          },
+          {
+            "x": 778,
+            "n": 2
+          },
+          {
+            "x": 764,
+            "n": 1
+          }
+        ],
+        "leftBlocks": 29,
+        "bodySize": 16,
+        "stage": false,
+        "explains": false,
+        "slivers": [],
+        "voidShare": 0.47,
+        "voidBox": {
+          "x": 660,
+          "y": 120,
+          "w": 780,
+          "h": 780
+        }
+      },
+      "app": null,
+      "consoleErrors": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "load": "load",
+      "screens": 5,
+      "filled": [
+        0.48,
+        0.86,
+        0.76,
+        0.85,
+        0.85
+      ],
+      "motion": {
+        "elements": 1,
+        "css": 0,
+        "transitions": 0,
+        "scripted": 1,
+        "videos": 0,
+        "playingVideos": 0
+      },
+      "metrics": {
+        "viewport": {
+          "w": 768,
+          "h": 1024
+        },
+        "page": {
+          "height": 4630,
+          "screens": 4.5,
+          "words": 396,
+          "img": 0,
+          "video": 0,
+          "canvas": 0,
+          "svg": 25,
+          "sections": 13,
+          "horizontalOverflow": 0,
+          "overflowCulprits": [],
+          "uiFragments": 0,
+          "uiAbuse": false,
+          "realPictures": 0,
+          "videoCount": 0,
+          "uiPictures": 0,
+          "pictureSamples": [],
+          "blendText": 0,
+          "sideScrollers": 0,
+          "brokenImages": [],
+          "emoji": [],
+          "videosNoPoster": 0
+        },
+        "hero": {
+          "text": "Color in practice.",
+          "words": 3,
+          "chars": 18,
+          "lines": 1,
+          "size": 46.1,
+          "vw": 6,
+          "font": "Editorial",
+          "weight": 400,
+          "tracking": -0.025,
+          "leading": 1,
+          "upper": false,
+          "italic": false,
+          "mono": false,
+          "align": "left",
+          "position": "center",
+          "widthRatio": 0.92,
+          "top": 91,
+          "tag": "h1",
+          "kind": "heading"
+        },
+        "h1": {
+          "text": "Color in practice.",
+          "words": 3,
+          "lines": 1,
+          "size": 46.1,
+          "font": "Editorial"
+        },
+        "headings": [
+          {
+            "text": "Color in practice.",
+            "words": 3,
+            "chars": 18,
+            "lines": 1,
+            "size": 46.1,
+            "vw": 6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 91,
+            "tag": "h1",
+            "kind": "heading"
+          },
+          {
+            "text": "A warm foundation",
+            "words": 3,
+            "chars": 17,
+            "lines": 1,
+            "size": 28,
+            "vw": 3.6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 344,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Space to explore care",
+            "words": 4,
+            "chars": 21,
+            "lines": 1,
+            "size": 28,
+            "vw": 3.6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 619,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "A confident blue field",
+            "words": 4,
+            "chars": 22,
+            "lines": 1,
+            "size": 28,
+            "vw": 3.6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 893,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Prepare with confidence",
+            "words": 3,
+            "chars": 23,
+            "lines": 1,
+            "size": 28,
+            "vw": 3.6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 1348,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "The people behind care",
+            "words": 4,
+            "chars": 22,
+            "lines": 1,
+            "size": 28,
+            "vw": 3.6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 1622,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Cards with a purpose.",
+            "words": 4,
+            "chars": 21,
+            "lines": 1,
+            "size": 28,
+            "vw": 3.6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 1897,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Clear at every state.",
+            "words": 4,
+            "chars": 21,
+            "lines": 1,
+            "size": 28,
+            "vw": 3.6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 2602,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Meaning beyond brand color.",
+            "words": 4,
+            "chars": 27,
+            "lines": 1,
+            "size": 28,
+            "vw": 3.6,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 3999,
+            "tag": "h2",
+            "kind": "heading"
+          }
+        ],
+        "headingSummary": {
+          "count": 9,
+          "maxLines": 1,
+          "over2Lines": 0,
+          "statements": 0,
+          "centered": 0,
+          "medianWords": 4,
+          "mixedFontHeadings": 0
+        },
+        "type": {
+          "families": [
+            {
+              "family": "Lato",
+              "share": 0.92,
+              "mono": false
+            },
+            {
+              "family": "Editorial",
+              "share": 0.08,
+              "mono": false
+            }
+          ],
+          "familyCount": 2,
+          "sizes": [
+            14,
+            16,
+            24,
+            28,
+            46
+          ],
+          "sizeCount": 5,
+          "notLoaded": [],
+          "body": {
+            "font": "Lato",
+            "size": 16,
+            "leading": 1.6,
+            "weight": 400,
+            "tracking": 0,
+            "contrast": 12.9
+          },
+          "measureChars": 75,
+          "max": {
+            "size": 46.1,
+            "vw": 6,
+            "font": "Editorial",
+            "text": "Color in practice."
+          },
+          "monoShare": 0,
+          "monoProseShare": 0,
+          "monoFamilies": [],
+          "monoSamples": [],
+          "microLabels": 0,
+          "microLabelShare": 0,
+          "microSamples": [],
+          "upperShare": 0,
+          "centerShare": 0.14,
+          "smallText": 0
+        },
+        "eyebrows": [
+          {
+            "text": "The existing row layout remains the default.",
+            "above": "Clear at every state.",
+            "upper": false,
+            "tracked": false,
+            "mono": false,
+            "pill": false,
+            "size": 14,
+            "top": 2521
+          }
+        ],
+        "numbered": [],
+        "color": {
+          "bodyBg": "#fbf8f6",
+          "bodyBgHsl": {
+            "h": 24,
+            "s": 0.38,
+            "l": 0.97
+          },
+          "dark": false,
+          "sectionBgs": [
+            {
+              "color": "#00445d",
+              "top": 861,
+              "hsl": {
+                "h": 196,
+                "s": 1,
+                "l": 0.18
+              }
+            },
+            {
+              "color": "#ffffff",
+              "top": 2691,
+              "hsl": {
+                "h": 0,
+                "s": 0,
+                "l": 1
+              }
+            }
+          ],
+          "textColors": [
+            {
+              "color": "#17313d",
+              "share": 0.34
+            },
+            {
+              "color": "#00678d",
+              "share": 0.18
+            },
+            {
+              "color": "#52636b",
+              "share": 0.13
+            },
+            {
+              "color": "#ffffff",
+              "share": 0.12
+            },
+            {
+              "color": "#00445d",
+              "share": 0.09
+            }
+          ],
+          "button": {
+            "bg": "#0078a6",
+            "hsl": {
+              "h": 197,
+              "s": 1,
+              "l": 0.33
+            },
+            "fg": "#ffffff"
+          },
+          "lowContrast": []
+        },
+        "buttons": {
+          "count": 20,
+          "inHero": 9,
+          "radius": 8,
+          "height": 46,
+          "withShadow": 0,
+          "withGradient": 0,
+          "mono": 0,
+          "upper": 0,
+          "heroLabels": [
+            "Find your next step",
+            "Explore care",
+            "Read the guidance",
+            "Find your next step",
+            "Explore care"
+          ]
+        },
+        "surfaces": {
+          "shadowStatic": 0,
+          "shadowOverlay": 0,
+          "shadowSamples": [],
+          "gradients": 0,
+          "scrims": 0,
+          "gradientSamples": [],
+          "gradientText": 0,
+          "hairlines": 5,
+          "hairlineSamples": [
+            "section#study-pending.form-primitives-module__iVhMEG__status 675px",
+            "section#study-information.system-states-module__qaQFQG__pane 707px",
+            "section#study-success.system-states-module__qaQFQG__panel.sy 707px",
+            "section#study-warning.system-states-module__qaQFQG__panel.sy 707px",
+            "section#study-error.system-states-module__qaQFQG__panel.syst 707px"
+          ],
+          "outlinedBoxes": 1,
+          "dashed": 0,
+          "blurred": 0,
+          "roundedBoxes": 11,
+          "boxRadius": 16,
+          "squareMedia": 0,
+          "roundedMedia": 0,
+          "mediaRadius": 0,
+          "textShadow": 0,
+          "cardRows": []
+        },
+        "heroMedia": [],
+        "nav": {
+          "links": 1,
+          "fixed": false,
+          "height": 233,
+          "floatingPill": false,
+          "blur": false
+        },
+        "fontsLoaded": [
+          "lato",
+          "editorial"
+        ]
+      },
+      "layout": {
+        "viewport": {
+          "w": 768,
+          "h": 1024
+        },
+        "pageH": 4630,
+        "margins": {
+          "left": 31,
+          "right": 47
+        },
+        "sections": [
+          {
+            "sel": "header.page-module__2Vc9sa__intro",
+            "tag": "header",
+            "top": 31,
+            "height": 233,
+            "words": 28,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Color in practice.",
+              "size": 46,
+              "tag": "h1"
+            },
+            "left": 31,
+            "right": 185,
+            "textLeft": 31,
+            "textRight": 185,
+            "fullBleed": false,
+            "footer": false,
+            "hero": true,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "div#surface-study.page-module__2Vc9sa__stack",
+            "tag": "div",
+            "top": 312,
+            "height": 1537,
+            "words": 158,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "A warm foundation",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 63,
+            "right": 149,
+            "textLeft": 63,
+            "textRight": 149,
+            "fullBleed": false,
+            "footer": false,
+            "hero": true,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "section.page-module__2Vc9sa__study",
+            "tag": "section",
+            "top": 1897,
+            "height": 657,
+            "words": 64,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Cards with a purpose.",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 31,
+            "right": 299,
+            "textLeft": 31,
+            "textRight": 299,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "section.page-module__2Vc9sa__study",
+            "tag": "section",
+            "top": 2602,
+            "height": 1349,
+            "words": 90,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Clear at every state.",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 31,
+            "right": 47,
+            "textLeft": 31,
+            "textRight": 320,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "section.page-module__2Vc9sa__study",
+            "tag": "section",
+            "top": 3999,
+            "height": 600,
+            "words": 67,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Meaning beyond brand color.",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 31,
+            "right": 142,
+            "textLeft": 31,
+            "textRight": 142,
+            "fullBleed": false,
+            "footer": true,
+            "hero": false,
+            "continues": false,
+            "pinned": false
+          }
+        ],
+        "gaps": [],
+        "h1s": [
+          {
+            "text": "Color in practice.",
+            "size": 46,
+            "top": 91,
+            "firstScreen": true
+          }
+        ],
+        "edgeText": [],
+        "edges": [
+          {
+            "x": 63,
+            "n": 11
+          },
+          {
+            "x": 31,
+            "n": 7
+          },
+          {
+            "x": 79,
+            "n": 6
+          },
+          {
+            "x": 47,
+            "n": 5
+          }
+        ],
+        "leftBlocks": 29,
+        "bodySize": 16,
+        "stage": false,
+        "explains": false,
+        "slivers": [],
+        "voidShare": 0,
+        "voidBox": null
+      },
+      "app": null,
+      "consoleErrors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "load": "load",
+      "screens": 7,
+      "filled": [
+        0.55,
+        0.86,
+        0.77,
+        0.71,
+        0.92,
+        0.78,
+        0.72
+      ],
+      "motion": {
+        "elements": 1,
+        "css": 0,
+        "transitions": 0,
+        "scripted": 1,
+        "videos": 0,
+        "playingVideos": 0
+      },
+      "metrics": {
+        "viewport": {
+          "w": 390,
+          "h": 844
+        },
+        "page": {
+          "height": 5561,
+          "screens": 6.6,
+          "words": 396,
+          "img": 0,
+          "video": 0,
+          "canvas": 0,
+          "svg": 25,
+          "sections": 13,
+          "horizontalOverflow": 0,
+          "overflowCulprits": [],
+          "uiFragments": 0,
+          "uiAbuse": false,
+          "realPictures": 0,
+          "videoCount": 0,
+          "uiPictures": 0,
+          "pictureSamples": [],
+          "blendText": 0,
+          "sideScrollers": 0,
+          "brokenImages": [],
+          "emoji": [],
+          "videosNoPoster": 0
+        },
+        "hero": {
+          "text": "Color in practice.",
+          "words": 3,
+          "chars": 18,
+          "lines": 1,
+          "size": 44,
+          "vw": 11.3,
+          "font": "Editorial",
+          "weight": 400,
+          "tracking": -0.025,
+          "leading": 1,
+          "upper": false,
+          "italic": false,
+          "mono": false,
+          "align": "left",
+          "position": "center",
+          "widthRatio": 0.92,
+          "top": 76,
+          "tag": "h1",
+          "kind": "heading"
+        },
+        "h1": {
+          "text": "Color in practice.",
+          "words": 3,
+          "lines": 1,
+          "size": 44,
+          "font": "Editorial"
+        },
+        "headings": [
+          {
+            "text": "Color in practice.",
+            "words": 3,
+            "chars": 18,
+            "lines": 1,
+            "size": 44,
+            "vw": 11.3,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 76,
+            "tag": "h1",
+            "kind": "heading"
+          },
+          {
+            "text": "A warm foundation",
+            "words": 3,
+            "chars": 17,
+            "lines": 1,
+            "size": 28,
+            "vw": 7.2,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 337,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Space to explore care",
+            "words": 4,
+            "chars": 21,
+            "lines": 1,
+            "size": 28,
+            "vw": 7.2,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 720,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "A confident blue field",
+            "words": 4,
+            "chars": 22,
+            "lines": 1,
+            "size": 28,
+            "vw": 7.2,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 1103,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "A white card within blue",
+            "words": 5,
+            "chars": 24,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.75,
+            "top": 1471,
+            "tag": "h3",
+            "kind": "heading"
+          },
+          {
+            "text": "Prepare with confidence",
+            "words": 3,
+            "chars": 23,
+            "lines": 1,
+            "size": 28,
+            "vw": 7.2,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 1692,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "The people behind care",
+            "words": 4,
+            "chars": 22,
+            "lines": 1,
+            "size": 28,
+            "vw": 7.2,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 2076,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Cards with a purpose.",
+            "words": 4,
+            "chars": 21,
+            "lines": 1,
+            "size": 28,
+            "vw": 7.2,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 2475,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Before your visit",
+            "words": 3,
+            "chars": 17,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 2541,
+            "tag": "h3",
+            "kind": "heading"
+          },
+          {
+            "text": "Care, in conversation",
+            "words": 3,
+            "chars": 21,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 2748,
+            "tag": "h3",
+            "kind": "heading"
+          },
+          {
+            "text": "Clear at every state.",
+            "words": 4,
+            "chars": 21,
+            "lines": 1,
+            "size": 28,
+            "vw": 7.2,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 3274,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Fields & choices",
+            "words": 3,
+            "chars": 16,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 3404,
+            "tag": "h3",
+            "kind": "heading"
+          },
+          {
+            "text": "Actions & feedback",
+            "words": 3,
+            "chars": 18,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.84,
+            "top": 4231,
+            "tag": "h3",
+            "kind": "heading"
+          },
+          {
+            "text": "Pending example",
+            "words": 2,
+            "chars": 15,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.74,
+            "top": 4574,
+            "tag": "h3",
+            "kind": "heading"
+          },
+          {
+            "text": "Meaning beyond brand color.",
+            "words": 4,
+            "chars": 27,
+            "lines": 1,
+            "size": 28,
+            "vw": 7.2,
+            "font": "Editorial",
+            "weight": 400,
+            "tracking": -0.025,
+            "leading": 1.12,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.92,
+            "top": 4747,
+            "tag": "h2",
+            "kind": "heading"
+          },
+          {
+            "text": "Information example",
+            "words": 2,
+            "chars": 19,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.87,
+            "top": 4903,
+            "tag": "h3",
+            "kind": "heading"
+          },
+          {
+            "text": "Success example",
+            "words": 2,
+            "chars": 15,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.87,
+            "top": 5035,
+            "tag": "h3",
+            "kind": "heading"
+          },
+          {
+            "text": "Warning example",
+            "words": 2,
+            "chars": 15,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.87,
+            "top": 5193,
+            "tag": "h3",
+            "kind": "heading"
+          },
+          {
+            "text": "Error example",
+            "words": 2,
+            "chars": 13,
+            "lines": 1,
+            "size": 24,
+            "vw": 6.2,
+            "font": "Lato",
+            "weight": 500,
+            "tracking": -0.01,
+            "leading": 1.2,
+            "upper": false,
+            "italic": false,
+            "mono": false,
+            "align": "left",
+            "position": "center",
+            "widthRatio": 0.87,
+            "top": 5351,
+            "tag": "h3",
+            "kind": "heading"
+          }
+        ],
+        "headingSummary": {
+          "count": 19,
+          "maxLines": 1,
+          "over2Lines": 0,
+          "statements": 0,
+          "centered": 0,
+          "medianWords": 3,
+          "mixedFontHeadings": 0
+        },
+        "type": {
+          "families": [
+            {
+              "family": "Lato",
+              "share": 0.92,
+              "mono": false
+            },
+            {
+              "family": "Editorial",
+              "share": 0.08,
+              "mono": false
+            }
+          ],
+          "familyCount": 2,
+          "sizes": [
+            14,
+            16,
+            24,
+            28,
+            44
+          ],
+          "sizeCount": 5,
+          "notLoaded": [],
+          "body": {
+            "font": "Lato",
+            "size": 16,
+            "leading": 1.6,
+            "weight": 400,
+            "tracking": 0,
+            "contrast": 12.9
+          },
+          "measureChars": 45,
+          "max": {
+            "size": 44,
+            "vw": 11.3,
+            "font": "Editorial",
+            "text": "Color in practice."
+          },
+          "monoShare": 0,
+          "monoProseShare": 0,
+          "monoFamilies": [],
+          "monoSamples": [],
+          "microLabels": 0,
+          "microLabelShare": 0,
+          "microSamples": [],
+          "upperShare": 0,
+          "centerShare": 0.14,
+          "smallText": 0
+        },
+        "eyebrows": [
+          {
+            "text": "The existing row layout remains the default.",
+            "above": "Clear at every state.",
+            "upper": false,
+            "tracked": false,
+            "mono": false,
+            "pill": false,
+            "size": 14,
+            "top": 3172
+          }
+        ],
+        "numbered": [],
+        "color": {
+          "bodyBg": "#fbf8f6",
+          "bodyBgHsl": {
+            "h": 24,
+            "s": 0.38,
+            "l": 0.97
+          },
+          "dark": false,
+          "sectionBgs": [
+            {
+              "color": "#fbf8f6",
+              "top": 321,
+              "hsl": {
+                "h": 24,
+                "s": 0.38,
+                "l": 0.97
+              }
+            },
+            {
+              "color": "#eaf5f9",
+              "top": 704,
+              "hsl": {
+                "h": 196,
+                "s": 0.56,
+                "l": 0.95
+              }
+            },
+            {
+              "color": "#00445d",
+              "top": 1087,
+              "hsl": {
+                "h": 196,
+                "s": 1,
+                "l": 0.18
+              }
+            },
+            {
+              "color": "#fff0e7",
+              "top": 1676,
+              "hsl": {
+                "h": 22,
+                "s": 1,
+                "l": 0.95
+              }
+            },
+            {
+              "color": "#fceaf2",
+              "top": 2060,
+              "hsl": {
+                "h": 333,
+                "s": 0.75,
+                "l": 0.95
+              }
+            },
+            {
+              "color": "#ffffff",
+              "top": 3388,
+              "hsl": {
+                "h": 0,
+                "s": 0,
+                "l": 1
+              }
+            }
+          ],
+          "textColors": [
+            {
+              "color": "#17313d",
+              "share": 0.34
+            },
+            {
+              "color": "#00678d",
+              "share": 0.18
+            },
+            {
+              "color": "#52636b",
+              "share": 0.13
+            },
+            {
+              "color": "#ffffff",
+              "share": 0.12
+            },
+            {
+              "color": "#00445d",
+              "share": 0.09
+            }
+          ],
+          "button": {
+            "bg": "#0078a6",
+            "hsl": {
+              "h": 197,
+              "s": 1,
+              "l": 0.33
+            },
+            "fg": "#ffffff"
+          },
+          "lowContrast": []
+        },
+        "buttons": {
+          "count": 20,
+          "inHero": 4,
+          "radius": 8,
+          "height": 46,
+          "withShadow": 0,
+          "withGradient": 0,
+          "mono": 0,
+          "upper": 0,
+          "heroLabels": [
+            "Find your next step",
+            "Explore care",
+            "Read the guidance",
+            "Find your next step"
+          ]
+        },
+        "surfaces": {
+          "shadowStatic": 0,
+          "shadowOverlay": 0,
+          "shadowSamples": [],
+          "gradients": 0,
+          "scrims": 0,
+          "gradientSamples": [],
+          "gradientText": 0,
+          "hairlines": 5,
+          "hairlineSamples": [
+            "section#study-pending.form-primitives-module__iVhMEG__status 326px",
+            "section#study-information.system-states-module__qaQFQG__pane 358px",
+            "section#study-success.system-states-module__qaQFQG__panel.sy 358px",
+            "section#study-warning.system-states-module__qaQFQG__panel.sy 358px",
+            "section#study-error.system-states-module__qaQFQG__panel.syst 358px"
+          ],
+          "outlinedBoxes": 1,
+          "dashed": 0,
+          "blurred": 0,
+          "roundedBoxes": 11,
+          "boxRadius": 16,
+          "squareMedia": 0,
+          "roundedMedia": 0,
+          "mediaRadius": 0,
+          "textShadow": 0,
+          "cardRows": []
+        },
+        "heroMedia": [],
+        "nav": {
+          "links": 1,
+          "fixed": false,
+          "height": 257,
+          "floatingPill": false,
+          "blur": false
+        },
+        "fontsLoaded": [
+          "lato",
+          "editorial"
+        ]
+      },
+      "layout": {
+        "viewport": {
+          "w": 390,
+          "h": 844
+        },
+        "pageH": 5561,
+        "margins": {
+          "left": 16,
+          "right": 32
+        },
+        "sections": [
+          {
+            "sel": "header.page-module__2Vc9sa__intro",
+            "tag": "header",
+            "top": 16,
+            "height": 257,
+            "words": 28,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Color in practice.",
+              "size": 44,
+              "tag": "h1"
+            },
+            "left": 16,
+            "right": 35,
+            "textLeft": 16,
+            "textRight": 35,
+            "fullBleed": false,
+            "footer": false,
+            "hero": true,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 321,
+            "height": 367,
+            "words": 27,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "A warm foundation",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 32,
+            "right": 47,
+            "textLeft": 32,
+            "textRight": 47,
+            "fullBleed": false,
+            "footer": false,
+            "hero": true,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 704,
+            "height": 367,
+            "words": 27,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Space to explore care",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 32,
+            "right": 69,
+            "textLeft": 32,
+            "textRight": 69,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 1087,
+            "height": 573,
+            "words": 47,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "A confident blue field",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 32,
+            "right": 51,
+            "textLeft": 32,
+            "textRight": 51,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 1676,
+            "height": 367,
+            "words": 28,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Prepare with confidence",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 32,
+            "right": 82,
+            "textLeft": 32,
+            "textRight": 82,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.brand-surface-module__hqmxeq__surface",
+            "tag": "section",
+            "top": 2060,
+            "height": 367,
+            "words": 29,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "The people behind care",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 32,
+            "right": 82,
+            "textLeft": 32,
+            "textRight": 82,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": true,
+            "pinned": false
+          },
+          {
+            "sel": "section.page-module__2Vc9sa__study",
+            "tag": "section",
+            "top": 2475,
+            "height": 751,
+            "words": 64,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Cards with a purpose.",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 16,
+            "right": 36,
+            "textLeft": 16,
+            "textRight": 36,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "section.page-module__2Vc9sa__study",
+            "tag": "section",
+            "top": 3274,
+            "height": 1425,
+            "words": 90,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Clear at every state.",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 16,
+            "right": 32,
+            "textLeft": 16,
+            "textRight": 55,
+            "fullBleed": false,
+            "footer": false,
+            "hero": false,
+            "continues": false,
+            "pinned": false
+          },
+          {
+            "sel": "section.page-module__2Vc9sa__study",
+            "tag": "section",
+            "top": 4747,
+            "height": 798,
+            "words": 67,
+            "media": 0,
+            "middle": 0,
+            "heading": {
+              "text": "Meaning beyond brand color.",
+              "size": 28,
+              "tag": "h2"
+            },
+            "left": 16,
+            "right": 32,
+            "textLeft": 16,
+            "textRight": 32,
+            "fullBleed": false,
+            "footer": true,
+            "hero": false,
+            "continues": false,
+            "pinned": false
+          }
+        ],
+        "gaps": [],
+        "h1s": [
+          {
+            "text": "Color in practice.",
+            "size": 44,
+            "top": 76,
+            "firstScreen": true
+          }
+        ],
+        "edgeText": [],
+        "edges": [
+          {
+            "x": 32,
+            "n": 14
+          },
+          {
+            "x": 16,
+            "n": 12
+          },
+          {
+            "x": 48,
+            "n": 3
+          }
+        ],
+        "leftBlocks": 29,
+        "bodySize": 16,
+        "stage": false,
+        "explains": false,
+        "slivers": [],
+        "voidShare": 0,
+        "voidBox": null
+      },
+      "app": null,
+      "consoleErrors": []
+    }
+  ],
+  "findings": [
+    {
+      "level": "FAIL",
+      "id": "icon-cards",
+      "width": 1440,
+      "message": "1 row(s) of identical cards each topped with a small icon (4 cards).",
+      "fix": "Replace with one composed section from the direction: a narrative split, a list set in large type, or real imagery per item."
+    },
+    {
+      "level": "WARN",
+      "id": "palette-cream",
+      "width": 1440,
+      "message": "Yellow-cream background (page background #fbf8f6).",
+      "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+      "alsoAt": [
+        768,
+        390
+      ]
+    },
+    {
+      "level": "FAIL",
+      "id": "few-pictures",
+      "width": 1440,
+      "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+      "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+    },
+    {
+      "level": "WARN",
+      "id": "no-footage",
+      "width": 1440,
+      "message": "No video anywhere on the page.",
+      "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+    },
+    {
+      "level": "FAIL",
+      "id": "off-centre",
+      "width": 1440,
+      "message": "The page sits off-centre: its content comes to 58px from the left edge but only to 303px from the right, at 1440px.",
+      "fix": "Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure)."
+    },
+    {
+      "level": "FAIL",
+      "id": "lopsided",
+      "width": 1440,
+      "message": "4 sections keep all their content on one side and leave 57% of the width empty: \"Space to explore care\" (right 817px empty); \"A confident blue field\" (right 794px empty); \"Prepare with confidence\" (right 817px empty); \"The people behind care\" (right 807px empty)",
+      "fix": "Use the whole width the page has set up: put the section's picture, its second column, its list or its figure in the empty half, or set the text larger across the grid. Empty space must be placed, with something on each side of it."
+    },
+    {
+      "level": "WARN",
+      "id": "name-only-title",
+      "width": 1440,
+      "message": "The h1 is a bare name (\"Color in practice.\") and nothing else on the first screen says what this is.",
+      "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.",
+      "alsoAt": [
+        768,
+        390
+      ]
+    },
+    {
+      "level": "WARN",
+      "id": "hero-void",
+      "width": 1440,
+      "message": "47% of the first screen is one empty block (780\u00d7780px at 660,120).",
+      "fix": "Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest."
+    },
+    {
+      "level": "FAIL",
+      "id": "still-page",
+      "width": 1440,
+      "message": "Only 1 element(s) moved while the page loaded and scrolled.",
+      "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+    },
+    {
+      "level": "FAIL",
+      "id": "eyebrow",
+      "width": 768,
+      "message": "1 eyebrow/kicker label(s) above headings: \"The existing row layout remains the default.\" above \"Clear at every state.\"",
+      "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+      "alsoAt": [
+        390
+      ]
+    },
+    {
+      "level": "WARN",
+      "id": "off-centre",
+      "width": 768,
+      "message": "The margins differ: 31px on the left, 47px on the right, at 768px.",
+      "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.",
+      "alsoAt": [
+        390
+      ]
+    }
+  ],
+  "images": [
+    {
+      "viewport": "desktop",
+      "width": 1440,
+      "fold": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/component-library/final-inspect/desktop-fold.jpg",
+      "pages": [
+        "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/component-library/final-inspect/desktop-page-01.jpg",
+        "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/component-library/final-inspect/desktop-page-02.jpg"
+      ],
+      "film": []
+    },
+    {
+      "viewport": "tablet",
+      "width": 768,
+      "fold": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/component-library/final-inspect/tablet-fold.jpg",
+      "pages": [
+        "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/component-library/final-inspect/tablet-page-01.jpg"
+      ],
+      "film": []
+    },
+    {
+      "viewport": "mobile",
+      "width": 390,
+      "fold": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/component-library/final-inspect/mobile-fold.jpg",
+      "pages": [
+        "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/component-library/final-inspect/mobile-page-01.jpg"
+      ],
+      "film": []
+    }
+  ]
+}

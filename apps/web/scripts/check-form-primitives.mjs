@@ -26,7 +26,7 @@ for (const [label, pattern] of [
   ['native radio and checkbox API', /readonly type: 'checkbox' \| 'radio'/u],
   ['field-linked summary', /href=\{`#\$\{item\.fieldId\}`\}/u],
   ['focusable error summary', /data-error-summary[\s\S]*role="alert"[\s\S]*tabIndex=\{-1\}/u],
-  ['atomic status', /aria-atomic="true"[\s\S]*aria-live=/u],
+  ['atomic live status', /aria-atomic=\{role === 'group' \? undefined : true\}[\s\S]*aria-live=/u],
   ['authoritative receipt contract', /readonly authoritative: true[\s\S]*readonly kind: 'receipt'/u],
   ['pending disabled submit', /disabled=\{disabled \|\| pending\}/u],
 ]) {

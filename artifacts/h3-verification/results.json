@@ -1,0 +1,544 @@
+[
+  {
+    "width": 1440,
+    "route": "/doctors",
+    "selector": "#clinician-search-query",
+    "focus": {
+      "text": "clinician-search-query",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 128,
+        "y": 685,
+        "w": 1088.109375,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "route": "/doctors",
+    "selector": "button[type=submit]",
+    "focus": {
+      "text": "Search",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 1228.109375,
+        "y": 685,
+        "w": 83.890625,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "route": "/doctors",
+    "selector": "[data-clinician-public-id] a",
+    "focus": {
+      "text": "View Dr Aster’s profile",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 522.90625,
+        "y": 810.4375,
+        "w": 157,
+        "h": 44
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "route": "/doctors",
+    "shiftTabMoved": true
+  },
+  {
+    "width": 1440,
+    "route": "/services",
+    "selector": "input[type=search]",
+    "focus": {
+      "text": "service-search-query",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 128,
+        "y": 673,
+        "w": 1088.109375,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "route": "/services",
+    "selector": "button[type=submit]",
+    "focus": {
+      "text": "Search",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 1228.109375,
+        "y": 673,
+        "w": 83.890625,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "route": "/services",
+    "selector": "[data-service-public-id] h3 a",
+    "focus": {
+      "text": "Admission guidance",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 442.90625,
+        "y": 725,
+        "w": 220.84375,
+        "h": 44
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "route": "/services",
+    "selector": "[data-service-public-id] > a",
+    "focus": {
+      "text": "Request about Admission guidance",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 442.90625,
+        "y": 793.59375,
+        "w": 244.53125,
+        "h": 44
+      }
+    }
+  },
+  {
+    "width": 1440,
+    "route": "/services",
+    "shiftTabMoved": true
+  },
+  {
+    "width": 768,
+    "route": "/doctors",
+    "selector": "#clinician-search-query",
+    "focus": {
+      "text": "clinician-search-query",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 80,
+        "y": 609.171875,
+        "w": 512.109375,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 768,
+    "route": "/doctors",
+    "selector": "button[type=submit]",
+    "focus": {
+      "text": "Search",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 604.109375,
+        "y": 609.171875,
+        "w": 83.890625,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 768,
+    "route": "/doctors",
+    "selector": "[data-clinician-public-id] a",
+    "focus": {
+      "text": "View Dr Aster’s profile",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 168,
+        "y": 977.984375,
+        "w": 157,
+        "h": 44
+      }
+    }
+  },
+  {
+    "width": 768,
+    "route": "/doctors",
+    "shiftTabMoved": true
+  },
+  {
+    "width": 768,
+    "route": "/services",
+    "selector": "input[type=search]",
+    "focus": {
+      "text": "service-search-query",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 80,
+        "y": 626.34375,
+        "w": 512.109375,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 768,
+    "route": "/services",
+    "selector": "button[type=submit]",
+    "focus": {
+      "text": "Search",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 604.109375,
+        "y": 626.34375,
+        "w": 83.890625,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 768,
+    "route": "/services",
+    "selector": "[data-service-public-id] h3 a",
+    "focus": {
+      "text": "Admission guidance",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 88,
+        "y": 883.078125,
+        "w": 220.84375,
+        "h": 44
+      }
+    }
+  },
+  {
+    "width": 768,
+    "route": "/services",
+    "selector": "[data-service-public-id] > a",
+    "focus": {
+      "text": "Request about Admission guidance",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 88,
+        "y": 607.265625,
+        "w": 244.53125,
+        "h": 44
+      }
+    }
+  },
+  {
+    "width": 768,
+    "route": "/services",
+    "shiftTabMoved": true
+  },
+  {
+    "width": 390,
+    "route": "/doctors",
+    "selector": "#clinician-search-query",
+    "focus": {
+      "text": "clinician-search-query",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 52,
+        "y": 567.953125,
+        "w": 286,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 390,
+    "route": "/doctors",
+    "selector": "button[type=submit]",
+    "focus": {
+      "text": "Search",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 52,
+        "y": 625.546875,
+        "w": 83.890625,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 390,
+    "route": "/doctors",
+    "selector": "[data-clinician-public-id] a",
+    "focus": {
+      "text": "View Dr Aster’s profile",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 108,
+        "y": 976.71875,
+        "w": 157,
+        "h": 44
+      }
+    }
+  },
+  {
+    "width": 390,
+    "route": "/doctors",
+    "shiftTabMoved": true
+  },
+  {
+    "width": 390,
+    "route": "/services",
+    "selector": "input[type=search]",
+    "focus": {
+      "text": "service-search-query",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 52,
+        "y": 591.953125,
+        "w": 286,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 390,
+    "route": "/services",
+    "selector": "button[type=submit]",
+    "focus": {
+      "text": "Search",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 52,
+        "y": 649.546875,
+        "w": 83.890625,
+        "h": 45.59375
+      }
+    }
+  },
+  {
+    "width": 390,
+    "route": "/services",
+    "selector": "[data-service-public-id] h3 a",
+    "focus": {
+      "text": "Admission guidance",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 56,
+        "y": 918.28125,
+        "w": 220.84375,
+        "h": 44
+      }
+    }
+  },
+  {
+    "width": 390,
+    "route": "/services",
+    "selector": "[data-service-public-id] > a",
+    "focus": {
+      "text": "Request about Admission guidance",
+      "outline": "solid",
+      "width": "3px",
+      "color": "rgb(0, 109, 130)",
+      "visible": "visible",
+      "rect": {
+        "x": 56,
+        "y": 775.65625,
+        "w": 244.53125,
+        "h": 44
+      }
+    }
+  },
+  {
+    "width": 390,
+    "route": "/services",
+    "shiftTabMoved": true
+  },
+  {
+    "keyboardSearch": "Aster",
+    "count": 1
+  },
+  {
+    "keyboardFilter": {
+      "url": "http://localhost:3000/doctors?q=&type=synthetic-family",
+      "count": 3
+    }
+  },
+  {
+    "profileReturn": "/doctors?q=Aster&type=synthetic-family"
+  },
+  {
+    "handoff": {
+      "id": "pub_111111111111",
+      "name": "Admission guidance",
+      "href": "/appointment?service=pub_111111111111"
+    },
+    "appointment": {
+      "url": "http://localhost:3000/appointment?service=pub_111111111111",
+      "fields": [
+        {
+          "name": "visit_type",
+          "value": "first"
+        },
+        {
+          "name": "visit_type",
+          "value": "follow-up"
+        },
+        {
+          "name": "care_route",
+          "value": "doctor"
+        },
+        {
+          "name": "care_route",
+          "value": "service"
+        },
+        {
+          "name": "care_route",
+          "value": "not_sure"
+        },
+        {
+          "name": "doctor_id",
+          "value": ""
+        },
+        {
+          "name": "service_id",
+          "value": "pub_111111111111"
+        },
+        {
+          "name": "full_name",
+          "value": ""
+        },
+        {
+          "name": "phone",
+          "value": ""
+        },
+        {
+          "name": "preferred_date",
+          "value": ""
+        },
+        {
+          "name": "privacy_acknowledged",
+          "value": "true"
+        },
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
+      "text": "Request an appointment\n\nChoose your care, share a few sample details, and review your request at your own pace.\n\nInteractive preview only. Use sample details; no request is sent or saved.\n\nIllustrative care scene\nA little closer to care.\n\nBegin wherever you are. You can choose your care now or ask for guidance.\n\nYour visit\nFirst visit\nYour care\nAdmission guidance\nPreferred date\nNo preference\n\nA preferred date is a request, subject to confirmation.\n\nPrepare your visit checklist\n\nDo not use this form for emergency help\n\nOnline appointment requests cannot provide emergency help.\n\nView emergency information\nYour care\nYour details\nReview\nChoose your care\n\nStart with a doctor, a service, or a little guidance.\n\nFirst visit or follow-up?\nFirst visit\nFollow-up visit\n\nChoose a doctor or service below, or ask for help finding care. Prepare your questions and any referral letter you already have.\n\nReferring a patient? Read the referral guide.\n\nType of care\nRequired\nA specific doctor\nI know who I would like to see.\nA service\nI know the type of care I need.\nHelp me choose\nI would like help finding the right care.\nService\nRequired\n\nChoose an option.\n\nChoose a service\nAdmission guidance\nInpatient navigation\nDay care navigation\nGeneral medicine\nHeart medicine\nBreathing medicine\nRehabilitation care\nSpeech support\nTherapy navigation\nFollow-up support\nContinue\n↗\nPatient Experience Team\n\nReview the illustrative contact details or return to care discovery before deciding what to request.\n\nContact information\nFind a doctor"
+    }
+  },
+  {
+    "width": 1440,
+    "route": "/doctors",
+    "motion": {
+      "reduce": true,
+      "rows": 9,
+      "hidden": 0,
+      "animations": []
+    }
+  },
+  {
+    "width": 1440,
+    "route": "/services",
+    "motion": {
+      "reduce": true,
+      "rows": 6,
+      "hidden": 0,
+      "animations": []
+    }
+  },
+  {
+    "width": 768,
+    "route": "/doctors",
+    "motion": {
+      "reduce": true,
+      "rows": 9,
+      "hidden": 0,
+      "animations": []
+    }
+  },
+  {
+    "width": 768,
+    "route": "/services",
+    "motion": {
+      "reduce": true,
+      "rows": 6,
+      "hidden": 0,
+      "animations": []
+    }
+  },
+  {
+    "width": 390,
+    "route": "/doctors",
+    "motion": {
+      "reduce": true,
+      "rows": 9,
+      "hidden": 0,
+      "animations": []
+    }
+  },
+  {
+    "width": 390,
+    "route": "/services",
+    "motion": {
+      "reduce": true,
+      "rows": 6,
+      "hidden": 0,
+      "animations": []
+    }
+  }
+]

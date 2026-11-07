@@ -1,0 +1,11 @@
+Blog illustrations generated with the built-in image_gen tool, 1 November 2026.
+Fictional people and settings; these do not depict actual hospital research or events.
+Optimized to WebP at 1200 × 800 using sharp.
+
+medical-research.webp — Behind the breakthrough
+Prompt: Use case: illustration-story. Create one landscape editorial blog cover for 'Behind the breakthrough', an article on understanding medical research. Painterly contemporary editorial illustration in warm natural light, muted teal and warm earth colours, human and credible. Two Ethiopian medical researchers, a woman and man, seated at a desk reviewing printed research charts and a microscope in a modest bright research workspace. Charts abstract without readable text. Medium wide composition, 3:2 landscape. No hospital branding, no claims of discovery, no text or watermark. This is fictional illustrative artwork for a hospital demo website. Save the generated image as a local file and provide its path.
+
+community-conversation.webp — Let’s talk about care
+Prompt: Use case: illustration-story. Create one landscape 3:2 editorial blog cover for 'Let’s talk about care', a fictional community health conversation. Contemporary sophisticated magazine illustration with matte gouache texture and precise natural expressive faces, warm sunlight, muted navy teal, ochre and pale sky blue. A small group of Ethiopian adults of different ages, women and men, sitting in a loose semicircle with an Ethiopian female health educator holding a notebook and listening attentively; a bright simple community room, informal respectful discussion. Medium wide framing, all people well composed in central area for 16:10 card crop. No clinical procedures, no branding, no text, no logo, no watermark. This is fictional conceptual illustration, not a real hospital event. Save as local image and provide its path.
+
+The resource card retains care-illustration.webp; see ARTWORK.txt for its provenance.

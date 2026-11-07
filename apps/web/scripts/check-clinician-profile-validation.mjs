@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { existsSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
 
 import {
   clinicianProfileFixture,
@@ -47,7 +47,7 @@ const portraitProfile = resolveClinicianProfile(portraitFixture)
 const portraitHtml = renderClinicianProfile({ profile: portraitProfile })
 assert.ok(portraitFixture.records.some((record) => record.kind === 'doctor' && record.clinician?.portrait))
 assert.equal(portraitProfile.clinician?.portrait, null)
-assert.equal((portraitHtml.match(/data-portrait-omitted/gu) ?? []).length, 1)
+assert.doesNotMatch(portraitHtml, /data-portrait-omitted|data-portrait-placeholder/u)
 assert.doesNotMatch(portraitHtml, /<img\b|Synthetic portrait metadata only|Synthetic rights fixture/u)
 cases++
 
@@ -137,7 +137,7 @@ assert.match(unavailableAppointment, /data-appointment-doctor-public-id="pub_090
 cases++
 
 const appRoot = new URL('../src/app/', import.meta.url)
-assert.equal(existsSync(new URL('doctors/', appRoot)), false)
+assert.match(await readFile(new URL('doctors/[slug]/page.tsx', appRoot), 'utf8'), /requireLocalDemo\(\)/u)
 cases++
 
 const server = await createClinicianProfilePreviewServer()

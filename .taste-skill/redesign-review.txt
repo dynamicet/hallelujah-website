@@ -1,0 +1,138 @@
+Hallelujah Hospital — inspiration-led redesign, 27 October 2026
+
+Direction: One motif. Seed: 238462439.
+Idea: On this page, the embracing arms in Hallelujah's emblem become the open,
+curved corners that frame people, actions and the close of the page.
+Live interactions: doctor search on the first screen, a four-choice care
+navigator, native visit disclosures, and a header that returns on upward scroll.
+
+Reference review
+Reviewed all three supplied standalone screenshots and all 29 HH images.
+Read HH/October.html, including its notes about header behavior, family imagery,
+care discovery, service spotlights, doctor introductions and footer hierarchy.
+Also reviewed the live Mayo and Cleveland Clinic Abu Dhabi page structures.
+Sidra's live page timed out; its supplied screenshots remained available.
+
+Synthesis
+UCSF: immediate care discovery, strong contrast and emotionally engaging imagery.
+Mayo: calm editorial hierarchy, clear next steps, generous image scale.
+Cleveland: prominent doctor search and useful task entry points.
+Sidra: service and clinician discovery as core patient journeys.
+Mass General: confident color fields, a deliberate institutional close.
+Hallelujah: its existing family emblem, Ethiopian people, English/Amharic context,
+four care routes, doctor-language information and preparation for a first visit.
+
+Subject inventory
+Hallelujah's name; open-armed emblem; existing cyan identity; Ethiopian families;
+Amharic language context; family, child and heart care directory choices;
+profile-to-appointment handoff; questions before arrival; phone-first readership;
+withheld operational details; existing local preview boundary.
+
+Argument and final copy deck
+Care with open arms. Find a doctor directly, or browse the directory.
+How can we help? Choose a doctor, service, visit preparation or appointment.
+Care for every chapter. Four existing service pathways with functioning searches.
+You come first. Explain the open-arms identity and introduce the care approach.
+Find your person. Show three existing illustrative doctor records and languages.
+A calmer first visit. Give four useful, native disclosure answers.
+Before you set off. Explain available arrival/contact information and urgent help.
+Here for you. Here for life. Close with clear care and visit navigation.
+
+Adaptations to the dealt sheet
+The striped-room hero did not fit the supplied emblem or available assets.
+The open-arm curve from the selected motif direction takes precedence.
+Object-on-disc showcases and isolated product specimens do not represent hospital
+services; replaced by the supplied references' care-discovery and people layouts.
+A coupon contact form would conflict with the existing appointment journey.
+The real GET search and existing appointment flow provide the working actions.
+No unrelated stock photographs, invented statistics, partner logos, testimonials,
+operating hours, clinical claims or hospital contact values were added.
+
+ROUND 1
+Seen in one second: a family sharing a moment beside a clear route to care.
+Idea (one sentence): Hallelujah's embracing emblem becomes the page's framing.
+Live thing: hero doctor search and the four-choice care navigator.
+Layout words by section: hero=split / navigator=task strip /
+care=portrait and list / about=inverse mosaic / doctors=roster /
+visit=accordion and image / arrival=information columns / footer=wordmark.
+Scores: design 7.8 · usability 7.8 · creativity 7.5 · content 7.0 → overall 7.7.
+Caps applied: small text and an unnecessary menu shadow required correction.
+Top three problems (most visible first), each with the screenshot and fix:
+1. Tablet hero cropped the mother's face too tightly (tablet-fold.jpg).
+   Centered the image crop at the tablet breakpoint.
+2. Legal disclosures were 12px (mobile-fold.jpg). Raised them to at least 13px.
+3. Journey screenshots exposed broad substring selectors matching nested grids.
+   Replaced the introduction and directory rules with stable data attributes;
+   restored readable service introductions and compact doctor cards.
+
+ROUND 2 — final
+Seen in one second: Care with open arms, a warm family image and doctor search.
+Idea (one sentence): Hallelujah's embracing emblem becomes the page's framing.
+Live thing: functioning GET search, including without JavaScript; care navigator.
+Layout words by section: hero=split / navigator=task strip /
+care=portrait and list / about=inverse mosaic / doctors=roster /
+visit=accordion and image / arrival=information columns / footer=wordmark.
+Scores: design 8.0 · usability 8.5 · creativity 7.5 · content 7.0 → overall 8.0.
+Caps applied: none from the final visual measurement.
+Top three remaining limitations:
+1. Care and doctor content is illustrative; hospital-approved content is still
+   needed. Concept scenes are disclosed rather than presented as actual patients.
+2. No verified hospital footage was supplied. A restrained photo drift supplies
+   motion without adding unrelated footage or automatic video transfer.
+3. Existing preview directory and appointment copy is deliberately explanatory;
+   validated hospital content would make these journeys more concise.
+
+Final measurements
+Before: zero visual failures, 3 warnings; 15 desktop type sizes; 12 moving elements.
+After: zero visual failures at 1440, 768 and 390px; 3 warnings;
+11 desktop type sizes; 26/19/28 moving elements at desktop/tablet/phone.
+All homepage headings fit within two lines at the measured widths.
+Extra reflow checks passed at 320, 360, 390, 768, 1024 and 1440px.
+Reduced motion: zero active animations; reveal content remains fully visible.
+Native mobile menu includes appointment access. Escape returns focus correctly.
+18 connected browser journey groups passed, with no browser errors or warnings,
+unexpected HTTP errors or failed loads. Search, filters, pagination, history,
+profile/service handoff, local appointment states and no-JavaScript behavior pass.
+
+Warnings retained with reasons
+Repeated controls/roster rows provide comparable choices in working interfaces.
+The measured type-size count includes the logo, large footer wordmark, disclosures
+and controls; the page has a clear display/heading/body hierarchy.
+No video is intentional: there is no hospital-approved clip in the supplied assets.
+
+Image record
+New asset: apps/web/public/editorial/open-arms-family.webp (1536 x 1024, 219 KB).
+Created with the built-in OpenAI imagegen tool; all people/settings are fictional.
+Prompt and provenance: apps/web/public/editorial/CARE-IMAGERY.txt.
+Existing family-care.webp, together-care.webp and hope-care.webp remain in use,
+each now serving a distinct section; no generated image is assigned to a doctor.
+Credits/disclosure: hero, care-scene caption and shared footer.
+No external stock imagery or borrowed reference artwork was incorporated.
+
+Evidence
+.taste-skill/redesign-final/ — final responsive homepage screenshots and report.
+.taste-skill/redesign-journeys/ — desktop/mobile connected journeys and reduced motion.
+.taste-skill/before/ — baseline captured at the start of this redesign.
+.taste-skill/reference-sheet-0.jpg and reference-sheet-1.jpg — supplied HH inventory.
+
+Validation completion
+Production build: passed on the final source.
+TypeScript and targeted ESLint: passed.
+Visual source lint: zero failures, zero warnings.
+Responsive browser inspector: zero failures, 3 documented design warnings.
+All 18 connected browser journey groups: passed.
+All component, content, lifecycle and schema checks through content integrity:
+passed. Asset governance and asset-format tests: passed separately using the
+supported /var/tmp parent and the existing fontTools Python environment.
+Environment contract check: passed.
+Full pnpm test is not green because its final bootstrap boundary check flags
+the pre-existing https://local.invalid parsing constant in the unchanged
+apps/web/src/app/doctors/[slug]/page.tsx, lines 24-25. The route file is unchanged
+from HEAD. No boundary policy was weakened as part of this design work.
+The system /tmp quota initially blocked sandbox startup and the asset tests;
+workspace scratch and the existing supported /var/tmp option were used after
+native execution approval. No dependency installation was needed.
+
+Repository-wide formatting also reports pre-existing license/cache/older visual-artifact
+format violations. All source and evidence files changed by this redesign meet the
+newline and whitespace policy; git diff --check passes.

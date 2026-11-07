@@ -9,6 +9,10 @@
 
 This matrix defines the minimum verifiable behavior and content for the public website. It is the traceability layer between research, design, content, implementation, and acceptance testing.
 
+### Development fixtures and production facts
+
+Client clarification, 30 October 2026 (this conversation): institutional approval gates apply to production facts and publication. Development and non-public design previews use mock data to render complete KPI/statistics sections and demonstrate dynamic value updates without visible demo labels, mock-data badges, disclaimers or approval-pending notices. The preview context establishes that the content is provisional; the page should show the intended finished design. Pending institutional facts must not prevent implementation or remove those sections from development previews. Mock values are not approved hospital facts and must not become a production fallback. Production empty, expired and unavailable states must also be reviewable. This clarification does not change the existing motion rules; permission to mock dynamic data does not itself authorize count-up animation.
+
 ### Priority and phase
 
 - **P0**: safety, security, privacy, or release blocker
@@ -76,7 +80,7 @@ Benchmark patterns are supporting evidence, not requirements by themselves. The 
 | H-001 | Home prioritizes essential tasks above promotional content: Emergency, Doctor, Service, Appointment, Call, and Directions. | Must | P1 / Phase 1 | At 320 px and desktop, all essential routes are visible or in the predictable header before campaigns. | Ready: direction | Product |
 | H-002 | Home uses a static-first task-oriented introduction, never auto-rotates content, and may add approved user-initiated hero or institutional media without delaying, covering, or reordering care and Emergency actions. | Must | P1 / Phase 1 | Visual/interaction review confirms one clear primary message, zero pre-intent video request, persistent playback controls, complete poster/failure/reduced states, and unchanged task recognition. | Ready: amended direction; authentic media/Brand approval missing | Design |
 | H-003 | Featured doctors and services are drawn only from approved governed records. | Must | P0 / Phase 1 | Each feature links to a published canonical record and disappears cleanly when none are selected. | Verify | Content |
-| H-004 | Statistics, leadership, technology, partner, proximity, and superlative claims do not appear until their sources, dates, owners, and usage rights are approved. | Must | P0 / Phase 1 | Claim ledger links every visible claim to current approval; unapproved claims are absent. | Blocked: several claims unverified | Executive + Content |
+| H-004 | Production statistics, leadership, technology, partner, proximity, and superlative claims appear only after their sources, dates, owners, and usage rights are approved. Development and non-public previews retain complete sections using mock data without visible demo or mock-data labeling. | Must | P0 / Phase 1 | Production claim ledger links every visible claim to current approval; unapproved claims and mock fallbacks are absent. Development previews demonstrate populated sections independently of institutional approval, plus production omission/unavailable states. | Development fixtures permitted; production facts pending verification | Executive + Content |
 | H-005 | Site search matches doctors, services, clinically governed condition terms, and locations without presenting diagnosis or treatment advice. | Must | P1 / Phase 1 | Search relevance tests cover spelling variants, type labels, empty state, and urgent-term routing. | Verify: taxonomy and urgent terms | Clinical + Product |
 
 ## Emergency

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0078A6">
+  <title>Hallelujah — Color catalog</title>
+  <link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="styles.css">
+  <script src="palette-data.js" defer></script><script src="catalog.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to catalog</a>
+  <header class="viewer">
+    <a href="#main" class="identity"><img src="../../../apps/web/public/brand/hallelujah-emblem.png" width="28" height="28" alt=""><strong>Hallelujah</strong><span>Color catalog</span></a>
+    <div class="viewer-actions"><button id="export" type="button">Download CSS</button><button id="print" type="button">Print</button></div>
+  </header>
+  <main id="main">
+    <div class="title-row"><div><h1>One blue. A whole experience.</h1><p>The digital palette for Hallelujah General Hospital · November 2026</p></div><span class="proposal">Local website palette</span></div>
+    <p><a href="../usage-guide.md">Final website brand and composition guide</a> · Implemented in the local website. Earlier section specimens remain study examples.</p>
+    <nav class="chapters" aria-label="Catalog sections"><a href="#signature">Signature</a><a href="#palette">Full palette</a><a href="#experience">In practice</a><a href="#contrast">Contrast lab</a><a href="#guidance">Usage</a></nav>
+
+    <section id="signature" class="signature" aria-labelledby="signature-heading">
+      <div class="signature-blue"><h2 id="signature-heading">Hallelujah blue</h2><p class="signature-hex">#0078A6</p><p>Open, clear, and distinctly Hallelujah.<br>A cyan-blue with depth enough to do the work.</p><button class="copy inverse" data-copy="#0078A6" type="button">Copy primary blue <span aria-hidden="true">↗</span></button></div>
+      <div class="signature-story"><h2>A family, not a competition.</h2><p>The blue family leads. Orange adds a warm supporting accent; magenta brings occasional expression. Warm off-white, white, dark ink, and slate hold the palette together.</p><div class="family-strip" aria-label="Blue family from pale to deep"><span style="background:var(--hh-blue-50)"></span><span style="background:var(--hh-blue-100)"></span><span style="background:var(--hh-blue-200)"></span><span style="background:var(--hh-blue-600)"></span><span style="background:var(--hh-blue-700)"></span><span style="background:var(--hh-blue-800)"></span></div><p class="small">Three groups: brand colors, supporting neutrals, and functional status colors. The original logo stays intact.</p></div>
+    </section>
+
+    <section id="palette" aria-labelledby="palette-heading">
+      <div class="section-head"><div><h2 id="palette-heading">The complete palette</h2><p>Click a swatch to copy its hex value. Each color has a specific job.</p></div><a class="text-link" href="palette.json" download>Download palette JSON ↗</a></div>
+      <h3>Brand colors</h3><p class="palette-intro">Primary identity and interactions: the adopted blue family, anchored by #0078A6.</p><div id="blue-swatches" class="swatches blue-swatches"></div>
+      <div class="accent-families">
+        <div><h3>Orange</h3><p class="palette-intro">Main supporting accent · #F26522</p><div id="orange-swatches" class="swatches accent-swatches"></div></div>
+        <div><h3>Magenta</h3><p class="palette-intro">Occasional expressive accent · #D81B72</p><div id="magenta-swatches" class="swatches accent-swatches"></div></div>
+      </div>
+      <p class="small accent-note">Pale companions and deep shades extend each accent. They support the anchor colors; they are not additional brand accents. Yellow remains in the logo, with no separate yellow brand family.</p>
+      <h3>Supporting neutrals</h3><p class="palette-intro">Main background: warm off-white #FBF8F6. White, coordinated dark ink, slate, and quiet edges complete the neutral palette.</p><div id="neutral-swatches" class="swatches neutral-swatches"></div>
+      <div class="status-heading"><h3>Functional status colors</h3><p>Meaning, not brand decoration.</p></div><div id="status-swatches" class="statuses"></div><p class="small status-note">Information reuses strong blue #00678D on blue mist #EAF5F9. Caution is a functional amber, separate from the brand palette. Urgent access and errors share muted red, with distinct wording and context.</p>
+      <noscript><p>JavaScript displays the interactive swatches. The complete list is available in <a href="palette.json">palette.json</a> and <a href="README.md">the written specification</a>.</p></noscript>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-heading">
+      <div class="section-head"><div><h2 id="experience-heading">See the colors at work</h2><p>The same identity across welcoming pages and practical care tasks.</p></div><label class="surface-select">Preview surface<select id="surface"><option value="paper">Warm paper</option><option value="white">Clear white</option><option value="blue-50">Blue mist</option></select></label></div>
+      <div class="experience" id="experience-canvas">
+        <div class="mini-nav"><strong>Hallelujah</strong><span>General Hospital</span><a href="#appointment-example">Request a visit ↗</a></div>
+        <div class="page-sample"><div><h3>Bringing quality<br>care home.</h3><p>A calm place to find the right care and understand your next step.</p><a class="button primary" href="#appointment-example">Explore a visit <span aria-hidden="true">→</span></a><a class="text-link" href="#palette">Find your color pairing</a></div><div class="sample-note"><h4>Clarity comes first.</h4><p>Blue carries the action. Deep blue brings structure. The surrounding space lets people and information take the lead.</p><div class="sample-caption">Website composition study</div></div></div>
+        <div class="practical"><div id="appointment-example"><h3>Plan your visit</h3><p>A form style specimen. Try the focus, selection, and validation states.</p><form id="sample-form"><label for="department">Care area</label><select id="department" aria-describedby="form-message" required><option value="">Choose a care area</option><option>General consultation</option><option>Specialist consultation</option></select><p id="form-message" class="form-message" aria-live="polite">Choose an option to try the confirmation style.</p><button class="button primary" type="submit">Preview confirmation →</button></form></div><div class="state-samples"><h3>Every state, considered</h3><div class="button-states"><span class="state-button default">Default</span><span class="state-button hover">Hover</span><span class="state-button pressed">Pressed</span><button disabled>Unavailable</button></div><p class="focus-example" tabindex="0">Tab here to see the focus outline.</p><p class="small">A white separation gap keeps the dark focus ring visible around a blue button. Dark sections use a white focus outline.</p></div></div>
+        <div class="sample-footer"><h3>Care, with a clear next step.</h3><p>Use a deep shade of the same blue for the footer. Keep text and actions light.</p><a class="button inverse" href="#guidance">Read usage guidance →</a></div>
+      </div>
+    </section>
+
+    <section id="contrast" aria-labelledby="contrast-heading"><div class="section-head"><div><h2 id="contrast-heading">Contrast, made visible</h2><p>Check the actual foreground and background, not the swatch in isolation.</p></div></div>
+      <div class="contrast-layout"><div class="contrast-controls"><label for="foreground">Text / foreground</label><select id="foreground"></select><label for="background">Background</label><select id="background"></select><output id="ratio" class="ratio"></output><p id="verdict"></p></div><div id="contrast-preview" class="contrast-preview"><h3>Care starts with clarity.</h3><p>This is ordinary reading text. A usable color pairing keeps practical information legible.</p><span id="pair-label"></span></div></div>
+      <div class="table-wrap"><table><caption>Pairings and restrictions · calculated sRGB contrast</caption><thead><tr><th scope="col">Pairing</th><th scope="col">Ratio</th><th scope="col">Role or restriction</th></tr></thead><tbody id="pairings"></tbody></table></div>
+      <p class="small">Normal text needs at least 4.5:1; large text needs 3:1. Meaningful non-text controls need 3:1 against adjacent colors. These checks cover flat colors; image overlays and complete components still need testing. <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum/">W3C text contrast guidance ↗</a></p>
+    </section>
+
+    <section id="guidance" aria-labelledby="guidance-heading"><h2 id="guidance-heading">How the whole site holds together</h2><div class="guidance-grid"><div><h3>Compose the layers together.</h3><p>Choose the reading ground, text, actions and decorative detail independently. Blue gives continuity; orange and magenta add expression through type, lines, frames, shapes and surfaces. Paper and white give each task room to read. There are no fixed color percentages, exclusive section colors or one-accent limits.</p><p>A peach plane can carry blue headings and a magenta marker. A deep-blue field can hold white content, pale tonal shapes and a warm directional cue. Let hierarchy and the visitor’s task decide the balance.</p></div><div><h3>Give each shade a reason.</h3><ul><li>Primary blue: main action and selected identity moments.</li><li>Strong blue: underlined links on white, paper, mist and veil.</li><li>Deep blue: headings, pressed states and inverse fields.</li><li>Mist and veil: tonal grouping. Air: decorative fill with deep-blue text.</li><li>Orange and magenta: independent supporting detail and composed surfaces, with readable pale/deep companions.</li><li>Green, amber and red: actual states with written meaning.</li></ul></div></div><details><summary>How does this relate to the website?</summary><p>The palette is implemented in the local homepage, shared components and reviewed inner pages. Runtime values are maintained in the application token manifest. The earlier section specimens on this sheet retain study context; use the final website guide for current composition examples. Production publication remains separate.</p></details><details><summary>Branding beyond the screen</summary><p>Use #0078A6 as the current digital blue. Coordinate pale and deep companions with their intended roles. Print conversions depend on paper, ink and color profile; establish CMYK or spot-color standards through physical proofs.</p></details></section>
+    <section class="review-next" aria-labelledby="review-heading"><h2 id="review-heading">From palette to patient experience</h2><p>The homepage, shared components and reviewed inner pages now carry this palette. Blue supplies continuity while ground, text, action and supporting detail are independently composed. The final guide connects the implemented examples, component states and responsive layouts.</p><p><a href="../usage-guide.md">Read the final brand and composition guide →</a></p><p><a href="composition-implementation.md">Review the revised homepage and shared components →</a></p><p><a href="route-rollout.md">Review the completed inner-page rollout →</a></p><p><a href="component-study.html">Explore the historical component study →</a></p></section>
+    <footer class="catalog-footer"><strong>Hallelujah General Hospital</strong><p>Local website palette · 4 November 2026</p><a href="../usage-guide.md">Read the final usage guide ↗</a></footer>
+  </main><div id="announcement" class="announcement" role="status" aria-live="polite"></div>
+</body>
+</html>

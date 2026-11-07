@@ -1,0 +1,24 @@
+Hallelujah Hospital redesign
+
+Audience: patients and families choosing their next step, often on a phone.
+Primary action: Find a doctor. Keep emergency access visible.
+Inventory: Hallelujah name; Ethiopian identity; bilingual English/Amharic context;
+existing emblem; family, child and heart care pathways; clinician profiles;
+service filters; accessible arrival questions; appointment request handoff;
+unverified operational data; a local-only demonstration with no data collection.
+
+Argument and copy deck:
+Hero: Here for you. Here for life. / Find your way to care at Hallelujah Hospital, with the information you need to take the next step. / Find a doctor.
+Care finder: Let's find your next step. / Choose what you need today. / Doctor, service, visit, appointment.
+Care: Care for every chapter. / Explore areas of care and the questions to bring to your first conversation. / General medicine, Heart medicine, Breathing medicine, Rehabilitation care.
+Approach: Good care starts with listening. / Space for your questions. Clarity about what comes next. Support for the people beside you.
+Preparation: A little preparation. More peace of mind. / Bring your questions, confirm your visit details, ask about access and support.
+Contact: We’ll help you find your way. / Contact and arrival information is awaiting verification. / Review visit information.
+Footer: Your next step starts here. / Find a doctor or request an appointment.
+
+Idea: On this page, the hope in the name Hallelujah becomes a photographic welcome, followed by an adaptive next-step guide.
+Live thing: a care navigator with four useful choices and actionable, accessible results; server-rendered default and no-JavaScript fallback.
+Direction: The place carries it, seed 2146993501.
+Redraws: Hero midline navigation requires clinical imagery with a clear centre rail, which does not exist; redraw yielded Name under a photograph. Adapted the photo composition to keep clear patient navigation visible. Archivo required an unavailable font and condensed capitals were unsuitable for the existing bilingual identity; redraw yielded Clash Grotesk. Self-host where possible.
+Imagery: generated fictional Ethiopian care scenes, explicitly disclosed; no fictional scene presented as the actual hospital or its team.
+Content: preserve all verified/unverified boundaries, route behavior, form handling, demo-only restrictions and fictional directory labels.

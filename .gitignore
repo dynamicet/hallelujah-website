@@ -2,6 +2,15 @@
 .env
 .env.*
 !.env.example
+.aws/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local deployment project metadata
+.vercel/
+.railway/
 
 # Dependencies and generated build output
 node_modules/
@@ -11,7 +20,11 @@ vendor/
 dist/
 build/
 coverage/
-artifacts/visual/
+playwright-report/
+test-results/
+# Generated review output; existing tracked artifacts remain tracked.
+/artifacts/
+/docs/visual-design/health-care-guide/evidence/**/*.jpg
 *.tsbuildinfo
 
 # Runtime and temporary files
@@ -21,11 +34,20 @@ artifacts/visual/
 *.swo
 .cache/
 tmp/
+# Local design-review scratch files; existing tracked records remain tracked.
+/.taste-skill/
+/.visual-review/
 
 # Local databases and generated Payload artifacts
 *.db
 *.db-shm
 *.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3-shm
+*.sqlite3-wal
 apps/web/src/payload-types.ts
 apps/web/src/payload-generated-schema.ts
 

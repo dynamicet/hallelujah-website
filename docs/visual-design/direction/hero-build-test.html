@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hallelujah hero · Build and test decision</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; color: #073e53; background: #fff; }
+    * { box-sizing: border-box; }
+    body { max-width: 1180px; margin: auto; padding: 48px 24px 80px; font-size: 17px; line-height: 1.65; }
+    h1, h2, h3 { line-height: 1.12; letter-spacing: -.035em; }
+    h1 { max-width: 900px; font-size: clamp(36px, 6vw, 64px); }
+    h2 { margin-top: 56px; font-size: 32px; }
+    a { color: #075e78; text-underline-offset: 4px; }
+    a:focus-visible { outline: 3px solid #075e78; outline-offset: 4px; }
+    p, li { max-width: 88ch; }
+    .decision { padding: 16px 28px; background: #eaf4f5; }
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    figure { margin: 0; }
+    img { display: block; max-width: 100%; width: 100%; height: auto; }
+    figcaption { margin-block: 12px 24px; font-size: 15px; }
+    .table-scroll { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; font-size: 15px; }
+    th, td { padding: 16px 12px; border-bottom: 1px solid #b9d1d7; text-align: left; vertical-align: top; }
+    thead { background: #eaf4f5; }
+    pre { font: inherit; font-size: 15px; white-space: pre-wrap; background: #f3f7f7; padding: 24px; }
+    @media (max-width: 650px) { .comparison { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <p>Build and test decision · 28 October 2026 · Development homepage</p>
+  <h1>A photographic hero where it works. Room to read where it matters.</h1>
+  <div class="decision">
+    <p><strong>Implemented recommendation: a responsive hybrid.</strong> At 900 CSS pixels and above, the existing care scene fills the hero behind left-aligned copy and the appointment action. Below 900px, the image sits above copy on a solid dark-blue field. Doctor and service search remain on a separate solid-background band.</p>
+    <p>The full-image candidate earns its place on wider screens by passing the readability checks while leaving both faces clear. The same overlay treatment fails on narrower screens, so the recommendation includes a separate mobile composition. This is an implementation decision supported by browser evidence and visual judgment, not a demonstrated improvement in patient outcomes.</p>
+  </div>
+
+  <h2>The decision rule</h2>
+  <ol>
+    <li><strong>Readability gate:</strong> target at least 4.5:1 for all hero text, including the large heading, in every tested layout. Test the actual bundled image and rendered backgrounds, rather than inferring contrast from CSS colors alone.</li>
+    <li><strong>Resizing gate:</strong> allow the copy to grow when text doubles. At the 200% and 400% reflow equivalents, preserve content and controls without horizontal scrolling. Enlarged headings may wrap beyond two lines.</li>
+    <li><strong>Composition gate:</strong> keep the faces visible and clear of copy at ordinary sizes. Prefer localized darkening that stops before the people. If a layout needs a broad, heavy veil or loses the conversation, use a solid copy area.</li>
+    <li><strong>Task gate:</strong> preserve real appointment, doctor, service, and visit destinations, accessible names, keyboard operation, and resilient states. Record the change in task placement on phones.</li>
+  </ol>
+  <p>The checks follow W3C’s explanations of <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">text contrast</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">text resizing</a>, and <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">reflow</a>. The uniform 4.5:1 target is a design choice stricter than the 3:1 minimum allowed for qualifying large text.</p>
+  <p>The gates distinguish functional checks from visual judgment. Scrim opacity alone is an incomplete rule: 62% black confined to the far left can preserve the people better than a lower-opacity layer covering the whole photograph. The final scrim begins at 62%, reaches 32% at 18% of image width, and becomes completely transparent at 48%. It is stronger than the initially proposed “light” scrim; its limited coverage is why it remains acceptable.</p>
+
+  <h2>What the built alternatives showed</h2>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th scope="col">Built alternative</th><th scope="col">Observed result</th><th scope="col">Decision</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Committed split baseline · <code>16c1d03</code></th><td>Strong contrast, no horizontal overflow in the tested cases, and both search forms within a 390 × 844 first screen. At doubled text on tablet, the stretching media frame crops the clinician out of the conversation.</td><td>A viable task-first baseline. Its narrow mobile advantage is real; its large-text image crop also needs care.</td></tr>
+        <tr><th scope="row">Full image with a 24% left-edge scrim</th><td>Minimum text contrast of 2.73:1 at 1440px and 2.71:1 at 1024px. Bright window and plant detail show through the text area.</td><td>Reject this treatment. A light gradient is insufficient for this image and placement.</td></tr>
+        <tr><th scope="row">Same overlay forced onto smaller screens</th><td>Minimum text contrast of 2.74:1 at 768px, 2.05:1 at 600px, 2.80:1 at 390px, and 2.30:1 at 320px. Copy becomes crowded as its column narrows.</td><td>Reject this responsive treatment. These results do not prove that every possible mobile overlay would fail.</td></tr>
+        <tr><th scope="row">Localized scrim with unconstrained image height</th><td>Ordinary wide layouts pass, but doubled desktop text reaches bright floor detail and falls to 2.65:1.</td><td>Keep the copy height flexible while limiting the image’s visual height. The image must not stretch or recrop as the text grows.</td></tr>
+        <tr><th scope="row">Final responsive hybrid</th><td>Minimum sampled text contrast of 5.34:1 across 16 cases. The white heading/supporting/visit copy measures at least 6.03:1 in the wide overlay. No horizontal overflow or text escaping the hero frame. All measured controls are at least 44px high.</td><td>Choose for the current visual brief, with its phone discovery tradeoff documented and patient testing still outstanding.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Only the copy/image relationship, image sizing, and wrapping behavior changed. The headline, supporting sentence, appointment wording, visit link, and two native search forms remain comparable to the committed baseline. Equal doctor/service search prominence is retained as an existing working assumption; these browser tests establish no evidence about which task is more frequent.</p>
+
+  <h2>Desktop comparison</h2>
+  <div class="comparison">
+    <figure><a href="evidence/hero-review/after-desktop.jpg"><img src="evidence/hero-review/after-desktop.jpg" alt="Committed split hero with copy on the left and a separate care photograph on the right" width="1440" height="900"></a><figcaption>Committed split baseline. Predictable contrast; a more structured composition.</figcaption></figure>
+    <figure><a href="evidence/hero-candidate/desktop.jpg"><img src="evidence/hero-candidate/desktop.jpg" alt="Implemented full-image desktop hero with copy on the dark left side and both people visible on the right" width="1440" height="900"></a><figcaption>Implemented wide composition. Continuous care scene; localized scrim behind copy; search on its own surface.</figcaption></figure>
+  </div>
+  <div class="comparison">
+    <figure><a href="evidence/hero-candidate/light-scrim-desktop.jpg"><img src="evidence/hero-candidate/light-scrim-desktop.jpg" alt="Rejected light-scrim version with bright window and plant detail behind the text" width="1440" height="900" loading="lazy"></a><figcaption>Rejected light scrim. The screenshot alone can look plausible; rendered contrast measurements fail.</figcaption></figure>
+    <figure><a href="evidence/hero-candidate/tablet.jpg"><img src="evidence/hero-candidate/tablet.jpg" alt="Tablet layout with an unobscured care photograph followed by solid-background copy and patient actions" width="768" height="1024" loading="lazy"></a><figcaption>At 768px, separate image and copy preserve the conversation and a readable measure.</figcaption></figure>
+  </div>
+
+  <h2>The phone tradeoff</h2>
+  <div class="comparison">
+    <figure><a href="evidence/hero-review/after-phone.jpg"><img src="evidence/hero-review/after-phone.jpg" alt="Split baseline on a phone, with appointment and both searches ahead of the care photograph" width="390" height="844" loading="lazy"></a><figcaption>Baseline: doctor form begins at y=561 and the service form ends at y=789. Appointment button ends at y=477.</figcaption></figure>
+    <figure><a href="evidence/hero-candidate/phone.jpg"><img src="evidence/hero-candidate/phone.jpg" alt="Implemented phone hero shows the care conversation, then readable copy, appointment and visit actions, followed by search" width="390" height="844" loading="lazy"></a><figcaption>Candidate: the conversation appears first. Appointment button ends at y=711; doctor form begins at y=795 and service form ends at y=1023.</figcaption></figure>
+  </div>
+  <p>The candidate moves discovery down by the 234px image height at 390px width. It provides a human introduction within the first screen and retains a visible appointment button, while the baseline exposes searches sooner. This is the main remaining product tradeoff. If patient sessions show that this delay impedes the dominant task, restore the baseline’s task-first phone ordering while retaining the wide photographic composition. Shorter viewport heights will require scrolling for the appointment action too; first-screen visibility is not universal.</p>
+
+  <h2>Text resizing and reflow</h2>
+  <div class="comparison">
+    <figure><a href="evidence/hero-candidate/split-text-200-tablet.jpg"><img src="evidence/hero-candidate/split-text-200-tablet.jpg" alt="Split baseline with doubled tablet text becomes tall and crops the clinician from the photograph" loading="lazy"></a><figcaption>Baseline at doubled tablet text. Functional contrast survives, but the image loses its relational subject.</figcaption></figure>
+    <figure><a href="evidence/hero-candidate/text-200-tablet.jpg"><img src="evidence/hero-candidate/text-200-tablet.jpg" alt="Final tablet hero with doubled text keeps both people visible and lets the copy and search controls grow" loading="lazy"></a><figcaption>Candidate at doubled tablet text. Copy grows independently of the photograph.</figcaption></figure>
+  </div>
+  <p>At wide sizes the image has a maximum visual height of 560px. The copy has only a minimum height and can continue onto the solid dark-blue background. This avoids both clipping the text and exposing bright floor detail beneath enlarged supporting copy. Below 900px, the media and copy already occupy separate rows. Search fields can wrap their buttons, and the appointment label can wrap within its available width.</p>
+  <p>Additional captures: <a href="evidence/hero-candidate/text-200-desktop.jpg">doubled desktop text</a>, <a href="evidence/hero-candidate/text-200-phone.jpg">doubled phone text</a>, <a href="evidence/hero-candidate/reflow-400.jpg">400% reflow equivalent</a>, and the <a href="evidence/hero-candidate/forced-phone-overlay.jpg">rejected forced phone overlay</a>.</p>
+
+  <h2>What was checked, and the limits</h2>
+  <p>Normal layouts at 320, 390, 599, 600, 768, 899, 900, 1024, 1440, and 1920 CSS pixels; reflow equivalents of a 1280 × 1024 viewport at 200% (640 × 512) and 400% (320 × 256); and doubled computed hero font sizes and line heights at 320, 390, 768, and 1440px. The reflow checks emulate the resulting layout viewport; browser UI zoom was not automated. The text-only resize check applies to this hero, not the entire site.</p>
+  <p>Contrast was measured against lossless Chromium screenshots with foreground text temporarily hidden while layout, image, scrim, and control backgrounds remained. Each text node’s entire line rectangles were sampled, including spaces, against its CSS foreground color. This is conservative and avoids measuring antialiased glyph edges. Placeholder text was checked separately against its opaque input background. Repeat the measurements if imagery, typography, copy, or cropping changes.</p>
+  <p>Native Enter submission reaches doctor and service results with JavaScript enabled and disabled; blank searches browse; named search landmarks remain distinct; keyboard focus and appointment/visit destinations work; image failure leaves actions visible; and forced colors retains outlined actions. Hero actions remain focusable and unobscured at the 400% reflow equivalent. There are no new image requests, dependencies, or hero client scripts. The image entrance animation was removed so the tested composition remains static.</p>
+  <p>Visual inspector: zero failures, with the existing caption/eyebrow heuristic exception documented. Three warnings concern existing repeated panels, the established site-wide type scale, and absence of video. The section revision does not justify rebuilding lower-page panels or adding footage. TypeScript, changed-component lint, design source lint, whitespace checks, and the production build pass.</p>
+  <p><strong>Evidence:</strong> <a href="evidence/hero-candidate/validation.json">comparison measurements and interaction checks</a>, <a href="evidence/hero-candidate/extras.json">placeholder contrast and reflow focus</a>, and <a href="evidence/hero-candidate/inspector.json">final visual inspector</a>. The harness is an ad hoc Chromium/CDP review, not a new cross-browser CI suite or a WCAG conformance certification.</p>
+  <p>The existing image is AI-generated illustrative artwork, not a verified photograph of Hallelujah’s staff or facilities. Its disclosure is retained. No new visual assets or factual hospital claims were introduced. The development homepage is the implementation scope; the separate governed production template and deployment state are unchanged.</p>
+
+  <h2>The next decision evidence</h2>
+  <p>Use short moderated sessions with actual patients and family members, including older participants and people who enlarge text. Give them doctor-selection, service-discovery, appointment-request, and visit-preparation tasks. Observe first choice, useful results, completion, confusion, and scrolling. Include Amharic readers when translated copy is available. These sessions should resolve the phone ordering and relative doctor/service prominence more directly than another aesthetic score.</p>
+  <p>Consider an A/B test only if traffic and completed-request volume support a practical sample size. Keep content and actions comparable between variants, define the primary outcome and analysis before starting, and use search starts as diagnostic events. No conversion lift or patient preference is established by this build-and-test review.</p>
+
+  <h2>Render critique</h2>
+  <pre>ROUND 1 — built overlay candidate
+Seen in one second: the care promise shares one photograph with the conversation.
+Idea: the existing Ethiopian listening scene carries the introduction; care search remains immediately adjacent.
+Live thing: native doctor and service discovery.
+Layout words: hero=overlay / guidance=selector / care=split-list / listening=mosaic / doctors=list / visit=split / arrival=information.
+Top three problems: bright detail fails text contrast; narrow overlay crowds the copy; enlarged text changes the image crop or reaches bright floor detail.
+
+ROUND 2 — final responsive hybrid
+Seen in one second: a continuous care scene on desktop; a listening conversation followed by clear copy on phones.
+Top problems fixed: localized scrim; solid copy surface below 900px; visual image height independent of growing text.
+Scores: design 6.5 · usability 8 · creativity 6 · content 7 → overall 6.9.
+Caps applied: design capped at 6.5 because the site's imagery is illustrative rather than four authentic photographs; creativity capped at 6 because the concept suits the hospital category.
+Remaining limits: mobile discovery requires more scrolling; current imagery proves no real facility; task prominence lacks patient/analytics evidence.
+These skill-rubric scores describe limitations of this render. They do not rank patient outcomes or replace the functional gates.</pre>
+  <p><a href="hero-assessment.html">Earlier assessment and benchmark sources</a> · Its 89/88 table is a historical expert rubric, not evidence of a superior outcome.</p>
+</body>
+</html>

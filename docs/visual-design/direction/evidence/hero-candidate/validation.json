@@ -1,0 +1,5858 @@
+{
+  "method": "Chromium, CSS-pixel reflow equivalents for 1280px at 200% and 400%; computed text sizes doubled for text-only resize. Not browser UI zoom or a user study.",
+  "contrastMethod": "CSS foreground color versus every rendered background pixel in each text-node line rectangle, with foreground text hidden and layout retained. Includes spaces; excludes antialiasing. PNG at device scale 1. Image, scrim and solid surfaces remain. Inputs have opaque backgrounds; their placeholder foreground is checked separately.",
+  "limitations": [
+    "No browser UI zoom automation; viewport reflow equivalents are used.",
+    "Computed font sizes and line heights doubled in the hero, including controls, to emulate text-only resizing.",
+    "Chromium only; no patient sessions, traffic experiment, translated-copy test, or screen-reader user test.",
+    "Contrast measurements concern this bundled illustrative image, present fonts and copy, and tested viewports. Repeat after asset or content changes."
+  ],
+  "final": [
+    {
+      "name": "1440",
+      "width": 1440,
+      "height": 900,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 6.036,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 24,
+        "y": 185.5,
+        "width": 723.828125,
+        "height": 560,
+        "right": 747.828125,
+        "bottom": 745.5
+      },
+      "photo": {
+        "x": 24,
+        "y": 185.5,
+        "width": 1392,
+        "height": 560,
+        "right": 1416,
+        "bottom": 745.5
+      },
+      "tools": {
+        "x": 24,
+        "y": 745.5,
+        "width": 1392,
+        "height": 171.59375,
+        "right": 1416,
+        "bottom": 917.09375
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 6.141,
+          "worst": {
+            "x": 187,
+            "y": 334
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 6.422,
+          "worst": {
+            "x": 187,
+            "y": 356
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 6.036,
+          "worst": {
+            "x": 121,
+            "y": 492
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 6.537,
+          "worst": {
+            "x": 136,
+            "y": 507
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 106,
+            "y": 606
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 327,
+            "y": 606
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 19.377,
+          "worst": {
+            "x": 221,
+            "y": 666
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 19.223,
+          "worst": {
+            "x": 257,
+            "y": 666
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1175,
+            "y": 703
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 82,
+            "y": 776
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 548,
+            "y": 782
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 672,
+            "y": 782
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 588,
+            "y": 846
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 651,
+            "y": 846
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 756,
+            "y": 776
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 1220,
+            "y": 782
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 1347,
+            "y": 782
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1262,
+            "y": 846
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1326,
+            "y": 846
+          }
+        }
+      ]
+    },
+    {
+      "name": "1024",
+      "width": 1024,
+      "height": 900,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 6.128,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 24,
+        "y": 185.5,
+        "width": 507.515625,
+        "height": 520,
+        "right": 531.515625,
+        "bottom": 705.5
+      },
+      "photo": {
+        "x": 24,
+        "y": 185.5,
+        "width": 976,
+        "height": 520,
+        "right": 1000,
+        "bottom": 705.5
+      },
+      "tools": {
+        "x": 24,
+        "y": 705.5,
+        "width": 976,
+        "height": 171.59375,
+        "right": 1000,
+        "bottom": 877.09375
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 6.221,
+          "worst": {
+            "x": 137,
+            "y": 326
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 6.448,
+          "worst": {
+            "x": 138,
+            "y": 343
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 6.128,
+          "worst": {
+            "x": 92,
+            "y": 437
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 13.54,
+          "worst": {
+            "x": 139,
+            "y": 478
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 80,
+            "y": 566
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 301,
+            "y": 566
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 19.489,
+          "worst": {
+            "x": 195,
+            "y": 628
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 19.124,
+          "worst": {
+            "x": 223,
+            "y": 626
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 759,
+            "y": 663
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 56,
+            "y": 738
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 356,
+            "y": 742
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 480,
+            "y": 742
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 402,
+            "y": 806
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 461,
+            "y": 806
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 532,
+            "y": 738
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 829,
+            "y": 742
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 956,
+            "y": 742
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 878,
+            "y": 806
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 937,
+            "y": 806
+          }
+        }
+      ]
+    },
+    {
+      "name": "900",
+      "width": 900,
+      "height": 900,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 6.152,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 24,
+        "y": 173.5,
+        "width": 443.03125,
+        "height": 520,
+        "right": 467.03125,
+        "bottom": 693.5
+      },
+      "photo": {
+        "x": 24,
+        "y": 173.5,
+        "width": 852,
+        "height": 520,
+        "right": 876,
+        "bottom": 693.5
+      },
+      "tools": {
+        "x": 24,
+        "y": 693.5,
+        "width": 852,
+        "height": 171.59375,
+        "right": 876,
+        "bottom": 865.09375
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 6.152,
+          "worst": {
+            "x": 121,
+            "y": 312
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 6.548,
+          "worst": {
+            "x": 125,
+            "y": 342
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 9.547,
+          "worst": {
+            "x": 106,
+            "y": 425
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 14.934,
+          "worst": {
+            "x": 387,
+            "y": 458
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 80,
+            "y": 554
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 301,
+            "y": 554
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 19.2,
+          "worst": {
+            "x": 195,
+            "y": 620
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 19.109,
+          "worst": {
+            "x": 222,
+            "y": 614
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 635,
+            "y": 651
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 56,
+            "y": 726
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 294,
+            "y": 730
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 418,
+            "y": 730
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 340,
+            "y": 794
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 399,
+            "y": 794
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 470,
+            "y": 726
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 705,
+            "y": 730
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 832,
+            "y": 730
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 754,
+            "y": 794
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 813,
+            "y": 794
+          }
+        }
+      ]
+    },
+    {
+      "name": "899",
+      "width": 899,
+      "height": 900,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 16,
+        "y": 533.5,
+        "width": 867,
+        "height": 408.03125,
+        "right": 883,
+        "bottom": 941.53125
+      },
+      "photo": {
+        "x": 16,
+        "y": 173.5,
+        "width": 867,
+        "height": 360,
+        "right": 883,
+        "bottom": 533.5
+      },
+      "tools": {
+        "x": 16,
+        "y": 941.53125,
+        "width": 867,
+        "height": 163.59375,
+        "right": 883,
+        "bottom": 1105.125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 561
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 614
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 698
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 724
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 68,
+            "y": 818
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 289,
+            "y": 818
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 878
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 210,
+            "y": 878
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 650,
+            "y": 495
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 44,
+            "y": 970
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 315,
+            "y": 975
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 425,
+            "y": 975
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 371,
+            "y": 1038
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 464,
+            "y": 970
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 732,
+            "y": 975
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 845,
+            "y": 975
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 791,
+            "y": 1038
+          }
+        }
+      ]
+    },
+    {
+      "name": "768",
+      "width": 768,
+      "height": 1024,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 16,
+        "y": 496.046875,
+        "width": 736,
+        "height": 408.03125,
+        "right": 752,
+        "bottom": 904.078125
+      },
+      "photo": {
+        "x": 16,
+        "y": 173.5,
+        "width": 736,
+        "height": 322.546875,
+        "right": 752,
+        "bottom": 496.046875
+      },
+      "tools": {
+        "x": 16,
+        "y": 904.078125,
+        "width": 736,
+        "height": 163.59375,
+        "right": 752,
+        "bottom": 1067.671875
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 524
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 576
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 660
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 687
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 68,
+            "y": 780
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 289,
+            "y": 780
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 841
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 210,
+            "y": 841
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 519,
+            "y": 458
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 44,
+            "y": 932
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 250,
+            "y": 937
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 360,
+            "y": 937
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 306,
+            "y": 1001
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 398,
+            "y": 932
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 601,
+            "y": 937
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 714,
+            "y": 937
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 660,
+            "y": 1001
+          }
+        }
+      ]
+    },
+    {
+      "name": "600",
+      "width": 600,
+      "height": 900,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 16,
+        "y": 425.5,
+        "width": 568,
+        "height": 386.84375,
+        "right": 584,
+        "bottom": 812.34375
+      },
+      "photo": {
+        "x": 16,
+        "y": 173.5,
+        "width": 568,
+        "height": 252,
+        "right": 584,
+        "bottom": 425.5
+      },
+      "tools": {
+        "x": 16,
+        "y": 812.34375,
+        "width": 568,
+        "height": 189.984375,
+        "right": 584,
+        "bottom": 1002.328125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 454
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 497
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 570
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 597
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 56,
+            "y": 690
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 247,
+            "y": 690
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 749
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 206,
+            "y": 749
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 351,
+            "y": 387
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 44,
+            "y": 832
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 44,
+            "y": 872
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 155,
+            "y": 872
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 222,
+            "y": 935
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 314,
+            "y": 832
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 314,
+            "y": 872
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 427,
+            "y": 872
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 492,
+            "y": 935
+          }
+        }
+      ]
+    },
+    {
+      "name": "599",
+      "width": 599,
+      "height": 900,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 479.5,
+        "width": 575,
+        "height": 389.421875,
+        "right": 587,
+        "bottom": 868.921875
+      },
+      "photo": {
+        "x": 12,
+        "y": 159.5,
+        "width": 575,
+        "height": 320,
+        "right": 587,
+        "bottom": 479.5
+      },
+      "tools": {
+        "x": 12,
+        "y": 868.921875,
+        "width": 575,
+        "height": 268,
+        "right": 587,
+        "bottom": 1136.921875
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 502
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 565
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 655
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 680
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 765
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 253,
+            "y": 765
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 818
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 202,
+            "y": 818
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 358,
+            "y": 445
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 893
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 443,
+            "y": 898
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 553,
+            "y": 898
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 499,
+            "y": 952
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 1017
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 440,
+            "y": 1022
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 553,
+            "y": 1022
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 499,
+            "y": 1076
+          }
+        }
+      ]
+    },
+    {
+      "name": "390",
+      "width": 390,
+      "height": 844,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 413,
+        "width": 366,
+        "height": 366.421875,
+        "right": 378,
+        "bottom": 779.421875
+      },
+      "photo": {
+        "x": 12,
+        "y": 179,
+        "width": 366,
+        "height": 234,
+        "right": 378,
+        "bottom": 413
+      },
+      "tools": {
+        "x": 12,
+        "y": 779.421875,
+        "width": 366,
+        "height": 268,
+        "right": 378,
+        "bottom": 1047.421875
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 436
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 488
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 566
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 591
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 675
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 253,
+            "y": 675
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 728
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 202,
+            "y": 728
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 149,
+            "y": 379
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 804
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 234,
+            "y": 809
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 344,
+            "y": 809
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 290,
+            "y": 862
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 928
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 231,
+            "y": 933
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 344,
+            "y": 933
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 290,
+            "y": 986
+          }
+        }
+      ]
+    },
+    {
+      "name": "320",
+      "width": 320,
+      "height": 844,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 379,
+        "width": 296,
+        "height": 358.046875,
+        "right": 308,
+        "bottom": 737.046875
+      },
+      "photo": {
+        "x": 12,
+        "y": 179,
+        "width": 296,
+        "height": 200,
+        "right": 308,
+        "bottom": 379
+      },
+      "tools": {
+        "x": 12,
+        "y": 737.046875,
+        "width": 296,
+        "height": 320.78125,
+        "right": 308,
+        "bottom": 1057.828125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 403
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 451
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 524
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 548
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 633
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 253,
+            "y": 633
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 686
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 202,
+            "y": 686
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 79,
+            "y": 345
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 753
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 793
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 147,
+            "y": 793
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 220,
+            "y": 846
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 903
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 943
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 149,
+            "y": 943
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 220,
+            "y": 997
+          }
+        }
+      ]
+    },
+    {
+      "name": "zoom-200",
+      "width": 640,
+      "height": 512,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 16,
+        "y": 442.296875,
+        "width": 608,
+        "height": 386.84375,
+        "right": 624,
+        "bottom": 829.140625
+      },
+      "photo": {
+        "x": 16,
+        "y": 173.5,
+        "width": 608,
+        "height": 268.796875,
+        "right": 624,
+        "bottom": 442.296875
+      },
+      "tools": {
+        "x": 16,
+        "y": 829.140625,
+        "width": 608,
+        "height": 189.984375,
+        "right": 624,
+        "bottom": 1019.125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 471
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 514
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 587
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 613
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 56,
+            "y": 707
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 247,
+            "y": 707
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 766
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 206,
+            "y": 766
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 391,
+            "y": 404
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 44,
+            "y": 864
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 186,
+            "y": 869
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 296,
+            "y": 869
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 242,
+            "y": 945
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 334,
+            "y": 849
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 334,
+            "y": 889
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 447,
+            "y": 889
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 532,
+            "y": 952
+          }
+        }
+      ]
+    },
+    {
+      "name": "zoom-400",
+      "width": 320,
+      "height": 256,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 379,
+        "width": 296,
+        "height": 358.046875,
+        "right": 308,
+        "bottom": 737.046875
+      },
+      "photo": {
+        "x": 12,
+        "y": 179,
+        "width": 296,
+        "height": 200,
+        "right": 308,
+        "bottom": 379
+      },
+      "tools": {
+        "x": 12,
+        "y": 737.046875,
+        "width": 296,
+        "height": 320.78125,
+        "right": 308,
+        "bottom": 1057.828125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 403
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 451
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 524
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 548
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 633
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 253,
+            "y": 633
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 686
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 202,
+            "y": 686
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 79,
+            "y": 345
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 753
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 793
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 147,
+            "y": 793
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 220,
+            "y": 846
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 903
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 943
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 149,
+            "y": 943
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 220,
+            "y": 997
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-200-desktop",
+      "width": 1440,
+      "height": 900,
+      "textScale": 2,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 6.036,
+      "horizontalOverflow": 0,
+      "h1Lines": 4,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 24,
+        "y": 185.5,
+        "width": 723.828125,
+        "height": 1284.078125,
+        "right": 747.828125,
+        "bottom": 1469.578125
+      },
+      "photo": {
+        "x": 24,
+        "y": 185.5,
+        "width": 1392,
+        "height": 1284.078125,
+        "right": 1416,
+        "bottom": 1469.578125
+      },
+      "tools": {
+        "x": 24,
+        "y": 1469.578125,
+        "width": 1392,
+        "height": 282,
+        "right": 1416,
+        "bottom": 1751.578125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 6.036,
+          "worst": {
+            "x": 121,
+            "y": 492
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 13.958,
+          "worst": {
+            "x": 383,
+            "y": 746
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 13.958,
+          "worst": {
+            "x": 381,
+            "y": 964
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 13.421,
+          "worst": {
+            "x": 445,
+            "y": 1200
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 106,
+            "y": 1298
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 512,
+            "y": 1298
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 14.131,
+          "worst": {
+            "x": 365,
+            "y": 1378
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 13.764,
+          "worst": {
+            "x": 413,
+            "y": 1378
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 968,
+            "y": 1408
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 82,
+            "y": 1509
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 424,
+            "y": 1522
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 660,
+            "y": 1522
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 528,
+            "y": 1641
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 639,
+            "y": 1641
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 756,
+            "y": 1492
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 756,
+            "y": 1578
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 999,
+            "y": 1578
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1202,
+            "y": 1658
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1314,
+            "y": 1658
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-200-tablet",
+      "width": 768,
+      "height": 1024,
+      "textScale": 2,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 16,
+        "y": 496.046875,
+        "width": 736,
+        "height": 680.109375,
+        "right": 752,
+        "bottom": 1176.15625
+      },
+      "photo": {
+        "x": 16,
+        "y": 173.5,
+        "width": 736,
+        "height": 322.546875,
+        "right": 752,
+        "bottom": 496.046875
+      },
+      "tools": {
+        "x": 16,
+        "y": 1176.15625,
+        "width": 736,
+        "height": 242.796875,
+        "right": 752,
+        "bottom": 1418.953125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 520
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 625
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 769
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 822
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 68,
+            "y": 1021
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 474,
+            "y": 1021
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 1099
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 356,
+            "y": 1099
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 312,
+            "y": 439
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 44,
+            "y": 1195
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 44,
+            "y": 1254
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 253,
+            "y": 1254
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 258,
+            "y": 1329
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 398,
+            "y": 1195
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 398,
+            "y": 1254
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 612,
+            "y": 1254
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 612,
+            "y": 1329
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-200-phone",
+      "width": 390,
+      "height": 844,
+      "textScale": 2,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 4,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 413,
+        "width": 366,
+        "height": 982.46875,
+        "right": 378,
+        "bottom": 1395.46875
+      },
+      "photo": {
+        "x": 12,
+        "y": 179,
+        "width": 366,
+        "height": 234,
+        "right": 378,
+        "bottom": 413
+      },
+      "tools": {
+        "x": 12,
+        "y": 1395.46875,
+        "width": 366,
+        "height": 425.59375,
+        "right": 378,
+        "bottom": 1821.0625
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 432
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 637
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 876
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 975
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 1159
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 312,
+            "y": 1185
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 1280
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 330,
+            "y": 1305
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 34,
+            "y": 318
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 1410
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 1470
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 245,
+            "y": 1470
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 242,
+            "y": 1535
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 1613
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 1673
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 250,
+            "y": 1673
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 242,
+            "y": 1737
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-200-320",
+      "width": 320,
+      "height": 844,
+      "textScale": 2,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 4,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 379,
+        "width": 296,
+        "height": 1049.890625,
+        "right": 308,
+        "bottom": 1428.890625
+      },
+      "photo": {
+        "x": 12,
+        "y": 179,
+        "width": 296,
+        "height": 200,
+        "right": 308,
+        "bottom": 379
+      },
+      "tools": {
+        "x": 12,
+        "y": 1428.890625,
+        "width": 296,
+        "height": 628.796875,
+        "right": 308,
+        "bottom": 2057.6875
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 399
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 588
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 809
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 908
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 1141
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 242,
+            "y": 1193
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 1313
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 260,
+            "y": 1339
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 34,
+            "y": 284
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 1443
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 1503
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 245,
+            "y": 1503
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 53,
+            "y": 1643
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 1721
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 1834
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 250,
+            "y": 1834
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 53,
+            "y": 1974
+          }
+        }
+      ]
+    },
+    {
+      "name": "1920",
+      "width": 1920,
+      "height": 1080,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 5.95,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 192,
+        "y": 185.5,
+        "width": 798.71875,
+        "height": 560,
+        "right": 990.71875,
+        "bottom": 745.5
+      },
+      "photo": {
+        "x": 192,
+        "y": 185.5,
+        "width": 1536,
+        "height": 560,
+        "right": 1728,
+        "bottom": 745.5
+      },
+      "tools": {
+        "x": 192,
+        "y": 745.5,
+        "width": 1536,
+        "height": 171.59375,
+        "right": 1728,
+        "bottom": 917.09375
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 6.152,
+          "worst": {
+            "x": 368,
+            "y": 335
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 6.261,
+          "worst": {
+            "x": 369,
+            "y": 354
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 7.327,
+          "worst": {
+            "x": 373,
+            "y": 477
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 5.95,
+          "worst": {
+            "x": 299,
+            "y": 510
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 280,
+            "y": 606
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 501,
+            "y": 606
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 19.192,
+          "worst": {
+            "x": 367,
+            "y": 666
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 19.26,
+          "worst": {
+            "x": 432,
+            "y": 669
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1487,
+            "y": 703
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 256,
+            "y": 776
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 784,
+            "y": 782
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 908,
+            "y": 782
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 824,
+            "y": 846
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 887,
+            "y": 846
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 1000,
+            "y": 776
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 1525,
+            "y": 782
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 1652,
+            "y": 782
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1568,
+            "y": 846
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1631,
+            "y": 846
+          }
+        }
+      ]
+    }
+  ],
+  "baseline": [
+    {
+      "name": "1440",
+      "width": 1440,
+      "height": 900,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 24,
+        "y": 185.5,
+        "width": 696,
+        "height": 502.46875,
+        "right": 720,
+        "bottom": 687.96875
+      },
+      "photo": {
+        "x": 720,
+        "y": 185.5,
+        "width": 696,
+        "height": 502.46875,
+        "right": 1416,
+        "bottom": 687.96875
+      },
+      "tools": {
+        "x": 24,
+        "y": 687.96875,
+        "width": 1392,
+        "height": 171.59375,
+        "right": 1416,
+        "bottom": 859.5625
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 219
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 306
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 428
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 457
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 106,
+            "y": 556
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 327,
+            "y": 556
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 617
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 248,
+            "y": 617
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 82,
+            "y": 718
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 548,
+            "y": 725
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 672,
+            "y": 725
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 588,
+            "y": 788
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 651,
+            "y": 788
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 756,
+            "y": 718
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 1220,
+            "y": 725
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 1347,
+            "y": 725
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1262,
+            "y": 788
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1326,
+            "y": 788
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 754,
+            "y": 646
+          }
+        }
+      ]
+    },
+    {
+      "name": "1024",
+      "width": 1024,
+      "height": 900,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 24,
+        "y": 185.5,
+        "width": 488,
+        "height": 451.90625,
+        "right": 512,
+        "bottom": 637.40625
+      },
+      "photo": {
+        "x": 512,
+        "y": 185.5,
+        "width": 488,
+        "height": 451.90625,
+        "right": 1000,
+        "bottom": 637.40625
+      },
+      "tools": {
+        "x": 24,
+        "y": 637.40625,
+        "width": 976,
+        "height": 171.59375,
+        "right": 1000,
+        "bottom": 809
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 56,
+            "y": 221
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 56,
+            "y": 283
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 56,
+            "y": 377
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 56,
+            "y": 407
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 80,
+            "y": 506
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 301,
+            "y": 506
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 56,
+            "y": 566
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 222,
+            "y": 566
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 56,
+            "y": 670
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 356,
+            "y": 674
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 480,
+            "y": 674
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 402,
+            "y": 738
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 461,
+            "y": 738
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 532,
+            "y": 670
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 829,
+            "y": 674
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 956,
+            "y": 674
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 878,
+            "y": 738
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 937,
+            "y": 738
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 546,
+            "y": 595
+          }
+        }
+      ]
+    },
+    {
+      "name": "768",
+      "width": 768,
+      "height": 1024,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 16,
+        "y": 173.5,
+        "width": 385.515625,
+        "height": 420,
+        "right": 401.515625,
+        "bottom": 593.5
+      },
+      "photo": {
+        "x": 401.515625,
+        "y": 173.5,
+        "width": 350.484375,
+        "height": 420,
+        "right": 752,
+        "bottom": 593.5
+      },
+      "tools": {
+        "x": 16,
+        "y": 593.5,
+        "width": 736,
+        "height": 163.59375,
+        "right": 752,
+        "bottom": 757.09375
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 207
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 260
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 344
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 370
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 68,
+            "y": 464
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 289,
+            "y": 464
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 524
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 210,
+            "y": 524
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 44,
+            "y": 622
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 250,
+            "y": 627
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 360,
+            "y": 627
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 306,
+            "y": 690
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 398,
+            "y": 622
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 601,
+            "y": 627
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 714,
+            "y": 627
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 660,
+            "y": 690
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 428,
+            "y": 555
+          }
+        }
+      ]
+    },
+    {
+      "name": "600",
+      "width": 600,
+      "height": 900,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 16,
+        "y": 173.5,
+        "width": 297.515625,
+        "height": 420,
+        "right": 313.515625,
+        "bottom": 593.5
+      },
+      "photo": {
+        "x": 313.515625,
+        "y": 173.5,
+        "width": 270.484375,
+        "height": 420,
+        "right": 584,
+        "bottom": 593.5
+      },
+      "tools": {
+        "x": 16,
+        "y": 593.5,
+        "width": 568,
+        "height": 189.984375,
+        "right": 584,
+        "bottom": 783.484375
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 219
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 262
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 335
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 361
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 56,
+            "y": 455
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 247,
+            "y": 455
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 514
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 206,
+            "y": 514
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 44,
+            "y": 613
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 44,
+            "y": 653
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 155,
+            "y": 653
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 222,
+            "y": 716
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 314,
+            "y": 613
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 314,
+            "y": 653
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 427,
+            "y": 653
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 492,
+            "y": 716
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 340,
+            "y": 555
+          }
+        }
+      ]
+    },
+    {
+      "name": "390",
+      "width": 390,
+      "height": 844,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 179,
+        "width": 366,
+        "height": 366.421875,
+        "right": 378,
+        "bottom": 545.421875
+      },
+      "photo": {
+        "x": 12,
+        "y": 813.421875,
+        "width": 366,
+        "height": 249.59375,
+        "right": 378,
+        "bottom": 1063.015625
+      },
+      "tools": {
+        "x": 12,
+        "y": 545.421875,
+        "width": 366,
+        "height": 268,
+        "right": 378,
+        "bottom": 813.421875
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 202
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 254
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 332
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 357
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 441
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 253,
+            "y": 441
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 494
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 202,
+            "y": 494
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 570
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 234,
+            "y": 575
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 344,
+            "y": 575
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 290,
+            "y": 628
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 694
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 231,
+            "y": 699
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 344,
+            "y": 699
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 290,
+            "y": 752
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 34,
+            "y": 1029
+          }
+        }
+      ]
+    },
+    {
+      "name": "320",
+      "width": 320,
+      "height": 844,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 179,
+        "width": 296,
+        "height": 358.046875,
+        "right": 308,
+        "bottom": 537.046875
+      },
+      "photo": {
+        "x": 12,
+        "y": 857.828125,
+        "width": 296,
+        "height": 204.796875,
+        "right": 308,
+        "bottom": 1062.625
+      },
+      "tools": {
+        "x": 12,
+        "y": 537.046875,
+        "width": 296,
+        "height": 320.78125,
+        "right": 308,
+        "bottom": 857.828125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 203
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 251
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 324
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 348
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 433
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 253,
+            "y": 433
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 486
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 202,
+            "y": 486
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 553
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 593
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 147,
+            "y": 593
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 220,
+            "y": 646
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 703
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 743
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 149,
+            "y": 743
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 220,
+            "y": 797
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 34,
+            "y": 1028
+          }
+        }
+      ]
+    },
+    {
+      "name": "zoom-200",
+      "width": 640,
+      "height": 512,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 16,
+        "y": 173.5,
+        "width": 318.46875,
+        "height": 420,
+        "right": 334.46875,
+        "bottom": 593.5
+      },
+      "photo": {
+        "x": 334.46875,
+        "y": 173.5,
+        "width": 289.53125,
+        "height": 420,
+        "right": 624,
+        "bottom": 593.5
+      },
+      "tools": {
+        "x": 16,
+        "y": 593.5,
+        "width": 608,
+        "height": 189.984375,
+        "right": 624,
+        "bottom": 783.484375
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 219
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 262
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 335
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 361
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 56,
+            "y": 455
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 247,
+            "y": 455
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 40,
+            "y": 514
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 206,
+            "y": 514
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 44,
+            "y": 628
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 186,
+            "y": 633
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 296,
+            "y": 633
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 242,
+            "y": 710
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 334,
+            "y": 613
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 334,
+            "y": 653
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 447,
+            "y": 653
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 532,
+            "y": 716
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 361,
+            "y": 555
+          }
+        }
+      ]
+    },
+    {
+      "name": "zoom-400",
+      "width": 320,
+      "height": 256,
+      "textScale": 1,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 2,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 179,
+        "width": 296,
+        "height": 358.046875,
+        "right": 308,
+        "bottom": 537.046875
+      },
+      "photo": {
+        "x": 12,
+        "y": 857.828125,
+        "width": 296,
+        "height": 204.796875,
+        "right": 308,
+        "bottom": 1062.625
+      },
+      "tools": {
+        "x": 12,
+        "y": 537.046875,
+        "width": 296,
+        "height": 320.78125,
+        "right": 308,
+        "bottom": 857.828125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 203
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 251
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 324
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 348
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 433
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 253,
+            "y": 433
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 486
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 202,
+            "y": 486
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 553
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 593
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 147,
+            "y": 593
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 220,
+            "y": 646
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 703
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 743
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 149,
+            "y": 743
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 220,
+            "y": 797
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 34,
+            "y": 1028
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-200-desktop",
+      "width": 1440,
+      "height": 900,
+      "textScale": 2,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 4,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 24,
+        "y": 185.5,
+        "width": 696,
+        "height": 1268.078125,
+        "right": 720,
+        "bottom": 1453.578125
+      },
+      "photo": {
+        "x": 720,
+        "y": 185.5,
+        "width": 696,
+        "height": 1268.078125,
+        "right": 1416,
+        "bottom": 1453.578125
+      },
+      "tools": {
+        "x": 24,
+        "y": 1453.578125,
+        "width": 1392,
+        "height": 282,
+        "right": 1416,
+        "bottom": 1735.578125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 211
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 561
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 956
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 1074
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 106,
+            "y": 1290
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 512,
+            "y": 1290
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 82,
+            "y": 1369
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 394,
+            "y": 1369
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 82,
+            "y": 1493
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 424,
+            "y": 1506
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 660,
+            "y": 1506
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 528,
+            "y": 1625
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 639,
+            "y": 1625
+          }
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 756,
+            "y": 1476
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 756,
+            "y": 1562
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 999,
+            "y": 1562
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1202,
+            "y": 1642
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 1314,
+            "y": 1642
+          }
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 754,
+            "y": 1392
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-200-tablet",
+      "width": 768,
+      "height": 1024,
+      "textScale": 2,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 4,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 16,
+        "y": 173.5,
+        "width": 385.515625,
+        "height": 1102.8125,
+        "right": 401.515625,
+        "bottom": 1276.3125
+      },
+      "photo": {
+        "x": 401.515625,
+        "y": 173.5,
+        "width": 350.484375,
+        "height": 1102.8125,
+        "right": 752,
+        "bottom": 1276.3125
+      },
+      "tools": {
+        "x": 16,
+        "y": 1276.3125,
+        "width": 736,
+        "height": 242.796875,
+        "right": 752,
+        "bottom": 1519.109375
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 197
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 409
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 658
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 764
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 68,
+            "y": 1016
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 325,
+            "y": 1043
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 44,
+            "y": 1148
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 350,
+            "y": 1174
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 44,
+            "y": 1295
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 44,
+            "y": 1355
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 253,
+            "y": 1355
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 258,
+            "y": 1429
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 398,
+            "y": 1295
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 398,
+            "y": 1355
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 612,
+            "y": 1355
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 612,
+            "y": 1429
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 428,
+            "y": 1178
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-200-phone",
+      "width": 390,
+      "height": 844,
+      "textScale": 2,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 4,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 179,
+        "width": 366,
+        "height": 982.46875,
+        "right": 378,
+        "bottom": 1161.46875
+      },
+      "photo": {
+        "x": 12,
+        "y": 1587.0625,
+        "width": 366,
+        "height": 249.59375,
+        "right": 378,
+        "bottom": 1836.65625
+      },
+      "tools": {
+        "x": 12,
+        "y": 1161.46875,
+        "width": 366,
+        "height": 425.59375,
+        "right": 378,
+        "bottom": 1587.0625
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 198
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 403
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 642
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 741
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 925
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 312,
+            "y": 951
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 1046
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 330,
+            "y": 1071
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 1176
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 1236
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 245,
+            "y": 1236
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 242,
+            "y": 1301
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 1379
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 1439
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 250,
+            "y": 1439
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 242,
+            "y": 1503
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 34,
+            "y": 1742
+          }
+        }
+      ]
+    },
+    {
+      "name": "text-200-320",
+      "width": 320,
+      "height": 844,
+      "textScale": 2,
+      "minimumTextContrast": 5.344,
+      "minimumCopyContrast": 11.52,
+      "horizontalOverflow": 0,
+      "h1Lines": 4,
+      "controlOverflow": [],
+      "controlsOutsideViewport": [],
+      "copy": {
+        "x": 12,
+        "y": 179,
+        "width": 296,
+        "height": 998.6875,
+        "right": 308,
+        "bottom": 1177.6875
+      },
+      "photo": {
+        "x": 12,
+        "y": 1656.078125,
+        "width": 296,
+        "height": 204.796875,
+        "right": 308,
+        "bottom": 1860.875
+      },
+      "tools": {
+        "x": 12,
+        "y": 1177.6875,
+        "width": 296,
+        "height": 478.390625,
+        "right": 308,
+        "bottom": 1656.078125
+      },
+      "contrast": [
+        {
+          "text": "Care begins",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 199
+          }
+        },
+        {
+          "text": "with you.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 388
+          }
+        },
+        {
+          "text": "Hallelujah General Hospital.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 609
+          }
+        },
+        {
+          "text": "Find a doctor, explore services, and take your next step in care.",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 708
+          }
+        },
+        {
+          "text": "Request an appointment",
+          "minimum": 8.81,
+          "worst": {
+            "x": 54,
+            "y": 941
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 8.81,
+          "worst": {
+            "x": 261,
+            "y": 967
+          }
+        },
+        {
+          "text": "Prepare for your visit",
+          "minimum": 11.52,
+          "worst": {
+            "x": 36,
+            "y": 1062
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 11.52,
+          "worst": {
+            "x": 260,
+            "y": 1087
+          }
+        },
+        {
+          "text": "Find a doctor",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 1192
+          }
+        },
+        {
+          "text": "View all doctors",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 1252
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 245,
+            "y": 1252
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 172,
+            "y": 1317
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Explore services",
+          "minimum": 10.289,
+          "worst": {
+            "x": 36,
+            "y": 1395
+          }
+        },
+        {
+          "text": "View all services",
+          "minimum": 5.344,
+          "worst": {
+            "x": 36,
+            "y": 1508
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": 5.344,
+          "worst": {
+            "x": 250,
+            "y": 1508
+          }
+        },
+        {
+          "text": "Search",
+          "minimum": 11.52,
+          "worst": {
+            "x": 172,
+            "y": 1572
+          }
+        },
+        {
+          "text": "↗",
+          "minimum": null
+        },
+        {
+          "text": "Illustrative care scene · AI-generated",
+          "minimum": 11.52,
+          "worst": {
+            "x": 34,
+            "y": 1725
+          }
+        }
+      ]
+    }
+  ],
+  "experiments": [
+    {
+      "variant": "full-image-round1",
+      "samples": [
+        {
+          "name": "1440",
+          "minimumTextContrast": 2.717,
+          "failures": [
+            {
+              "text": "Care begins",
+              "minimum": 3.499,
+              "worst": {
+                "x": 183,
+                "y": 334
+              }
+            },
+            {
+              "text": "with you.",
+              "minimum": 3.388,
+              "worst": {
+                "x": 91,
+                "y": 430
+              }
+            },
+            {
+              "text": "Hallelujah General Hospital.",
+              "minimum": 2.717,
+              "worst": {
+                "x": 121,
+                "y": 492
+              }
+            },
+            {
+              "text": "Find a doctor, explore services, and take your next step in care.",
+              "minimum": 3.231,
+              "worst": {
+                "x": 136,
+                "y": 507
+              }
+            }
+          ]
+        },
+        {
+          "name": "1024",
+          "minimumTextContrast": 2.707,
+          "failures": [
+            {
+              "text": "Care begins",
+              "minimum": 2.707,
+              "worst": {
+                "x": 56,
+                "y": 339
+              }
+            },
+            {
+              "text": "with you.",
+              "minimum": 3.115,
+              "worst": {
+                "x": 56,
+                "y": 343
+              }
+            },
+            {
+              "text": "Hallelujah General Hospital.",
+              "minimum": 3.223,
+              "worst": {
+                "x": 102,
+                "y": 438
+              }
+            }
+          ]
+        },
+        {
+          "name": "768",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "600",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "390",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "320",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "zoom-200",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "zoom-400",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "text-200-desktop",
+          "minimumTextContrast": 2.28,
+          "failures": [
+            {
+              "text": "Prepare for your visit",
+              "minimum": 2.28,
+              "worst": {
+                "x": 317,
+                "y": 1402
+              }
+            }
+          ]
+        },
+        {
+          "name": "text-200-tablet",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "text-200-phone",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "text-200-320",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "variant": "full-image-round2",
+      "samples": [
+        {
+          "name": "1440",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "1024",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "768",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "600",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "390",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "320",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "zoom-200",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "zoom-400",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "text-200-desktop",
+          "minimumTextContrast": 2.649,
+          "failures": [
+            {
+              "text": "Find a doctor, explore services, and take your next step in care.",
+              "minimum": 2.649,
+              "worst": {
+                "x": 380,
+                "y": 1090
+              }
+            }
+          ]
+        },
+        {
+          "name": "text-200-tablet",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "text-200-phone",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "text-200-320",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "variant": "overlay-all",
+      "samples": [
+        {
+          "name": "1440",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "1024",
+          "minimumTextContrast": 5.344,
+          "failures": []
+        },
+        {
+          "name": "768",
+          "minimumTextContrast": 2.738,
+          "failures": [
+            {
+              "text": "Find a doctor, explore services, and take your next step in care.",
+              "minimum": 3.657,
+              "worst": {
+                "x": 327,
+                "y": 476
+              }
+            },
+            {
+              "text": "Prepare for your visit",
+              "minimum": 3.247,
+              "worst": {
+                "x": 149,
+                "y": 644
+              }
+            },
+            {
+              "text": "↗",
+              "minimum": 2.738,
+              "worst": {
+                "x": 212,
+                "y": 635
+              }
+            }
+          ]
+        },
+        {
+          "name": "600",
+          "minimumTextContrast": 2.053,
+          "failures": [
+            {
+              "text": "Find a doctor, explore services, and take your next step in care.",
+              "minimum": 2.053,
+              "worst": {
+                "x": 246,
+                "y": 504
+              }
+            }
+          ]
+        },
+        {
+          "name": "390",
+          "minimumTextContrast": 2.804,
+          "failures": [
+            {
+              "text": "Care begins",
+              "minimum": 4.46,
+              "worst": {
+                "x": 173,
+                "y": 297
+              }
+            },
+            {
+              "text": "with you.",
+              "minimum": 2.804,
+              "worst": {
+                "x": 117,
+                "y": 410
+              }
+            }
+          ]
+        },
+        {
+          "name": "320",
+          "minimumTextContrast": 2.295,
+          "failures": [
+            {
+              "text": "Care begins",
+              "minimum": 2.295,
+              "worst": {
+                "x": 151,
+                "y": 304
+              }
+            },
+            {
+              "text": "with you.",
+              "minimum": 2.423,
+              "worst": {
+                "x": 110,
+                "y": 356
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "variant": "light-scrim",
+      "samples": [
+        {
+          "name": "1440",
+          "minimumTextContrast": 2.73,
+          "failures": [
+            {
+              "text": "Care begins",
+              "minimum": 3.499,
+              "worst": {
+                "x": 183,
+                "y": 334
+              }
+            },
+            {
+              "text": "with you.",
+              "minimum": 3.397,
+              "worst": {
+                "x": 91,
+                "y": 430
+              }
+            },
+            {
+              "text": "Hallelujah General Hospital.",
+              "minimum": 2.73,
+              "worst": {
+                "x": 121,
+                "y": 493
+              }
+            },
+            {
+              "text": "Find a doctor, explore services, and take your next step in care.",
+              "minimum": 3.231,
+              "worst": {
+                "x": 136,
+                "y": 507
+              }
+            }
+          ]
+        },
+        {
+          "name": "1024",
+          "minimumTextContrast": 2.707,
+          "failures": [
+            {
+              "text": "Care begins",
+              "minimum": 2.707,
+              "worst": {
+                "x": 56,
+                "y": 348
+              }
+            },
+            {
+              "text": "with you.",
+              "minimum": 2.707,
+              "worst": {
+                "x": 56,
+                "y": 348
+              }
+            },
+            {
+              "text": "Hallelujah General Hospital.",
+              "minimum": 2.785,
+              "worst": {
+                "x": 92,
+                "y": 437
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "interactions": {
+    "checks": [
+      "Six widths from 320 to 1440: no overflow, two-line heading, 44px actions; photo before copy below 900px; appointment visible at 390 × 844",
+      "Native Enter submits doctor and service queries to matching records; JavaScript enabled",
+      "Native Enter submits doctor and service queries to matching records; JavaScript disabled",
+      "Blank queries browse each directory",
+      "Distinct accessible search landmarks",
+      "Native Tab order and visible focus",
+      "Blocked image leaves all patient actions visible",
+      "Reduced motion removes image entrance",
+      "Forced colors preserves outlined actions",
+      "Appointment and visit-guide destinations work"
+    ],
+    "viewports": [
+      {
+        "width": 320,
+        "overflow": 0,
+        "photo": {
+          "top": 179,
+          "bottom": 379,
+          "width": 296,
+          "height": 200
+        },
+        "copy": {
+          "top": 379,
+          "bottom": 737.046875,
+          "width": 296,
+          "height": 358.046875
+        },
+        "doctors": {
+          "top": 753.046875,
+          "bottom": 883.4375,
+          "width": 248,
+          "height": 130.390625
+        },
+        "services": {
+          "top": 903.4375,
+          "bottom": 1033.828125,
+          "width": 248,
+          "height": 130.390625
+        },
+        "appointment": {
+          "top": 615.453125,
+          "bottom": 669.046875,
+          "width": 246.078125,
+          "height": 53.59375
+        },
+        "h1Lines": 2,
+        "toolsBottom": 1057.828125,
+        "controls": [
+          {
+            "label": "Request an appointment ↗",
+            "height": 53.59375
+          },
+          {
+            "label": "Prepare for your visit ↗",
+            "height": 44
+          },
+          {
+            "label": "View all doctors ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 46
+          },
+          {
+            "label": "View all services ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 46
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "overflow": 0,
+        "photo": {
+          "top": 179,
+          "bottom": 413,
+          "width": 366,
+          "height": 234
+        },
+        "copy": {
+          "top": 413,
+          "bottom": 779.421875,
+          "width": 366,
+          "height": 366.421875
+        },
+        "doctors": {
+          "top": 795.421875,
+          "bottom": 899.421875,
+          "width": 318,
+          "height": 104
+        },
+        "services": {
+          "top": 919.421875,
+          "bottom": 1023.421875,
+          "width": 318,
+          "height": 104
+        },
+        "appointment": {
+          "top": 657.828125,
+          "bottom": 711.421875,
+          "width": 246.078125,
+          "height": 53.59375
+        },
+        "h1Lines": 2,
+        "toolsBottom": 1047.421875,
+        "controls": [
+          {
+            "label": "Request an appointment ↗",
+            "height": 53.59375
+          },
+          {
+            "label": "Prepare for your visit ↗",
+            "height": 44
+          },
+          {
+            "label": "View all doctors ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 46
+          },
+          {
+            "label": "View all services ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 46
+          }
+        ]
+      },
+      {
+        "width": 600,
+        "overflow": 0,
+        "photo": {
+          "top": 173.5,
+          "bottom": 425.5,
+          "width": 568,
+          "height": 252
+        },
+        "copy": {
+          "top": 425.5,
+          "bottom": 812.34375,
+          "width": 568,
+          "height": 386.84375
+        },
+        "doctors": {
+          "top": 832.34375,
+          "bottom": 974.328125,
+          "width": 242,
+          "height": 141.984375
+        },
+        "services": {
+          "top": 832.34375,
+          "bottom": 974.328125,
+          "width": 242,
+          "height": 141.984375
+        },
+        "appointment": {
+          "top": 670.75,
+          "bottom": 728.34375,
+          "width": 234.078125,
+          "height": 57.59375
+        },
+        "h1Lines": 2,
+        "toolsBottom": 1002.328125,
+        "controls": [
+          {
+            "label": "Request an appointment ↗",
+            "height": 57.59375
+          },
+          {
+            "label": "Prepare for your visit ↗",
+            "height": 44
+          },
+          {
+            "label": "View all doctors ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 49.59375
+          },
+          {
+            "label": "View all services ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 49.59375
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "overflow": 0,
+        "photo": {
+          "top": 173.5,
+          "bottom": 496.046875,
+          "width": 736,
+          "height": 322.546875
+        },
+        "copy": {
+          "top": 496.046875,
+          "bottom": 904.078125,
+          "width": 736,
+          "height": 408.03125
+        },
+        "doctors": {
+          "top": 924.078125,
+          "bottom": 1039.671875,
+          "width": 326,
+          "height": 115.59375
+        },
+        "services": {
+          "top": 924.078125,
+          "bottom": 1039.671875,
+          "width": 326,
+          "height": 115.59375
+        },
+        "appointment": {
+          "top": 760.890625,
+          "bottom": 820.078125,
+          "width": 281.734375,
+          "height": 59.1875
+        },
+        "h1Lines": 2,
+        "toolsBottom": 1067.671875,
+        "controls": [
+          {
+            "label": "Request an appointment ↗",
+            "height": 59.1875
+          },
+          {
+            "label": "Prepare for your visit ↗",
+            "height": 44
+          },
+          {
+            "label": "View all doctors ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 49.59375
+          },
+          {
+            "label": "View all services ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 49.59375
+          }
+        ]
+      },
+      {
+        "width": 1024,
+        "overflow": 0,
+        "photo": {
+          "top": 185.5,
+          "bottom": 705.5,
+          "width": 976,
+          "height": 520
+        },
+        "copy": {
+          "top": 185.5,
+          "bottom": 705.5,
+          "width": 507.515625,
+          "height": 520
+        },
+        "doctors": {
+          "top": 729.5,
+          "bottom": 845.09375,
+          "width": 436,
+          "height": 115.59375
+        },
+        "services": {
+          "top": 729.5,
+          "bottom": 845.09375,
+          "width": 436,
+          "height": 115.59375
+        },
+        "appointment": {
+          "top": 546.3125,
+          "bottom": 605.5,
+          "width": 281.734375,
+          "height": 59.1875
+        },
+        "h1Lines": 2,
+        "toolsBottom": 877.09375,
+        "controls": [
+          {
+            "label": "Request an appointment ↗",
+            "height": 59.1875
+          },
+          {
+            "label": "Prepare for your visit ↗",
+            "height": 44
+          },
+          {
+            "label": "View all doctors ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 49.59375
+          },
+          {
+            "label": "View all services ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 49.59375
+          }
+        ]
+      },
+      {
+        "width": 1440,
+        "overflow": 0,
+        "photo": {
+          "top": 185.5,
+          "bottom": 745.5,
+          "width": 1392,
+          "height": 560
+        },
+        "copy": {
+          "top": 185.5,
+          "bottom": 745.5,
+          "width": 723.828125,
+          "height": 560
+        },
+        "doctors": {
+          "top": 769.5,
+          "bottom": 885.09375,
+          "width": 602.40625,
+          "height": 115.59375
+        },
+        "services": {
+          "top": 769.5,
+          "bottom": 885.09375,
+          "width": 602.40625,
+          "height": 115.59375
+        },
+        "appointment": {
+          "top": 586.3125,
+          "bottom": 645.5,
+          "width": 281.734375,
+          "height": 59.1875
+        },
+        "h1Lines": 2,
+        "toolsBottom": 917.09375,
+        "controls": [
+          {
+            "label": "Request an appointment ↗",
+            "height": 59.1875
+          },
+          {
+            "label": "Prepare for your visit ↗",
+            "height": 44
+          },
+          {
+            "label": "View all doctors ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 49.59375
+          },
+          {
+            "label": "View all services ↗",
+            "height": 44
+          },
+          {
+            "label": "Search ↗",
+            "height": 49.59375
+          }
+        ]
+      }
+    ]
+  }
+}

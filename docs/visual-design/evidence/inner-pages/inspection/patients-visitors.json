@@ -1,0 +1,1920 @@
+{
+ "url": "http://localhost:3000/patients-visitors",
+ "at": "2026-11-02T19:20:26.352Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    0.49,
+    0.38,
+    0.74,
+    0.43,
+    0.42,
+    0.43,
+    0.73
+   ],
+   "motion": {
+    "elements": 22,
+    "css": 21,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 6278,
+     "screens": 7,
+     "words": 661,
+     "img": 7,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 10,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "arrival-1100.avif",
+      "specialty-general-1100.avif",
+      "specialty-heart-1100.avif",
+      "specialty-recovery-1100.avif"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Patients & Visitors",
+     "words": 3,
+     "chars": 19,
+     "lines": 1,
+     "size": 71.5,
+     "vw": 5,
+     "font": "Clash Grotesk",
+     "weight": 500,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.46,
+     "top": 336,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Patients & Visitors",
+     "words": 3,
+     "lines": 1,
+     "size": 71.5,
+     "font": "Clash Grotesk"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.05,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.07,
+      "top": 78,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Patients & Visitors",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 71.5,
+      "vw": 5,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 336,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Before your visit",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 38.4,
+      "vw": 2.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.31,
+      "top": 847,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your visit checklist",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 38.4,
+      "vw": 2.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 1762,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Getting here",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 38.4,
+      "vw": 2.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.31,
+      "top": 2651,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "During your visit",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 38.4,
+      "vw": 2.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.31,
+      "top": 3170,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Support & access",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 38.4,
+      "vw": 2.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 4250,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Before you go home",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 38.4,
+      "vw": 2.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.31,
+      "top": 4670,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your experience matters",
+      "words": 3,
+      "chars": 23,
+      "lines": 1,
+      "size": 38.4,
+      "vw": 2.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 5552,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.94,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.06,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      14,
+      16,
+      17,
+      18,
+      24,
+      28,
+      38,
+      72
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 17,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.5
+     },
+     "measureChars": 74,
+     "max": {
+      "size": 71.5,
+      "vw": 5,
+      "font": "Clash Grotesk",
+      "text": "Patients & Visitors"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eaf4f5",
+       "top": 1706,
+       "hsl": {
+        "h": 185,
+        "s": 0.35,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#073e53",
+       "top": 5860,
+       "hsl": {
+        "h": 197,
+        "s": 0.84,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#073e53",
+       "share": 0.82
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.08
+      },
+      {
+       "color": "#0a3d5c",
+       "share": 0.05
+      },
+      {
+       "color": "#006d82",
+       "share": 0.04
+      },
+      {
+       "color": "#b5ece2",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#073e53",
+      "hsl": {
+       "h": 197,
+       "s": 0.84,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 0,
+     "height": 54,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Request an appointment →",
+      "Prepare for your visit →"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 1706
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.17
+     }
+    ],
+    "nav": {
+     "links": 8,
+     "fixed": true,
+     "height": 152,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 6278,
+    "margins": {
+     "left": 80,
+     "right": 80
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 0,
+      "height": 152,
+      "words": 27,
+      "media": 0,
+      "middle": 85,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 28,
+       "tag": "span"
+      },
+      "left": 70,
+      "right": 99,
+      "textLeft": 111,
+      "textRight": 99,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 222,
+      "height": 5638,
+      "words": 611,
+      "media": 8,
+      "middle": 0,
+      "heading": {
+       "text": "Patients & Visitors",
+       "size": 72,
+       "tag": "h1"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 197,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 5860,
+      "height": 338,
+      "words": 47,
+      "media": 0,
+      "middle": 178,
+      "heading": {
+       "text": "Hallelujah Hospital",
+       "size": 24,
+       "tag": "strong"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Patients & Visitors",
+      "size": 72,
+      "top": 336,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 610,
+      "n": 14
+     },
+     {
+      "x": 80,
+      "n": 6
+     },
+     {
+      "x": 624,
+      "n": 4
+     },
+     {
+      "x": 136,
+      "n": 3
+     }
+    ],
+    "leftBlocks": 27,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.07,
+    "voidBox": {
+     "x": 0,
+     "y": 600,
+     "w": 780,
+     "h": 120
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    0.59,
+    0.59,
+    0.41,
+    0.44,
+    0.51,
+    0.67,
+    0.78
+   ],
+   "motion": {
+    "elements": 22,
+    "css": 21,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 6315,
+     "screens": 6.2,
+     "words": 648,
+     "img": 7,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 10,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "arrival-640.avif",
+      "specialty-general-640.avif",
+      "specialty-heart-640.avif",
+      "specialty-recovery-640.avif"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Patients & Visitors",
+     "words": 3,
+     "chars": 19,
+     "lines": 1,
+     "size": 49.3,
+     "vw": 6.4,
+     "font": "Clash Grotesk",
+     "weight": 500,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.47,
+     "top": 244,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Patients & Visitors",
+     "words": 3,
+     "lines": 1,
+     "size": 49.3,
+     "font": "Clash Grotesk"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.05,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.13,
+      "top": 73,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Patients & Visitors",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 49.3,
+      "vw": 6.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 244,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Before your visit",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 704,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your visit checklist",
+      "words": 3,
+      "chars": 20,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 1543,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Getting here",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 2450,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "During your visit",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 3109,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Support & access",
+      "words": 3,
+      "chars": 16,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 4085,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Before you go home",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 4620,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your experience matters",
+      "words": 3,
+      "chars": 23,
+      "lines": 2,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 5427,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.93,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.06,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      14,
+      16,
+      17,
+      18,
+      24,
+      26,
+      32,
+      49
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 17,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.5
+     },
+     "measureChars": 48,
+     "max": {
+      "size": 49.3,
+      "vw": 6.4,
+      "font": "Clash Grotesk",
+      "text": "Patients & Visitors"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eaf4f5",
+       "top": 1512,
+       "hsl": {
+        "h": 185,
+        "s": 0.35,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#073e53",
+       "top": 5766,
+       "hsl": {
+        "h": 197,
+        "s": 0.84,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#073e53",
+       "share": 0.81
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.08
+      },
+      {
+       "color": "#0a3d5c",
+       "share": 0.06
+      },
+      {
+       "color": "#006d82",
+       "share": 0.04
+      },
+      {
+       "color": "#b5ece2",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#073e53",
+      "hsl": {
+       "h": 197,
+       "s": 0.84,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 0,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Request an appointment →",
+      "Prepare for your visit →"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.12
+     },
+     {
+      "type": "img",
+      "ratio": 0.08
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 140,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 6315,
+    "margins": {
+     "left": 32,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 0,
+      "height": 140,
+      "words": 14,
+      "media": 0,
+      "middle": 15,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 26,
+       "tag": "span"
+      },
+      "left": 22,
+      "right": 51,
+      "textLeft": 63,
+      "textRight": 51,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 210,
+      "height": 5556,
+      "words": 611,
+      "media": 8,
+      "middle": 0,
+      "heading": {
+       "text": "Patients & Visitors",
+       "size": 49,
+       "tag": "h1"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 5766,
+      "height": 470,
+      "words": 47,
+      "media": 0,
+      "middle": 191,
+      "heading": {
+       "text": "Hallelujah Hospital",
+       "size": 24,
+       "tag": "strong"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Patients & Visitors",
+      "size": 49,
+      "top": 244,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 325,
+      "n": 18
+     },
+     {
+      "x": 32,
+      "n": 6
+     },
+     {
+      "x": 63,
+      "n": 3
+     }
+    ],
+    "leftBlocks": 27,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 9,
+   "filled": [
+    0.68,
+    0.68,
+    0.89,
+    0.64,
+    0.67,
+    0.67,
+    0.66,
+    0.77,
+    0.82
+   ],
+   "motion": {
+    "elements": 22,
+    "css": 21,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 6822,
+     "screens": 8.1,
+     "words": 643,
+     "img": 7,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 10,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "arrival-640.avif",
+      "specialty-general-640.avif",
+      "specialty-heart-640.avif",
+      "specialty-recovery-640.avif"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Patients & Visitors",
+     "words": 3,
+     "chars": 19,
+     "lines": 1,
+     "size": 40,
+     "vw": 10.3,
+     "font": "Clash Grotesk",
+     "weight": 500,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 250,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Patients & Visitors",
+     "words": 3,
+     "lines": 1,
+     "size": 40,
+     "font": "Clash Grotesk"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 27,
+      "vw": 6.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.05,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 101,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Patients & Visitors",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 250,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Before your visit",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 968,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your visit checklist",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 1792,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Before you set off",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Lato",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.5,
+      "top": 1959,
+      "tag": "legend",
+      "kind": "heading"
+     },
+     {
+      "text": "Getting here",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2775,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Confirm your arrival plan",
+      "words": 4,
+      "chars": 25,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3006,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "During your visit",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3488,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "At your consultation",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3775,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Family & visitors",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3986,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A planned hospital stay",
+      "words": 4,
+      "chars": 23,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4196,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Support & access",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 4506,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Before you go home",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 5089,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Your experience matters",
+      "words": 3,
+      "chars": 23,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 5881,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.45,
+      "top": 6682,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 15,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.93,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.06,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      14,
+      16,
+      17,
+      18,
+      24,
+      27,
+      32,
+      40
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 17,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.5
+     },
+     "measureChars": 41,
+     "max": {
+      "size": 40,
+      "vw": 10.3,
+      "font": "Clash Grotesk",
+      "text": "Patients & Visitors"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eaf4f5",
+       "top": 1768,
+       "hsl": {
+        "h": 185,
+        "s": 0.35,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#073e53",
+       "top": 6274,
+       "hsl": {
+        "h": 197,
+        "s": 0.84,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#073e53",
+       "share": 0.82
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.08
+      },
+      {
+       "color": "#0a3d5c",
+       "share": 0.06
+      },
+      {
+       "color": "#006d82",
+       "share": 0.04
+      },
+      {
+       "color": "#b5ece2",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#073e53",
+      "hsl": {
+       "h": 197,
+       "s": 0.84,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": 0,
+     "height": 54,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Prepare for your visit →"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 764
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.23
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 156,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 6822,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 0,
+      "height": 156,
+      "words": 10,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 27,
+       "tag": "span"
+      },
+      "left": 12,
+      "right": 12,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 226,
+      "height": 6048,
+      "words": 611,
+      "media": 8,
+      "middle": 0,
+      "heading": {
+       "text": "Patients & Visitors",
+       "size": 40,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 6274,
+      "height": 468,
+      "words": 47,
+      "media": 0,
+      "middle": 13,
+      "heading": {
+       "text": "Hallelujah Hospital",
+       "size": 24,
+       "tag": "strong"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Patients & Visitors",
+      "size": 40,
+      "top": 250,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 20
+     },
+     {
+      "x": 44,
+      "n": 7
+     }
+    ],
+    "leftBlocks": 27,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/tmp/inner-visitors-review-final/desktop-fold.jpg",
+   "pages": [
+    "/tmp/inner-visitors-review-final/desktop-page-01.jpg",
+    "/tmp/inner-visitors-review-final/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/tmp/inner-visitors-review-final/tablet-fold.jpg",
+   "pages": [
+    "/tmp/inner-visitors-review-final/tablet-page-01.jpg",
+    "/tmp/inner-visitors-review-final/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/tmp/inner-visitors-review-final/mobile-fold.jpg",
+   "pages": [
+    "/tmp/inner-visitors-review-final/mobile-page-01.jpg",
+    "/tmp/inner-visitors-review-final/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

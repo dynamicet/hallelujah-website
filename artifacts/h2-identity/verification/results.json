@@ -1,0 +1,306 @@
+[
+  {
+    "width": 1440,
+    "id": "pub_101010101010",
+    "src": "/editorial/clinicians/aster-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 1440,
+    "id": "pub_111111111111",
+    "src": "/editorial/clinicians/bekele-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 1440,
+    "id": "pub_121212121212",
+    "src": "/editorial/clinicians/chala-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 1440,
+    "id": "pub_131313131313",
+    "src": "/editorial/clinicians/desta-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 1440,
+    "id": "pub_141414141414",
+    "src": "/editorial/clinicians/eden-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 1440,
+    "id": "pub_151515151515",
+    "src": "/editorial/clinicians/fikru-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 1440,
+    "id": "pub_161616161616",
+    "src": null,
+    "home": false,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 1440,
+    "id": "pub_171717171717",
+    "src": null,
+    "home": false,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 1440,
+    "id": "pub_181818181818",
+    "src": null,
+    "home": false,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 1440,
+    "selectionChanges": true,
+    "serviceClearsIdentity": true,
+    "filteredReturn": true,
+    "keyboardProfileToAppointment": true,
+    "reviewAndBack": true,
+    "submitted": false
+  },
+  {
+    "width": 768,
+    "id": "pub_101010101010",
+    "src": "/editorial/clinicians/aster-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 768,
+    "id": "pub_111111111111",
+    "src": "/editorial/clinicians/bekele-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 768,
+    "id": "pub_121212121212",
+    "src": "/editorial/clinicians/chala-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 768,
+    "id": "pub_131313131313",
+    "src": "/editorial/clinicians/desta-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 768,
+    "id": "pub_141414141414",
+    "src": "/editorial/clinicians/eden-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 768,
+    "id": "pub_151515151515",
+    "src": "/editorial/clinicians/fikru-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 768,
+    "id": "pub_161616161616",
+    "src": null,
+    "home": false,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 768,
+    "id": "pub_171717171717",
+    "src": null,
+    "home": false,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 768,
+    "id": "pub_181818181818",
+    "src": null,
+    "home": false,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 768,
+    "selectionChanges": true,
+    "serviceClearsIdentity": true,
+    "filteredReturn": true,
+    "keyboardProfileToAppointment": true,
+    "reviewAndBack": true,
+    "submitted": false
+  },
+  {
+    "width": 390,
+    "id": "pub_101010101010",
+    "src": "/editorial/clinicians/aster-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 390,
+    "id": "pub_111111111111",
+    "src": "/editorial/clinicians/bekele-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 390,
+    "id": "pub_121212121212",
+    "src": "/editorial/clinicians/chala-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 390,
+    "id": "pub_131313131313",
+    "src": "/editorial/clinicians/desta-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 390,
+    "id": "pub_141414141414",
+    "src": "/editorial/clinicians/eden-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 390,
+    "id": "pub_151515151515",
+    "src": "/editorial/clinicians/fikru-cutout.webp",
+    "home": true,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 390,
+    "id": "pub_161616161616",
+    "src": null,
+    "home": false,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 390,
+    "id": "pub_171717171717",
+    "src": null,
+    "home": false,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 390,
+    "id": "pub_181818181818",
+    "src": null,
+    "home": false,
+    "directory": true,
+    "profile": true,
+    "appointment": true
+  },
+  {
+    "width": 390,
+    "selectionChanges": true,
+    "serviceClearsIdentity": true,
+    "filteredReturn": true,
+    "keyboardProfileToAppointment": true,
+    "reviewAndBack": true,
+    "submitted": false
+  },
+  {
+    "failedAssetFallback": true
+  },
+  {
+    "unavailableStatesWithholdIdentity": true
+  },
+  {
+    "width": 1440,
+    "reducedMotionIdentityChange": true
+  },
+  {
+    "width": 768,
+    "reducedMotionIdentityChange": true
+  },
+  {
+    "width": 390,
+    "reducedMotionIdentityChange": true
+  },
+  {
+    "noJavaScript": true,
+    "route": "/"
+  },
+  {
+    "noJavaScript": true,
+    "route": "/doctors"
+  },
+  {
+    "noJavaScript": true,
+    "route": "/doctors/synthetic-clinician-101010101010/"
+  },
+  {
+    "noJavaScript": true,
+    "route": "/appointment?doctor=pub_101010101010"
+  }
+]

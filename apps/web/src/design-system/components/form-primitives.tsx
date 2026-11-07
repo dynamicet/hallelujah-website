@@ -23,6 +23,7 @@ export interface FieldError {
 }
 
 interface FieldCopyProps {
+  readonly disabled?: boolean
   readonly error?: FieldError
   readonly hint?: string
   readonly hintId?: string
@@ -41,7 +42,7 @@ export interface TextFieldProps extends FieldCopyProps {
   readonly name: string
   readonly pattern?: string
   readonly placeholder?: string
-  readonly type?: 'email' | 'tel' | 'text' | 'url'
+  readonly type?: 'date' | 'email' | 'tel' | 'text' | 'url'
 }
 
 export interface TextAreaFieldProps extends FieldCopyProps {
@@ -98,6 +99,8 @@ export interface ErrorSummaryProps {
 }
 
 interface BaseFormStatusProps {
+  /** Use focus when the controller moves focus here instead of announcing a live update. */
+  readonly announcement?: 'focus' | 'live'
   readonly children: ReactNode
   readonly heading: string
   readonly id?: string
@@ -171,6 +174,7 @@ export function FormPrimitiveForm({
 }
 
 export function TextField({
+  disabled = false,
   autoComplete,
   defaultValue,
   error,
@@ -188,7 +192,7 @@ export function TextField({
   required = false,
   type = 'text',
 }: TextFieldProps) {
-  const describedBy = describedByIds(hint && hintId, error?.id)
+  const describedBy = describedByIds(hint && hintId, error?.visible && error.id)
 
   return (
     <div className={styles.field} data-form-field>
@@ -200,6 +204,7 @@ export function TextField({
         autoComplete={autoComplete}
         className={styles.control}
         data-form-control
+        disabled={disabled}
         defaultValue={defaultValue}
         id={id}
         inputMode={inputMode}
@@ -217,6 +222,7 @@ export function TextField({
 }
 
 export function TextAreaField({
+  disabled = false,
   autoComplete,
   defaultValue,
   error,
@@ -230,7 +236,7 @@ export function TextAreaField({
   required = false,
   rows = 5,
 }: TextAreaFieldProps) {
-  const describedBy = describedByIds(hint && hintId, error?.id)
+  const describedBy = describedByIds(hint && hintId, error?.visible && error.id)
 
   return (
     <div className={styles.field} data-form-field>
@@ -242,6 +248,7 @@ export function TextAreaField({
         autoComplete={autoComplete}
         className={`${styles.control} ${styles.textarea}`}
         data-form-control
+        disabled={disabled}
         defaultValue={defaultValue}
         id={id}
         maxLength={maximumLength}
@@ -255,6 +262,7 @@ export function TextAreaField({
 }
 
 export function SelectField({
+  disabled = false,
   defaultValue,
   error,
   hint,
@@ -266,7 +274,7 @@ export function SelectField({
   options,
   required = false,
 }: SelectFieldProps) {
-  const describedBy = describedByIds(hint && hintId, error?.id)
+  const describedBy = describedByIds(hint && hintId, error?.visible && error.id)
 
   return (
     <div className={styles.field} data-form-field>
@@ -277,6 +285,7 @@ export function SelectField({
         aria-invalid={error?.visible ? true : undefined}
         className={styles.control}
         data-form-control
+        disabled={disabled}
         defaultValue={defaultValue}
         id={id}
         name={name}
@@ -306,7 +315,7 @@ export function ChoiceGroup({
   type,
 }: ChoiceGroupProps) {
   const selected = new Set(selectedValues)
-  const describedBy = describedByIds(hint && hintId, error?.id)
+  const describedBy = describedByIds(hint && hintId, error?.visible && error.id)
 
   return (
     <fieldset
@@ -385,7 +394,7 @@ export function ErrorSummary({
 
 export function FormStatus(props: FormStatusProps) {
   const headingId = props.id ? `${props.id}-heading` : undefined
-  const role = props.kind === 'failure' ? 'alert' : 'status'
+  const role = props.announcement === 'focus' ? 'group' : props.kind === 'failure' ? 'alert' : 'status'
   const reference =
     props.kind === 'receipt'
       ? props.reference
@@ -395,9 +404,9 @@ export function FormStatus(props: FormStatusProps) {
 
   return (
     <section
-      aria-atomic="true"
-      aria-labelledby={headingId}
-      aria-live={role === 'alert' ? 'assertive' : 'polite'}
+      aria-atomic={role === 'group' ? undefined : true}
+      aria-labelledby={role === 'group' ? undefined : headingId}
+      aria-live={role === 'group' ? undefined : role === 'alert' ? 'assertive' : 'polite'}
       className={`${styles.status} ${styles[props.kind]}`}
       data-authoritative-acceptance={props.kind === 'receipt' ? 'true' : undefined}
       data-form-status={props.kind}
@@ -405,8 +414,12 @@ export function FormStatus(props: FormStatusProps) {
       id={props.id}
       role={role}
     >
-      <h3 id={headingId}>{props.heading}</h3>
-      <div>{props.children}</div>
+      <h3
+        aria-describedby={props.announcement === 'focus' && props.id ? `${props.id}-description` : undefined}
+        id={headingId}
+        tabIndex={props.announcement === 'focus' ? -1 : undefined}
+      >{props.heading}</h3>
+      <div id={props.id ? `${props.id}-description` : undefined}>{props.children}</div>
       {reference ? (
         <p className={styles.reference}>
           <span>{props.kind === 'warning' ? 'Accepted reference' : 'Reference'}</span>{' '}

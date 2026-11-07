@@ -1,0 +1,274 @@
+[
+  {
+    "role": "heading",
+    "name": "Your care. Your visit."
+  },
+  {
+    "role": "button",
+    "name": "Help"
+  },
+  {
+    "role": "button",
+    "name": "Call reception. Preview only; not connected."
+  },
+  {
+    "role": "button",
+    "name": "Message the hospital on WhatsApp. Preview only; not connected."
+  },
+  {
+    "role": "button",
+    "name": "Message the hospital on Telegram. Preview only; not connected."
+  },
+  {
+    "role": "button",
+    "name": "Help choosing care"
+  },
+  {
+    "role": "heading",
+    "name": "Browse by first letter"
+  },
+  {
+    "role": "button",
+    "name": "View all topics"
+  },
+  {
+    "role": "heading",
+    "name": "Care in focus."
+  },
+  {
+    "role": "heading",
+    "name": "Meet your doctors."
+  },
+  {
+    "role": "heading",
+    "name": "Beyond the consultation."
+  },
+  {
+    "role": "heading",
+    "name": "Prepare and arrive."
+  },
+  {
+    "role": "heading",
+    "name": "Partners"
+  },
+  {
+    "role": "button",
+    "name": "View all partners"
+  },
+  {
+    "role": "heading",
+    "name": "News and resources."
+  },
+  {
+    "role": "heading",
+    "name": "Care for your whole life."
+  },
+  {
+    "role": "searchbox",
+    "name": "Doctor name, specialty or condition"
+  },
+  {
+    "role": "button",
+    "name": "Search"
+  },
+  {
+    "role": "heading",
+    "name": "Explore a concern."
+  },
+  {
+    "role": "searchbox",
+    "name": "Search health and care topics"
+  },
+  {
+    "role": "button",
+    "name": "Search health topics"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with A"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with B"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with C"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with D"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with E"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with F"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with G"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with H"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with I"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with J"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with K"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with L"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with M"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with N"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with O"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with P"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with Q"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with R"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with S"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with T"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with U"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with V"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with W"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with X"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with Y"
+  },
+  {
+    "role": "button",
+    "name": "Topics beginning with Z"
+  },
+  {
+    "role": "button",
+    "name": "General medicine"
+  },
+  {
+    "role": "button",
+    "name": "Heart care"
+  },
+  {
+    "role": "button",
+    "name": "Recovery"
+  },
+  {
+    "role": "heading",
+    "name": "Dr Aster"
+  },
+  {
+    "role": "heading",
+    "name": "Dr Bekele"
+  },
+  {
+    "role": "heading",
+    "name": "Dr Chala"
+  },
+  {
+    "role": "heading",
+    "name": "Hallelujah in numbers."
+  },
+  {
+    "role": "heading",
+    "name": "Everyday stories."
+  },
+  {
+    "role": "heading",
+    "name": "Before you set off."
+  },
+  {
+    "role": "heading",
+    "name": "Location & arrival"
+  },
+  {
+    "role": "heading",
+    "name": "Need urgent help?"
+  },
+  {
+    "role": "button",
+    "name": "Pause slideshow"
+  },
+  {
+    "role": "button",
+    "name": "Previous partners"
+  },
+  {
+    "role": "button",
+    "name": "Next partners"
+  },
+  {
+    "role": "heading",
+    "name": "Make room for your questions."
+  },
+  {
+    "role": "heading",
+    "name": "Behind the breakthrough."
+  },
+  {
+    "role": "heading",
+    "name": "Let’s talk about care."
+  },
+  {
+    "role": "heading",
+    "name": "Find your care"
+  },
+  {
+    "role": "heading",
+    "name": "Plan your visit"
+  },
+  {
+    "role": "combobox",
+    "name": "Search for"
+  },
+  {
+    "role": "heading",
+    "name": "Contact the hospital"
+  }
+]

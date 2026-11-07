@@ -1,4 +1,15 @@
 .panel {
+  --component-context-action-background: var(--component-action-primary-background);
+  --component-context-action-hover: var(--component-action-primary-background-hover);
+  --component-context-action-active: var(--component-action-primary-background-active);
+  --component-context-action-foreground: var(--component-action-primary-foreground);
+  --component-context-secondary-background: transparent;
+  --component-context-secondary-hover: var(--semantic-color-surface-selected);
+  --component-context-link: var(--semantic-color-text-link);
+  --component-context-boundary: var(--semantic-color-text-link);
+  --component-context-focus: var(--semantic-color-focus);
+  --component-context-focus-gap: var(--semantic-color-surface-raised);
+  --component-context-muted: var(--semantic-color-text-secondary);
   border: var(--component-system-state-border-width) solid currentColor;
   border-inline-start-width: var(--component-system-state-border-emphasis);
   border-radius: var(--component-system-state-radius);
@@ -11,6 +22,8 @@
 }
 
 .panel:focus-visible {
+  outline: var(--semantic-border-focus) solid var(--semantic-color-focus);
+  outline-offset: var(--semantic-space-fine);
   position: relative;
   z-index: 1;
 }
@@ -36,6 +49,8 @@
   min-inline-size: 0;
   overflow-wrap: anywhere;
 }
+
+.headingRow h3 { color: inherit; }
 
 .message,
 .preservedFacts,
@@ -176,6 +191,7 @@
 }
 
 @media (forced-colors: active) {
+  .panel:focus-visible { outline-color: Highlight; box-shadow: none; }
   .panel,
   .preservedFacts,
   .skeleton span {
@@ -211,3 +227,15 @@
     animation: none;
   }
 }
+
+/* A notice is a reading plane with semantic markers, rather than a full color environment. */
+.panel { background: var(--component-system-state-surface-raised); color: var(--component-system-state-text-primary); border-color: var(--semantic-color-border-default); }
+.panel:is(.information, .empty, .loading, .offline) { border-inline-start-color: var(--component-system-state-text-information); }
+.panel.success { border-inline-start-color: var(--component-system-state-text-success); }
+.panel:is(.warning, .temporary) { border-inline-start-color: var(--component-system-state-text-warning); }
+.panel:is(.emergency, .error, .expired, .unavailable) { border-inline-start-color: var(--component-system-state-text-error); }
+:is(.information, .empty, .loading, .offline) .headingRow { color: var(--component-system-state-text-information); }
+.success .headingRow { color: var(--component-system-state-text-success); }
+:is(.warning, .temporary) .headingRow { color: var(--component-system-state-text-warning); }
+:is(.emergency, .error, .expired, .unavailable) .headingRow { color: var(--component-system-state-text-error); }
+@media (forced-colors: active) { .panel { border-color: CanvasText; } }

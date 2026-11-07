@@ -1,0 +1,11 @@
+Whole life series — 30 October 2026
+Built-in image_gen tool; fictional concept subjects. Per client direction, provenance
+is recorded here without generation labels in the public interface.
+whole-life-portrait.webp: 960 × 1200; reference hope-care.webp.
+whole-life-detail.webp: 720 × 480; reference newly generated portrait.
+whole-life-encounter.webp: 960 × 960 crop from existing hope-care.webp.
+No real participant identity, biography, testimony or personally chosen object is asserted.
+Portrait prompt:
+Use case: photorealistic-natural. Generate one editorial photograph, portrait 4:5, for Hallelujah hospital's 'A whole life comes with you' campaign. Reference image is existing fictional consultation: preserve the older Ethiopian woman patient's identity, greying short curly hair, small gold earrings, cream woven cotton shawl. Show her alone seated comfortably in a sunlit Addis Ababa courtyard, waist-up eye-level portrait, looking directly at camera with composed thoughtful warmth, holding a worn terracotta clothbound book loosely in her lap. Warm textured stone, subtle greenery, natural directional daylight, real skin texture, ordinary dignity, no excessive smile. Her own clothes retain cream and warm earth colours. Compose head upper third and hands visible, space around figure for CSS framing. No clinician, no medical equipment, no text, no logo, no watermark. This is a fictional creative scene, no real patient identity.
+Detail prompt:
+Use case photorealistic-natural. One landscape 3:2 editorial still life for 'A whole life comes with you'. Reference is the connected fictional woman's portrait. Close photograph of exactly the same worn terracotta clothbound book, edges of cream woven cotton shawl and patterned skirt, resting on her lap with one relaxed hand touching the cover. No face. Capture cloth fibres, softened book corners, yellowed page edges and a simple fabric bookmark. Real texture, warm directional courtyard daylight matching reference, sophisticated natural colour, photographic depth, no readable lettering, no text overlays, no logo, no watermark. Fill composition with the book, not empty scenery.

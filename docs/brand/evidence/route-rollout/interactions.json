@@ -1,0 +1,108 @@
+[
+  {
+    "width": 1440,
+    "feedbackReviewAndReturnFocus": true,
+    "visitChecklist": true,
+    "appointmentNextAndBack": true,
+    "topicReaderAndReturnFocus": true,
+    "stateLayouts": true
+  },
+  {
+    "flatBackgroundContrast": [
+      {
+        "route": "/doctors",
+        "count": 57,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/services",
+        "count": 53,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/appointment",
+        "count": 31,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/patients-visitors",
+        "count": 49,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/referrals",
+        "count": 13,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/feedback",
+        "count": 19,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/health-topics",
+        "count": 18,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/news-resources",
+        "count": 15,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/emergency",
+        "count": 51,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/doctors/synthetic-clinician-101010101010/",
+        "count": 29,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/services/synthetic-service-111111111111",
+        "count": 25,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/services/synthetic-service-232323232323",
+        "count": 25,
+        "minimum": 4.956076082461528
+      },
+      {
+        "route": "/news-resources/make-room-for-your-questions",
+        "count": 15,
+        "minimum": 5.692923887152854
+      },
+      {
+        "route": "/health-topics/back-pain",
+        "count": 30,
+        "minimum": 4.956076082461528
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "feedbackReviewAndReturnFocus": true,
+    "visitChecklist": true,
+    "appointmentNextAndBack": true,
+    "topicReaderAndReturnFocus": true,
+    "stateLayouts": true
+  },
+  {
+    "width": 390,
+    "feedbackReviewAndReturnFocus": true,
+    "visitChecklist": true,
+    "appointmentNextAndBack": true,
+    "topicReaderAndReturnFocus": true,
+    "stateLayouts": true
+  },
+  {
+    "width": 320,
+    "feedbackReviewAndReturnFocus": true,
+    "visitChecklist": true,
+    "appointmentNextAndBack": true,
+    "topicReaderAndReturnFocus": true,
+    "stateLayouts": true
+  }
+]

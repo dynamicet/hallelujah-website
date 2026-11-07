@@ -100,6 +100,21 @@ export function controlledServiceDirectory(input: Readonly<{
   searchParameters: SearchInput
   urgentTerms?: readonly string[]
 }>): ServiceDirectoryView {
+  return serviceDirectoryFromViews({
+    ...input,
+    entries: controlledServiceIndex(input.records, input.locale, input.now, input.mode),
+  })
+}
+
+/** Search already-projected views; callers retain responsibility for content eligibility. */
+export function serviceDirectoryFromViews(input: Readonly<{
+  entries: readonly ServiceView[]
+  filters: readonly ControlledServiceGroupFilter[]
+  locale: GovernedLocale
+  pageSize?: number
+  searchParameters: SearchInput
+  urgentTerms?: readonly string[]
+}>): ServiceDirectoryView {
   const filters = checkedFilters(input.filters)
   const allowed = new Set(filters.map((filter) => filter.value))
   const selected = [...new Set(values(input.searchParameters, 'group'))]
@@ -108,7 +123,7 @@ export function controlledServiceDirectory(input: Readonly<{
   const needle = textKey(normalizedQuery, input.locale)
   const urgentVocabulary = new Set((input.urgentTerms ?? [])
     .map((term) => textKey(normalizedText(term), input.locale)).filter(Boolean))
-  const indexed = [...controlledServiceIndex(input.records, input.locale, input.now, input.mode)]
+  const indexed = [...input.entries]
     .sort((left, right) => left.group.name.localeCompare(right.group.name, input.locale)
       || left.name.localeCompare(right.name, input.locale))
   const matchingQuery = indexed.filter((service) => !needle

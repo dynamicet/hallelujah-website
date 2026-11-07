@@ -1,0 +1,1629 @@
+{
+ "url": "http://localhost:3000/feedback",
+ "at": "2026-11-01T20:24:16.444Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.27,
+    0.39,
+    0.99,
+    0.98
+   ],
+   "motion": {
+    "elements": 6,
+    "css": 4,
+    "transitions": 1,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 2769,
+     "screens": 3.1,
+     "words": 291,
+     "img": 3,
+     "video": 0,
+     "canvas": 0,
+     "svg": 16,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Patient feedback",
+     "words": 2,
+     "chars": 16,
+     "lines": 1,
+     "size": 66,
+     "vw": 4.6,
+     "font": "Clash Grotesk",
+     "weight": 500,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.89,
+     "top": 284,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Patient feedback",
+     "words": 2,
+     "lines": 1,
+     "size": 66,
+     "font": "Clash Grotesk"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.05,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.07,
+      "top": 108,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Patient feedback",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 66,
+      "vw": 4.6,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 284,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Prepare your feedback",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 43.2,
+      "vw": 3,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 565,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "What happens next?",
+      "words": 3,
+      "chars": 18,
+      "lines": 1,
+      "size": 43.2,
+      "vw": 3,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 1312,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Looking for care?",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 43.2,
+      "vw": 3,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 1648,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Bringing Quality Care Home",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 58,
+      "vw": 4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 1916,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Hallelujah",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 205,
+      "vw": 14.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.065,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 2384,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.93,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.07,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      13,
+      14,
+      16,
+      17,
+      28,
+      43,
+      58,
+      66,
+      205
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 17,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.5
+     },
+     "measureChars": 74,
+     "max": {
+      "size": 205,
+      "vw": 14.2,
+      "font": "Clash Grotesk",
+      "text": "Hallelujah"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.07,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "Try the feedback form",
+      "above": "Prepare your feedback",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 17,
+      "top": 449
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#073e53",
+       "top": 1828,
+       "hsl": {
+        "h": 197,
+        "s": 0.84,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#073e53",
+       "share": 0.67
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.24
+      },
+      {
+       "color": "#0a3d5c",
+       "share": 0.04
+      },
+      {
+       "color": "#006d82",
+       "share": 0.02
+      },
+      {
+       "color": "#b5ece2",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#073e53",
+      "hsl": {
+       "h": 197,
+       "s": 0.84,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 3,
+     "radius": 0,
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Request an appointment ↗",
+      "Try the feedback form ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 99,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 8,
+     "fixed": true,
+     "height": 152,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 2769,
+    "margins": {
+     "left": 80,
+     "right": 80
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 30,
+      "height": 152,
+      "words": 27,
+      "media": 0,
+      "middle": 89,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 28,
+       "tag": "span"
+      },
+      "left": 70,
+      "right": 96,
+      "textLeft": 111,
+      "textRight": 96,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 252,
+      "height": 1577,
+      "words": 179,
+      "media": 0,
+      "middle": 79,
+      "heading": {
+       "text": "Patient feedback",
+       "size": 66,
+       "tag": "h1"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 162,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 1828,
+      "height": 861,
+      "words": 65,
+      "media": 0,
+      "middle": 126,
+      "heading": {
+       "text": "Bringing Quality",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Patient feedback",
+      "size": 66,
+      "top": 284,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 665,
+      "n": 6
+     },
+     {
+      "x": 80,
+      "n": 4
+     },
+     {
+      "x": 120,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 11,
+    "bodySize": 17,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.19,
+    "voidBox": {
+     "x": 600,
+     "y": 240,
+     "w": 840,
+     "h": 300
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.29,
+    0.53,
+    0.86
+   ],
+   "motion": {
+    "elements": 6,
+    "css": 4,
+    "transitions": 1,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2801,
+     "screens": 2.7,
+     "words": 278,
+     "img": 3,
+     "video": 0,
+     "canvas": 0,
+     "svg": 16,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Patient feedback",
+     "words": 2,
+     "chars": 16,
+     "lines": 1,
+     "size": 40,
+     "vw": 5.2,
+     "font": "Clash Grotesk",
+     "weight": 500,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.92,
+     "top": 272,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Patient feedback",
+     "words": 2,
+     "lines": 1,
+     "size": 40,
+     "font": "Clash Grotesk"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.05,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.13,
+      "top": 103,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Patient feedback",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 40,
+      "vw": 5.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 272,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Prepare your feedback",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 526,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "What happens next?",
+      "words": 3,
+      "chars": 18,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.34,
+      "top": 1345,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Looking for care?",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 1726,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Bringing Quality Care Home",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 42,
+      "vw": 5.5,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 2022,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Hallelujah",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 109.8,
+      "vw": 14.3,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.065,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2511,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.93,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.07,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      13,
+      14,
+      16,
+      17,
+      26,
+      30,
+      40,
+      42,
+      110
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 17,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.5
+     },
+     "measureChars": 45,
+     "max": {
+      "size": 109.8,
+      "vw": 14.3,
+      "font": "Clash Grotesk",
+      "text": "Hallelujah"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.08,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#073e53",
+       "top": 1934,
+       "hsl": {
+        "h": 197,
+        "s": 0.84,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#073e53",
+       "share": 0.66
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.25
+      },
+      {
+       "color": "#0a3d5c",
+       "share": 0.04
+      },
+      {
+       "color": "#006d82",
+       "share": 0.02
+      },
+      {
+       "color": "#b5ece2",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#073e53",
+      "hsl": {
+       "h": 197,
+       "s": 0.84,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 3,
+     "radius": 0,
+     "height": 60,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Request an appointment ↗",
+      "Try the feedback form ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 69,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 140,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2801,
+    "margins": {
+     "left": 32,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 30,
+      "height": 140,
+      "words": 14,
+      "media": 0,
+      "middle": 18,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 26,
+       "tag": "span"
+      },
+      "left": 22,
+      "right": 48,
+      "textLeft": 63,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 240,
+      "height": 1694,
+      "words": 179,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Patient feedback",
+       "size": 40,
+       "tag": "h1"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 1934,
+      "height": 787,
+      "words": 65,
+      "media": 0,
+      "middle": 38,
+      "heading": {
+       "text": "Bringing Quality",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Patient feedback",
+      "size": 40,
+      "top": 272,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 350,
+      "n": 6
+     },
+     {
+      "x": 32,
+      "n": 4
+     },
+     {
+      "x": 60,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 11,
+    "bodySize": 17,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.63,
+    0.52,
+    0.71,
+    0.96
+   ],
+   "motion": {
+    "elements": 6,
+    "css": 4,
+    "transitions": 1,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 3102,
+     "screens": 3.7,
+     "words": 273,
+     "img": 3,
+     "video": 0,
+     "canvas": 0,
+     "svg": 16,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Patient feedback",
+     "words": 2,
+     "chars": 16,
+     "lines": 1,
+     "size": 40,
+     "vw": 10.3,
+     "font": "Clash Grotesk",
+     "weight": 500,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 313,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Patient feedback",
+     "words": 2,
+     "lines": 1,
+     "size": 40,
+     "font": "Clash Grotesk"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 27,
+      "vw": 6.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.05,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 162,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Patient feedback",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 313,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Prepare your feedback",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 551,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "What happens next?",
+      "words": 3,
+      "chars": 18,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 1385,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Looking for care?",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1808,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Bringing Quality Care Home",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2135,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Hallelujah",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.065,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2833,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.92,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.07,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      13,
+      14,
+      16,
+      17,
+      27,
+      32,
+      36,
+      40,
+      64
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 17,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.5
+     },
+     "measureChars": 41,
+     "max": {
+      "size": 64,
+      "vw": 16.4,
+      "font": "Clash Grotesk",
+      "text": "Hallelujah"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.07,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eaf4f5",
+       "top": 1361,
+       "hsl": {
+        "h": 185,
+        "s": 0.35,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#073e53",
+       "top": 2071,
+       "hsl": {
+        "h": 197,
+        "s": 0.84,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#073e53",
+       "share": 0.67
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.25
+      },
+      {
+       "color": "#0a3d5c",
+       "share": 0.04
+      },
+      {
+       "color": "#006d82",
+       "share": 0.02
+      },
+      {
+       "color": "#b5ece2",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#073e53",
+      "hsl": {
+       "h": 197,
+       "s": 0.84,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 2,
+     "radius": 0,
+     "height": 60,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Try the feedback form ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 64,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 176,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 3102,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 51,
+      "height": 176,
+      "words": 10,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 27,
+       "tag": "span"
+      },
+      "left": 12,
+      "right": 12,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 297,
+      "height": 1774,
+      "words": 179,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Patient feedback",
+       "size": 40,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 2071,
+      "height": 951,
+      "words": 65,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Bringing Quality",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Patient feedback",
+      "size": 40,
+      "top": 313,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 8
+     },
+     {
+      "x": 44,
+      "n": 3
+     }
+    ],
+    "leftBlocks": 11,
+    "bodySize": 17,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "1 eyebrow/kicker label(s) above headings: \"Try the feedback form\" above \"Prepare your feedback\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "name-only-title",
+   "width": 1440,
+   "message": "The h1 is a bare name (\"Patient feedback\") and nothing else on the first screen says what this is.",
+   "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 6 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/artifacts/h4-task-pages/inspect-feedback/desktop-fold.jpg",
+   "pages": [
+    "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/artifacts/h4-task-pages/inspect-feedback/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/artifacts/h4-task-pages/inspect-feedback/tablet-fold.jpg",
+   "pages": [
+    "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/artifacts/h4-task-pages/inspect-feedback/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/artifacts/h4-task-pages/inspect-feedback/mobile-fold.jpg",
+   "pages": [
+    "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/artifacts/h4-task-pages/inspect-feedback/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

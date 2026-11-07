@@ -1,0 +1,231 @@
+/* Shared presentation rules for the care discovery and visit tasks. */
+.enhanced-home { --home-space: clamp(48px, 5vw, 72px); }
+.care-search-mode { min-width: 0; margin: 0; padding: 0; border: 0; }
+.care-search-mode legend { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.care-mode-options { display: flex; gap: 0; padding: 4px; border-radius: var(--site-control-radius); background: var(--site-white); }
+.care-search-panel .care-mode-options label { position: relative; display: flex; flex: 1; align-items: center; justify-content: center; min-height: 48px; padding: 8px 12px; border: 0; border-radius: calc(var(--site-control-radius) - 3px); background: transparent; cursor: pointer; }
+.care-mode-options input { position: absolute; width: 1px; height: 1px; margin: 0; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }
+.care-mode-options label:has(:checked) { color: var(--site-white); background: var(--site-action-primary); }
+.care-mode-options label:focus-within { outline: 3px solid var(--semantic-color-focus); outline-offset: 3px; }
+.enhanced-home .care-search-panel form { grid-template-columns: 280px minmax(0, 1fr); gap: 24px; }
+.enhanced-home .care-search-links [data-care-guide] { border: 0; padding: 0; }
+.enhanced-home .welcome-appointment { border: 0; }
+.enhanced-home .team-inner { gap: 32px; }
+.enhanced-home .team-list { gap: 24px; }
+.enhanced-home .team-portrait-frame { aspect-ratio: 4 / 3; max-height: 260px; }
+.enhanced-home .team-person-details { padding-top: 16px; }
+.enhanced-home .team-next-step { padding: 32px; border: 0; background: var(--site-surface-inverse); color: var(--site-white); border-radius: var(--site-panel-radius); }
+.enhanced-home .team-next-step h3 { color: inherit; font: 400 clamp(26px, 2.4vw, 36px)/1.2 var(--site-display); letter-spacing: -.025em; }
+.enhanced-home .team-care-help { background: var(--site-white); color: var(--site-ink); }
+.enhanced-home .team-care-help:hover { background: var(--site-accent); color: var(--site-ink); }
+.enhanced-home .team-care-help:active { background: var(--site-pale); }
+.enhanced-home .team-care-help:focus-visible { outline-color: var(--site-white); box-shadow: none; }
+.enhanced-home .visit-inner { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(40px, 7vw, 112px); }
+.enhanced-home .visit-copy h2 { max-width: 7ch; font-size: clamp(40px, 4.5vw, 64px); line-height: 1.06; }
+.enhanced-home .visit-copy .home-heading-accent { display: block; }
+.enhanced-home .visit-questions { margin-block: 0 20px; }
+.enhanced-home .visit-questions details { padding-block: 20px; }
+.enhanced-home .visit-questions details:first-child { border-top: 1px solid var(--semantic-color-border-strong); }
+.enhanced-home .visit-questions summary { font-size: clamp(18px, 1.6vw, 22px); font-weight: 600; }
+.enhanced-home .visit-questions summary span { width: 32px; height: 32px; flex-basis: 32px; border-radius: 50%; background: var(--site-white); color: var(--site-supporting-text); }
+.enhanced-home .visit-questions details[open] summary span { background: var(--site-supporting-text); color: var(--site-white); }
+.enhanced-home .visit-preparation > .text-link { font-weight: 600; }
+@media (max-width: 899px) {
+  .enhanced-home .visit-inner { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .enhanced-home .visit-copy h2 { max-width: none; }
+  .enhanced-home .visit-copy .home-heading-accent { display: inline; }
+}
+@media (max-width: 599px) {
+  .enhanced-home .team-next-step { padding: 28px 24px; gap: 20px; }
+  .enhanced-home .visit-copy h2 { font-size: 40px; }
+  .enhanced-home .visit-questions details { padding-block: 16px; }
+}
+@media (forced-colors: active) {
+  .enhanced-home .team-next-step { border: 1px solid CanvasText; }
+  .enhanced-home .team-care-help:focus-visible { outline-color: Highlight; }
+}
+.visit-questions ul { margin: 12px 0 0; padding-left: 22px; font-size: var(--site-support); line-height: 1.6; }
+.enhanced-home :is(.hospital-film-copy, .hospital-film-stage, .hospital-film-footer) { max-width: 1120px; }
+.enhanced-home .hospital-film-stage { border: 0; padding: 0; }
+.enhanced-home .hospital-film-copy { margin-bottom: 24px; }
+.enhanced-home .hospital-film-copy h2 { border: 0; padding: 0; }
+.enhanced-home .hospital-film-footer { padding-top: 20px; }
+.enhanced-home .human-care { padding-top: 0; }
+.enhanced-home .hospital-statistics { margin-block: 0; padding-block: clamp(40px, 4vw, 56px); border: 0; }
+.enhanced-home .hospital-statistics-list { margin-top: 32px; gap: 32px 24px; }
+.enhanced-home .hospital-statistics-list > div { gap: 12px; }
+.statistics-count { display: inline-block; position: relative; }
+.statistics-count-overlay { position: absolute; inset: 0; }
+.statistics-count[data-counting='true'] .statistics-count-final { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .statistics-count[data-counting='true'] .statistics-count-final { opacity: 1; }
+  .statistics-count-overlay { display: none; }
+}
+.enhanced-home .everyday-feature-image { aspect-ratio: 2 / 1; max-height: 280px; border-radius: var(--site-image-radius); }
+.enhanced-home .everyday-feature-copy { border-top: 0; padding-top: 16px; }
+.enhanced-home .everyday-feature:nth-child(2) .everyday-feature-copy { border-color: var(--semantic-color-border-default); }
+.enhanced-home .everyday-feature-actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 24px; }
+.enhanced-home .everyday-feature-actions > details[open] { flex-basis: 100%; }
+.enhanced-home .everyday-quotes-panel { margin-top: 64px; padding: 40px; border-radius: var(--site-image-radius); background: var(--site-expressive-surface); }
+.enhanced-home .everyday-quotes-panel > h3 { margin: 0 0 32px; color: var(--site-ink); font: 400 28px/1.2 var(--site-display); letter-spacing: -.025em; }
+.enhanced-home .everyday-quotes { margin: 0; padding: 0; border: 0; gap: 40px; }
+.enhanced-home .everyday-quote { padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--site-ink); }
+.enhanced-home .everyday-quote:first-child, .enhanced-home .everyday-quote:last-child { background: transparent; color: var(--site-ink); border: 0; }
+.enhanced-home .everyday-quote blockquote { margin-bottom: 16px; }
+.enhanced-home .everyday-quote .everyday-quote-mark,
+.enhanced-home .everyday-quote:first-child .everyday-quote-mark { display: block; height: 24px; margin-bottom: 12px; color: var(--site-expressive-text); font-size: 36px; line-height: 1; }
+.enhanced-home .everyday-quote blockquote p { font-size: 20px; line-height: 1.45; }
+.enhanced-home .everyday-quote figcaption { font-size: 14px; font-weight: 600; }
+@media (min-width: 600px) and (max-width: 899px) {
+  .enhanced-home .everyday-quotes-panel { padding: 32px; }
+  .enhanced-home .everyday-quotes { gap: 24px; }
+}
+@media (max-width: 767px) {
+  .enhanced-home .everyday-quotes { grid-template-columns: 1fr; gap: 28px; }
+}
+.everyday-account > summary > span { display: inline-block; }
+.everyday-account[open] > summary > span { transform: rotate(180deg); }
+.everyday-film video::cue { font-size: 16px; font-family: sans-serif; }
+.partner-logo { height: 100px; padding: 12px; }
+.partner-logo img { width: 100%; height: 76px; max-height: 76px; object-fit: contain; transform: scale(var(--partner-logo-scale, 1)); }
+.partner figcaption { margin-top: 8px; }
+
+/* Section openings accommodate useful content without requiring introductory copy. */
+.enhanced-home #specialized-care [class*='introduction'] { display: block; margin-bottom: 28px; }
+.enhanced-home .hospital-film-copy { display: block; }
+.enhanced-home .hospital-film-copy h2 { max-width: none; }
+.enhanced-home [data-health-library] [class*='examples'] { margin-block: 16px 20px; }
+main [data-care-topics] + [data-health-library] { margin-top: 28px; }
+main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']):not(:has(.care-page-image)) { display: block; margin-bottom: 24px; }
+main [data-care-directory] [class*='introductionCopy'] { gap: 12px; }
+main [data-appointment-template] [data-journey-description]:empty { display: none; }
+
+/* Portraits occupy a deliberate frame instead of stretching with long card copy. */
+main [data-care-directory] [data-clinician-public-id] { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
+main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] { height: 210px; padding: 0; align-self: start; }
+main [data-care-directory] [data-clinician-public-id] :is([data-clinician-portrait], [data-clinician-monogram]) { width: 100%; height: 210px; min-height: 0; max-height: none; object-fit: contain; object-position: center bottom; }
+main [data-care-directory] [data-clinician-public-id] [class*='cardContent'] { grid-template-rows: none; align-content: start; gap: 10px; }
+main [data-care-directory] [data-clinician-public-id] [class*='profileAction'] { margin-top: auto; }
+main [data-care-directory] [class*='discoveryWorkspace'] { grid-template-columns: 220px minmax(0, 1fr); gap: 24px; }
+main [data-care-directory] [class*='filterRail'] { position: static; }
+
+/* Separate discovery stages; keep individual results close enough to compare. */
+main [data-care-directory] :is([data-directory-section='D2'], [data-directory-section='S3']) {
+  gap: 24px;
+}
+main [data-care-directory] [class*='resultsSection'] {
+  container-type: inline-size;
+}
+main [data-care-directory] ol[data-directory-section='D4'] {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+@container (min-width: 38rem) {
+  main [data-care-directory] ol[data-directory-section='D4'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* The working form gets space at tablet sizes; its context remains in the form. */
+main [data-appointment-template][data-local-journey] [data-appointment-section='A1'] { padding-block: 20px 24px; gap: 12px; }
+main [data-appointment-template][data-local-journey] [class*='carePhoto'] { display: none; }
+main [data-appointment-template][data-local-journey] [class*='requestSlip'] { padding: 24px; }
+
+@media (max-width: 1023px) {
+  .enhanced-home .home-quick-access-copy > span { display: none; }
+  main [data-care-directory] [class*='discoveryWorkspace'] { grid-template-columns: 1fr; }
+  main [data-appointment-template][data-local-journey] [class*='workspace'] { display: flex; flex-direction: column; gap: 24px; }
+  main [data-appointment-template][data-local-journey] [class*='careRail'] { position: static; width: 100%; order: 2; }
+  main [data-appointment-template][data-local-journey] [data-appointment-form-controller] { width: 100%; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .enhanced-home .team-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .enhanced-home .care-search-panel form { grid-template-columns: 1fr; gap: 16px; }
+  .care-search-panel .care-mode-options label { min-height: 44px; }
+  .enhanced-home .visit-inner { grid-template-columns: 1fr; gap: 24px; }
+  .enhanced-home .team-list { grid-template-columns: 1fr; gap: 32px; }
+  .enhanced-home .team-person { grid-template-columns: 88px minmax(0, 1fr); grid-template-rows: auto; gap: 16px; align-items: start; }
+  .enhanced-home .team-portrait-frame { aspect-ratio: 3 / 4; max-height: none; }
+  .enhanced-home .team-portrait { object-fit: cover; }
+  .enhanced-home .team-person-details { padding-top: 0; }
+  .enhanced-home .team-person h3 { font-size: 21px; }
+  .enhanced-home .team-description { margin-bottom: 8px; }
+  main [data-care-directory] [data-clinician-public-id] { grid-template-columns: 72px minmax(0, 1fr); grid-template-rows: auto; }
+  main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] { height: 128px; margin-top: 16px; }
+  main [data-care-directory] [data-clinician-public-id] :is([data-clinician-portrait], [data-clinician-monogram]) { height: 128px; }
+}
+@media (max-width: 359px) {
+  main [data-care-directory] [data-clinician-public-id] { grid-template-columns: minmax(0, 1fr); }
+  main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] { margin-top: 0; }
+}
+@media (max-width: 599px) {
+  .enhanced-home .team-intro { display: grid; gap: 8px; }
+  .enhanced-home .team-directory { margin-top: 0; }
+  .enhanced-home .welcome-story { min-height: 0; }
+  .enhanced-home .welcome-media { height: 100%; }
+  .enhanced-home .welcome-media picture, .enhanced-home .welcome-media::after { height: 230px; }
+  .enhanced-home .welcome-copy { padding-block: 190px 24px; }
+  .enhanced-home .welcome h1 { font-size: clamp(40px, 11vw, 52px); }
+  .enhanced-home .welcome-copy > p { margin-top: 12px; font-size: 16px; }
+  .enhanced-home .welcome-actions { margin-top: 16px; gap: 4px; }
+  .enhanced-home .care-search-panel { padding-block: 20px; }
+  .enhanced-home .care-search-links { margin-top: 8px; gap: 0 16px; }
+  .enhanced-home #specialized-care .home-care-card { padding: 20px; gap: 12px; border-top: 0; }
+  .enhanced-home #specialized-care .home-care-card h3 { font-size: 23px; }
+  .enhanced-home #specialized-care .home-care-card [class*='description'] { font-size: 16px; }
+  .enhanced-home #specialized-care .home-care-card [class*='action'] svg { padding: 0; background: transparent; color: var(--site-link); }
+  .enhanced-home .care-background-film { aspect-ratio: 16 / 10; }
+  .enhanced-home .everyday-feature-image { aspect-ratio: 2 / 1; }
+  .enhanced-home .everyday-stories-features { gap: 32px; }
+  .enhanced-home .everyday-quotes { gap: 28px; }
+  .enhanced-home .everyday-quotes-panel { margin-top: 48px; padding: 24px; }
+  .enhanced-home .everyday-quotes-panel > h3 { margin-bottom: 28px; }
+}
+/* Reading roles share a rhythm; editorial titles keep their existing voice. */
+.enhanced-home h2 { line-height: 1.16; letter-spacing: -.02em; }
+.enhanced-home .welcome h1 { line-height: 1.08; letter-spacing: -.025em; }
+.enhanced-home .visit-copy h2 { line-height: 1.12; }
+.enhanced-home :is(.team-person h3, #specialized-care .home-care-card h3) {
+  font-size: var(--site-label-heading); line-height: 1.3; letter-spacing: -.01em;
+}
+.enhanced-home :is(.team-language, .team-description, .preview-note, .specialty-caption) {
+  font-size: var(--site-support); line-height: 1.6;
+}
+.enhanced-home .visit-questions :is(p, ul) {
+  font-size: var(--site-body); line-height: 1.65; max-inline-size: 65ch;
+}
+.enhanced-home .everyday-quote blockquote p { line-height: 1.6; letter-spacing: normal; }
+.enhanced-home .hospital-statistics-list dd { font-variant-numeric: lining-nums tabular-nums; }
+@media (max-width: 767px) {
+  .enhanced-home :is(.team-person h3, #specialized-care .home-care-card h3) { font-size: 1.3125rem; }
+}
+@media print {
+  main [data-appointment-template][data-local-journey] [class*='workspace'] { display: block; }
+  .care-search-panel { display: none; }
+}
+
+/* Missing portraits use a readable identity badge inside the same image frame. */
+main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto']:has([data-clinician-monogram]) {
+  display: grid;
+  place-items: center;
+}
+main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] [data-clinician-monogram] {
+  width: 80px;
+  height: 80px;
+  min-height: 0;
+  border-radius: 50%;
+  background: var(--semantic-color-surface-selected);
+  color: var(--semantic-color-text-heading);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+@media (max-width: 767px) {
+  main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] [data-clinician-monogram] {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,124 @@
+H1 homepage editorial implementation — 1 November 2026
+
+Scope: local ready-state WebsiteHome. Preserve governed unavailable/partial/empty
+templates, contact unavailability, preview disclosures, appointment request semantics,
+searches, accessible focus, and existing hospital palette/type and responsive frame.
+No new assets or hospital operational claims.
+
+Direction: existing One motif, seed 238462439; no redraw for this editorial revision.
+Idea: the personal-care welcome leads to distinct ways to find care, prepare, and
+understand a consultation, rather than repeating the same invitation.
+Live things: direct directory searches, decision navigator, health-topic finder,
+care-area selection, preparation FAQs, and partner expansion.
+
+Copy/section argument, written before markup:
+Hero: identify the hospital and offer direct search and appointment access.
+Navigator: distinguish known doctor, known service, and uncertainty about care.
+Health topics: understand a named concern; retain topic-to-care handoffs.
+Care focus: compare selected service purposes, without adding clinical scope claims.
+Team: compare existing illustrative identities by specialty and language.
+Visit planning: consolidate records, companion/support, request expectations,
+arrival/contact unavailability, and emergency routing in one accessible section.
+Partners: retain approved-source demo list near preparation; never imply coverage.
+Statistics/testimonials: retain existing preview-only evidence components; C2 open.
+Consultation: merge personal-care story and visit tabs into practical question
+prompts and one explicitly illustrative image, without claiming facility facts.
+News: timely reading, distinct from condition reference; retain article links.
+Remove follow-up campaign and repeated generic doctor/visit invitations.
+
+Inventory: Ethiopian hospital identity, teal/mint palette, Clash Grotesk, existing
+whole-life welcome imagery, multilingual clinician profiles, service directory,
+health-topic aliases, appointment request versus confirmation, companion/support
+questions, unavailable arrival/contact details, preview-only stories and statistics.
+
+ROUND 1 — before
+Seen in one second: a personal-care welcome with an obvious appointment action.
+Idea (one sentence): a whole-life welcome leads into care and visit planning.
+Live thing: directory searches, four-choice navigator and health-topic lookup.
+Layout words by section: hero=cinematic / navigator=choice / health=lookup /
+care=split / statistics=band / testimonials=stories / life=mosaic / spaces=tabs /
+team=rows / campaign=banner / partners=row / news=editorial / visit=FAQ-photo /
+arrival=columns.
+Scores: design 6.5 · usability 6 · creativity 6 · content 5 → overall 6.0
+Caps applied: inspector failures cap overall at 6; illustrative imagery limits
+authenticity, and the idea remains a hospital-category concept.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. before/mobile-page-02.jpg: life-story mosaic and spaces tabs delay practical
+   information while repeating the welcome. Replace with one consultation section.
+2. before/desktop-page-03.jpg: visit FAQs and arrival appear after editorial content.
+   Merge preparation/arrival into an earlier section and drop decorative visit photo.
+3. before/tablet-page-02.jpg: follow-up campaign repeats the question/conversation
+   message without explaining follow-up. Remove it; retain service directory access.
+
+ROUND 2 — first implementation
+Seen in one second: the same established welcome and search tools.
+Idea (one sentence): distinct care decisions lead to preparation before storytelling.
+Live thing: navigator separates known doctor/service from uncertainty.
+Layout words by section: hero=cinematic / navigator=choice / health=lookup /
+care=split / team=rows / visit=FAQ-and-arrival / partners=row / statistics=band /
+testimonials=stories / consultation=prompts-and-image / news=editorial.
+Scores: design 6.5 · usability 7 · creativity 6 · content 5 → overall 6.0
+Caps applied: remaining inspector findings cap overall at 6.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. after/tablet-page-01.jpg: narrow arrival column makes practical information harder
+   to scan. Stack preparation/arrival on tablet without making the text smaller.
+2. after/tablet-page-02.jpg: featured news title has an unnecessarily narrow measure.
+   Remove its 15ch width constraint and redundant hidden Read More suffix; the full
+   article title already names the link and the visible cue remains outside it.
+3. after/desktop-page-03.jpg: stacked standalone Published label competes with the
+   following story heading in inspection. Keep dates as semantic time elements with
+   published/event context in accessible labels.
+
+ROUND 3 — final
+Seen in one second: hospital identity, human welcome, appointment and search access.
+Idea (one sentence): the whole-life welcome now leads to distinct care decisions,
+earlier practical guidance, and concrete consultation prompts.
+Live thing: known-doctor/known-service/unsure choices, concern lookup and native FAQs.
+Layout words by section: hero=cinematic / navigator=choice / health=lookup /
+care=split / team=rows / visit=FAQ-and-arrival / partners=row / statistics=band /
+testimonials=stories / consultation=prompts-and-image / news=editorial.
+Scores: design 6.5 · usability 8 · creativity 6 · content 5 → overall 6.7
+Caps applied: authentic hospital imagery/proof unavailable; this is a demo editorial
+improvement, not a claim of production credibility or an award-level redesign.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. final/mobile-page-02.jpg: fictional testimonials and statistics remain unverified
+   proof. Keep preview disclosures; replace or omit for publication under C2.
+2. final/tablet-page-02.jpg: consultation and news still reuse the encounter imagery.
+   Replace with approved subject-specific assets under H2; no new assets invented.
+3. final/mobile-page-01.jpg: several care-discovery paths still take substantial
+   space. Each now has its own purpose; further reduction needs observed task use,
+   rather than discarding searches or shrinking text to meet a height target.
+
+Looked at all before and final inspector sheets at 1440, 768 and 390px.
+Final inspector: 0 FAIL, 3 WARN. Defenses: existing responsive type hierarchy is kept
+for this composition change; authentic hospital footage is unavailable; partners
+retain explicit previous/next and View all controls rather than an expanded 19-logo
+wall that would lengthen the homepage.
+
+Verification:
+- Baseline/final page heights: 1440px 11679→9818; 768px 12846→10792;
+  390px 15318→12743 (15.9%, 16.0%, 16.8% shorter).
+- Hero body remains 19px desktop, 17px tablet, 16px mobile; no type shrink strategy.
+- Interaction script passed 1440, 768, 390 and 320px; no page overflow or dangling
+  home anchors. Directory form submissions retain actual query parameters. Concern
+  lookup retains diabetes service handoff and focus return. Native Enter activates
+  each FAQ. Partner expansion and unavailability disclosures remain usable.
+- No-JavaScript navigator fallback, visible contact state and reduced motion passed.
+- Existing Help/guide browser regression passed 45 combinations, 317 scroll
+  positions and 725 focused controls, with no visible launcher collisions.
+- TypeScript, focused ESLint, source design lint, production build, home contracts,
+  contact/governed projections, partners, testimonials, health finder, care journeys
+  and shell checks passed. Fixed the legacy home renderer's existing inability to
+  resolve source @/ imports, which initially blocked its contract checks.
+
+Assets: reused existing bundled editorial/whole-life-encounter.webp in consultation,
+with visible illustrative caption. No found photographs, clips, drawings, new image
+generation, or third-party source credits added. Existing clinician portraits,
+stories, statistics, service material and editorial entries remain preview content.
+Operational details are still unavailable; approvals under C2/H2 remain outstanding.
+Physical-device keyboard behavior under C3 is not proven by this desktop emulation.
+
+Repository checks: local links passed (1620 links). Whole-repository format check
+remains red on inherited artifacts/cache reports and the existing Lato licence;
+new H1 reports were normalized to the required final newline, and changed files
+were checked separately. Unrelated existing files were left intact.

@@ -8,6 +8,27 @@
     "pnpm": "10.27.0"
   },
   "scripts": {
+    "visual:check": "node scripts/check-visual.mjs",
+    "visual:journey-quality": "node scripts/check-journey-quality.mjs",
+    "visual:cross-browser": "node scripts/check-motion-cross-browser.mjs",
+    "visual:hero": "node scripts/check-home-hero.mjs",
+    "visual:motion": "node scripts/check-home-motion.mjs",
+    "visual:media": "node scripts/check-media-experience.mjs",
+    "visual:stories": "node scripts/check-story-cinema.mjs",
+    "visual:editorial": "node scripts/check-editorial-reading.mjs",
+    "visual:reading": "node scripts/check-reading-continuity.mjs",
+    "visual:interactions": "node scripts/check-component-interactions.mjs",
+    "visual:search-feedback": "node scripts/check-directory-feedback.mjs",
+    "visual:clinician-transition": "node scripts/check-clinician-transition.mjs",
+    "visual:clinician-playback": "node scripts/check-clinician-playback.mjs",
+    "visual:foundation": "node scripts/check-motion-foundation.mjs",
+    "visual:choreography": "node scripts/check-home-choreography.mjs",
+    "visual:signature": "node scripts/check-signature-scenes.mjs",
+    "visual:care-continuity": "node scripts/check-care-continuity.mjs",
+    "visual:appointment": "node scripts/check-appointment-usability.mjs",
+    "visual:quality": "node scripts/check-site-quality.mjs",
+    "visual:usability": "node scripts/check-usability-refinements.mjs",
+    "visual:journeys": "node scripts/check-intentional-design.mjs",
     "actions:check": "pnpm --dir apps/web actions:check",
     "appointment:check": "pnpm --dir apps/web appointment:check",
     "appointment:db-smoke": "pnpm --dir apps/web appointment:db-smoke",
@@ -47,6 +68,9 @@
     "governed-records:db-smoke": "pnpm --dir apps/web governed-records:db-smoke",
     "local-db-isolation:check": "pnpm --dir apps/web local-db-isolation:check",
     "foundations:smoke": "node scripts/check-rendered-foundations.mjs",
+    "care-journeys:check": "pnpm --dir apps/web care-journeys:check",
+    "care-journeys:smoke": "pnpm --dir apps/web care-journeys:smoke",
+    "health-finder:check": "pnpm --dir apps/web health-finder:check",
     "home:check": "pnpm --dir apps/web home:check",
     "home:preview": "pnpm --dir apps/web home:preview",
     "home:smoke": "pnpm --dir apps/web home:smoke",
@@ -108,7 +132,8 @@
     "content-build:policy": "node scripts/check-content-build.mjs --policy-only",
     "content-build:check": "node scripts/check-content-build.mjs",
     "lint-glob:check": "node scripts/check-lint-glob-remediation.mjs",
-    "service-directory:validate": "pnpm --dir apps/web service-directory:validate"
+    "service-directory:validate": "pnpm --dir apps/web service-directory:validate",
+    "home-enhancement:check": "pnpm --dir apps/web home-enhancement:check"
   },
   "pnpm": {
     "overrides": {

@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict'
-import { existsSync } from 'node:fs'
 import { readFile, readdir } from 'node:fs/promises'
 
 import {
@@ -70,7 +69,7 @@ for (const state of clinicianProfileFixtureStates.filter((value) => value !== 'r
     assert.doesNotMatch(html, /data-appointment-doctor-public-id/u, state)
   } else {
     assert.match(html, /data-appointment-doctor-public-id="pub_09090909090901"/u, state)
-    assert.match(html, /data-portrait-omitted/u, state)
+    assert.doesNotMatch(html, /data-portrait-omitted/u, state)
     assert.doesNotMatch(html, /availabilityGuidance|Synthetic portrait metadata only/u, state)
   }
   cases++
@@ -78,6 +77,7 @@ for (const state of clinicianProfileFixtureStates.filter((value) => value !== 'r
 
 const partialHtml = clinicianProfilePreviewDocument('partial')
 assert.doesNotMatch(partialHtml, /About this clinician|areas of care|Related services|Location/u)
+assert.doesNotMatch(partialHtml, /class="[^"]*editorialColumn/u)
 assert.doesNotMatch(partialHtml, /location relationship/u)
 cases++
 
@@ -112,7 +112,7 @@ assert.doesNotMatch(templateCss, /@keyframes|animation\s*:/u)
 cases++
 
 const appRoot = new URL('../src/app/', import.meta.url)
-assert.equal(existsSync(new URL('doctors/', appRoot)), false, 'Deployable clinician-profile route must remain absent')
+assert.match(await readFile(new URL('doctors/[slug]/page.tsx', appRoot), 'utf8'), /requireLocalDemo\(\)/u)
 const appSources = await collectSources(appRoot)
 for (const file of appSources) {
   const content = await readFile(file, 'utf8')

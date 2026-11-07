@@ -1,0 +1,207 @@
+{
+  "name": "Hallelujah \u2014 One blue, a whole experience",
+  "status": "Adopted in the local website; final usage guide at docs/brand/usage-guide.md; production publication remains separate",
+  "date": "2026-11-04",
+  "colors": [
+    {
+      "id": "blue-50",
+      "name": "Blue mist",
+      "hex": "#EAF5F9",
+      "role": "Quiet sections and information backgrounds",
+      "group": "blue",
+      "ink": "#00445D"
+    },
+    {
+      "id": "blue-100",
+      "name": "Blue veil",
+      "hex": "#D5EAF2",
+      "role": "Selected surfaces and subtle blue fields",
+      "group": "blue",
+      "ink": "#00445D"
+    },
+    {
+      "id": "blue-200",
+      "name": "Blue air",
+      "hex": "#A8D3E4",
+      "role": "Decorative, nonessential diagram fills; use deep blue for text",
+      "group": "blue",
+      "ink": "#00445D"
+    },
+    {
+      "id": "blue-600",
+      "name": "Hallelujah blue",
+      "hex": "#0078A6",
+      "role": "Primary brand and filled main actions",
+      "group": "blue",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "blue-700",
+      "name": "Strong blue",
+      "hex": "#00678D",
+      "role": "All text links and primary hover",
+      "group": "blue",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "blue-800",
+      "name": "Deep blue",
+      "hex": "#00445D",
+      "role": "Headings, pressed actions and closing sections",
+      "group": "blue",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "orange-tint",
+      "name": "Pale orange",
+      "hex": "#FFF0E7",
+      "role": "Pale companion to the supporting orange",
+      "group": "orange",
+      "ink": "#A8430C"
+    },
+    {
+      "id": "orange",
+      "name": "Warm orange",
+      "hex": "#F26522",
+      "role": "Main supporting accent",
+      "group": "orange",
+      "ink": "#17313D"
+    },
+    {
+      "id": "orange-deep",
+      "name": "Deep orange",
+      "hex": "#A8430C",
+      "role": "Deep companion for readable accent pairings",
+      "group": "orange",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "magenta-tint",
+      "name": "Pale magenta",
+      "hex": "#FCEAF2",
+      "role": "Pale companion to the expressive magenta",
+      "group": "magenta",
+      "ink": "#A61558"
+    },
+    {
+      "id": "magenta",
+      "name": "Magenta",
+      "hex": "#D81B72",
+      "role": "Occasional expressive accent",
+      "group": "magenta",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "magenta-deep",
+      "name": "Deep magenta",
+      "hex": "#A61558",
+      "role": "Deep companion for readable accent pairings",
+      "group": "magenta",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "paper",
+      "name": "Warm paper",
+      "hex": "#FBF8F6",
+      "role": "Main canvas; a little warmth around the blue",
+      "group": "neutral",
+      "ink": "#17313D"
+    },
+    {
+      "id": "white",
+      "name": "Clear white",
+      "hex": "#FFFFFF",
+      "role": "Forms, raised content and clean breathing space",
+      "group": "neutral",
+      "ink": "#17313D"
+    },
+    {
+      "id": "ink",
+      "name": "Reading ink",
+      "hex": "#17313D",
+      "role": "Body copy and essential information",
+      "group": "neutral",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "muted",
+      "name": "Slate",
+      "hex": "#52636B",
+      "role": "Secondary text and metadata",
+      "group": "neutral",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "border",
+      "name": "Quiet edge",
+      "hex": "#CBD8DE",
+      "role": "Subtle decorative dividers; not input boundaries",
+      "group": "neutral",
+      "ink": "#17313D"
+    },
+    {
+      "id": "control",
+      "name": "Control edge",
+      "hex": "#718892",
+      "role": "Meaningful form and control outlines",
+      "group": "neutral",
+      "ink": "#17313D"
+    },
+    {
+      "id": "success",
+      "name": "Success",
+      "hex": "#24634B",
+      "background": "#EEF7F1",
+      "role": "A completed or successful action",
+      "group": "status",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "warning",
+      "name": "Caution",
+      "hex": "#80530C",
+      "background": "#FFF6E5",
+      "role": "Something to review before proceeding",
+      "group": "status",
+      "ink": "#FFFFFF"
+    },
+    {
+      "id": "error",
+      "name": "Urgent / error",
+      "hex": "#A33330",
+      "background": "#FBEFED",
+      "role": "Urgent access or an error, separated by words and context",
+      "group": "status",
+      "ink": "#FFFFFF"
+    }
+  ],
+  "semantic": {
+    "surface-page": "paper",
+    "surface-raised": "white",
+    "surface-subtle": "blue-50",
+    "text-primary": "ink",
+    "text-secondary": "muted",
+    "text-heading": "blue-800",
+    "action-primary": "blue-600",
+    "action-hover": "blue-700",
+    "action-active": "blue-800",
+    "text-link": "blue-700",
+    "border-subtle": "border",
+    "border-control": "control",
+    "focus": "blue-800",
+    "text-inverse": "white",
+    "surface-inverse": "blue-800",
+    "status-success": "success",
+    "status-warning": "warning",
+    "status-error": "error",
+    "status-info": "blue-700",
+    "status-urgent": "error",
+    "accent-supporting": "orange",
+    "accent-supporting-subtle": "orange-tint",
+    "accent-supporting-text": "orange-deep",
+    "accent-expressive": "magenta",
+    "accent-expressive-subtle": "magenta-tint",
+    "accent-expressive-text": "magenta-deep"
+  },
+  "version": "1.1"
+}

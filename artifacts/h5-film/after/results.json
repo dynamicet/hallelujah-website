@@ -1,0 +1,147 @@
+[
+  {
+    "width": 1440,
+    "height": 900,
+    "button": {
+      "width": 72,
+      "height": 72,
+      "visible": true
+    },
+    "dialog": {
+      "open": true,
+      "rect": {
+        "x": 200,
+        "y": 96.5,
+        "width": 1040,
+        "height": 707
+      },
+      "video": {
+        "width": 992,
+        "height": 558
+      },
+      "scrollHeight": 707,
+      "clientHeight": 707,
+      "overflow": false,
+      "focus": "Close hospital film"
+    },
+    "closed": true,
+    "focusReturned": true,
+    "unlocked": true
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "button": {
+      "width": 60,
+      "height": 60,
+      "visible": true
+    },
+    "dialog": {
+      "open": true,
+      "rect": {
+        "x": 24,
+        "y": 248.5,
+        "width": 720,
+        "height": 527
+      },
+      "video": {
+        "width": 672,
+        "height": 378
+      },
+      "scrollHeight": 527,
+      "clientHeight": 527,
+      "overflow": false,
+      "focus": "Close hospital film"
+    },
+    "closed": true,
+    "focusReturned": true,
+    "unlocked": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "button": {
+      "width": 56,
+      "height": 56,
+      "visible": true
+    },
+    "dialog": {
+      "open": true,
+      "rect": {
+        "x": 12,
+        "y": 253.0625,
+        "width": 366,
+        "height": 337.875
+      },
+      "video": {
+        "width": 334,
+        "height": 187.875
+      },
+      "scrollHeight": 338,
+      "clientHeight": 338,
+      "overflow": false,
+      "focus": "Close hospital film"
+    },
+    "closed": true,
+    "focusReturned": true,
+    "unlocked": true
+  },
+  {
+    "width": 320,
+    "height": 740,
+    "button": {
+      "width": 56,
+      "height": 56,
+      "visible": true
+    },
+    "dialog": {
+      "open": true,
+      "rect": {
+        "x": 12,
+        "y": 220.75,
+        "width": 296,
+        "height": 298.5
+      },
+      "video": {
+        "width": 264,
+        "height": 148.5
+      },
+      "scrollHeight": 299,
+      "clientHeight": 299,
+      "overflow": false,
+      "focus": "Close hospital film"
+    },
+    "closed": true,
+    "focusReturned": true,
+    "unlocked": true
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "button": {
+      "width": 60,
+      "height": 60,
+      "visible": true
+    },
+    "dialog": {
+      "open": true,
+      "rect": {
+        "x": 212.21875,
+        "y": 25.5,
+        "width": 419.546875,
+        "height": 338.984375
+      },
+      "video": {
+        "width": 387.546875,
+        "height": 217.984375
+      },
+      "scrollHeight": 339,
+      "clientHeight": 339,
+      "overflow": false,
+      "focus": "Close hospital film"
+    },
+    "closed": true,
+    "focusReturned": true,
+    "unlocked": true
+  }
+]

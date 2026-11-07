@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { homeContactView } from '../../content/home-contact-view'
 import type { WorkflowDocument } from '../../content/cms-workflow'
 import type { GovernedLocale } from '../../content/governed-record'
@@ -7,6 +8,7 @@ import { HomeTemplate, type HomeTemplateProps } from './home-template'
 import styles from './home-contact-template.module.css'
 
 export interface HomeContactTemplateProps extends Omit<HomeTemplateProps, 'contactDetails'> {
+  readonly demonstrationContactDetails?: ReactNode
   readonly documents: readonly WorkflowDocument[]
   readonly locale: GovernedLocale
   readonly now: Date
@@ -50,11 +52,11 @@ function ContactDetails({ view, locale }: { readonly view: ContactView; readonly
 }
 
 // Canonical data is projected anew for every server render. Fixture contact targets stay inert.
-export function HomeContactTemplate({ documents, locale, now, mode, tasks, ...props }: HomeContactTemplateProps) {
+export function HomeContactTemplate({ demonstrationContactDetails, documents, locale, now, mode, tasks, ...props }: HomeContactTemplateProps) {
   const view = homeContactView(documents, locale, now, mode)
   return <HomeTemplate {...props} tasks={{ ...tasks,
     call: { ...tasks.call, href: '#home-call' },
     directions: { ...tasks.directions, href: '#home-directions' },
-    emergency: { label: tasks.emergency.label, href: '#home-emergency' },
-  }} contactDetails={<ContactDetails view={view} locale={locale} />} />
+    emergency: tasks.emergency,
+  }} contactDetails={demonstrationContactDetails ?? <ContactDetails view={view} locale={locale} />} />
 }

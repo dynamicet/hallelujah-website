@@ -1,0 +1,35 @@
+Hallelujah General Hospital — homepage background loop
+
+18 seconds, 25 fps; silent (no audio stream).
+Desktop: 1920 x 1080 (16:9), H.264 MP4 and VP9 WebM.
+Mobile: 540 x 960 (9:16), H.264 MP4 and VP9 WebM.
+Matching still posters: WebP, one per aspect ratio.
+MP4 files use fast-start placement for progressive playback.
+
+Edit: cropped IV drip detail, then gloved clinician writing, returning to IV.
+Gentle retiming, eased one-second cross-dissolves, neutral warm whites and
+restrained teal glove/pen colour. No added text, logos, graphics or music.
+Desktop retains the original full frame at native resolution, without enlargement.
+The writing shot has an out-of-focus patient in the source background; no
+identifying close-up is introduced. Original incidental equipment/chart print
+remains in the wider framing. No text, logos or graphics have been added.
+The emergency/CPR and dialysis shots were omitted. Mobile uses separate
+shot-specific framing downscaled from the source, without enlargement.
+Natural background defocus in the original footage is retained.
+
+Sources used (original files preserved):
+8311314-hd_1920_1080_25fps.mp4: 00:00.400–00:05.400
+49813-458438871.mp4: 00:01.000–00:09.000
+
+Rights: user confirmed that all supplied clips are cleared for public website
+use, including consent/model releases for identifiable patients and staff.
+No independent release documents were supplied or verified.
+
+Implementation: choose portrait assets for narrow portrait containers; desktop
+assets for landscape containers. Use object-fit: cover; object-position: center.
+Use autoplay muted loop playsinline, serve WebM first with MP4 fallback,
+and use the matching poster. Respect reduced motion by showing the poster.
+Use the poster if autoplay fails. These assets are exports; homepage code has
+not been modified.
+
+Rebuild: python3 work/render.py (FFmpeg 8 with libx264, libvpx-vp9, libwebp).

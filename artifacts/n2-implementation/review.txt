@@ -1,0 +1,51 @@
+N2 implementation — 2 November 2026
+
+Scope: local public website; existing palette, type, content and destinations preserved.
+No new design direction was drawn for this focused component change.
+
+Interior routes use an explicit compact footer variant supplied by demoShell.
+It keeps all 12 navigation destinations and 44px targets, removes the promotion
+and redundant doctor CTA, and uses a small hospital wordmark. The shared footer
+still defaults to full for other callers; this does not alter governed content.
+The homepage retains its large wordmark and curved closing field, with the
+non-service-claim wording "Your care. Your visit." Shared action corners are
+square. The homepage consultation photo keeps its curve as a selected image
+frame. No imagery was added or replaced. The cyan collage was already removed.
+
+Browser coverage: eight routes at four widths (1440, 768, 390, 320), four
+200% root-font preference checks, keyboard Tab with visible outline, Enter
+on Back to top, and server-rendered footer links with scripts disabled.
+See results.json for all 39 records and exact footer dimensions.
+Footer heights before -> after: 1440px 860.5 -> 337.5; 768px 786.89 -> 469.5;
+390px 952.92 -> 468. The final 320px footer is 520.14px tall, with two link
+groups at standard text size. Desktop and mobile reductions are 61% and 51%.
+Font preference simulation is not native browser zoom or accessibility certification.
+Initial capture timing was corrected to use instant scrolling; keyboard focus
+scrolling is allowed to settle before activating Back to top. The final run
+checks real key events. No form was submitted.
+
+Technical checks: typecheck, shell:check, tokens:check, focused ESLint, design
+source lint and production build passed. Source lint: 0 FAIL, 0 WARN.
+Feedback inspector: 3 FAIL, 2 WARN, not a pass. The flagged form-entry action is
+useful navigation, rather than a decorative eyebrow; extra photos, footage and
+animation would not explain this task; "Patient feedback" and its supporting
+sentence explain the purpose. These unchanged marketing heuristics are not N2
+acceptance failures and have not been hidden from the report.
+
+ROUND 1 — focused footer review
+Seen in one second: useful care and visit navigation followed by hospital identity.
+Idea (one sentence): the hospital name closes the journey at a scale appropriate to its task.
+Live thing: existing navigation and keyboard-operable return to the page top.
+Layout words by section: task=form / supporting-information=text / footer=grouped-links.
+Scores (whole feedback page, not a new site rating): design 7 / usability 8 /
+creativity 6 / content 6 -> raw 7.1, capped overall 6.0.
+Caps applied: existing inspector FAILs; a task page lacks marketing photography.
+Top three review points:
+1. Previous oversized footer: resolved by compact navigation (feedback-1440.jpg).
+2. Previous repeated control corners: resolved by square shared actions
+   (inspect-feedback/desktop-fold.jpg).
+3. Mobile footer must retain readable links: two groups at standard text size,
+   collapsing as needed for enlarged fonts (feedback-390.jpg; results.json).
+The homepage retains a deliberate full brand close (home-1440.jpg, home-768.jpg,
+home-390.jpg). Final inspector fold and contact-sheet captures were visually
+reviewed at all three widths. Unverified hospital content remains preview content.

@@ -1,0 +1,50 @@
+H6 implementation review — 2 November 2026
+
+Authorized scope: refine all current H6 findings except unavailable contacts.
+Direction: match existing shell, palette, fonts and imagery; no draw or new assets.
+Help keeps the existing two choices. Contacts and disclosure remain as before.
+
+Measured before → after:
+- 320/390px phone header: 176 → 156px; content starts 227 → 207px.
+- Contact row: 92 → 92px; each contact target remains 44px.
+- Phone identity row: 84 → 64px; menu target remains 48px.
+- 390px open menu: 412 → 392px, with a new 44px close button and one doctor entry.
+- 844×390 menu: 166px window/412px content → 270px window/270px content.
+- 844×390 guide: 440×342px → 820×374px; conversation and composer share a row.
+- 568×320 guide: single scrollable dialog with sticky close header, eliminating
+  the fixed toolbar/composer stack that previously squeezed the conversation.
+
+Verification:
+- Five baseline sizes: native Enter opening; reflected expanded state; explicit
+  Close label/X and close button; Escape and focus return; menu toggle dismissal;
+  guide opening, forward focus sampling and Escape; no page horizontal overflow
+  or observed JavaScript exceptions. See results.json.
+- Breakpoints: 599/600, 719/720 and 1023/1024, plus 667×375, 568×320 and
+  1440×390. Navigation and dialog bounds fit; landscape menu requires no internal
+  scrolling at the tested landscape sizes. Topic-generated replies work.
+- Menu opening and explicit close-button dismissal also work with scripts disabled.
+- Reduced-motion header remains stationary and measures 156px at 390px width.
+- TypeScript, focused ESLint, shell contracts and production build pass.
+- Homepage inspector: 0 FAIL, 5 existing WARN. All ten inspector captures reviewed.
+  Source design lint: 0 FAIL, 7 outlined-box warnings for existing guide interface
+  borders, which remain appropriate for the guide's data-ui interface.
+
+Limits: Chromium emulation, not physical phones or a screen-reader audit. Very
+short screens still need scrolling for a long conversation. Unavailable contacts
+remain explicitly outside this change; H6's overall checkbox stays open for them.
+
+ROUND 2
+Seen in one second: the same contact row, followed by a more compact identity row.
+Idea (one sentence): the shell provides clear care routes with explicit dismissal.
+Live thing: native navigation, appointment link and automated patient guide.
+Layout words by section: utility=stacked rows / header=compact identity and menu /
+navigation=overlay list or landscape columns / help=choice / guide=conversation.
+Scores: design 7.5 · usability 8 · creativity 5 · content 6 → overall 7.0.
+Caps applied: conventional shell; score covers these components, not the whole site.
+Top three remaining observations, most visible first:
+1. 390x844-initial.jpg: unavailable contacts remain visually active, deliberately
+   excluded by the user. No change proposed within this scope.
+2. extra/568x320-guide.jpg: narrow landscape needs scrolling, with one scroll
+   surface and a persistent close button instead of a tiny transcript window.
+3. after/inspect/report.json: five whole-page warnings remain from the baseline;
+   these are outside the header/menu/guide work and are not introduced here.

@@ -1,7 +1,12 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
+import type { GuideCatalog } from '@/patient-guide/types'
 
-import styles from './global-shell.module.css'
+import { HelpWidget } from './help-widget'
+import { GuideLauncher } from './guide-launcher'
+import { HeaderContacts, type HeaderContactTargets } from './header-contacts'
+import styles from './hospital-shell.module.css'
+import { hospitalContact } from '../../website/hospital-contact'
 
 export interface NavigationItem {
   readonly current?: boolean
@@ -42,6 +47,8 @@ export type SiteHeaderNavigationMode = 'compact' | 'responsive'
 export interface SiteHeaderProps {
   readonly brandMark?: ReactNode
   readonly brandName: string
+  readonly contactTargets?: HeaderContactTargets
+  readonly previewEmergencyNumber?: string
   readonly emergencyAction: ReactNode
   readonly homeHref: string
   readonly homeLabel: string
@@ -66,13 +73,16 @@ export interface FooterLinkGroup {
 }
 
 export interface SiteFooterProps {
+  readonly contact?: { readonly address: string; readonly phone: string; readonly phoneHref: string }
+  readonly variant?: 'full' | 'compact'
   readonly brandName: string
-  readonly description: string
+  readonly description?: string
   readonly groups: readonly FooterLinkGroup[]
   readonly navigationLabel: string
 }
 
 export interface SiteShellProps {
+  readonly patientGuide?: GuideCatalog
   readonly breadcrumbs?: BreadcrumbsProps
   readonly children: ReactNode
   readonly footer: SiteFooterProps
@@ -128,7 +138,8 @@ export function LanguageSwitcher({
     <details className={styles.languageSwitcher} data-language-switcher>
       <summary aria-label={`${label}: ${currentLabel}`} className={styles.languageTrigger}>
         <span aria-current="true" className={styles.currentLanguage} lang={currentLang}>
-          {currentLabel}
+          <span className={styles.languageFull}>{currentLabel}</span>
+          <span aria-hidden="true" className={styles.languageShort}>{currentLang.split('-')[0].toUpperCase()}</span>
         </span>
         <svg aria-hidden="true" className={styles.languageChevron} focusable="false" viewBox="0 0 24 24">
           <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" />
@@ -141,9 +152,9 @@ export function LanguageSwitcher({
           </Link>
         ) : (
           <>
-            <span aria-describedby={reasonId} aria-disabled="true" lang={alternate.lang}>
-              {alternate.label}
-            </span>
+            <button aria-describedby={reasonId} disabled lang={alternate.lang} type="button">
+              {alternate.label} · Unavailable
+            </button>
             <p className={styles.languageReason} id={reasonId}>
               {alternate.reason}
             </p>
@@ -157,6 +168,8 @@ export function LanguageSwitcher({
 export function SiteHeader({
   brandMark,
   brandName,
+  contactTargets,
+  previewEmergencyNumber,
   emergencyAction,
   homeHref,
   homeLabel,
@@ -170,14 +183,45 @@ export function SiteHeader({
   searchItem,
 }: SiteHeaderProps) {
   if (!homeLabel.trim()) throw new Error('SiteHeader homeLabel must not be empty')
-  const primaryNavigationItems = navigationItems.filter((item) => item.href !== searchItem.href)
+  const publicWebsite = homeHref === '/'
+  const primaryNavigationItems = navigationItems
+    .filter((item) => !(publicWebsite ? [searchItem.href, '/', '/appointment'] : [searchItem.href]).includes(item.href))
+    .map((item) => publicWebsite ? { ...item, label: ({ Doctors: 'Find a doctor', Services: 'Care & services', Directions: 'Your visit' } as Record<string, string>)[item.label] ?? item.label } : item)
 
   return (
     <header
       className={styles.header}
       data-navigation-mode={navigationMode}
       data-site-header
+      data-public-shell={publicWebsite || undefined}
     >
+      {publicWebsite ? (
+        <div className={styles.utilityBar} data-top-bar>
+          <div className={styles.utilityInner}>
+            <HeaderContacts targets={contactTargets} />
+            <div className={styles.utilityLinks}>
+              <div className={styles.utilityContext}>
+                <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link><GuideLauncher /></div>
+                <Link className={styles.contactDirections} href="/#home-directions">Contact & directions</Link>
+              </div>
+              <div className={styles.utilityEssentials}>
+                {languageSwitcher}
+                {previewEmergencyNumber ? (
+                  <div aria-label="Emergency help" className={styles.emergencyActions} role="group">
+                    <button aria-disabled="true" aria-label={`Call emergency hotline ${previewEmergencyNumber}. Preview only; not connected.`} className={styles.emergencyCall} title="Mock hotline. Calling is not connected." type="button">
+                      <span className={styles.emergencyLabel}>Emergency <span aria-hidden="true">·</span></span>
+                      <strong>{previewEmergencyNumber}</strong>
+                    </button>
+                    <Link aria-label="Emergency information" className={styles.emergencyInfoLink} href="/emergency">Emergency information<span aria-hidden="true"> →</span></Link>
+                  </div>
+                ) : (
+                  <Link className={styles.urgentLink} href="/emergency">Emergency<span className={styles.emergencyDetail}>&nbsp;information</span> <span aria-hidden="true">→</span></Link>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
       <div className={styles.headerInner}>
         <Link
           aria-label={homeLabel}
@@ -191,7 +235,7 @@ export function SiteHeader({
               {brandMark}
             </span>
           ) : null}
-          <span>{brandName}</span>
+          <span className={styles.wordmark}>{brandName === 'Hallelujah Hospital' ? <>Hallelujah<span>Hospital</span></> : brandName}</span>
         </Link>
 
         <button
@@ -208,7 +252,8 @@ export function SiteHeader({
             <span />
             <span />
           </span>
-          <span>{menuLabel}</span>
+          <span className={styles.menuOpenLabel}>{menuLabel}</span>
+          <span className={styles.menuCloseLabel}>Close</span>
         </button>
 
         <div
@@ -218,8 +263,15 @@ export function SiteHeader({
           popover="auto"
           tabIndex={-1}
         >
+          {publicWebsite ? <Link className={styles.mobileAppointment} href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link> : null}
           <PrimaryNavigation items={primaryNavigationItems} label={primaryNavigationLabel} />
-          <div className={styles.headerUtilities} data-shell-utilities>
+          {publicWebsite ? <Link className={styles.aboutLink} href="/#about-hallelujah">About Hallelujah</Link> : null}
+          {publicWebsite ? <div className={styles.menuResources}>
+            <Link href="/emergency">Emergency information →</Link>
+            <Link href="/health-topics">Health &amp; care topics →</Link>
+            <GuideLauncher />
+          </div> : null}
+          {!publicWebsite ? <div className={styles.headerUtilities} data-shell-utilities>
             <Link
               aria-current={searchItem.current ? 'page' : undefined}
               className={styles.utilityLink}
@@ -228,8 +280,14 @@ export function SiteHeader({
             >
               {searchItem.label}
             </Link>
-            {languageSwitcher}
-          </div>
+            {!publicWebsite ? languageSwitcher : null}
+          </div> : null}
+          {publicWebsite ? <div className={styles.mobileVisitActions} aria-label="Plan your arrival" role="group">
+            <a href={hospitalContact.phoneHref}>Call the hospital <span>{hospitalContact.phone}</span></a>
+            {/* Native fragment navigation transfers keyboard focus to the arrival section. */}
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+            <a href="/#home-directions">Contact &amp; directions <span aria-hidden="true">→</span></a>
+          </div> : null}
           {routineAction ? (
             <div className={styles.headerRoutine} data-shell-routine>
               {routineAction}
@@ -238,7 +296,7 @@ export function SiteHeader({
         </div>
 
         <div className={styles.headerEmergency} data-shell-emergency>
-          {emergencyAction}
+          {publicWebsite ? <Link className={styles.appointmentLink} href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link> : emergencyAction}
         </div>
       </div>
     </header>
@@ -264,18 +322,25 @@ export function Breadcrumbs({ items, label }: BreadcrumbsProps) {
 }
 
 export function SiteFooter({
+  contact,
+  variant = 'full',
   brandName,
   description,
   groups,
   navigationLabel,
 }: SiteFooterProps) {
+  const careLinks = groups.flatMap((group) => group.links)
+  const careLink = careLinks.find((link) => link.href === '/appointment') ?? careLinks.find((link) => link.href === '/doctors')
   return (
-    <footer className={styles.footer} data-site-footer>
+    <footer className={styles.footer} data-site-footer data-footer-variant={variant}>
       <div className={styles.footerInner}>
-        <div className={styles.footerIdentity}>
-          <strong>{brandName}</strong>
-          <p>{description}</p>
-        </div>
+        {variant === 'full' ? (
+          <div className={styles.footerIdentity}>
+            <h2>Your care.<br />Your visit.</h2>
+            {description ? <p>{description}</p> : null}
+            {careLink ? <Link className={styles.footerAction} href={careLink.href}>{careLink.href === '/appointment' ? 'Request an appointment' : 'Find a doctor'} <span aria-hidden="true">→</span></Link> : null}
+          </div>
+        ) : null}
         <nav aria-label={navigationLabel} className={styles.footerNavigation}>
           {groups.map((group) => (
             <section aria-labelledby={`footer-${slugify(group.label)}`} key={group.label}>
@@ -291,6 +356,16 @@ export function SiteFooter({
           ))}
         </nav>
       </div>
+      <div className={styles.footerClose}>
+        <strong>{variant === 'compact' ? brandName : brandName.replace(' Hospital', '')}</strong>
+        <div>
+          {contact ? <address className={styles.footerContact}>
+            <span>{contact.address}</span>
+            <a href={contact.phoneHref}>{contact.phone}</a>
+          </address> : null}
+          <a href="#">Back to top ↑</a>
+        </div>
+      </div>
     </footer>
   )
 }
@@ -302,6 +377,7 @@ export function SiteShell({
   header,
   mainId = 'main-content',
   notice,
+  patientGuide,
   skipLinkLabel,
 }: SiteShellProps) {
   return (
@@ -322,7 +398,7 @@ export function SiteShell({
         {children}
       </main>
       <SiteFooter {...footer} />
-      <script data-shell-navigation-script defer src="/shell-navigation.js" />
+      {header.homeHref === '/' ? <HelpWidget guide={patientGuide} /> : null}
     </>
   )
 }

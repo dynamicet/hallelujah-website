@@ -96,3 +96,47 @@ on every server render; no Home-specific record cache is introduced. The
 [execution brief](../backlog/b03-006-home-governed-omissions.md) and
 [evidence](../backlog/evidence/B03-006-home-governed-omissions-2026-09-19.md) retain the authentic
 care/institutional, language, route, production and publication gates.
+
+## Public local-preview composition — November 2026
+
+The ready local preview uses `src/website/home.tsx`; the governed template and its
+omission contracts above remain independent. The preview now follows this order:
+opening and unified care search → health-topic finder → specialty explorer → three
+featured clinician identities → human-care image, figures and two native story
+disclosures → visit preparation and arrival → partners → editorial lead and two
+links → shared teal footer. There is no separate navigator or homepage film trigger.
+
+`CareSearch` defaults to the doctor directory, retains one query when changing the
+Doctor/Service select, and submits native GET `q` requests. Its no-JavaScript
+fallback also supplies a service GET form. Help choosing care opens the existing
+patient guide and returns keyboard focus to its original launcher. Guide code is
+loaded on request; appointment simulation code belongs to the appointment route.
+The controller's request/state behavior is unchanged.
+
+`CareSpotlight` owns only internal specialty presentation records: stable image ID,
+label, short explanation and existing service-query destination. Selection updates
+copy, destination and `aria-pressed` immediately; overlapping, dimension-reserved
+pictures crossfade for 350ms. No-JavaScript links expose all three destinations.
+Clinician IDs, portrait assignments, canonical profiles and appointment IDs are
+unchanged. Only the first three portraits are featured on the homepage.
+
+`HomeScenes` scopes its scroll listener and animation-frame cleanup to the mounted
+homepage. Hero image scale follows its exit from 1 to 1.06. On desktop, the human-care
+image scales from .9 to 1 in a sticky 180vh section filled by the image throughout
+its hold. Smaller screens, reduced motion and no JavaScript use the settled image.
+Entrances use IntersectionObserver and CSS animations controlled and cancelled
+through the Web Animations API: 16px text/24px image travel, 700ms, 80ms stagger.
+Preference changes and route unmounts cancel active effects. Essential actions
+have no entrance gate. Native story/visit disclosures remain usable without script.
+
+Homepage geometry is scoped under `.enhanced-home` in `home-enhancement.css`; it
+uses the shared palette/font tokens and 64/32/20px gutters. Shared header changes
+keep a solid main navigation visible while the measured utility row scrolls out.
+Native mobile popover behavior, emergency information and language availability
+remain intact. The footer's principal care action now uses the appointment route
+when the supplied navigation includes it.
+
+Run `pnpm home-enhancement:check` for the new SSR/search/asset contract, alongside
+existing home, contact, governed, search, shell, care-journey and patient-guide checks.
+See [visual review and asset notes](../visual-design/home-enhancement.md) for evidence,
+asset provenance and remaining limitations.

@@ -2,11 +2,7 @@ import { execFileSync } from 'node:child_process'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
-import {
-  collectRepositoryFiles,
-  repositoryRelative,
-  repositoryRoot,
-} from './lib/repository-files.mjs'
+import { repositoryRelative, repositoryRoot } from './lib/repository-files.mjs'
 
 const inspectExtensions = new Set([
   '.css',
@@ -32,12 +28,17 @@ const signatureRules = [
   ['Slack token', /xox[baprs]-[A-Za-z0-9-]{20,}/gu],
   ['Stripe live key', /(?:sk|rk)_live_[A-Za-z0-9]{16,}/gu],
 ]
-const files = await collectRepositoryFiles({
-  include: (file) => {
+const repositoryFiles = execFileSync(
+  'git',
+  ['ls-files', '--cached', '--others', '--exclude-standard', '-z'],
+  { cwd: repositoryRoot, encoding: 'utf8' },
+)
+const files = [...new Set(repositoryFiles.split('\0').filter(Boolean))]
+  .map((file) => path.join(repositoryRoot, file))
+  .filter((file) => {
     const basename = path.basename(file)
     return inspectExtensions.has(path.extname(file)) || basename.startsWith('.env') || basename === '.npmrc'
-  },
-})
+  })
 const failures = []
 
 function inspect(label, contents) {

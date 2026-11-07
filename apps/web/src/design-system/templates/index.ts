@@ -39,3 +39,4 @@ export type {
   ServiceDirectoryReviewState,
   ServiceDirectoryTemplateProps,
 } from './service-directory-template'
+export { HydrationReady } from './hydration-ready'

@@ -1,0 +1,76 @@
+Hallelujah hero fixes — 27 October 2026
+
+Scope: current local demo hero in WebsiteHome; existing stack, palette,
+typefaces, search behavior, warm promise and emblem-inspired frame retained.
+Single-section refinement: no new direction or redraw.
+
+Changes
+The supporting sentence now names Hallelujah General Hospital, the approved
+public identity in docs/brand/README.md, and explains that doctor profiles can
+be explored by specialty and language.
+Request an appointment is directly beneath search, alongside or above Browse
+doctor profiles. Both are ordinary links to their existing routes. Removing
+the duplicated profile-description line makes room for the appointment action.
+From 600 to 1099px, the photo spans the hero above a two-column copy/search
+area. Its crop favors the upper part of the scene so both faces fit. This
+replaces the portrait-shaped crop that cut off the younger woman's face.
+Phone and desktop retain their existing overall compositions.
+
+Copy deck
+Care with open arms.
+Hallelujah General Hospital. Choose a doctor by specialty and language.
+Find a doctor / Name or specialty / Search.
+Request an appointment / Browse doctor profiles.
+
+ROUND 2
+Seen in one second: a family welcome and a clear route to finding a doctor.
+Idea (one sentence): the emblem's open arms frame the welcome and the next
+steps into care, now with directly accessible appointment navigation.
+Live thing: existing doctor search and appointment navigation.
+Layout words by section: desktop hero=split / tablet hero=wide photograph above
+two-column copy and search / phone hero=photograph above copy and actions.
+Scores: design 8.0 · usability 8.5 · creativity 6.0 · content 7.0 → overall 7.7.
+Caps applied: creativity <=6; the underlying promise and family scene remain
+applicable to competing hospitals. Stronger institutional evidence requires
+approved hospital content, rather than more styling.
+Top three findings, with final screenshots:
+1. The appointment action is visible on the phone's first screen
+   (final/mobile-fold.jpg, hero-320.jpg). At 320x740 its bottom is 702px;
+   at 390x844 it is 716px. Targets are at least 44px high.
+2. Both faces are visible in the tablet image (final/tablet-fold.jpg;
+   hero-600.jpg, hero-900.jpg, hero-1024.jpg). The wider framing avoids the
+   earlier edge crop while keeping the care actions on the first screen.
+3. Institutional specificity improves through the full approved name and
+   useful directory detail, but authentic photography and clinical evidence
+   remain unavailable. The concept scene and its disclosure are retained.
+
+Validation
+Taste source lint: 0 FAIL, 0 WARN.
+Targeted ESLint: passed. pnpm typecheck: passed. git diff --check: passed.
+Responsive browser checks: 320,390,599,600,768,900,1024,1099,1100,1440px.
+At every width: no horizontal overflow, heading fits its column, loaded hero
+image, search/appointment targets >=44px, appointment within the first screen.
+Reduced motion: zero active animations. Appointment link navigates correctly.
+Final Taste inspection at 1440,768,390px: 0 FAIL, 3 WARN, with --allow eyebrow
+for the semantic AI-provenance figcaption (same exception as the baseline).
+Headlines remain two lines: 93.6px desktop, 48.4px tablet, 48px phone.
+The unchanged page-wide warnings concern card rows, total font-size count and
+absence of footage. They are outside this hero refinement; no unrelated clip
+was introduced. All final inspector screenshots and sheets were opened.
+Existing demo journey suite: 18 route/journey groups passed, including doctor
+search without JavaScript; zero browser errors/warnings, unexpected failed
+loads or HTTP errors. Existing intentional no-JavaScript blocks were expected.
+
+Imagery and content limits
+No new assets, external requests, sample hospital facts or clinical claims.
+Existing open-arms-family.webp is an AI-generated fictional family scene;
+its existing source record is apps/web/public/editorial/CARE-IMAGERY.txt.
+Disclosure remains in the figure and shared footer. No approved hospital
+photography exists in the project. The public-source content snapshot is
+unverified; it was not promoted to approved hospital evidence. Actual hospital
+photography and a verified reason to choose the hospital remain future inputs.
+
+Evidence
+Baseline: ../hero-reference-review/validated/.
+Final screenshots/report: final/.
+Additional breakpoint screenshots and geometry: hero-*.jpg, measurements.json.

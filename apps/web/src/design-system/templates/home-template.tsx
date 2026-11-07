@@ -36,6 +36,7 @@ export interface HomeTemplateProps {
   readonly contactDetails?: ReactNode
   readonly description: string
   readonly eyebrow: string
+  readonly heroArtwork?: ReactNode
   readonly media?: {
     readonly placement: 'hero' | 'story'
     readonly presentation: OptInMediaProps
@@ -49,22 +50,24 @@ export interface HomeTemplateProps {
   readonly title: string
   readonly searchDescription: string
   readonly searchHeading: string
+  readonly searchAction?: string
+  readonly showArrivalArtwork?: boolean
   readonly showJourneyGuidance?: boolean
   readonly showSupportBand?: boolean
 }
 
 export function HomeVisitGuidance() {
   const stages = [
-    ['Before', 'Prepare for your visit', 'Review what to bring and how to prepare.'],
-    ['During', 'Navigate your visit', 'Understand arrival and on-site support.'],
-    ['After', 'Understand next steps', 'Find follow-up and continuing-care guidance.'],
+    ['Before', 'Prepare for your visit', 'Check the appointment details you have, note questions to ask, and bring any records you have been asked to share.'],
+    ['During', 'Navigate your visit', 'Use the arrival information below to identify the example entrance. Ask the reception team where to go for your visit.'],
+    ['After', 'Understand next steps', 'Keep the instructions given during your visit and check whom to contact if a follow-up is needed.'],
   ] as const
 
   return (
     <section aria-labelledby="home-visit-title" className={`${styles.section} ${styles.visit}`} data-home-section="H6">
       <div className={styles.sectionHeading}>
         <p className={styles.eyebrow}>Patient journey guidance</p>
-        <h2 id="home-visit-title">Plan your visit</h2>
+        <h2 id="home-visit-title">A more comfortable visit.</h2>
       </div>
       <div className={styles.visitGrid}>
         {stages.map(([stage, heading, description]) => (
@@ -72,6 +75,9 @@ export function HomeVisitGuidance() {
             <p className={styles.stage}>{stage}</p>
             <h3>{heading}</h3>
             <p>{description}</p>
+            <a href={stage === 'Before' ? '/appointment' : '#home-directions'}>
+              {stage === 'Before' ? 'Review the request journey' : 'Review arrival information'}
+            </a>
           </article>
         ))}
       </div>
@@ -81,12 +87,12 @@ export function HomeVisitGuidance() {
 
 export function HomeSupportBand({ href }: { readonly href: string }) {
   return (
-    <section aria-labelledby="home-support-title" className={styles.supportBand} data-home-section="H9">
+    <section aria-labelledby="home-support-title" className={`${styles.supportBand} ds-support-band`} data-home-section="H9">
       <div>
-        <h2 id="home-support-title">Need help choosing?</h2>
-        <p>Use the hospital contact route for staffed guidance.</p>
+        <h2 id="home-support-title">Let’s make the first conversation easier.</h2>
+        <p>Review contact and arrival information before choosing your next step.</p>
       </div>
-      <ActionLink href={href} label="Contact the hospital" variant="secondary" />
+      <ActionLink href={href} label="Review contact information" variant="secondary" />
     </section>
   )
 }
@@ -98,6 +104,7 @@ export function HomeTemplate({
   contactDetails,
   description,
   eyebrow,
+  heroArtwork,
   governedContent,
   institutionalContent,
   media,
@@ -107,6 +114,8 @@ export function HomeTemplate({
   title,
   searchDescription,
   searchHeading,
+  searchAction,
+  showArrivalArtwork = false,
   showJourneyGuidance = false,
   showSupportBand = false,
 }: HomeTemplateProps) {
@@ -139,12 +148,12 @@ export function HomeTemplate({
               <EmergencyAction compact href={tasks.emergency.href} label={tasks.emergency.label} />
             </div>
           </div>
-          {media?.placement === 'hero' ? (
+          {heroArtwork ?? (media?.placement === 'hero' ? (
             <div className={styles.media} data-home-media="hero">
               <OptInMedia {...media.presentation} />
               <noscript><p>Video playback requires JavaScript. The written still and transcript remain available.</p></noscript>
             </div>
-          ) : null}
+          ) : null)}
         </section>
 
         <section aria-labelledby="home-tasks-title" className={`${styles.section} ${styles.taskSection}`} data-home-section="H2">
@@ -160,11 +169,21 @@ export function HomeTemplate({
         </section>
 
         <section aria-labelledby="home-search-title" className={`${styles.section} ${styles.search}`} data-home-section="H3">
-          <div className="ds-flow ds-reading">
+          <div className={styles.searchIntroduction}>
             <h2 id="home-search-title">{searchHeading}</h2>
             <p>{searchDescription}</p>
-            <ActionLink href={tasks.search.href} label={tasks.search.label} variant="tertiary" />
           </div>
+          {searchAction ? (
+            <form action={searchAction} className={styles.searchForm} method="get" role="search">
+              <div className={styles.searchField}>
+                <label htmlFor="home-search-query">Search doctors by name or area of care</label>
+                <input aria-describedby="home-search-hint" autoComplete="off" id="home-search-query"
+                  maxLength={120} name="q" type="search" />
+                <p id="home-search-hint">Use a care term or doctor name. Do not enter personal or medical details.</p>
+              </div>
+              <button className="ds-touch-target" type="submit">Search doctors</button>
+            </form>
+          ) : <ActionLink href={tasks.search.href} label={tasks.search.label} variant="tertiary" />}
         </section>
 
         {careContent ?? governedContent}
@@ -174,7 +193,12 @@ export function HomeTemplate({
         {contactDetails ? (
           <section aria-label="Contact and arrival information" className={`${styles.section} ${styles.contact}`} data-home-section="H7" data-experience-level="0">
             <div className={styles.contactContent}>{contactDetails}</div>
-            <div aria-hidden="true" className={styles.arrivalPlane} />
+            {showArrivalArtwork ? <div aria-hidden="true" className={styles.arrivalPlane} data-home-arrival-artwork>
+              <span className={styles.arrivalRoute} />
+              <span className={`${styles.arrivalStation} ${styles.arrivalStationFirst}`}>Plan</span>
+              <span className={`${styles.arrivalStation} ${styles.arrivalStationSecond}`}>Arrive</span>
+              <span className={`${styles.arrivalStation} ${styles.arrivalStationThird}`}>Ask</span>
+            </div> : null}
           </section>
         ) : null}
 
@@ -190,7 +214,6 @@ export function HomeTemplate({
         ) : null}
         {showSupportBand ? <HomeSupportBand href={tasks.call.href} /> : null}
       </div>
-      <script data-motion-media-script defer src="/motion-media.js" />
     </SiteShell>
   )
 }

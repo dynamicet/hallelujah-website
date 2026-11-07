@@ -1,0 +1,91 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "route": "/",
+      "search": true,
+      "alias": true,
+      "letterKeyboard": true,
+      "mutualReset": true,
+      "empty": true,
+      "allTopics": true,
+      "focus": true,
+      "choiceFallback": true,
+      "reducedMotion": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "route": "/health-topics",
+      "search": true,
+      "alias": true,
+      "letterKeyboard": true,
+      "mutualReset": true,
+      "empty": true,
+      "allTopics": true,
+      "focus": true,
+      "choiceFallback": true,
+      "reducedMotion": true,
+      "noOverflow": true
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "search": true,
+      "alias": true,
+      "letterKeyboard": true,
+      "mutualReset": true,
+      "empty": true,
+      "allTopics": true,
+      "focus": true,
+      "choiceFallback": true,
+      "reducedMotion": true,
+      "noOverflow": true
+    },
+    {
+      "width": 768,
+      "route": "/health-topics",
+      "search": true,
+      "alias": true,
+      "letterKeyboard": true,
+      "mutualReset": true,
+      "empty": true,
+      "allTopics": true,
+      "focus": true,
+      "choiceFallback": true,
+      "reducedMotion": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "search": true,
+      "alias": true,
+      "letterKeyboard": true,
+      "mutualReset": true,
+      "empty": true,
+      "allTopics": true,
+      "focus": true,
+      "choiceFallback": true,
+      "reducedMotion": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "route": "/health-topics",
+      "search": true,
+      "alias": true,
+      "letterKeyboard": true,
+      "mutualReset": true,
+      "empty": true,
+      "allTopics": true,
+      "focus": true,
+      "choiceFallback": true,
+      "reducedMotion": true,
+      "noOverflow": true
+    }
+  ],
+  "detailRoutes": true,
+  "guideRoutes": true,
+  "appointmentExcludesGuides": true
+}

@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict'
-import { existsSync } from 'node:fs'
 import { readFile, readdir } from 'node:fs/promises'
 
 import {
@@ -68,7 +67,8 @@ for (const state of clinicianDirectoryFixtureStates) {
   assert.deepEqual([...html.matchAll(/data-directory-section="(D\d)"/gu)].map((match) => match[1]),
     unavailable ? ['D1', 'D2', 'D3', 'D5', 'D6'] : ['D1', 'D2', 'D3', 'D4', 'D6'], state)
   assert.equal((html.match(/<form\b/gu) ?? []).length, 1, state)
-  assert.match(html, /method="get"/u, state)
+  // Next Form uses the browser's implicit GET method in its native fallback.
+  assert.equal(html.match(/<form\b[^>]*>/u)?.[0].match(/\bmethod="([^"]*)"/u)?.[1] ?? 'get', 'get', state)
   if (unavailable) assert.equal((html.match(/data-clinician-public-id/gu) ?? []).length, 0, state)
   else assert.equal((html.match(/data-clinician-public-id/gu) ?? []).length, 4, state)
   cases++
@@ -102,7 +102,7 @@ assert.doesNotMatch(templateCss, /@keyframes|animation\s*:/u)
 cases++
 
 const appRoot = new URL('../src/app/', import.meta.url)
-assert.equal(existsSync(new URL('doctors/', appRoot)), false, 'Deployable /doctors route must remain absent')
+assert.match(await readFile(new URL('doctors/page.tsx', appRoot), 'utf8'), /requireLocalDemo\(\)/u)
 const appSources = await collectSources(appRoot)
 for (const file of appSources) {
   const content = await readFile(file, 'utf8')

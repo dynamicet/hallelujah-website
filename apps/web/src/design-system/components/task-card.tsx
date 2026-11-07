@@ -4,17 +4,18 @@ import { Icon, type IconName } from './icon'
 import styles from './task-card.module.css'
 
 export interface TaskCardProps {
+  readonly appearance?: 'row' | 'panel'
   readonly href: string
   readonly label: string
   readonly description: string
   readonly icon: IconName
 }
 
-export function TaskCard({ href, label, description, icon }: TaskCardProps) {
+export function TaskCard({ appearance = 'row', href, label, description, icon }: TaskCardProps) {
   const descriptionId = useId()
 
   return (
-    <a aria-label={label} aria-describedby={descriptionId} className={styles.card} data-action-link data-task-card href={href}>
+    <a aria-label={label} aria-describedby={descriptionId} className={`${styles.card} ${styles[appearance]}`} data-action-link data-task-card href={href}>
       <span className={styles.symbol}><Icon name={icon} /></span>
       <span className={styles.title}>{label}</span>
       <span className={styles.description} id={descriptionId}>{description}</span>

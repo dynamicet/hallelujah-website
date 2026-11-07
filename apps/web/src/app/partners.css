@@ -1,0 +1,68 @@
+.partners { padding-block: 48px; background: transparent; }
+.partners-bands { display: grid; gap: 64px; }
+.partners-band { display: grid; grid-template-columns: minmax(220px, .7fr) minmax(0, 1.6fr); gap: 48px; align-items: start; }
+.partners-band .partners-heading { display: block; margin: 0; }
+.partners-collaboration-band { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+.partners-collaboration-band .partners-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.partners-heading h2 { margin: 0; font-size: clamp(28px, 2.8vw, 40px); line-height: 1.15; }
+.partners-copy { max-width: 30ch; margin: 20px 0 0; font-size: 16px; line-height: 1.6; color: var(--site-muted); }
+.partners-billing-list, .partners-collaboration-list { list-style: none; margin: 0; padding: 0; }
+.partners-billing-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.partner { min-width: 0; text-align: center; }
+.partner figure { margin: 0; }
+.partners .partner-logo { display: flex; align-items: center; justify-content: center; height: 88px; padding: 8px; background: transparent; }
+.partners .partner-logo img { display: block; width: 100%; height: 72px; max-width: 100%; max-height: 72px; object-fit: contain; mix-blend-mode: multiply; transform: scale(var(--partner-logo-scale, 1)); }
+.partners-billing-list .partner figcaption { margin: 8px 0 0; font-size: 14px; line-height: 1.45; overflow-wrap: anywhere; }
+/* Optical balance preserves the source artwork and its different white margins. */
+.partner[data-partner='total-energies'] { --partner-logo-scale: 1.2; }
+.partner[data-partner='nib-bank'], .partner[data-partner='ethiopian-airlines'] { --partner-logo-scale: 1.1; }
+.partner[data-partner='msf-holland'] { --partner-logo-scale: 1.08; }
+.partner[data-partner='moha-soft-drink-industries'], .partner[data-partner='dashen-bank'] { --partner-logo-scale: .9; }
+.partner[data-partner='united-states-embassy'], .partner[data-partner='civil-aviation-authority'], .partner[data-partner='ethiopia-investment-holdings'] { --partner-logo-scale: .85; }
+.partner[data-partner='iom'] { --partner-logo-scale: .82; }
+.partners-billing-more { margin-top: 16px; }
+.partners-billing-more > summary, .partners-motion-toggle, .partners-billing-collapse { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--site-link); font: inherit; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.partners-billing-more > summary { list-style: none; margin-bottom: 16px; }
+.partners-billing-more > summary::-webkit-details-marker { display: none; }
+.partners-more-open, .partners-billing-more[open] .partners-more-closed { display: none; }
+.partners-billing-more[open] .partners-more-open { display: inline; }
+.partners-billing-collapse { margin-top: 16px; }
+html:not([data-hydration='ready']) .partners-billing-collapse { display: none; }
+.partners-motion-toggle { margin-top: 0; }
+.partners-rail { min-width: 0; overflow: visible; }
+.partners-rail-track { min-width: 0; }
+.partners-collaboration-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.partners-rail:not([data-motion-state='static']) { overflow: hidden; }
+.partners-rail:not([data-motion-state='static']) .partners-rail-track { display: flex; width: max-content; column-gap: 32px; }
+.partners-rail:not([data-motion-state='static']) .partners-collaboration-list { display: flex; flex: 0 0 auto; gap: 32px; }
+.partners-rail:not([data-motion-state='static']) .partner { flex: 0 0 140px; width: 140px; }
+.partners-rail[data-paused='true'] { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--site-link) var(--site-pale); }
+.partners-rail[data-paused='true'] .partners-rail-clone { display: none; }
+.partners :is(button, summary):focus-visible, .partners-rail:focus-visible { outline: 3px solid var(--site-link); outline-offset: 4px; }
+@media (max-width: 899px) {
+  .partners-band { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .partners-bands { gap: 48px; }
+  .partners-copy { max-width: 48ch; }
+}
+@media (max-width: 599px) {
+  .partners-billing-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+  .partners-collaboration-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .partners .partner-logo { height: 76px; padding: 6px; }
+  .partners .partner-logo img { height: 64px; max-height: 64px; }
+  .partners-rail:not([data-motion-state='static']) .partner { flex-basis: 120px; width: 120px; }
+  .partners-rail:not([data-motion-state='static']) .partners-rail-track, .partners-rail:not([data-motion-state='static']) .partners-collaboration-list { gap: 24px; }
+}
+@media (prefers-reduced-motion: reduce), print {
+  .partners .partners-rail { overflow: visible; }
+  .partners .partners-rail-track { display: block; width: auto; transform: none !important; }
+  .partners .partners-collaboration-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .partners .partners-collaboration-list .partner { width: auto; }
+  .partners .partners-rail-clone, .partners-motion-toggle { display: none; }
+}
+@media print {
+  .partners { break-inside: avoid; }
+  .partners-billing-more > summary { display: none; }
+  .partners-billing-more > .partners-billing-collapse { display: none; }
+  .partners-billing-more > .partners-billing-list { display: grid; }
+}
+@media (forced-colors: active) { .partners :is(button, summary):focus-visible, .partners-rail:focus-visible { outline-color: Highlight; } }

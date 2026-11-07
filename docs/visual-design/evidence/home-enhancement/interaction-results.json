@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-02T12:58:58.418Z",
+  "origin": "http://localhost:3000",
+  "passed": [
+    "Both directory GET routes and query preservation",
+    "Three clinician identities link into profiles",
+    "Specialty label, destination, image and geometry update together",
+    "Help choosing care opens existing guide and restores focus",
+    "Patient stories, visit answers and topic browsing",
+    "Responsive 1440px, no horizontal overflow",
+    "Responsive 1024px, no horizontal overflow",
+    "Responsive 768px, no horizontal overflow",
+    "Responsive 390px, no horizontal overflow",
+    "Responsive 320px, no horizontal overflow",
+    "Native mobile menu keyboard Escape dismissal",
+    "Language availability remains explicit",
+    "Short mobile first-screen appointment action",
+    "200% zoom equivalent, 720 CSS pixels",
+    "Reduced motion settles both scenes and cancels animations",
+    "No JavaScript retains native forms, service links and disclosures",
+    "Shared shell routes render without overflow",
+    "Failed images preserve geometry and clinician identity fallback",
+    "Route changes during motion leave usable destination"
+  ]
+}

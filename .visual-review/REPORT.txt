@@ -1,0 +1,29 @@
+Independent visual review — 2026-11-04
+
+Taste Skill was not loaded or executed.
+Browser: Chromium through standalone Playwright.
+Target: local Next.js development server.
+
+Reviewed 14 representative routes at 1440px and 390px, including homepage,
+directories, doctor and service details, appointment, emergency, visitor guide,
+health topics and detail, news archive and article, referrals, and feedback.
+Inspected desktop and mobile contact sheets and the desktop appointment capture.
+
+All 28 captures: HTTP 200, one H1, no horizontal document overflow,
+no visibly rendered broken images. No page exceptions recorded.
+No blocking visual defects observed in the inspected screenshots.
+
+18 additional layout checks at 320px, 768px, and 1024px passed for homepage,
+doctor directory, service directory, appointment, emergency, and news archive.
+
+Interaction checks passed:
+- Feedback review and edit preserve the sample message.
+- Health-topic search opens the reader and restores focus on returning.
+- Homepage contact anchor clears the sticky header.
+- No-JavaScript health-topics contact fallback reaches the homepage contact.
+- Doctor-profile browser title includes the displayed clinician name.
+
+Screenshots and JSON evidence are stored alongside this report.
+Scope: representative routes and states in Chromium; this is not a full
+accessibility audit, cross-browser certification, or exhaustive content review.
+No application source changes were needed.

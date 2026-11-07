@@ -14,7 +14,7 @@
 
 .introduction {
   display: grid;
-  gap: var(--semantic-space-section);
+  gap: var(--semantic-space-page);
 }
 
 .introductionCopy,
@@ -53,7 +53,7 @@
 .cardLabel,
 .stateLabel {
   color: var(--semantic-color-text-secondary);
-  font-size: var(--semantic-type-small-size);
+  font-size: var(--site-support, 1rem);
   font-weight: var(--semantic-font-weight-strong);
   letter-spacing: var(--semantic-type-eyebrow-tracking);
   line-height: var(--semantic-type-small-line);
@@ -61,7 +61,7 @@
 }
 
 .description {
-  font-size: var(--semantic-type-body-large-size);
+  font-size: var(--site-intro, 1.25rem);
   line-height: var(--semantic-type-body-large-line);
 }
 
@@ -75,18 +75,19 @@
 }
 
 .guidance {
-  align-self: end;
+  align-self: center;
   border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
   max-inline-size: var(--semantic-size-reading);
   padding-inline-start: var(--semantic-space-page);
 }
 
 .guidance h2 {
-  font-size: var(--semantic-type-h3-size);
+  font-size: var(--site-lead, 1.75rem);
   line-height: var(--semantic-type-h3-line);
 }
 
 .guidance a,
+.introductionCopy a,
 .statePanel a,
 .support a {
   align-items: center;
@@ -94,6 +95,13 @@
   min-block-size: var(--semantic-size-touch);
   min-inline-size: var(--semantic-size-touch);
   width: fit-content;
+}
+
+.introductionCopy a {
+  border: var(--semantic-border-default) solid var(--semantic-color-action-primary);
+  border-radius: var(--semantic-radius-control);
+  font-weight: var(--semantic-font-weight-strong);
+  text-decoration: none;
 }
 
 .directory {
@@ -128,12 +136,29 @@
   min-inline-size: 0;
 }
 
+.resetFilters {
+  justify-self: start;
+}
+
 .resultsToolbar {
-  align-items: start;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--semantic-space-compact) var(--semantic-space-regular);
 }
 
 .resultsToolbar [data-result-count] {
   margin-block-start: 0;
+}
+
+.resultRange {
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--site-support, 1rem);
+  line-height: var(--semantic-type-small-line);
+}
+
+.resultsToolbar [data-active-filters] {
+  flex-basis: 100%;
 }
 
 .results {
@@ -159,46 +184,18 @@
   overflow: hidden;
 }
 
-.portraitPlaceholder {
-  align-items: center;
-  aspect-ratio: 16 / 7;
-  background: var(--semantic-color-surface-subtle);
-  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  display: flex;
-  justify-content: center;
-  min-block-size: 7.5rem;
-  position: relative;
-}
-
-.portraitPlaceholder::before,
-.portraitPlaceholder span {
-  border: var(--semantic-border-default) solid var(--semantic-color-border-strong);
-  position: absolute;
-}
-
-.portraitPlaceholder::before {
-  border-radius: 50%;
-  content: '';
-  block-size: 3.5rem;
-  inline-size: 3.5rem;
-  inset-block-start: 1.35rem;
-}
-
-.portraitPlaceholder span {
-  border-block-end: 0;
-  border-radius: 5rem 5rem 0 0;
-  block-size: 3rem;
-  inline-size: 7rem;
-  inset-block-end: 1rem;
-}
-
 .cardContent {
   align-content: start;
+  grid-template-rows: auto auto auto 1fr auto auto;
   padding: var(--semantic-space-page);
 }
 
+.cardPhoto {
+  padding: var(--semantic-space-page) var(--semantic-space-page) 0;
+}
+
 .card h2 {
-  font-size: var(--semantic-type-h3-size);
+  font-size: var(--site-lead, 1.75rem);
   line-height: var(--semantic-type-h3-line);
 }
 
@@ -217,9 +214,65 @@
   padding: var(--semantic-space-fine) var(--semantic-space-compact);
 }
 
+.cardSummary {
+  line-height: var(--semantic-type-body-line);
+}
+
+.careInterests { list-style: disc; margin: 0; padding-inline-start: var(--semantic-space-page); line-height: var(--semantic-type-body-line); }
+.careInterests li + li { margin-block-start: var(--semantic-space-compact); }
+.careInterests li::marker { color: var(--semantic-color-text-link); }
+.frame[data-care-directory] .specialties li { color: var(--semantic-color-text-link); font-weight: var(--semantic-font-weight-strong); }
+
+.cardMeta {
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--site-support, 1rem);
+  line-height: var(--semantic-type-small-line);
+}
+
+.professionalTitle {
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--site-support, 1rem);
+  line-height: var(--semantic-type-small-line);
+}
+
+.frame[data-care-directory] .cardContent > .profileAction {
+  align-items: center;
+  align-self: end;
+  background: transparent;
+  border: 0;
+  border-radius: var(--semantic-radius-control);
+  color: var(--semantic-color-text-link);
+  display: inline-flex;
+  font-weight: var(--semantic-font-weight-strong);
+  gap: var(--semantic-space-page);
+  justify-content: space-between;
+  margin-block-start: var(--semantic-space-compact);
+  min-block-size: var(--semantic-size-touch);
+  padding: var(--semantic-space-compact) 0;
+  text-decoration: none;
+}
+
+.frame[data-care-directory] .cardContent > .profileAction:hover {
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.profileAction:focus-visible {
+  outline: var(--semantic-border-focus) solid var(--semantic-color-focus);
+  outline-offset: var(--semantic-border-focus);
+}
+
+.cardContent > a {
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  justify-self: start;
+  padding-inline: 0;
+  text-align: start;
+}
+
 .withheld {
   color: var(--semantic-color-text-secondary);
-  font-size: var(--semantic-type-small-size);
+  font-size: var(--site-support, 1rem);
   line-height: var(--semantic-type-small-line);
 }
 
@@ -241,8 +294,14 @@
   border: var(--semantic-border-default) solid var(--semantic-color-border-default);
   border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
   border-radius: var(--semantic-radius-card);
-  min-block-size: 16rem;
+  min-block-size: 12rem;
   padding: var(--semantic-space-section);
+}
+
+.stateActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--semantic-space-compact);
 }
 
 .support {
@@ -281,32 +340,10 @@
     grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.8fr);
   }
 
-  .resultsToolbar {
-    grid-template-columns: minmax(10rem, auto) minmax(0, 1fr);
-  }
-
-  .resultsToolbar [data-active-filters] {
-    justify-self: end;
-  }
-
   .results {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .support {
-    align-items: center;
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-
-  .support h2,
-  .support p {
-    grid-column: 1;
-  }
-
-  .support a {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-  }
 }
 
 @media (min-width: 64rem) {
@@ -349,7 +386,6 @@
   .filterRail,
   .statePanel,
   .card,
-  .portraitPlaceholder,
   .specialties li,
   .disabledAction,
   .support {
@@ -388,7 +424,6 @@
   .filterRail,
   .statePanel,
   .card,
-  .portraitPlaceholder,
   .specialties li,
   .disabledAction,
   .support {
@@ -397,3 +432,7 @@
     color: CanvasText;
   }
 }
+
+.cardPhoto > [data-clinician-portrait] { display: block; width: 56px; height: 56px; object-fit: contain; object-position: center bottom; background: var(--site-pale); }
+.portraitDisclosure { font-size: var(--site-support, 1rem); line-height: 1.5; margin: 0 0 16px; }
+@media (max-width: 767px) { .cardPhoto > [data-clinician-portrait] { width: 40px; height: 48px; } }

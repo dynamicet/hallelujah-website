@@ -1,0 +1,1904 @@
+{
+ "url": "http://127.0.0.1:3000/doctors",
+ "at": "2026-11-04T19:16:08.513Z",
+ "allow": [
+  "hairline",
+  "eyebrow",
+  "few-pictures",
+  "focal-point"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.64,
+    0.9,
+    0.85,
+    0.85
+   ],
+   "motion": {
+    "elements": 23,
+    "css": 22,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 2969,
+     "screens": 3.3,
+     "words": 298,
+     "img": 10,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "specialty-general-1100.avif"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Find a doctor",
+     "words": 3,
+     "chars": 13,
+     "lines": 1,
+     "size": 52,
+     "vw": 3.6,
+     "font": "Editorial",
+     "weight": 400,
+     "tracking": -0.025,
+     "leading": 1.12,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.47,
+     "top": 227,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Find a doctor",
+     "words": 3,
+     "lines": 1,
+     "size": 52,
+     "font": "Editorial"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.08,
+      "top": 72,
+      "mixedFonts": [
+       "Clash Grotesk",
+       "Lato"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Find a doctor",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 52,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 227,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Search clinicians",
+      "words": 2,
+      "chars": 17,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 568,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Need help choosing?",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 38.4,
+      "vw": 2.7,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.24,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 2330,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 1
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.9,
+       "mono": false
+      },
+      {
+       "family": "Editorial",
+       "share": 0.1,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.01,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 4,
+     "sizes": [
+      14,
+      16,
+      17,
+      18,
+      20,
+      24,
+      28,
+      32,
+      38,
+      52
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 16,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 6.3
+     },
+     "measureChars": 36,
+     "max": {
+      "size": 52,
+      "vw": 3.6,
+      "font": "Editorial",
+      "text": "Find a doctor"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.05,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf8f6",
+     "bodyBgHsl": {
+      "h": 24,
+      "s": 0.38,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 535,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#00445d",
+       "top": 2527,
+       "hsl": {
+        "h": 196,
+        "s": 1,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#17313d",
+       "share": 0.34
+      },
+      {
+       "color": "#00445d",
+       "share": 0.22
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.18
+      },
+      {
+       "color": "#52636b",
+       "share": 0.15
+      },
+      {
+       "color": "#00678d",
+       "share": 0.1
+      }
+     ],
+     "button": {
+      "bg": "#0078a6",
+      "hsl": {
+       "h": 197,
+       "s": 1,
+       "l": 0.33
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 3,
+     "radius": 8,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Request an appointment →",
+      "Search"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 11,
+     "hairlineSamples": [
+      "section.clinician-directory-template-module__Gxj9xG__directo 1280px",
+      "article.clinician-directory-template-module__Gxj9xG__card 433px",
+      "article.clinician-directory-template-module__Gxj9xG__card 433px",
+      "article.clinician-directory-template-module__Gxj9xG__card 433px",
+      "article.clinician-directory-template-module__Gxj9xG__card 433px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 24,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 24,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.13
+     }
+    ],
+    "nav": {
+     "links": 9,
+     "fixed": true,
+     "height": 143,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "editorial",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 2969,
+    "margins": {
+     "left": 80,
+     "right": 80
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 0,
+      "height": 143,
+      "words": 27,
+      "media": 0,
+      "middle": 166,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 28,
+       "tag": "span"
+      },
+      "left": 111,
+      "right": 99,
+      "textLeft": 111,
+      "textRight": 99,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 143,
+      "height": 2384,
+      "words": 229,
+      "media": 8,
+      "middle": 0,
+      "heading": {
+       "text": "Find a doctor",
+       "size": 52,
+       "tag": "h1"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 130,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 2527,
+      "height": 363,
+      "words": 47,
+      "media": 0,
+      "middle": 178,
+      "heading": {
+       "text": "Hallelujah Hospital",
+       "size": 24,
+       "tag": "strong"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Find a doctor",
+      "size": 52,
+      "top": 227,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 112,
+      "n": 4
+     },
+     {
+      "x": 80,
+      "n": 2
+     },
+     {
+      "x": 127,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.09,
+    "voidBox": {
+     "x": 540,
+     "y": 120,
+     "w": 240,
+     "h": 480
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.7,
+    0.9,
+    0.9,
+    0.86
+   ],
+   "motion": {
+    "elements": 23,
+    "css": 22,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 4048,
+     "screens": 4,
+     "words": 274,
+     "img": 10,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "specialty-general-640.avif",
+      "aster-cutout.webp",
+      "bekele-cutout.webp",
+      "chala-cutout.webp",
+      "desta-cutout.webp",
+      "eden-cutout.webp",
+      "fikru-cutout.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Find a doctor",
+     "words": 3,
+     "chars": 13,
+     "lines": 1,
+     "size": 40,
+     "vw": 5.2,
+     "font": "Editorial",
+     "weight": 400,
+     "tracking": -0.025,
+     "leading": 1.12,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.49,
+     "top": 175,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Find a doctor",
+     "words": 3,
+     "lines": 1,
+     "size": 40,
+     "font": "Editorial"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.13,
+      "top": 73,
+      "mixedFonts": [
+       "Clash Grotesk",
+       "Lato"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Find a doctor",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 40,
+      "vw": 5.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.49,
+      "top": 175,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Search clinicians",
+      "words": 2,
+      "chars": 17,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 451,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Aster",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 888,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Bekele",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 1144,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Chala",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 1400,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Desta",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 1657,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Eden",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 1913,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Fikru",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 2169,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Genet",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 2425,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Hana",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 2681,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Imani Alemu Tesfaye-Mekonnen",
+      "words": 4,
+      "chars": 31,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.6,
+      "top": 2905,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Need help choosing?",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.24,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 3284,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 13,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 1
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Editorial",
+       "share": 0.1,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.01,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 4,
+     "sizes": [
+      14,
+      16,
+      17,
+      18,
+      20,
+      24,
+      26,
+      28,
+      32,
+      40
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 16,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 6.3
+     },
+     "measureChars": 58,
+     "max": {
+      "size": 40,
+      "vw": 5.2,
+      "font": "Editorial",
+      "text": "Find a doctor"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.05,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf8f6",
+     "bodyBgHsl": {
+      "h": 24,
+      "s": 0.38,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 418,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#00445d",
+       "top": 3473,
+       "hsl": {
+        "h": 196,
+        "s": 1,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#17313d",
+       "share": 0.36
+      },
+      {
+       "color": "#00445d",
+       "share": 0.19
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.18
+      },
+      {
+       "color": "#52636b",
+       "share": 0.15
+      },
+      {
+       "color": "#00678d",
+       "share": 0.1
+      }
+     ],
+     "button": {
+      "bg": "#0078a6",
+      "hsl": {
+       "h": 197,
+       "s": 1,
+       "l": 0.33
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 3,
+     "radius": 0,
+     "height": 54,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Request an appointment →",
+      "Search"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 11,
+     "hairlineSamples": [
+      "section.clinician-directory-template-module__Gxj9xG__directo 720px",
+      "article.clinician-directory-template-module__Gxj9xG__card 656px",
+      "article.clinician-directory-template-module__Gxj9xG__card 656px",
+      "article.clinician-directory-template-module__Gxj9xG__card 656px",
+      "article.clinician-directory-template-module__Gxj9xG__card 656px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 24,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 24,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 4,
+     "fixed": true,
+     "height": 143,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "editorial",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 4048,
+    "margins": {
+     "left": 24,
+     "right": 24
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 0,
+      "height": 143,
+      "words": 14,
+      "media": 0,
+      "middle": 30,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 26,
+       "tag": "span"
+      },
+      "left": 55,
+      "right": 43,
+      "textLeft": 55,
+      "textRight": 43,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 143,
+      "height": 3330,
+      "words": 221,
+      "media": 8,
+      "middle": 0,
+      "heading": {
+       "text": "Find a doctor",
+       "size": 40,
+       "tag": "h1"
+      },
+      "left": 24,
+      "right": 24,
+      "textLeft": 24,
+      "textRight": 74,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 3473,
+      "height": 495,
+      "words": 47,
+      "media": 0,
+      "middle": 199,
+      "heading": {
+       "text": "Hallelujah Hospital",
+       "size": 24,
+       "tag": "strong"
+      },
+      "left": 24,
+      "right": 24,
+      "textLeft": 24,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Find a doctor",
+      "size": 40,
+      "top": 175,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 56,
+      "n": 4
+     },
+     {
+      "x": 24,
+      "n": 2
+     },
+     {
+      "x": 71,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.71,
+    0.9,
+    0.91,
+    0.85,
+    0.87
+   ],
+   "motion": {
+    "elements": 22,
+    "css": 21,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 4171,
+     "screens": 4.9,
+     "words": 265,
+     "img": 10,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Find a doctor",
+     "words": 3,
+     "chars": 13,
+     "lines": 1,
+     "size": 40,
+     "vw": 10.3,
+     "font": "Editorial",
+     "weight": 400,
+     "tracking": -0.025,
+     "leading": 1.12,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 143,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Find a doctor",
+     "words": 3,
+     "lines": 1,
+     "size": 40,
+     "font": "Editorial"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 27,
+      "vw": 6.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 53,
+      "mixedFonts": [
+       "Clash Grotesk",
+       "Lato"
+      ],
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Find a doctor",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 143,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Search clinicians",
+      "words": 2,
+      "chars": 17,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 371,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Aster",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 880,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Bekele",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 1165,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Chala",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 1425,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Desta",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 1710,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Eden",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 1945,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Fikru",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 2180,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Genet",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 2414,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Hana",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 2673,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Dr Imani Alemu Tesfaye-Mekonnen",
+      "words": 4,
+      "chars": 31,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.32,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 2902,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Need help choosing?",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.025,
+      "leading": 1.24,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 3348,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Editorial",
+      "weight": 400,
+      "tracking": -0.04,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 4031,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 14,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 1
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Editorial",
+       "share": 0.11,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      14,
+      16,
+      18,
+      20,
+      24,
+      27,
+      32,
+      40
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 16,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 6.3
+     },
+     "measureChars": 24,
+     "max": {
+      "size": 40,
+      "vw": 10.3,
+      "font": "Editorial",
+      "text": "Find a doctor"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.05,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf8f6",
+     "bodyBgHsl": {
+      "h": 24,
+      "s": 0.38,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 350,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#00445d",
+       "top": 3598,
+       "hsl": {
+        "h": 196,
+        "s": 1,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#17313d",
+       "share": 0.35
+      },
+      {
+       "color": "#00445d",
+       "share": 0.19
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.18
+      },
+      {
+       "color": "#52636b",
+       "share": 0.16
+      },
+      {
+       "color": "#00678d",
+       "share": 0.11
+      }
+     ],
+     "button": {
+      "bg": "#00445d",
+      "hsl": {
+       "h": 196,
+       "s": 1,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 2,
+     "radius": 0,
+     "height": 54,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Search"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 11,
+     "hairlineSamples": [
+      "section.clinician-directory-template-module__Gxj9xG__directo 350px",
+      "article.clinician-directory-template-module__Gxj9xG__card 310px",
+      "article.clinician-directory-template-module__Gxj9xG__card 310px",
+      "article.clinician-directory-template-module__Gxj9xG__card 310px",
+      "article.clinician-directory-template-module__Gxj9xG__card 310px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 111,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "editorial",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 4171,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 111,
+      "height": 3487,
+      "words": 221,
+      "media": 3,
+      "middle": 0,
+      "heading": {
+       "text": "Find a doctor",
+       "size": 40,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 40,
+      "textLeft": 20,
+      "textRight": 42,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 3598,
+      "height": 493,
+      "words": 47,
+      "media": 0,
+      "middle": 24,
+      "heading": {
+       "text": "Hallelujah Hospital",
+       "size": 24,
+       "tag": "strong"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Find a doctor",
+      "size": 40,
+      "top": 143,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 40,
+      "n": 4
+     },
+     {
+      "x": 20,
+      "n": 2
+     },
+     {
+      "x": 55,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "mixed-font-headline",
+   "width": 1440,
+   "message": "1 headline(s) switch typeface or to italic mid-line (the \"one italic serif word\" move).",
+   "fix": "Set the whole headline in one face. Emphasis comes from the words.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #fbf8f6).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "10 different font sizes (14, 16, 17, 18, 20, 24, 28, 32, 38, 52).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 1440,
+   "message": "The running text is a soft grey on its ground (6.3:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/route-rollout/inspect-doctors-final/desktop-fold.jpg",
+   "pages": [
+    "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/route-rollout/inspect-doctors-final/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/route-rollout/inspect-doctors-final/tablet-fold.jpg",
+   "pages": [
+    "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/route-rollout/inspect-doctors-final/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/route-rollout/inspect-doctors-final/mobile-fold.jpg",
+   "pages": [
+    "/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/.taste-skill/route-rollout/inspect-doctors-final/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

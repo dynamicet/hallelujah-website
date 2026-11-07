@@ -13,9 +13,9 @@ const stylesheets = new Map()
 
 registerHooks({
   resolve(specifier, context, nextResolve) {
-    if (['next/link', 'next/image'].includes(specifier)) return nextResolve(specifier + '.js', context)
-    if (context.parentURL?.startsWith(pathToFileURL(sourceRoot).href) && specifier.startsWith('.')) {
-      const base = fileURLToPath(new URL(specifier, context.parentURL))
+    if (['next/link', 'next/image', 'next/form', 'next/navigation'].includes(specifier)) return nextResolve(specifier + '.js', context)
+    if (context.parentURL?.startsWith(pathToFileURL(sourceRoot).href) && (specifier.startsWith('.') || specifier.startsWith('@/'))) {
+      const base = specifier.startsWith('@/') ? path.join(sourceRoot, specifier.slice(2)) : fileURLToPath(new URL(specifier, context.parentURL))
       for (const candidate of [base, base + '.ts', base + '.tsx', path.join(base, 'index.ts')]) {
         if (existsSync(candidate) && /\.(?:tsx?|css)$/u.test(candidate)) {
           return { url: pathToFileURL(candidate).href, shortCircuit: true }

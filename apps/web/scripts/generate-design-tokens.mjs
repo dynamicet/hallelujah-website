@@ -336,6 +336,13 @@ async function validateConsumers(tokens) {
     },
   ]
   const available = new Set([...tokens.keys()].map(toCssName))
+  // These composed surfaces use both semantic roles and registered context aliases.
+  for (const name of ['brand-surface', 'task-card', 'system-states', 'governed-cards']) {
+    consumers.push({
+      path: path.join(applicationRoot, 'src', 'design-system', 'components', `${name}.module.css`),
+      requiredPrefix: '--',
+    })
+  }
   const failures = []
 
   for (const consumer of consumers) {

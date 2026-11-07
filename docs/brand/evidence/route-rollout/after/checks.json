@@ -1,0 +1,618 @@
+[
+  {
+    "route": "/doctors",
+    "width": 1440,
+    "h1": [
+      "Find a doctor"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2969,
+    "links": 14
+  },
+  {
+    "route": "/services",
+    "width": 1440,
+    "h1": [
+      "Find a service"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3594,
+    "links": 23
+  },
+  {
+    "route": "/appointment",
+    "width": 1440,
+    "h1": [
+      "Request an appointment"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2219,
+    "links": 12
+  },
+  {
+    "route": "/patients-visitors",
+    "width": 1440,
+    "h1": [
+      "Patients & Visitors"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 6577,
+    "links": 15
+  },
+  {
+    "route": "/referrals",
+    "width": 1440,
+    "h1": [
+      "Refer a patient"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 1910,
+    "links": 6
+  },
+  {
+    "route": "/feedback",
+    "width": 1440,
+    "h1": [
+      "Patient feedback"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2300,
+    "links": 5
+  },
+  {
+    "route": "/health-topics",
+    "width": 1440,
+    "h1": [
+      "Health & care topics"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 1241,
+    "links": 0
+  },
+  {
+    "route": "/news-resources",
+    "width": 1440,
+    "h1": [
+      "News & resources"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2663,
+    "links": 8
+  },
+  {
+    "route": "/emergency",
+    "width": 1440,
+    "h1": [
+      "Emergency help"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3441,
+    "links": 3
+  },
+  {
+    "route": "/doctors/synthetic-clinician-101010101010/",
+    "width": 1440,
+    "h1": [
+      "Dr Aster"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2778,
+    "links": 12
+  },
+  {
+    "route": "/services/synthetic-service-111111111111",
+    "width": 1440,
+    "h1": [
+      "Admission guidance"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2884,
+    "links": 10
+  },
+  {
+    "route": "/services/synthetic-service-232323232323",
+    "width": 1440,
+    "h1": [
+      "Brain & nerve care"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2844,
+    "links": 10
+  },
+  {
+    "route": "/news-resources/make-room-for-your-questions",
+    "width": 1440,
+    "h1": [
+      "Make room for your questions."
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2472,
+    "links": 4
+  },
+  {
+    "route": "/health-topics/back-pain",
+    "width": 1440,
+    "h1": [
+      "Back pain"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2812,
+    "links": 11
+  },
+  {
+    "route": "/doctors",
+    "width": 768,
+    "h1": [
+      "Find a doctor"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 4048,
+    "links": 14
+  },
+  {
+    "route": "/services",
+    "width": 768,
+    "h1": [
+      "Find a service"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3808,
+    "links": 23
+  },
+  {
+    "route": "/appointment",
+    "width": 768,
+    "h1": [
+      "Request an appointment"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2358,
+    "links": 12
+  },
+  {
+    "route": "/patients-visitors",
+    "width": 768,
+    "h1": [
+      "Patients & Visitors"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 6975,
+    "links": 15
+  },
+  {
+    "route": "/referrals",
+    "width": 768,
+    "h1": [
+      "Refer a patient"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2003,
+    "links": 6
+  },
+  {
+    "route": "/feedback",
+    "width": 768,
+    "h1": [
+      "Patient feedback"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2440,
+    "links": 5
+  },
+  {
+    "route": "/health-topics",
+    "width": 768,
+    "h1": [
+      "Health & care topics"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 1437,
+    "links": 0
+  },
+  {
+    "route": "/news-resources",
+    "width": 768,
+    "h1": [
+      "News & resources"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2361,
+    "links": 8
+  },
+  {
+    "route": "/emergency",
+    "width": 768,
+    "h1": [
+      "Emergency help"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 4279,
+    "links": 3
+  },
+  {
+    "route": "/doctors/synthetic-clinician-101010101010/",
+    "width": 768,
+    "h1": [
+      "Dr Aster"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3049,
+    "links": 12
+  },
+  {
+    "route": "/services/synthetic-service-111111111111",
+    "width": 768,
+    "h1": [
+      "Admission guidance"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3324,
+    "links": 10
+  },
+  {
+    "route": "/services/synthetic-service-232323232323",
+    "width": 768,
+    "h1": [
+      "Brain & nerve care"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3225,
+    "links": 10
+  },
+  {
+    "route": "/news-resources/make-room-for-your-questions",
+    "width": 768,
+    "h1": [
+      "Make room for your questions."
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2636,
+    "links": 4
+  },
+  {
+    "route": "/health-topics/back-pain",
+    "width": 768,
+    "h1": [
+      "Back pain"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2895,
+    "links": 11
+  },
+  {
+    "route": "/doctors",
+    "width": 390,
+    "h1": [
+      "Find a doctor"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 4171,
+    "links": 14
+  },
+  {
+    "route": "/services",
+    "width": 390,
+    "h1": [
+      "Find a service"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 4285,
+    "links": 23
+  },
+  {
+    "route": "/appointment",
+    "width": 390,
+    "h1": [
+      "Request an appointment"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3320,
+    "links": 12
+  },
+  {
+    "route": "/patients-visitors",
+    "width": 390,
+    "h1": [
+      "Patients & Visitors"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 7364,
+    "links": 15
+  },
+  {
+    "route": "/referrals",
+    "width": 390,
+    "h1": [
+      "Refer a patient"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2288,
+    "links": 6
+  },
+  {
+    "route": "/feedback",
+    "width": 390,
+    "h1": [
+      "Patient feedback"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2628,
+    "links": 5
+  },
+  {
+    "route": "/health-topics",
+    "width": 390,
+    "h1": [
+      "Health & care topics"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 1589,
+    "links": 0
+  },
+  {
+    "route": "/news-resources",
+    "width": 390,
+    "h1": [
+      "News & resources"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3043,
+    "links": 8
+  },
+  {
+    "route": "/emergency",
+    "width": 390,
+    "h1": [
+      "Emergency help"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 5035,
+    "links": 3
+  },
+  {
+    "route": "/doctors/synthetic-clinician-101010101010/",
+    "width": 390,
+    "h1": [
+      "Dr Aster"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3517,
+    "links": 12
+  },
+  {
+    "route": "/services/synthetic-service-111111111111",
+    "width": 390,
+    "h1": [
+      "Admission guidance"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3690,
+    "links": 10
+  },
+  {
+    "route": "/services/synthetic-service-232323232323",
+    "width": 390,
+    "h1": [
+      "Brain & nerve care"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3563,
+    "links": 10
+  },
+  {
+    "route": "/news-resources/make-room-for-your-questions",
+    "width": 390,
+    "h1": [
+      "Make room for your questions."
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2645,
+    "links": 4
+  },
+  {
+    "route": "/health-topics/back-pain",
+    "width": 390,
+    "h1": [
+      "Back pain"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3399,
+    "links": 11
+  },
+  {
+    "route": "/doctors",
+    "width": 320,
+    "h1": [
+      "Find a doctor"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 5765,
+    "links": 14
+  },
+  {
+    "route": "/services",
+    "width": 320,
+    "h1": [
+      "Find a service"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 4784,
+    "links": 23
+  },
+  {
+    "route": "/appointment",
+    "width": 320,
+    "h1": [
+      "Request an appointment"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3688,
+    "links": 12
+  },
+  {
+    "route": "/patients-visitors",
+    "width": 320,
+    "h1": [
+      "Patients & Visitors"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 8231,
+    "links": 15
+  },
+  {
+    "route": "/referrals",
+    "width": 320,
+    "h1": [
+      "Refer a patient"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2496,
+    "links": 6
+  },
+  {
+    "route": "/feedback",
+    "width": 320,
+    "h1": [
+      "Patient feedback"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2884,
+    "links": 5
+  },
+  {
+    "route": "/health-topics",
+    "width": 320,
+    "h1": [
+      "Health & care topics"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 1728,
+    "links": 0
+  },
+  {
+    "route": "/news-resources",
+    "width": 320,
+    "h1": [
+      "News & resources"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3076,
+    "links": 8
+  },
+  {
+    "route": "/emergency",
+    "width": 320,
+    "h1": [
+      "Emergency help"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 5586,
+    "links": 3
+  },
+  {
+    "route": "/doctors/synthetic-clinician-101010101010/",
+    "width": 320,
+    "h1": [
+      "Dr Aster"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3808,
+    "links": 12
+  },
+  {
+    "route": "/services/synthetic-service-111111111111",
+    "width": 320,
+    "h1": [
+      "Admission guidance"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 4031,
+    "links": 10
+  },
+  {
+    "route": "/services/synthetic-service-232323232323",
+    "width": 320,
+    "h1": [
+      "Brain & nerve care"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3876,
+    "links": 10
+  },
+  {
+    "route": "/news-resources/make-room-for-your-questions",
+    "width": 320,
+    "h1": [
+      "Make room for your questions."
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 2822,
+    "links": 4
+  },
+  {
+    "route": "/health-topics/back-pain",
+    "width": 320,
+    "h1": [
+      "Back pain"
+    ],
+    "overflow": false,
+    "duplicates": [],
+    "height": 3887,
+    "links": 11
+  }
+]

@@ -1,0 +1,42 @@
+.placeholder {
+  align-items: center;
+  background: var(--semantic-color-surface-subtle);
+  border: var(--semantic-border-default) dashed var(--semantic-color-border-strong);
+  border-radius: var(--semantic-radius-card);
+  color: var(--semantic-color-text-secondary);
+  display: flex;
+  justify-content: center;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.placeholder span {
+  font-size: var(--semantic-type-small-size);
+  font-weight: var(--semantic-font-weight-strong);
+  line-height: var(--semantic-type-small-line);
+  padding: var(--semantic-space-compact);
+}
+
+.card {
+  aspect-ratio: 3 / 2;
+  max-block-size: 12rem;
+  width: 100%;
+}
+
+.profile {
+  aspect-ratio: 4 / 5;
+  width: min(100%, 13rem);
+}
+
+@media (min-width: 48rem) {
+  .profile { width: min(100%, 18rem); }
+}
+
+@media (forced-colors: active) {
+  .placeholder {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+}

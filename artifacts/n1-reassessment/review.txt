@@ -1,0 +1,53 @@
+N1 reassessment — 2 November 2026
+
+Decision: keep N1 open, narrow the work to essential supporting text and component
+role consistency. No UI code changed during this review.
+
+Method: current local Next development server; homepage skill inspector at
+1440/768/390px; computed styles on /, /health-topics, /health-topics/diabetes,
+/doctors, /services, /appointment, /news-resources and /patients-visitors at
+all three widths. Reproduce with measure.mjs and the skill inspector.
+Reviewed all ten homepage inspector images, plus appointment mobile, diabetes
+mobile and doctors tablet full-page images. Other route captures are evidence
+for follow-up, not claimed as individually visually reviewed.
+
+Current homepage: 15 rounded desktop font sizes in the inspector (original 16),
+two loaded faces, 17px body with 1.6 leading. Hero is two lines at all widths.
+No homepage heading-wrap/contrast/document-overflow warning. Inspector: 0 FAIL,
+4 WARN (size count, card rows, footage, sideways row). The footage warning
+concerns the inspector's visible-media metric, not proof that no video exists.
+The targeted source lint flagged box-shadow:none as a shadow: false positive;
+it also flagged the search-field border, a functional control boundary.
+
+Measurements show the global notice at 13px; doctor imagery disclosures, topic
+care context, directory privacy hints and appointment date-confirmation qualifier
+at 14px; partner confirmation copy at 15px. These deserve priority over reducing
+a raw size count. Metadata and essential qualifications should not share a small
+role automatically. The custom probe includes exact fractional sizes, icons,
+and offscreen carousel content; its size count differs from the skill inspector.
+
+All 24 route/width combinations had no document horizontal overflow at normal
+text size. This is not a text-resizing or accessibility certification. No 200%
+text resizing, screen-reader, full form-state, or exhaustive template audit ran.
+Do not close N1 until that validation is complete after implementation.
+
+ROUND 1 — review only; scores describe the homepage, not a site-wide audit
+Seen in one second: warm care photograph and a strong two-line headline.
+Idea (one sentence): personal care pairs a human encounter with practical care discovery.
+Live thing: care choices and health-topic search.
+Layout words by section: hero=photo split / choices=tabs / topics=index /
+services=split / doctors=portrait grid / visit=FAQ split / partners=carousel /
+statistics=band / testimonials=paired stories / consultation=split / news=cards /
+footer=wordmark.
+Scores: design 7 · usability 7 · creativity 6 · content 6 → overall 6.5
+Caps applied: competitor-generic concept caps creativity at 6.
+Top three typography problems, with evidence and proposed changes:
+1. Essential image/preview qualifications are smaller than reading copy
+   (desktop-page-02.jpg, mobile-page-01.jpg): promote essential notes to body role.
+2. Topic care context is subordinate 14px text under/alongside 22–24px labels
+   (mobile-page-01.jpg, tablet-page-01.jpg): strengthen context while preserving title priority.
+3. Similar secondary headings vary by component (desktop-page-01.jpg,
+   tablet-page-02.jpg): map comparable roles to shared responsive tokens.
+
+Existing photographs, copy and content claims were not changed or reverified.
+Footer scale is N2; carousel and media warnings are outside this N1 reassessment.

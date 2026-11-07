@@ -1,0 +1,99 @@
+N1 implementation — 2 November 2026
+
+Scope: shared public-site typography, homepage, health library and detail pages,
+doctor/service directories and profiles, visitor/feedback/referral pages,
+appointment form, news/archive/article, emergency page, help and Patient Guide.
+Fonts, content, heading semantics and routes are preserved.
+
+Type roles (default root 16px; values are rem-based):
+--site-small: 14px — secondary news metadata, partner captions, breadcrumbs,
+compact utility navigation, guide speaker attribution and footer colophon.
+--site-support: 16px — essential qualifications, image disclosures, care context,
+search/privacy hints, form guidance/errors, labels and compact reading copy.
+--site-body: 17px — standard prose.
+--site-intro: 20px — introductory copy / emphasized text labels.
+--site-label-heading: 24px — small component headings and field groups.
+--site-lead: 28px desktop / 24px mobile — card headings and statement copy.
+--site-subheading: 32px — utility section headings.
+--site-content-heading: 32–40px — content section headings within task pages.
+--site-heading: 36–58px — homepage section headings (42px tablet, 36px mobile).
+--site-page-title: 40–72px — task-page titles.
+--site-title: legacy large-title role retained for compatibility.
+--site-hero: 78px desktop / 48px tablet / 42px mobile — homepage headline.
+
+Presentation roles live in apps/web/src/app/styles.css, where the existing
+public-site roles were defined. Form/search primitives use new component
+support-font-size aliases in the canonical tokens.json, derived from the existing
+16px semantic body role; generated CSS/TS are regenerated, not hand-edited.
+
+Consolidation: repeated 13/14/15px essential notes become 16px; 18/19px lead copy
+becomes 20px; 21/22/23px compact headings become 24px; 26/27px card headings join
+the 28/24px role; equivalent fluid section and task-page headings share tokens.
+Keep paragraph line heights around 1.5–1.7 and existing reading measures (typically
+48–75ch). Tablet testimonial statements use 24px to avoid unnecessary long wraps.
+
+Justified exceptions: hospital wordmarks, statistical display figures, clinician
+monograms, alphabet initials, print-point sizes and icon glyphs retain their own
+art direction. Legacy welcome rules remain overridden by the cinematic hero;
+the active hero now scales in rem. Compact navigation/metadata are deliberately
+14px, not essential instructions. Semantic heading levels are unchanged.
+
+Browser evidence:
+- home/report.json: final homepage inspector; compare n1-reassessment/home.
+  Desktop rounded size count 15 -> 11. Two-line hero at all three widths.
+  0 FAIL; remaining warnings: size count, card rows, visible footage, sideways row.
+  Eleven sizes include independent display treatments and wordmark; no target
+  count is asserted. Carousel/media composition is outside N1.
+- measurements.json: eight routes x 390/768/1440, exact computed styles.
+  The custom probe includes symbols/offscreen content and fractional sizes, so
+  its old desktop homepage count is 16, versus 15 in the skill inspector.
+- accessibility.json: fourteen routes x 320px reflow, 390/1440px with a 200%
+  root font size, and 390/1440px with line-height 1.5, letter spacing .12em,
+  word spacing .16em, paragraph margin 2em. No document overflow or clipped
+  visible text found. Screen-reader-only clipped text is explicitly excluded.
+- states.json: appointment validation and review, help menu, patient-guide
+  opening/answer, expanded FAQ/testimonials at 390/768/1440, normal and doubled
+  root font size. Guide content remains scrollable when enlarged. Header and
+  utility navigation wrap; guide topics adapt to available text width.
+- verification.json: health search/aliases, keyboard letters, mutual reset,
+  empty results, reader/return focus and reduced-motion matrix passed.
+
+Validation: token generation/consumer checks (including 27 contrast pairs),
+lint, TypeScript, form/search/appointment contracts and health-finder checks pass.
+Homepage inspector reports no text-contrast warning. No new text colors added.
+The old appointment-page:smoke fixture fails because its anchor assertion rejects
+the shared footer's valid href="#" back-to-top link. A diagnostic correction
+then revealed a print-only touch-target assertion; the smoke script was restored
+unchanged. Live appointment error/review checks are recorded separately; do not
+describe the legacy fixture suite as passing.
+
+Limits: Chromium only; root-font doubling is a font-preference simulation, not
+native Firefox text-only zoom. Reflow and text-spacing checks are automated
+probes plus representative visual review, not full accessibility certification.
+No screen-reader, translated content, every content record, or clinical review.
+
+ROUND 2 — typography review
+Seen in one second: the same warm care photograph and strong two-line headline.
+Idea: a human encounter paired with practical routes to care.
+Live thing: care choices and health-topic search.
+Layout words: hero=photo split / choices=tabs / topics=index / services=split /
+doctors=portrait grid / visit=FAQ split / partners=carousel / statistics=band /
+testimonials=paired stories / consultation=split / news=cards / footer=wordmark.
+Scores: design 7.5 · usability 7.5 · creativity 6 · content 6 → overall 7.05
+Caps applied: category-generic concept limits creativity to 6.
+Top three typography findings addressed:
+1. Essential disclosures are now 16px (desktop-page-02, mobile-page-01).
+2. Topic context and form guidance now share the supporting role
+   (mobile-page-01, appointment-errors captures).
+3. Similar headings share tokens; enlarged header text wraps; guide labels
+   no longer split unnecessarily across narrow two-column cards.
+
+Follow-up — 2 November 2026 (supersedes the fixture limitation above):
+The appointment smoke suite now passes all 284 cases. It accepts the valid empty
+fragment (#) while still requiring named fragments to resolve; print output is
+excluded only from touch-target sizing, and the privacy heading assertion matches
+the current "Your privacy" heading. The full run exposed footer min-content
+overflow at 320px with a 200% root font: footer tracks now shrink within the frame
+and navigation stacks when enlarged labels need more width. Desktop and enlarged
+mobile footer captures were reviewed. Appointment contracts (20 cases), focused
+ESLint and git diff --check also pass. Full case results: appointment-smoke.json.

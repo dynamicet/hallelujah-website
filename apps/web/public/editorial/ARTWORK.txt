@@ -1,0 +1,12 @@
+Original concept illustration — Close to home
+Generated 21 October 2026 using the built-in image_gen tool.
+
+Source: care-illustration.png
+Web asset: care-illustration.webp (1200px wide; locally optimized)
+Fictional people and setting. Not a photograph of the hospital, its staff or patients.
+No benchmark assets or reference photos were used.
+
+Final generation prompt:
+Use case: illustration-story. Create one wide 3:2 editorial illustration for an original Ethiopian general hospital website concept. A warm, dignified everyday scene: Ethiopian female clinician in navy scrubs seated on left speaking attentively with Ethiopian adult woman in warm ochre clothing on right, elderly Ethiopian man sitting beside her. Anatomically coherent, subtle natural expressive faces, not cartoon caricature. Contemporary sophisticated magazine illustration: matte gouache, textured paper, precise simplified shapes, gentle daylight, abundant cream negative space, deep navy #0A3D5C, warm terracotta #C56943, pale sky blue #DDEEF3, olive foliage accents. Minimal interior, large sunlit window, small potted plant; foreground desk with closed book, no medical procedure or devices. Landscape composition, figures occupy middle and lower 75% of frame, background top third light cream. Calm, confident, locally human; high-end editorial art direction with deliberate asymmetrical balance. No text, letters, logos, signage, watermark, UI or borders. This is fictional conceptual artwork, not real hospital staff or premises.
+
+Fonts are bundled with separate license notices in this directory.

@@ -1,0 +1,78 @@
+{
+  "deliverable": 6,
+  "date": "2026-11-04",
+  "scope": "Brand usage documentation and standalone catalog closeout; full application route audit not repeated",
+  "checks": {
+    "brand": "passed",
+    "tokens": "passed: 471 tokens, 37 contrast policies, 7 protected contexts",
+    "links": "passed: 1860 repository links at closeout before this evidence link was added",
+    "catalogJavaScriptSyntax": "passed",
+    "changedFileFormatting": "passed",
+    "globalFormatting": "failed: pre-existing scratch and evidence file formatting; unrelated files not modified",
+    "catalogInteractions": "default 4.96:1; primary blue on mist 4.47:1 fails; strong blue passes; CSS export semantic binding retained"
+  },
+  "browser": [
+    {
+      "file": "index.html",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "guide": true
+    },
+    {
+      "file": "component-study.html",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "guide": true,
+      "historical": true
+    },
+    {
+      "file": "index.html",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "guide": true
+    },
+    {
+      "file": "component-study.html",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "guide": true,
+      "historical": true
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "guide": true
+    },
+    {
+      "file": "component-study.html",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "guide": true,
+      "historical": true
+    },
+    {
+      "file": "index.html",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "guide": true
+    },
+    {
+      "file": "component-study.html",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "guide": true,
+      "historical": true
+    }
+  ],
+  "visualReview": "Saved desktop, tablet and phone catalog opening, guidance and historical-study notices reviewed; existing route-rollout desktop/tablet/phone evidence sampled",
+  "applicationSourceChanges": false
+}

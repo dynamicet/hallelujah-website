@@ -1,0 +1,26 @@
+H7 follow-up review — 2 November 2026
+
+Scope: topic discovery on the homepage and topic index at 390, 768 and 1440px;
+representative linked/unlinked topic details, all three preparation guide routes,
+and appointment service choices.
+
+Visual review: inspected the homepage health-library captures at all three widths
+and the index desktop/tablet full-page captures, together with the earlier mobile
+index review. Search is above A–Z; all topics are visible without pagination.
+Letters wrap within the mobile/tablet frame, and the desktop list uses two columns.
+No horizontal overflow was measured. The unchanged footer remains visually large.
+
+Interaction evidence: verify.mjs and verification.json record the tested matrix.
+Keyboard checks use Enter for letter selection, topic opening, returning and reset;
+Tab is checked from the reset-focused search field. This is not a screen-reader
+certification or an exhaustive tab-order audit of the entire website.
+
+Correction: the patient-guide catalog still included the three visit guides as
+service choices. It now uses the same exclusion map as the appointment page.
+Added a regression assertion to the patient-guide checks.
+
+Earlier inspector results remain on record: imagery and motion style failures,
+plus typography, footage, measure and alignment warnings. Photography/video and
+extra motion are not needed to complete this topic-finding task. These findings
+are not presented as a clean inspector pass; broader typography/footer work
+remains in N1/N2. H7 verification concerns content scope and discovery behavior.

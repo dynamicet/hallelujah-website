@@ -11,6 +11,11 @@ architecture, and marketing direction to Codex
 
 **Machine record:** [brand-foundation.json](brand-foundation.json)
 
+**Website usage — finalized 4 November 2026:** The [website brand and composition guide](usage-guide.md)
+consolidates the revised homepage, shared components and inner-page rollout. Use it for current
+color composition, editorial typography and page design. This foundation retains institutional
+identity, logo provenance, voice and media requirements.
+
 This is the working professional identity system for the website rebuild. It converts the
 hospital's public identity evidence into a coherent, accessible, bilingual-ready system so product
 work does not wait for a marketing package that does not presently exist.
@@ -20,6 +25,8 @@ to be hospital-supplied originals or vectors. They may be replaced centrally if 
 higher-quality master or a later hospital instruction arrives. Individual photographs, footage,
 portraits, partner marks, documents, and clinical claims are not approved by this decision and
 still require the governed intake workflow in `B02-011`.
+
+The current local homepage expression is documented in the [whole-life direction](whole-life-direction.md), with [internal image provenance](whole-life-image-sources.txt).
 
 ## 1. Brand core
 
@@ -83,38 +90,27 @@ background, use the accessible text name as the safe fallback.
 
 ## 3. Color system
 
-The visual system preserves the bright identity accents found in the public mark and extends them
-with deeper, accessible interface roles. Logo colors and UI colors have different jobs.
+The [current usage guide](usage-guide.md#palette-and-responsibilities) governs website color
+composition. Exact runtime values live in the [application token manifest](../../apps/web/src/design-system/tokens/tokens.json).
+The [interactive catalog](color-catalog/index.html) supplies swatches and contrast exploration.
 
-### Identity colors
+Blue `#0078A6`, strong blue `#00678D` and deep blue `#00445D` carry identity, actions,
+links and headings. Mist, veil and air provide tonal companions. Orange `#F26522` and magenta
+`#D81B72`, with pale and deep companions, provide independently composed details, typography,
+frames and surfaces. Paper, white, ink and slate separate reading and working planes.
+There are no fixed color percentages or exclusive department/section accent assignments.
 
-| Token | Value | Use | Accessibility boundary |
-| --- | --- | --- | --- |
-| `brand.cyan` | `#1EAEE2` | Logo/source identity, rules, small decorative accents | 2.56:1 on white; never normal text, a white-label control, focus, or status by itself. |
-| `brand.orange` | `#EF5C28` | Logo/source identity, restrained warm accent | 3.37:1 on white; never normal text, a white-label control, warning, or error by itself. |
-
-The remaining small multicolor details stay inside the source artwork. They are not promoted to UI
-roles without a new decision because doing so would make the product noisy and blur safety
-semantics.
-
-### Accessible interface extension
-
-| Role | Value | Purpose |
-| --- | --- | --- |
-| White | `#FFFFFF` | Raised surfaces and logo field |
-| Mineral 025 | `#F4FAF9` | Quiet page surface |
-| Mineral 050 | `#EEF7F6` | Grouped surface |
-| Mineral 200 | `#C7DAD7` | Quiet border |
-| Mineral 600 | `#516A70` | Secondary text; 5.76:1 on white |
-| Mineral 900 | `#17323A` | Primary text; 13.52:1 on white |
-| Teal 700 | `#006A73` | Primary non-emergency action/link; 6.35:1 on white |
-| Blue 700 | `#075EA8` | Focus and information; 6.61:1 on white |
-| Red 800 | `#8F1C13` | Error/urgent text; 8.96:1 on white |
-
-Use cyan and orange to make the experience recognizable; use mineral and teal to make it usable.
-Red remains reserved for genuine urgent/error meaning. No state may depend on color alone.
+The homepage, shared components and inner pages implement this direction. See the
+[revised implementation](color-catalog/composition-implementation.md) and
+[route rollout](color-catalog/route-rollout.md) for examples and scoped validation.
+Earlier cyan/navy/teal values remain in [brand-foundation.json](brand-foundation.json)
+as historical provenance. Original artwork remains unchanged. Error and emergency keep
+separate aliases and written meaning despite sharing a red primitive.
 
 ## 4. Typography
+
+**Presentation reconciliation — 4 November 2026:** The local website uses Lato body/UI, FreeSerif editorial headings and Noto Sans Ethiopic. See the [usage guide](usage-guide.md#typography-space-and-imagery). The Noto release/hash records below remain foundation provenance; editorial CSS overrides those stacks in the current presentation.
+
 
 ### Approved families
 

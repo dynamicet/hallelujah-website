@@ -1,0 +1,2219 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/component-library",
+    "width": 1440,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/composition-study",
+    "width": 1440,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/component-library",
+    "width": 768,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/composition-study",
+    "width": 768,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/component-library",
+    "width": 390,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/composition-study",
+    "width": 390,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/",
+    "width": 320,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/component-library",
+    "width": 320,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "route": "/composition-study",
+    "width": 320,
+    "noOverflow": true,
+    "oneH1": true,
+    "uniqueIds": true,
+    "interactions": true
+  },
+  {
+    "tone": "paper",
+    "hover": true,
+    "pressed": true,
+    "focus3px": true,
+    "forcedColors": true
+  },
+  {
+    "tone": "mist",
+    "hover": true,
+    "pressed": true,
+    "focus3px": true,
+    "forcedColors": true
+  },
+  {
+    "tone": "inverse",
+    "hover": true,
+    "pressed": true,
+    "focus3px": true,
+    "forcedColors": true
+  },
+  {
+    "tone": "supporting",
+    "hover": true,
+    "pressed": true,
+    "focus3px": true,
+    "forcedColors": true
+  },
+  {
+    "tone": "expressive",
+    "hover": true,
+    "pressed": true,
+    "focus3px": true,
+    "forcedColors": true
+  },
+  {
+    "route": "/",
+    "contrastPairs": 85,
+    "minimumContrast": 4.956076082461528,
+    "pairs": [
+      {
+        "text": "Specialized care, close to you",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "63.36px",
+        "weight": "400"
+      },
+      {
+        "text": "Explore our specialties and find the right team.",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "20px",
+        "weight": "400"
+      },
+      {
+        "text": "Heart care",
+        "ratio": 8.504416691922264,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(213, 234, 242)",
+        "size": "28px",
+        "weight": "500"
+      },
+      {
+        "text": "Cardiology",
+        "ratio": 5.077279368304103,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(213, 234, 242)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Explore heart care and meet doctors whose focus is your",
+        "ratio": 10.939060993957522,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(213, 234, 242)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Brain & nerve care",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "28px",
+        "weight": "500"
+      },
+      {
+        "text": "Neurology",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Find a starting point for questions about your brain an",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Kidney care",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "28px",
+        "weight": "500"
+      },
+      {
+        "text": "Nephrology",
+        "ratio": 5.692923887152854,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Learn about kidney care and prepare for your next conve",
+        "ratio": 12.265474699755158,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Bones & joints",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "28px",
+        "weight": "500"
+      },
+      {
+        "text": "Orthopedics",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Explore care for your bones and joints, with your movem",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Explore all care & services→",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "17px",
+        "weight": "400"
+      },
+      {
+        "text": "Hallelujah in numbers",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "Years of care",
+        "ratio": 8.504416691922264,
+        "color": "rgb(213, 234, 242)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "18",
+        "ratio": 6.6012812878541345,
+        "color": "rgb(168, 211, 228)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "86.4px",
+        "weight": "600"
+      },
+      {
+        "text": "Doctors",
+        "ratio": 8.504416691922264,
+        "color": "rgb(213, 234, 242)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "9",
+        "ratio": 6.6012812878541345,
+        "color": "rgb(168, 211, 228)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "86.4px",
+        "weight": "600"
+      },
+      {
+        "text": "Meet our doctors →",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Areas of care",
+        "ratio": 8.504416691922264,
+        "color": "rgb(213, 234, 242)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "10",
+        "ratio": 6.6012812878541345,
+        "color": "rgb(168, 211, 228)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "86.4px",
+        "weight": "600"
+      },
+      {
+        "text": "Explore services →",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Patients served in 2025",
+        "ratio": 8.504416691922264,
+        "color": "rgb(213, 234, 242)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "24,000",
+        "ratio": 6.6012812878541345,
+        "color": "rgb(168, 211, 228)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "86.4px",
+        "weight": "600"
+      },
+      {
+        "text": "Illustrative figures for this preview; hospital confirm",
+        "ratio": 8.504416691922264,
+        "color": "rgb(213, 234, 242)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Everyday stories.",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "49.12px",
+        "weight": "400"
+      },
+      {
+        "text": "The people, the small moments, and the things that matt",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "17px",
+        "weight": "400"
+      },
+      {
+        "text": "Fictional stories and quotes with generated photos for ",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Mekdes’s story",
+        "ratio": 7.318142883743843,
+        "color": "rgb(166, 21, 88)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Back to the little things.",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "34px",
+        "weight": "500"
+      },
+      {
+        "text": "I looked forward to sitting with my daughter again. The",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Read story ↗",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Hanna’s story",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "A little more confidence.",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "34px",
+        "weight": "500"
+      },
+      {
+        "text": "Writing down my questions helped me find my voice. I co",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Read story ↗",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "It meant a lot to have time to explain what was on my m",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "22px",
+        "weight": "400"
+      },
+      {
+        "text": "Having someone beside me made it easier to ask the ques",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "22px",
+        "weight": "400"
+      },
+      {
+        "text": "I left with my questions written down and a clearer ide",
+        "ratio": 9.506690262961946,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 240, 231)",
+        "size": "22px",
+        "weight": "400"
+      },
+      {
+        "text": "Plan your visit",
+        "ratio": 10.00526721103834,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "63.36px",
+        "weight": "400"
+      },
+      {
+        "text": "What to bring, how appointment requests work, and what ",
+        "ratio": 12.869574980533198,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "17px",
+        "weight": "400"
+      },
+      {
+        "text": "What should I bring?+",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Bring your questions, any referral letter, a list of me",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "How do appointment requests work?+",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Choose a doctor, a service, or help finding care. A req",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Can someone come with me?+",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Ask the hospital about companions and visiting arrangem",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "What if I need extra support?+",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "18px",
+        "weight": "400"
+      },
+      {
+        "text": "Confirm language, mobility, or other support with the h",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Read the full visit guide →",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "17px",
+        "weight": "400"
+      },
+      {
+        "text": "Health and care topics",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "49.12px",
+        "weight": "400"
+      },
+      {
+        "text": "Find information and questions to discuss with your cli",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Search health and care topics",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "→",
+        "ratio": 4.956076082461528,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 120, 166)",
+        "size": "24px",
+        "weight": "400"
+      },
+      {
+        "text": "Browse by first letter",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "View all topics",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "A",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "B",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "C",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "D",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "E",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "F",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "G",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "H",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "I",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "J",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "K",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "L",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "M",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "N",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "O",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "P",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Q",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "R",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "S",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "T",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "U",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "V",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "W",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "X",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Y",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Z",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Search for a topic or choose a letter to explore care o",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      }
+    ]
+  },
+  {
+    "route": "/component-library",
+    "contrastPairs": 174,
+    "minimumContrast": 4.956076082461528,
+    "pairs": [
+      {
+        "text": "Back to the homepage",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Compare the previous and revised compositions",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Shared components for Hallelujah. Development study: ex",
+        "ratio": 12.869574980533198,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Surfaces & actions",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Cards",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Forms",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Notices",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Search & filters",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Further states",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Directory cards",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "A warm foundation",
+        "ratio": 10.00526721103834,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "Paper, blue structure and a warm edge work together. Th",
+        "ratio": 12.869574980533198,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Find your next step",
+        "ratio": 4.956076082461528,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 120, 166)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Explore care",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Read the guidance",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "An ordinary text link",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Space to explore care",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "Mist carries blue identity. A contrasting corner adds e",
+        "ratio": 12.265474699755158,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Find your next step",
+        "ratio": 4.956076082461528,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 120, 166)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Explore care",
+        "ratio": 5.692923887152854,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Read the guidance",
+        "ratio": 5.692923887152854,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "An ordinary text link",
+        "ratio": 5.692923887152854,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "A confident blue field",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "Deep blue, a warm edge and a white inset create distinc",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Find your next step",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Explore care",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Read the guidance",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "An ordinary text link",
+        "ratio": 10.579816336009289,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 68, 93)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "A white card within blue",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Nested cards restore light-surface actions and focus in",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Review the form",
+        "ratio": 4.956076082461528,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 120, 166)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Prepare with confidence",
+        "ratio": 9.506690262961946,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 240, 231)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "A warm field can carry blue headings, blue actions and ",
+        "ratio": 12.228265430124033,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 240, 231)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Find your next step",
+        "ratio": 4.956076082461528,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 120, 166)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Explore care",
+        "ratio": 5.675653496475616,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 240, 231)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Read the guidance",
+        "ratio": 5.675653496475616,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 240, 231)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "An ordinary text link",
+        "ratio": 5.675653496475616,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 240, 231)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "The people behind care",
+        "ratio": 9.164326479923515,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(252, 234, 242)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "Pink supplies atmosphere. Blue connects the content to ",
+        "ratio": 11.7878897476464,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(252, 234, 242)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Find your next step",
+        "ratio": 4.956076082461528,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 120, 166)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Explore care",
+        "ratio": 5.471256577198761,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(252, 234, 242)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Read the guidance",
+        "ratio": 5.471256577198761,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(252, 234, 242)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "An ordinary text link",
+        "ratio": 5.471256577198761,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(252, 234, 242)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Cards with a purpose.",
+        "ratio": 10.00526721103834,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "Before your visit",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "An editorial card can hold guidance and a separate acti",
+        "ratio": 12.265474699755158,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "See the form example",
+        "ratio": 5.692923887152854,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Care, in conversation",
+        "ratio": 9.164326479923515,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(252, 234, 242)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "A pink reading surface, blue heading and blue corner be",
+        "ratio": 11.7878897476464,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(252, 234, 242)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Read the example notices",
+        "ratio": 5.471256577198761,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(252, 234, 242)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Explore a care taskOne linked panel, with a clear desti",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "A compact care routeThe existing row layout remains the",
+        "ratio": 5.973312294683929,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Clear at every state.",
+        "ratio": 10.00526721103834,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "State examples only. No data is collected or submitted ",
+        "ratio": 12.869574980533198,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Fields & choices",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Your nameOptional",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      },
+      {
+        "text": "Example field; use Tab to review focus.",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Email addressOptional",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      },
+      {
+        "text": "Error: Enter a complete email address.",
+        "ratio": 6.832564174002861,
+        "color": "rgb(163, 51, 48)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Care preferenceOptional",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      },
+      {
+        "text": "Unavailable fieldOptional",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      },
+      {
+        "text": "This example is unavailable.",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Phone",
+        "ratio": 12.265474699755158,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Email",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Unavailable option",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Actions & feedback",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Available example",
+        "ratio": 4.956076082461528,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 120, 166)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Unavailable example",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Choose a care preference before continuing.",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Sending example…",
+        "ratio": 5.640174074982905,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Pending state demonstration. No request is being sent.",
+        "ratio": 12.265474699755158,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Pending example",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "A request in progress keeps its current context visible",
+        "ratio": 5.692923887152854,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Meaning beyond brand color.",
+        "ratio": 10.00526721103834,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "Every notice includes a label and icon. Red is reserved",
+        "ratio": 12.869574980533198,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Information example",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Use blue for neutral guidance.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Success example",
+        "ratio": 7.091361204453546,
+        "color": "rgb(36, 99, 75)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Demonstration of confirmed success styling; no appointm",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Warning example",
+        "ratio": 6.644622694166676,
+        "color": "rgb(128, 83, 12)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Explain what needs attention and what to do next.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Error example",
+        "ratio": 6.832564174002861,
+        "color": "rgb(163, 51, 48)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Keep the problem visible and provide a recovery action.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "EmergencyView emergency information",
+        "ratio": 6.832564174002861,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(163, 51, 48)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Find, narrow, continue.",
+        "ratio": 10.00526721103834,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "Working GET search and filter controls. These examples ",
+        "ratio": 12.869574980533198,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Search and filter example",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Search care",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      },
+      {
+        "text": "Example controls; use a sample word.",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Search",
+        "ratio": 4.956076082461528,
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgb(0, 120, 166)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "General care",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Specialist care",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "General care×",
+        "ratio": 5.692923887152854,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Clear example filters",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Pagination and selection styling example",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      },
+      {
+        "text": "Example page 2",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Next example page",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Details under pressure.",
+        "ratio": 10.00526721103834,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "Additional state specimens. All messages below are demo",
+        "ratio": 12.869574980533198,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Long input & error recovery",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Example notesOptional",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      },
+      {
+        "text": "Use sample text only.",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Review this example",
+        "ratio": 9.406631411607213,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 239, 237)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Email address: Enter a complete email address.",
+        "ratio": 6.07490817796565,
+        "color": "rgb(163, 51, 48)",
+        "bg": "rgb(251, 239, 237)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Failure example",
+        "ratio": 9.406631411607213,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 239, 237)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "The example could not be sent. Your entered information",
+        "ratio": 6.07490817796565,
+        "color": "rgb(163, 51, 48)",
+        "bg": "rgb(251, 239, 237)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Warning example",
+        "ratio": 9.857232736548534,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 246, 229)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Review the information before continuing.",
+        "ratio": 6.1908061787449515,
+        "color": "rgb(128, 83, 12)",
+        "bg": "rgb(255, 246, 229)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Loading & preserved context",
+        "ratio": 9.53561807805686,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(234, 245, 249)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Loading example",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Existing content remains available.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Supplementary content loading example",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Receipt styling example",
+        "ratio": 9.67796711232477,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(238, 247, 241)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Demonstration only. This is not an appointment confirma",
+        "ratio": 6.486876363319219,
+        "color": "rgb(36, 99, 75)",
+        "bg": "rgb(238, 247, 241)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Reference DEMO-ONLY",
+        "ratio": 6.486876363319219,
+        "color": "rgb(36, 99, 75)",
+        "bg": "rgb(238, 247, 241)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Empty example",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Explain the current condition and preserve a useful nex",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Return to the search example",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Offline example",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Explain the current condition and preserve a useful nex",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Return to the search example",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Unavailable example",
+        "ratio": 6.832564174002861,
+        "color": "rgb(163, 51, 48)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Explain the current condition and preserve a useful nex",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Return to the search example",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Expired example",
+        "ratio": 6.832564174002861,
+        "color": "rgb(163, 51, 48)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Explain the current condition and preserve a useful nex",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Return to the search example",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Error example",
+        "ratio": 6.832564174002861,
+        "color": "rgb(163, 51, 48)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Explain the current condition and preserve a useful nex",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Return to the search example",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Governed card evidence fixture",
+        "ratio": 10.00526721103834,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "40px",
+        "weight": "400"
+      },
+      {
+        "text": "All records below are synthetic, non-public specimens. ",
+        "ratio": 12.869574980533198,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Missing optional data leaves no empty label. The Ethiop",
+        "ratio": 12.869574980533198,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(251, 248, 246)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Synthetic, non-public specimen",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic doctor specimen",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic specialty only",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Profile →",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Review due: 2026-10-16",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Synthetic, non-public specimen",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic service specimen",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic service summary only.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Service details →",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Synthetic review specimen by Synthetic clinical reviewe",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Review due: 2026-10-16",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Synthetic, non-public specimen",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic location specimen",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "700"
+      },
+      {
+        "text": "Specimen information line: No staffed contact is provid",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "600"
+      },
+      {
+        "text": "Synthetic location summary only.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Text directions →",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Review due: 2026-10-16",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Synthetic, non-public specimen",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic vacancy specimen",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "700"
+      },
+      {
+        "text": "Team",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic team",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Location",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic location",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Employment type",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Controlled specimen",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Closes: 16 October 2026, 09:00 UTC — specimen",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Responsibilities: No real duties are advertised.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Criteria: No real criteria are advertised.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Application process: No application is collected in thi",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Recruitment privacy information",
+        "ratio": 6.316327756410182,
+        "color": "rgb(0, 103, 141)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "400"
+      },
+      {
+        "text": "Vacancy details →",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Review due: 2026-10-16",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "400"
+      },
+      {
+        "text": "Synthetic, non-public specimen",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic doctor specimen",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Expired or withdrawn. No action is available.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic, non-public specimen",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic service specimen",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Unavailable. No action is available.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic, non-public specimen",
+        "ratio": 6.257801573844074,
+        "color": "rgb(82, 99, 107)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "14px",
+        "weight": "700"
+      },
+      {
+        "text": "Synthetic location specimen",
+        "ratio": 10.579816336009289,
+        "color": "rgb(0, 68, 93)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "24px",
+        "weight": "500"
+      },
+      {
+        "text": "Unavailable. No action is available.",
+        "ratio": 13.608606021668777,
+        "color": "rgb(23, 49, 61)",
+        "bg": "rgb(255, 255, 255)",
+        "size": "16px",
+        "weight": "700"
+      }
+    ]
+  }
+]

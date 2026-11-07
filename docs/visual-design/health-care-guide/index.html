@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Health & Care Guide — Hallelujah design study</title>
+  <link rel="stylesheet" href="guide.css">
+  <script src="guide.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#guide">Skip to health guide</a>
+  <div class="study">Interactive design study <span>Sample topics & care routes · No live appointments or calls</span></div>
+  <header class="header">
+    <a class="brand" href="#"><img src="../../../apps/web/public/brand/hallelujah-emblem.png" width="48" height="48" alt=""><span>Hallelujah<small>General Hospital</small></span></a>
+    <nav aria-label="Main"><a href="#guide" aria-current="page">Health & care</a><a href="#guide">Find your next step</a></nav>
+    <button class="header-action" id="header-guidance" type="button">Talk to us <span aria-hidden="true">↗</span></button>
+  </header>
+  <main id="guide" data-mobile-mode="search">
+    <section class="opening" aria-labelledby="title">
+      <div class="title-block"><h1 id="title"><span class="desktop-copy">Find your next step.</span><span class="mobile-copy">Health & care</span></h1><p class="opening-copy"><span class="desktop-copy">Understand a concern. Find the right care.</span><span class="mobile-copy">Find a guide and your next step.</span></p></div>
+      <div class="mobile-modes" role="group" aria-label="How would you like to find a topic?"><button id="mode-search" type="button" aria-pressed="true" aria-controls="search-form">Search a concern</button><button id="mode-browse" type="button" aria-pressed="false" aria-controls="alphabet">Browse A–Z</button></div>
+        <form id="search-form" role="search">
+          <label for="search">Search a symptom or condition</label>
+          <div class="search-box"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" enterkeyhint="search" maxlength="80" placeholder="Try “back pain”" autocomplete="off"><button type="submit" aria-label="Search health topics">↗</button></div>
+        </form>
+    </section>
+    <div class="guide-layout">
+      <section class="finder" aria-label="Find a health topic">
+        <button id="change-letter" class="mobile-change" type="button" hidden aria-expanded="false" aria-controls="alphabet">Choose another letter</button>
+        <div class="browse-title"><h2>Browse by first letter</h2><button id="reset" type="button">Start over</button></div>
+        <div id="alphabet" class="alphabet" role="group" aria-label="Find topics by first letter"></div>
+
+        <noscript><p>Enable JavaScript to explore this interactive design study. Topics include allergies, asthma, back pain, diabetes, headaches and high blood pressure. This preview does not provide clinical advice.</p></noscript>
+
+      </section>
+      <div class="discovery">
+        <section id="matches" class="matches" aria-labelledby="matches-title" hidden>
+          <div class="matches-heading"><span id="result-letter" aria-hidden="true"></span><h2 id="matches-title">Matching topics</h2><p id="result-count" role="status" aria-live="polite" aria-atomic="true"></p></div>
+          <div id="results" class="results"></div>
+          <div id="pagination" class="pagination" hidden><button id="previous" type="button">← Previous</button><span id="page-position"></span><button id="next" type="button">Next →</button></div>
+        </section>
+      <section id="reader" hidden class="reader" aria-label="Selected health guide" tabindex="-1">
+        <button class="back" id="back" type="button">← Back to matches</button>
+        <h2 id="topic-title">Back pain</h2>
+        <p id="topic-summary" class="summary"></p>
+        <section class="care" id="care" aria-labelledby="care-title"><div class="care-heading"><span class="care-symbol" aria-hidden="true">↗</span><h3 id="care-title">Your next step</h3></div><p id="care-description"></p><button id="care-action" class="primary" type="button"></button><div class="care-secondary"><span>Unsure where to start?</span><button id="guidance" type="button">Call for guidance <span aria-hidden="true">↗</span></button></div></section>
+        <button id="read-more" class="read-more" type="button" aria-haspopup="dialog">Read more about <span id="read-more-topic">back pain</span> <span aria-hidden="true">↗</span></button>
+
+        <p class="reader-note">General information can help you prepare for care. It cannot diagnose a condition.</p>
+      </section>
+      </div>
+    </div>
+
+  </main>
+
+  <dialog id="full-guide" aria-labelledby="full-guide-title"><div class="sheet-toolbar"><span>Health & care guide</span><form method="dialog"><button class="close-dialog" aria-label="Close full guide">×</button></form></div><h2 id="full-guide-title">Back pain</h2><p id="full-guide-summary"></p>
+        <div class="reader-tabs" role="tablist" aria-label="Guide sections"><button id="tab-overview" role="tab" aria-selected="true" aria-controls="overview" tabindex="0">Understand</button><button id="tab-prepare" role="tab" aria-selected="false" aria-controls="prepare" tabindex="-1">Prepare for care</button></div>
+        <div id="overview" class="tab-panel" role="tabpanel" aria-labelledby="tab-overview">
+          <h3>A place to begin</h3><p id="topic-intro"></p>
+          <div class="guide-outline"><p>Inside this guide</p><ul><li>Understanding your concern</li><li>Everyday care & when to seek help</li><li>Care options at Hallelujah</li></ul></div>
+        </div>
+        <div id="prepare" class="tab-panel" role="tabpanel" aria-labelledby="tab-prepare" hidden>
+          <h3>Make room for your questions</h3><p>A few notes can help you explain what matters to you during a conversation with the care team.</p><ul class="questions"><li>What would you like help with?</li><li>When did you first notice the concern?</li><li>What questions would you like to ask?</li></ul>
+        </div>
+
+  <form method="dialog"><button class="primary">Back to care finder</button></form></dialog>
+  <dialog id="handoff" aria-labelledby="handoff-title"><form method="dialog"><button class="close-dialog" aria-label="Close preview">×</button></form><p class="dialog-label">Care route preview</p><h2 id="handoff-title"></h2><p id="handoff-copy"></p><p class="dialog-note">Design demonstration only. Hospital service mappings, phone availability and clinical content require confirmation before launch.</p><form method="dialog"><button class="primary">Return to guide</button></form></dialog>
+</body>
+</html>

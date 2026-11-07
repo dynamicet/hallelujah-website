@@ -1,0 +1,91 @@
+Hallelujah Hospital redesign — 27 October 2026
+
+Preview: http://localhost:3000 (existing Next development server).
+
+Direction: Taste “The place carries it”, seed 2146993501.
+Idea: The hope in Hallelujah becomes a photographic welcome followed by a
+practical guide to the next step. The interactive care navigator connects to
+doctors, services, visit preparation and the appointment journey.
+
+Delivered:
+- A new photographic homepage, service pathways, listening/approach section,
+  native visit-preparation accordions, honest arrival information and a large
+  typographic footer.
+- Shared responsive header, keyboard-operable native mobile menu, visible
+  emergency access and a language-availability disclosure.
+- Refined doctor and service directories, compact clinician monograms and
+  profiles, a consistent appointment presentation and urgent-care styling.
+- Locally hosted Clash Grotesk, optimized local WebP imagery, progressive
+  enhancement, reduced-motion and print treatments.
+- Twenty additional canonical presentation tokens and six additional contrast
+  policies. Generated CSS and TypeScript remain in sync.
+- Updated connected-route regression tests for the care navigator, no-JavaScript
+  fallback, visitor questions and clinician initials.
+
+Direction adjustments:
+The original midline navigation needed a photograph with a clear central rail.
+That asset did not exist; the hero was redrawn. The type slot was redrawn from
+condensed Archivo to Clash Grotesk for a calmer, readable identity. The dealt
+multi-screen pinned introduction was adapted to the practical care navigator;
+the hospital’s essential routes remain near the first screen. No pinned scene
+or scroll hijacking was introduced.
+
+Visual verification:
+Taste inspector: baseline 5 FAIL / 8 WARN; final 0 FAIL / 3 WARN at 1440, 768
+and 390 pixels. Final screenshots were opened and reviewed at all widths.
+Final internal critique: design 8, usability 8.2, creativity 7, content 7.2;
+weighted score 7.8/10. See critique.txt for all three rounds and remaining issues.
+The warnings concern the expanded type scale, absence of video and restrained
+motion. Twelve moving elements were measured; reduced motion has zero active
+animations. No authentic hospital footage is available, so no unrelated clip
+was added.
+
+Functional verification:
+- Connected-site suite: 17 route/journey groups passed; no browser exceptions,
+  warnings, failed loads or unexpected HTTP errors.
+- Search, specialty filters, pagination, history, profile/service selection,
+  appointment validation, retry/reconciliation, keyboard focus, native menu,
+  language disclosure, no-JavaScript behavior and disabled API verified.
+- Six routes checked across phone, tablet and desktop widths, with additional
+  320px reflow coverage. No horizontal overflow observed.
+- Lint, TypeScript and optimized production build passed.
+- Existing application contracts passed through the asset governance suite.
+  The complete pnpm test command stops at assets:formats:check because the
+  selected Python interpreter lacks the repository-pinned fontTools dependency.
+  Asset governance passed using ASSET_TEST_TEMP_PARENT=/var/tmp because the
+  session’s /tmp quota was exhausted.
+- The independent environment contract passed. The repository boundary check
+  still flags the pre-existing https://local.invalid URL in the unchanged
+  doctors/[slug]/page.tsx file. New component imports use the public API.
+- Repository-wide format:check reports existing historical JSON/HTML artifacts,
+  cache files and LATO-LICENSE.txt formatting, plus browser-runtime metadata.
+  New Taste report final newlines were normalized; git diff --check is clean.
+
+Assets and credits:
+The three generated care scenes are stored in apps/web/public/editorial:
+hope-care.webp, family-care.webp and together-care.webp. Generated with the
+built-in OpenAI image tool, with fictional people and settings. The second
+family placement is a different crop of the same image. No external stock
+photographs, archival images, video or code-drawn photo substitutes were used.
+The hero, supporting caption and footer disclose concept imagery. Full prompts,
+font sources and asset descriptions are in public/editorial/CARE-IMAGERY.txt.
+The hospital’s existing emblem is preserved and supplied explicitly by the
+connected website shell. Clinician initials do not imply an available portrait.
+
+Launch limitations:
+The connected demonstration remains development-only under the application’s
+existing deployment boundary. The ready local homepage uses the new design;
+the existing production homepage continues to use its governed-content template
+with the shared visual theme. Alternative local scenarios are retained.
+Clinician and service records are the existing illustrative snapshot, not
+verified clinical information. Phone, address, entrance, hours, capabilities,
+availability and emergency operational details require hospital verification.
+The appointment preview does not submit or retain patient data. No live booking,
+map, telephone or Amharic content was invented or activated. This work has not
+been deployed or published.
+
+For launch, supply approved operational content and portraits, replace concept
+scenes with authentic institutional photography where possible, connect the
+existing governed content and appointment workflow, and resolve the existing
+deployment activation requirements. The implementation does not claim those
+external dependencies are complete.

@@ -18,7 +18,7 @@ export function homePreviewDocument(state) {
     `<aside class="ds-container" aria-label="Controlled destination review" data-home-destinations>${destinations}<section class="ds-section" id="home-transcript"><h2>Abstract test film transcript</h2><p>A finite abstract animation. No people, hospital, speech or unique care information appears.</p></section></aside></main>`)
   const fixture = governed ? 'synthetic-home-governed-omissions-fixture'
     : contacts ? 'synthetic-home-canonical-contacts-fixture' : 'synthetic-home-hierarchy-fixture'
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Home — Hallelujah Hospital</title><link rel="stylesheet" href="/home.css"></head><body data-home-preview-fixture="${fixture}">${body}</body></html>`
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Home — Hallelujah Hospital</title><link rel="stylesheet" href="/home.css"></head><body data-home-preview-fixture="${fixture}">${body}<script defer src="/shell-navigation.js"></script><script defer src="/motion-media.js"></script></body></html>`
 }
 
 export async function createHomePreviewServer({ port = 0 } = {}) {

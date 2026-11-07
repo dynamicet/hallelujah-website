@@ -2,6 +2,63 @@
 
 This repository contains the clean, controlled implementation workspace for the hospital website. The application is not approved for publication, personal-data collection, provider activation, production provisioning, migration, or DNS cutover.
 
+## Local first-demo branch
+
+Client direction on 20 October 2026 authorizes connected local demo routes on
+`feat/connected-demo-routes`. Start with `pnpm dev` and open `http://localhost:3000`.
+Home navigation now connects `/doctors`, matching `/doctors/{slug}` profiles,
+`/services`, `/emergency`, and `/appointment`. Doctor search, specialty filters,
+pagination, and profile-to-appointment selection work with fictional records.
+Contact/directions lead to the existing Home sections. Service results now open
+`/services/{slug}` detail pages with preparation questions, referral guidance,
+related sample clinicians and a selected-service appointment handoff. The
+`/patients-visitors` guide covers preparation, arrival, companions, accessibility,
+admission and discharge planning. It is linked from the header, homepage and footer.
+Amharic and real appointment submission remain unavailable. Contact & directions now
+uses phone/email details from the hospital’s public website and its Google Maps location;
+call, email and external directions links are enabled. Other provider actions remain disabled.
+
+The `/feedback` page supports compliments, suggestions and concerns through a
+local sample-message review, edit and clear journey. It does not send feedback,
+collect contact details or store messages. Sending stays unavailable until the
+hospital confirms its recipient and handling process. Feedback is linked from the
+footer, visit guide and patient guide. Payment features and post-visit online
+services are outside this addition. Operational details remain explicitly unverified.
+Run `PATIENT_PAGES_ONLY=1 node scripts/check-demo-routes.mjs` against the development
+server for the ten service routes, links, responsive layouts and feedback journey.
+
+The **Help → Chat with our guide** option opens a working patient guide with six
+topic flows, prepared FAQ answers, typed-question matching, doctor/service lookup
+and appointment handoffs. It runs in the browser with no LLM or API keys. Sample
+content comes from the same directory snapshot; unverified operational facts remain
+unavailable. See [Patient Guide](docs/architecture/patient-guide.md) for content
+editing, integration points and verification. Run
+`pnpm --dir apps/web patient-guide:check` for its conversation checks.
+
+The homepage Health & Care finder is available at `/#health-library`, after
+“How can we help?”. Search and the full A–Z selector remain visible together on
+desktop and mobile. Topic care actions connect to existing appointment requests
+with a selected sample service or to the contact section. The topic vocabulary
+and care mappings are illustrative; reviewed clinical articles and self-care
+guidance remain unavailable. Health searches stay in browser memory rather than
+URLs or storage.
+
+Search ranks curated topic names and patient-language aliases across all letters;
+multiword queries must match within one name or alias. Alias matches explain their
+connection. Each topic has its own navigation summary, next step and preparation
+questions. Topics without a service mapping, including unreviewed self-care,
+offer contact guidance. Empty searches also offer a contact path. Validate with
+`node apps/web/scripts/check-health-finder.mjs`.
+
+These additional routes require development mode and return 404 in production.
+They reuse existing templates and a frozen, public-shaped demo snapshot in
+`apps/web/src/demo/data.json`; they do not import review scripts at runtime.
+Regenerate the snapshot with `node apps/web/scripts/export-demo-data.mjs`.
+Run `node scripts/check-demo-routes.mjs` against the running development server for
+linked routes, filtering, doctor handoff, mobile navigation, no-JavaScript search,
+and disabled-submission checks. Earlier bootstrap-only descriptions below describe
+the production boundary, not this local demo exception.
+
 ## Repository layout
 
 | Path | Purpose | Authority |

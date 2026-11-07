@@ -1,0 +1,62 @@
+[
+  {
+    "id": "search-controls",
+    "title": "Search, filters & pagination",
+    "detail": "Blue search structure, selected filters, warm applied-filter edges and clear pagination.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-search-controls-1440.jpg",
+    "height": 640,
+    "captureWidth": 1325
+  },
+  {
+    "id": "extended-states",
+    "title": "Validation, loading & recovery",
+    "detail": "Reading planes, explicit outcomes and semantic markers across loading, empty, offline and recovery states.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-extended-states-1440.jpg",
+    "height": 1269,
+    "captureWidth": 1325
+  },
+  {
+    "id": "governed-cards",
+    "title": "Directory card families",
+    "detail": "Doctor, service, location and vacancy specimens share blue structure with explicit freshness and availability.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-governed-cards-1440.jpg",
+    "height": 1007,
+    "captureWidth": 1325
+  },
+  {
+    "id": "search-controls",
+    "title": "Search, filters & pagination",
+    "detail": "Blue search structure, selected filters, warm applied-filter edges and clear pagination.",
+    "width": 390,
+    "version": "before",
+    "file": "before-search-controls-390.jpg",
+    "height": 817,
+    "captureWidth": 358
+  },
+  {
+    "id": "extended-states",
+    "title": "Validation, loading & recovery",
+    "detail": "Reading planes, explicit outcomes and semantic markers across loading, empty, offline and recovery states.",
+    "width": 390,
+    "version": "before",
+    "file": "before-extended-states-390.jpg",
+    "height": 2452,
+    "captureWidth": 358
+  },
+  {
+    "id": "governed-cards",
+    "title": "Directory card families",
+    "detail": "Doctor, service, location and vacancy specimens share blue structure with explicit freshness and availability.",
+    "width": 390,
+    "version": "before",
+    "file": "before-governed-cards-390.jpg",
+    "height": 2062,
+    "captureWidth": 358
+  }
+]

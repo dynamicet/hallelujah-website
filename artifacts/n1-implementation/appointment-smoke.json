@@ -1,0 +1,1709 @@
+{
+  "passed": true,
+  "caseCount": 284,
+  "cases": [
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "controlled",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "controlled",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "controlled",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "controlled",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "controlled",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "controlled",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "controlled",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "controlled",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "controlled",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "controlled",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "controlled",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "controlled",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "controlled",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "controlled",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "controlled",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "controlled",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "controlled",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "controlled",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "controlled",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "controlled",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "controlled",
+      "width": 1440
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "long-content",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "long-content",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "long-content",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "long-content",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "long-content",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "long-content",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "long-content",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "long-content",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "long-content",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "long-content",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "long-content",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "long-content",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "long-content",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "long-content",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "long-content",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "long-content",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "long-content",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "long-content",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "long-content",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "long-content",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "long-content",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "long-content",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "long-content",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "long-content",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "long-content",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "long-content",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "long-content",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "long-content",
+      "width": 1440
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "validation",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "validation",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "validation",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "validation",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "validation",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "validation",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "validation",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "validation",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "validation",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "validation",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "validation",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "validation",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "validation",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "validation",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "validation",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "validation",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "validation",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "validation",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "validation",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "validation",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "validation",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "validation",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "validation",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "validation",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "validation",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "validation",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "validation",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "validation",
+      "width": 1440
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "pending",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "pending",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "pending",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "pending",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "pending",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "pending",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "pending",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "pending",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "pending",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "pending",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "pending",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "pending",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "pending",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "pending",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "pending",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "pending",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "pending",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "pending",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "pending",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "pending",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "pending",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "pending",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "pending",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "pending",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "pending",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "pending",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "pending",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "pending",
+      "width": 1440
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "known-failure",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "known-failure",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "known-failure",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "known-failure",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "known-failure",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "known-failure",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "known-failure",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "known-failure",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "known-failure",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "known-failure",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "known-failure",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "known-failure",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "known-failure",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "known-failure",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "known-failure",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "known-failure",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "known-failure",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "known-failure",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "known-failure",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "known-failure",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "known-failure",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "known-failure",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "known-failure",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "known-failure",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "known-failure",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "known-failure",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "known-failure",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "known-failure",
+      "width": 1440
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "unknown",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "unknown",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "unknown",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "unknown",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "unknown",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "unknown",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "unknown",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "unknown",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "unknown",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "unknown",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "unknown",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "unknown",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "unknown",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "unknown",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "unknown",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "unknown",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "unknown",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "unknown",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "unknown",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "unknown",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "unknown",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "unknown",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "unknown",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "unknown",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "unknown",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "unknown",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "unknown",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "unknown",
+      "width": 1440
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "duplicate",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "duplicate",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "duplicate",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "duplicate",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "duplicate",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "duplicate",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "duplicate",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "duplicate",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "duplicate",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "duplicate",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "duplicate",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "duplicate",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "duplicate",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "duplicate",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "duplicate",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "duplicate",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "duplicate",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "duplicate",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "duplicate",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "duplicate",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "duplicate",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "duplicate",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "duplicate",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "duplicate",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "duplicate",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "duplicate",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "duplicate",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "duplicate",
+      "width": 1440
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "receipt",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "receipt",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "receipt",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "receipt",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "receipt",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "receipt",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "receipt",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "receipt",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "receipt",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "receipt",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "receipt",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "receipt",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "receipt",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "receipt",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "receipt",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "receipt",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "receipt",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "receipt",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "receipt",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "receipt",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "receipt",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "receipt",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "receipt",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "receipt",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "receipt",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "receipt",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "receipt",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "receipt",
+      "width": 1440
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "delivery-warning",
+      "width": 1440
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 320
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 320
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 320
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 320
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 320
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 320
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 320
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 360
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 360
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 360
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 360
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 360
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 360
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 360
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 768
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 768
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 768
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 768
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 768
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 768
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 768
+    },
+    {
+      "capability": "default",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 1440
+    },
+    {
+      "capability": "no-js",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 1440
+    },
+    {
+      "capability": "reduced-motion",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 1440
+    },
+    {
+      "capability": "forced-colors",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 1440
+    },
+    {
+      "capability": "print",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 1440
+    },
+    {
+      "capability": "200%-text",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 1440
+    },
+    {
+      "capability": "no-css",
+      "passed": true,
+      "state": "workflow-unavailable",
+      "width": 1440
+    },
+    {
+      "capability": "interactive-validation-retention-no-request",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "exclusive-conditional-selectors",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "accessibility-tree-form-structure",
+      "passed": true,
+      "state": "controlled",
+      "width": 360
+    },
+    {
+      "capability": "loopback-response-policy",
+      "passed": true,
+      "state": "controlled"
+    }
+  ]
+}

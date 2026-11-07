@@ -1,0 +1,117 @@
+Hallelujah Hospital hero — Taste review against the supplied references
+27 October 2026
+
+Scope
+Review of the current local homepage at http://localhost:3000, including the
+header because it contains the appointment action. Application files unchanged.
+No direction was drawn: this is a review of one existing section.
+
+Verdict
+The hero has a strong visual foundation: large two-line type, a disciplined
+deep teal/mint palette, an immediate doctor search and a warm family scene.
+Its main weakness is hospital specificity. The words and image communicate
+kindness more clearly than what Hallelujah can help a patient with.
+
+ROUND 1
+Seen in one second: a large care promise beside a family portrait on desktop;
+a family portrait before the promise on a phone.
+Idea (one sentence): the emblem's open arms become the curved frame around a
+welcoming family scene and a direct route to finding a doctor.
+Live thing: the labelled GET doctor-search form, with a browse-directory link.
+Layout words by section: hero=split / phone hero=image above copy.
+Scores: design 8.0 · usability 7.5 · creativity 6.0 · content 6.5 → overall 7.3.
+Caps applied: creativity <=6 because the headline and family scene remain
+applicable to another hospital when the logo is covered. The emblem-inspired
+curves add identity, but that connection is not self-evident in the first view.
+
+Top three problems (most visible first), with screenshot evidence and fixes:
+1. The large image and promise establish warmth but provide little hospital-
+   specific evidence (desktop-fold.jpg, mobile-fold.jpg). Preserve the warm
+   direction; use an approved photograph of Hallelujah's care team, consultation
+   or premises, and replace task-only supporting copy with one verified reason
+   to choose this hospital. Location or relevant services can supply useful
+   specificity. The present concept image should keep its provenance caption
+   until replaced. No statistics, accreditations or care claims are proposed
+   without evidence.
+2. Appointment access loses prominence on phones (mobile-fold.jpg versus
+   desktop-fold.jpg). Desktop and tablet have a visible header action; at
+   390px it is inside Menu and absent from the first screen. Doctor search and
+   Browse doctor profiles then occupy both visible action paths. Keep search
+   primary, and add a plain Request an appointment link beneath it, or retain
+   a compact appointment action in the mobile header. Preserve an easy route
+   to browse the directory without entering a name.
+3. The tablet image crops the younger woman's face at the right edge
+   (tablet-fold.jpg). Use a tablet-specific crop or alternate image with both
+   faces inside the safe area; inspect at 600, 768, 900 and 1024px after changing
+   it. The family relationship is the picture's subject and needs both faces.
+
+Fourteen-pass critique notes
+1. One/five seconds: strong focal point; hospital identity and doctor search
+   are understandable. Scope of care and reason to choose remain vague.
+2. Squint: the teal text field and family image create two clear large masses.
+3. Cover logo: competitors could use the same slogan and scene.
+4. Edges: copy, search and browse link share a left edge; the frame is orderly.
+5. Space: no accidental empty half or large hole in the hero.
+6. Type: decisive scale; headline remains two lines at all three widths.
+7. Colour: teal ground, white type and a mint action; coherent proportions.
+8. Images: image supports welcome, not evidence of the hospital; tablet crop
+   loses part of one face. Existing provenance is correctly disclosed.
+9. Sameness: one hero only; below-fold component warnings are out of scope.
+10. Phone: its own image-first composition, readable text, visible search;
+    appointment entry requires opening the menu or scrolling.
+11. Fullness: no wireframe-like empty region in the hero.
+12. Substance: useful doctor access; limited specific hospital information.
+13. Collisions: no horizontal overflow or broken image detected at 1440,
+    768 or 390px; no visible element covering the headline or search.
+14. Competitor/live thing: doctor search is useful; the visual idea is not yet
+    distinctive enough to identify Hallelujah without its name.
+
+Reference lessons
+Sidra Medicine — https://www.sidra.org/
+Captured in Chromium: references/sidra-desktop.jpg.
+Its campus imagery immediately establishes the hospital setting, and service
+entry points identify audiences: children/young people, women, adults. Borrow
+the clarity about setting and care scope. Its translucent icon cards and dense
+navigation conflict with Taste house rules and are not recommended for copying.
+
+Mayo Clinic — https://www.mayoclinic.org/
+The web reader returned the current homepage's short care headline, innovation
+link, appointment action and doctor/location navigation. Chromium returned
+Access Denied, recorded in references/mayo-desktop.jpg. No claims about its
+current rendered composition, photography or mobile behavior are made here.
+Borrow concise messaging and explicit action labels.
+
+Cleveland Clinic Abu Dhabi — https://www.clevelandclinicabudhabi.ae/en
+Captured in Chromium: references/cleveland-desktop.jpg.
+Its doctor-patient scene establishes a clinical context, while its first-screen
+entry points describe concrete tasks and audiences. Borrow task clarity and
+the visual connection to care. Its icon-card row and floating call treatment
+are not recommendations under Taste's house rules.
+
+Measurements and checks
+Source lint: 0 FAIL, 0 WARN for home.tsx and website.css.
+Browser widths: 1440x900, 768x1024, 390x844.
+Headline: 93.6px / 68px / 48px, two lines at every width.
+Horizontal overflow: 0 at every width. Broken images: 0. Browser exceptions: 0.
+Search is visible in all three first-screen screenshots.
+Raw inspector: 1 FAIL, 3 WARN. The failure treats the phone image's provenance
+caption as an eyebrow above the heading. It is a semantic figcaption attached
+to its image, not a decorative headline label; keep the disclosure.
+Validation with explicit --allow eyebrow: 0 FAIL, 3 WARN, recorded separately
+under validated/. No application changes were made between these two runs.
+Warnings: repeated cards elsewhere on the page; 11 page-wide font sizes; no
+video. The first two are outside the hero review. Absence of video does not
+justify adding an unrelated clip to this hospital hero.
+This is a design review, not a full accessibility or interaction certification.
+
+Evidence
+All first-screen and full-page sheets from the raw and validated inspections
+were opened for visual review. Reference captures include Sidra and Cleveland;
+Mayo's blocked browser response is retained as an access-limit record.
+Existing hero image: /editorial/open-arms-family.webp, disclosed AI-generated
+fictional family scene. Existing source record: apps/web/public/editorial/
+CARE-IMAGERY.txt. No new site imagery or sample hospital facts were added.
+
+Recommended order
+Hospital-specific imagery and supporting copy; visible mobile appointment
+access; tablet crop. Keep the typography, palette, search and overall frame.

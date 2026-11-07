@@ -92,6 +92,11 @@ try {
   expectHeader(home, 'x-content-type-options', 'nosniff')
   if (home.headers.has('x-powered-by')) throw new Error('x-powered-by must remain disabled')
 
+  for (const route of ['/doctors', '/doctors/synthetic-clinician-101010101010', '/services', '/emergency', '/appointment']) {
+    const response = await fetch(`${origin}${route}`)
+    if (response.status !== 404) throw new Error(`Local demo route escaped development: ${route}`)
+  }
+
   const appointment = await fetch(`${origin}/api/appointment-requests`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', origin },

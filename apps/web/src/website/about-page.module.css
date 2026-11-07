@@ -1,0 +1,50 @@
+.page { padding-block: 24px 80px; color: var(--site-ink); }
+.hero { margin-bottom: 88px; }
+.scene { margin: 0 0 40px; overflow: hidden; background: var(--site-pale); }
+.scene img { display: block; width: 100%; height: clamp(280px, 30vw, 420px); object-fit: cover; object-position: center 30%; }
+.opening, .chapter { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 88px); }
+.identity { margin: 8px 0 0; max-width: 28ch; font-size: 16px; line-height: 1.6; }
+.identity span { display: block; margin-top: 8px; color: var(--site-muted); }
+.page h1, .page h2 { margin: 0; font-family: var(--site-display); font-weight: 400; letter-spacing: -.03em; color: var(--site-ink); }
+.page h1 { font-size: clamp(40px, 5vw, 72px); line-height: 1.08; }
+.page .intro { max-width: 38ch; margin: 24px 0 28px; font-size: clamp(20px, 1.6vw, 24px); line-height: 1.5; }
+.page h2 { font-size: clamp(30px, 3vw, 44px); line-height: 1.12; }
+.chapter { margin-top: 88px; }
+.chapterIntro > p { max-width: 33ch; margin: 24px 0 0; font-size: 18px; line-height: 1.65; }
+.timeline { display: grid; gap: 32px; padding: 0; margin: 0; list-style: none; }
+.timeline li { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 24px; align-items: start; }
+.year { font-family: var(--site-display); font-size: 36px; line-height: 1.15; }
+.timeline p { margin: 0; max-width: 36ch; font-size: 18px; line-height: 1.65; }
+.valuesChapter { padding-block: 48px; border-block: 1px solid var(--semantic-color-border-default); }
+.values { display: grid; gap: 24px; margin: 0; }
+.values dt { font-size: 18px; font-weight: 600; line-height: 1.4; }
+.values dd { max-width: 48ch; margin: 8px 0 0; font-size: 16px; line-height: 1.65; }
+.visit address { font-style: normal; font-size: 18px; line-height: 1.6; }
+.visit address strong, .visit address span { display: block; }
+.visit address strong { font-weight: 600; }
+.visit address span { margin-top: 8px; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 28px; margin-top: 28px; }
+.page :is(a, button):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
+@media (max-width: 899px) {
+  .page { padding-bottom: 64px; }
+  .scene { margin-bottom: 32px; }
+  .opening, .chapter { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .opening .identity { order: 1; max-width: none; margin-top: 0; }
+  .identity span { margin-top: 4px; }
+  .hero { margin-bottom: 64px; }
+  .chapter { margin-top: 64px; }
+  .chapterIntro > p { max-width: 48ch; margin-top: 16px; }
+  .valuesChapter { padding-block: 32px; }
+}
+@media (max-width: 599px) {
+  .page { padding-top: 8px; }
+  .scene img { height: 250px; object-position: center 30%; }
+  .page h1 { font-size: 40px; }
+  .page .intro { margin-top: 20px; font-size: 20px; }
+  .timeline { gap: 28px; }
+  .timeline li { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
+  .year { font-size: 30px; }
+  .timeline p, .chapterIntro > p { font-size: 17px; }
+  .actions { align-items: flex-start; flex-direction: column; gap: 12px; }
+}
+@media (forced-colors: active) { .page :is(a, button):focus-visible { outline-color: Highlight; } }

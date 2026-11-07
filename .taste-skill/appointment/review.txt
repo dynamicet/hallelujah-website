@@ -1,0 +1,99 @@
+Appointment page and journey redesign — 27 October 2026
+
+Direction: The split stage, seed 2086682497; no redraws. Existing navy, mint/lime,
+Lato and Clash Grotesk retained. The shared homepage direction.json is preserved;
+this page's deal is saved alongside this report.
+
+Subject inventory
+Hallelujah Hospital; Addis Ababa context; the open-arms emblem; the hospital's
+existing navy and mint identity; self-hosted Clash Grotesk and Lato; bundled
+Ethiopian consultation concept imagery; the Patient Experience Team; doctor and
+service directory handoffs; three mutually exclusive routes including guidance;
+a date preference that is never availability; a browser-only local demonstration;
+explicit recovery and reconciliation states.
+
+Argument and copy deck
+1. Request an appointment: choose your care, share a few sample details, and
+   review your request at your own pace. Proof: working guided form.
+2. Choose your care: a specific doctor / a service / help me choose. Proof:
+   mutually exclusive selectors and doctor/service URL handoffs.
+3. A few details: sample full name, telephone, optional preferred date and
+   privacy acknowledgment. Proof: validation only for the current stage.
+4. Review your details: chosen care, full name, telephone and preferred date.
+   Proof: a live summary, edit action, back navigation and final local check.
+5. Patient Experience Team: existing contact information and care discovery.
+   Proof: real internal links, no invented contact number or response promise.
+
+Idea: On this page, Hallelujah's existing open-arms care scene becomes the
+persistent companion to a request slip that fills in as the visitor proceeds.
+Live thing: choosing a doctor/service or guidance updates the request summary;
+the visitor can review, return and edit without losing their sample answers.
+The photographic rail and changing form are the split stage. The dealt marketing
+sections are adapted to the actual transactional form; no invented visit address,
+opening hours, availability or customer quotations are added to fit them.
+
+Before evidence
+Existing .taste-skill/redesign-journeys/appointment-1440.jpg records the old narrow,
+single-column form. A fresh before-inspection attempt failed at screenshot
+capture because the system temporary-profile quota was exhausted. There is no
+claimed fresh before meter. Subsequent runs used .taste-skill/runtime for profiles.
+
+ROUND 1
+Seen in one second: a clear appointment title above a care scene and form.
+Idea (one sentence): the care scene stays beside a request slip as it fills in.
+Live thing: care choice updates the summary and reveals the appropriate selector.
+Layout words by section: intro=title / booking=split-stage / support=filled band.
+Scores: design 6.5 · usability 7.5 · creativity 7 · content 8 → overall 7.1
+Caps applied: fewer than four actual photographs; concept image is illustrative.
+Top three problems (most visible first), each with the screenshot and fix:
+1. round-one/mobile-fold.jpg: redundant back link pushes the form down.
+   Removed it; the shared logo and navigation already provide return routes.
+2. round-one/desktop-fold.jpg: duplicated explanatory hint above options.
+   Removed the local hint while preserving the fieldset legend and requirements.
+3. round-one/mobile-fold.jpg: introductory text needs stronger readability.
+   Set the supporting sentence to 18px on the phone.
+
+ROUND 2
+Seen in one second: an appointment journey with a human care scene beside it.
+Idea (one sentence): the consultation scene accompanies the evolving request slip.
+Live thing: care choice, live summary, staged validation and editable review.
+Layout words by section: intro=title / booking=split-stage / support=filled band /
+footer=existing oversized wordmark.
+Scores: design 6.5 · usability 8.5 · creativity 7 · content 8 → overall 7.3
+Caps applied: design 6.5 for fewer than four real photographs; creativity 7
+because a persistent care companion could also serve another hospital.
+Top three problems (most visible first), each with screenshot and disposition:
+1. final/mobile-page-01.jpg: the guidance rail is below the form on a phone.
+   Deliberate: the booking controls take priority; review repeats all choices.
+2. states/details-390.jpg: privacy copy makes the contact step relatively long.
+   Retained the existing explicit browser-only boundary and sample instructions.
+3. final/desktop-page-01.jpg: shared shell/footer adds type sizes beyond five.
+   Retained the established site system; no unrelated shell redesign in this task.
+
+Final visual gate
+inspect.mjs: 0 FAIL, 3 WARN at 1440, 768 and 390px, with --allow few-pictures.
+The single documented exception is photo quantity: a transactional appointment
+form uses one disclosed care illustration rather than four unrelated images.
+Warnings: existing shell typography; no footage (no real hospital footage is
+available); 14 moving elements (deliberately restrained for a form). No new scroll
+scenes. Reduced motion has zero animations. Titles stay within two lines at the
+three inspected widths. Read the final report.json for measured detail.
+
+Imagery and sample content
+Reused /editorial/hope-care.webp, generated with OpenAI image generation for the
+existing website on 27 October 2026. It is fictional concept imagery, not a real
+hospital photograph; labelled on the image and disclosed in the shared footer.
+Creator/source/prompt provenance: apps/web/public/editorial/CARE-IMAGERY.txt.
+No external photographs, stock clips or additional drawings were introduced.
+Replace it with hospital-approved photography when available. Existing clinician
+and service records remain fictional; contact inputs use TEST PATIENT and
++0 000 000 0000. No booking, personal-data collection or publication is enabled.
+
+Verification
+TypeScript and targeted ESLint pass; Taste source lint: 0 FAIL, 0 WARN.
+Appointment contract: 20 SSR/state/isolation/escaping/token cases pass.
+Connected route suite: 19 route/journey groups pass with no browser errors or unexpected failed loads. It exercises existing handoffs, recovery, no-JavaScript
+boundaries and the additional guided-flow tests. check-journey.mjs also verifies
+real keyboard Enter reaches review without completing the example, details and
+review reflow at 320/390/768/1440px, and zero reduced-motion animations.
+Screenshots in final/ and states/ were visually reviewed across those widths.

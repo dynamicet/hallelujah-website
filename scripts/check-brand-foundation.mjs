@@ -65,14 +65,29 @@ for (const render of brand.renderEvidence ?? []) {
 
 expect(tokens.meta?.status === 'project-approved-brand-foundation', 'token status must match brand approval')
 expect(tokens.meta?.valueGate === 'B01-002-closed', 'token value gate must record B01-002 closure')
-expect(
-  tokens.primitive?.color?.brand?.cyan?.$value.toUpperCase() === brand.colors.sourceIdentity.cyan.hex,
-  'canonical cyan token drifted from brand record',
-)
-expect(
-  tokens.primitive?.color?.brand?.orange?.$value.toUpperCase() === brand.colors.sourceIdentity.orange.hex,
-  'canonical orange token drifted from brand record',
-)
+// Historical logo-derived estimates stay auditable; current interface roles govern the app.
+const current = brand.colors.currentDirection
+expect(current?.status === 'adopted-in-application-tokens-and-homepage', 'current color adoption status is required')
+const adoptedRoles = {
+  surfacePage: 'surface.page', surfaceRaised: 'surface.raised', surfaceSubtle: 'surface.subtle',
+  surfaceSelected: 'surface.selected', surfaceInverse: 'surface.inverse',
+  textPrimary: 'text.primary', textSecondary: 'text.secondary', textHeading: 'text.heading',
+  actionPrimary: 'action.primary', actionHover: 'action.primary-hover', actionActive: 'action.primary-active',
+  textLink: 'text.link', borderSubtle: 'border.default', borderControl: 'border.strong', focus: 'focus',
+  accentSupporting: 'accent.supporting', accentSupportingTint: 'surface.supporting',
+  accentSupportingText: 'accent.supporting-text', accentExpressive: 'accent.expressive',
+  accentExpressiveTint: 'surface.expressive', accentExpressiveText: 'accent.expressive-text',
+  statusSuccess: 'text.success', statusSuccessTint: 'surface.success',
+  statusWarning: 'text.warning', statusWarningTint: 'surface.warning',
+  statusUrgent: 'action.emergency', statusError: 'text.error', statusErrorTint: 'surface.error',
+  statusInfo: 'text.information', statusInfoTint: 'surface.information',
+}
+for (const [record, role] of Object.entries(adoptedRoles)) {
+  expect(resolveToken(`semantic.color.${role}`)?.toUpperCase() === current?.interface?.[record],
+    `current ${record} drifted from semantic.color.${role}`)
+}
+expect(tokens.primitive?.color?.brand?.yellow?.$value.toUpperCase() === brand.colors.sourceIdentity.yellow.hex,
+  'source artwork yellow must remain unchanged')
 expect(
   tokens.primitive?.font?.family?.latin?.$value.startsWith('"Noto Sans"'),
   'canonical Latin stack must start with Noto Sans',
@@ -83,10 +98,15 @@ expect(
 )
 
 const white = brand.colors.interface.surfaceRaised
-for (const identity of Object.values(brand.colors.sourceIdentity)) {
+const identityUsage = {
+  cyan: 'decorative-identity-only', orange: 'decorative-identity-only',
+  deepTealBlue: 'identity-only-not-white-label-actions', navy: 'heading-and-inverse-surface',
+  yellow: 'source-artwork-detail-only', magenta: 'source-artwork-detail-only',
+}
+for (const [name, identity] of Object.entries(brand.colors.sourceIdentity)) {
   const measured = contrastRatio(identity.hex, white)
   expect(Math.abs(measured - identity.contrastOnWhite) < 0.01, `${identity.hex}: recorded contrast drifted`)
-  expect(identity.usage === 'decorative-and-logo-only', `${identity.hex}: low-contrast usage restriction is required`)
+  expect(identity.usage === identityUsage[name], `${identity.hex}: identity usage restriction drifted`)
 }
 
 if (failures.length > 0) {
@@ -99,6 +119,15 @@ console.log(
 
 function expect(condition, message) {
   if (!condition) failures.push(message)
+}
+
+function resolveToken(tokenPath, visited = new Set()) {
+  if (visited.has(tokenPath)) return undefined
+  visited.add(tokenPath)
+  const value = tokenPath.split('.').reduce((node, key) => node?.[key], tokens)?.$value
+  if (typeof value !== 'string') return undefined
+  const reference = value.match(/^\{([^}]+)\}$/u)
+  return reference ? resolveToken(reference[1], visited) : value
 }
 
 function contrastRatio(foreground, background) {

@@ -45,80 +45,41 @@ fallback when the raster cannot remain legible.
 
 ## 3. Color system
 
-### Approved primitive palette
+The [website usage guide](../brand/usage-guide.md) supersedes the original mineral/teal
+palette and section-color presets. The [token manifest](../../apps/web/src/design-system/tokens/tokens.json)
+is the runtime value source; generated CSS and component bindings consume it.
 
-The bright public-logo accents are preserved for identity while deeper accessible roles carry text,
-actions, focus, and status. This palette is approved for project use; rendered component/state
-testing remains part of `B01-004` and release QA.
+| Role | Current value or family |
+| --- | --- |
+| Page / raised / subtle / selected | Paper `#FBF8F6` / white `#FFFFFF` / mist `#EAF5F9` / veil `#D5EAF2` |
+| Reading / secondary / heading | Ink `#17313D` / slate `#52636B` / deep blue `#00445D` |
+| Primary / hover / pressed | Blue `#0078A6` / strong blue `#00678D` / deep blue `#00445D` |
+| Ordinary links | Strong blue on approved light grounds; inverse on dark |
+| Inverse ground | Deep blue `#00445D` |
+| Quiet / white-control edge | `#CBD8DE` / `#718892` |
+| Supporting / pale / deep | Orange `#F26522` / `#FFF0E7` / `#A8430C` |
+| Expressive / pale / deep | Magenta `#D81B72` / `#FCEAF2` / `#A61558` |
+| Success / caution / urgent-error | `#24634B` / `#80530C` / `#A33330`, with semantic tints |
+| Information | Strong blue on mist |
 
-| Primitive | Value | Intended role |
-| --- | --- | --- |
-| `neutral.white` | `#FFFFFF` | Main and raised surfaces |
-| `mineral.025` | `#F4FAF9` | Page background |
-| `mineral.050` | `#EEF7F6` | Quiet grouped surface |
-| `mineral.200` | `#C7DAD7` | Subtle boundaries |
-| `mineral.400` | `#789B9B` | Meaningful control boundaries |
-| `mineral.600` | `#516A70` | Secondary text |
-| `mineral.900` | `#17323A` | Primary text |
-| `brand.cyan` | `#1EAEE2` | Public-logo identity detail; decorative only outside the artwork |
-| `brand.orange` | `#EF5C28` | Public-logo warm detail; decorative only outside the artwork |
-| `teal.700` | `#006A73` | Primary non-emergency action and link |
-| `teal.800` | `#00565F` | Hover |
-| `teal.900` | `#00434A` | Active/pressed |
-| `blue.700` | `#075EA8` | Focus candidate |
-| `blue.800` | `#064B86` | Informational text |
-| `green.700` | `#176B45` | Success |
-| `green.800` | `#105438` | Success text on tint |
-| `amber.900` | `#5F3900` | Warning text/icon |
-| `red.700` | `#B42318` | Emergency fill; same primitive family as error |
-| `red.800` | `#8F1C13` | Error text and emergency active state |
+Ground, readable type, action and decorative detail are independently composed. Blue continuity
+does not require blue backgrounds everywhere; accents do not own departments or topics.
+See the [component contract](../brand/usage-guide.md#component-and-state-contract).
 
-### Semantic roles
+Light-context focus uses a 3px deep-blue outline with a 4px white separation; inverse context
+uses white. State wording and geometry distinguish selection, focus, disabled, error and urgency.
+Emergency and validation use separate aliases and recovery language.
 
-| Semantic token | Primitive | Use |
-| --- | --- | --- |
-| `color.surface.page` | `mineral.025` | Default page canvas |
-| `color.surface.raised` | `white` | Header, menu, cards, fields |
-| `color.surface.subtle` | `mineral.050` | Section grouping and quiet notices |
-| `color.text.primary` | `mineral.900` | Headings and body |
-| `color.text.secondary` | `mineral.600` | Supporting text, never essential information alone |
-| `color.border.default` | `mineral.200` | Dividers and quiet cards |
-| `color.border.strong` | `mineral.400` | Meaningful input/control boundaries |
-| `color.action.primary` | `teal.700` | Highest-priority non-emergency action |
-| `color.action.primary.hover` | `teal.800` | Pointer hover |
-| `color.action.primary.active` | `teal.900` | Pressed state |
-| `color.focus` | `blue.700` | 3 px visible focus outline with offset |
-| `color.emergency` | `red.700` | Emergency route and genuine urgent warning |
-| `color.error` | `red.800` | Validation/system error text on tint, always with words/icon |
-| `color.success` | `green.800` | Completed/success text on tint, always with words/icon |
-| `color.warning` | `amber.900` | Caution, always with words/icon |
-| `color.brand.accent.cool` | `brand.cyan` | Decorative identity detail; never normal text on white |
-| `color.brand.accent.warm` | `brand.orange` | Decorative identity detail; never normal text on white |
-
-Emergency and validation errors may share a red primitive but must use different component language and icons. An emergency action says what route it opens; an error explains what failed and how to recover.
-
-### Checked palette contrast pairs
-
-The following ratios were calculated from the listed prototype values. Re-test rendered fonts, borders, focus, and all states after implementation.
-
-| Foreground / background | Ratio | Intended use |
-| --- | ---: | --- |
-| `#17323A` / `#FFFFFF` | 13.52:1 | Primary text on raised surface |
-| `#516A70` / `#FFFFFF` | 5.76:1 | Secondary normal text |
-| `#006A73` / `#FFFFFF` | 6.35:1 | Link text or primary fill with white label |
-| `#00565F` / `#FFFFFF` | 8.41:1 | Primary hover with white label |
-| `#B42318` / `#FFFFFF` | 6.57:1 | Emergency/error fill with white label |
-| `#064B86` / `#E8F3FC` | 7.91:1 | Information text on tint |
-| `#105438` / `#E7F4EC` | 7.90:1 | Success text on tint |
-| `#5F3900` / `#FFF3D6` | 9.19:1 | Warning text on tint |
-| `#8F1C13` / `#FDECEA` | 7.84:1 | Error text on tint |
-| `#789B9B` / `#FFFFFF` | 3.02:1 | Meaningful control boundary, not text |
-| `#1EAEE2` / `#FFFFFF` | 2.56:1 | Logo/decorative only; fails normal-text contrast |
-| `#EF5C28` / `#FFFFFF` | 3.37:1 | Logo/decorative only; fails normal-text contrast |
-
-Never infer compliance from a palette swatch alone. A 1 px border, disabled state, text over images, gradient, opacity, or neighboring color can change the effective result.
+Use the [current pairing restrictions](../brand/usage-guide.md#contrast-motion-and-clean-implementation)
+and token contrast policies. Primary blue on mist, strong blue on air and normal white text
+on orange fail normal-text contrast. Quiet edges are decorative; control edge on veil fails
+3:1. Check actual rendered states, image overlays and adjacent colors. Historical prototype
+contrast tables do not establish compliance for current components.
 
 ## 4. Typography
+
+**Presentation reconciliation — 4 November 2026:** The [current website guide](../brand/usage-guide.md#typography-space-and-imagery) documents Lato, FreeSerif and the Ethiopic presentation layer. Noto stacks below remain the canonical foundation/provenance layer, overridden by editorial CSS in the local website. They do not require replacement of the implemented editorial typography.
+
 
 ### Approved family
 

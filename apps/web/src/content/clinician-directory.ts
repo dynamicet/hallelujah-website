@@ -23,6 +23,7 @@ export interface ClinicianDirectoryView {
   readonly state: ClinicianDirectoryState
   readonly filters: readonly ClinicianDirectoryFilterView[]
   readonly results: readonly ClinicianView[]
+  readonly matchReasons?: Readonly<Record<string, string>>
   readonly resultCount: number
   readonly pageCount: number
   readonly pageSize: number
@@ -85,15 +86,32 @@ export function controlledClinicianDirectory(input: Readonly<{
   records: readonly unknown[]
   searchParameters: SearchInput
 }>): ClinicianDirectoryView {
+  return clinicianDirectoryFromViews({
+    ...input,
+    entries: controlledClinicianIndex(input.records, input.locale, input.now, input.mode),
+  })
+}
+
+/** Search already-projected views; callers retain responsibility for content eligibility. */
+export function clinicianDirectoryFromViews(input: Readonly<{
+  entries: readonly ClinicianView[]
+  searchTerms?: readonly { clinicianPublicId: string; terms: readonly string[]; explanation: string }[]
+  filters: readonly ControlledClinicianFilter[]
+  locale: GovernedLocale
+  pageSize?: number
+  searchParameters: SearchInput
+}>): ClinicianDirectoryView {
   const filters = checkedFilters(input.filters)
   const allowed = new Set(filters.map((filter) => filter.value))
   const selected = [...new Set(values(input.searchParameters, 'type'))]
     .filter((value) => allowed.has(value))
   const normalizedQuery = query(input.searchParameters)
   const needle = normalizedQuery.toLocaleLowerCase(input.locale)
-  const indexed = [...controlledClinicianIndex(input.records, input.locale, input.now, input.mode)]
+  const indexed = [...input.entries]
     .sort((left, right) => left.details.name.localeCompare(right.details.name, input.locale))
+  const relatedMatches = new Map((input.searchTerms ?? []).map((entry) => [entry.clinicianPublicId, entry]))
   const matchingQuery = indexed.filter((clinician) => !needle
+    || relatedMatches.get(clinician.publicId)?.terms.some((term) => term.normalize('NFC').toLocaleLowerCase(input.locale).includes(needle))
     || [clinician.details.name, ...clinician.details.specialties]
       .join(' ').normalize('NFC').toLocaleLowerCase(input.locale).includes(needle))
   const selectedSpecialties = new Set(filters
@@ -117,6 +135,11 @@ export function controlledClinicianDirectory(input: Readonly<{
     }))),
     pageCount,
     pageSize,
+    ...(input.searchTerms ? { matchReasons: Object.fromEntries(matchingQuery.flatMap((clinician) => {
+      const relation = relatedMatches.get(clinician.publicId)
+      const direct = [clinician.details.name, ...clinician.details.specialties].join(' ').toLocaleLowerCase(input.locale).includes(needle)
+      return needle && relation && !direct ? [[clinician.publicId, relation.explanation]] : []
+    })) } : {}),
     resultCount: matching.length,
     results: Object.freeze(matching.slice(offset, offset + pageSize)),
     state: Object.freeze({ filters: Object.freeze(selected), page, query: normalizedQuery }),

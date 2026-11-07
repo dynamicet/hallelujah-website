@@ -1,0 +1,732 @@
+[
+  {
+    "mode": "standard",
+    "route": "/feedback",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 564.65625,
+    "fieldY": 748.08984375,
+    "introImages": 0,
+    "action": "Try the feedback form↗",
+    "anchorCount": 1,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/referrals",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 672.65625,
+    "introImages": 0,
+    "action": "Prepare a referral↗",
+    "anchorCount": 2,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/patients-visitors",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 672.65625,
+    "introImages": 0,
+    "action": "Prepare for your visit↗",
+    "anchorCount": 6,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/services/synthetic-service-111111111111",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 672.65625,
+    "introImages": 0,
+    "action": "Request an appointment↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/health-topics/diabetes",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 672.65625,
+    "introImages": 0,
+    "action": "Explore care options↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "width": 1440,
+    "mode": "standard",
+    "label": "details",
+    "focused": true,
+    "top": 167.53125,
+    "bottom": 207.84375,
+    "height": 900,
+    "headerHeight": 152,
+    "step": "1"
+  },
+  {
+    "width": 1440,
+    "mode": "standard",
+    "label": "review",
+    "focused": true,
+    "top": 167.53125,
+    "bottom": 207.84375,
+    "height": 900,
+    "headerHeight": 152,
+    "step": "2"
+  },
+  {
+    "width": 1440,
+    "mode": "standard",
+    "label": "back-details",
+    "focused": true,
+    "top": 167.53125,
+    "bottom": 207.84375,
+    "height": 900,
+    "headerHeight": 152,
+    "step": "1"
+  },
+  {
+    "width": 1440,
+    "mode": "standard",
+    "label": "back-care",
+    "focused": true,
+    "top": 167.53125,
+    "bottom": 207.84375,
+    "height": 900,
+    "headerHeight": 152,
+    "step": "0"
+  },
+  {
+    "width": 1440,
+    "mode": "standard",
+    "appointmentEntry": {
+      "firstTaskY": 553.53125,
+      "formY": 473.53125,
+      "imageY": 473.53125,
+      "imageLoaded": true
+    },
+    "stageKeyboardAndValidation": "passed",
+    "submitted": false
+  },
+  {
+    "mode": "standard",
+    "route": "/feedback",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 525.625,
+    "fieldY": 761.3764038085938,
+    "introImages": 0,
+    "action": "Try the feedback form↗",
+    "anchorCount": 1,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/referrals",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 633.625,
+    "introImages": 0,
+    "action": "Prepare a referral↗",
+    "anchorCount": 2,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/patients-visitors",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 685.625,
+    "introImages": 0,
+    "action": "Prepare for your visit↗",
+    "anchorCount": 6,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/services/synthetic-service-111111111111",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 633.625,
+    "introImages": 0,
+    "action": "Request an appointment↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/health-topics/diabetes",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 633.625,
+    "introImages": 0,
+    "action": "Explore care options↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "width": 768,
+    "mode": "standard",
+    "label": "details",
+    "focused": true,
+    "top": 155.921875,
+    "bottom": 196.234375,
+    "height": 1024,
+    "headerHeight": 140,
+    "step": "1"
+  },
+  {
+    "width": 768,
+    "mode": "standard",
+    "label": "review",
+    "focused": true,
+    "top": 155.921875,
+    "bottom": 196.234375,
+    "height": 1024,
+    "headerHeight": 140,
+    "step": "2"
+  },
+  {
+    "width": 768,
+    "mode": "standard",
+    "label": "back-details",
+    "focused": true,
+    "top": 155.921875,
+    "bottom": 196.234375,
+    "height": 1024,
+    "headerHeight": 140,
+    "step": "1"
+  },
+  {
+    "width": 768,
+    "mode": "standard",
+    "label": "back-care",
+    "focused": true,
+    "top": 155.921875,
+    "bottom": 196.234375,
+    "height": 1024,
+    "headerHeight": 140,
+    "step": "0"
+  },
+  {
+    "width": 768,
+    "mode": "standard",
+    "appointmentEntry": {
+      "firstTaskY": 510.921875,
+      "formY": 430.921875,
+      "imageY": 430.921875,
+      "imageLoaded": true
+    },
+    "stageKeyboardAndValidation": "passed",
+    "submitted": false
+  },
+  {
+    "mode": "standard",
+    "route": "/feedback",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 551.125,
+    "fieldY": 845.4239501953125,
+    "introImages": 0,
+    "action": "Try the feedback form↗",
+    "anchorCount": 1,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/referrals",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 663.171875,
+    "introImages": 0,
+    "action": "Prepare a referral↗",
+    "anchorCount": 2,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/patients-visitors",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 739.125,
+    "introImages": 0,
+    "action": "Prepare for your visit↗",
+    "anchorCount": 6,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/services/synthetic-service-111111111111",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 715.171875,
+    "introImages": 0,
+    "action": "Request an appointment↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "mode": "standard",
+    "route": "/health-topics/diabetes",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 715.171875,
+    "introImages": 0,
+    "action": "Explore care options↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "width": 390,
+    "mode": "standard",
+    "label": "details",
+    "focused": true,
+    "top": 191.921875,
+    "bottom": 225.515625,
+    "height": 844,
+    "headerHeight": 176,
+    "step": "1"
+  },
+  {
+    "width": 390,
+    "mode": "standard",
+    "label": "review",
+    "focused": true,
+    "top": 191.921875,
+    "bottom": 225.515625,
+    "height": 844,
+    "headerHeight": 176,
+    "step": "2"
+  },
+  {
+    "width": 390,
+    "mode": "standard",
+    "label": "back-details",
+    "focused": true,
+    "top": 191.921875,
+    "bottom": 225.515625,
+    "height": 844,
+    "headerHeight": 176,
+    "step": "1"
+  },
+  {
+    "width": 390,
+    "mode": "standard",
+    "label": "back-care",
+    "focused": true,
+    "top": 191.921875,
+    "bottom": 225.515625,
+    "height": 844,
+    "headerHeight": 176,
+    "step": "0"
+  },
+  {
+    "width": 390,
+    "mode": "standard",
+    "appointmentEntry": {
+      "firstTaskY": 610.921875,
+      "formY": 530.921875,
+      "imageY": 1431.4375,
+      "imageLoaded": true
+    },
+    "stageKeyboardAndValidation": "passed",
+    "submitted": false
+  },
+  {
+    "mode": "reduced",
+    "route": "/feedback",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 564.65625,
+    "fieldY": 742.9375,
+    "introImages": 0,
+    "action": "Try the feedback form↗",
+    "anchorCount": 1,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/referrals",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 672.65625,
+    "introImages": 0,
+    "action": "Prepare a referral↗",
+    "anchorCount": 2,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/patients-visitors",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 672.65625,
+    "introImages": 0,
+    "action": "Prepare for your visit↗",
+    "anchorCount": 6,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/services/synthetic-service-111111111111",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 672.65625,
+    "introImages": 0,
+    "action": "Request an appointment↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/health-topics/diabetes",
+    "width": 1440,
+    "overflow": false,
+    "firstTaskY": 672.65625,
+    "introImages": 0,
+    "action": "Explore care options↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "width": 1440,
+    "mode": "reduced",
+    "label": "details",
+    "focused": true,
+    "top": 167.53125,
+    "bottom": 207.84375,
+    "height": 900,
+    "headerHeight": 152,
+    "step": "1"
+  },
+  {
+    "width": 1440,
+    "mode": "reduced",
+    "label": "review",
+    "focused": true,
+    "top": 167.53125,
+    "bottom": 207.84375,
+    "height": 900,
+    "headerHeight": 152,
+    "step": "2"
+  },
+  {
+    "width": 1440,
+    "mode": "reduced",
+    "label": "back-details",
+    "focused": true,
+    "top": 167.53125,
+    "bottom": 207.84375,
+    "height": 900,
+    "headerHeight": 152,
+    "step": "1"
+  },
+  {
+    "width": 1440,
+    "mode": "reduced",
+    "label": "back-care",
+    "focused": true,
+    "top": 167.53125,
+    "bottom": 207.84375,
+    "height": 900,
+    "headerHeight": 152,
+    "step": "0"
+  },
+  {
+    "width": 1440,
+    "mode": "reduced",
+    "appointmentEntry": {
+      "firstTaskY": 553.53125,
+      "formY": 473.53125,
+      "imageY": 473.53125,
+      "imageLoaded": true
+    },
+    "stageKeyboardAndValidation": "passed",
+    "submitted": false
+  },
+  {
+    "mode": "reduced",
+    "route": "/feedback",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 525.625,
+    "fieldY": 760,
+    "introImages": 0,
+    "action": "Try the feedback form↗",
+    "anchorCount": 1,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/referrals",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 633.625,
+    "introImages": 0,
+    "action": "Prepare a referral↗",
+    "anchorCount": 2,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/patients-visitors",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 685.625,
+    "introImages": 0,
+    "action": "Prepare for your visit↗",
+    "anchorCount": 6,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/services/synthetic-service-111111111111",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 633.625,
+    "introImages": 0,
+    "action": "Request an appointment↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/health-topics/diabetes",
+    "width": 768,
+    "overflow": false,
+    "firstTaskY": 633.625,
+    "introImages": 0,
+    "action": "Explore care options↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "width": 768,
+    "mode": "reduced",
+    "label": "details",
+    "focused": true,
+    "top": 155.921875,
+    "bottom": 196.234375,
+    "height": 1024,
+    "headerHeight": 140,
+    "step": "1"
+  },
+  {
+    "width": 768,
+    "mode": "reduced",
+    "label": "review",
+    "focused": true,
+    "top": 155.921875,
+    "bottom": 196.234375,
+    "height": 1024,
+    "headerHeight": 140,
+    "step": "2"
+  },
+  {
+    "width": 768,
+    "mode": "reduced",
+    "label": "back-details",
+    "focused": true,
+    "top": 155.921875,
+    "bottom": 196.234375,
+    "height": 1024,
+    "headerHeight": 140,
+    "step": "1"
+  },
+  {
+    "width": 768,
+    "mode": "reduced",
+    "label": "back-care",
+    "focused": true,
+    "top": 155.921875,
+    "bottom": 196.234375,
+    "height": 1024,
+    "headerHeight": 140,
+    "step": "0"
+  },
+  {
+    "width": 768,
+    "mode": "reduced",
+    "appointmentEntry": {
+      "firstTaskY": 510.921875,
+      "formY": 430.921875,
+      "imageY": 430.921875,
+      "imageLoaded": true
+    },
+    "stageKeyboardAndValidation": "passed",
+    "submitted": false
+  },
+  {
+    "mode": "reduced",
+    "route": "/feedback",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 551.125,
+    "fieldY": 844.046875,
+    "introImages": 0,
+    "action": "Try the feedback form↗",
+    "anchorCount": 1,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/referrals",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 663.171875,
+    "introImages": 0,
+    "action": "Prepare a referral↗",
+    "anchorCount": 2,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/patients-visitors",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 739.125,
+    "introImages": 0,
+    "action": "Prepare for your visit↗",
+    "anchorCount": 6,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/services/synthetic-service-111111111111",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 715.171875,
+    "introImages": 0,
+    "action": "Request an appointment↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "mode": "reduced",
+    "route": "/health-topics/diabetes",
+    "width": 390,
+    "overflow": false,
+    "firstTaskY": 715.171875,
+    "introImages": 0,
+    "action": "Explore care options↗",
+    "anchorCount": 4,
+    "interactions": "passed"
+  },
+  {
+    "width": 390,
+    "mode": "reduced",
+    "label": "details",
+    "focused": true,
+    "top": 191.921875,
+    "bottom": 225.515625,
+    "height": 844,
+    "headerHeight": 176,
+    "step": "1"
+  },
+  {
+    "width": 390,
+    "mode": "reduced",
+    "label": "review",
+    "focused": true,
+    "top": 191.921875,
+    "bottom": 225.515625,
+    "height": 844,
+    "headerHeight": 176,
+    "step": "2"
+  },
+  {
+    "width": 390,
+    "mode": "reduced",
+    "label": "back-details",
+    "focused": true,
+    "top": 191.921875,
+    "bottom": 225.515625,
+    "height": 844,
+    "headerHeight": 176,
+    "step": "1"
+  },
+  {
+    "width": 390,
+    "mode": "reduced",
+    "label": "back-care",
+    "focused": true,
+    "top": 191.921875,
+    "bottom": 225.515625,
+    "height": 844,
+    "headerHeight": 176,
+    "step": "0"
+  },
+  {
+    "width": 390,
+    "mode": "reduced",
+    "appointmentEntry": {
+      "firstTaskY": 610.921875,
+      "formY": 530.921875,
+      "imageY": 1431.4375,
+      "imageLoaded": true
+    },
+    "stageKeyboardAndValidation": "passed",
+    "submitted": false
+  },
+  {
+    "mode": "no-javascript",
+    "route": "/feedback",
+    "h1": "Patient feedback",
+    "noScript": [
+      "The feedback preview needs JavaScript. Sending feedback is unavailable here. Read the contact and handling information below for what still needs confirmation.",
+      "Chat needs JavaScript. You can still find a doctor, explore services or use the appointment link above."
+    ],
+    "overflow": false
+  },
+  {
+    "mode": "no-javascript",
+    "route": "/referrals",
+    "h1": "Refer a patient",
+    "noScript": [
+      "Chat needs JavaScript. You can still find a doctor, explore services or use the appointment link above."
+    ],
+    "overflow": false
+  },
+  {
+    "mode": "no-javascript",
+    "route": "/patients-visitors",
+    "h1": "Patients & Visitors",
+    "noScript": [
+      "Use your browser’s Print command to keep a copy.",
+      "Chat needs JavaScript. You can still find a doctor, explore services or use the appointment link above."
+    ],
+    "overflow": false
+  },
+  {
+    "mode": "no-javascript",
+    "route": "/services/synthetic-service-111111111111",
+    "h1": "Admission guidance",
+    "noScript": [
+      "Chat needs JavaScript. You can still find a doctor, explore services or use the appointment link above."
+    ],
+    "overflow": false
+  },
+  {
+    "mode": "no-javascript",
+    "route": "/health-topics/diabetes",
+    "h1": "Diabetes",
+    "noScript": [
+      "Use your browser’s Print command to keep a copy.",
+      "Chat needs JavaScript. You can still find a doctor, explore services or use the appointment link above."
+    ],
+    "overflow": false
+  },
+  {
+    "mode": "no-javascript",
+    "route": "/appointment",
+    "h1": "Request an appointment",
+    "noScript": [
+      "The interactive example needs JavaScript. No request can be sent here.",
+      "Chat needs JavaScript. You can still find a doctor, explore services or use the appointment link above."
+    ],
+    "overflow": false
+  }
+]

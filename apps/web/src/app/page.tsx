@@ -1,48 +1,76 @@
 import { HomePageTemplate } from '@/design-system/templates'
+import { isLocalDemo } from '@/server/environment'
+import { DemoHeroArtwork, HomeCareContent, HomeDemoContactDetails, HomeInstitutionalContent } from '@/demo/home-content'
+import { demoScenario } from '@/demo/scenarios'
+import type { DemoSearchParams } from '@/demo/site'
+import { WebsiteHome } from '@/website/home'
 
 const link = (id: string, label: string) => ({ href: `#home-${id}`, label })
 const tasks = {
-  appointment: link('appointment', 'Request an appointment'),
+  appointment: { href: '/appointment', label: 'Request an appointment' },
   call: link('call', 'Call the hospital'),
   directions: link('directions', 'Locations and directions'),
-  doctor: link('doctor', 'Find a doctor'),
-  emergency: link('emergency', 'Emergency information'),
-  service: link('service', 'Explore services'),
-  search: link('search-status', 'Search availability'),
+  doctor: { href: '/doctors', label: 'Find a doctor' },
+  emergency: { href: '/emergency', label: 'Emergency information' },
+  service: { href: '/services', label: 'View all services' },
+  search: { href: '/doctors#directory-search-title', label: 'Search doctors' },
 }
 
-export default function HomePage() {
+export default async function HomePage({ searchParams }: { searchParams: DemoSearchParams }) {
+  const localDemo = isLocalDemo()
+  const scenario = localDemo
+    ? demoScenario((await searchParams).demo, ['ready', 'partial', 'empty', 'unavailable'] as const, 'ready')
+    : 'ready'
+  if (localDemo && scenario === 'ready') return <WebsiteHome />
   return (
     <HomePageTemplate
-      description="Find a doctor, explore services, or review appointment information."
+      careContent={localDemo && scenario !== 'empty' ? <HomeCareContent partial={scenario === 'partial'} /> : undefined}
+      description="Hallelujah General Hospital. Care for your health, with room for the person you are."
+      demonstrationContactDetails={localDemo && scenario !== 'unavailable' ? <HomeDemoContactDetails /> : undefined}
       documents={[]}
-      eyebrow="Care access, clearly organized"
+      eyebrow="Welcome to Hallelujah"
+      heroArtwork={localDemo ? <DemoHeroArtwork /> : undefined}
+      institutionalContent={localDemo && scenario !== 'empty' ? <HomeInstitutionalContent /> : undefined}
       locale="en"
       now={new Date('2026-10-12T00:00:00Z')}
-      searchDescription="Search is unavailable. Use the care routes above to continue."
-      searchHeading="Search this website"
+      searchDescription="Search the doctor directory by name or specialty."
+      searchHeading="Find a doctor"
+      searchAction={localDemo ? '/doctors' : undefined}
+      showArrivalArtwork={localDemo && scenario !== 'unavailable'}
       shell={{
         skipLinkLabel: 'Skip to main content',
         header: {
-          brandName: 'Hallelujah Hospital', homeHref: '#main-content',
+          brandName: 'Hallelujah Hospital', homeHref: '/',
           homeLabel: 'Hallelujah Hospital home', identityLanguage: 'en', menuLabel: 'Menu',
           navigationMode: 'responsive',
           primaryNavigationLabel: 'Primary navigation',
-          navigationItems: [tasks.doctor, tasks.service, tasks.appointment, tasks.directions],
+          navigationItems: [
+            { href: '/', label: 'Home', current: true },
+            { href: '/doctors', label: 'Doctors' },
+            { href: '/services', label: 'Services' },
+            { href: '/appointment', label: 'Appointment' },
+            { href: '/#home-directions', label: 'Directions' },
+          ],
           searchItem: tasks.search,
           languageSwitcher: { alternate: { available: false, label: 'አማርኛ', lang: 'am', reason: 'This page is unavailable in Amharic.' }, currentLabel: 'English', currentLang: 'en', label: 'Language' },
           emergencyAction: { compact: true, href: tasks.emergency.href, label: tasks.emergency.label },
         },
         footer: {
           brandName: 'Hallelujah Hospital',
-          description: 'Find information for your care and visit.',
           navigationLabel: 'Footer navigation',
-          groups: [{ label: 'Care access', links: Object.values(tasks) }],
+          groups: [{ label: 'Care and visits', links: [
+            { href: '/', label: 'Home' },
+            { href: '/doctors', label: 'Doctors' },
+            { href: '/services', label: 'Services' },
+            { href: '/appointment', label: 'Appointment' },
+            { href: '/#home-directions', label: 'Directions' },
+            { href: '/#home-call', label: 'Contact information' }, tasks.emergency,
+          ] }],
         },
       }}
       tasks={tasks}
       tasksHeading="How can we help?"
-      title="Find the next step for your care"
+      title="A whole life comes with you."
       showJourneyGuidance
       showSupportBand
     />

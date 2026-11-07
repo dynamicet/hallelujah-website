@@ -1,0 +1,49 @@
+Patient information additions — local preview review
+
+Scope: ten service detail pages, Patients & Visitors, patient feedback.
+Payment features and post-visit online services were excluded.
+Existing direction retained: one-motif, seed 238462439; no new art direction or assets.
+Existing illustrative care scenes are reused and captioned as preview imagery.
+
+Verification
+- TypeScript and ESLint pass.
+- Patient-guide conversation checks pass.
+- Service-directory checks: 22 cases pass.
+- Clinician-profile checks: 30 cases pass.
+- Focused browser run: 14 route/journey groups pass, including all ten service
+  routes and links, widths 1280/768/390/320, noindex, one main/h1, unknown-service
+  404, reduced motion, disabled feedback without JavaScript, feedback review,
+  edit, clear, focus, reload and no message transmission.
+- No browser errors, warnings, unexpected failed requests or HTTP errors in
+  the focused run. One intentionally blocked development script without JS.
+- Older whole-site checks are not clean: the existing homepage testimonial
+  disclosure trips the legacy wording assertion, and the boundary checker
+  flags pre-existing URL literals in the doctor route and header contacts.
+
+ROUND 1
+Seen in one second: the page name and an illustrative care conversation.
+Idea (one sentence): Hallelujah's room-for-your-questions theme becomes practical
+questions to bring to a visit and a feedback message the visitor can review.
+Live thing: service selection and appointment handoff, visit anchors, and the
+local feedback review/edit/clear journey.
+Layout words by section: hero=split / navigation=wrapped links / guidance=reading
+columns / emphasis=filled field / care-team=text list / feedback=form.
+Scores: design 6.5 · usability 8 · creativity 6 · content 7 → overall 6.95.
+Caps applied: conservative overall 6.0 under the marketing-page skill rubric.
+The completed feedback inspector reports few-pictures and still-page failures:
+one supporting image and five measured moving elements. These pages prioritize
+patient tasks; adding decorative pictures or animation to meet gallery quotas
+would not improve the requested feedback journey. No claim of a clean visual
+inspector pass is made. Visitor/service inspection sessions captured evidence
+but timed out before finishing their reports.
+Top three problems (most visible first), with disposition:
+1. Feedback desktop/mobile: several paragraphs explain preview limitations.
+   Replace with the real recipient and handling details once confirmed.
+2. Visitors desktop/tablet: repeated reading columns are restrained rather than
+   visually varied. Retained for consistent navigation through practical guidance.
+3. Service desktop: actual hours, referrals and most service teams are not
+   verified. Keep explicit unavailability until hospital-approved data is supplied.
+
+No new photography, footage, external images or image licences were introduced.
+Hospital operational details, authentic clinician affiliations and the feedback
+recipient/handling process still need confirmation before publication/activation.

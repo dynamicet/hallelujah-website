@@ -19,7 +19,7 @@ export function emergencyPreviewDocument(state = 'controlled') {
   const injectedState = state === 'call-handoff-unsupported-injected'
     ? '<script src="/emergency-state-announcement.js"></script>'
     : ''
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Emergency — Hallelujah Hospital</title><link rel="stylesheet" href="/emergency.css"></head><body data-emergency-preview-fixture="synthetic-inert-b03-009" data-emergency-preview-state="${state}">${body}${injectedState}</body></html>`
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Emergency — Hallelujah Hospital</title><link rel="stylesheet" href="/emergency.css"></head><body data-emergency-preview-fixture="synthetic-inert-b03-009" data-emergency-preview-state="${state}">${body}${injectedState}<script defer src="/shell-navigation.js"></script></body></html>`
 }
 
 export async function createEmergencyPreviewServer({ port = 0 } = {}) {

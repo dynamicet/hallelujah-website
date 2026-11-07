@@ -1,0 +1,15 @@
+{
+  "passed": [
+    "1440px: deferred source, updated source resolution, uncropped aspect ratio, visible advancing muted video, separate hospital section, restored consultation image, pause/resume, offscreen pause, no overflow",
+    "1024px: deferred source, updated source resolution, uncropped aspect ratio, visible advancing muted video, separate hospital section, restored consultation image, pause/resume, offscreen pause, no overflow",
+    "768px: deferred source, updated source resolution, uncropped aspect ratio, visible advancing muted video, separate hospital section, restored consultation image, pause/resume, offscreen pause, no overflow",
+    "390px: deferred source, updated source resolution, uncropped aspect ratio, visible advancing muted video, separate hospital section, restored consultation image, pause/resume, offscreen pause, no overflow",
+    "320px: deferred source, updated source resolution, uncropped aspect ratio, visible advancing muted video, separate hospital section, restored consultation image, pause/resume, offscreen pause, no overflow",
+    "Reduced motion: no video download, poster only",
+    "Live motion-preference changes stop and resume playback",
+    "Data saving: no video download",
+    "Video failure: matching poster remains visible",
+    "Keyboard: Enter activates pause control",
+    "No JavaScript: poster and care content retained without video download"
+  ]
+}

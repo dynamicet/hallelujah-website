@@ -1,0 +1,39 @@
+ROUND 1
+Seen in one second: a strong photographic composition, with the image files still missing during the first capture.
+Idea (one sentence): The hope in Hallelujah becomes a photographic welcome followed by a practical next-step guide.
+Live thing: four-choice care navigator.
+Layout words by section: hero=full-bleed / navigator=interactive split / care=offset list and image / listening=mosaic / preparation=photo and disclosure / arrival=practical columns / footer=large wordmark.
+Scores: design 5 · usability 6 · creativity 7 · content 5 → overall 5.7.
+Caps applied: broken-image failures; overall capped at 6.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. after/desktop-fold.jpg: missing hero asset. Export the generated imagery into public/editorial.
+2. after/mobile-page-01.jpg: image caption read as an eyebrow above the following service heading. Remove the redundant caption.
+3. after/desktop-fold.jpg: tinted rather than neutral scrim. Use a neutral legibility overlay.
+
+ROUND 2
+Seen in one second: a clinician listening to a patient; a clear next step.
+Idea (one sentence): The hope in Hallelujah becomes a photographic welcome followed by a practical next-step guide.
+Live thing: four-choice care navigator with immediate destination and preparation guidance.
+Layout words by section: hero=cinematic welcome / navigator=choice and answer / care=asymmetric editorial list / listening=wide picture and dark note / preparation=portrait and accordion / arrival=two-column practical information / footer=oversized identity.
+Scores: design 8 · usability 8 · creativity 7 · content 7 → overall 7.7.
+Caps applied: category-level care imagery limits creativity to 7. Medical and operational content remains illustrative.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. journeys/doctors-mobile.jpg: large empty portrait boxes increase scrolling without adding information. Replace them with compact initials and result rows.
+2. journeys/profile.jpg: missing portrait dominates the profile. Give the name an intentional typographic monogram.
+3. journeys/services.jpg: group headings compete with the page title and the result cards are repetitive. Reduce group-heading size and use full-width result rows.
+
+ROUND 3
+Seen in one second: personal, Ethiopian care; a hospital identity; an obvious route to finding a doctor.
+Idea (one sentence): The hope in Hallelujah becomes a photographic welcome followed by a practical next-step guide.
+Live thing: care navigator, usable by touch and keyboard, with a server-rendered default and no-JavaScript destination links.
+Layout words by section: hero=photographic welcome / navigator=adaptive guide / care=offset list / listening=photographic mosaic / preparation=question-led split / arrival=practical information / footer=typographic close.
+Scores: design 8 · usability 8.2 · creativity 7 · content 7.2 → overall 7.8.
+Caps applied: creativity remains capped at 7 because the hopeful care concept could also suit a peer hospital.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. final/mobile-page-01.jpg: contact details cannot yet be useful for an actual journey. Replace the availability copy with verified institutional details before launch.
+2. journeys/profile-mobile.jpg: clinician initials are intentional, but genuine approved portraits would build more trust. Replace initials when authentic portraits are available.
+3. final/desktop-page-01.jpg: the family image is repeated in visit preparation. Replace the second crop with an approved arrival or reception photograph in the final institutional shoot.
+
+Final measurements: 0 FAIL at 1440, 768 and 390 pixels. The headline is two lines at every measured viewport; no horizontal overflow. One type family rendered. Five image elements, including four editorial placements. Twelve distinct animated elements measured.
+Remaining warnings: expanded type scale for utility text, editorial headings and the large footer identity; no video because no authentic institutional footage is available; restrained motion rather than continuous movement. Reduced-motion verification reports zero active animations.
+No pinned scroll scenes were used; the dealt pinned sentence was adapted to a compact interactive introduction so essential care routes stay close to the first screen. No scene gate is applicable.

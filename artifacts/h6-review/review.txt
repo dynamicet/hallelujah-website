@@ -1,0 +1,85 @@
+H6 reassessment — 2 November 2026
+
+Scope: current local preview at ddedbf7; review only, no application changes.
+Browser: headless Chromium, 320×740, 390×844, 768×1024, 844×390 and 1440×900.
+Evidence: results.json, followup.json, reduced-motion.json and named screenshots.
+The assessment's original images remain historical evidence.
+
+Disposition: H6 remains open, with narrower recommendations. Working keyboard
+dismissal is verified; the Help launcher is not automatically a defect.
+
+1. Initial mobile space remains a real issue. At 320 and 390px, the header itself
+   is 176px: 92px utilities plus 84px identity/menu. A separate 51px preview notice
+   brings the start of main content to y=227px (31% of a 740px viewport, 27% of
+   844px). The original “roughly 225px header” conflates notice and header.
+   The header hides on downward scrolling and returns on upward scrolling in
+   portrait. Reduced motion keeps it visible. Short landscape uses a nonsticky
+   header, which scrolls away normally. These behaviors help reading after entry;
+   they do not reduce the initial footprint. Preserve the preview disclosure.
+   At 768 and 844px the header is 140px; desktop is 152px.
+
+2. The contact row is visually active despite all three controls being unavailable.
+   Browser measurements confirm 44px targets and aria-disabled=true. In the
+   screenshot the controls have normal ink, full-color marks and no visible
+   unavailable label. Accessibility metadata and hover titles do not explain the
+   individual state to a phone visitor before activation. Recommend moving
+   unavailable secondary channels into contact/menu content, or visibly stating
+   availability if this row is deliberately retained as a design preview.
+   Keep Emergency information discoverable; its destination remains preview
+   information, not a verified emergency contact channel.
+
+3. Menu dismissal works but its visual state is ambiguous. Enter opens it,
+   aria-expanded changes to true, Tab reaches Find a doctor, Escape closes it and
+   returns focus to Menu at all four compact widths. Clicking Menu again closes
+   it. There is still no close symbol in the panel and the trigger retains its
+   hamburger and “Menu” label while open. Recommend an explicit Close control
+   or an obvious open-state change. At 844×390 only 166px of a 412px menu is
+   visible, so lower links require scrolling; this is a usability refinement,
+   not proof those links are inaccessible.
+
+4. Help is now a small two-choice launcher: Request an appointment and Chat with
+   our guide. Guide access takes two activations. The appointment route is distinct,
+   so the extra step has a reason. The launcher has both an internal close button
+   and a trigger that changes to an X. Enter opens it, Escape restores focus to
+   Help. The guide opens as a modal with a clear close control, starts focus there,
+   retains focus inside after 16 forward Tabs, and Escape returns focus to Help
+   at all five sizes. Guide bounds fit the viewport; this is not a claim that all
+   content is initially visible. At 844×390 the transcript is cramped between
+   fixed header, toolbar and composer; topic choices require internal scrolling.
+   Keep the current launcher unless guide-first access is a product requirement.
+   Consider short-landscape compaction separately from click-count reduction.
+
+5. The menu still offers Find a doctor (/doctors) and Search doctors
+   (/doctors#directory-search-title). These have distinct URLs but share the
+   directory search task. The directory now supports name, specialty, condition
+   and service search. At 390px the search heading starts at y=472px on the
+   directory; the shortcut scrolls 280px and places it at y=192px. It therefore
+   has a measurable bypass function. Treat consolidation as a low-priority
+   navigation decision, not a confirmed defect. Keep contextual doctor routes in homepage search,
+   care journeys and clinician profiles; repetition across those contexts alone
+   is not evidence of unnecessary navigation.
+
+Verification: no horizontal page overflow at the five tested sizes; no JavaScript
+exceptions observed. Full-page inspector: 0 FAIL, 5 WARN (card rows, type-size
+count, absent inline footage, sideways carousel and tablet alignment). All ten
+inspector screenshots reviewed. These broad checks do not certify accessibility
+or hospital contact readiness. No screen reader, physical phone, soft keyboard,
+other browser engine or full automated focus-cycle audit was run.
+
+ROUND 1
+Seen in one second: on phones, three contact channels precede the hospital identity.
+Idea (one sentence): the shell gives visitors routes to care and practical help.
+Live thing: native navigation popovers, appointment link and automated guide.
+Layout words by section: utility=stacked rows / header=identity and menu /
+navigation=overlay list / help=two-choice popover / guide=modal conversation.
+Scores: design 7 · usability 7 · creativity 5 · content 6 → overall 6.5.
+Caps applied: conventional shell, no distinctive concept claimed; score is for
+the reviewed shell and help components, not a new whole-site score.
+Top three problems (most visible first), with evidence and recommended fix:
+1. 390x844-initial.jpg: 227px before content, including a prominent unavailable
+   contact row. Reduce utility content while preserving targets and disclosure.
+2. 390x844-menu.jpg: open menu retains hamburger and Menu without a close symbol.
+   Make dismissal visually explicit while preserving verified native behavior.
+3. 844x390-menu.jpg and 844x390-guide.jpg: short panels require substantial
+   internal scrolling. Compact vertical chrome and verify all controls remain
+   reachable. Retain the Help launcher unless a guide-first requirement emerges.

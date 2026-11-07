@@ -1,0 +1,99 @@
+Hallelujah Hospital hero refinement — 27 October 2026
+
+Scope: the existing ready-state homepage hero in WebsiteHome. Keep the current
+Next.js stack, brand, emblem-inspired curves, family photograph and routes.
+This is a single-section change, so no new direction was drawn.
+
+Argument and copy
+Hallelujah Hospital helps visitors find a doctor and prepare for a visit.
+The first screen states the hospital name and gives a working doctor search.
+The directory provides the supportable detail: specialties and languages.
+Headline: Care with open arms.
+Support: Hallelujah Hospital. Find a doctor, explore care, and plan your visit.
+Primary action: Find a doctor / Name or specialty / Search.
+Secondary action: Browse doctor profiles.
+Supporting detail: Specialties and languages, before you visit.
+
+Idea: the open arms of the emblem frame a welcoming family scene and an
+immediate route to care. Live interaction: the existing GET doctor search.
+No new imagery, fonts, dependencies, factual claims or external services.
+
+ROUND 1 — baseline
+Seen in one second: a large warm promise; the family scene on desktop.
+Idea (one sentence): the embracing emblem becomes the hero's open corners.
+Live thing: doctor search, including the server-rendered fallback.
+Layout words by section: hero=desktop split / phone copy then photograph.
+Scores: design 8.0 · usability 7.0 · creativity 7.5 · content 6.5 → overall 7.3.
+Caps applied: clinical proof and location are unavailable in approved content.
+Top three problems, evidence in hero-before:
+1. Hospital identity is buried in supporting prose (desktop-fold.jpg).
+   Lead with the hospital name and explain the practical visitor tasks.
+2. The family image starts at about 583px on a 390px phone (mobile-fold.jpg).
+   Put a compact image above the headline and reduce the copy stack.
+3. The generic photo slogan adds no evidence (desktop-fold.jpg).
+   Remove it and explain the actual information available in doctor profiles.
+
+ROUND 2 — final
+Seen in one second: a family on mobile; the short care promise on desktop.
+Idea (one sentence): the existing emblem's framing now contains both a visible
+human welcome and an immediately usable route into the doctor directory.
+Live thing: labelled doctor search and profile browsing.
+Layout words by section: hero=desktop split / phone image then compact copy.
+Scores: design 8.0 · usability 8.5 · creativity 7.5 · content 7.0 → overall 7.8.
+Caps applied: clinical proof remains dependent on hospital-approved evidence.
+Top three findings, evidence in hero-after:
+1. Name, care tasks, search and family scene are together in the phone's first
+   screen (mobile-fold.jpg and hero-320.jpg).
+2. The tablet headline fits its copy column; the additional 600px check caught
+   and corrected clipping missed by the standard 768px screenshot (hero-600.jpg).
+3. No verified address, clinical credentials or authentic hospital photograph
+   exists in the approved project content. None was invented. The directory's
+   specialties/languages are a useful choice aid, not proof of clinical quality.
+
+Changes and measurement
+The hospital name leads the supporting sentence. Search and supporting copy no
+longer wait for a reveal animation. The search button retains its visible word
+label on tablets and phones. The shorter placeholder fits the narrower input.
+The directory link describes specialties and languages. The decorative photo
+caption was removed; its AI provenance is now the semantic figure caption.
+Desktop retains the two-column composition. Phones show the image first.
+At 390x844, the image starts at 179px instead of about 583px, and the search
+button ends at about 659px. At 320x740, search ends at about 620px.
+All measured hero headings remain two lines. Hero text fits its copy column at
+320, 360, 390, 599, 600, 768, 1024 and 1440px. The search is on the first screen
+at all tested viewport heights; touch targets are at least 44px high.
+
+Visual gate
+Before: 0 failures, 3 warnings. After: 0 failures, 3 warnings, with one explicit
+heuristic exception: --allow eyebrow. The phone image's AI provenance caption
+is above the heading because the image is first. It is image attribution, not
+a decorative heading label. The caption remains visibly attached to the image.
+Retained warnings are pre-existing full-page card rows, the full-page type-size
+count and absence of video. The scope is the hero; the available imagery
+contains no authentic hospital footage that would justify adding video.
+
+Image record
+open-arms-family.webp remains the existing AI-generated fictional family scene.
+Its source and prompt are in apps/web/public/editorial/CARE-IMAGERY.txt.
+No concept person is presented as a real doctor or patient. No new assets or
+sample hospital facts were added. Location and clinical proof still need
+hospital-approved content before those details can be added to the hero.
+
+Evidence
+hero-before/ — original desktop, tablet and phone screenshots and report.
+hero-after/ — final screenshots, report, narrow-screen captures, reduced-motion
+capture and hero-measurements.json with actual viewport and element geometry.
+
+Final validation
+pnpm build: passed, including the build's TypeScript check.
+pnpm typecheck: passed.
+Targeted ESLint for home.tsx: passed with zero warnings.
+Visual source lint for both changed source files: zero failures/warnings.
+Existing scripts/check-demo-routes.mjs: all 18 route/journey groups passed on
+the final source, including server search without JavaScript; no browser errors,
+warnings, unexpected HTTP errors or failed loads.
+Responsive browser checks: passed at the eight listed widths, including loaded
+hero media, heading containment, first-screen search and touch target height.
+Reduced-motion check: zero active animations and fully opaque hero text.
+Final desktop, tablet, phone and 320/600px screenshots were visually reviewed.
+git diff --check: passed.

@@ -1,0 +1,165 @@
+/* D3: native view timelines on reserved image frames, never on clinical copy.
+   D2 remains the compact-screen and unsupported-browser fallback. */
+.enhanced-home [data-signature-scene] {
+  scroll-margin-top: 24px;
+}
+.enhanced-home .signature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 44px;
+  color: inherit;
+  font-size: var(--site-support);
+  text-decoration: none;
+}
+.enhanced-home .signature-link::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: .65;
+}
+.enhanced-home .signature-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.enhanced-home .signature-link:focus-visible { outline: 3px solid currentColor; outline-offset: 5px; }
+.enhanced-home .statistics-story-link { margin-top: 24px; color: var(--semantic-color-text-inverse); }
+
+@keyframes signature-portrait {
+  from { clip-path: inset(0 12% 12% round 12px); transform: translateY(12px); }
+  to { clip-path: inset(0 round 0px); transform: none; }
+}
+@keyframes signature-equipment {
+  from { clip-path: inset(3% 3% 0 round 12px); transform: translateY(24px) scale(.94); }
+  to { clip-path: inset(0 round 0px); transform: none; }
+}
+@keyframes signature-story {
+  from { clip-path: inset(0 8% 8% round 24px); transform: scale(1.035); }
+  to { clip-path: inset(0 round 0px); transform: none; }
+}
+
+@media screen and (min-width: 900px) and (min-height: 600px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) and (animation-range: entry 0% entry 100%) {
+    /* The frame defines the timeline; overflow-clipped descendants must not
+       accidentally attach their timeline to a non-scrolling image container. */
+    .enhanced-home [data-signature-frame] {
+      view-timeline: --signature-frame block;
+      view-timeline-inset: 0;
+    }
+    /* Match the supplied equipment illustrations while their crop opens. */
+    .enhanced-home #medical-technology [data-signature-frame="equipment"] {
+      --equipment-image-ground: #101a20;
+      background: var(--equipment-image-ground);
+    }
+    .enhanced-home [data-signature-frame] > :is(img, picture) {
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --signature-frame;
+      animation-range: entry var(--signature-entry, 0%) entry 100%;
+      transform-origin: center;
+      transition: none;
+    }
+    .enhanced-home [data-signature-frame="portrait"] > img { animation-name: signature-portrait; }
+    .enhanced-home [data-signature-frame="equipment"] > picture { animation-name: signature-equipment; }
+    .enhanced-home [data-signature-frame="story"] > img { animation-name: signature-story; }
+    .enhanced-home .team-person:nth-child(2),
+    .enhanced-home [data-signature-scene="equipment"] article:nth-child(2) { --signature-entry: 12%; }
+    .enhanced-home .team-person:nth-child(3),
+    .enhanced-home [data-signature-scene="equipment"] article:nth-child(3) { --signature-entry: 24%; }
+    .enhanced-home .everyday-feature:nth-child(2) { --signature-entry: 18%; }
+
+    /* One authored layer per scene. Names, descriptions and controls remain
+       stationary while image details resolve into their final crop. */
+    .enhanced-home [data-signature-scene="team"] .team-person.website-entered,
+    .enhanced-home [data-signature-scene="equipment"] article.website-entered,
+    .enhanced-home [data-signature-scene="stories"] .everyday-feature-image.website-entered,
+    .enhanced-home [data-signature-scene="stories"] .everyday-feature-copy.website-entered { animation: none; }
+
+    /* An interaction always takes precedence over the scroll composition. */
+    .enhanced-home .team-person:is(:hover, :focus-within) [data-signature-frame] > img,
+    .enhanced-home [data-signature-scene="equipment"] article:focus-within [data-signature-frame] > picture,
+    .enhanced-home .everyday-feature:focus-within [data-signature-frame] > img {
+      animation: none;
+      clip-path: none;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+/* Editorial passage: connected portraits, navigable equipment chapters and
+   alternating stories. The complete reading order remains ordinary page flow. */
+.enhanced-home .equipment-chapters { display:grid; grid-template-columns:1fr; gap:48px; }
+.enhanced-home .equipment-chapter {
+  display:grid; grid-template-columns:1.15fr .85fr; grid-template-rows:min-content 1fr; gap:16px 48px; align-items:start;
+  padding-block:24px; border-top:1px solid #b7cfd5;
+  scroll-margin-top:24px;
+}
+.enhanced-home .equipment-chapter > [data-signature-frame] { grid-column:1; grid-row:1 / span 2; }
+.enhanced-home .equipment-chapter > details { grid-column:2; margin-top:0; }
+.enhanced-home .equipment-chapter:nth-child(even) [data-signature-frame] { grid-column:2; grid-row:1 / span 2; }
+.enhanced-home .equipment-chapter:nth-child(even) > details { grid-column:1; }
+.enhanced-home .equipment-chapter:nth-child(even) .equipment-chapter-copy { grid-column:1; grid-row:1; }
+.enhanced-home .equipment-chapter-copy { padding:8px 0; }
+.enhanced-home #medical-technology .equipment-chapter h3 { font:400 clamp(30px,3.4vw,48px)/1.1 var(--site-display); }
+.enhanced-home .equipment-chapter [data-signature-frame] { border-radius:4px 48px 4px 4px; }
+.enhanced-home .everyday-stories-features { grid-template-columns:1fr; gap:80px; }
+.enhanced-home .everyday-feature { display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:start; }
+.enhanced-home .everyday-feature-image { width:100%; max-height:none; aspect-ratio:4/3; }
+.enhanced-home .everyday-feature-copy { margin-top:0; padding-top:24px; }
+.enhanced-home .everyday-feature:nth-child(2) .everyday-feature-image { grid-column:2; grid-row:1; }
+.enhanced-home .everyday-feature:nth-child(2) .everyday-feature-copy { grid-column:1; grid-row:1; }
+.enhanced-home .everyday-feature h3 { font:400 clamp(30px,3.4vw,48px)/1.15 var(--site-display); }
+@media(min-width:900px) {
+  .enhanced-home .team-guide { position:relative; isolation:isolate; background:white; padding-top:48px; }
+  .enhanced-home .team-guide::before {
+    content:''; position:absolute; inset:0 0 auto; height:240px; z-index:-1;
+    background:var(--semantic-color-surface-inverse); transform-origin:top;
+  }
+  .enhanced-home .team-intro h2,.enhanced-home .team-directory { color:white; }
+  .enhanced-home .team-portrait-frame { aspect-ratio:1; max-height:none; border-radius:4px 40px 4px 4px; }
+}
+@keyframes signature-passage { from { transform:scaleY(1.6); } to { transform:scaleY(1); } }
+@media screen and (min-width:900px) and (min-height:600px) and (prefers-reduced-motion:no-preference) {
+  @supports (animation-timeline:view()) {
+    .enhanced-home .team-guide { view-timeline:--team-passage block; }
+    .enhanced-home .team-guide::before {
+      animation:signature-passage linear both; animation-timeline:--team-passage;
+      animation-range:entry 0% entry 100%;
+    }
+  }
+}
+@media(max-width:899px) {
+  .enhanced-home .equipment-chapter { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:28px; padding-block:20px; }
+  .enhanced-home .equipment-chapters { gap:40px; }
+  .enhanced-home .everyday-feature { grid-template-columns:1fr; gap:20px; }
+  .enhanced-home .equipment-chapter:nth-child(even) [data-signature-frame],
+  .enhanced-home .equipment-chapter:nth-child(even) .equipment-chapter-copy,
+  .enhanced-home .everyday-feature:nth-child(2) .everyday-feature-image,
+  .enhanced-home .everyday-feature:nth-child(2) .everyday-feature-copy { grid-column:auto; grid-row:auto; }
+  .enhanced-home .equipment-chapter-copy { padding:0; }
+  .enhanced-home .equipment-chapter > [data-signature-frame], .enhanced-home .equipment-chapter:nth-child(even) > [data-signature-frame] { grid-column:1; grid-row:1 / span 2; }
+  .enhanced-home .equipment-chapter > details, .enhanced-home .equipment-chapter:nth-child(even) > details { grid-column:2; }
+  .enhanced-home .everyday-feature-image { aspect-ratio:16/10; }
+  .enhanced-home .everyday-feature-copy { padding-top:0; }
+}
+@media(max-width:699px) {
+  .enhanced-home .equipment-chapter { grid-template-columns:minmax(0,1fr); grid-template-rows:none; gap:20px; padding-block:16px; }
+  .enhanced-home .equipment-chapters { gap:32px; }
+  .enhanced-home .equipment-chapter > [data-signature-frame], .enhanced-home .equipment-chapter:nth-child(even) > [data-signature-frame] { grid-column:1; grid-row:auto; }
+  .enhanced-home .equipment-chapter > details, .enhanced-home .equipment-chapter:nth-child(even) > details { grid-column:1; }
+}
+@media(max-width:599px) {
+  .enhanced-home .equipment-chapters { gap: var(--semantic-space-regular); }
+  .enhanced-home .equipment-chapter { grid-template-columns: 88px minmax(0, 1fr); gap: var(--semantic-space-regular); padding-block: var(--semantic-space-page); }
+  .enhanced-home .equipment-chapter > details, .enhanced-home .equipment-chapter:nth-child(even) > details { grid-column:1 / -1; }
+  .enhanced-home .equipment-chapter [data-signature-frame] { border-radius: var(--site-image-radius); }
+  .enhanced-home #medical-technology .equipment-chapter h3 { font-size: var(--site-label-heading); }
+  .enhanced-home #medical-technology .equipment-chapter p { font-size: var(--site-support); margin-block-start: var(--semantic-space-compact); }
+  /* Keep the book and shawl in the single-person portrait on a narrow screen. */
+  .enhanced-home .everyday-feature:nth-child(2) .everyday-feature-image { aspect-ratio:4/5; }
+  .enhanced-home .everyday-feature:nth-child(2) .everyday-feature-image img { object-position:center; }
+}
+@media print {
+  .enhanced-home .team-guide::before { display:none; }
+  .enhanced-home .team-intro h2,.enhanced-home .team-directory { color:inherit; }
+}

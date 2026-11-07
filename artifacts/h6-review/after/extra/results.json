@@ -1,0 +1,194 @@
+[
+  {
+    "width": 599,
+    "height": 844,
+    "initial": {
+      "overflow": 0,
+      "headerHeight": 156,
+      "menuVisible": true
+    },
+    "menu": {
+      "x": 20,
+      "y": 199.5,
+      "bottom": 591.09375,
+      "right": 315.53125,
+      "client": 392,
+      "scroll": 392,
+      "close": true
+    }
+  },
+  {
+    "width": 600,
+    "height": 844,
+    "initial": {
+      "overflow": 0,
+      "headerHeight": 180,
+      "menuVisible": true
+    },
+    "menu": {
+      "x": 32,
+      "y": 221.5,
+      "bottom": 613.09375,
+      "right": 327.53125,
+      "client": 392,
+      "scroll": 392,
+      "close": true
+    }
+  },
+  {
+    "width": 719,
+    "height": 844,
+    "initial": {
+      "overflow": 0,
+      "headerHeight": 180,
+      "menuVisible": true
+    },
+    "menu": {
+      "x": 32,
+      "y": 221.5,
+      "bottom": 613.09375,
+      "right": 327.53125,
+      "client": 392,
+      "scroll": 392,
+      "close": true
+    }
+  },
+  {
+    "width": 720,
+    "height": 844,
+    "initial": {
+      "overflow": 0,
+      "headerHeight": 140,
+      "menuVisible": true
+    },
+    "menu": {
+      "x": 32,
+      "y": 181.5,
+      "bottom": 573.09375,
+      "right": 327.53125,
+      "client": 392,
+      "scroll": 392,
+      "close": true
+    }
+  },
+  {
+    "width": 1023,
+    "height": 844,
+    "initial": {
+      "overflow": 0,
+      "headerHeight": 140,
+      "menuVisible": true
+    },
+    "menu": {
+      "x": 32,
+      "y": 181.5,
+      "bottom": 573.09375,
+      "right": 327.53125,
+      "client": 392,
+      "scroll": 392,
+      "close": true
+    }
+  },
+  {
+    "width": 1024,
+    "height": 844,
+    "initial": {
+      "overflow": 0,
+      "headerHeight": 152,
+      "menuVisible": false
+    }
+  },
+  {
+    "width": 1440,
+    "height": 390,
+    "initial": {
+      "overflow": 0,
+      "headerHeight": 152,
+      "menuVisible": false
+    },
+    "guide": {
+      "x": 12,
+      "y": 8,
+      "bottom": 382,
+      "right": 1428,
+      "client": 372,
+      "scroll": 372,
+      "transcript": {
+        "height": 238,
+        "scroll": 288
+      }
+    },
+    "reply": {
+      "turns": 1,
+      "reply": "Patient GuideHere are a few things visitors often ask. Choose a question, or type your own.How can I prepare for my visit?›What are the opening and visiting hours?›What does a visit cost?›Is Amharic or language support available?›How do I get my test results?›Is this conversation saved?›"
+    }
+  },
+  {
+    "width": 667,
+    "height": 375,
+    "initial": {
+      "overflow": 0,
+      "headerHeight": 180,
+      "menuVisible": true
+    },
+    "menu": {
+      "x": 16,
+      "y": 8,
+      "bottom": 277.59375,
+      "right": 389.65625,
+      "client": 270,
+      "scroll": 270,
+      "close": true
+    },
+    "guide": {
+      "x": 12,
+      "y": 8,
+      "bottom": 367,
+      "right": 655,
+      "client": 357,
+      "scroll": 357,
+      "transcript": {
+        "height": 223,
+        "scroll": 312
+      }
+    },
+    "reply": {
+      "turns": 1,
+      "reply": "Patient GuideHere are a few things visitors often ask. Choose a question, or type your own.How can I prepare for my visit?›What are the opening and visiting hours?›What does a visit cost?›Is Amharic or language support available?›How do I get my test results?›Is this conversation saved?›"
+    }
+  },
+  {
+    "width": 568,
+    "height": 320,
+    "initial": {
+      "overflow": 0,
+      "headerHeight": 156,
+      "menuVisible": true
+    },
+    "menu": {
+      "x": 16,
+      "y": 8,
+      "bottom": 277.59375,
+      "right": 389.65625,
+      "client": 270,
+      "scroll": 270,
+      "close": true
+    },
+    "guide": {
+      "x": 8,
+      "y": 8,
+      "bottom": 312,
+      "right": 560,
+      "client": 302,
+      "scroll": 593,
+      "transcript": {
+        "height": 309,
+        "scroll": 309
+      }
+    },
+    "reply": {
+      "turns": 1,
+      "reply": "Patient GuideHere are a few things visitors often ask. Choose a question, or type your own.How can I prepare for my visit?›What are the opening and visiting hours?›What does a visit cost?›Is Amharic or language support available?›How do I get my test results?›Is this conversation saved?›"
+    }
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "keyboard-open",
+    "pass": true
+  },
+  {
+    "name": "forward-focus-contained",
+    "pass": true
+  },
+  {
+    "name": "backward-focus-contained",
+    "pass": true
+  },
+  {
+    "name": "escape-and-focus-return",
+    "pass": true
+  },
+  {
+    "name": "close-button-and-scroll-unlock",
+    "pass": true
+  },
+  {
+    "name": "reopen-playback",
+    "pass": true
+  },
+  {
+    "name": "reduced-motion",
+    "pass": true
+  },
+  {
+    "name": "playback-fallback",
+    "pass": true
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "placeholders": [
+    {
+      "id": "home-doctor-search",
+      "foreground": "rgb(64, 88, 105)",
+      "background": "rgb(255, 255, 255)",
+      "opacity": "1",
+      "contrast": 7.452433927718998
+    },
+    {
+      "id": "home-service-search",
+      "foreground": "rgb(64, 88, 105)",
+      "background": "rgb(255, 255, 255)",
+      "opacity": "1",
+      "contrast": 7.452433927718998
+    }
+  ],
+  "focusAtReflow400": [
+    {
+      "selector": ".welcome-appointment",
+      "focused": true,
+      "unobscured": true,
+      "top": 161.453125,
+      "bottom": 215.046875,
+      "viewportHeight": 256
+    },
+    {
+      "selector": ".welcome-visit",
+      "focused": true,
+      "unobscured": true,
+      "top": 212.046875,
+      "bottom": 256.046875,
+      "viewportHeight": 256
+    },
+    {
+      "selector": "#home-doctor-search",
+      "focused": true,
+      "unobscured": true,
+      "top": 165.640625,
+      "bottom": 211.234375,
+      "viewportHeight": 256
+    },
+    {
+      "selector": "button[aria-label=\"Search doctors\"]",
+      "focused": true,
+      "unobscured": true,
+      "top": 165.4375,
+      "bottom": 211.4375,
+      "viewportHeight": 256
+    },
+    {
+      "selector": "#home-service-search",
+      "focused": true,
+      "unobscured": true,
+      "top": 165.03125,
+      "bottom": 210.625,
+      "viewportHeight": 256
+    },
+    {
+      "selector": "button[aria-label=\"Search services\"]",
+      "focused": true,
+      "unobscured": true,
+      "top": 164.828125,
+      "bottom": 210.828125,
+      "viewportHeight": 256
+    }
+  ]
+}

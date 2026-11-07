@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict'
-import { existsSync } from 'node:fs'
 import { readFile, readdir } from 'node:fs/promises'
 
 import {
@@ -47,7 +46,7 @@ for (const state of emergencyFixtureStates) {
     assert.ok(targets.has(match[1]), `${state}: no dead destination anchor #${match[1]}`)
   }
   for (const match of html.matchAll(/\bhref="([^"]+)"/gu)) {
-    assert.ok(match[1].startsWith('#') || match[1] === '/emergency.css', state)
+    assert.ok(match[1].startsWith('#') || ['/emergency.css', '/doctors', '/services'].includes(match[1]), state)
   }
 
   if (failClosed) {
@@ -192,7 +191,7 @@ assert.doesNotMatch(emergencyCssSource, /(?:#[\da-f]{3,8}\b|\brgba?\()/iu)
 cases++
 
 const appRoot = new URL('../src/app/', import.meta.url)
-assert.equal(existsSync(new URL('emergency/', appRoot)), false, 'Deployable /emergency route must remain absent')
+assert.match(await readFile(new URL('emergency/page.tsx', appRoot), 'utf8'), /requireLocalDemo\(\)/u)
 const appSources = await collectSources(appRoot)
 for (const file of appSources) {
   const content = await readFile(file, 'utf8')

@@ -1,0 +1,87 @@
+Scope: H2 imagery relevance and duplicate placements only. Real hospital imagery
+and approval stay pending, as requested. Existing brand, routes and content remain.
+
+The available concept assets show consultations, family companionship, a book,
+fictional staff, and a general conversation illustration. None shows cardiac
+care, rehabilitation, research, actual arrivals, or a confirmed community event.
+
+Placement decisions:
+- Keep hope-care and its close mobile encounter crop as one responsive hero scene.
+- Remove the decorative care selector images; make the selected service copy the
+  feature. A family portrait cannot demonstrate rehabilitation or cardiac care.
+- Give the consultation prompts the family-care scene: it directly shows a care
+  conversation, and is no longer repeated in care selection or the news archive.
+- Keep open-arms-family and whole-life-portrait with their corresponding fictional
+  patient stories only; both keep preview disclosures.
+- Remove generic images from feedback, referrals, visitors, service details and
+  health topics. Close the vacated columns so these pages do not leave image holes.
+- Questions article: use the conversation illustration, shared only with its card.
+- Visit information article: use the book detail, shared only with its card.
+- Research news and sample event: omit imagery until subject-specific assets exist.
+- The six homepage clinician portraits are currently distinct, each mapped to one
+  record. Deeper directory/profile monograms remain a separate H2 consistency gap.
+
+Concept: each picture explains the conversation or story immediately beside it.
+The established composition and brand supply the direction; this is a targeted
+imagery change, so no new art direction or generated assets are needed.
+
+ROUND 1 (before/home/desktop-page-02.jpg, mobile-page-02.jpg)
+Seen in one second: warm patient stories and another familiar consultation.
+Idea: conversation imagery repeats the hero rather than adding a new subject.
+Live thing: service selector, directories, checklists and story disclosure controls.
+Layout words: hero=split / care=selector / team=portraits / visit=questions /
+stories=pair / consultation=split / news=cards.
+Scores: design 6.5 / usability 7 / creativity 6 / content 6 -> overall 6.5.
+Caps: real photography/footage remains unavailable by user direction; existing
+generic preview material limits authenticity.
+Top three scoped problems:
+1. The consultation section repeats the hero scene: give it the family conversation.
+2. Care selector images imply subjects they do not show: let service copy lead.
+3. Inner-page hero photos repeat scenes without helping tasks: remove and reflow.
+
+ROUND 2
+Seen in one second: service choices and preparation questions; distinct consultation.
+Idea: each image explains the conversation or story beside it.
+Live thing: care selector, direct search, feedback review, visit checklists.
+Layout words: hero=split / care=questions-and-selector / team=portraits /
+visit=questions / stories=pair / consultation=split / news=feature-and-short-entries.
+Scores: design 6.5 / usability 8 / creativity 6 / content 6.5 -> overall 6.9.
+Caps: authentic photographs and footage remain pending. This is a focused
+relevance cleanup, not a complete redesign or public-content approval.
+Top three remaining issues:
+1. Actual hospital staff and premises still need approved imagery (all pages).
+2. Clinician identity still changes from portrait to initials deeper in the journey.
+3. Existing typography variety and tablet alignment/card patterns remain outside scope.
+
+The first after/news-resources-1440-full.jpg exposed excessive grey space inside
+entries without images. The final pass uses compact text entries, image-and-text
+archive rows, and one pictured homepage story beside two shorter text entries.
+Reviewed final/home/desktop-page-01.jpg, desktop-page-03.jpg,
+tablet-page-02.jpg and mobile-page-02.jpg, plus task-page and archive captures.
+The family consultation crop retains all three people at the reviewed widths.
+
+Verification:
+- 11 routes x 3 widths = 33 page/viewport captures, with final homepage/archive
+  captures superseding the initial after versions for those two routes.
+- No horizontal page overflow. All displayed editorial images loaded. Partner
+  logos outside the collapsed horizontal row remain lazy; they are not image failures.
+- No repeated editorial image source within the homepage at any reviewed width.
+- 12 care selections across 320, 390, 768, 1440px passed selected state, relevant
+  questions and service query destinations; keyboard Tab traversal passed.
+- Feedback sample review and focus passed at all four interaction widths.
+- No-JavaScript service destinations and reduced-motion rendering passed.
+- TypeScript, focused ESLint, care journeys, homepage/governed-content contracts
+  and production build passed. Design source lint: 0 FAIL, 1 pre-existing CTA WARN.
+- Final homepage inspector: 0 FAIL, 5 WARN. Remaining findings: size count,
+  unavailable authentic footage, partner sideways scrolling, tablet card rows and
+  tablet alignment. No claim of complete visual acceptance is made.
+
+Measured heights, before -> final (desktop / tablet / mobile):
+Homepage: 9218 -> 9261 / 10127 -> 9907 / 12694 -> 12135px.
+Feedback: 3117 -> 2845 / 3154 -> 2905 / 3565 -> 3190px.
+News archive: 2948 -> 2927 / 2500 -> 2629 / 3701 -> 3355px.
+Text and tap-target sizes were not reduced for these changes.
+
+Repository format check remains blocked by pre-existing missing final newlines in
+older evidence and whitespace in the bundled Lato license. New H2 evidence JSON
+was normalized; changed-file whitespace checks pass. Unrelated files were not edited.

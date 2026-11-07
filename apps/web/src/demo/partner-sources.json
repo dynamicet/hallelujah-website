@@ -1,0 +1,199 @@
+{
+  "sourcePage": "https://hallelujahhospital.com/",
+  "sourceSection": "Our Partners",
+  "retrievedAt": "2026-10-31",
+  "usage": "Local development homepage; current agreement types, eligibility, and logo publication rights remain unverified.",
+  "transformation": "Original PNGs resized proportionally to 600px wide and encoded as WebP quality 90. Colors and artwork preserved.",
+  "partners": [
+    {
+      "nameAsPublished": "Safaricom",
+      "id": "safaricom",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-31.png",
+      "name": "Safaricom",
+      "localAsset": "/partners/safaricom.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 7300
+    },
+    {
+      "nameAsPublished": "MOENCO",
+      "id": "moenco",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-33.png",
+      "name": "MOENCO",
+      "localAsset": "/partners/moenco.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 13190
+    },
+    {
+      "nameAsPublished": "TOTAL ENERGIES",
+      "id": "total-energies",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-42.png",
+      "name": "TotalEnergies",
+      "localAsset": "/partners/total-energies.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 8444
+    },
+    {
+      "nameAsPublished": "MOHA SOFT DRINK INDUSTRIES",
+      "id": "moha-soft-drink-industries",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-34.png",
+      "name": "MOHA Soft Drink Industries",
+      "localAsset": "/partners/moha-soft-drink-industries.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 7010
+    },
+    {
+      "nameAsPublished": "ORACLE",
+      "id": "oracle",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-38.png",
+      "name": "Oracle",
+      "localAsset": "/partners/oracle.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 6172
+    },
+    {
+      "nameAsPublished": "OROMIA INSURANCE",
+      "id": "oromia-insurance",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-32.png",
+      "name": "Oromia Insurance",
+      "localAsset": "/partners/oromia-insurance.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 8946
+    },
+    {
+      "nameAsPublished": "NIB BANK",
+      "id": "nib-bank",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-30.png",
+      "name": "Nib Bank",
+      "localAsset": "/partners/nib-bank.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 10054
+    },
+    {
+      "nameAsPublished": "UNITED STATES EMBASSY",
+      "id": "united-states-embassy",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-5-3.png",
+      "name": "United States Embassy",
+      "localAsset": "/partners/united-states-embassy.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 25388
+    },
+    {
+      "nameAsPublished": "Ethiopian Airlines",
+      "id": "ethiopian-airlines",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-35.png",
+      "name": "Ethiopian Airlines",
+      "localAsset": "/partners/ethiopian-airlines.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 8360
+    },
+    {
+      "nameAsPublished": "Ethio Telecom",
+      "id": "ethio-telecom",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-41.png",
+      "name": "Ethio Telecom",
+      "localAsset": "/partners/ethio-telecom.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 7698
+    },
+    {
+      "nameAsPublished": "CIGNA Healthcare",
+      "id": "cigna-healthcare",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-6.png",
+      "name": "Cigna Healthcare",
+      "localAsset": "/partners/cigna-healthcare.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 12290
+    },
+    {
+      "nameAsPublished": "MSF HOLLAND",
+      "id": "msf-holland",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-43.png",
+      "name": "MSF Holland",
+      "localAsset": "/partners/msf-holland.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 11208
+    },
+    {
+      "nameAsPublished": "CIVIL AVIATION AUTHORITY",
+      "id": "civil-aviation-authority",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-44.png",
+      "name": "Civil Aviation Authority",
+      "localAsset": "/partners/civil-aviation-authority.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 10708
+    },
+    {
+      "nameAsPublished": "IOM",
+      "id": "iom",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-21.png",
+      "name": "IOM",
+      "localAsset": "/partners/iom.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 9272
+    },
+    {
+      "nameAsPublished": "Awash Insurance",
+      "id": "awash-insurance",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-39.png",
+      "name": "Awash Insurance",
+      "localAsset": "/partners/awash-insurance.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 14704
+    },
+    {
+      "nameAsPublished": "ETHIOPIA INVESTMENT HOLDINGS",
+      "id": "ethiopia-investment-holdings",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2025/08/Group-40.png",
+      "name": "Ethiopia Investment Holdings",
+      "localAsset": "/partners/ethiopia-investment-holdings.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 11980
+    },
+    {
+      "nameAsPublished": "Henner Insurance",
+      "id": "henner-insurance",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-22.png",
+      "name": "Henner Insurance",
+      "localAsset": "/partners/henner-insurance.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 5604
+    },
+    {
+      "nameAsPublished": "Amanah Insurance",
+      "id": "amanah-insurance",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-36.png",
+      "name": "Amanah Insurance",
+      "localAsset": "/partners/amanah-insurance.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 9148
+    },
+    {
+      "nameAsPublished": "Dashen Bank",
+      "id": "dashen-bank",
+      "sourceUrl": "https://hallelujahhospital.com/wp-content/uploads/2020/08/Group-37.png",
+      "name": "Dashen Bank",
+      "localAsset": "/partners/dashen-bank.webp",
+      "width": 600,
+      "height": 319,
+      "bytes": 7986
+    }
+  ]
+}

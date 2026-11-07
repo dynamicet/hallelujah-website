@@ -1,0 +1,37 @@
+{
+  "generation": "Built-in image_gen.imagegen",
+  "created": "2026-11-03",
+  "purpose": "Temporary illustrative equipment visuals; replace with approved HH photography. Generic equipment, not verified manufacturer models or evidence of rarity/availability.",
+  "assets": [
+    {
+      "name": "equipment-c-arm",
+      "prompt": "Use case: product-mockup. Asset type: temporary website equipment showcase image for Hallelujah Hospital, clearly an illustrative rendering, not documentary evidence. A premium photorealistic studio product photograph on a seamless deep charcoal blue-black background (#101a20), subtle floor contact and beautiful controlled white softbox lighting with a faint teal edge reflection. White and brushed metal medical equipment, mechanically plausible construction, precise material detail, sophisticated restrained commercial photography. No people, patients, words, logos, branding, watermarks, graphics, captions or interface overlays. Landscape 3:2 frame. Entire equipment visible with generous safe space around all edges. Subject: one mobile surgical C-arm X-ray imaging system, three-quarter view, recognizable large open C-shaped arc with X-ray source and detector opposite each other, a wheeled lower carriage and a separate slim wheeled workstation with two monitors showing abstract grayscale radiology imagery without text. The C-arm is the hero, larger on the right, workstation on the left. Dramatic sculptural industrial design without looking futuristic. This is a generic equipment illustration, do not copy a specific manufacturer.",
+      "formats": [
+        "640.avif",
+        "1440.avif",
+        "640.webp",
+        "1440.webp"
+      ]
+    },
+    {
+      "name": "equipment-laboratory",
+      "prompt": "Use case: product-mockup. Asset type: temporary website equipment showcase image for Hallelujah Hospital, clearly an illustrative rendering, not documentary evidence. A premium photorealistic studio product photograph on a seamless deep charcoal blue-black background (#101a20), subtle floor contact and beautiful controlled white softbox lighting with a faint teal edge reflection. White and brushed metal medical equipment, mechanically plausible construction, precise material detail, sophisticated restrained commercial photography. No people, patients, words, logos, branding, watermarks, graphics, captions or interface overlays. Landscape 3:2 frame. Entire equipment visible with generous safe space around all edges. Subject: an integrated clinical chemistry and immunoassay laboratory analyser, substantial horizontal white benchtop instrument on a plain charcoal laboratory bench. Three-quarter front view showing a smoke-tinted sample chamber cover, orderly sample carousel, subtle reagent drawers and modest small screen with no readable text. An actual complete instrument, not a microscope, not an MRI, not a pipette montage. Generic industrial design without brand.",
+      "formats": [
+        "640.avif",
+        "1440.avif",
+        "640.webp",
+        "1440.webp"
+      ]
+    },
+    {
+      "name": "equipment-dental",
+      "prompt": "Use case: product-mockup. Asset type: temporary website equipment showcase image for Hallelujah Hospital, clearly an illustrative rendering, not documentary evidence. A premium photorealistic studio product photograph on a seamless deep charcoal blue-black background (#101a20), subtle floor contact and beautiful controlled white softbox lighting with a faint teal edge reflection. White and brushed metal medical equipment, mechanically plausible construction, precise material detail, sophisticated restrained commercial photography. No people, patients, words, logos, branding, watermarks, graphics, captions or interface overlays. Landscape 3:2 frame. Entire equipment visible with generous safe space around all edges. Subject: one panoramic dental X-ray imaging system, front three-quarter view, tall white column and curved rotating imaging arm, open standing patient position with small chin rest and handles. The whole machine including its base is visible, no person inside, realistic clinical proportions and graceful sculptural geometry. Generic equipment illustration without brand.",
+      "formats": [
+        "640.avif",
+        "1440.avif",
+        "640.webp",
+        "1440.webp"
+      ]
+    }
+  ]
+}

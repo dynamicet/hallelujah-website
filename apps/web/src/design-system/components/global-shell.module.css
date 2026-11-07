@@ -47,7 +47,7 @@
 
 .identity {
   align-items: center;
-  color: var(--component-shell-text-primary);
+  color: var(--component-shell-identity-text);
   display: inline-flex;
   font-weight: var(--component-shell-font-weight-strong);
   gap: var(--component-shell-space-compact);
@@ -329,7 +329,7 @@
 }
 
 .footer {
-  margin-block-start: var(--component-shell-space-section);
+  margin-block-start: 0;
   background: var(--component-shell-footer-background);
   color: var(--component-shell-footer-foreground);
   border-block-start: var(--component-shell-border-width) solid var(--component-shell-footer-border);
@@ -426,7 +426,7 @@
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
   .headerInner,
   .noticeInner,
   .breadcrumbFrame,
@@ -595,3 +595,18 @@
     position: static;
   }
 }
+
+/* Shared editorial identity; navigation and mobile menu behavior stay intact. */
+.identity { font-family: Editorial, Ethiopic, serif; font-size: 1.6rem; font-weight: 400; letter-spacing: -.035em; }
+.identity::before { display: none; }
+.headerInner { padding-block: 1rem; }
+.reviewNotice { background: var(--component-shell-surface-subtle); color: var(--component-shell-text-primary); font-size: var(--component-shell-small-font-size); }
+.navigationLink, .utilityLink { font-weight: 400; }
+.footerInner { padding-block: 4rem; gap: 3rem; }
+.footerIdentity > :first-child { font-family: Editorial, Ethiopic, serif; font-size: 2rem; font-weight: 400; }
+.footerNavigation h2 { font-family: Lato, Ethiopic, sans-serif; font-weight: 700; font-size: 1rem; }
+.footerNavigation a { text-decoration: none; }
+.footerNavigation a:hover { text-decoration: underline; }
+
+.headerInner, .noticeInner, .breadcrumbFrame, .footerInner { inline-size: min(1240px, calc(100% - 96px)); max-inline-size: none; padding-inline: 0; }
+@media (max-width: 47.99rem) { .headerInner, .noticeInner, .breadcrumbFrame, .footerInner { inline-size: calc(100% - 32px); } }

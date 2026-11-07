@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 import { SiteShell, type SiteShellProps } from '../components'
@@ -33,11 +34,17 @@ interface EmergencyUnavailableTemplateProps extends EmergencyTemplateBaseProps {
     readonly heading: string
     readonly kind: 'expired' | 'unavailable'
     readonly reason: 'required-arrival-unavailable' | 'required-content-expired' | 'required-content-withheld'
+    readonly recoveryHref?: string
     readonly recoveryLabel: string
   }
 }
 
 interface EmergencyReadyTemplateProps extends EmergencyTemplateBaseProps {
+  readonly demoActions?: {
+    readonly hospital: ReactNode
+    readonly public: ReactNode
+    readonly directions: ReactNode
+  }
   readonly arrival: {
     readonly accessibleEntrance: string
     readonly address: string
@@ -72,9 +79,11 @@ export type EmergencyTemplateProps = EmergencyReadyTemplateProps | EmergencyUnav
 function InertRouteChoice({
   choice,
   handoffUnsupported,
+  action,
 }: {
   readonly choice: EmergencyRouteChoice
   readonly handoffUnsupported: boolean
+  readonly action?: ReactNode
 }) {
   const descriptionId = `emergency-choice-${choice.label.toLowerCase().replaceAll(/[^a-z0-9]+/gu, '-')}`
 
@@ -87,14 +96,11 @@ function InertRouteChoice({
         className={styles.inertCallValue}
         data-call-action={handoffUnsupported ? 'unsupported' : 'withheld'}
       >
-        <span>{handoffUnsupported ? 'Automatic handoff unsupported' : 'Calling unavailable'}</span>
+        <span>{handoffUnsupported ? 'Automatic handoff unsupported' : action ? 'Illustrative contact value' : 'Calling unavailable'}</span>
         <strong>{choice.displayValue}</strong>
       </div>
-      <p className={styles.fixtureBoundary}>
-        {handoffUnsupported
-          ? 'Do not call this number or use it for care.'
-          : 'Do not call this number or use it for care.'}
-      </p>
+      {action ? <div className={styles.demoAction}>{action}</div> : null}
+      <p className={styles.fixtureBoundary}>Do not call this number or use it for care.</p>
     </article>
   )
 }
@@ -163,24 +169,24 @@ function UnavailableEmergencyTemplate({
           <StateAnnouncement announcement={state.announcement}>
             <h2>{state.heading}</h2>
             <p>{state.description}</p>
-            <a className="ds-touch-target" href="#non-emergency-support">
+            <Link className="ds-touch-target" href={state.recoveryHref ?? '#non-emergency-support'}>
               {state.recoveryLabel}
-            </a>
+            </Link>
           </StateAnnouncement>
         </section>
 
         <section
           aria-labelledby="support-title"
-          className={`${styles.section} ${styles.support}`}
+          className={`${styles.section} ${styles.support} ds-support-band`}
           data-emergency-section="E8"
           id="non-emergency-support"
           tabIndex={-1}
         >
           <h2 id="support-title">Contact information</h2>
-          <p>
-            Emergency contact information is unavailable.
-          </p>
-          <a className="ds-touch-target" href="#emergency-title">Return to state explanation</a>
+          <p>{state.recoveryHref
+            ? 'For non-emergency needs, use separate illustrative contact information or explore care while these emergency details are unavailable.'
+            : 'Emergency contact information is unavailable.'}</p>
+          <div className="ds-support-actions">{state.recoveryHref ? <Link className="ds-touch-target" href={state.recoveryHref}>Contact information</Link> : null}<Link className="ds-touch-target" href="/doctors">Find a doctor</Link><Link className="ds-touch-target" href="/services">View all services</Link></div>
         </section>
       </div>
     </SiteShell>
@@ -203,6 +209,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
   const {
     arrival,
     description,
+    demoActions,
     eyebrow,
     hospitalChoice,
     mapStatus,
@@ -220,6 +227,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
     <SiteShell {...shell}>
       <div
         className={styles.frame}
+        data-demo-emergency={demoActions ? '' : undefined}
         data-emergency-state={state.kind}
         data-emergency-template
         data-experience-level="0"
@@ -249,8 +257,8 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
             data-route-choice-group
             role="group"
           >
-            <InertRouteChoice choice={hospitalChoice} handoffUnsupported={handoffUnsupported} />
-            <InertRouteChoice choice={publicChoice} handoffUnsupported={handoffUnsupported} />
+            <InertRouteChoice choice={hospitalChoice} handoffUnsupported={handoffUnsupported} action={demoActions?.hospital} />
+            <InertRouteChoice choice={publicChoice} handoffUnsupported={handoffUnsupported} action={demoActions?.public} />
           </div>
         </section>
 
@@ -287,6 +295,9 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
           <dl className={styles.scopeFacts}>
             <div><dt>Availability</dt><dd>{scope.availability}</dd></div>
             <div><dt>Limitations</dt><dd>{scope.limitations}</dd></div>
+            <div><dt>Information status</dt><dd>{scope.reviewedLabel}</dd></div>
+            <div><dt>Example content owner</dt><dd>{scope.owner}</dd></div>
+            <div><dt>Example review date</dt><dd>{scope.reviewedOn}</dd></div>
           </dl>
         </section>
 
@@ -305,7 +316,8 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
             <ol className={styles.directionSteps}>
               {arrival.steps.map((step) => <li key={step}>{step}</li>)}
             </ol>
-            <p className={styles.fixtureBoundary}>Text is selectable. Copy and navigation actions are disabled.</p>
+            {demoActions ? <div className={styles.demoAction}>{demoActions.directions}</div>
+              : <p className={styles.fixtureBoundary}>Text is selectable. Copy and navigation actions are disabled.</p>}
           </section>
 
           <section
@@ -330,14 +342,12 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
         >
           <h2 id="map-title">Optional map</h2>
           {mapStatus}
-          <p className={styles.fixtureBoundary}>
-            Map unavailable.
-          </p>
+          {!demoActions ? <p className={styles.fixtureBoundary}>Map unavailable.</p> : null}
         </section>
 
         <section
           aria-labelledby="support-title"
-          className={`${styles.section} ${styles.support}`}
+          className={`${styles.section} ${styles.support} ds-support-band`}
           data-emergency-section="E8"
           id="non-emergency-support"
           tabIndex={-1}

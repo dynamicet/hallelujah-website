@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hallelujah hero assessment · 28 October 2026</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #073e53; background: #fff; }
+    * { box-sizing: border-box; }
+    body { margin: 0 auto; padding: 48px 24px 80px; max-width: 1180px; font-size: 17px; line-height: 1.6; }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -.035em; }
+    h1 { font-size: clamp(36px, 6vw, 64px); max-width: 850px; }
+    h2 { margin-top: 64px; font-size: 32px; }
+    h3 { font-size: 23px; }
+    p, li { max-width: 85ch; }
+    a { color: #075e78; text-underline-offset: 3px; }
+    a:focus-visible { outline: 3px solid #075e78; outline-offset: 4px; }
+    .decision { padding: 24px 32px; background: #eaf4f5; }
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    figure { margin: 0; }
+    img { display: block; width: 100%; height: auto; }
+    figcaption { margin-top: 10px; font-size: 15px; }
+    .phones { max-width: 780px; }
+    .table-scroll { overflow: auto; }
+    table { border-collapse: collapse; width: 100%; font-size: 15px; }
+    th, td { text-align: left; padding: 16px 12px; border-bottom: 1px solid #b9d1d7; vertical-align: top; }
+    thead { background: #eaf4f5; }
+    .winner { background: #b6e9e2; }
+    .note { font-size: 15px; }
+    pre { white-space: pre-wrap; font: inherit; font-size: 15px; background: #f3f7f7; padding: 24px; }
+    @media (max-width: 650px) { .comparison { grid-template-columns: 1fr; } body { padding-inline: 20px; } }
+  </style>
+</head>
+<body>
+  <p>Design decision record · 28 October 2026 · Homepage hero</p>
+  <p><strong>Superseded implementation decision:</strong> the <a href="hero-build-test.html">follow-up build-and-test comparison</a> implements a wide photographic overlay with separate copy on narrower screens. This document records the earlier split baseline and benchmark research. Its numerical alternatives scores are historical judgments, not measured outcomes.</p>
+  <h1>Keep the human story. Bring care within reach.</h1>
+  <div class="decision">
+    <p><strong>Recommendation implemented: a static split hero with direct doctor and service discovery.</strong> Give the headline and actions a solid color field, frame the existing care conversation separately, and put both searches ahead of the photograph on phones. Keep one prominent appointment action and a quieter visit guide link.</p>
+    <p>The original is a strong visual starting point. Its weakness is responsive task placement, especially the photograph between the appointment action and discovery on phones. The revised design makes that sequence deliberate without adding client JavaScript or media requests.</p>
+  </div>
+
+  <h2>Who this serves</h2>
+  <p>The working audience is patients and family members choosing a doctor, understanding services, requesting an appointment, or preparing to arrive. A second audience needs emergency information immediately. These priorities come from the existing site journeys and repository research; traffic analytics, interviews, device distribution, and conversion results were not supplied.</p>
+  <p>Hallelujah-specific material includes the General Hospital identity; the open-arms emblem; the established dark blue and pale aqua palette; local English and Ethiopic typography; Ethiopian care-scene artwork; separate doctor and service directories; doctor language information; request-not-confirmed-booking semantics; and the current absence of verified contact details and hospital photography. These are a better basis for design than borrowing another institution’s claims or facilities.</p>
+  <p><strong>Concept:</strong> Hallelujah’s open-arms identity becomes a frame for a listening conversation, beside a clear route into care. The interaction is real directory search, using existing records. This is a practical expression of the brand, rather than a claim that the visual concept is unique among hospitals.</p>
+
+  <h2>What the baseline actually does</h2>
+  <ul>
+    <li><strong>Retain:</strong> the short, two-line “Care begins with you” headline, hospital name, warm conversation, original emblem, self-hosted type, high-contrast appointment button, honest image disclosure, and emergency route in the shared header.</li>
+    <li><strong>Improve:</strong> replace the abstract supporting line with a sentence explaining the available patient tasks. Give service discovery a named search and browse route alongside doctors.</li>
+    <li><strong>Remove:</strong> the gradient scrim and image/text overlap; the photograph interrupting the mobile action sequence; the asymmetry between a prominent doctor finder and a secondary service link.</li>
+    <li><strong>Keep the useful lower-page content:</strong> the existing navigator explains routes to visitors who need guidance; the hero now supports people ready to act directly.</li>
+  </ul>
+  <p>The original passed the automated visual inspector with zero failures. That does not make it the strongest design: at 768px, its supporting copy reaches onto the clinician; at 390px, only the doctor finder fits near the bottom of the first screen and the service route follows below. These are visible composition findings, rather than inferred conversion problems.</p>
+  <div class="comparison">
+    <figure><a href="evidence/hero-review/before-desktop.jpg"><img src="evidence/hero-review/before-desktop.jpg" alt="Original desktop hero with text over a darkened photograph and a doctor finder beneath it" loading="lazy" width="1440" height="900"></a><figcaption>Original · 1440 × 900. Strong atmosphere and a clear appointment action.</figcaption></figure>
+    <figure><a href="evidence/hero-review/after-desktop.jpg"><img src="evidence/hero-review/after-desktop.jpg" alt="Revised desktop hero with separate text and photograph, and equally prominent doctor and service search" loading="lazy" width="1440" height="900"></a><figcaption>Implemented · 1440 × 900. Independent copy and imagery, with two direct discovery routes.</figcaption></figure>
+  </div>
+
+  <h2>What the benchmarks teach</h2>
+  <p>“Best” here means strong references for a particular problem, not an independently established ranking of website quality. Current first-party pages were reviewed alongside the repository’s earlier hospital screenshots. Cleveland Clinic, Aga Khan Nairobi, and Apple were also captured and visually inspected in Chromium. Four Seasons returned an access-denied page in that browser, so its current visual design was not inferred from the failed capture.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th scope="col">Reference</th><th scope="col">Observed pattern</th><th scope="col">Judgment for Hallelujah</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><a href="https://www.mayoclinic.org/">Mayo Clinic</a></th><td>Short brand statement, visible appointment routes, and distinct doctor and condition discovery.</td><td>Use an edited promise and recognizable care routes. Its institutional authority and condition-library scope cannot be transferred.</td></tr>
+        <tr><th scope="row"><a href="https://my.clevelandclinic.org/">Cleveland Clinic</a></th><td>Human video backdrop with a visible pause control and provider, location, and appointment links.</td><td>Human relationships are compelling subject matter. Video is a viable future medium if hospital-owned footage becomes available; it is unnecessary for completing the present tasks.</td></tr>
+        <tr><th scope="row"><a href="https://www.hopkinsmedicine.org/">Johns Hopkins Medicine</a></th><td>Doctors, locations, appointments, and the patient portal are explicit entry points.</td><td>Use concrete labels and multiple starting points. A portal requires a functioning patient system and is outside this hero’s available capabilities.</td></tr>
+        <tr><th scope="row"><a href="https://hospitals.aku.edu/kenya/home">Aga Khan University Hospital Nairobi</a></th><td>Large clinical image, prominent doctor action, quick access to care and services.</td><td>Regional clinical context is useful. Its technology photograph demonstrates a real facility; Hallelujah’s illustrative image cannot serve as equivalent operational proof.</td></tr>
+        <tr><th scope="row"><a href="https://www.sgh.com.sg/">Singapore General Hospital</a></th><td>Appointments and emergency access coexist with doctor, specialty, and visit pathways.</td><td>Keep urgency distinct from routine appointment requests. Retain visible language access without implying unavailable translation.</td></tr>
+        <tr><th scope="row"><a href="https://www.nhs.uk/">NHS</a> and <a href="https://www.gov.uk/">GOV.UK</a></th><td>Plain descriptions, prominent search, and explicit service categories.</td><td>Clear task language and useful fallbacks matter. A completely utilitarian hero sacrifices some of the relational warmth a hospital introduction should carry.</td></tr>
+        <tr><th scope="row"><a href="https://www.apple.com/iphone/">Apple</a></th><td>Strong type scale, large subject imagery, and concise actions close to the subject.</td><td>Borrow the editing discipline and visual hierarchy. Product browsing and theatrical reveal mechanics have less relevance to a patient seeking a next step.</td></tr>
+        <tr><th scope="row"><a href="https://www.airbnb.com/">Airbnb</a></th><td>Discovery is organized around explicit user intent and named search fields.</td><td>Expose doctor and service intent separately. Avoid a single ambiguous field that mixes clinician, service, and symptom meanings.</td></tr>
+        <tr><th scope="row"><a href="https://www.fourseasons.com/">Four Seasons</a></th><td>Retrieved page content exposes video controls and destination discovery together; the browser view was blocked.</td><td>Consider atmosphere plus utility as an architectural idea only. Do not treat the blocked browser capture as visual evidence.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><a href="https://www.nngroup.com/articles/auto-forwarding/">Nielsen Norman Group’s carousel study</a> illustrates a user missing relevant content when it rotates away. That supports keeping essential patient choices persistent; it does not establish a universal conversion penalty. <a href="https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html">W3C’s explanation of Pause, Stop, Hide</a> describes the control requirements for qualifying automatic movement. These sources support a static default here without making video or carousels categorically wrong.</p>
+
+  <h2>Comparison and decision</h2>
+  <p>Scores are structured expert judgment, not experiment results. Each criterion uses 1–5, where 5 is strongest. Weights: patient tasks 30%, readability and accessibility 25%, emotional connection 20%, delivery and resilience 15%, current asset readiness 10%. The total is the weighted score multiplied by 20. The weights prioritize the care journeys already present in this repository.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th scope="col">Approach</th><th scope="col">Tasks</th><th scope="col">Clarity</th><th scope="col">Connection</th><th scope="col">Delivery</th><th scope="col">Readiness</th><th scope="col">/100</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Existing photographic overlay</th><td>3</td><td>3</td><td>4</td><td>4</td><td>3</td><td>67</td></tr>
+        <tr><th scope="row">Improved full-background still + direct discovery</th><td>5</td><td>4</td><td>5</td><td>4</td><td>3</td><td>88</td></tr>
+        <tr class="winner"><th scope="row">Split still + direct discovery</th><td>5</td><td>5</td><td>4</td><td>4</td><td>3</td><td><strong>89</strong></td></tr>
+        <tr><th scope="row">Search-first hero, minimal story</th><td>5</td><td>4</td><td>2</td><td>5</td><td>4</td><td>81</td></tr>
+        <tr><th scope="row">Text-only service front door</th><td>4</td><td>5</td><td>2</td><td>5</td><td>5</td><td>82</td></tr>
+        <tr><th scope="row">Original brand illustration + direct discovery</th><td>4</td><td>5</td><td>3</td><td>5</td><td>4</td><td>84</td></tr>
+        <tr><th scope="row">Cinematic background video</th><td>3</td><td>3</td><td>5</td><td>2</td><td>1</td><td>61</td></tr>
+        <tr><th scope="row">Rotating service or campaign slides</th><td>3</td><td>2</td><td>3</td><td>3</td><td>2</td><td>53</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>The winner is narrow.</strong> The improved full-background alternative would fix much of the original’s task ordering and has greater visual continuity. The split wins because text contrast remains independent of the image, both faces keep their own space at tablet width, and replacement imagery can vary without rebuilding a scrim. A one-point judgment difference is not statistical evidence. If emotional immersion becomes the dominant objective and authentic imagery is available, the full-background alternative deserves another test.</p>
+  <p>Search-first and text-only approaches are strong for fast access, but weaker introductions to the human care relationship. Illustration offers excellent controllability and honest brand expression; the existing conversation conveys listening more directly. Video would become more credible with consented footage of actual care or the hospital, a good poster, and voluntary playback. Campaign slides and scroll-controlled sequences add navigation and motion costs to a task that should remain immediate.</p>
+
+  <h2>What was implemented</h2>
+  <ol>
+    <li><strong>Hierarchy:</strong> two-line headline, plain hospital identification and task description, primary appointment request, secondary visit guide, then explicit discovery. “Request” remains accurate to the existing journey.</li>
+    <li><strong>Media:</strong> retain the bundled WebP, crop around the two participants, separate it from copy, and remove the gradient. The brief entrance animates only the image; it never delays text or actions and respects reduced motion.</li>
+    <li><strong>Discovery:</strong> two independent, named search forms submit native GET queries to the existing directories. Each has a persistent label and a “View all” route for people who prefer browsing. Empty queries also browse the directory. Existing search semantics and result handling remain authoritative.</li>
+    <li><strong>Phones:</strong> order copy, appointment and visit actions, both searches, then media. The DOM follows that same reading and keyboard sequence; desktop uses a grid to put the photograph alongside the copy.</li>
+    <li><strong>Interaction:</strong> use familiar links and search buttons, visible focus, at least 44px action targets, Enter submission, and distinct accessible search landmarks. No tabs, hover-only controls, live triage, automatic suggestions, or new client bundle are needed.</li>
+    <li><strong>Urgent and practical access:</strong> retain the shared emergency route, language control, and contact/directions entry. A working call action needs verified hospital contact data; that data was not invented for this revision.</li>
+  </ol>
+  <p>The supporting sentence was written before markup: “Hallelujah General Hospital. Find a doctor, explore services, and take your next step in care.” The hero claim is a clear route to care, proven by working directory and appointment destinations. This is a section revision within an established design, so the design skill’s existing-direction workflow was used rather than drawing a new site-wide style.</p>
+  <div class="comparison phones">
+    <figure><a href="evidence/hero-review/before-phone.jpg"><img src="evidence/hero-review/before-phone.jpg" alt="Original phone layout places the care photograph before doctor search" loading="lazy" width="390" height="844"></a><figcaption>Original · 390 × 844. Photograph interrupts the path to discovery; services are below the visible screen.</figcaption></figure>
+    <figure><a href="evidence/hero-review/after-phone.jpg"><img src="evidence/hero-review/after-phone.jpg" alt="Revised phone layout shows appointment action, doctor search, and service search before the photograph" loading="lazy" width="390" height="844"></a><figcaption>Implemented · 390 × 844. Both search forms fit before the image. Service form ends at y=789; image starts at y=813.</figcaption></figure>
+  </div>
+
+  <h2>Validation and limits</h2>
+  <p>Checked in Chromium at 320, 390, 600, 768, 1024, and 1440 CSS pixels: no horizontal overflow, two-line hero heading, and at least 44px action targets. Native Enter submission reaches matching doctor and service records with JavaScript enabled and disabled. Empty search, separate accessibility-tree landmarks, keyboard focus, appointment navigation, visit anchor, blocked-image fallback, reduced motion, and forced colors were also checked. This is browser and accessibility-tree verification, not a screen-reader user study.</p>
+  <p>The production build, TypeScript check, changed-component lint, directory contract checks (18 clinician and 22 service cases), and whitespace diff check passed. The repository-wide format command reports existing missing-newline and whitespace problems in prior generated reports and the bundled Lato license. Those unrelated files were left intact; changed source and this report were checked separately.</p>
+  <p>Final visual inspector: zero failures with one documented exception. Its position-based “eyebrow” heuristic mistakes the image’s semantic <code>figcaption</code> for a label introducing the service finder below it. That disclosure is retained and the eyebrow rule is explicitly allowed for this run. Three other warnings are retained: existing lower-page repeated panels, the established site-wide type scale, and absence of video. None justifies expanding a hero revision into a site redesign or adding unrelated footage.</p>
+  <p>Evidence: <a href="evidence/hero-review/interactions.json">interaction measurements</a>, <a href="evidence/hero-review/before-inspector.json">baseline inspector report</a>, <a href="evidence/hero-review/after-inspector.json">final inspector report</a>, and tablet captures <a href="evidence/hero-review/before-tablet.jpg">before</a> / <a href="evidence/hero-review/after-tablet.jpg">after</a>. Exact first-screen visibility varies with viewport height, browser chrome, zoom, text size, and future translated copy.</p>
+  <p><strong>Implementation scope:</strong> the existing development homepage component at <code>/</code>. The repository uses a separate governed production template and withholds the preview directories outside development; those boundaries remain in place. This work does not publish or deploy the preview.</p>
+  <p><strong>Next evidence to collect:</strong> test five-second orientation and doctor, service, appointment, and urgent-route tasks with patients and family members, including Amharic readers and people using constrained connections. Compare completion, first-click accuracy, time to a useful directory result, zero-result recovery, and comprehension of appointment requests. Obtain consented hospital photography when available. Do not claim a conversion lift from this expert review alone.</p>
+
+  <h2>Render critique</h2>
+  <pre>ROUND 1 — baseline
+Seen in one second: an intimate conversation and a large care promise.
+Idea: the open-arms identity frames a human introduction to care.
+Live thing: native doctor search; service and visit links.
+Layout words by section: hero=overlay / guidance=selector / care=split-list / listening=mosaic / doctors=list / visit=split / arrival=information.
+Scores: design 8 · usability 7 · creativity 7 · content 7 → overall 7.4.
+Caps applied: creativity capped at 7 because the underlying concept also suits other hospitals.
+Top three problems:
+1. before-phone.jpg: the photo interrupts discovery; put both care finders before it.
+2. before-tablet.jpg: supporting copy runs over the clinician; give copy an independent field.
+3. before-desktop.jpg: service discovery is a secondary link; give it a named search and browse route.
+
+ROUND 2 — implemented
+Seen in one second: the care promise beside a listening conversation.
+Idea: the same identity frames both human connection and immediate care routes.
+Live thing: independent native doctor and service searches, plus browse fallbacks.
+Layout words by section: hero=split with finders / guidance=selector / care=split-list / listening=mosaic / doctors=list / visit=split / arrival=information.
+Scores: design 8 · usability 8.5 · creativity 7 · content 7 → overall 7.9.
+Caps applied: creativity capped at 7; no claim of a proprietary hospital concept.
+Remaining visible limits:
+1. after-phone.jpg: the emotional image starts at the bottom of the first screen; accepted to prioritize patient tasks.
+2. after-desktop.jpg: the illustration cannot prove the real care setting; keep the disclosure and replace with consented photography later.
+3. after-tablet.jpg: the supporting navigator repeats task names; it still provides explanatory guidance, and remains outside the hero revision.</pre>
+  <p class="note">The critique score judges the render. The weighted alternatives table judges suitability for this hospital’s current brief. Neither is a measured patient outcome.</p>
+</body>
+</html>

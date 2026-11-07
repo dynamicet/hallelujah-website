@@ -1,0 +1,338 @@
+[
+  {
+    "width": 1440,
+    "route": "/referrals",
+    "y": 0,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/referrals",
+    "y": 400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/referrals",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/referrals",
+    "y": 1400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/patients-visitors",
+    "y": 0,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/patients-visitors",
+    "y": 400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/patients-visitors",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/patients-visitors",
+    "y": 1400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/appointment",
+    "y": 0,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/appointment",
+    "y": 400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/appointment",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 1440,
+    "route": "/appointment",
+    "y": 1400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/referrals",
+    "y": 0,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/referrals",
+    "y": 400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/referrals",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/referrals",
+    "y": 1400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/patients-visitors",
+    "y": 0,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/patients-visitors",
+    "y": 400,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/patients-visitors",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/patients-visitors",
+    "y": 1400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/appointment",
+    "y": 0,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/appointment",
+    "y": 400,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/appointment",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 768,
+    "route": "/appointment",
+    "y": 1400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/referrals",
+    "y": 0,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/referrals",
+    "y": 400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/referrals",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/referrals",
+    "y": 1400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/patients-visitors",
+    "y": 0,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/patients-visitors",
+    "y": 400,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/patients-visitors",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/patients-visitors",
+    "y": 1400,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/appointment",
+    "y": 0,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/appointment",
+    "y": 400,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/appointment",
+    "y": 900,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 390,
+    "route": "/appointment",
+    "y": 1400,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/referrals",
+    "y": 0,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/referrals",
+    "y": 400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/referrals",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/referrals",
+    "y": 1400,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/patients-visitors",
+    "y": 0,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/patients-visitors",
+    "y": 400,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/patients-visitors",
+    "y": 900,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/patients-visitors",
+    "y": 1400,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/appointment",
+    "y": 0,
+    "hidden": false,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/appointment",
+    "y": 400,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/appointment",
+    "y": 900,
+    "hidden": true,
+    "collisions": []
+  },
+  {
+    "width": 320,
+    "route": "/appointment",
+    "y": 1400,
+    "hidden": true,
+    "collisions": []
+  }
+]

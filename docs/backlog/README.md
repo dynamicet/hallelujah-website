@@ -30,6 +30,7 @@ The backlog does not approve hospital facts, clinical wording, operational behav
 15. [Implementation acceptance matrix](../validation/implementation-acceptance-matrix.md) — accepted controlled-development evidence tiers, platforms, quality thresholds, exceptions, and per-ticket benchmark proof; formal production acceptance remains deferred.
 16. [`B00-003` project control registers](b00-003-project-control-registers.md) — stable decision, dependency, risk, assumption, exception, and evidence IDs for controlled execution.
 17. [Visual direction baseline and correction criteria](visual-direction-baseline.md) — current template captures, verified composition drift, intentional adaptations, and acceptance criteria for the visual correction branch.
+18. [Frontend demo repair plan](frontend-demo-repair-plan.md) — combines intended design, the 20 October connected-page review, affected files, ordered repairs, and client-demo acceptance criteria for the six implemented page types.
 
 The epic tables define baseline scope, not live issue status. Until an approved issue tracker is selected, [the execution board](execution-board.md) is the only place that may promote an item to `Ready`. Every other item remains `Proposed` or `Blocked` even when its implementation contract is detailed.
 

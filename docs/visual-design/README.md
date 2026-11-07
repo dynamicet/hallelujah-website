@@ -8,6 +8,8 @@
 
 This directory is the working index for visual-design Orders 1–12. It sits downstream of the requirements, sitemap, page specifications, design-system contracts, wireframes, benchmark dispositions, content sources, and stakeholder validation register. It does not replace any of them.
 
+The [independent visual and UX assessment dated 31 October 2026](independent-design-assessment-2026-10-31.md) consolidates the running-site review into a prioritized fix checklist with screenshot evidence and acceptance criteria. Its recommendations remain open and do not supersede hospital approvals or authorize public release.
+
 ## Source priority
 
 Use sources in this order when visual artifacts disagree:

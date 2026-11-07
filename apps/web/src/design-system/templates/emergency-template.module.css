@@ -40,7 +40,7 @@
 .choiceType,
 .fixtureBoundary {
   color: var(--semantic-color-text-secondary);
-  font-size: var(--semantic-type-small-size);
+  font-size: var(--site-support, 1rem);
   line-height: var(--semantic-type-small-line);
 }
 
@@ -52,7 +52,7 @@
 }
 
 .description {
-  font-size: var(--semantic-type-body-large-size);
+  font-size: var(--site-intro, 1.25rem);
   line-height: var(--semantic-type-body-large-line);
 }
 
@@ -210,6 +210,102 @@
 .directionSteps li {
   min-inline-size: 0;
   overflow-wrap: anywhere;
+}
+
+.demoAction {
+  display: grid;
+  gap: var(--semantic-space-compact);
+}
+
+.demoAction button,
+.mapPanel button {
+  background: var(--semantic-color-action-primary);
+  border: var(--semantic-border-default) solid var(--semantic-color-action-primary);
+  border-radius: var(--semantic-radius-control);
+  color: var(--semantic-color-action-on-solid);
+  cursor: pointer;
+  font: inherit;
+  font-weight: var(--semantic-font-weight-strong);
+  min-block-size: var(--semantic-size-touch);
+  padding: var(--semantic-space-compact) var(--semantic-space-page);
+  text-align: center;
+}
+
+.demoAction button:hover,
+.mapPanel button:hover {
+  background: var(--semantic-color-action-primary-hover);
+}
+
+.demoAction button:focus-visible,
+.mapPanel button:focus-visible {
+  outline: var(--semantic-border-focus) solid var(--semantic-color-focus);
+  outline-offset: var(--semantic-border-focus);
+}
+
+.demoAction [role='status']:empty {
+  display: none;
+}
+
+.frame[data-demo-emergency] .introduction {
+  gap: var(--semantic-space-page);
+}
+
+.frame[data-demo-emergency] .fixtureNotice {
+  background: transparent;
+  border: 0;
+  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-action-emergency);
+  border-radius: 0;
+  padding: var(--semantic-space-compact) var(--semantic-space-regular);
+}
+
+.frame[data-demo-emergency] .callGrid,
+.frame[data-demo-emergency] .arrivalGrid {
+  gap: var(--semantic-space-regular);
+}
+
+.frame[data-demo-emergency] .callCard {
+  background: var(--site-ground);
+  border: 0;
+  padding: 28px;
+}
+
+.frame[data-demo-emergency] .inertCallValue {
+  background: var(--semantic-color-surface-subtle);
+  border: 0;
+  color: var(--semantic-color-text-primary);
+  inline-size: 100%;
+}
+
+.frame[data-demo-emergency] .pairedSections,
+.frame[data-demo-emergency] .arrivalGrid {
+  background: transparent;
+  margin-block: 0;
+  padding: 0;
+}
+
+.frame[data-demo-emergency] .pairedSections > .section,
+.frame[data-demo-emergency] .arrivalCard {
+  align-content: start;
+  border: 0;
+  padding: 28px;
+}
+
+.frame[data-demo-emergency] .warning {
+  border: 0;
+  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-action-emergency);
+  border-radius: 0;
+}
+
+.frame[data-demo-emergency] .scope {
+  background: transparent;
+  border-radius: 0;
+  max-inline-size: var(--semantic-size-reading);
+  padding-inline: 0;
+}
+
+.frame[data-demo-emergency] .mapPanel {
+  border: 0;
+  margin-block: 0;
 }
 
 @media (min-width: 48rem) {

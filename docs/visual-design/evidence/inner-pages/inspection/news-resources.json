@@ -1,0 +1,1569 @@
+{
+ "url": "http://localhost:3000/news-resources",
+ "at": "2026-11-02T19:20:26.240Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.24,
+    0.14,
+    0.53
+   ],
+   "motion": {
+    "elements": 11,
+    "css": 10,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 2565,
+     "screens": 2.9,
+     "words": 220,
+     "img": 7,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "care-illustration.webp",
+      "medical-research.webp",
+      "community-conversation.webp",
+      "whole-life-detail.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "News & resources",
+     "words": 3,
+     "chars": 16,
+     "lines": 1,
+     "size": 71.5,
+     "vw": 5,
+     "font": "Clash Grotesk",
+     "weight": 500,
+     "tracking": -0.04,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.49,
+     "top": 200,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "News & resources",
+     "words": 3,
+     "lines": 1,
+     "size": 71.5,
+     "font": "Clash Grotesk"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.05,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.07,
+      "top": 78,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "News & resources",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 71.5,
+      "vw": 5,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.49,
+      "top": 200,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Make room for your questions.",
+      "words": 5,
+      "chars": 29,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.36,
+      "top": 537,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Behind the breakthrough.",
+      "words": 3,
+      "chars": 24,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 1257,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Let’s talk about care.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.43,
+      "top": 1257,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A little less to remember.",
+      "words": 5,
+      "chars": 26,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 1880,
+      "tag": "h3",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 6,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.88,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.12,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      14,
+      16,
+      17,
+      18,
+      24,
+      28,
+      36,
+      72
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.5
+     },
+     "measureChars": 77,
+     "max": {
+      "size": 71.5,
+      "vw": 5,
+      "font": "Clash Grotesk",
+      "text": "News & resources"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#073e53",
+       "top": 2147,
+       "hsl": {
+        "h": 197,
+        "s": 0.84,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#073e53",
+       "share": 0.58
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.23
+      },
+      {
+       "color": "#006d82",
+       "share": 0.08
+      },
+      {
+       "color": "#405869",
+       "share": 0.06
+      },
+      {
+       "color": "#b5ece2",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#073e53",
+      "hsl": {
+       "h": 197,
+       "s": 0.84,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 6,
+     "radius": 0,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Request an appointment →",
+      "All 4",
+      "News 1",
+      "Events 1"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.22
+     }
+    ],
+    "nav": {
+     "links": 8,
+     "fixed": true,
+     "height": 152,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 2565,
+    "margins": {
+     "left": 80,
+     "right": 80
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 0,
+      "height": 152,
+      "words": 27,
+      "media": 0,
+      "middle": 85,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 28,
+       "tag": "span"
+      },
+      "left": 70,
+      "right": 99,
+      "textLeft": 111,
+      "textRight": 99,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 152,
+      "height": 1995,
+      "words": 136,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "News & resources",
+       "size": 72,
+       "tag": "h1"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 2147,
+      "height": 338,
+      "words": 47,
+      "media": 0,
+      "middle": 178,
+      "heading": {
+       "text": "Hallelujah Hospital",
+       "size": 24,
+       "tag": "strong"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "News & resources",
+      "size": 72,
+      "top": 200,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 80,
+      "n": 5
+     },
+     {
+      "x": 836,
+      "n": 3
+     },
+     {
+      "x": 744,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 10,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.08,
+    "voidBox": {
+     "x": 540,
+     "y": 300,
+     "w": 900,
+     "h": 120
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.31,
+    0.52,
+    0.59
+   ],
+   "motion": {
+    "elements": 11,
+    "css": 10,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2223,
+     "screens": 2.2,
+     "words": 207,
+     "img": 7,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "care-illustration.webp",
+      "medical-research.webp",
+      "community-conversation.webp",
+      "whole-life-detail.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "News & resources",
+     "words": 3,
+     "chars": 16,
+     "lines": 1,
+     "size": 49.3,
+     "vw": 6.4,
+     "font": "Clash Grotesk",
+     "weight": 500,
+     "tracking": -0.04,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.49,
+     "top": 221,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "News & resources",
+     "words": 3,
+     "lines": 1,
+     "size": 49.3,
+     "font": "Clash Grotesk"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.05,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.13,
+      "top": 73,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "News & resources",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 49.3,
+      "vw": 6.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.49,
+      "top": 221,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Make room for your questions.",
+      "words": 5,
+      "chars": 29,
+      "lines": 2,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.36,
+      "top": 438,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Behind the breakthrough.",
+      "words": 3,
+      "chars": 24,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 916,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Let’s talk about care.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.43,
+      "top": 916,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A little less to remember.",
+      "words": 5,
+      "chars": 26,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 1392,
+      "tag": "h3",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 6,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.87,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.13,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      14,
+      16,
+      17,
+      18,
+      24,
+      26,
+      49
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.5
+     },
+     "measureChars": 41,
+     "max": {
+      "size": 49.3,
+      "vw": 6.4,
+      "font": "Clash Grotesk",
+      "text": "News & resources"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#073e53",
+       "top": 1673,
+       "hsl": {
+        "h": 197,
+        "s": 0.84,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#073e53",
+       "share": 0.55
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.25
+      },
+      {
+       "color": "#006d82",
+       "share": 0.08
+      },
+      {
+       "color": "#405869",
+       "share": 0.06
+      },
+      {
+       "color": "#b5ece2",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#073e53",
+      "hsl": {
+       "h": 197,
+       "s": 0.84,
+       "l": 0.18
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 6,
+     "radius": 0,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "Request an appointment →",
+      "All 4",
+      "News 1",
+      "Events 1"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.1
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 140,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2223,
+    "margins": {
+     "left": 32,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 0,
+      "height": 140,
+      "words": 14,
+      "media": 0,
+      "middle": 15,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 26,
+       "tag": "span"
+      },
+      "left": 22,
+      "right": 51,
+      "textLeft": 63,
+      "textRight": 51,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 140,
+      "height": 1533,
+      "words": 136,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "News & resources",
+       "size": 49,
+       "tag": "h1"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 1673,
+      "height": 470,
+      "words": 47,
+      "media": 0,
+      "middle": 191,
+      "heading": {
+       "text": "Hallelujah Hospital",
+       "size": 24,
+       "tag": "strong"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "News & resources",
+      "size": 49,
+      "top": 221,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 32,
+      "n": 5
+     },
+     {
+      "x": 457,
+      "n": 3
+     },
+     {
+      "x": 408,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 10,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.45,
+    0.32,
+    0.6,
+    0.7
+   ],
+   "motion": {
+    "elements": 11,
+    "css": 10,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2940,
+     "screens": 3.5,
+     "words": 202,
+     "img": 7,
+     "video": 0,
+     "canvas": 0,
+     "svg": 8,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "care-illustration.webp",
+      "medical-research.webp",
+      "community-conversation.webp",
+      "whole-life-detail.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "News & resources",
+     "words": 3,
+     "chars": 16,
+     "lines": 1,
+     "size": 40,
+     "vw": 10.3,
+     "font": "Clash Grotesk",
+     "weight": 500,
+     "tracking": -0.04,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 188,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "News & resources",
+     "words": 3,
+     "lines": 1,
+     "size": 40,
+     "font": "Clash Grotesk"
+    },
+    "headings": [
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 2,
+      "size": 27,
+      "vw": 6.9,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.05,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 101,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "News & resources",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 188,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Make room for your questions.",
+      "words": 5,
+      "chars": 29,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 754,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Behind the breakthrough.",
+      "words": 3,
+      "chars": 24,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1209,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Let’s talk about care.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1663,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "A little less to remember.",
+      "words": 5,
+      "chars": 26,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2143,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Hallelujah Hospital",
+      "words": 2,
+      "chars": 19,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Clash Grotesk",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.45,
+      "top": 2799,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Lato",
+       "share": 0.87,
+       "mono": false
+      },
+      {
+       "family": "Clash Grotesk",
+       "share": 0.13,
+       "mono": false
+      },
+      {
+       "family": "Ethiopic",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      14,
+      16,
+      18,
+      24,
+      26,
+      27,
+      40
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Lato",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.5
+     },
+     "measureChars": 44,
+     "max": {
+      "size": 40,
+      "vw": 10.3,
+      "font": "Clash Grotesk",
+      "text": "News & resources"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#073e53",
+       "top": 2392,
+       "hsl": {
+        "h": 197,
+        "s": 0.84,
+        "l": 0.18
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#073e53",
+       "share": 0.56
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.23
+      },
+      {
+       "color": "#006d82",
+       "share": 0.08
+      },
+      {
+       "color": "#405869",
+       "share": 0.07
+      },
+      {
+       "color": "#b5ece2",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#f5f8f7",
+      "hsl": {
+       "h": 160,
+       "s": 0.18,
+       "l": 0.97
+      },
+      "fg": "#073e53"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 5,
+     "radius": 0,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to main content",
+      "All 4",
+      "News 1",
+      "Events 1",
+      "Resources 2"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.21
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 156,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "lato",
+     "ethiopic",
+     "clash grotesk"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2940,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "header.hospital-shell-module__8PNwmq__header",
+      "tag": "header",
+      "top": 0,
+      "height": 156,
+      "words": 10,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Hallelujah",
+       "size": 27,
+       "tag": "span"
+      },
+      "left": 12,
+      "right": 12,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "main#main-content",
+      "tag": "main",
+      "top": 156,
+      "height": 2236,
+      "words": 136,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "News & resources",
+       "size": 40,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.hospital-shell-module__8PNwmq__footer",
+      "tag": "footer",
+      "top": 2392,
+      "height": 468,
+      "words": 47,
+      "media": 0,
+      "middle": 13,
+      "heading": {
+       "text": "Hallelujah Hospital",
+       "size": 24,
+       "tag": "strong"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "News & resources",
+      "size": 40,
+      "top": 188,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 10
+     }
+    ],
+    "leftBlocks": 10,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 11 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/tmp/inner-news-review-final/desktop-fold.jpg",
+   "pages": [
+    "/tmp/inner-news-review-final/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/tmp/inner-news-review-final/tablet-fold.jpg",
+   "pages": [
+    "/tmp/inner-news-review-final/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/tmp/inner-news-review-final/mobile-fold.jpg",
+   "pages": [
+    "/tmp/inner-news-review-final/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

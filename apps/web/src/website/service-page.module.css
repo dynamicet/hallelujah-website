@@ -1,0 +1,45 @@
+.backLink { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; margin-block-end: 16px; color: var(--semantic-color-text-link); }
+.careTeam.careTeam { display: grid; gap: 16px; list-style: none; padding: 0; margin: 24px 0 0; }
+.careTeam li { margin: 0; padding: 0; min-width: 0; }
+.careTeam a {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: stretch;
+  background: var(--semantic-color-surface-raised);
+  border: 1px solid var(--semantic-color-border-default);
+  border-inline-start: 3px solid var(--semantic-color-action-primary);
+  color: var(--semantic-color-text-primary);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.careTeam :global([data-clinician-portrait]), .careTeam :global([data-clinician-monogram]) {
+  width: 100%; height: 100%; min-height: 132px; max-height: 180px; border-radius: 0;
+  object-fit: contain; object-position: center bottom; background: var(--semantic-color-surface-subtle);
+}
+.doctorDetails { display: grid; gap: 8px; padding: 20px; }
+.doctorDetails strong { font-size: 20px; color: var(--semantic-color-text-heading); }
+.profileAction { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--semantic-color-text-link); font-weight: 600; }
+.careTeam a:hover { border-inline-start-color: var(--semantic-color-accent-supporting); background: var(--semantic-color-surface-subtle); }
+.careTeam a:hover .profileAction { text-decoration: underline; }
+.backLink:focus-visible, .careTeam a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
+@media (max-width: 359px) {
+  .careTeam a { grid-template-columns: 64px minmax(0, 1fr); }
+  .doctorDetails { padding: 12px; }
+}
+@media (forced-colors: active) {
+  .careTeam a { border-color: CanvasText; }
+  .backLink:focus-visible, .careTeam a:focus-visible { outline-color: Highlight; }
+}
+
+.overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 16px 0 32px; border-block: 1px solid var(--semantic-color-border-default); }
+.overview > div { padding: 24px; min-width: 0; }
+.overview > div + div { border-inline-start: 1px solid var(--semantic-color-border-default); }
+.overview dt { color: var(--semantic-color-text-secondary); font-size: 1rem; margin-bottom: 8px; }
+.overview dd { margin: 0; font-size: 1.125rem; font-weight: 600; overflow-wrap: anywhere; }
+.overview a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--semantic-color-text-link); }
+.overview a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
+@media (max-width: 767px) {
+  .overview { grid-template-columns: 1fr; }
+  .overview > div { padding: 16px 0; }
+  .overview > div + div { border-inline-start: 0; border-block-start: 1px solid var(--semantic-color-border-default); }
+}

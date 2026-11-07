@@ -1,0 +1,207 @@
+Hallelujah General Hospital — hero evaluation and implementation
+28 October 2026
+
+Verdict
+The original was visually confident but communicated family warmth more
+strongly than clinical care. Large type and a useful search were worth keeping.
+The change makes the consultation the visual argument and gives appointment
+requests a clear place in the hierarchy. Hospital-specific photography and
+verified institutional evidence remain the biggest opportunity for distinction.
+
+Reference evaluation
+Sidra Medicine: https://www.sidra.org/
+Its campus scene provides immediate institutional context. Its first-screen
+care categories explain who it serves. The useful principle is specificity of
+setting and audience. Translucent tiles and dense navigation were not copied.
+
+Mayo Clinic: https://www.mayoclinic.org/
+The current web-readable page presents a concise care headline and an explicit
+appointment action. Its editing and task labels are useful references.
+The retained Chromium capture was blocked by Access Denied, so no assessment
+of its current rendered typography, motion or responsive crops is asserted.
+
+Cleveland Clinic Abu Dhabi: https://www.clevelandclinicabudhabi.ae/en
+The retained browser capture uses a clinical conversation as its setting and
+offers concrete routes for patients. The useful principles are a recognizable
+care setting and task clarity. Its equal-weight icon tiles were not copied.
+
+The reference pages were opened through the web reader for this evaluation;
+visual comparison used retained local Chromium captures from 27 October.
+
+Original hero assessment and decisions
+Hierarchy: the promise and search dominated; appointment access was visually
+secondary. The original source did include a plain appointment link below
+search, while its mobile header action was hidden in the menu. Promote the
+appointment to the only filled action in the main scene.
+
+Composition: an equal-looking dark panel/family portrait split felt familiar.
+Replace it with one integrated photographic stage. Keep faces free of type and
+retain one emblem-inspired open corner as the identifying framing detail.
+
+Typography: the existing Clash Grotesk/Lato pairing and two-line title were
+strong. Keep both; shorten the promise to “Care begins with you.” Set the
+desktop title at roughly 98px, tablet at 64px and mobile at 52px. Keep supporting
+copy at 16–19px, with the hospital name explicit.
+
+Imagery: a mother-and-daughter courtyard portrait communicated welcome but
+provided little clinical context. Reuse the existing consultation concept
+image in the hero. Move the family scene to visit preparation, avoiding a
+repeated hero image later on the page. Keep the AI disclosure visible.
+
+Spacing: the original search and secondary links crowded the message field.
+Group headline, short supporting paragraph and appointment button with 28px
+gaps on desktop. Give search its own pale band below the scene, with simple
+service and visit links. No floating panel obscures the consultation.
+
+Motion: replace the sixteen-second image drift with a 1.2-second settling
+movement. The heading, copy and action paint immediately and remain static. No
+carousel, looping decorative motion or scroll lock. Reduced motion disables
+animations and interaction travel.
+
+CTA placement: the main appointment button now sits immediately below the
+promise at every width. Doctor search is a separate secondary task. Remove
+the redundant browse-profiles link: submitting the empty search still opens
+the directory. Keep services and visit preparation as quiet text links.
+
+Add later, when supplied: approved photographs of Hallelujah's own team and
+consultations, plus one verified reason to choose the hospital, such as a
+specific clinical service or location. No rankings, outcome statistics,
+accreditations, operating hours or contact details were invented.
+
+Direction
+Dealt: “The place carries it”, seed 1396877447. Existing brand type and palette
+were retained. One hero redraw was recorded because the initial sky/horizon
+blueprint required an image with empty sky above its subjects; the available
+consultation has its clear space on the left. The implementation adapts the
+photographic-stage principle to that real asset. The dealt moving-line detail
+was omitted in favor of a brief transform/opacity image entrance, appropriate
+to the healthcare setting. The task band sits outside the image, preserving
+the scene. This is a hero-only implementation, not a page-wide rebuild of the
+dealt section blueprints.
+
+Subject inventory
+Hallelujah name; General Hospital designation; existing open-arms emblem;
+the emblem's blue palette; existing deep teal/mint presentation tokens;
+Ethiopian people in the illustrative imagery; the consultation scene's eye
+contact and conversational gesture; the directory's specialty/language fields;
+the request-based appointment journey; the existing visit guide. Unverified
+address, rankings and institutional numbers were excluded as proof.
+
+Argument and copy deck
+Claim: care begins with the person. Image: an attentive consultation.
+Title: Care begins / with you.
+Supporting copy: Hallelujah General Hospital. A place to be heard. A clearer
+next step in your care.
+Primary action: Request an appointment.
+Useful next task: Find your doctor; search name or specialty.
+Other routes: Explore care & services; Prepare for your visit.
+
+ROUND 1
+Seen in one second: a clear care promise, a listening clinician and a mint
+appointment button.
+Idea (one sentence): Hallelujah's open-arms emblem becomes an open photographic
+frame around a clinical conversation and an immediate invitation to seek care.
+Live thing: a labelled, server-compatible doctor search.
+Layout words by section: hero=photographic stage / tools=quiet task band.
+Scores: design 8.0 · usability 8.4 · creativity 6.0 · content 7.0 → overall 7.7.
+Caps applied: creativity <=6 because the consultation and headline remain
+usable by another hospital without the Hallelujah identity.
+Top three problems (most visible first), each with screenshot and fix:
+1. Desktop hair/head cropping (round-one/desktop-fold.jpg). Move the image's
+   vertical focal point from 44% to 15% to preserve headroom.
+2. Mobile consultation too small with excess wall at left
+   (round-one/mobile-fold.jpg). Enlarge the image to 135% within its clipping
+   frame, holding the right edge and keeping both faces visible.
+3. Title hit testing fails on desktop/tablet even though title is visible
+   (round-one/report.json). Remove pointer-events:none from the text wrapper;
+   an overlay text block should participate normally in browser hit testing.
+
+ROUND 2
+Seen in one second: a patient-focused hospital promise with a confident
+appointment action and an immediately recognizable consultation.
+Idea (one sentence): Hallelujah's open-arms emblem becomes an open photographic
+frame around a clinical conversation and an immediate invitation to seek care.
+Live thing: real GET doctor search, including an empty-query browse fallback.
+Layout words by section: hero=photographic stage / tools=quiet task band;
+mobile=message, action, consultation, then search.
+Scores: design 8.4 · usability 8.8 · creativity 6.0 · content 7.0 → overall 8.0.
+Caps applied: creativity <=6; the visual system has a local brand cue but the
+copy and fictional photograph cannot establish exclusive hospital identity.
+Top three remaining limitations, each with evidence and next step:
+1. The care scene is illustrative (final/desktop-fold.jpg and mobile-fold.jpg).
+   Replace with an approved real consultation photograph for publication.
+2. Supporting copy contains no verified institutional differentiator
+   (final/desktop-fold.jpg). Add one when evidence is available.
+3. At 600px the type and photograph share a tighter field (hero-600.jpg).
+   The CTA and text remain legible; a dedicated approved tablet photo would
+   give this width more room. Both subjects remain visible.
+
+Fourteen visual passes
+1. One/five seconds: hospital identity, consultation and appointment are clear.
+2. Squint: one dark photographic stage, mint action, quiet task band.
+3. Cover logo: warm clinical imagery is category-level; creativity capped.
+4. Edges: headline, copy and CTA share an edge; task band aligns with them.
+5. Space: intentional photo negative space; no blank half-screen in hero.
+6. Type: decisive scale and a two-line heading across all tested widths.
+7. Colour: existing teal/white/mint identity; photo scrim supports readability.
+8. Images: clinical interaction is legible, faces preserved in hero crops.
+9. Sameness: one large scene rather than repeated equal tiles in the hero.
+10. Phone: content-first composition; appointment visible, search usable.
+11. Fullness: copy and consultation fill the stage without ornamental content.
+12. Substance: functioning care navigation; no fabricated hospital evidence.
+13. Collisions: no overflow at 13 widths; no type crosses a face in final hero.
+14. Competitor/live thing: useful doctor search; hospital specificity remains
+    dependent on approved content rather than further decorative treatment.
+
+ROUND 3
+Seen in one second: the same confident clinical hero, now with essential
+text painted immediately and only the photograph entering with motion.
+Idea (one sentence): Hallelujah's open-arms emblem becomes an open photographic
+frame around a clinical conversation and an immediate invitation to seek care.
+Live thing: native GET doctor search, with a visible appointment link.
+Layout words by section: hero=photographic stage / tools=quiet task band.
+Scores: design 8.4 · usability 8.8 · creativity 6.0 · content 7.0 → overall 8.0.
+Caps applied: creativity <=6 for the same hospital-specific content limitation.
+Top three problems (most visible first), each with evidence and disposition:
+1. The no-JavaScript screenshot omitted composited animated title and button
+   despite computed opacity 1 (no-javascript.jpg). Remove their entrance
+   animations. Essential text/action now paint statically; the photo keeps
+   its brief entrance. See no-javascript-static.jpg for the corrected result.
+2. Illustrative imagery cannot establish actual institutional identity
+   (final/desktop-fold.jpg). Retain disclosure; replace with approved photos.
+3. No verified differentiator is available for supporting copy
+   (final/mobile-fold.jpg). Keep the edited brand promise; add evidence when
+   supplied. Additional decoration would not address this content gap.
+
+Verification
+Production build: passed, including TypeScript and route generation.
+Focused TypeScript and ESLint: passed.
+Source design lint: 0 FAIL, 0 WARN. The three image scrim declarations carry
+explicit readability exceptions; they are not decorative gradient fills.
+Visual inspector: 0 FAIL, 3 WARN at 1440, 768 and 390px.
+Warnings defended: existing repeated card rows elsewhere are outside this
+hero change; page-wide type includes navigation, functional UI and footer
+display text; no approved hospital footage exists, so an unrelated video
+would weaken authenticity and add bandwidth/motion without useful evidence.
+All eight final inspector screenshots were opened and visually reviewed.
+Responsive checks: 320, 360, 390, 599, 600, 699, 700, 768, 900, 1024, 1199,
+1440 and 1920px. Two title lines, no overflow, appointment action visible,
+minimum 44px appointment target and no broken hero image at every width.
+Doctor search and appointment navigation exercised in Chromium.
+Reduced motion: zero active animations.
+No-JavaScript: SSR content and native search/action fallback checked. The final
+static-text correction is captured in no-javascript-static.jpg; the earlier
+no-javascript.jpg is retained as evidence of the issue found during review.
+Existing homepage checks: 14 home cases, 134 contact cases and 9 governed
+content states passed. This is not a full-site accessibility certification.
+
+Assets and publication boundary
+No new stock or generated images were introduced. Existing AI-generated
+hope-care.webp is the hero; open-arms-family.webp now illustrates the visit
+section; family-care.webp and together-care.webp retain supporting roles.
+There are no third-party photo licences or credits to add. Provenance remains
+in apps/web/public/editorial/CARE-IMAGERY.txt, the hero caption and footer.
+The existing concept profiles, service data and preview notices remain sample
+content. This redesign changes WebsiteHome, the current local demonstration
+homepage. Controlled non-demo templates and other demo scenarios retain their
+existing governed behavior. No deployment was performed.

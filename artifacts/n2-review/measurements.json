@@ -1,0 +1,341 @@
+[
+  {
+    "width": 1440,
+    "route": "/",
+    "footerHeight": 860.5,
+    "mainHeight": 8120.546875,
+    "footerTop": 8318.546875,
+    "headings": [
+      "Meet Hallelujah.",
+      "Choose where to begin.",
+      "Find care for your concern",
+      "Care in focus.",
+      "Meet your doctors.",
+      "Prepare for your visit.",
+      "Partners",
+      "Hallelujah in numbers.",
+      "Patient testimonials.",
+      "Your consultation.",
+      "News, Events\n& Resources"
+    ],
+    "corners": [
+      {
+        "tag": "A",
+        "class": "welcome-appointment",
+        "text": "Request an appointment\n↗"
+      },
+      {
+        "tag": "DIV",
+        "class": "care-navigator",
+        "text": "I’m unsure where to start\n↗\nI know the doctor\n↗\nI know the s"
+      },
+      {
+        "tag": "IMG",
+        "class": "",
+        "text": ""
+      },
+      {
+        "tag": "FOOTER",
+        "class": "hospital-shell-module__8PNwmq__footer",
+        "text": "Bringing Quality\nCare Home\n\nFind information for your care a"
+      },
+      {
+        "tag": "A",
+        "class": "hospital-shell-module__8PNwmq__footerAction",
+        "text": "Find a doctor\n↗"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/feedback",
+    "footerHeight": 860.5,
+    "mainHeight": 1582.3125,
+    "footerTop": 1838.703125,
+    "headings": [
+      "Prepare your feedback",
+      "What happens next?",
+      "Looking for care?"
+    ],
+    "corners": [
+      {
+        "tag": "A",
+        "class": "solid-button blue-button",
+        "text": "Try the feedback form\n↗"
+      },
+      {
+        "tag": "BUTTON",
+        "class": "solid-button blue-button",
+        "text": "Review sample feedback\n↗"
+      },
+      {
+        "tag": "FOOTER",
+        "class": "hospital-shell-module__8PNwmq__footer",
+        "text": "Bringing Quality\nCare Home\n\nFind information for your care a"
+      },
+      {
+        "tag": "A",
+        "class": "hospital-shell-module__8PNwmq__footerAction",
+        "text": "Find a doctor\n↗"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "route": "/appointment",
+    "footerHeight": 860.5,
+    "mainHeight": 1631.78125,
+    "footerTop": 1817.78125,
+    "headings": [
+      "A little closer to care.",
+      "Do not use this form for emergency help",
+      "Choose your care",
+      "Your privacy",
+      "Review your details",
+      "Patient Experience Team"
+    ],
+    "corners": [
+      {
+        "tag": "BUTTON",
+        "class": "appointment-template-module__X7fTFa__continueButton",
+        "text": "Continue\n↗"
+      },
+      {
+        "tag": "FOOTER",
+        "class": "hospital-shell-module__8PNwmq__footer",
+        "text": "Bringing Quality\nCare Home\n\nFind information for your care a"
+      },
+      {
+        "tag": "A",
+        "class": "hospital-shell-module__8PNwmq__footerAction",
+        "text": "Find a doctor\n↗"
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "route": "/",
+    "footerHeight": 786.890625,
+    "mainHeight": 9048.328125,
+    "footerTop": 9234.328125,
+    "headings": [
+      "Meet Hallelujah.",
+      "Choose where to begin.",
+      "Find care for your concern",
+      "Care in focus.",
+      "Meet your doctors.",
+      "Prepare for your visit.",
+      "Partners",
+      "Hallelujah in numbers.",
+      "Patient testimonials.",
+      "Your consultation.",
+      "News, Events\n& Resources"
+    ],
+    "corners": [
+      {
+        "tag": "A",
+        "class": "welcome-appointment",
+        "text": "Request an appointment\n↗"
+      },
+      {
+        "tag": "DIV",
+        "class": "care-navigator",
+        "text": "I’m unsure where to start\n↗\nI know the doctor\n↗\nI know the s"
+      },
+      {
+        "tag": "IMG",
+        "class": "",
+        "text": ""
+      },
+      {
+        "tag": "FOOTER",
+        "class": "hospital-shell-module__8PNwmq__footer",
+        "text": "Bringing Quality\nCare Home\n\nFind information for your care a"
+      },
+      {
+        "tag": "A",
+        "class": "hospital-shell-module__8PNwmq__footerAction",
+        "text": "Find a doctor\n↗"
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "route": "/feedback",
+    "footerHeight": 786.890625,
+    "mainHeight": 1703.53125,
+    "footerTop": 1947.921875,
+    "headings": [
+      "Prepare your feedback",
+      "What happens next?",
+      "Looking for care?"
+    ],
+    "corners": [
+      {
+        "tag": "A",
+        "class": "solid-button blue-button",
+        "text": "Try the feedback form\n↗"
+      },
+      {
+        "tag": "BUTTON",
+        "class": "solid-button blue-button",
+        "text": "Review sample feedback\n↗"
+      },
+      {
+        "tag": "FOOTER",
+        "class": "hospital-shell-module__8PNwmq__footer",
+        "text": "Bringing Quality\nCare Home\n\nFind information for your care a"
+      },
+      {
+        "tag": "A",
+        "class": "hospital-shell-module__8PNwmq__footerAction",
+        "text": "Find a doctor\n↗"
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "route": "/appointment",
+    "footerHeight": 786.890625,
+    "mainHeight": 1656.671875,
+    "footerTop": 1830.671875,
+    "headings": [
+      "A little closer to care.",
+      "Do not use this form for emergency help",
+      "Choose your care",
+      "Your privacy",
+      "Review your details",
+      "Patient Experience Team"
+    ],
+    "corners": [
+      {
+        "tag": "BUTTON",
+        "class": "appointment-template-module__X7fTFa__continueButton",
+        "text": "Continue\n↗"
+      },
+      {
+        "tag": "FOOTER",
+        "class": "hospital-shell-module__8PNwmq__footer",
+        "text": "Bringing Quality\nCare Home\n\nFind information for your care a"
+      },
+      {
+        "tag": "A",
+        "class": "hospital-shell-module__8PNwmq__footerAction",
+        "text": "Find a doctor\n↗"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/",
+    "footerHeight": 952.921875,
+    "mainHeight": 11445.53125,
+    "footerTop": 11757.53125,
+    "headings": [
+      "Meet Hallelujah.",
+      "Choose where to begin.",
+      "Find care for your concern",
+      "Care in focus.",
+      "Meet your doctors.",
+      "Prepare for your visit.",
+      "Partners",
+      "Hallelujah in numbers.",
+      "Patient testimonials.",
+      "Your consultation.",
+      "News, Events\n& Resources"
+    ],
+    "corners": [
+      {
+        "tag": "A",
+        "class": "welcome-appointment",
+        "text": "Request an appointment\n↗"
+      },
+      {
+        "tag": "DIV",
+        "class": "care-navigator",
+        "text": "I’m unsure where to start\n↗\nI know the doctor\n↗\nI know the s"
+      },
+      {
+        "tag": "IMG",
+        "class": "",
+        "text": ""
+      },
+      {
+        "tag": "FOOTER",
+        "class": "hospital-shell-module__8PNwmq__footer",
+        "text": "Bringing Quality\nCare Home\n\nFind information for your care a"
+      },
+      {
+        "tag": "A",
+        "class": "hospital-shell-module__8PNwmq__footerAction",
+        "text": "Find a doctor\n↗"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/feedback",
+    "footerHeight": 952.921875,
+    "mainHeight": 1765.21875,
+    "footerTop": 2147.609375,
+    "headings": [
+      "Prepare your feedback",
+      "What happens next?",
+      "Looking for care?"
+    ],
+    "corners": [
+      {
+        "tag": "A",
+        "class": "solid-button blue-button",
+        "text": "Try the feedback form\n↗"
+      },
+      {
+        "tag": "BUTTON",
+        "class": "solid-button blue-button",
+        "text": "Review sample feedback\n↗"
+      },
+      {
+        "tag": "FOOTER",
+        "class": "hospital-shell-module__8PNwmq__footer",
+        "text": "Bringing Quality\nCare Home\n\nFind information for your care a"
+      },
+      {
+        "tag": "A",
+        "class": "hospital-shell-module__8PNwmq__footerAction",
+        "text": "Find a doctor\n↗"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "route": "/appointment",
+    "footerHeight": 952.921875,
+    "mainHeight": 2520.71875,
+    "footerTop": 2832.71875,
+    "headings": [
+      "A little closer to care.",
+      "Do not use this form for emergency help",
+      "Choose your care",
+      "Your privacy",
+      "Review your details",
+      "Patient Experience Team"
+    ],
+    "corners": [
+      {
+        "tag": "BUTTON",
+        "class": "appointment-template-module__X7fTFa__continueButton",
+        "text": "Continue\n↗"
+      },
+      {
+        "tag": "FOOTER",
+        "class": "hospital-shell-module__8PNwmq__footer",
+        "text": "Bringing Quality\nCare Home\n\nFind information for your care a"
+      },
+      {
+        "tag": "A",
+        "class": "hospital-shell-module__8PNwmq__footerAction",
+        "text": "Find a doctor\n↗"
+      }
+    ]
+  }
+]

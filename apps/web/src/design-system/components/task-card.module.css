@@ -1,58 +1,64 @@
 .card {
-  background: var(--semantic-color-surface-raised);
-  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  border-radius: var(--semantic-radius-card);
-  color: var(--semantic-color-text-primary);
+  color: var(--component-context-link, var(--semantic-color-text-heading));
   display: grid;
-  gap: var(--semantic-space-regular);
-  grid-template-rows: auto auto 1fr auto;
+  gap: var(--semantic-space-compact) var(--semantic-space-regular);
   min-block-size: var(--component-action-target-minimum);
-  block-size: 100%;
+  min-inline-size: 0;
   overflow-wrap: anywhere;
-  padding: var(--semantic-space-gutter-regular);
+  padding: var(--semantic-space-page);
   text-decoration: none;
 }
-
-.symbol,
-.cue {
-  color: var(--semantic-color-action-primary);
+.row {
+  padding: var(--semantic-space-regular);
+  align-items: center;
+  background: transparent;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
 }
-
-.title {
-  font-weight: var(--semantic-font-weight-strong);
-}
-
+.row .symbol { grid-row: 1 / 3; }
+.row .description { grid-column: 2; }
+.row .cue { grid-column: 3; grid-row: 1 / 3; }
+.symbol, .cue { color: var(--component-context-link, var(--semantic-color-text-link)); }
+.title { font-weight: var(--semantic-font-weight-strong); }
 .description {
-  color: var(--semantic-color-text-secondary);
+  color: var(--component-context-muted, var(--semantic-color-text-secondary));
   font-size: var(--semantic-type-small-size);
   line-height: var(--semantic-type-small-line);
 }
-
-.cue {
-  justify-self: end;
-}
-
-.card:hover {
-  background: var(--semantic-color-surface-subtle);
-  border-color: var(--semantic-color-action-primary);
-}
-
-.card:active {
-  background: var(--semantic-color-surface-subtle);
-  border-color: var(--semantic-color-action-primary-active);
-}
-
+.cue { justify-self: end; }
+.card:hover { background: var(--component-context-secondary-hover, var(--semantic-color-surface-subtle)); }
+.card:active { background: var(--component-context-secondary-hover, var(--semantic-color-surface-selected)); }
+.card:hover .title { text-decoration: underline; text-underline-offset: var(--semantic-space-fine); }
 .card:focus-visible {
-  outline: var(--semantic-border-emphasis) solid var(--semantic-color-focus);
+  outline: var(--semantic-border-focus) solid var(--component-context-focus, var(--semantic-color-focus));
   outline-offset: var(--semantic-space-fine);
+  box-shadow: 0 0 0 var(--semantic-space-fine) var(--component-context-focus-gap, var(--semantic-color-surface-raised));
 }
-
+.panel {
+  --component-context-link: var(--semantic-color-text-link);
+  --component-context-muted: var(--semantic-color-text-secondary);
+  --component-context-focus: var(--semantic-color-focus);
+  --component-context-focus-gap: var(--semantic-color-surface-raised);
+  --component-context-secondary-hover: var(--semantic-color-surface-subtle);
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-radius: var(--semantic-radius-card);
+  grid-template-rows: auto auto 1fr auto;
+}
+.panel:hover, .panel:active { border-color: var(--semantic-color-text-link); }
 @media (forced-colors: active) {
-  .card { border-color: LinkText; color: LinkText; }
+  .card, .card:hover, .card:active { border: var(--semantic-border-default) solid LinkText; color: LinkText; }
   .symbol, .cue, .description { color: inherit; }
-  .card:focus-visible { outline-color: Highlight; }
+  .card:focus-visible { outline-color: Highlight; box-shadow: none; }
+}
+@media print {
+  .card { background: transparent; color: CanvasText; break-inside: avoid; }
 }
 
-@media print {
-  .card { background: transparent; break-inside: avoid; }
-}
+/* Destination cues carry blue identity independently of their surrounding surface. */
+.panel { border-block-start: 3px solid var(--semantic-color-action-primary); border-radius: 0 var(--semantic-radius-card) 0 0; }
+.panel .symbol { padding: var(--semantic-space-compact); background: var(--semantic-color-surface-subtle); inline-size: fit-content; border-radius: 50%; }
+.panel .cue { border-block-end: 3px solid var(--semantic-color-accent-supporting); padding-block-end: var(--semantic-space-fine); }
+.row { border-inline-start: 3px solid transparent; }
+.row:hover { border-inline-start-color: var(--semantic-color-accent-supporting); }
+@media (forced-colors: active) { .panel .cue { border-color: LinkText; } }

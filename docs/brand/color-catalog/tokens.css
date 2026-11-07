@@ -1,0 +1,54 @@
+/* Generated catalog tokens; edit palette.json and run generate.py. Runtime tokens have a separate generator. */
+:root {
+  --hh-blue-50: #EAF5F9;
+  --hh-blue-100: #D5EAF2;
+  --hh-blue-200: #A8D3E4;
+  --hh-blue-600: #0078A6;
+  --hh-blue-700: #00678D;
+  --hh-blue-800: #00445D;
+  --hh-orange-tint: #FFF0E7;
+  --hh-orange: #F26522;
+  --hh-orange-deep: #A8430C;
+  --hh-magenta-tint: #FCEAF2;
+  --hh-magenta: #D81B72;
+  --hh-magenta-deep: #A61558;
+  --hh-paper: #FBF8F6;
+  --hh-white: #FFFFFF;
+  --hh-ink: #17313D;
+  --hh-muted: #52636B;
+  --hh-border: #CBD8DE;
+  --hh-control: #718892;
+  --hh-success: #24634B;
+  --hh-success-tint: #EEF7F1;
+  --hh-warning: #80530C;
+  --hh-warning-tint: #FFF6E5;
+  --hh-error: #A33330;
+  --hh-error-tint: #FBEFED;
+
+  --hh-surface-page: var(--hh-paper);
+  --hh-surface-raised: var(--hh-white);
+  --hh-surface-subtle: var(--hh-blue-50);
+  --hh-text-primary: var(--hh-ink);
+  --hh-text-secondary: var(--hh-muted);
+  --hh-text-heading: var(--hh-blue-800);
+  --hh-action-primary: var(--hh-blue-600);
+  --hh-action-hover: var(--hh-blue-700);
+  --hh-action-active: var(--hh-blue-800);
+  --hh-text-link: var(--hh-blue-700);
+  --hh-border-subtle: var(--hh-border);
+  --hh-border-control: var(--hh-control);
+  --hh-focus: var(--hh-blue-800);
+  --hh-text-inverse: var(--hh-white);
+  --hh-surface-inverse: var(--hh-blue-800);
+  --hh-status-success: var(--hh-success);
+  --hh-status-warning: var(--hh-warning);
+  --hh-status-error: var(--hh-error);
+  --hh-status-info: var(--hh-blue-700);
+  --hh-status-urgent: var(--hh-error);
+  --hh-accent-supporting: var(--hh-orange);
+  --hh-accent-supporting-subtle: var(--hh-orange-tint);
+  --hh-accent-supporting-text: var(--hh-orange-deep);
+  --hh-accent-expressive: var(--hh-magenta);
+  --hh-accent-expressive-subtle: var(--hh-magenta-tint);
+  --hh-accent-expressive-text: var(--hh-magenta-deep);
+}

@@ -1,0 +1,818 @@
+[
+  {
+    "width": 1440,
+    "overflow": false,
+    "images": [
+      {
+        "src": "/brand/contact/whatsapp.svg",
+        "loaded": true
+      },
+      {
+        "src": "/brand/contact/telegram.svg",
+        "loaded": true
+      },
+      {
+        "src": "/brand/hallelujah-emblem.png",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/hero-care-1536.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-c-arm-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-laboratory-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-dental-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/hallelujah-home-loop-poster.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/aster-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/bekele-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/chala-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/human-care-1600.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/open-arms-family.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/whole-life-portrait.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/safaricom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/moenco.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/total-energies.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/moha-soft-drink-industries.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/oracle.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/oromia-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/nib-bank.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/united-states-embassy.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethiopian-airlines.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethio-telecom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/cigna-healthcare.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/msf-holland.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/civil-aviation-authority.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/iom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/awash-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethiopia-investment-holdings.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/henner-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/amanah-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/dashen-bank.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/care-illustration.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/medical-research.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/community-conversation.webp",
+        "loaded": true
+      }
+    ],
+    "h1": 1,
+    "missingAnchors": [],
+    "styles": {
+      "body": {
+        "color": "rgb(23, 49, 61)",
+        "background": "rgb(251, 248, 246)",
+        "border": "rgb(23, 49, 61)",
+        "borderWidth": "0px"
+      },
+      "primary": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 120, 166)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      },
+      "discovery": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 68, 93)",
+        "border": "rgb(0, 120, 166)",
+        "borderWidth": "8px"
+      },
+      "preparation": {
+        "color": "rgb(23, 49, 61)",
+        "background": "rgb(255, 240, 231)",
+        "border": "rgb(242, 101, 34)",
+        "borderWidth": "1px"
+      },
+      "quote": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(216, 27, 114)",
+        "border": "rgb(216, 27, 114)",
+        "borderWidth": "1px"
+      },
+      "search": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 120, 166)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      },
+      "field": {
+        "color": "rgb(0, 68, 93)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(113, 136, 146)",
+        "borderWidth": "1px"
+      },
+      "footer": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 68, 93)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      }
+    },
+    "unresolved": false,
+    "motion": 0
+  },
+  {
+    "width": 768,
+    "overflow": false,
+    "images": [
+      {
+        "src": "/brand/contact/whatsapp.svg",
+        "loaded": true
+      },
+      {
+        "src": "/brand/contact/telegram.svg",
+        "loaded": true
+      },
+      {
+        "src": "/brand/hallelujah-emblem.png",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/hero-care-1536.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-c-arm-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-laboratory-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-dental-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/hallelujah-home-loop-poster.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/aster-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/bekele-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/chala-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/human-care-1600.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/open-arms-family.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/whole-life-portrait.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/safaricom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/moenco.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/total-energies.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/moha-soft-drink-industries.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/oracle.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/oromia-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/nib-bank.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/united-states-embassy.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethiopian-airlines.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethio-telecom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/cigna-healthcare.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/msf-holland.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/civil-aviation-authority.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/iom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/awash-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethiopia-investment-holdings.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/henner-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/amanah-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/dashen-bank.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/care-illustration.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/medical-research.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/community-conversation.webp",
+        "loaded": true
+      }
+    ],
+    "h1": 1,
+    "missingAnchors": [],
+    "styles": {
+      "body": {
+        "color": "rgb(23, 49, 61)",
+        "background": "rgb(251, 248, 246)",
+        "border": "rgb(23, 49, 61)",
+        "borderWidth": "0px"
+      },
+      "primary": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 120, 166)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      },
+      "discovery": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 68, 93)",
+        "border": "rgb(0, 120, 166)",
+        "borderWidth": "8px"
+      },
+      "preparation": {
+        "color": "rgb(23, 49, 61)",
+        "background": "rgb(255, 240, 231)",
+        "border": "rgb(242, 101, 34)",
+        "borderWidth": "1px"
+      },
+      "quote": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(216, 27, 114)",
+        "border": "rgb(216, 27, 114)",
+        "borderWidth": "1px"
+      },
+      "search": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 120, 166)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      },
+      "field": {
+        "color": "rgb(0, 68, 93)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(113, 136, 146)",
+        "borderWidth": "1px"
+      },
+      "footer": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 68, 93)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      }
+    },
+    "unresolved": false,
+    "motion": 0
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "images": [
+      {
+        "src": "/brand/contact/whatsapp.svg",
+        "loaded": true
+      },
+      {
+        "src": "/brand/contact/telegram.svg",
+        "loaded": true
+      },
+      {
+        "src": "/brand/hallelujah-emblem.png",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/hero-care-1536.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-c-arm-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-laboratory-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-dental-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/hallelujah-home-loop-poster.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/aster-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/bekele-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/chala-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/human-care-1600.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/open-arms-family.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/whole-life-portrait.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/safaricom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/moenco.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/total-energies.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/moha-soft-drink-industries.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/oracle.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/oromia-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/nib-bank.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/united-states-embassy.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethiopian-airlines.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethio-telecom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/cigna-healthcare.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/msf-holland.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/civil-aviation-authority.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/iom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/awash-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethiopia-investment-holdings.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/henner-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/amanah-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/dashen-bank.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/care-illustration.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/medical-research.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/community-conversation.webp",
+        "loaded": true
+      }
+    ],
+    "h1": 1,
+    "missingAnchors": [],
+    "styles": {
+      "body": {
+        "color": "rgb(23, 49, 61)",
+        "background": "rgb(251, 248, 246)",
+        "border": "rgb(23, 49, 61)",
+        "borderWidth": "0px"
+      },
+      "primary": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 120, 166)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      },
+      "discovery": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 68, 93)",
+        "border": "rgb(0, 120, 166)",
+        "borderWidth": "8px"
+      },
+      "preparation": {
+        "color": "rgb(23, 49, 61)",
+        "background": "rgb(255, 240, 231)",
+        "border": "rgb(242, 101, 34)",
+        "borderWidth": "1px"
+      },
+      "quote": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(216, 27, 114)",
+        "border": "rgb(216, 27, 114)",
+        "borderWidth": "1px"
+      },
+      "search": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 120, 166)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      },
+      "field": {
+        "color": "rgb(0, 68, 93)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(113, 136, 146)",
+        "borderWidth": "1px"
+      },
+      "footer": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 68, 93)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      }
+    },
+    "unresolved": false,
+    "motion": 0
+  },
+  {
+    "width": 320,
+    "overflow": false,
+    "images": [
+      {
+        "src": "/brand/contact/whatsapp.svg",
+        "loaded": true
+      },
+      {
+        "src": "/brand/contact/telegram.svg",
+        "loaded": true
+      },
+      {
+        "src": "/brand/hallelujah-emblem.png",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/hero-care-1536.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-c-arm-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-laboratory-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/equipment-dental-1440.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/hallelujah-home-loop-poster.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/aster-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/bekele-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/clinicians/chala-cutout.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/human-care-1600.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/open-arms-family.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/whole-life-portrait.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/safaricom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/moenco.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/total-energies.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/moha-soft-drink-industries.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/oracle.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/oromia-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/nib-bank.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/united-states-embassy.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethiopian-airlines.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethio-telecom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/cigna-healthcare.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/msf-holland.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/civil-aviation-authority.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/iom.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/awash-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/ethiopia-investment-holdings.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/henner-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/amanah-insurance.webp",
+        "loaded": true
+      },
+      {
+        "src": "/partners/dashen-bank.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/care-illustration.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/medical-research.webp",
+        "loaded": true
+      },
+      {
+        "src": "/editorial/community-conversation.webp",
+        "loaded": true
+      }
+    ],
+    "h1": 1,
+    "missingAnchors": [],
+    "styles": {
+      "body": {
+        "color": "rgb(23, 49, 61)",
+        "background": "rgb(251, 248, 246)",
+        "border": "rgb(23, 49, 61)",
+        "borderWidth": "0px"
+      },
+      "primary": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 120, 166)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      },
+      "discovery": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 68, 93)",
+        "border": "rgb(0, 120, 166)",
+        "borderWidth": "8px"
+      },
+      "preparation": {
+        "color": "rgb(23, 49, 61)",
+        "background": "rgb(255, 240, 231)",
+        "border": "rgb(242, 101, 34)",
+        "borderWidth": "1px"
+      },
+      "quote": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(216, 27, 114)",
+        "border": "rgb(216, 27, 114)",
+        "borderWidth": "1px"
+      },
+      "search": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 120, 166)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      },
+      "field": {
+        "color": "rgb(0, 68, 93)",
+        "background": "rgb(255, 255, 255)",
+        "border": "rgb(113, 136, 146)",
+        "borderWidth": "1px"
+      },
+      "footer": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(0, 68, 93)",
+        "border": "rgb(255, 255, 255)",
+        "borderWidth": "0px"
+      }
+    },
+    "unresolved": false,
+    "motion": 0
+  }
+]

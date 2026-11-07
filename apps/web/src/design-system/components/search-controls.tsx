@@ -39,6 +39,11 @@ export interface FilterDisclosureProps {
   readonly open?: boolean
 }
 
+export interface DirectoryBrowseProps {
+  readonly label: string
+  readonly options: readonly { label: string; href: string; current?: boolean; count?: number }[]
+}
+
 export interface ActiveFilter {
   readonly label: string
   readonly removeHref: string
@@ -128,10 +133,23 @@ export function FilterDisclosure({ children, label, open = false }: FilterDisclo
     <details className={styles.filterDisclosure} data-filter-disclosure open={open}>
       <summary>
         <span>{label}</span>
+        <svg aria-hidden="true" className={styles.disclosureChevron} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6" /></svg>
       </summary>
       <div className={styles.filterPanel}>{children}</div>
     </details>
   )
+}
+
+export function DirectoryBrowse({ label, options }: DirectoryBrowseProps) {
+  return <nav aria-label={label} className={styles.browse} data-directory-browse>
+    <p>{label}</p>
+    <ul>{options.map((option) => <li key={option.href}>
+      <a aria-current={option.current ? 'true' : undefined} href={option.href}>
+        <span>{option.label}</span>
+        {option.count === undefined ? null : <span className={styles.browseCount} aria-label={`${option.count} results`}>{option.count}</span>}
+      </a>
+    </li>)}</ul>
+  </nav>
 }
 
 export function FilterGroup({

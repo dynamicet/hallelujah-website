@@ -1,0 +1,226 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "height": 9818,
+      "overflow": false,
+      "sections": [
+        {
+          "heading": "A whole life comes with you.",
+          "top": 194
+        },
+        {
+          "heading": "Choose where to begin.",
+          "top": 925
+        },
+        {
+          "heading": "Understand a health concern.",
+          "top": 1548
+        },
+        {
+          "heading": "Care in focus.",
+          "top": 1943
+        },
+        {
+          "heading": "Find your person.",
+          "top": 2759
+        },
+        {
+          "heading": "Prepare for your visit.",
+          "top": 3467
+        },
+        {
+          "heading": "Partners",
+          "top": 4356
+        },
+        {
+          "heading": "Hallelujah in numbers.",
+          "top": 4888
+        },
+        {
+          "heading": "Patient testimonials.",
+          "top": 5315
+        },
+        {
+          "heading": "Your consultation.",
+          "top": 6918
+        },
+        {
+          "heading": "News, Events& Resources",
+          "top": 7736
+        }
+      ],
+      "arrivalTop": 3563,
+      "contactTop": 3844,
+      "brokenAnchors": [],
+      "bodySize": "19px"
+    },
+    {
+      "width": 768,
+      "height": 10792,
+      "overflow": false,
+      "sections": [
+        {
+          "heading": "A whole life comes with you.",
+          "top": 182
+        },
+        {
+          "heading": "Choose where to begin.",
+          "top": 1179
+        },
+        {
+          "heading": "Understand a health concern.",
+          "top": 1891
+        },
+        {
+          "heading": "Care in focus.",
+          "top": 2423
+        },
+        {
+          "heading": "Find your person.",
+          "top": 3205
+        },
+        {
+          "heading": "Prepare for your visit.",
+          "top": 4256
+        },
+        {
+          "heading": "Partners",
+          "top": 5675
+        },
+        {
+          "heading": "Hallelujah in numbers.",
+          "top": 6199
+        },
+        {
+          "heading": "Patient testimonials.",
+          "top": 6649
+        },
+        {
+          "heading": "Your consultation.",
+          "top": 8059
+        },
+        {
+          "heading": "News, Events& Resources",
+          "top": 8657
+        }
+      ],
+      "arrivalTop": 4915,
+      "contactTop": 5166,
+      "brokenAnchors": [],
+      "bodySize": "17px"
+    },
+    {
+      "width": 390,
+      "height": 12743,
+      "overflow": false,
+      "sections": [
+        {
+          "heading": "A whole life comes with you.",
+          "top": 227
+        },
+        {
+          "heading": "Choose where to begin.",
+          "top": 1171
+        },
+        {
+          "heading": "Understand a health concern.",
+          "top": 1900
+        },
+        {
+          "heading": "Care in focus.",
+          "top": 2525
+        },
+        {
+          "heading": "Find your person.",
+          "top": 3421
+        },
+        {
+          "heading": "Prepare for your visit.",
+          "top": 4737
+        },
+        {
+          "heading": "Partners",
+          "top": 6145
+        },
+        {
+          "heading": "Hallelujah in numbers.",
+          "top": 6719
+        },
+        {
+          "heading": "Patient testimonials.",
+          "top": 7127
+        },
+        {
+          "heading": "Your consultation.",
+          "top": 8898
+        },
+        {
+          "heading": "News, Events& Resources",
+          "top": 9786
+        }
+      ],
+      "arrivalTop": 5335,
+      "contactTop": 5629,
+      "brokenAnchors": [],
+      "bodySize": "16px"
+    },
+    {
+      "width": 320,
+      "height": 13228,
+      "overflow": false,
+      "sections": [
+        {
+          "heading": "A whole life comes with you.",
+          "top": 227
+        },
+        {
+          "heading": "Choose where to begin.",
+          "top": 1217
+        },
+        {
+          "heading": "Understand a health concern.",
+          "top": 2037
+        },
+        {
+          "heading": "Care in focus.",
+          "top": 2770
+        },
+        {
+          "heading": "Find your person.",
+          "top": 3668
+        },
+        {
+          "heading": "Prepare for your visit.",
+          "top": 4985
+        },
+        {
+          "heading": "Partners",
+          "top": 6522
+        },
+        {
+          "heading": "Hallelujah in numbers.",
+          "top": 7120
+        },
+        {
+          "heading": "Patient testimonials.",
+          "top": 7567
+        },
+        {
+          "heading": "Your consultation.",
+          "top": 9354
+        },
+        {
+          "heading": "News, Events& Resources",
+          "top": 10238
+        }
+      ],
+      "arrivalTop": 5629,
+      "contactTop": 5948,
+      "brokenAnchors": [],
+      "bodySize": "16px"
+    }
+  ],
+  "noJavaScript": "passed",
+  "reducedMotion": "passed"
+}

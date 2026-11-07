@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 import {
@@ -36,7 +37,9 @@ type AppointmentField =
   | 'service-id'
 
 export interface AppointmentTemplateProps {
-  readonly description: string
+  readonly doctorIdentity?: ReactNode
+  readonly visitType?: ReactNode
+  readonly description?: string
   readonly doctorOptions: readonly SelectOption[]
   readonly eyebrow: string
   readonly privacyDisclosure: ReactNode
@@ -46,7 +49,9 @@ export interface AppointmentTemplateProps {
   readonly state: {
     readonly errors?: readonly AppointmentField[]
     readonly interactive?: boolean
+    readonly localSimulation?: boolean
     readonly kind: AppointmentReviewStateKind
+    readonly outcome?: AppointmentReviewStateKind
     readonly selectedCareRoute?: 'doctor' | 'not_sure' | 'service'
     readonly specimenReference: string
   }
@@ -57,10 +62,10 @@ export interface AppointmentTemplateProps {
 const errorCopy: Readonly<Record<AppointmentField, { label: string; message: string }>> = {
   'care-route': { label: 'Type of care', message: 'Choose one type of care.' },
   'doctor-id': { label: 'Doctor', message: 'Choose a doctor.' },
-  'full-name': { label: 'Full name', message: 'Enter TEST PATIENT.' },
-  phone: { label: 'Telephone', message: 'Enter +0 000 000 0000.' },
-  'preferred-date': { label: 'Preferred date', message: 'Use the YYYY-MM-DD format or leave this optional field empty.' },
-  'privacy-acknowledged': { label: 'Privacy acknowledgment', message: 'Read and acknowledge the privacy information.' },
+  'full-name': { label: 'Full name', message: 'Enter a name between 2 and 120 characters.' },
+  phone: { label: 'Telephone', message: 'Enter a telephone number with 7 to 15 digits, including the country code.' },
+  'preferred-date': { label: 'Preferred date', message: 'Choose a valid date within the next 365 days or leave it empty.' },
+  'privacy-acknowledged': { label: 'Contact permission', message: 'Confirm that you agree to be contacted about this request.' },
   'service-id': { label: 'Service', message: 'Choose a service.' },
 }
 
@@ -76,16 +81,14 @@ function AppointmentErrorSummary({ errors }: { readonly errors: readonly Appoint
   const visible = errors.length > 0
   return (
     <section
-      aria-labelledby="appointment-error-summary-heading"
       className={styles.errorSummary}
       data-error-summary
       hidden={!visible}
       id="appointment-error-summary"
-      role="alert"
-      tabIndex={-1}
+      role="group"
     >
-      <h3 id="appointment-error-summary-heading">Check the form</h3>
-      <p data-error-count>There {errors.length === 1 ? 'is 1 problem' : `are ${errors.length} problems`} to correct.</p>
+      <h3 aria-describedby="appointment-error-count" id="appointment-error-summary-heading" tabIndex={-1}>Check the form</h3>
+      <p data-error-count id="appointment-error-count">There {errors.length === 1 ? 'is 1 problem' : `are ${errors.length} problems`} to correct.</p>
       <ul>
         {(Object.keys(errorCopy) as AppointmentField[]).map((field) => (
           <li data-error-item={field} hidden={!errors.includes(field)} key={field}>
@@ -101,39 +104,67 @@ function AppointmentErrorSummary({ errors }: { readonly errors: readonly Appoint
 
 function AppointmentStatePanels({
   kind,
+  localSimulation,
+  specimenReference,
 }: {
   readonly kind: AppointmentReviewStateKind
+  readonly localSimulation?: boolean
+  readonly specimenReference: string
 }) {
+  if (!localSimulation) return (
+    <div className={styles.stateStack} data-appointment-state-panels>
+      {(['pending', 'known-failure', 'unknown', 'duplicate', 'receipt', 'delivery-warning'] as const).map((name) => (
+        <div className={styles.statePanel} data-appointment-state-panel={name} key={name}>
+          <FormStatus
+            announcement={name === 'pending' ? 'live' : 'focus'}
+            heading={name === 'pending' ? 'Checking the form' : name === 'known-failure' ? 'Nothing was accepted' : 'Appointment requests unavailable'}
+            id={`appointment-${name}`}
+            kind={name === 'pending' ? 'pending' : name === 'known-failure' ? 'failure' : 'warning'}
+            visible={kind === name}
+          ><p>No appointment request was sent and no booking is confirmed.</p></FormStatus>
+        </div>
+      ))}
+    </div>
+  )
   return (
     <div className={styles.stateStack} data-appointment-state-panels>
       <div className={styles.statePanel} data-appointment-state-panel="pending">
-        <FormStatus heading="Checking the form" id="appointment-pending" kind="pending" visible={kind === 'pending'}>
-          <p>Please wait. No appointment request is being sent.</p>
+        <FormStatus heading="Completing your request…" id="appointment-pending" kind="pending" visible={kind === 'pending'}>
+          <p>Please wait a moment.</p>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="known-failure">
-        <FormStatus heading="Nothing was accepted" id="appointment-known-failure" kind="failure" visible={kind === 'known-failure'}>
-          <p>No appointment request was sent.</p>
+        <FormStatus announcement="focus" heading="Please try again" id="appointment-known-failure" kind="failure" visible={kind === 'known-failure'}>
+          <p>Your details are still here. Review them or try again.</p>
+          <div className={styles.statusActions}><button data-journey-correct type="button">Edit your details</button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="unknown">
-        <FormStatus heading="Appointment requests unavailable" id="appointment-unknown" kind="warning" visible={kind === 'unknown'}>
-          <p>No appointment request was sent.</p>
+        <FormStatus announcement="focus" heading="Check your request status" id="appointment-unknown" kind="warning" visible={kind === 'unknown'}>
+          <p>Check for an existing request before trying again.</p>
+          <div className={styles.statusActions}>
+            <button data-reconcile="found" type="button">View existing request</button>
+            <button data-reconcile="missing" type="button">Return to review</button>
+          </div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="duplicate">
-        <FormStatus heading="Appointment requests unavailable" id="appointment-duplicate" kind="warning" visible={kind === 'duplicate'}>
-          <p>No appointment request was sent.</p>
+        <FormStatus announcement="focus" heading="You already have a request" id="appointment-duplicate" kind="warning" visible={kind === 'duplicate'}>
+          <p>View your existing request to avoid starting another.</p>
+          <div className={styles.statusActions}><button data-reconcile="found" type="button">View your request</button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="receipt">
-        <FormStatus heading="Appointment requests unavailable" id="appointment-receipt" kind="warning" visible={kind === 'receipt'}>
-          <p>No appointment request was sent and no booking is confirmed.</p>
+        <FormStatus announcement="focus" heading="Request complete" id="appointment-receipt" kind="warning" visible={kind === 'receipt'}>
+          <p>Reference: <strong>{specimenReference}</strong></p>
+          <p><Link href="/#home-directions">Contact the hospital</Link> to confirm your appointment time.</p>
+          <div className={styles.statusActions}><button data-journey-restart type="button">Start a new request</button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="delivery-warning">
-        <FormStatus heading="Appointment requests unavailable" id="appointment-delivery-warning" kind="warning" visible={kind === 'delivery-warning'}>
-          <p>No appointment request was sent.</p>
+        <FormStatus announcement="focus" heading="Request complete; message unavailable" id="appointment-delivery-warning" kind="warning" visible={kind === 'delivery-warning'}>
+          <p>Keep your reference: <strong>{specimenReference}</strong>. <Link href="/#home-directions">Contact the hospital</Link> to check your appointment time.</p>
+          <div className={styles.statusActions}><button data-journey-restart type="button">Start a new request</button></div>
         </FormStatus>
       </div>
     </div>
@@ -141,26 +172,37 @@ function AppointmentStatePanels({
 }
 
 function AppointmentForm({
+  doctorIdentity,
   doctorOptions,
   errors,
+  localSimulation,
   privacyDisclosure,
   selectedCareRoute,
   serviceOptions,
+  specimenReference,
   state,
+  visitType,
 }: {
+  readonly doctorIdentity?: ReactNode
   readonly doctorOptions: readonly SelectOption[]
   readonly errors: readonly AppointmentField[]
+  readonly localSimulation?: boolean
   readonly privacyDisclosure: ReactNode
   readonly selectedCareRoute?: 'doctor' | 'not_sure' | 'service'
   readonly serviceOptions: readonly SelectOption[]
+  readonly specimenReference: string
   readonly state: AppointmentReviewStateKind
+  readonly visitType?: ReactNode
 }) {
   const hasError = (field: AppointmentField) => errors.includes(field)
   return (
+    <>
+    {localSimulation ? <noscript><p className={styles.noScriptBoundary}>Enable JavaScript to use this form, or <Link href="/#home-directions">contact the hospital</Link>.</p></noscript> : null}
+    <div data-appointment-safe-form inert={localSimulation || undefined}>
     <FormPrimitiveForm
       action="/controlled-appointment-submission-disabled"
       busy={state === 'pending'}
-      descriptionId="appointment-form-boundary"
+      descriptionId={localSimulation ? undefined : 'appointment-form-boundary'}
       id="appointment-request-form"
       label="Appointment request form"
       method="post"
@@ -169,29 +211,39 @@ function AppointmentForm({
         <AppointmentErrorSummary errors={errors} />
       </div>
 
+      {localSimulation ? <nav aria-label="Appointment progress" className={styles.progress} data-journey-progress hidden>
+        <ol>{['Your care', 'Your details', 'Review'].map((label, index) => <li key={label}><button aria-current={index === 0 ? 'step' : undefined} data-journey-step={index} type="button"><span aria-hidden="true" className={styles.stepNumber}>{index + 1}</span><span>{label}</span></button></li>)}</ol>
+      </nav> : null}
+
       <section aria-labelledby="appointment-details-title" className={styles.formSection} data-appointment-section="A4">
         <div className={styles.sectionHeading}>
-          <h2 id="appointment-details-title">Request details</h2>
-          <p>Do not enter personal or medical information.</p>
+          <h2 data-journey-title id="appointment-details-title" tabIndex={-1}>{localSimulation ? 'Choose your care' : 'Request details'}</h2>
+          <p data-journey-description>{localSimulation ? '' : 'Do not enter personal or medical information.'}</p>
         </div>
 
-        <div className={styles.careGroup}>
+        <div className={styles.careGroup} data-journey-group="care">
+          {localSimulation ? visitType : null}
           <ChoiceGroup
             error={fieldError('care-route', hasError('care-route'))}
-            hint="Choose one route. Doctor and service are never required together."
+            hint={localSimulation ? undefined : 'Choose the option that feels right for you.'}
             hintId="care-route-hint"
             id="care-route"
             legend="Type of care"
             name="care_route"
             options={[
-              { description: 'Choose a doctor.', label: 'A specific doctor', value: 'doctor' },
-              { description: 'Choose a service.', label: 'A service', value: 'service' },
-              { description: 'Choose this if you need help deciding.', label: 'Not sure', value: 'not_sure' },
+              { label: 'A specific doctor', value: 'doctor' },
+              { label: 'A service', value: 'service' },
+              { label: 'Help me choose', value: 'not_sure' },
             ]}
             required
             selectedValues={selectedCareRoute ? [selectedCareRoute] : []}
             type="radio"
           />
+
+          {localSimulation ? <section aria-label="Help choosing care" className={styles.careHelp} data-care-selector="not_sure" hidden={selectedCareRoute !== 'not_sure'}>
+            <p>You can continue without choosing a doctor, or explore your options first.</p>
+            <div className={styles.reviewActions}><Link href="/services">Explore services</Link><Link href="/doctors">Browse doctors</Link></div>
+          </section> : null}
 
           <div className={styles.careSelector} data-care-selector="doctor" hidden={selectedCareRoute !== 'doctor'}>
             <SelectField
@@ -205,6 +257,7 @@ function AppointmentForm({
               options={doctorOptions}
               required={selectedCareRoute === 'doctor'}
             />
+            {doctorIdentity}
           </div>
 
           <div className={styles.careSelector} data-care-selector="service" hidden={selectedCareRoute !== 'service'}>
@@ -222,13 +275,14 @@ function AppointmentForm({
           </div>
         </div>
 
-        <section aria-labelledby="appointment-contact-title" className={styles.fieldGroup}>
-          <h3 id="appointment-contact-title">Your contact details</h3>
+        <section aria-labelledby="appointment-contact-title" className={styles.fieldGroup} data-journey-group="details">
+          {localSimulation ? <div className={styles.selectedCare} aria-label="Selected care"><span>Selected care</span><strong data-journey-value="care">Help finding the right care</strong></div> : null}
+          <h3 hidden={localSimulation} id="appointment-contact-title">Your contact details</h3>
           <TextField
             autoComplete="off"
             defaultValue={state === 'validation' ? 'TEST PATIENT' : undefined}
             error={fieldError('full-name', hasError('full-name'))}
-            hint="Use TEST PATIENT. Do not enter a real name."
+            hint={localSimulation ? undefined : 'Use TEST PATIENT for this example.'}
             hintId="full-name-hint"
             id="full-name"
             label="Full name"
@@ -241,7 +295,7 @@ function AppointmentForm({
           <TextField
             autoComplete="off"
             error={fieldError('phone', hasError('phone'))}
-            hint="Use +0 000 000 0000. Do not enter a real telephone number."
+            hint={localSimulation ? 'Include your country code, for example +251.' : 'Use +0 000 000 0000 for this example.'}
             hintId="phone-hint"
             id="phone"
             inputMode="tel"
@@ -253,43 +307,41 @@ function AppointmentForm({
           />
         </section>
 
-        <section aria-labelledby="appointment-preference-title" className={styles.fieldGroup}>
-          <h3 id="appointment-preference-title">Your preference</h3>
+        <section aria-labelledby="appointment-preference-title" className={styles.fieldGroup} data-journey-group="details">
+          <h3 hidden={localSimulation} id="appointment-preference-title">Your preference</h3>
           <TextField
             autoComplete="off"
             error={fieldError('preferred-date', hasError('preferred-date'))}
-            hint="Use YYYY-MM-DD within the next 365 days."
+            hint="Leave blank if you have no preference."
             hintId="preferred-date-hint"
             id="preferred-date"
-            inputMode="numeric"
             label="Preferred date"
-            maximumLength={10}
             name="preferred_date"
             optionalLabel="Optional"
-            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+            type="date"
           />
         </section>
       </section>
 
-      <section aria-labelledby="appointment-privacy-title" className={`${styles.formSection} ${styles.privacy}`} data-appointment-section="A5">
-        <div className={styles.sectionHeading}>
-          <p className={styles.panelLabel}>Privacy</p>
-          <h2 id="appointment-privacy-title">Before continuing</h2>
+      <section aria-labelledby={localSimulation ? undefined : 'appointment-privacy-title'} className={`${styles.formSection} ${styles.privacy}`} data-appointment-section="A5">
+        {!localSimulation ? <div className={styles.sectionHeading}>
+          <h2 id="appointment-privacy-title">Your privacy</h2>
           <div id="privacy-disclosure">{privacyDisclosure}</div>
-        </div>
+        </div> : null}
         <label className={styles.consent} htmlFor="privacy-acknowledged">
           <input
-            aria-describedby={`privacy-disclosure privacy-acknowledged-hint privacy-acknowledged-error`}
+            aria-describedby={localSimulation ? hasError('privacy-acknowledged') ? 'privacy-acknowledged-error' : undefined : `privacy-disclosure privacy-acknowledged-hint${hasError('privacy-acknowledged') ? ' privacy-acknowledged-error' : ''}`}
             aria-invalid={hasError('privacy-acknowledged') || undefined}
             data-privacy-acknowledgment
             id="privacy-acknowledged"
             name="privacy_acknowledged"
+            required
             type="checkbox"
             value="true"
           />
           <span>
-            <strong>I understand that no appointment request will be sent.</strong>
-            <span id="privacy-acknowledged-hint">Do not enter personal or medical information.</span>
+            <strong>{localSimulation ? 'I agree to be contacted about this request.' : 'I understand this is a local example, not an appointment request.'}</strong>
+            {!localSimulation ? <span id="privacy-acknowledged-hint">My sample answers stay in this browser view until I leave or finish the example.</span> : null}
           </span>
         </label>
         <p className={styles.fieldError} data-field-error hidden={!hasError('privacy-acknowledged')} id="privacy-acknowledged-error">
@@ -299,33 +351,48 @@ function AppointmentForm({
 
       <section aria-labelledby="appointment-submit-title" className={styles.formSection} data-appointment-section="A6">
         <div className={styles.sectionHeading}>
-          <h2 id="appointment-submit-title">Review your details</h2>
-          <p>No booking is confirmed by this form.</p>
+          <h2 id="appointment-submit-title" tabIndex={-1}>Review your details</h2>
+          <p data-journey-review-description>Check your details before completing your request.</p>
         </div>
-        <AppointmentStatePanels kind={state} />
+        {localSimulation ? <div className={styles.reviewSummary} data-journey-review hidden>
+          {doctorIdentity}
+          <dl>
+            {visitType ? <div><dt>Visit</dt><dd data-journey-value="visit">First visit</dd></div> : null}
+            <div><dt>Care</dt><dd data-journey-value="care">Help finding the right care</dd></div>
+            <div><dt>Full name</dt><dd data-journey-value="name">Not added</dd></div>
+            <div><dt>Telephone</dt><dd data-journey-value="phone">Not added</dd></div>
+            <div><dt>Preferred date</dt><dd data-journey-value="date">No preference</dd></div>
+          </dl>
+          <div className={styles.reviewActions}><button className={styles.textButton} data-journey-edit-care type="button">Change your care</button><button className={styles.textButton} data-journey-edit type="button">Edit your details</button></div>
+        </div> : null}
+        <AppointmentStatePanels kind={state} localSimulation={localSimulation} specimenReference={specimenReference} />
         <FormActions label="Appointment form action">
           <FormSubmitButton
-            describedBy="controlled-submit-explanation"
-            disabled
-            label="Check details"
+            describedBy={localSimulation ? undefined : 'controlled-submit-explanation'}
+            disabled={!localSimulation || state === 'pending' || state === 'unknown' || state === 'duplicate' || state === 'receipt' || state === 'delivery-warning'}
+            label={localSimulation ? 'Complete request' : 'Check details'}
             pending={state === 'pending'}
-            pendingLabel="Checking details…"
+            pendingLabel="Completing request…"
           />
         </FormActions>
-        <p className={styles.fixtureBoundary} id="controlled-submit-explanation">
-          Online appointment requests are unavailable. No request will be sent.
-        </p>
-        <noscript>
-          <p className={styles.noScriptBoundary}>Online appointment requests are unavailable.</p>
-        </noscript>
+        {!localSimulation ? <p className={styles.fixtureBoundary} id="controlled-submit-explanation">
+          This browser-only example sends nothing and does not confirm a booking.
+        </p> : null}
       </section>
+      {localSimulation ? <div className={styles.journeyActions} data-journey-actions hidden>
+        <button className={styles.textButton} data-journey-back type="button">Back</button>
+        <button className={styles.continueButton} data-journey-next type="button">Enter your details <span aria-hidden="true">→</span></button>
+      </div> : null}
     </FormPrimitiveForm>
+    </div>
+    </>
   )
 }
 
 // Content adapters must replace controlled fixtures with approved canonical records and close
 // every activation gate before a public route is mounted. This composition performs no fetch.
 export function AppointmentTemplate({
+  doctorIdentity,
   description,
   doctorOptions,
   eyebrow,
@@ -336,26 +403,35 @@ export function AppointmentTemplate({
   state,
   title,
   warning,
+  visitType,
 }: AppointmentTemplateProps) {
   const errors = state.errors ?? []
   const unavailable = state.kind === 'workflow-unavailable'
+  const guidance = <aside className={styles.careRail} aria-label="Appointment guidance">
+    {state.localSimulation ? <section className={styles.requestSlip} aria-labelledby="appointment-summary-title">
+      <h2 id="appointment-summary-title">Your selection</h2>
+      {doctorIdentity}
+      <dl>{visitType ? <div><dt>Your visit</dt><dd data-journey-value="visit">First visit</dd></div> : null}<div><dt>Your care</dt><dd data-journey-value="care">Help finding the right care</dd></div><div><dt>Preferred date</dt><dd data-journey-value="date">No preference</dd></div></dl>
+      <p><Link href="/patients-visitors#checklist">Prepare your visit checklist</Link></p>
+    </section> : null}
+    <section aria-labelledby="appointment-warning-title" className={`${styles.section} ${styles.warning}`} data-appointment-section="A2">
+      <h2 id="appointment-warning-title">{state.localSimulation ? 'Need urgent help?' : 'Do not use this form for emergency help'}</h2>
+      {!state.localSimulation ? <p>{warning}</p> : <Link href="/emergency">Emergency information</Link>}
+    </section>
+  </aside>
 
   return (
     <SiteShell {...shell}>
-      <div className={styles.frame} data-appointment-state={state.kind} data-appointment-template data-experience-level="0">
+      <div className={styles.frame} data-appointment-outcome={state.outcome} data-appointment-state={state.kind} data-appointment-template data-experience-level="0" data-local-journey={state.localSimulation || undefined}>
         <section aria-labelledby="appointment-title" className={styles.introduction} data-appointment-section="A1">
-          <p className={styles.eyebrow}>{eyebrow}</p>
           <h1 id="appointment-title">{title}</h1>
-          <p className={styles.description}>{description}</p>
-          <p className={styles.fixtureNotice} id="appointment-form-boundary">
-            Online appointment requests are unavailable. Do not enter personal or medical information.
-          </p>
+          {description ? <p className={styles.description}>{description}</p> : null}
+          {!state.localSimulation ? <p className={styles.fixtureBoundary}>{eyebrow}</p> : null}
+          {!state.localSimulation ? <p className={styles.fixtureNotice} id="appointment-form-boundary">Online appointment requests are unavailable. Do not enter personal or medical information.</p> : null}
         </section>
 
-        <section aria-labelledby="appointment-warning-title" className={`${styles.section} ${styles.warning}`} data-appointment-section="A2">
-          <h2 id="appointment-warning-title">Do not use this form for emergency help</h2>
-          <p>{warning}</p>
-        </section>
+        <div className={styles.workspace}>
+        {!state.localSimulation ? guidance : null}
 
         {unavailable ? (
           <section aria-labelledby="appointment-unavailable-title" className={`${styles.section} ${styles.unavailable}`} data-appointment-section="A3">
@@ -365,20 +441,26 @@ export function AppointmentTemplate({
         ) : (
           <div data-appointment-form-controller={state.interactive ? 'enabled' : 'disabled'}>
             <AppointmentForm
+              doctorIdentity={doctorIdentity}
               doctorOptions={doctorOptions}
               errors={errors}
+              localSimulation={state.localSimulation}
               privacyDisclosure={privacyDisclosure}
               selectedCareRoute={state.selectedCareRoute}
               serviceOptions={serviceOptions}
+              specimenReference={state.specimenReference}
               state={state.kind}
+              visitType={visitType}
             />
           </div>
         )}
+        {state.localSimulation ? guidance : null}
+        </div>
 
-        <section aria-labelledby="appointment-support-title" className={`${styles.section} ${styles.support}`} data-appointment-section="A7" id="appointment-support">
-          <h2 id="appointment-support-title">{recipientLabel}</h2>
-          <p>Contact information is unavailable.</p>
-          <a className="ds-touch-target" href="#appointment-title">Return to appointment information</a>
+        <section aria-labelledby="appointment-support-title" className={`${styles.section} ${styles.support} ds-support-band`} data-appointment-section="A7" id="appointment-support">
+          <h2 id="appointment-support-title">{state.localSimulation ? 'Need help choosing care?' : recipientLabel}</h2>
+          {!state.localSimulation ? <p>Review the illustrative contact details or return to care discovery before deciding what to request.</p> : null}
+          {state.localSimulation ? <div className="ds-support-actions"><Link className="ds-touch-target" href="/#home-call">Contact information</Link><Link className="ds-touch-target" href="/doctors">Find a doctor</Link></div> : null}
         </section>
       </div>
     </SiteShell>

@@ -19,6 +19,7 @@ This decision closes `VD-17` for non-public prototype work. It does not close `B
 
 ## Artifacts
 
+- [D7 journey quality](journey-quality.md) — integrated hardening, repeatable browser/profile checks, evidence and explicit release-validation limits.
 - [Motion and storytelling direction](motion-and-storytelling.md) — emotional goals, intensity system, page/section treatments, tokens, signature moments, micro-interactions, reduced-motion equivalence, mobile and performance limits, traceability, and acceptance criteria.
 - [Critical-experience storyboards](storyboards.md) — frame-by-frame standard and reduced-motion behavior for Home routing, Emergency, appointment request and recovery, care discovery, site search, arrival, patient guidance, institutional trust, and language continuity.
 - [Interactive motion study](studies.html) — local, dependency-free comparison of standard and reduced treatments. All controls are inert demonstrations; the file makes no external requests and collects no data.

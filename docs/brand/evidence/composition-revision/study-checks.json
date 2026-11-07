@@ -1,0 +1,29 @@
+[
+  {
+    "desktopCaptureRequests": 54,
+    "allImages200": true,
+    "invalidFilename404": true
+  },
+  {
+    "width": 1440,
+    "homeFilter": 16,
+    "sharedFilter": 11,
+    "allFilter": 27
+  },
+  {
+    "width": 768,
+    "homeFilter": 16,
+    "sharedFilter": 11,
+    "allFilter": 27
+  },
+  {
+    "width": 390,
+    "homeFilter": 16,
+    "sharedFilter": 11,
+    "allFilter": 27
+  },
+  {
+    "studyWithoutJavaScript": true,
+    "nativeComparisons": 27
+  }
+]

@@ -82,6 +82,7 @@ export type { StatusSummaryItem, StatusSummaryProps } from './status-summary'
 export {
   ActiveFilterList,
   FilterDisclosure,
+  DirectoryBrowse,
   FilterGroup,
   Pagination,
   ResultCount,
@@ -92,6 +93,7 @@ export type {
   ActiveFilter,
   ActiveFilterListProps,
   FilterDisclosureProps,
+  DirectoryBrowseProps,
   FilterGroupProps,
   FilterOption,
   PaginationPage,
@@ -144,3 +146,7 @@ export type {
 
 export { TaskCard } from './task-card'
 export type { TaskCardProps } from './task-card'
+export { ClinicianMonogram } from './clinician-monogram'
+export { ClinicianPortrait } from './clinician-portrait'
+export { BrandCard, BrandSurface, brandSurfaceTones } from './brand-surface'
+export type { BrandAccent, BrandDetail, BrandSurfaceProps, BrandSurfaceTone } from './brand-surface'

@@ -1,0 +1,26 @@
+C3 review, 31 October 2026
+
+Scope: remove persistent Help collisions and keep assistance dismissible. Retain the existing hospital palette, typography and page compositions. No new art direction, imagery or sample content was introduced.
+
+ROUND 1
+Seen in one second: a hospital introduction and its appointment action, with Help available among header utilities.
+Idea (one sentence): Hallelujah's website guidance becomes a header utility so the patient journey retains the reading area.
+Live thing: native Help choices open the existing Patient Guide and its doctor/service/appointment navigation.
+Layout words by section: header=utility row / hero=split / searches=paired forms / Help=on-demand menu / guide=modal sheet.
+Scores: design 7 · usability 7 · creativity 6 · content 5 → overall 6.0 after cap.
+Caps applied: whole-page inspector findings remain outside C3; this is not a new overall site approval.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. The first Help menu capture caught the entrance animation before the actions became legible (c3-help-open-1440.png). Fixed capture timing by waiting for the short animation to settle; rereviewed the resulting menus.
+2. The open Help menu initially covered the lower header row on mobile (c3-help-open-390.png). Positioned the menu below the full header using its existing CSS anchor, with a measured-height fallback. Added a browser assertion for header clearance and retained a minimum 44px trigger target.
+3. The news feature still wraps at tablet width and the site still has the existing metadata/typography findings (inspect/tablet-page-02.jpg, inspect/report.json). These belong to the remaining assessment work; C3 does not close them.
+
+Reviewed the inspector's desktop/tablet/mobile folds and all listed page sheets, plus focused header/menu/news/visit-question/guide captures. The former lower-right launcher is absent from reading areas. Existing page content and practical-information limitations still determine the overall assessment.
+
+Validation: TypeScript, focused ESLint, guide engine, shell contract and production build pass. The C3 browser sweep checks fifteen routes/states at three viewport sizes and the existing guide suite checks four widths, reduced motion, short viewports, focus containment/return, typed questions and doctor/service handoffs. Native Help opening and explicit closing work without JavaScript.
+
+Remaining C3 acceptance: physical mobile on-screen keyboard behavior has not been tested. Keep the assessment checkbox open until that check is recorded.
+
+Reproduce:
+TMPDIR=/var/tmp GUIDE_EVIDENCE_DIR=artifacts/independent-design-review/c3-help node apps/web/scripts/check-patient-guide-rendered.mjs --help-clearance
+
+The temporary-directory override avoids this session's /tmp quota failures. It is a local test setting, not an application requirement.

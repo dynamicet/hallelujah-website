@@ -31,7 +31,7 @@
 .titleLink,
 .card a {
   align-items: center;
-  color: var(--semantic-color-action-primary);
+  color: var(--semantic-color-text-link);
   display: inline-flex;
   min-block-size: var(--semantic-size-touch);
   max-inline-size: var(--semantic-size-full);
@@ -137,3 +137,8 @@
     box-shadow: none;
   }
 }
+
+/* Content families share a blue spine; freshness remains an explicit state. */
+.card[data-card-state='current'] { border-block-start: 3px solid var(--semantic-color-action-primary); }
+.title { color: var(--semantic-color-text-heading); }
+.destination { border-inline-start: 3px solid var(--semantic-color-accent-supporting); padding-inline-start: var(--semantic-space-compact); }

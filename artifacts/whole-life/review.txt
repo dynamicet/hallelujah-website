@@ -1,0 +1,51 @@
+Whole life enhancement — 30 October 2026
+
+Direction: client-selected A whole life comes with you. Existing brand palette and
+presentation typography retained; no new random direction draw was appropriate.
+Idea: the emblem's surrounding cyan becomes an open frame for a person's presence,
+the texture of a familiar possession, and participation in care.
+Live interactions: existing doctor/service searches, care navigation, service and
+visit selectors, and optional film playback.
+
+ROUND 1
+Seen first: the person and a direct invitation into care.
+Layouts: opening=portrait/detail; discovery=search/selector; story=connected views;
+team=directory; preparation=questions; arrival=information; footer=signature.
+Problems corrected: desktop portrait made the opening too tall; story heading
+wrapped to three lines on mobile; existing layout variables failed token-consumer
+validation and were moved into canonical primitive/semantic frame roles.
+
+ROUND 2
+Reviewed all final desktop, tablet and mobile folds and full-page screenshot sheets.
+Visual judgment: design 7; usability 8.5; creativity 7.5; content 6.5.
+The images form a coherent concept series. Authentic hospital content is still
+needed for the existing illustrative roster, services and arrival information.
+The opening action precedes images on mobile. The story gives the encounter equal
+visual weight with the personal detail. Screenshots are in final/.
+
+Inspector: zero FAIL at 1440, 768 and 390px. Remaining WARN are existing selector
+rows (functional controls), the established site-wide type range, and no visible
+footage before user activation (intentional deferred video).
+
+Validation: TypeScript, ESLint, canonical token parity/consumer validation, brand
+foundation and all Home SSR/contact/governed omission checks passed. Connected
+demo browser regression passed 20 route/journey groups, with no browser errors,
+warnings, unexpected failed requests or HTTP errors. This includes disabled-script,
+keyboard, deferred media, focus restoration and alternate-state checks.
+Full pnpm verify stopped at pre-existing artifact-format violations. It did not
+complete the subsequent full repository checks. New inspector JSON has final newlines.
+
+Images: built-in image_gen supplied portrait and detail using reference continuity;
+encounter is a crop of existing hope-care.webp. Three optimized assets total about
+351 KiB. LCP/INP field performance was not measured. Internal prompts and provenance:
+docs/brand/whole-life-image-sources.txt. No generation labels in the interface, as
+requested. No invented patient biography or testimonial accompanies the images.
+
+Existing uncommitted header/contact changes were preserved. No publication or
+real appointment collection was activated.
+
+Narrow check: 320 × 812 passed with no FAIL. The inspector copy in /tmp added
+320 to its viewport-height table; the unmodified tool falls back to a 200px height
+for that width. narrow/ records that invalid-geometry first run; narrow-real/ is
+the meaningful phone review. The eyebrow allowance is the factual Hospital text
+in the established header identity, not a new promotional kicker.

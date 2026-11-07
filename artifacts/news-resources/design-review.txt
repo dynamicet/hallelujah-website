@@ -1,0 +1,61 @@
+News, Events & Resources — implementation and design review
+
+Scope: local website preview. Homepage section, /news-resources category archive,
+and /news-resources/[slug] detail pages. Existing production publication gates remain
+in force. This change does not implement a CMS editorial publishing workflow.
+
+Direction: The printed annual / editorial-report, seed 2046702968.
+Existing hospital palette, Clash Grotesk headings, Lato text, and frame retained.
+The full-page masthead was adapted to a homepage section because the existing site
+already has its own hero. The user's requested card layout takes precedence over
+the dealt interactive book-spine composition. No palette/type redraws.
+
+Idea: Hallelujah's existing Ethiopian care imagery becomes a patient reading corner,
+with one lead story and two supporting entries rather than a uniform row.
+Live interaction: category browsing using ordinary links and URL state, including
+counts and an active category; works with JavaScript disabled.
+
+ROUND 1
+Seen in one second: a readable hospital news and resources archive.
+Idea (one sentence): local care imagery gives the stories a familiar human setting.
+Live thing: All / News / Events / Resources filters.
+Layout words by section: homepage=lead-and-support / archive=reading-grid / detail=article-and-sidebar.
+Scores: design 7.0 · usability 7.5 · creativity 6.5 · content 6.0 → overall 7.0.
+Caps applied: illustrative editorial content; no real hospital news or event claims.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. home-1440.jpg: book close-up weakly relates to research literacy. Replaced with care imagery.
+2. inspect/tablet-fold.jpg: small category line leads the headline. Moved metadata below titles.
+3. inspect report: archive lacks entrance feedback. Reused existing progressive, reduced-motion-aware reveals.
+
+ROUND 2
+Seen in one second: a coordinated editorial section with a clear lead article.
+Idea (one sentence): familiar Ethiopian care scenes anchor a calm, accessible reading experience.
+Live thing: category filters, fully linked cards, and article destinations.
+Layout words by section: homepage=lead-and-support / archive=reading-grid / detail=article-and-sidebar.
+Scores: design 8.0 · usability 8.0 · creativity 7.0 · content 6.0 → overall 7.6.
+Caps applied: sample content remains subject to replacement and hospital review.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. home-1440.jpg: two photos depicted the same encounter. Replaced news artwork with the existing care illustration.
+2. home-320.jpg: metadata benefits from a simpler size scale. Consolidated dates/actions to 14/16px.
+3. Existing floating Help button can cover part of a card while scrolling. The full card remains a single link,
+   with visible keyboard focus; the existing help component was outside this section's scope.
+
+Imagery: reused bundled hope-care.webp, care-illustration.webp, together-care.webp,
+and family-care.webp. These are illustrative/AI-generated assets already in the
+project, not documentary hospital photography. No new external images or licence
+dependencies. Replace with approved editorial assets and captions before launch.
+
+Content: all four stories, publication dates, reading estimates, and the 14 November
+2026 event are fictional fixtures. The research article teaches headline literacy;
+it does not assert a medical breakthrough. No event registration is offered.
+
+Verification: TypeScript and ESLint passed for changed source. Browser checks at
+1440, 768, 390, and 320 pixels exercise three homepage cards, all Read More routes,
+archive counts, and horizontal overflow. Category filters work without JavaScript;
+keyboard focus is visible and unknown story URLs show a 404. Expired events are
+excluded from the homepage and remain labeled Past event in the archive.
+
+Design inspector: 0 failures at desktop, tablet and mobile. Warnings retained for
+no video and restrained motion: this archive is intended for reading and has no
+relevant documentary footage; existing entrance and hover feedback is sufficient.
+This is not a claim of a full WCAG audit or production editorial readiness.

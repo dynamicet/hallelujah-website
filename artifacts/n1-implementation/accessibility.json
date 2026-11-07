@@ -1,0 +1,767 @@
+[
+  {
+    "route": "/",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": [
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "TotalEnergies"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "TotalEnergies"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "TotalEnergies"
+      },
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "MOHA Soft Drink Industries"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "MOHA Soft Drink Industries"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "MOHA Soft Drink Industries"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": [
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "TotalEnergies"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "TotalEnergies"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "TotalEnergies"
+      },
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "MOHA Soft Drink Industries"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "MOHA Soft Drink Industries"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "MOHA Soft Drink Industries"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": [
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "Oromia Insurance"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "Oromia Insurance"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "Oromia Insurance"
+      },
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "Nib Bank"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "Nib Bank"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "Nib Bank"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": [
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "TotalEnergies"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "TotalEnergies"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "TotalEnergies"
+      },
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "MOHA Soft Drink Industries"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "MOHA Soft Drink Industries"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "MOHA Soft Drink Industries"
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": [
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "Oromia Insurance"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "Oromia Insurance"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "Oromia Insurance"
+      },
+      {
+        "tag": "LI",
+        "class": "partner",
+        "text": "Nib Bank"
+      },
+      {
+        "tag": "FIGURE",
+        "class": "",
+        "text": "Nib Bank"
+      },
+      {
+        "tag": "DIV",
+        "class": "partner-logo",
+        "text": ""
+      },
+      {
+        "tag": "FIGCAPTION",
+        "class": "",
+        "text": "Nib Bank"
+      }
+    ]
+  },
+  {
+    "route": "/health-topics",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/health-topics",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/health-topics",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/health-topics",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/health-topics",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/health-topics/diabetes",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/health-topics/diabetes",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/health-topics/diabetes",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/health-topics/diabetes",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/health-topics/diabetes",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/appointment",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/appointment",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/appointment",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/appointment",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/appointment",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/patients-visitors",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/patients-visitors",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/patients-visitors",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/patients-visitors",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/patients-visitors",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/emergency",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/emergency",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/emergency",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/emergency",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/emergency",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/feedback",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/feedback",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/feedback",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/feedback",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/feedback",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/referrals",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/referrals",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/referrals",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/referrals",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/referrals",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors/synthetic-clinician-101010101010",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors/synthetic-clinician-101010101010",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors/synthetic-clinician-101010101010",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors/synthetic-clinician-101010101010",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/doctors/synthetic-clinician-101010101010",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services/synthetic-service-111111111111",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services/synthetic-service-111111111111",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services/synthetic-service-111111111111",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services/synthetic-service-111111111111",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/services/synthetic-service-111111111111",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources/make-room-for-your-questions",
+    "mode": "reflow",
+    "width": 320,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources/make-room-for-your-questions",
+    "mode": "text200",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources/make-room-for-your-questions",
+    "mode": "text200",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources/make-room-for-your-questions",
+    "mode": "spacing",
+    "width": 390,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  },
+  {
+    "route": "/news-resources/make-room-for-your-questions",
+    "mode": "spacing",
+    "width": 1440,
+    "overflow": false,
+    "clipped": [],
+    "wide": []
+  }
+]

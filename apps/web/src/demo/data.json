@@ -1,0 +1,600 @@
+{
+  "clinicianFilters": [
+    {
+      "label": "Family care",
+      "specialty": "Family care",
+      "value": "synthetic-family"
+    },
+    {
+      "label": "Child care",
+      "specialty": "Child care",
+      "value": "synthetic-child"
+    },
+    {
+      "label": "Heart care",
+      "specialty": "Heart care",
+      "value": "synthetic-heart"
+    }
+  ],
+  "clinicians": [
+    {
+      "publicId": "pub_101010101010",
+      "canonicalPath": "/doctors/synthetic-clinician-101010101010/",
+      "locale": "en",
+      "details": {
+        "name": "Dr Aster",
+        "professionalTitle": null,
+        "credentials": [],
+        "specialties": [
+          "Family care"
+        ],
+        "interests": [
+          "Everyday health concerns and continuity of care",
+          "Planning a follow-up conversation"
+        ],
+        "languages": [
+          "English",
+          "Amharic"
+        ],
+        "availabilityGuidance": "Availability is not provided in this demonstration."
+      },
+      "locationPublicIds": [],
+      "reviewAt": "2026-10-29T09:00:00Z",
+      "portrait": null,
+      "schedule": null,
+      "appointment": {
+        "state": "withheld",
+        "doctorPublicId": "pub_101010101010"
+      },
+      "biography": "Dr Aster discusses everyday family-care concerns and follow-up care."
+    },
+    {
+      "publicId": "pub_111111111111",
+      "canonicalPath": "/doctors/synthetic-clinician-111111111111/",
+      "locale": "en",
+      "details": {
+        "name": "Dr Bekele",
+        "professionalTitle": null,
+        "credentials": [],
+        "specialties": [
+          "Child care"
+        ],
+        "interests": [
+          "Questions about a child’s routine care",
+          "Helping families prepare for a visit"
+        ],
+        "languages": [
+          "English"
+        ],
+        "availabilityGuidance": "Availability is not provided in this demonstration."
+      },
+      "locationPublicIds": [],
+      "reviewAt": "2026-10-29T09:00:00Z",
+      "portrait": null,
+      "schedule": null,
+      "appointment": {
+        "state": "withheld",
+        "doctorPublicId": "pub_111111111111"
+      },
+      "biography": "Dr Bekele discusses routine child-care questions with children and caregivers."
+    },
+    {
+      "publicId": "pub_121212121212",
+      "canonicalPath": "/doctors/synthetic-clinician-121212121212/",
+      "locale": "en",
+      "details": {
+        "name": "Dr Chala",
+        "professionalTitle": null,
+        "credentials": [],
+        "specialties": [
+          "Heart care"
+        ],
+        "interests": [
+          "Understanding a heart-care referral",
+          "Discussing the next step after a visit"
+        ],
+        "languages": [
+          "English",
+          "Amharic"
+        ],
+        "availabilityGuidance": "Availability is not provided in this demonstration."
+      },
+      "locationPublicIds": [],
+      "reviewAt": "2026-10-29T09:00:00Z",
+      "portrait": null,
+      "schedule": null,
+      "appointment": {
+        "state": "withheld",
+        "doctorPublicId": "pub_121212121212"
+      },
+      "biography": "Dr Chala discusses heart-care referrals and follow-up questions."
+    },
+    {
+      "publicId": "pub_131313131313",
+      "canonicalPath": "/doctors/synthetic-clinician-131313131313/",
+      "locale": "en",
+      "details": {
+        "name": "Dr Desta",
+        "professionalTitle": null,
+        "credentials": [],
+        "specialties": [
+          "Family care"
+        ],
+        "interests": [
+          "Ongoing family care",
+          "Reviewing a care plan with a visitor"
+        ],
+        "languages": [
+          "English"
+        ],
+        "availabilityGuidance": "Availability is not provided in this demonstration."
+      },
+      "locationPublicIds": [],
+      "reviewAt": "2026-10-29T09:00:00Z",
+      "portrait": null,
+      "schedule": null,
+      "appointment": {
+        "state": "withheld",
+        "doctorPublicId": "pub_131313131313"
+      },
+      "biography": "Dr Desta focuses on ongoing family care and reviewing earlier care plans."
+    },
+    {
+      "publicId": "pub_141414141414",
+      "canonicalPath": "/doctors/synthetic-clinician-141414141414/",
+      "locale": "en",
+      "details": {
+        "name": "Dr Eden",
+        "professionalTitle": null,
+        "credentials": [],
+        "specialties": [
+          "Child care"
+        ],
+        "interests": [
+          "Child-care conversations",
+          "Helping caregivers find the right service"
+        ],
+        "languages": [
+          "English"
+        ],
+        "availabilityGuidance": "Availability is not provided in this demonstration."
+      },
+      "locationPublicIds": [],
+      "reviewAt": "2026-10-29T09:00:00Z",
+      "portrait": null,
+      "schedule": null,
+      "appointment": {
+        "state": "withheld",
+        "doctorPublicId": "pub_141414141414"
+      },
+      "biography": "Dr Eden discusses child-care questions and visit preparation with caregivers."
+    },
+    {
+      "publicId": "pub_151515151515",
+      "canonicalPath": "/doctors/synthetic-clinician-151515151515/",
+      "locale": "en",
+      "details": {
+        "name": "Dr Fikru",
+        "professionalTitle": null,
+        "credentials": [],
+        "specialties": [
+          "Heart care"
+        ],
+        "interests": [
+          "Heart-care conversations",
+          "Preparing questions for a consultation"
+        ],
+        "languages": [
+          "English"
+        ],
+        "availabilityGuidance": "Availability is not provided in this demonstration."
+      },
+      "locationPublicIds": [],
+      "reviewAt": "2026-10-29T09:00:00Z",
+      "portrait": null,
+      "schedule": null,
+      "appointment": {
+        "state": "withheld",
+        "doctorPublicId": "pub_151515151515"
+      },
+      "biography": "Dr Fikru discusses heart-care questions and consultation preparation."
+    },
+    {
+      "publicId": "pub_161616161616",
+      "canonicalPath": "/doctors/synthetic-clinician-161616161616/",
+      "locale": "en",
+      "details": {
+        "name": "Dr Genet",
+        "professionalTitle": null,
+        "credentials": [],
+        "specialties": [
+          "Family care"
+        ],
+        "interests": [
+          "Family care across visits",
+          "Explaining follow-up options in plain language"
+        ],
+        "languages": [
+          "Amharic",
+          "English"
+        ],
+        "availabilityGuidance": "Availability is not provided in this demonstration."
+      },
+      "locationPublicIds": [],
+      "reviewAt": "2026-10-29T09:00:00Z",
+      "portrait": null,
+      "schedule": null,
+      "appointment": {
+        "state": "withheld",
+        "doctorPublicId": "pub_161616161616"
+      },
+      "biography": "Dr Genet discusses ongoing family care and follow-up options."
+    },
+    {
+      "publicId": "pub_171717171717",
+      "canonicalPath": "/doctors/synthetic-clinician-171717171717/",
+      "locale": "en",
+      "details": {
+        "name": "Dr Hana",
+        "professionalTitle": null,
+        "credentials": [],
+        "specialties": [
+          "Child care"
+        ],
+        "interests": [],
+        "languages": [],
+        "availabilityGuidance": "Availability is not provided in this demonstration."
+      },
+      "locationPublicIds": [],
+      "reviewAt": "2026-10-29T09:00:00Z",
+      "portrait": null,
+      "schedule": null,
+      "appointment": {
+        "state": "withheld",
+        "doctorPublicId": "pub_171717171717"
+      },
+      "biography": ""
+    },
+    {
+      "publicId": "pub_181818181818",
+      "canonicalPath": "/doctors/synthetic-clinician-181818181818/",
+      "locale": "en",
+      "details": {
+        "name": "Dr Imani Alemu Tesfaye-Mekonnen",
+        "professionalTitle": null,
+        "credentials": [],
+        "specialties": [
+          "Heart care"
+        ],
+        "interests": [
+          "Referrals, first consultations and follow-up care",
+          "Questions about earlier visits and care plans"
+        ],
+        "languages": [
+          "English",
+          "Amharic"
+        ],
+        "availabilityGuidance": "Availability is not provided in this demonstration."
+      },
+      "locationPublicIds": [],
+      "reviewAt": "2026-10-29T09:00:00Z",
+      "portrait": null,
+      "schedule": null,
+      "appointment": {
+        "state": "withheld",
+        "doctorPublicId": "pub_181818181818"
+      },
+      "biography": "Dr Imani discusses referrals, first consultations and follow-up care, including questions about earlier visits and care plans."
+    }
+  ],
+  "serviceFilters": [
+    {
+      "label": "Access and hospital care",
+      "publicId": "grp_101010101010",
+      "value": "synthetic-access"
+    },
+    {
+      "label": "Medicine",
+      "publicId": "grp_202020202020",
+      "value": "synthetic-medicine"
+    },
+    {
+      "label": "Specialty and rehabilitation",
+      "publicId": "grp_303030303030",
+      "value": "synthetic-rehabilitation"
+    }
+  ],
+  "services": [
+    {
+      "publicId": "pub_111111111111",
+      "canonicalPath": "/services/synthetic-service-111111111111/",
+      "locale": "en",
+      "name": "Admission guidance",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_101010101010",
+        "name": "Access and hospital care"
+      },
+      "sections": {
+        "scope": [
+          "Sample guidance on admission preparation and arrival."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_111111111111"
+      }
+    },
+    {
+      "publicId": "pub_121212121212",
+      "canonicalPath": "/services/synthetic-service-121212121212/",
+      "locale": "en",
+      "name": "Inpatient navigation",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_101010101010",
+        "name": "Access and hospital care"
+      },
+      "sections": {
+        "scope": [
+          "Sample guidance for a planned hospital stay and visitors."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_121212121212"
+      }
+    },
+    {
+      "publicId": "pub_131313131313",
+      "canonicalPath": "/services/synthetic-service-131313131313/",
+      "locale": "en",
+      "name": "Day care navigation",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_101010101010",
+        "name": "Access and hospital care"
+      },
+      "sections": {
+        "scope": [
+          "Sample preparation and follow-up guidance for a day visit."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_131313131313"
+      }
+    },
+    {
+      "publicId": "pub_141414141414",
+      "canonicalPath": "/services/synthetic-service-141414141414/",
+      "locale": "en",
+      "name": "General medicine",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_202020202020",
+        "name": "Medicine"
+      },
+      "sections": {
+        "scope": [
+          "Sample information for general medical consultations."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_141414141414"
+      }
+    },
+    {
+      "publicId": "pub_151515151515",
+      "canonicalPath": "/services/synthetic-service-151515151515/",
+      "locale": "en",
+      "name": "Heart medicine",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_202020202020",
+        "name": "Medicine"
+      },
+      "sections": {
+        "scope": [
+          "Sample heart-care information and related doctor profiles."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_151515151515"
+      }
+    },
+    {
+      "publicId": "pub_161616161616",
+      "canonicalPath": "/services/synthetic-service-161616161616/",
+      "locale": "en",
+      "name": "Breathing medicine",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_202020202020",
+        "name": "Medicine"
+      },
+      "sections": {
+        "scope": [
+          "Sample information for breathing-related care enquiries."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_161616161616"
+      }
+    },
+    {
+      "publicId": "pub_171717171717",
+      "canonicalPath": "/services/synthetic-service-171717171717/",
+      "locale": "en",
+      "name": "Rehabilitation care",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_303030303030",
+        "name": "Specialty and rehabilitation"
+      },
+      "sections": {
+        "scope": [
+          "Sample information on recovery goals and rehabilitation visits."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_171717171717"
+      }
+    },
+    {
+      "publicId": "pub_181818181818",
+      "canonicalPath": "/services/synthetic-service-181818181818/",
+      "locale": "en",
+      "name": "Speech support",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_303030303030",
+        "name": "Specialty and rehabilitation"
+      },
+      "sections": {
+        "scope": [
+          "Sample guidance on speech and communication support."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_181818181818"
+      }
+    },
+    {
+      "publicId": "pub_191919191919",
+      "canonicalPath": "/services/synthetic-service-191919191919/",
+      "locale": "en",
+      "name": "Therapy navigation",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_303030303030",
+        "name": "Specialty and rehabilitation"
+      },
+      "sections": {
+        "scope": [
+          "Sample guidance on therapy options and referral questions."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_191919191919"
+      }
+    },
+    {
+      "publicId": "pub_212121212121",
+      "canonicalPath": "/services/synthetic-service-212121212121/",
+      "locale": "en",
+      "name": "Follow-up support",
+      "synonyms": [],
+      "group": {
+        "publicId": "grp_303030303030",
+        "name": "Specialty and rehabilitation"
+      },
+      "sections": {
+        "scope": [
+          "Sample guidance on follow-up care after an earlier visit."
+        ]
+      },
+      "locationPublicIds": [],
+      "reviewer": "cms:102",
+      "reviewedAt": "2026-10-01T09:00:00Z",
+      "appointment": {
+        "state": "withheld",
+        "servicePublicId": "pub_212121212121"
+      }
+    }
+  ],
+  "home": {
+    "featuredDoctorIds": [
+      0,
+      1,
+      8
+    ],
+    "featuredServiceIds": [
+      3,
+      4,
+      6
+    ],
+    "story": {
+      "title": "A clearer way to find the next step",
+      "body": "Start with an area of care, meet a clinician, and see how an appointment request can be made. Practical arrival information stays close at hand, so the next step is easier to find."
+    },
+    "contact": {
+      "call": "+0 000 000 0000 — illustrative number",
+      "address": "100 Test Avenue, Example District — illustrative location",
+      "entrance": "Example main entrance — illustrative arrival point"
+    }
+  },
+  "emergency": {
+    "description": "Choose between a hospital-specific example and a separate public-service example, then follow the written arrival route.",
+    "hospitalChoice": {
+      "audience": "Someone seeking hospital-specific arrival guidance in this illustrative route",
+      "displayValue": "+0 000 000 0001 — illustrative, cannot call",
+      "hours": "No staffed hours are represented",
+      "label": "Hospital emergency route",
+      "limitations": "No real availability, response or clinical capability is represented",
+      "purpose": "Illustrates asking about the example emergency entrance and hospital access"
+    },
+    "publicChoice": {
+      "audience": "Someone comparing a separate public response route in this illustrative route",
+      "displayValue": "+0 000 000 0002 — illustrative, cannot call",
+      "hours": "No public-service hours are represented",
+      "label": "Public emergency route",
+      "limitations": "No jurisdiction, dispatch service or response is represented",
+      "purpose": "Illustrates a public response route separate from hospital arrival questions"
+    },
+    "warning": "Online messages and appointment requests are not emergency channels.",
+    "scope": {
+      "summary": "This example reserves space for hospital-approved emergency scope. It makes no claim about services or who can be treated.",
+      "availability": "Not verified for this demonstration",
+      "limitations": "Clinical scope and operating status require hospital approval",
+      "owner": "Presentation content team",
+      "reviewedLabel": "Illustrative presentation copy",
+      "reviewedOn": "2026-10-21"
+    },
+    "arrival": {
+      "address": "100 Test Avenue, Example District — illustrative location",
+      "entrance": "Example emergency entrance C — illustrative only",
+      "steps": [
+        "Start at Example Junction A.",
+        "Continue past Test Landmark B.",
+        "Find Example Entrance C."
+      ],
+      "parking": "Example parking area; no real access route is represented.",
+      "publicTransport": "Example Stop B; no real transport route is represented.",
+      "accessibleEntrance": "Example step-free entrance; no real accessible route is represented."
+    }
+  }
+}

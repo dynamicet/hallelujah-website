@@ -6,17 +6,32 @@
 }
 
 .introduction,
-.urgentNotice,
 .directory,
 .support {
-  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  display: grid;
-  gap: var(--semantic-space-regular);
   min-inline-size: 0;
   padding-block: var(--semantic-space-section);
 }
 
-.introduction > *,
+.introduction {
+  display: grid;
+  gap: var(--semantic-space-page);
+}
+
+.introductionCopy,
+.guidance,
+.stateActions {
+  display: grid;
+  gap: var(--semantic-space-regular);
+  min-inline-size: 0;
+}
+
+.introductionCopy {
+  align-content: start;
+  max-inline-size: var(--semantic-size-reading);
+}
+
+.introductionCopy > *,
+.guidance > *,
 .urgentNotice > *,
 .directoryHeading > *,
 .resultsSection > *,
@@ -30,6 +45,27 @@
   overflow-wrap: anywhere;
 }
 
+.guidance {
+  align-self: center;
+  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  max-inline-size: var(--semantic-size-reading);
+  padding-inline-start: var(--semantic-space-page);
+}
+
+.guidance h2 {
+  font-size: var(--site-lead, 1.75rem);
+  line-height: var(--semantic-type-h3-line);
+}
+
+.guidance a,
+.introductionCopy a,
+.statePanel a {
+  align-items: center;
+  display: inline-flex;
+  min-block-size: var(--semantic-size-touch);
+  width: fit-content;
+}
+
 .introduction {
   max-inline-size: var(--semantic-size-reading);
 }
@@ -38,7 +74,7 @@
 .cardLabel,
 .stateLabel {
   color: var(--semantic-color-text-secondary);
-  font-size: var(--semantic-type-small-size);
+  font-size: var(--site-support, 1rem);
   font-weight: var(--semantic-font-weight-strong);
   letter-spacing: var(--semantic-type-eyebrow-tracking);
   line-height: var(--semantic-type-small-line);
@@ -46,23 +82,18 @@
 }
 
 .description {
-  font-size: var(--semantic-type-body-large-size);
+  font-size: var(--site-intro, 1.25rem);
   line-height: var(--semantic-type-body-large-line);
 }
 
-.fixtureNotice,
-.urgentNotice,
-.statePanel,
-.support {
-  border: var(--semantic-border-emphasis) solid currentColor;
-  border-radius: var(--semantic-radius-card);
-  padding: var(--semantic-space-page);
-}
-
-.fixtureNotice,
 .urgentNotice {
   background: var(--semantic-color-surface-warning);
   color: var(--semantic-color-text-warning);
+  border-inline-start: var(--semantic-border-emphasis) solid currentColor;
+  display: grid;
+  gap: var(--semantic-space-compact);
+  margin-block-end: var(--semantic-space-regular);
+  padding: var(--semantic-space-page);
 }
 
 .directory {
@@ -105,12 +136,29 @@
   min-inline-size: 0;
 }
 
+.resetFilters {
+  justify-self: start;
+}
+
 .resultsToolbar {
-  align-items: start;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--semantic-space-compact) var(--semantic-space-regular);
 }
 
 .resultsToolbar [data-result-count] {
   margin-block-start: 0;
+}
+
+.resultsToolbar [data-active-filters] {
+  flex-basis: 100%;
+}
+
+.resultRange {
+  color: var(--semantic-color-text-secondary);
+  font-size: var(--site-support, 1rem);
+  line-height: var(--semantic-type-small-line);
 }
 
 .groupCollection,
@@ -143,19 +191,45 @@
   border: var(--semantic-border-default) solid var(--semantic-color-border-default);
   border-radius: var(--semantic-radius-card);
   display: grid;
+  align-content: start;
   gap: var(--semantic-space-regular);
+  grid-template-rows: auto auto 1fr auto;
   min-block-size: 100%;
   padding: var(--semantic-space-page);
 }
 
+.cardSummary {
+  line-height: var(--semantic-type-body-line);
+}
+
+.cardActions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--semantic-space-compact) var(--semantic-space-page); align-self: end; }
+.frame[data-care-directory] .cardActions a { border: 0; min-block-size: var(--semantic-size-touch); line-height: var(--semantic-type-small-line); }
+.frame[data-care-directory] .card h3 a { border: 0; padding: 0; }
+.card a:focus-visible { outline: var(--semantic-border-focus) solid var(--semantic-color-focus); outline-offset: var(--semantic-border-focus); }
+.frame[data-care-directory] .results > li { display: flex; }
+.frame[data-care-directory] .results .card { flex: 1; grid-template-rows: auto 1fr auto; }
+@media (min-width: 75rem) {
+  .frame[data-care-directory] .resultGroup .results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .frame[data-care-directory] .results > li:only-child { grid-column: 1 / -1; }
+}
+
+.card a {
+  align-items: center;
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  display: inline-flex;
+  min-block-size: var(--semantic-size-touch);
+  padding-inline: 0;
+  width: fit-content;
+}
+
 .card h3 {
-  font-size: var(--semantic-type-h3-size);
+  font-size: var(--site-lead, 1.75rem);
   line-height: var(--semantic-type-h3-line);
 }
 
 .withheld {
   color: var(--semantic-color-text-secondary);
-  font-size: var(--semantic-type-small-size);
+  font-size: var(--site-support, 1rem);
   line-height: var(--semantic-type-small-line);
 }
 
@@ -170,10 +244,33 @@
   width: fit-content;
 }
 
-.statePanel,
+.statePanel {
+  align-content: center;
+  background: var(--semantic-color-surface-raised);
+  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  border-radius: var(--semantic-radius-card);
+  display: grid;
+  gap: var(--semantic-space-regular);
+  min-block-size: 12rem;
+  padding: var(--semantic-space-section);
+}
+
+.stateActions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .support {
-  background: var(--semantic-color-surface-subtle);
-  max-inline-size: var(--semantic-size-reading);
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  display: grid;
+  gap: var(--semantic-space-regular);
+}
+
+.support a {
+  align-items: center;
+  display: inline-flex;
+  min-block-size: var(--semantic-size-touch);
 }
 
 .visuallyHidden {
@@ -186,6 +283,10 @@
 }
 
 @media (min-width: 48rem) {
+  .introduction {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  }
+
   .frame {
     padding-inline: var(--semantic-space-gutter-regular);
   }
@@ -194,14 +295,6 @@
   .support {
     margin-inline: calc(-1 * var(--semantic-space-gutter-regular));
     padding-inline: var(--semantic-space-gutter-regular);
-  }
-
-  .resultsToolbar {
-    grid-template-columns: minmax(10rem, auto) minmax(0, 1fr);
-  }
-
-  .resultsToolbar [data-active-filters] {
-    justify-self: end;
   }
 
   .results {

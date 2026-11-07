@@ -1,0 +1,30 @@
+{
+  "landscapeLastLink": {
+    "text": "Request an appointment ↗",
+    "y": 263.5,
+    "bottom": 319.09375,
+    "inViewport": true
+  },
+  "landscapeTopic": {
+    "text": "Contact & directions↗",
+    "y": 148.9375,
+    "bottom": 212.9375,
+    "inViewport": true
+  },
+  "guideCloseButton": {
+    "closed": true,
+    "focusReturned": true
+  },
+  "helpCloseButton": {
+    "closed": true,
+    "focusReturned": true
+  },
+  "directory": {
+    "title": "Find a doctor",
+    "searchY": 472.359375
+  },
+  "directoryAnchor": {
+    "scrollY": 280,
+    "searchY": 192.359375
+  }
+}

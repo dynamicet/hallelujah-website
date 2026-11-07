@@ -45,7 +45,7 @@ export async function createFoundationsPreviewServer({ port = 0 } = {}) {
       const searchParameters = Object.fromEntries([...new Set(url.searchParams.keys())]
         .map(key => [key, url.searchParams.getAll(key)]))
       const body = renderToStaticMarkup(createElement(EssentialActionsFixtureTemplate, { searchParameters, statuses }))
-      return finish(200, 'text/html; charset=utf-8', `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Controlled component specimens</title><link rel="stylesheet" href="/foundations.css"></head><body>${body}</body></html>`)
+      return finish(200, 'text/html; charset=utf-8', `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Controlled component specimens</title><link rel="stylesheet" href="/foundations.css"></head><body>${body}<script defer src="/shell-navigation.js"></script></body></html>`)
     } catch {
       return finish(500, 'text/plain', 'Controlled component preview unavailable.')
     }

@@ -154,7 +154,11 @@ try {
           targets: [...document.querySelectorAll('a[href],button,label:has(input)')].filter(el => !el.closest('[hidden]')).every(el => {
             const r = el.getBoundingClientRect(); return (r.width === 0 && r.height === 0) || (r.width >= 43.5 && r.height >= 43.5);
           }),
-          anchors: [...document.querySelectorAll('a[href]')].every(a => a.getAttribute('href').startsWith('#') && !!document.getElementById(a.hash.slice(1))),
+          anchors: [...document.querySelectorAll('a[href]')].every(a => {
+            const href = a.getAttribute('href');
+            // An empty fragment navigates to the top; named fragments need a target.
+            return href === '#' || (href.startsWith('#') && !!document.getElementById(a.hash.slice(1)));
+          }),
           currentAppointment: !!document.querySelector('[data-primary-navigation] [aria-current="page"]'),
           activeContacts: document.querySelectorAll('a[href^="tel:"],a[href^="mailto:"],a[href^="http"]').length,
           externalElements: document.querySelectorAll('iframe,img,video,textarea').length,
@@ -179,7 +183,8 @@ try {
           : ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7'], label)
         assert.equal(result.headingOrder[0], 1, label)
         assert.ok(result.headingOrder.slice(1).every((level, index) => level <= result.headingOrder[index] + 1), label)
-        if (capability !== 'no-css') assert.equal(result.targets, true, `${label}: ${JSON.stringify(await evaluate(`
+        // Printed controls are not interactive touch targets.
+        if (!['no-css', 'print'].includes(capability)) assert.equal(result.targets, true, `${label}: ${JSON.stringify(await evaluate(`
           [...document.querySelectorAll('a[href],button,label:has(input)')].filter(el => !el.closest('[hidden]')).map(el => {
             const r = el.getBoundingClientRect(); return { text: el.textContent?.trim().slice(0, 80), width: r.width, height: r.height };
           }).filter(r => (r.width || r.height) && (r.width < 43.5 || r.height < 43.5))
@@ -195,7 +200,7 @@ try {
         assert.match(result.text, /Patient Experience Team/u, label)
         assert.match(result.languageReason, /This page is unavailable in Amharic/u, label)
         assert.doesNotMatch(result.text, /WhatsApp|Telegram|response within|we will call/iu, label)
-        assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin)), label)
+        assert.ok(!requests.slice(requestStart).some((url) => !url.startsWith(server.origin) && !url.startsWith('data:')), label)
         if (capability === 'no-js' && !unavailable) assert.equal(result.submitDisabled, true, label)
         if (state === 'receipt') {
           assert.deepEqual(result.visibleStates, ['warning'], label)
@@ -268,7 +273,7 @@ try {
   const tree = await send('Accessibility.getFullAXTree')
   const nodes = tree.nodes.filter((node) => !node.ignored)
   for (const heading of ['Request an appointment', 'Do not use this form for emergency help',
-    'Request details', 'Before continuing', 'Review your details']) {
+    'Request details', 'Your privacy', 'Review your details']) {
     assert.ok(nodes.some((node) => node.role?.value === 'heading' && node.name?.value === heading), heading)
   }
   cases.push({ capability: 'accessibility-tree-form-structure', passed: true, state: 'controlled', width: 360 })

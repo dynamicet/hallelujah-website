@@ -1,0 +1,31 @@
+Full-width hero refinement — 30 October 2026
+
+Client direction: retain the whole-life narrative and restore the earlier full-width
+photographic hero. No new direction draw or image generation was needed.
+
+The original consultation scene now carries the headline and care actions on desktop.
+A native picture source uses the tighter encounter crop below 900px. On compact
+screens the text and appointment action precede the image. Portrait, book detail and
+encounter now appear together in the cyan story below. Existing interactions remain.
+
+ROUND 1
+Seen first: an attentive clinical encounter with a clear invitation into care.
+Layouts: opening=full-width scene; discovery=search/selector; story=three views;
+team=directory; preparation=questions; arrival=information; footer=signature.
+Reviewed all screenshot folds and full-page sheets at 1440, 768 and 390 pixels.
+Design judgment: design 7.5; usability 8.5; creativity 7.5; content 6.5.
+The opening establishes hospital context immediately; the story then gives the
+person a presence outside the encounter. Existing illustrative clinical and arrival
+information still limits content assessment.
+
+Visual inspector: zero FAIL at all three viewports. Warnings concern existing
+functional selector rows, the established type range, and footage intentionally
+deferred until activation. TypeScript and lint passed. No claim of full repository
+verification or measured field performance.
+
+Connected demo regression passed all 20 route/journey groups, with no browser
+errors, warnings, unexpected failed loads or HTTP errors. Existing search,
+appointment handoff, deferred film, focus restoration and no-JavaScript checks pass.
+
+Reproduce: node /home/befikadusata/.codex/skills/design-taste-frontend/scripts/inspect.mjs
+http://localhost:3000 --out artifacts/whole-life-cinematic --json

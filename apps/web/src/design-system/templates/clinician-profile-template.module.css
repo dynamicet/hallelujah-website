@@ -10,11 +10,19 @@
 .review,
 .support,
 .statePanel {
-  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
   display: grid;
   gap: var(--semantic-space-regular);
   min-inline-size: 0;
   padding-block: var(--semantic-space-section);
+}
+
+.introduction {
+  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  padding-block: var(--semantic-space-surface);
+}
+
+.editorialColumn .section + .section {
+  border-block-start: 0;
 }
 
 .contentLayout,
@@ -30,6 +38,42 @@
 
 .contentLayout {
   gap: var(--semantic-space-section);
+}
+
+.profileNavigation {
+  align-items: center;
+  border-block-end: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--semantic-space-compact) var(--semantic-space-page);
+  margin-block-end: var(--semantic-space-section);
+  padding-block-end: var(--semantic-space-regular);
+}
+
+.profileNavigation a {
+  align-items: center;
+  color: var(--semantic-color-action-primary);
+  display: inline-flex;
+  font-size: var(--site-support, 1rem);
+  font-weight: var(--semantic-font-weight-strong);
+  gap: var(--semantic-space-compact);
+  min-block-size: var(--semantic-size-touch);
+  text-decoration-thickness: var(--semantic-border-default);
+  text-underline-offset: 0.3em;
+}
+
+.profileNavigation a:hover {
+  text-decoration-thickness: var(--semantic-border-emphasis);
+}
+
+.profileNavigation a:focus-visible,
+.frame h2[tabindex='-1']:focus-visible {
+  outline: var(--semantic-border-focus) solid var(--semantic-color-focus);
+  outline-offset: var(--semantic-border-focus);
+}
+
+.frame h2[id] {
+  scroll-margin-block-start: var(--semantic-space-page);
 }
 
 .introduction > *,
@@ -55,9 +99,24 @@
   min-inline-size: 0;
 }
 
+.identity {
+  max-inline-size: var(--semantic-size-reading);
+}
+
+.identity > a:not(.primaryLink) {
+  justify-self: start;
+  padding-inline: 0;
+  text-align: start;
+}
+
+.introCopy {
+  font-size: var(--site-intro, 1.25rem);
+  line-height: var(--semantic-type-body-large-line);
+}
+
 .eyebrow {
   color: var(--semantic-color-text-secondary);
-  font-size: var(--semantic-type-small-size);
+  font-size: var(--site-support, 1rem);
   font-weight: var(--semantic-font-weight-strong);
   letter-spacing: var(--semantic-type-eyebrow-tracking);
   line-height: var(--semantic-type-small-line);
@@ -65,7 +124,7 @@
 }
 
 .professionalTitle {
-  font-size: var(--semantic-type-body-large-size);
+  font-size: var(--site-intro, 1.25rem);
   line-height: var(--semantic-type-body-large-line);
 }
 
@@ -86,33 +145,19 @@
   padding: var(--semantic-space-fine) var(--semantic-space-compact);
 }
 
-.portraitFallback {
-  align-items: center;
-  aspect-ratio: 4 / 3;
-  background: var(--semantic-color-surface-subtle);
-  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  border-radius: var(--semantic-radius-card);
-  color: var(--semantic-color-text-secondary);
-  display: flex;
-  justify-content: center;
-  inline-size: 100%;
-  max-inline-size: 22rem;
-  min-block-size: min(10rem, 45vw);
-}
-
 .fixtureNotice,
 .requestPanel,
 .review,
 .support,
 .statePanel,
 .stateMessage {
-  border: var(--semantic-border-emphasis) solid currentColor;
   border-radius: var(--semantic-radius-card);
   padding: var(--semantic-space-page);
 }
 
 .fixtureNotice {
   background: var(--semantic-color-surface-warning);
+  border: var(--semantic-border-emphasis) solid currentColor;
   color: var(--semantic-color-text-warning);
   grid-column: 1 / -1;
 }
@@ -125,7 +170,37 @@
 }
 
 .requestPanel {
-  border-block-start-color: var(--semantic-color-text-warning);
+  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-cool);
+  padding: var(--semantic-space-page);
+}
+
+.requestPanel h2 {
+  font-size: var(--site-lead, 1.75rem);
+  line-height: var(--semantic-type-h3-line);
+}
+
+.selectedDoctor {
+  border-block: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  padding-block: var(--semantic-space-compact);
+}
+
+.primaryLink {
+  background: var(--semantic-color-action-primary);
+  border-radius: var(--semantic-radius-control);
+  color: var(--semantic-color-action-on-solid);
+  font-size: var(--site-support, 1rem);
+  font-weight: var(--site-action-weight);
+  justify-self: start;
+  text-decoration: none;
+}
+
+.primaryLink:hover {
+  background: var(--semantic-color-action-primary-hover);
+  color: var(--semantic-color-action-on-solid);
+}
+.primaryLink:active { background: var(--site-action-active); }
+@media (max-width: 599px) {
+  .primaryLink { inline-size: 100%; }
 }
 
 .relatedServices {
@@ -133,6 +208,24 @@
   border-radius: var(--semantic-radius-card);
   margin-block: var(--semantic-space-section);
   padding-inline: var(--semantic-space-page);
+}
+
+.relatedServices h2 {
+  margin-block-end: var(--semantic-space-compact);
+}
+
+.reviewNote {
+  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
+  color: var(--semantic-color-text-secondary);
+  display: grid;
+  gap: var(--semantic-space-compact);
+  max-inline-size: var(--semantic-size-reading);
+  padding-block: var(--semantic-space-page);
+}
+
+.reviewNote h2 {
+  font-size: var(--site-lead, 1.75rem);
+  line-height: var(--semantic-type-h3-line);
 }
 
 .review {
@@ -150,6 +243,7 @@
 
 .stateMessage {
   background: var(--semantic-color-surface-information);
+  border: var(--semantic-border-default) solid currentColor;
   color: var(--semantic-color-text-information);
 }
 
@@ -192,8 +286,13 @@
 
 .serviceList span {
   color: var(--semantic-color-text-secondary);
-  font-size: var(--semantic-type-small-size);
+  font-size: var(--site-support, 1rem);
   line-height: var(--semantic-type-small-line);
+}
+
+.serviceList a {
+  justify-self: start;
+  padding-inline: 0;
 }
 
 @media (min-width: 48rem) {
@@ -203,7 +302,7 @@
 
   .introduction {
     align-items: start;
-    grid-template-columns: minmax(0, 1.4fr) minmax(14rem, 0.6fr);
+    grid-template-columns: minmax(13rem, 0.6fr) minmax(0, 1.4fr);
   }
 
   .serviceList {
@@ -217,8 +316,14 @@
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.42fr);
   }
 
+  .railOnly { grid-template-columns: minmax(0, 1fr); }
+
   .requestRail {
-    padding-block-start: var(--semantic-space-section);
+    padding-block-start: var(--semantic-space-regular);
+  }
+
+  .railOnly .requestRail {
+    max-inline-size: var(--semantic-size-reading);
   }
 
   .requestPanel {
@@ -250,7 +355,6 @@
 }
 
 @media (forced-colors: active) {
-  .portraitFallback,
   .fixtureNotice,
   .requestPanel,
   .review,
@@ -282,7 +386,6 @@
     padding-block: var(--semantic-space-regular);
   }
 
-  .portraitFallback,
   .fixtureNotice,
   .requestPanel,
   .review,
@@ -297,3 +400,13 @@
     color: CanvasText;
   }
 }
+
+.introduction > [data-clinician-portrait] { display: block; width: 220px; height: 240px; object-fit: contain; object-position: center bottom; background: var(--site-pale); }
+.portraitDisclosure { font-size: var(--site-support, 1rem); line-height: 1.5; }
+@media (max-width: 599px) { .introduction > [data-clinician-portrait] { width: 100px; height: 100px; } }
+
+.serviceContext { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-block: 24px; padding: 24px; border: 1px solid var(--semantic-color-border-default); border-inline-start: 3px solid var(--semantic-color-action-primary); background: var(--semantic-color-surface-subtle); }
+.serviceContext p { margin: 0; line-height: 1.6; }
+.serviceContext strong { display: block; margin-block: 4px; font-size: 1.25rem; color: var(--semantic-color-text-heading); }
+.serviceContext a { color: var(--semantic-color-text-link); }
+.serviceContext a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }

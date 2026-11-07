@@ -50,7 +50,9 @@ for (const state of appointmentPageFixtureStates) {
   }
 
   if (state === 'validation') {
-    assert.match(html, /id="appointment-error-summary"[^>]*role="alert"/u, state)
+    // The controller focuses the heading; a simultaneous alert would announce it twice.
+    assert.match(html, /id="appointment-error-summary"[^>]*role="group"/u, state)
+    assert.match(html, /id="appointment-error-summary-heading" tabindex="-1"/u, state)
     assert.doesNotMatch(html, /id="appointment-error-summary"[^>]*hidden/u, state)
     assert.match(html, /<input(?=[^>]*id="phone")(?=[^>]*aria-invalid="true")[^>]*>/u, state)
     assert.match(html, /<input(?=[^>]*id="privacy-acknowledged")(?=[^>]*aria-invalid="true")[^>]*>/u, state)

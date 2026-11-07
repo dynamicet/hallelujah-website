@@ -1,0 +1,10 @@
+[
+  "Automatic sliding",
+  "Pause and manual next/previous",
+  "Expand/collapse retains all 19 records",
+  "Keyboard focus pauses sliding",
+  "Hover pauses sliding",
+  "Reduced motion disables automatic sliding",
+  "Without JavaScript, all 19 partners remain in a native scrollable list",
+  "No page overflow at four standard widths; partner controls fit at 200% root-font size"
+]

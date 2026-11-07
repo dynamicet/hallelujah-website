@@ -1,0 +1,62 @@
+[
+  {
+    "file": "hallelujah-home-loop-mobile-poster.webp",
+    "bytes": 18924,
+    "codec": "webp",
+    "width": 540,
+    "height": 960,
+    "duration": null,
+    "audio_streams": 0,
+    "decode": "pass"
+  },
+  {
+    "file": "hallelujah-home-loop-mobile.mp4",
+    "bytes": 2117353,
+    "codec": "h264",
+    "width": 540,
+    "height": 960,
+    "duration": "18.000000",
+    "audio_streams": 0,
+    "decode": "pass"
+  },
+  {
+    "file": "hallelujah-home-loop-mobile.webm",
+    "bytes": 1123590,
+    "codec": "vp9",
+    "width": 540,
+    "height": 960,
+    "duration": "18.000000",
+    "audio_streams": 0,
+    "decode": "pass"
+  },
+  {
+    "file": "hallelujah-home-loop-poster.webp",
+    "bytes": 57738,
+    "codec": "webp",
+    "width": 1920,
+    "height": 1080,
+    "duration": null,
+    "audio_streams": 0,
+    "decode": "pass"
+  },
+  {
+    "file": "hallelujah-home-loop.mp4",
+    "bytes": 7489653,
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "duration": "18.000000",
+    "audio_streams": 0,
+    "decode": "pass"
+  },
+  {
+    "file": "hallelujah-home-loop.webm",
+    "bytes": 2743404,
+    "codec": "vp9",
+    "width": 1920,
+    "height": 1080,
+    "duration": "18.000000",
+    "audio_streams": 0,
+    "decode": "pass"
+  }
+]

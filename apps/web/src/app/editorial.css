@@ -1,0 +1,16 @@
+/* Close to home: public website presentation theme. */
+@font-face { font-family: Lato; src: url('/editorial/Lato-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Lato; src: url('/editorial/Lato-Bold.ttf') format('truetype'); font-weight: 600 900; font-display: swap; }
+@font-face { font-family: Editorial; src: url('/editorial/FreeSerif.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Ethiopic; src: url('/editorial/NotoSansEthiopic-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+:root {
+ --primitive-font-family-latin: Lato, Ethiopic, sans-serif;
+ --primitive-font-family-ethiopic: Ethiopic, Lato, sans-serif;
+ --primitive-radius-control: .3rem;
+ --primitive-radius-card: .4rem;
+}
+body :where(h1, h2) { font-family: Editorial, Ethiopic, serif; font-weight: 400; letter-spacing: -.035em; line-height: 1.08; }
+body h1 { font-size: clamp(2.75rem, 4.8vw, 4.75rem); }
+body h2 { font-size: clamp(2rem, 3.2vw, 3.25rem); }
+body :where(button, a) { transition: background-color 180ms ease, color 180ms ease; }
+@media (prefers-reduced-motion: reduce) { body :where(button, a) { transition: none; } }

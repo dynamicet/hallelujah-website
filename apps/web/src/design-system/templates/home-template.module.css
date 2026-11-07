@@ -57,13 +57,23 @@
 }
 
 .search {
-  background: var(--semantic-color-surface-raised);
-  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  background: var(--semantic-color-surface-information);
   border-radius: var(--semantic-radius-card);
   margin-block: var(--semantic-space-gutter-regular);
   padding: var(--semantic-space-surface);
 }
+
+.searchIntroduction { max-inline-size: var(--semantic-size-reading); }
+.searchIntroduction > * { margin-block: 0 var(--semantic-space-compact); }
+.searchForm { display: flex; flex-wrap: wrap; align-items: end; gap: var(--semantic-space-regular); margin-block-start: var(--semantic-space-regular); }
+.searchField { flex: 1 1 22rem; min-inline-size: 0; }
+.searchField label { display: block; font-weight: var(--semantic-font-weight-strong); margin-block-end: var(--semantic-space-compact); }
+.searchField input { background: var(--semantic-color-surface-raised); border: var(--semantic-border-default) solid var(--semantic-color-border-default); border-radius: var(--semantic-radius-control); color: var(--semantic-color-text-primary); font: inherit; inline-size: 100%; min-block-size: 48px; padding-inline: var(--semantic-space-regular); }
+.searchField input:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 2px; }
+.searchField p { color: var(--semantic-color-text-secondary); font-size: var(--semantic-type-small-size); margin-block: var(--semantic-space-compact) 0; }
+.searchForm button { background: var(--semantic-color-action-primary); border: 0; border-radius: var(--semantic-radius-control); color: var(--semantic-color-action-on-solid); cursor: pointer; font: inherit; font-weight: var(--semantic-font-weight-strong); min-block-size: 48px; padding-inline: var(--semantic-space-surface); }
+.searchForm button:hover { background: var(--semantic-color-action-primary-hover); }
+.searchForm button:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 2px; }
 
 .media {
   min-inline-size: 0;
@@ -90,25 +100,13 @@
 
 .contactContent { min-inline-size: 0; }
 
-.arrivalPlane {
-  background: var(--semantic-color-surface-subtle);
-  border: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  border-radius: var(--semantic-radius-card);
-  min-block-size: 14rem;
-  position: relative;
-  overflow: hidden;
-}
+.arrivalPlane { display: none; }
 
-.arrivalPlane::before,
-.arrivalPlane::after {
-  border: var(--semantic-border-emphasis) solid var(--semantic-color-action-primary);
-  border-radius: 50%;
-  content: '';
-  position: absolute;
-}
-
-.arrivalPlane::before { inline-size: 12rem; block-size: 12rem; inset: -3rem auto auto -2rem; }
-.arrivalPlane::after { inline-size: 6rem; block-size: 6rem; inset: auto 2rem 1.5rem auto; border-color: var(--semantic-color-brand-warm); }
+.arrivalRoute { border-inline-start: .6rem solid var(--semantic-color-action-primary); border-radius: 50%; block-size: 75%; inline-size: 40%; inset: 12% auto auto 30%; position: absolute; transform: rotate(-18deg); }
+.arrivalStation { align-items: center; background: var(--semantic-color-surface-raised); border: var(--semantic-border-emphasis) solid var(--semantic-color-action-primary); border-radius: 50%; color: var(--semantic-color-text-primary); display: flex; font-size: var(--semantic-type-small-size); font-weight: var(--semantic-font-weight-strong); inline-size: 5.5rem; block-size: 5.5rem; justify-content: center; position: absolute; }
+.arrivalStationFirst { inset: 14% auto auto 15%; }
+.arrivalStationSecond { inset: 43% 15% auto auto; border-color: var(--semantic-color-brand-warm); }
+.arrivalStationThird { inset: auto auto 9% 22%; }
 
 .sectionHeading { max-inline-size: var(--semantic-size-reading); }
 
@@ -129,6 +127,7 @@
 }
 
 .visitCard > * { margin: 0; }
+.visitCard a { align-self: end; display: inline-flex; min-block-size: 44px; align-items: center; }
 .stage { color: var(--semantic-color-text-secondary); font-size: var(--semantic-type-small-size); font-weight: var(--semantic-font-weight-strong); text-transform: uppercase; }
 
 .supportBand {
@@ -168,6 +167,7 @@
   .heroCopy { grid-column: 1; grid-row: 1; }
   .visitGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .contact { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .85fr); gap: var(--semantic-space-surface); }
+  .arrivalPlane { display: block; background: var(--semantic-color-surface-subtle); border-radius: var(--semantic-radius-card); min-block-size: 14rem; position: relative; overflow: hidden; }
 }
 
 @media (min-width: 64rem) {
@@ -195,3 +195,54 @@
   .taskSection, .search, .story, .contact, .supportBand { background: transparent; }
   .tasks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Close to home: scale, open patient routes, and a distinct visit chapter. */
+.frame { max-inline-size: 89.5rem; }
+.introduction { padding-block: 4.5rem; gap: 3.5rem; position: relative; }
+.introduction::before { content: ''; position: absolute; inset: 0 calc((100vw - 100%) / -2); background: var(--semantic-color-surface-page); z-index: -1; }
+.introduction { isolation: isolate; }
+.heroCopy h1 { font-size: clamp(3.5rem, 6.1vw, 5.5rem); max-inline-size: 8.5ch; line-height: 1.02; }
+.heroCopy .description { max-inline-size: 27rem; font-size: 1.2rem; color: var(--semantic-color-text-secondary); margin-block: 1.75rem; }
+.wayfinding { block-size: 0; overflow: hidden; margin: 0; }
+.eyebrow { color: var(--semantic-color-text-secondary); font-weight: 400; font-size: .9rem; }
+.heroCopy > [data-protected-context] { margin-block-start: 1.25rem; }
+.taskSection { padding: 2rem 0; background: transparent; border-radius: 0; border-block-end: 1px solid var(--semantic-color-border-default); }
+.taskSection h2 { font-family: Lato, sans-serif; font-size: 1.1rem; font-weight: 700; }
+.tasks { margin-block-start: 1rem; gap: 0; }
+.tasks li + li { border-inline-start: 1px solid var(--semantic-color-border-default); }
+.search { background: transparent; border-radius: 0; padding: 3rem 0 1rem; display: grid; gap: 1rem 3rem; }
+.searchForm { margin: 0; }
+.searchField label { font-size: .9rem; }
+.searchField p { font-size: .875rem; }
+.visit { background: var(--semantic-color-surface-supporting); border-radius: 0; padding: 3.5rem 2.5rem; margin-block: 1rem 3rem; display: grid; gap: 2rem 4rem; align-items: center; }
+.visit .sectionHeading h2 { max-inline-size: 15ch; margin-block-start: 1rem; }
+.visitGrid { display: grid; grid-template-columns: 1fr; margin: 0; gap: 0; background: var(--semantic-color-surface-raised); padding: .75rem 2rem; border-radius: .4rem; }
+.visitCard { background: transparent; border: 0; border-radius: 0; padding: 1.5rem 0; }
+.visitCard + .visitCard { border-block-start: 1px solid var(--semantic-color-border-default); }
+.visitCard h3 { font-size: 1.2rem; }
+.stage { text-transform: none; color: var(--semantic-color-accent-supporting-text); }
+.contact { background: var(--semantic-color-surface-subtle); border: 0; padding: 2.5rem; margin-block: 0 3rem; }
+.arrivalPlane { background: var(--semantic-color-surface-page); }
+.supportBand.supportBand { background: var(--semantic-color-surface-inverse); border: 0; border-radius: 0; padding: 3.5rem; margin-block: 0; gap: 2rem; }
+.supportBand.supportBand h2, .supportBand.supportBand p { color: var(--semantic-color-text-inverse); }
+.supportBand h2 { max-inline-size: 20ch; margin-block-end: 1rem; }
+.supportBand a { background: var(--semantic-color-surface-raised); color: var(--semantic-color-text-heading); }
+@media (min-width: 54rem) {
+ .introduction { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-block-size: 38rem; }
+ .search { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); align-items: center; }
+ .visit { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 47.99rem) {
+ .introduction { padding-block: 2.5rem; gap: 2rem; }
+ .heroCopy h1 { font-size: clamp(3.25rem, 12vw, 4.5rem); }
+ .tasks { grid-template-columns: 1fr; }
+ .tasks li + li { border-inline-start: 0; border-block-start: 1px solid var(--semantic-color-border-default); }
+ .visit, .contact { padding: 1.5rem; }
+ .supportBand.supportBand { padding: 2rem 1.5rem; }
+ .visitGrid { padding-inline: 1.25rem; }
+}
+
+.frame { inline-size: min(1240px, calc(100% - 96px)); max-inline-size: none; padding-inline: 0; }
+.visit .sectionHeading h2 { max-inline-size: 18ch; }
+.supportBand.supportBand { display: flex; }
+@media (max-width: 47.99rem) { .frame { inline-size: calc(100% - 32px); } }

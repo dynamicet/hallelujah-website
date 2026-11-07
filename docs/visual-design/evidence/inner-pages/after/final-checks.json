@@ -1,0 +1,22 @@
+[
+  "/doctors at 1440×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors/synthetic-clinician-101010101010/ at 1440×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors at 768×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors/synthetic-clinician-101010101010/ at 768×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors at 390×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors/synthetic-clinician-101010101010/ at 390×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors at 320×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors/synthetic-clinician-101010101010/ at 320×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors at 1024×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors/synthetic-clinician-101010101010/ at 1024×900: one title, no overflow, final control labels, equal directory margins",
+  "/doctors at 390×568: one title, no overflow, final control labels, equal directory margins",
+  "/doctors/synthetic-clinician-101010101010/ at 390×568: one title, no overflow, final control labels, equal directory margins",
+  "/doctors: reflow at a 720×450 CSS viewport (1440px desktop at 200% zoom equivalent)",
+  "/services: reflow at a 720×450 CSS viewport (1440px desktop at 200% zoom equivalent)",
+  "/patients-visitors: reflow at a 720×450 CSS viewport (1440px desktop at 200% zoom equivalent)",
+  "/news-resources: reflow at a 720×450 CSS viewport (1440px desktop at 200% zoom equivalent)",
+  "/appointment: reflow at a 720×450 CSS viewport (1440px desktop at 200% zoom equivalent)",
+  "/emergency: reflow at a 720×450 CSS viewport (1440px desktop at 200% zoom equivalent)",
+  "Reduced motion: all enhanced directory content visible",
+  "Failed portrait: initials fallback retains clinician identity and appointment action"
+]

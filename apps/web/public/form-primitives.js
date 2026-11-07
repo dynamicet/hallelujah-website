@@ -42,7 +42,12 @@
     failure.hidden = true
     for (const contract of errorContracts) {
       contract.control.removeAttribute('aria-invalid')
-      if (contract.error instanceof HTMLElement) contract.error.hidden = true
+      if (contract.error instanceof HTMLElement) {
+        contract.error.hidden = true
+        const descriptions = (contract.control.getAttribute('aria-describedby') || '').split(/\s+/u).filter(id => id && id !== contract.error.id)
+        if (descriptions.length) contract.control.setAttribute('aria-describedby', descriptions.join(' '))
+        else contract.control.removeAttribute('aria-describedby')
+      }
     }
 
     form.setAttribute('aria-busy', 'true')
@@ -58,7 +63,12 @@
       if (invalidContracts.length > 0) {
         for (const contract of invalidContracts) {
           contract.control.setAttribute('aria-invalid', 'true')
-          if (contract.error instanceof HTMLElement) contract.error.hidden = false
+          if (contract.error instanceof HTMLElement) {
+            contract.error.hidden = false
+            const descriptions = new Set((contract.control.getAttribute('aria-describedby') || '').split(/\s+/u).filter(Boolean))
+            descriptions.add(contract.error.id)
+            contract.control.setAttribute('aria-describedby', [...descriptions].join(' '))
+          }
         }
         summary.hidden = false
         summary.focus()

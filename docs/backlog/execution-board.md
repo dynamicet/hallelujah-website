@@ -1922,3 +1922,62 @@ issue closure. These hosted checks remain pending at acceptance recording. Depen
 waits for passing exact-main CI; B04-013 is not promoted. Authentic taxonomy/claims, clinical and
 language approvals, patient comprehension, human assistive-technology acceptance, production
 and publication remain gated.
+
+
+## Connected local first demo — 20 October 2026
+
+The client directed a new branch and connection of already implemented pages for a
+first demo. Branch `feat/connected-demo-routes` connects Home, clinician directory,
+matching clinician profiles, service directory, Emergency and Appointment through
+normal Next development routes. This explicitly permits fictional presentation
+snapshots on these local demo routes and supersedes the earlier route-absence
+assertions at this development boundary only. The additional routes require
+`NODE_ENV=development`; production requests remain 404 and robots remain noindex.
+Real collection, calls, providers, content approvals and publication remain disabled.
+
+The snapshot contains projected fictional views, not CMS workflow documents or
+runtime imports of review scripts. Existing template defaults retain inert review
+behavior; linked profiles and appointment handoff are opt-in props used by the demo.
+The route/journey regression is `node scripts/check-demo-routes.mjs` against
+`pnpm dev`. This integration does not complete B04-013 or later unimplemented pages,
+advance production acceptance, or authorize publishing the demo.
+
+Verification: lint, type checking, format policy, production build, content-build
+isolation, architecture/environment checks, local links and backlog integrity pass.
+The connected browser regression passes all 10 route/journey groups, including mobile
+navigation, matching doctor handoff, no-JavaScript search and disabled collection.
+Production runtime smoke confirms all added demo routes return 404 and the appointment
+API remains unavailable. The broader `pnpm test` run passes the journey/content checks
+but stops in asset-format fixtures because this environment lacks Python `fontTools`;
+full-suite success is not claimed. Development CSP explicitly permits Next development
+scripts; production CSP remains unchanged.
+
+
+## Client-facing copy and hydration correction — 20 October 2026
+
+The client requested an inventory followed by removal of development messaging from
+the connected website. The inventory identified the shared Demo/Fictional banner,
+home search copy, language-menu copy, nine clinician names and three specialties,
+ten service names and three groups, service scope/search fixture text, appointment
+introduction/warning copy, and emergency fixture instructions throughout contacts,
+arrival, scope, support and map sections. Next's floating development indicator was
+also removed. Internal fixture IDs and dedicated review tools remain unchanged.
+
+Presentation names are cleaned during snapshot export so regeneration retains the
+change. Empty service descriptions are omitted. Emergency uses the existing
+unavailable state instead of showing fictional numbers, addresses or directions.
+Essential appointment/privacy and unavailable-action messages remain; requests,
+calls and production routes stay gated. All content and information still require
+verification before public release; this caveat belongs here, not in the UI.
+
+The browser reproduced hydration mismatches from the shell and motion scripts
+mutating HTML attributes and the home accent before React hydration. These scripts
+now wait for a post-hydration signal on Next pages, while standalone previews keep
+immediate enhancement. No hydration warnings are suppressed. Browser regression
+now detects hydration console errors as well as exceptions and checks rendered
+page/profile text for development labels.
+
+Validation: connected browser regression (10 journey groups), lint, type checking,
+format policy, production build, content-build isolation, architecture checks, and home, shell, emergency,
+appointment and service-directory template contracts passed. The full suite was not rerun; the previously documented fontTools
+environment limitation remains.

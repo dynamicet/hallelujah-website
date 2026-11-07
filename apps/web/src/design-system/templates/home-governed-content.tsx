@@ -51,7 +51,7 @@ export function HomeGovernedContent(props: HomeGovernedContentProps) {
             <article className={`${styles.directoryCard} ${styles.card}`}>
               <h3>View all services</h3>
               <p>Browse the service directory.</p>
-              <ActionLink href="#home-service" label="Explore services" variant="tertiary" />
+              <ActionLink href="#home-service" label="View all services" variant="tertiary" />
             </article>
           </div>
         </section>

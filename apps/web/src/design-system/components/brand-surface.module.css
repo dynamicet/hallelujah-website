@@ -1,0 +1,84 @@
+.surface {
+  --component-context-accent: var(--semantic-color-action-primary);
+  --component-context-heading: var(--semantic-color-text-heading);
+  --component-context-action-background: var(--component-action-primary-background);
+  --component-context-action-hover: var(--component-action-primary-background-hover);
+  --component-context-action-active: var(--component-action-primary-background-active);
+  --component-context-action-foreground: var(--component-action-primary-foreground);
+  --component-context-secondary-background: transparent;
+  --component-context-secondary-hover: var(--semantic-color-surface-selected);
+  --component-context-link: var(--semantic-color-text-link);
+  --component-context-boundary: var(--semantic-color-text-link);
+  --component-context-focus: var(--semantic-color-focus);
+  --component-context-focus-gap: var(--semantic-color-surface-page);
+  --component-context-muted: var(--semantic-color-text-secondary);
+  background: var(--semantic-color-surface-page);
+  color: var(--semantic-color-text-primary);
+  display: grid;
+  gap: var(--semantic-space-page);
+  min-inline-size: 0;
+  padding: var(--semantic-space-gutter-wide);
+  position: relative;
+}
+
+.surface[data-brand-tone='white'] { background: var(--semantic-color-surface-raised); }
+.surface[data-brand-tone='mist'] { background: var(--semantic-color-surface-subtle); }
+.surface[data-brand-tone='supporting'] { background: var(--semantic-color-surface-supporting); }
+.surface[data-brand-tone='expressive'] { background: var(--semantic-color-surface-expressive); }
+
+.surface :where(h2, h3, h4) { color: var(--component-context-heading); }
+.surface :where(p, h2, h3, h4) { margin: 0; }
+.surface > :where(a, button) { justify-self: start; }
+
+.surface[data-brand-accent='orange'] { --component-context-accent: var(--semantic-color-accent-supporting); }
+.surface[data-brand-accent='magenta'] { --component-context-accent: var(--semantic-color-accent-expressive); }
+.surface:not([data-brand-accent='none'])[data-brand-detail='rule'] {
+  border-inline-start: 4px solid var(--component-context-accent);
+}
+.surface:not([data-brand-accent='none'])[data-brand-detail='frame'] {
+  border: 2px solid var(--semantic-color-text-link);
+  border-block-end: 6px solid var(--component-context-accent);
+}
+.surface:not([data-brand-accent='none'])[data-brand-detail='corner']::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 12px;
+  inset-inline-end: 12px;
+  inline-size: 24px;
+  block-size: 24px;
+  border-block-start: 4px solid var(--component-context-accent);
+  border-inline-end: 4px solid var(--component-context-accent);
+  pointer-events: none;
+}
+
+.surface[data-brand-tone='inverse'] {
+  --component-context-heading: var(--semantic-color-text-inverse);
+  --component-context-action-background: var(--semantic-color-surface-raised);
+  --component-context-action-hover: var(--semantic-color-surface-selected);
+  --component-context-action-active: var(--semantic-color-text-inverse-accent);
+  --component-context-action-foreground: var(--semantic-color-text-heading);
+  --component-context-secondary-hover: var(--semantic-color-action-primary-hover);
+  --component-context-link: var(--semantic-color-text-inverse);
+  --component-context-boundary: var(--semantic-color-border-inverse);
+  --component-context-focus: var(--semantic-color-text-inverse);
+  --component-context-focus-gap: var(--semantic-color-surface-inverse);
+  --component-context-muted: var(--semantic-color-text-inverse-muted);
+  background: var(--semantic-color-surface-inverse);
+  color: var(--semantic-color-text-inverse);
+}
+
+.card {
+  border-radius: var(--semantic-radius-card);
+  padding: var(--semantic-space-page);
+  align-content: start;
+}
+@media (max-width: 40rem) {
+  .surface { padding: var(--semantic-space-page); }
+}
+@media (forced-colors: active) {
+  .surface { border: var(--semantic-border-default) solid CanvasText; }
+}
+@media print {
+  .surface { background: transparent; color: CanvasText; break-inside: avoid; }
+  .surface :where(h2, h3, h4) { color: CanvasText; }
+}

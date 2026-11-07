@@ -1,0 +1,159 @@
+/* Shared motion vocabulary. Content is visible without JavaScript or animation. */
+:root {
+  --motion-fast: 160ms;
+  --motion-change: 240ms;
+  --motion-enter: 480ms;
+  --motion-image: 620ms;
+  --motion-stagger: 70ms;
+  --motion-distance: 12px;
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --motion-ease-change: cubic-bezier(.2, 0, .2, 1);
+}
+@media (max-width: 599px) {
+  :root {
+    --motion-enter: 380ms;
+    --motion-image: 480ms;
+    --motion-stagger: 45ms;
+    --motion-distance: 8px;
+  }
+}
+@keyframes website-enter {
+  from { opacity: .65; transform: translateY(var(--motion-distance)); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes website-image-enter {
+  from { opacity: .8; clip-path: inset(3% 2% 0 round var(--site-image-radius)); }
+  to { opacity: 1; clip-path: inset(0 round var(--site-image-radius)); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .website-entered {
+    animation: website-enter var(--motion-enter) var(--motion-ease) backwards;
+    animation-delay: calc(var(--motion-step, 0) * var(--motion-stagger));
+  }
+  .website-entered[data-motion="image"] {
+    animation-name: website-image-enter;
+    animation-duration: var(--motion-image);
+  }
+  [data-motion-disclosure] > summary span {
+    transition: transform var(--motion-change) var(--motion-ease-change);
+  }
+  /* A native, interruptible open AND close transition. Unsupported browsers keep
+     fully functional native details; no height measurements or scroll handlers. */
+  @supports (interpolate-size: allow-keywords) and (transition-behavior: allow-discrete) {
+    [data-motion-disclosure] { interpolate-size: allow-keywords; }
+    [data-motion-disclosure]::details-content {
+      block-size: 0;
+      overflow: clip;
+      opacity: 0;
+      transition: block-size var(--motion-change) var(--motion-ease-change),
+        opacity var(--motion-fast) ease,
+        content-visibility var(--motion-change) allow-discrete;
+    }
+    [data-motion-disclosure][open]::details-content {
+      block-size: auto;
+      opacity: 1;
+    }
+  }
+}
+/* Avoid competing legacy entrances on the same disclosure. */
+.enhanced-home .visit-questions details[data-motion-disclosure][open] > :not(summary) { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-change: 0ms;
+    --motion-enter: 0ms;
+    --motion-image: 0ms;
+    --motion-stagger: 0ms;
+    --motion-distance: 0px;
+  }
+  .website-entered { animation: none; }
+  [data-motion-disclosure], [data-motion-disclosure] > summary span,
+  [data-motion-disclosure]::details-content { transition: none; }
+}
+@media print {
+  .website-entered { animation: none; }
+  [data-motion-disclosure]::details-content {
+    block-size: auto;
+    content-visibility: visible;
+    opacity: 1;
+    overflow: visible;
+    transition: none;
+  }
+}
+
+/* D2: a homepage reading sequence, from choosing care to understanding the hospital. */
+.enhanced-home {
+  --motion-card: 540ms;
+  --motion-heading: 460ms;
+  --motion-image: 720ms;
+}
+@keyframes website-heading-enter {
+  from { opacity: .85; transform: translateY(var(--motion-distance)); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes website-card-enter {
+  from { opacity: .85; transform: translateY(calc(var(--motion-distance) * 1.5)); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes website-soft-enter {
+  from { opacity: .7; }
+  to { opacity: 1; }
+}
+.enhanced-home [data-motion-chapter] { position: relative; }
+.enhanced-home [data-motion-chapter]::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: calc((100% - var(--site-frame)) / 2);
+  inline-size: clamp(80px, 18vw, 240px);
+  block-size: 3px;
+  background: var(--semantic-color-accent-supporting);
+  transform-origin: left center;
+  pointer-events: none;
+}
+/* This section is already inside the page frame. */
+.enhanced-home .everyday-stories[data-motion-chapter]::before {
+  inset-inline-start: 0;
+  inset-block-start: -24px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .enhanced-home .website-entered[data-motion="heading"] {
+    animation-name: website-heading-enter;
+    animation-duration: var(--motion-heading);
+  }
+  .enhanced-home .website-entered[data-motion="card"] {
+    animation-name: website-card-enter;
+    animation-duration: var(--motion-card);
+  }
+  .enhanced-home .website-entered[data-motion="soft"] {
+    animation-name: website-soft-enter;
+    animation-duration: var(--motion-enter);
+  }
+  .enhanced-home .motion-chapter-ready::before {
+    transform: scaleX(.2);
+    opacity: .35;
+    transition: transform var(--motion-image) var(--motion-ease),
+      opacity var(--motion-enter) var(--motion-ease);
+  }
+  .enhanced-home .motion-chapter-active::before { transform: scaleX(1); opacity: 1; }
+}
+@media (max-width: 599px) {
+  .enhanced-home {
+    --motion-card: 400ms;
+    --motion-heading: 360ms;
+    --motion-image: 480ms;
+    /* Stacked items enter individually; do not accumulate desktop row delays. */
+    --motion-stagger: 0ms;
+  }
+}
+@media (prefers-reduced-motion: reduce), print {
+  .enhanced-home [data-motion-chapter]::before { transition: none; transform: none; opacity: 1; }
+}
+@media (forced-colors: active) {
+  .enhanced-home [data-motion-chapter]::before { display: none; }
+}
+
+@media print {
+  .website-entered, .website-entered[data-motion],
+  .enhanced-home .website-entered[data-motion] { animation: none; }
+}

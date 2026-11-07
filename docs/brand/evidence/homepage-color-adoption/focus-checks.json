@@ -1,0 +1,182 @@
+[
+  {
+    "width": 1440,
+    "selector": ".welcome-appointment",
+    "normal": {
+      "outline": "rgb(255, 255, 255)",
+      "width": "3px",
+      "shadow": "rgb(0, 68, 93) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 1440,
+    "selector": "#specialized-care .home-care-card",
+    "normal": {
+      "outline": "rgb(255, 255, 255)",
+      "width": "3px",
+      "shadow": "rgb(0, 68, 93) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 1440,
+    "selector": "#medical-technology [class*=\"footer\"] a",
+    "normal": {
+      "outline": "rgb(255, 255, 255)",
+      "width": "3px",
+      "shadow": "rgb(0, 68, 93) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 1440,
+    "selector": ".care-query button",
+    "normal": {
+      "outline": "rgb(0, 68, 93)",
+      "width": "3px",
+      "shadow": "rgb(255, 255, 255) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 1440,
+    "selector": "#visit-guide summary",
+    "normal": {
+      "outline": "rgb(0, 68, 93)",
+      "width": "3px",
+      "shadow": "rgb(255, 255, 255) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 1440,
+    "selector": "[data-site-footer] a",
+    "normal": {
+      "outline": "rgb(255, 255, 255)",
+      "width": "3px",
+      "shadow": "rgb(0, 68, 93) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 390,
+    "selector": ".welcome-appointment",
+    "normal": {
+      "outline": "rgb(255, 255, 255)",
+      "width": "3px",
+      "shadow": "rgb(0, 68, 93) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 390,
+    "selector": "#specialized-care .home-care-card",
+    "normal": {
+      "outline": "rgb(255, 255, 255)",
+      "width": "3px",
+      "shadow": "rgb(0, 68, 93) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 390,
+    "selector": "#medical-technology [class*=\"footer\"] a",
+    "normal": {
+      "outline": "rgb(255, 255, 255)",
+      "width": "3px",
+      "shadow": "rgb(0, 68, 93) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 390,
+    "selector": ".care-query button",
+    "normal": {
+      "outline": "rgb(0, 68, 93)",
+      "width": "3px",
+      "shadow": "rgb(255, 255, 255) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 390,
+    "selector": "#visit-guide summary",
+    "normal": {
+      "outline": "rgb(0, 68, 93)",
+      "width": "3px",
+      "shadow": "rgb(255, 255, 255) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  },
+  {
+    "width": 390,
+    "selector": "[data-site-footer] a",
+    "normal": {
+      "outline": "rgb(255, 255, 255)",
+      "width": "3px",
+      "shadow": "rgb(0, 68, 93) 0px 0px 0px 4px"
+    },
+    "forced": {
+      "outline": "rgba(5, 0, 73, 0.8)",
+      "highlight": "rgba(5, 0, 73, 0.8)",
+      "width": "3px",
+      "shadow": "none"
+    }
+  }
+]

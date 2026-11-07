@@ -16,6 +16,7 @@
 }
 
 .action {
+  font-size: var(--site-support, 1rem);
   align-items: center;
   appearance: none;
   border: var(--component-action-border-width) solid transparent;
@@ -43,40 +44,46 @@
     color var(--component-action-feedback-duration) var(--component-action-feedback-easing);
 }
 
+.action:focus-visible,
+.textLink:focus-visible {
+  outline: var(--component-action-focus-width) solid var(--component-context-focus, var(--component-action-focus-color));
+  outline-offset: var(--component-action-focus-offset);
+  box-shadow: 0 0 0 var(--component-action-focus-offset) var(--component-context-focus-gap, var(--component-action-focus-gap));
+}
 .action:focus-visible {
   position: relative;
   z-index: 1;
 }
 
 .primary {
-  background: var(--component-action-primary-background);
-  color: var(--component-action-primary-foreground);
+  background: var(--component-context-action-background, var(--component-action-primary-background));
+  color: var(--component-context-action-foreground, var(--component-action-primary-foreground));
 }
 
 .primary:hover {
-  background: var(--component-action-primary-background-hover);
-  color: var(--component-action-primary-foreground);
+  background: var(--component-context-action-hover, var(--component-action-primary-background-hover));
+  color: var(--component-context-action-foreground, var(--component-action-primary-foreground));
 }
 
 .primary:active {
-  background: var(--component-action-primary-background-active);
+  background: var(--component-context-action-active, var(--component-action-primary-background-active));
 }
 
 .secondary {
-  background: var(--component-action-secondary-background);
-  border-color: var(--component-action-secondary-border-color);
-  color: var(--component-action-secondary-foreground);
+  background: var(--component-context-secondary-background, var(--component-action-secondary-background));
+  border-color: var(--component-context-boundary, var(--component-action-secondary-border-color));
+  color: var(--component-context-link, var(--component-action-secondary-foreground));
 }
 
 .secondary:hover,
 .secondary:active {
-  background: var(--component-action-secondary-background-hover);
-  color: var(--component-action-secondary-foreground);
+  background: var(--component-context-secondary-hover, var(--component-action-secondary-background-hover));
+  color: var(--component-context-link, var(--component-action-secondary-foreground));
 }
 
 .tertiary {
-  background: var(--component-action-tertiary-background);
-  color: var(--component-action-tertiary-foreground);
+  background: var(--component-context-secondary-background, var(--component-action-tertiary-background));
+  color: var(--component-context-link, var(--component-action-tertiary-foreground));
   text-decoration-line: underline;
   text-decoration-thickness: var(--component-action-underline-width);
   text-underline-offset: var(--component-action-underline-offset);
@@ -84,8 +91,8 @@
 
 .tertiary:hover,
 .tertiary:active {
-  background: var(--component-action-tertiary-background-hover);
-  color: var(--component-action-tertiary-foreground);
+  background: var(--component-context-secondary-hover, var(--component-action-tertiary-background-hover));
+  color: var(--component-context-link, var(--component-action-tertiary-foreground));
   text-decoration-thickness: var(--component-action-underline-width-hover);
 }
 
@@ -113,12 +120,20 @@
 }
 
 .textLink {
+  color: var(--component-context-link, var(--component-action-link-color));
+  text-decoration: underline;
+  text-underline-offset: var(--component-action-underline-offset);
   align-items: center;
   display: inline-flex;
   min-block-size: var(--component-action-target-minimum);
   overflow-wrap: anywhere;
 }
 
+.textLink:hover,
+.textLink:active {
+  color: var(--component-context-link, var(--component-action-primary-background-hover));
+  text-decoration-thickness: var(--component-action-underline-width-hover);
+}
 .icon {
   block-size: var(--component-action-icon-size);
   flex: 0 0 auto;
@@ -160,7 +175,7 @@
 
 .availability,
 .disabledReason {
-  color: var(--component-action-disabled-foreground);
+  color: var(--component-context-muted, var(--component-action-disabled-foreground));
   font-size: var(--component-action-reason-font-size);
   line-height: var(--component-action-reason-line-height);
   margin: 0;
@@ -187,6 +202,14 @@
 }
 
 @media (forced-colors: active) {
+  .action:focus-visible,
+  .textLink:focus-visible {
+    outline-color: Highlight;
+    box-shadow: none;
+  }
+  .textLink,
+  .textLink:hover,
+  .textLink:active { color: LinkText; }
   .action {
     border-color: ButtonText;
   }

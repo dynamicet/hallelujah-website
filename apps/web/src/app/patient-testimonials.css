@@ -1,0 +1,44 @@
+.patient-testimonials { padding-block: 96px; background: var(--site-ground); }
+.patient-testimonials .section-intro { margin-bottom: 24px; }
+.hospital-home .patient-stories-notice { max-width: 760px; margin-bottom: 48px; font-size: var(--site-support); }
+.patient-stories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; align-items: start; }
+.patient-story { display: grid; grid-template-columns: 1fr; gap: 28px; min-width: 0; }
+.patient-story-photograph { margin: 0; min-width: 0; }
+.patient-story-photograph img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: center; }
+.patient-story-photograph[data-orientation='portrait'] img { object-position: center 10%; }
+.patient-story-photograph figcaption { margin-top: 12px; font-size: var(--site-support); line-height: 1.5; }
+.patient-story-copy { min-width: 0; }
+.patient-story h3 { font-size: var(--site-lead); }
+.patient-story blockquote { margin: 28px 0 20px; }
+.hospital-home .patient-story blockquote p { margin: 0; font-family: var(--site-display); font-size: var(--site-lead); line-height: 1.3; letter-spacing: -.025em; }
+.hospital-home .patient-story-attribution { margin: 0 0 24px; font-size: var(--site-support); }
+.patient-story summary { width: fit-content; min-height: 44px; padding-block: 10px; color: var(--site-link); font-size: var(--site-body); line-height: 1.5; font-weight: 700; cursor: pointer; }
+.patient-story summary:hover { color: var(--site-ink); }
+.patient-story details[open] > summary { margin-bottom: 12px; }
+.hospital-home .patient-story details p { margin-block: 0 16px; font-size: var(--site-body); }
+.patient-story-video { margin-top: 8px; }
+.patient-story video { display: block; width: 100%; max-height: 480px; background: var(--site-ink); }
+.patient-story video:focus-visible { outline: 3px solid var(--site-link); outline-offset: 5px; }
+.hospital-home .patient-story .patient-story-media-help { margin-top: 16px; font-size: var(--site-support); }
+.hospital-home .patient-story-media-help a { text-decoration: underline; text-underline-offset: 4px; }
+.patient-story-context { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.hospital-home .patient-stories-note { margin-top: 48px; font-size: var(--site-support); }
+@media (max-width: 899px) {
+  .patient-testimonials { padding-block: 72px; }
+  .hospital-home .patient-story blockquote p { font-size: var(--site-label-heading); }
+}
+@media (max-width: 599px) {
+  .patient-testimonials { padding-block: 64px; }
+  .patient-testimonials .section-intro { gap: 20px; }
+  .hospital-home .patient-stories-notice { margin-bottom: 32px; }
+  .patient-stories { grid-template-columns: 1fr; gap: 48px; }
+  .patient-story { grid-template-columns: 1fr; gap: 24px; }
+  .patient-story blockquote { margin-top: 20px; }
+  .hospital-home .patient-story blockquote p { font-size: var(--site-label-heading); }
+  .hospital-home .patient-stories-note { margin-top: 32px; }
+}
+@media print {
+  .patient-testimonials { padding-block: 32px; }
+  .patient-story { break-inside: avoid; }
+  .patient-story-video { display: none; }
+}

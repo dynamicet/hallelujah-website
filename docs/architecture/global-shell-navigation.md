@@ -46,6 +46,20 @@ The script makes no request, stores no state, reads no visitor input, and is all
 strict same-origin Content Security Policy. It avoids the nonce-driven dynamic-rendering tradeoff
 that a hydrated React client boundary would impose on the currently static route.
 
+## Public website scroll behavior
+
+The public website shell (`hospital-shell.module.css`) uses a sticky header enhanced by
+`WebsiteMotion`. It stays visible near the top (at least 160px), hides after more than 14px
+of downward travel, and returns after more than 14px of upward travel. Scroll positions
+are clamped to the document bounds so elastic overscroll does not reverse its state.
+Keyboard focus, an open navigation popover, and an open language disclosure keep it visible;
+focus and disclosure changes reset the direction state. A ResizeObserver measures the header
+for root scroll padding, including wrapped labels and responsive size changes.
+
+Reduced-motion visitors retain a visible sticky header. At viewport heights of 480px or less,
+the header scrolls with the document to preserve reading space. Without JavaScript it remains
+visible and navigation retains its native disclosure behavior. Print uses normal document flow.
+
 ## Component contracts
 
 - `SiteShell` owns one skip target, one main landmark, and the footer boundary.

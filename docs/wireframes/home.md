@@ -203,3 +203,13 @@ Omitted modules leave no focus gap. Search updates do not announce on every keys
 - Featured doctor/service modules remain absent until their governed selections and canonical records are approved (`H-003`, `D-001`, `V-001`).
 - Trust content remains absent until every claim, relationship, logo right, owner, source, and date is approved (`H-004`, `I-001`–`I-003`).
 - Phase 1 release requires approved Amharic safety-critical labels/content and honest unavailable-translation behavior (`S-006`–`S-008`).
+
+### November 2026 ready-preview enhancement
+
+The ready local preview's implemented sequence is hero + unified Doctor/Service
+search; compact concern finder; image-led specialty selection; three doctors;
+human-care scene + figures + two expandable stories; visit preparation + arrival;
+partners; one editorial lead + two links; shared care footer. This replaces the
+preview's separate navigator, film trigger and disconnected evidence/story modules.
+The governed template's data eligibility and unavailable-state rules are unchanged.
+See [implementation and visual evidence](../visual-design/home-enhancement.md).

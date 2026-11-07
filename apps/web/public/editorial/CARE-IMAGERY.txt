@@ -1,0 +1,80 @@
+Hallelujah Hospital — concept care imagery
+
+Created with the built-in OpenAI image generation tool, 27 October 2026.
+All people, clinical settings and architecture are fictional. These images are
+not photographs of Hallelujah Hospital, its employees or its patients.
+The homepage labels the hero as a concept care scene. The supporting image
+caption and shared footer disclose illustrative imagery.
+
+Assets, optimized to WebP with the project's installed sharp package:
+hope-care.webp — homepage hero
+family-care.webp — areas of care and visit preparation (two crops)
+together-care.webp — listening / hospital approach
+
+No external stock photographs or video were used. The existing hospital emblem
+is retained as the identity. Replace concept imagery with hospital-approved
+photography when available.
+
+Self-hosted Clash Grotesk Regular and Medium by Indian Type Foundry, distributed
+through Fontshare. Source: https://www.fontshare.com/fonts/clash-grotesk
+Fontshare fonts are provided for personal and commercial use under their
+applicable license: https://www.fontshare.com/licenses
+
+Final generation prompts:
+
+1. Use case: photorealistic-natural. Asset type: full-bleed hospital website hero, landscape 3:2. Create a beautiful honest editorial concept photograph of a fictional Ethiopian female clinician aged 38 with natural curly hair pulled back, wearing dark navy teal scrubs and a stethoscope, seated and listening warmly to an Ethiopian woman patient aged 55 wearing a simple cream shawl. Scene inside a well-designed contemporary Addis Ababa consultation room, warm natural window light, muted blue walls, warm oak, subtle plant in distant background. The clinician and patient occupy the RIGHT HALF of the frame, faces near the upper right third, hands visible in natural conversational gestures. LEFT HALF is quiet deep shadowed blue wall with an indistinct window edge, generous negative space for WHITE website text. Cinematic editorial photography, believable skin texture and features, warm human rapport, no exaggerated smiles, not glossy stock photography, 35mm lens, atmospheric and grounded, subtle film grain. Light on the faces, deep blue ambient shadows. No text, no signage, no logos, no watermark. This is illustrative fictional concept imagery, not a real hospital or real clinicians.
+
+2. Use case: photorealistic-natural. Asset type: editorial care website supporting photo, portrait 4:5. Create a fictional candid Ethiopian family care scene: a female Ethiopian clinician aged 35 with tied natural curls wearing dark navy scrubs and a stethoscope listening to a smiling eight-year-old Ethiopian girl with braided hair and her mother in a cream linen blouse seated beside her. Quiet modern clinic with pale blue walls, a large window, natural warm afternoon daylight and oak furniture. Relaxed intimate conversation at equal seated eye level, no medical procedure. Tight composition shows clinician on left and mother and child on right, warm authentic rapport. Premium documentary photography with realistic skin textures, sophisticated muted colors blue, cream, soft green. No text, no logos, no watermark. Fictional conceptual scene for an Ethiopian hospital design.
+
+3. Use case: photorealistic-natural. Asset type: editorial hospital website supporting photo, landscape 3:2. Fictional candid scene of two Ethiopian healthcare professionals, an Ethiopian male doctor aged 45 in a white coat and female Ethiopian nurse aged 30 in deep navy scrubs, walking side by side in a contemporary quiet hospital corridor with natural oak door frames, muted blue accents, a large window and soft green courtyard foliage beyond it. Warm diffuse daytime natural light, grounded humane modern healthcare, relaxed professional conversation, looking at each other, no camera smiles. Beautiful editorial documentary photography, subtle film grain, realistic skin and fabric, architecture spacious and simple. No procedures, no readable text, no signs, no logos, no watermark. Conceptual fictional hospital setting.
+
+Open arms redesign — 27 October 2026
+
+open-arms-family.webp — new homepage hero, 1536 × 1024, 219 KB.
+Created with the built-in OpenAI image generation tool. Fictional Ethiopian mother
+and adult daughter in a courtyard; no actual hospital patients or location shown.
+Disclosure appears on the hero, supporting care scene, and shared footer.
+
+Final prompt: photorealistic-natural editorial 3:2 family concept photograph.
+Fictional Ethiopian grandmother around 65, naturally greying curly hair, ivory
+cotton shawl over a pale blue dress, with her adult Ethiopian daughter around 32
+in a deep teal linen shirt. Seated together on a bench in a leafy courtyard in
+Addis Ababa, daughter’s arm around her mother’s shoulders, smiling naturally at
+one another. Waist-up composition with both faces close to the centre/right,
+inside the central 70% for responsive crops. Warm late afternoon side light,
+softly blurred foliage and pale stone, natural skin texture, fine grain, 50mm
+lens, shallow depth of field, quiet optimism. No medical equipment, recognisable
+location, logos, writing or watermark. All people and settings are fictional.
+
+Existing hope-care.webp now illustrates visit preparation. family-care.webp
+illustrates areas of care; together-care.webp illustrates the hospital approach.
+The new design does not attribute concept portraits to clinician records.
+
+Clinical hero refinement — 27 October 2026
+
+hope-care.webp returns to the homepage hero: a consultation scene gives the
+first screen a clear clinical context. open-arms-family.webp now accompanies
+visit preparation; family-care.webp and together-care.webp retain their roles.
+The hero explicitly labels the care scene as AI-generated and illustrative.
+No new images, hospital claims, statistics, credentials or patient stories
+were introduced. The scene is not evidence of Hallelujah's actual premises
+or staff. Replace it with an approved consultation photograph for publication.
+
+H2 relevance and duplication cleanup — 1 November 2026
+
+Real hospital imagery remains pending at the user's direction. No assets were
+generated or downloaded for this change. Current concept-image placements:
+
+hope-care.webp / whole-life-encounter.webp — one responsive homepage hero scene.
+family-care.webp — homepage consultation prompts only.
+open-arms-family.webp / whole-life-portrait.webp — respective fictional patient
+stories only; not service evidence or arrival guidance.
+care-illustration.webp — questions resource, including its listing cards.
+whole-life-detail.webp — visit-information resource, including its listing card.
+
+Generic care-selector, service-detail, health-topic, feedback, referral and visitor
+hero images were removed. Research news and the sample event have no image until
+a relevant asset exists. Listing-to-article reuse identifies the same story;
+the same image is no longer assigned to unrelated subjects. Original unused
+assets are retained for reference. Preview disclosures and approval requirements
+continue to apply.

@@ -1,0 +1,29 @@
+Health finder refinement — 2026-11-02
+
+Scope and order
+1. Design: compact search and A–Z controls; remove the always-visible directory and redundant directory link. Retain the established brand and layout; no new page or art direction.
+2. Behaviour: search/letter selection reveal inline matches. View all topics reveals six, Show more adds six. Clear results restores the compact initial state. New searches and letter selections reset the batch. Reader return preserves the query and batch. Keyboard expansion focuses the first newly revealed topic.
+3. Typography: functional topic names use Lato at the 20px intro role, weight 700, normal tracking and 1.4 line height. Supporting descriptions retain the 16px support role with 1.5 line height. Section headings retain the 24px role with normal tracking.
+
+Validation
+- Search domain checks passed (aliases, ranking, first-letter filtering, unmatched terms, care paths).
+- ESLint and TypeScript passed.
+- Browser matrix: homepage and existing /health-topics page at 320, 390, 768 and 1440; initial hidden list, six-result batches, expansion focus, reader focus/return, filter resets, empty recovery and root-font 200% reflow.
+- Root-font enlargement is a simulation, not native browser text-only zoom or screen-reader certification.
+- Design lint's shadow finding is a false positive on existing box-shadow:none; its border warning is the existing search input boundary.
+- Full-homepage inspector warnings concern existing card sections, overall type-size count, video detection and the partner carousel; this work does not certify those unrelated sections.
+
+ROUND 1
+Seen in one second: a search field and alphabet invite a choice without a directory occupying the landing page.
+Idea (one sentence): show care topics when the visitor asks for them.
+Live thing: search, letter selection, inline topic reader and progressive results.
+Layout words by section: finder=heading / search / alphabet / conditional results.
+Scores: design 7.5 · usability 8 · creativity 6 · content 6 → overall 7.2
+Caps applied: conventional finder, illustrative topic content; focused component assessment, not a site award score.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. Original initial list dominates the page (before screenshots): removed until interaction.
+2. Light tightly tracked result names (before screenshots): text face, stronger weight and normal tracking.
+3. Lone Z on desktop (first final-capture round): reduced alphabet gap to fit all 26 at normal desktop width while retaining rem-sized touch targets and wrapping under enlarged text.
+
+Limitations
+The dataset and care descriptions remain illustrative. Search continues to use curated names and aliases, not infer diagnoses. No new routes, imagery or dependencies were introduced.

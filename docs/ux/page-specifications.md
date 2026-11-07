@@ -22,6 +22,8 @@ Every public template must provide:
 
 Do not display a field, card, section, filter, claim, or empty template merely because the content model supports it. Publish only approved, maintained information.
 
+For development and non-public previews, the [30 October 2026 development-fixture clarification](../requirements/requirements-matrix.md#development-fixtures-and-production-facts) permits mock content to keep designed sections populated while institutional facts await approval, without visible demo labels, mock-data badges, disclaimers or approval-pending notices. The preview context establishes that content is provisional; present the intended finished design. KPI/statistics layouts and dynamic updates can be built and reviewed with mock values; pending production facts must not suppress that development design. Production publication and omission rules remain applicable to real content, and mock data must not be used as a production fallback. Existing motion rules still apply.
+
 Privacy, Accessibility, and genuine 404/410/unavailable behavior are Phase 1 contracts specified separately in the [utility page specifications](utility-page-specifications.md). They inherit this shared page contract. A separate Cookie or Terms route is not part of the initial Phase 1 scope unless its named legal/product owners approve the need and maintained content through `GOV-02`.
 
 ## Template overview

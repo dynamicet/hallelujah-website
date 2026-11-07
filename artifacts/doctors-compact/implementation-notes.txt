@@ -1,0 +1,109 @@
+Compact doctors composition — 1 November 2026
+
+Scope: homepage doctors section, building on commit 0e926df. The user asked for a
+normal background, compact portrait/name/description pairs, and character from
+portrait treatment and composition. Existing One motif direction, seed 238462439,
+palette, fonts and stack retained. No draw or redraw for this section revision.
+
+Idea: the people extend above their smaller backdrops into the plain page, with
+their portraits and names sharing a top alignment. All six doctors remain visible.
+Existing direct profile links and the directory are the section's interaction;
+essential information never depends on hovering, a slider or JavaScript.
+
+References examined:
+- https://www.2manydots.nl/internetbureau
+  Cutout people rise above smaller backdrops. Borrowed that relationship, with a
+  neutral backdrop and a fixed grid instead of its colorful staggered carousel.
+- https://dribbble.com/shots/23081852-Our-team-Untitled-UI
+  Portrait, name, role and short description form one concise profile collection.
+- https://www.pentagram.com/about
+  Consistent photography and individual expressions carry the portraits.
+- https://www.sanity.io/projects/figma-config
+  Examined Config 2021's speaker silhouettes; did not adopt its varied masks.
+No reference images were incorporated into the site.
+
+The six existing fictional portraits were edited individually using the built-in
+OpenAI image generation tool for background extraction. Original images remain.
+512 × 512 WebP variants with genuine transparency are stored beside the originals
+as {aster,bekele,chala,desta,eden,fikru}-cutout.webp. Total size: 266,108 bytes.
+The complete shared prompt and provenance are recorded in:
+apps/web/public/editorial/clinicians/SOURCES.txt
+
+Names and specialties retain their existing demo data. Each short description is
+the first existing interest from that doctor's profile, with terminal punctuation;
+no new clinical claims or credentials were added. Languages remain visible at
+16px. The illustrative-profile disclosure remains below the collection.
+
+Browser heights, rounded to nearest pixel:
+Width   Before (0e926df)   Final   Composition
+1440    1320              720     Three columns, two rows; 180px portraits
+1280    —                 683     Three columns, two rows; 160px portraits
+1200    —                 711     Three columns, two rows; 152px portraits
+1024    1163              915     Two columns, three rows; 180px portraits
+900     1125              909     Two columns, three rows; 180px portraits
+768     996               856     Two columns, three rows; 128px portraits
+700     —                 904     Two columns, three rows; 128px portraits
+600     1638              1321    One column, six rows; 128px portraits
+390     1514              1425    One column, six rows; 124px portraits
+320     1540              1497    One column, six rows; 104px portraits
+Desktop reduction: approximately 45%. Name size is 28px throughout.
+Baseline evidence: artifacts/doctors-gallery/measurements.json and section images.
+Final measurements and images are in this directory.
+
+ROUND 1 — initial browser composition
+Seen in one second: portrait/name pairs on a white page.
+Idea (one sentence): people rise above small backdrops, with names beside them.
+Live thing: six profile links and a doctor directory link.
+Layout words by section: hero=cinematic / navigator=choice / health=lookup /
+care=showcase / doctors=portrait-text-pairs / visit=FAQ-contact / partners=logo-row /
+statistics=band / stories=paired-editorial / consultation=split / news=editorial-grid /
+footer=brand-navigation.
+Scores: design 7.2 · usability 7.5 · creativity 6 · content 5 → overall 6.0.
+Caps applied: initial inspector flagged the small language lines as eyebrows
+above subsequent names; an unresolved inspector failure caps the overall score.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. Initial section-600.jpg: oversized single-column portrait frames made this
+   width 1783px tall. Reduced portraits to 128px and balanced the section padding.
+2. Initial section-1200.jpg: centered text moved names to different heights when
+   descriptions wrapped differently. Aligned portrait/text pairs at the top and
+   removed unused frame height; square portrait stages preserve each full cutout.
+3. Initial section-768.jpg and section-390.jpg: 14px language captions read as
+   detached small labels between profiles. Raised them to 16px for readability.
+
+ROUND 2 — final browser composition
+Seen in one second: six recognizable portraits, with names and concise care details.
+Idea (one sentence): people rise above small backdrops, with names beside them.
+Live thing: six direct profile links, a directory link and visible keyboard focus.
+Layout words by section: hero=cinematic / navigator=choice / health=lookup /
+care=showcase / doctors=portrait-text-pairs / visit=FAQ-contact / partners=logo-row /
+statistics=band / stories=paired-editorial / consultation=split / news=editorial-grid /
+footer=brand-navigation.
+Scores: design 7.8 · usability 8.2 · creativity 6 · content 5 → overall 7.3.
+Caps applied: the concept remains transferable; illustrative content limits authenticity.
+Top three remaining problems (most visible first), each with the screenshot it shows in and the fix:
+1. section-1440.jpg: portraits and identities remain illustrative. Approved real
+   clinician photography, full names and profile content belong to H2.
+2. after/tablet-page-02.jpg: the existing news composition leaves its third item
+   on a second row. Outside this doctors-only revision.
+3. after/desktop-page-03.jpg: consultation and news still reuse the hero scene.
+   Address through the separate imagery milestone.
+
+Verification on the final source:
+- TypeScript and focused ESLint passed.
+- Source design lint: 0 FAIL, 0 WARN.
+- Home contract: 14 cases passed.
+- review.mjs: ten widths, six loaded portraits, visible descriptions/languages,
+  no horizontal document overflow, no portrait/text overlap, and keyboard Tab focus.
+- All six profile destinations and the directory return HTTP 200.
+- All six profiles remain visible without JavaScript; responsive checks use
+  reduced motion. Final inspector also exercises the ordinary motion path.
+- Six WebP files have alpha channels spanning 0 through 255 (see assets.json).
+- Final full-homepage inspector: 0 FAIL, 4 WARN. The warnings cover the requested
+  repeated collections, inherited typography variety, absence of authentic
+  hospital footage, and the existing manually controlled partner row.
+- Opened all ten final inspector screenshots, final full-section screenshots at
+  1440/768/390px, and additional breakpoint/focus captures during the review.
+- git diff --check passed. No new production build was run.
+
+Changes are limited to the doctors section, six sibling portrait assets, asset
+provenance and this review evidence. Unrelated workspace changes are untouched.

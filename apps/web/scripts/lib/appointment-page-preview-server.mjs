@@ -11,7 +11,7 @@ const appointmentScript = new URL('scripts/fixtures/appointment-preview.js', app
 
 export function appointmentPagePreviewDocument(state = 'controlled') {
   const body = renderAppointmentPage(appointmentPageFixture(state))
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Appointment — Hallelujah Hospital</title><link rel="stylesheet" href="/appointment.css"></head><body data-appointment-preview-fixture="synthetic-inert-b03-017" data-appointment-preview-state="${state}">${body}<script data-appointment-preview-script src="/appointment-preview.js"></script></body></html>`
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Appointment — Hallelujah Hospital</title><link rel="stylesheet" href="/appointment.css"></head><body data-appointment-preview-fixture="synthetic-inert-b03-017" data-appointment-preview-state="${state}">${body}<script defer src="/shell-navigation.js"></script><script data-appointment-preview-script src="/appointment-preview.js"></script></body></html>`
 }
 
 export async function createAppointmentPagePreviewServer({ port = 0 } = {}) {

@@ -27,7 +27,7 @@
 
 .hint {
   color: var(--component-search-controls-text-secondary);
-  font-size: var(--component-search-controls-small-font-size);
+  font-size: var(--component-search-controls-support-font-size);
   line-height: var(--component-search-controls-small-line-height);
 }
 
@@ -70,6 +70,7 @@
 
 .searchRow button,
 .filterPanel > button {
+  font-size: var(--site-support, 1rem);
   appearance: none;
   background: var(--component-search-controls-action);
   border: var(--component-search-controls-border-emphasis) solid
@@ -90,6 +91,9 @@
   border-color: var(--component-search-controls-action-hover);
 }
 
+.searchRow button:active,
+.filterPanel > button:active { background: var(--site-action-active); border-color: var(--site-action-active); }
+
 .filterDisclosure {
   border: var(--component-search-controls-border-width) solid
     var(--component-search-controls-border-default);
@@ -103,11 +107,40 @@
   align-items: center;
   cursor: pointer;
   display: flex;
+  gap: var(--component-search-controls-space-page);
+  justify-content: space-between;
   font-weight: var(--component-search-controls-font-weight-strong);
   min-block-size: var(--component-search-controls-target-minimum);
   padding: var(--component-search-controls-space-compact)
     var(--component-search-controls-space-page);
 }
+
+.disclosureChevron { flex: 0 0 auto; }
+.filterDisclosure[open] .disclosureChevron { transform: rotate(180deg); }
+.filterGroup label:has(input:checked) { font-weight: var(--component-search-controls-font-weight-strong); }
+.filterGroup label:focus-within { outline: 3px solid var(--component-search-controls-focus-color); outline-offset: 4px; }
+
+.browse { display: grid; gap: var(--component-search-controls-space-regular); min-inline-size: 0; }
+.browse p { margin: 0; font-weight: var(--component-search-controls-font-weight-strong); }
+.browse ul { display: flex; flex-wrap: wrap; gap: var(--component-search-controls-space-regular); list-style: none; margin: 0; padding: 0; }
+.browse li { min-inline-size: 0; max-inline-size: 100%; }
+.browse a {
+  align-items: center;
+  background: var(--component-search-controls-surface-raised);
+  border: var(--component-search-controls-border-width) solid var(--component-search-controls-border-strong);
+  border-radius: var(--component-search-controls-radius);
+  color: var(--component-search-controls-text-primary);
+  display: inline-flex;
+  gap: var(--component-search-controls-space-regular);
+  min-block-size: var(--component-search-controls-target-minimum);
+  padding: var(--component-search-controls-space-compact) var(--component-search-controls-space-page);
+  text-decoration: none;
+}
+.browse a > span { overflow-wrap: anywhere; }
+.browse a[aria-current] { background: var(--component-search-controls-action); border-color: var(--component-search-controls-action); color: var(--component-search-controls-action-on-solid); font-weight: var(--component-search-controls-font-weight-strong); }
+.browse a:hover { text-decoration: underline; text-underline-offset: .25em; }
+.browseCount { font-size: .875em; font-variant-numeric: tabular-nums; }
+.browse a:focus-visible { outline: 3px solid var(--component-search-controls-focus-color); outline-offset: 4px; }
 
 .filterDisclosure > summary > span {
   min-inline-size: 0;
@@ -147,7 +180,7 @@
   cursor: pointer;
   display: grid;
   gap: var(--component-search-controls-space-compact);
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto;
   min-block-size: var(--component-search-controls-target-minimum);
   min-inline-size: 0;
 }
@@ -166,7 +199,8 @@
 .optionCount {
   color: var(--component-search-controls-text-secondary);
   font-variant-numeric: tabular-nums;
-  grid-column: 2;
+  grid-column: 3;
+  justify-self: end;
 }
 
 .activeFilters,
@@ -209,6 +243,23 @@
 
 .resultCount {
   margin-block-start: var(--component-search-controls-space-section);
+}
+
+.directoryCount { position: relative; min-inline-size: min(10rem, 100%); }
+.directoryCount::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -4px;
+  block-size: 2px;
+  background: var(--component-search-controls-action);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.directoryCount:dir(rtl)::after { transform-origin: right; }
+.directoryCount[data-search-pending]::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: no-preference) {
+  .directoryCount::after { transition: transform 240ms cubic-bezier(.22, 1, .36, 1); }
 }
 
 .pagination {
@@ -273,4 +324,18 @@
     color: CanvasText;
     transition: none;
   }
+}
+
+/* Selection and navigation retain blue; a warm edge highlights the applied filter. */
+.searchBox { border-inline-start: 3px solid var(--component-search-controls-action); padding-inline-start: var(--component-search-controls-space-regular); }
+.filterGroup input { accent-color: var(--component-search-controls-action); }
+.activeFilters li a { border-inline-start: 3px solid var(--component-search-controls-accent); }
+.pagination [aria-current='page'] { border-block-end: 4px solid var(--component-search-controls-action); }
+.form :is(input, button, a, summary):focus-visible, .pagination a:focus-visible, .activeFilters a:focus-visible {
+  outline: 3px solid var(--component-search-controls-focus-color);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px var(--component-search-controls-focus-gap);
+}
+@media (forced-colors: active) {
+  .form :is(input, button, a, summary):focus-visible, .pagination a:focus-visible, .activeFilters a:focus-visible { outline-color: Highlight; box-shadow: none; }
 }

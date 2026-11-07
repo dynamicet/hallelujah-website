@@ -1,6 +1,55 @@
 @import "../design-system/tokens/generated/tokens.css";
+@import "./editorial.css";
 
 :root {
+  --site-font: var(--semantic-presentation-font);
+  --site-white: var(--semantic-color-surface-raised);
+  --site-heading-ink: var(--semantic-color-text-heading);
+  --site-reading-ink: var(--semantic-color-text-primary);
+  --site-ink: var(--semantic-color-text-heading);
+  --site-link: var(--semantic-color-text-link);
+  --site-pale: var(--semantic-color-surface-subtle);
+  --site-ground: var(--semantic-color-surface-page);
+  --site-selection: var(--semantic-color-surface-selected);
+  --site-accent: var(--semantic-color-surface-selected);
+  --site-urgent: var(--semantic-color-action-emergency);
+  --site-error: var(--semantic-color-text-error);
+  --site-muted: var(--semantic-color-text-secondary);
+  --site-action-primary: var(--semantic-color-action-primary);
+  --site-action-hover: var(--semantic-color-action-primary-hover);
+  --site-action-active: var(--semantic-color-action-primary-active);
+  --site-surface-inverse: var(--semantic-color-surface-inverse);
+  --site-link-inverse: var(--semantic-color-text-inverse);
+  --site-supporting: var(--semantic-color-accent-supporting);
+  --site-supporting-text: var(--semantic-color-accent-supporting-text);
+  --site-supporting-surface: var(--semantic-color-surface-supporting);
+  --site-expressive: var(--semantic-color-accent-expressive);
+  --site-expressive-text: var(--semantic-color-accent-expressive-text);
+  --site-expressive-surface: var(--semantic-color-surface-expressive);
+  --site-frame: var(--semantic-presentation-frame-wide);
+  --site-action-radius: 8px;
+  --site-action-duration: 180ms;
+  --site-action-weight: 600;
+  --site-image-radius: 28px;
+  --site-panel-radius: 28px;
+  --site-control-radius: 12px;
+  --site-gap: var(--semantic-presentation-gap);
+  --site-display: 'Clash Grotesk', Ethiopic, sans-serif;
+  --site-curve: clamp(64px, 9vw, 136px);
+  /* Public-site roles; small is metadata, never essential guidance. */
+  --site-small: .875rem;
+  --site-support: 1rem;
+  --site-body: 1.0625rem;
+  --site-intro: 1.25rem;
+  --site-page-intro: 1.125rem;
+  --site-label-heading: 1.5rem;
+  --site-lead: 1.75rem;
+  --site-subheading: 2rem;
+  --site-content-heading: clamp(2rem, 1.5rem + 1vw, 2.5rem);
+  --site-heading: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --site-page-title: clamp(2.5rem, 1.5rem + 3.3vw, 4.5rem);
+  --site-title: clamp(4rem, 2rem + 4vw, 5.875rem);
+  --site-hero: 4.875rem;
   color-scheme: light;
   font-family: var(--semantic-font-family-ui);
   line-height: var(--semantic-type-body-line);
@@ -44,6 +93,7 @@ body {
 }
 
 :where(h1, h2, h3) {
+  color: var(--semantic-color-text-heading);
   font-weight: var(--semantic-font-weight-strong);
   letter-spacing: var(--semantic-type-title-tracking);
   margin-block: 0;
@@ -79,7 +129,7 @@ h3 {
 }
 
 :where(a) {
-  color: var(--semantic-color-action-primary);
+  color: var(--semantic-color-text-link);
   text-decoration-line: underline;
   text-decoration-thickness: var(--semantic-border-default);
   text-underline-offset: var(--semantic-space-fine);
@@ -179,6 +229,49 @@ h3 {
   text-align: center;
 }
 
+section.ds-support-band {
+  background: var(--semantic-color-surface-subtle);
+  border: 0;
+  border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-cool);
+  border-radius: var(--semantic-radius-card);
+  display: grid;
+  gap: var(--semantic-space-regular);
+  margin-block: var(--semantic-space-section);
+  margin-inline: 0;
+  max-inline-size: none;
+  min-inline-size: 0;
+  min-block-size: 0;
+  padding: var(--semantic-space-surface);
+}
+
+section.ds-support-band:last-child {
+  margin-block-end: 0;
+}
+
+section.ds-support-band > * {
+  margin-block: 0;
+  min-inline-size: 0;
+}
+
+section.ds-support-band :where(h2) {
+  color: var(--semantic-color-text-heading);
+}
+
+section.ds-support-band :where(p) {
+  max-inline-size: var(--semantic-size-reading);
+}
+
+section.ds-support-band :where(.ds-support-actions) {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--semantic-space-compact);
+}
+
+section.ds-support-band :where(.ds-support-actions a) {
+  min-block-size: var(--semantic-size-touch);
+}
+
 .ds-visually-hidden:not(:focus):not(:active) {
   block-size: var(--semantic-border-default);
   clip-path: inset(50%);
@@ -244,3 +337,14 @@ h3 {
     display: none;
   }
 }
+
+@media (max-width: 1023px) { :root { --site-frame: var(--semantic-presentation-frame-medium); } }
+@media (max-width: 599px) { :root { --site-frame: var(--semantic-presentation-frame-compact); } }
+
+@media print {
+  body:has(#checklist) :is([data-site-header], [data-site-footer], [data-help-widget], [data-shell-review-notice], nav, a[href="#main-content"]) { display: none; }
+  body:has(#checklist) main { padding: 0; }
+}
+
+@media (max-width: 1023px) { :root { --site-hero: 3rem; } }
+@media (max-width: 599px) { :root { --site-hero: 2.625rem; } }

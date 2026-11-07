@@ -1,0 +1,542 @@
+[
+  {
+    "id": "navigation",
+    "title": "Navigation & utilities",
+    "detail": "A blue identity line, clear current-page treatment and a warm action detail.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-navigation-1440.jpg",
+    "height": 140,
+    "captureWidth": 1440
+  },
+  {
+    "id": "hero",
+    "title": "Human opening",
+    "detail": "A tonal blue story frame, warm action edge and a recurring open-corner detail.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-hero-1440.jpg",
+    "height": 648,
+    "captureWidth": 1440
+  },
+  {
+    "id": "care-search",
+    "title": "Care search",
+    "detail": "White controls on mist with orange guidance and a stronger blue search enclosure.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-care-search-1440.jpg",
+    "height": 217,
+    "captureWidth": 1440
+  },
+  {
+    "id": "specialties",
+    "title": "Specialty discovery",
+    "detail": "Layered blue planes, a warm leading edge and contrasting action cues.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-specialties-1440.jpg",
+    "height": 976,
+    "captureWidth": 1440
+  },
+  {
+    "id": "equipment",
+    "title": "Medical technology",
+    "detail": "White image stages, blue structure and warm disclosure markers.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-equipment-1440.jpg",
+    "height": 2290,
+    "captureWidth": 1440
+  },
+  {
+    "id": "hospital-film",
+    "title": "Hospital film",
+    "detail": "A blue and paper frame with an accent edge around the human scene.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-hospital-film-1440.jpg",
+    "height": 1056,
+    "captureWidth": 1440
+  },
+  {
+    "id": "specialists",
+    "title": "Clinician cards",
+    "detail": "Blue image foundations, alternating warm and expressive edges, consistent profile actions.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-specialists-1440.jpg",
+    "height": 935,
+    "captureWidth": 1440
+  },
+  {
+    "id": "human-scene",
+    "title": "Life beyond consultation",
+    "detail": "Blue type with an editorial marker and generous photographic continuity.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-human-scene-1440.jpg",
+    "height": 56,
+    "captureWidth": 1280
+  },
+  {
+    "id": "statistics",
+    "title": "Statistics & proof",
+    "detail": "Blue tonal structure with warm markers and clearly differentiated figures.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-statistics-1440.jpg",
+    "height": 505,
+    "captureWidth": 1440
+  },
+  {
+    "id": "stories",
+    "title": "Stories & quotations",
+    "detail": "Blue editorial type, neutral ground, magenta punctuation and contrasting quote planes.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-stories-1440.jpg",
+    "height": 1177,
+    "captureWidth": 1280
+  },
+  {
+    "id": "contact",
+    "title": "Contact, directions & urgency",
+    "detail": "Distinct blue-led contact planes, a warm arrival note and separate urgent red.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-contact-1440.jpg",
+    "height": 985,
+    "captureWidth": 1440
+  },
+  {
+    "id": "visit",
+    "title": "Visit preparation",
+    "detail": "Blue interactive questions, a warm offset frame and expressive expansion controls.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-visit-1440.jpg",
+    "height": 624,
+    "captureWidth": 1440
+  },
+  {
+    "id": "partners",
+    "title": "Partner strip",
+    "detail": "A quiet white logo stage with blue framing and a warm guiding marker.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-partners-1440.jpg",
+    "height": 460,
+    "captureWidth": 1440
+  },
+  {
+    "id": "topics",
+    "title": "Health-topic finder",
+    "detail": "A composed blue enclosure, magenta edge and independent selection and focus treatments.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-topics-1440.jpg",
+    "height": 266,
+    "captureWidth": 1280
+  },
+  {
+    "id": "editorial",
+    "title": "News & editorial cards",
+    "detail": "Paper and white layers, contrasting metadata rules and consistent blue reading links.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-editorial-1440.jpg",
+    "height": 934,
+    "captureWidth": 1440
+  },
+  {
+    "id": "footer",
+    "title": "Footer & closing actions",
+    "detail": "Deep-blue close, tonal structure and a warm closing marker.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-footer-1440.jpg",
+    "height": 861,
+    "captureWidth": 1440
+  },
+  {
+    "id": "surface-paper",
+    "title": "Paper surfaces",
+    "detail": "Blue structure with an independently chosen orange detail.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-surface-paper-1440.jpg",
+    "height": 272,
+    "captureWidth": 1325
+  },
+  {
+    "id": "surface-mist",
+    "title": "Mist surfaces",
+    "detail": "Tonal blue ground with an independently chosen magenta detail.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-surface-mist-1440.jpg",
+    "height": 272,
+    "captureWidth": 1325
+  },
+  {
+    "id": "surface-inverse",
+    "title": "Inverse & nested surfaces",
+    "detail": "Blue stages accept contrasting accents; nested cards restore their own readable context.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-surface-inverse-1440.jpg",
+    "height": 452,
+    "captureWidth": 1325
+  },
+  {
+    "id": "surface-supporting",
+    "title": "Warm surfaces",
+    "detail": "Warm ground retains blue identity and independent magenta detail.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-surface-supporting-1440.jpg",
+    "height": 272,
+    "captureWidth": 1325
+  },
+  {
+    "id": "surface-expressive",
+    "title": "Expressive surfaces",
+    "detail": "Pink ground retains blue structure and an independent warm detail.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-surface-expressive-1440.jpg",
+    "height": 272,
+    "captureWidth": 1325
+  },
+  {
+    "id": "cards",
+    "title": "Editorial & task cards",
+    "detail": "Independent ground and accent, contrasting destination cues, compact and panel layouts.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-cards-1440.jpg",
+    "height": 490,
+    "captureWidth": 1325
+  },
+  {
+    "id": "forms",
+    "title": "Fields, choices & submission",
+    "detail": "Clear blue labels, white controls, selected choices and distinct pending/error/disabled feedback.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-forms-1440.jpg",
+    "height": 914,
+    "captureWidth": 1325
+  },
+  {
+    "id": "notices",
+    "title": "Notices & emergency actions",
+    "detail": "Functional color belongs to the message marker, icon and heading; content retains reading ink.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-notices-1440.jpg",
+    "height": 381,
+    "captureWidth": 1325
+  },
+  {
+    "id": "navigation",
+    "title": "Navigation & utilities",
+    "detail": "A blue identity line, clear current-page treatment and a warm action detail.",
+    "width": 390,
+    "version": "before",
+    "file": "before-navigation-390.jpg",
+    "height": 108,
+    "captureWidth": 390
+  },
+  {
+    "id": "hero",
+    "title": "Human opening",
+    "detail": "A tonal blue story frame, warm action edge and a recurring open-corner detail.",
+    "width": 390,
+    "version": "before",
+    "file": "before-hero-390.jpg",
+    "height": 612,
+    "captureWidth": 390
+  },
+  {
+    "id": "care-search",
+    "title": "Care search",
+    "detail": "White controls on mist with orange guidance and a stronger blue search enclosure.",
+    "width": 390,
+    "version": "before",
+    "file": "before-care-search-390.jpg",
+    "height": 365,
+    "captureWidth": 390
+  },
+  {
+    "id": "specialties",
+    "title": "Specialty discovery",
+    "detail": "Layered blue planes, a warm leading edge and contrasting action cues.",
+    "width": 390,
+    "version": "before",
+    "file": "before-specialties-390.jpg",
+    "height": 1408,
+    "captureWidth": 390
+  },
+  {
+    "id": "equipment",
+    "title": "Medical technology",
+    "detail": "White image stages, blue structure and warm disclosure markers.",
+    "width": 390,
+    "version": "before",
+    "file": "before-equipment-390.jpg",
+    "height": 2222,
+    "captureWidth": 390
+  },
+  {
+    "id": "hospital-film",
+    "title": "Hospital film",
+    "detail": "A blue and paper frame with an accent edge around the human scene.",
+    "width": 390,
+    "version": "before",
+    "file": "before-hospital-film-390.jpg",
+    "height": 908,
+    "captureWidth": 390
+  },
+  {
+    "id": "specialists",
+    "title": "Clinician cards",
+    "detail": "Blue image foundations, alternating warm and expressive edges, consistent profile actions.",
+    "width": 390,
+    "version": "before",
+    "file": "before-specialists-390.jpg",
+    "height": 1991,
+    "captureWidth": 390
+  },
+  {
+    "id": "human-scene",
+    "title": "Life beyond consultation",
+    "detail": "Blue type with an editorial marker and generous photographic continuity.",
+    "width": 390,
+    "version": "before",
+    "file": "before-human-scene-390.jpg",
+    "height": 112,
+    "captureWidth": 350
+  },
+  {
+    "id": "statistics",
+    "title": "Statistics & proof",
+    "detail": "Blue tonal structure with warm markers and clearly differentiated figures.",
+    "width": 390,
+    "version": "before",
+    "file": "before-statistics-390.jpg",
+    "height": 533,
+    "captureWidth": 390
+  },
+  {
+    "id": "stories",
+    "title": "Stories & quotations",
+    "detail": "Blue editorial type, neutral ground, magenta punctuation and contrasting quote planes.",
+    "width": 390,
+    "version": "before",
+    "file": "before-stories-390.jpg",
+    "height": 2124,
+    "captureWidth": 350
+  },
+  {
+    "id": "contact",
+    "title": "Contact, directions & urgency",
+    "detail": "Distinct blue-led contact planes, a warm arrival note and separate urgent red.",
+    "width": 390,
+    "version": "before",
+    "file": "before-contact-390.jpg",
+    "height": 1539,
+    "captureWidth": 390
+  },
+  {
+    "id": "visit",
+    "title": "Visit preparation",
+    "detail": "Blue interactive questions, a warm offset frame and expressive expansion controls.",
+    "width": 390,
+    "version": "before",
+    "file": "before-visit-390.jpg",
+    "height": 705,
+    "captureWidth": 390
+  },
+  {
+    "id": "partners",
+    "title": "Partner strip",
+    "detail": "A quiet white logo stage with blue framing and a warm guiding marker.",
+    "width": 390,
+    "version": "before",
+    "file": "before-partners-390.jpg",
+    "height": 566,
+    "captureWidth": 390
+  },
+  {
+    "id": "topics",
+    "title": "Health-topic finder",
+    "detail": "A composed blue enclosure, magenta edge and independent selection and focus treatments.",
+    "width": 390,
+    "version": "before",
+    "file": "before-topics-390.jpg",
+    "height": 541,
+    "captureWidth": 350
+  },
+  {
+    "id": "editorial",
+    "title": "News & editorial cards",
+    "detail": "Paper and white layers, contrasting metadata rules and consistent blue reading links.",
+    "width": 390,
+    "version": "before",
+    "file": "before-editorial-390.jpg",
+    "height": 1616,
+    "captureWidth": 390
+  },
+  {
+    "id": "footer",
+    "title": "Footer & closing actions",
+    "detail": "Deep-blue close, tonal structure and a warm closing marker.",
+    "width": 390,
+    "version": "before",
+    "file": "before-footer-390.jpg",
+    "height": 941,
+    "captureWidth": 390
+  },
+  {
+    "id": "surface-paper",
+    "title": "Paper surfaces",
+    "detail": "Blue structure with an independently chosen orange detail.",
+    "width": 390,
+    "version": "before",
+    "file": "before-surface-paper-390.jpg",
+    "height": 368,
+    "captureWidth": 358
+  },
+  {
+    "id": "surface-mist",
+    "title": "Mist surfaces",
+    "detail": "Tonal blue ground with an independently chosen magenta detail.",
+    "width": 390,
+    "version": "before",
+    "file": "before-surface-mist-390.jpg",
+    "height": 368,
+    "captureWidth": 358
+  },
+  {
+    "id": "surface-inverse",
+    "title": "Inverse & nested surfaces",
+    "detail": "Blue stages accept contrasting accents; nested cards restore their own readable context.",
+    "width": 390,
+    "version": "before",
+    "file": "before-surface-inverse-390.jpg",
+    "height": 573,
+    "captureWidth": 358
+  },
+  {
+    "id": "surface-supporting",
+    "title": "Warm surfaces",
+    "detail": "Warm ground retains blue identity and independent magenta detail.",
+    "width": 390,
+    "version": "before",
+    "file": "before-surface-supporting-390.jpg",
+    "height": 368,
+    "captureWidth": 358
+  },
+  {
+    "id": "surface-expressive",
+    "title": "Expressive surfaces",
+    "detail": "Pink ground retains blue structure and an independent warm detail.",
+    "width": 390,
+    "version": "before",
+    "file": "before-surface-expressive-390.jpg",
+    "height": 368,
+    "captureWidth": 358
+  },
+  {
+    "id": "cards",
+    "title": "Editorial & task cards",
+    "detail": "Independent ground and accent, contrasting destination cues, compact and panel layouts.",
+    "width": 390,
+    "version": "before",
+    "file": "before-cards-390.jpg",
+    "height": 751,
+    "captureWidth": 358
+  },
+  {
+    "id": "forms",
+    "title": "Fields, choices & submission",
+    "detail": "Clear blue labels, white controls, selected choices and distinct pending/error/disabled feedback.",
+    "width": 390,
+    "version": "before",
+    "file": "before-forms-390.jpg",
+    "height": 1426,
+    "captureWidth": 358
+  },
+  {
+    "id": "notices",
+    "title": "Notices & emergency actions",
+    "detail": "Functional color belongs to the message marker, icon and heading; content retains reading ink.",
+    "width": 390,
+    "version": "before",
+    "file": "before-notices-390.jpg",
+    "height": 799,
+    "captureWidth": 358
+  },
+  {
+    "id": "search-controls",
+    "title": "Search, filters & pagination",
+    "detail": "Blue search structure, selected filters, warm applied-filter edges and clear pagination.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-search-controls-1440.jpg",
+    "height": 640,
+    "captureWidth": 1325
+  },
+  {
+    "id": "extended-states",
+    "title": "Validation, loading & recovery",
+    "detail": "Reading planes, explicit outcomes and semantic markers across loading, empty, offline and recovery states.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-extended-states-1440.jpg",
+    "height": 1269,
+    "captureWidth": 1325
+  },
+  {
+    "id": "governed-cards",
+    "title": "Directory card families",
+    "detail": "Doctor, service, location and vacancy specimens share blue structure with explicit freshness and availability.",
+    "width": 1440,
+    "version": "before",
+    "file": "before-governed-cards-1440.jpg",
+    "height": 1007,
+    "captureWidth": 1325
+  },
+  {
+    "id": "search-controls",
+    "title": "Search, filters & pagination",
+    "detail": "Blue search structure, selected filters, warm applied-filter edges and clear pagination.",
+    "width": 390,
+    "version": "before",
+    "file": "before-search-controls-390.jpg",
+    "height": 817,
+    "captureWidth": 358
+  },
+  {
+    "id": "extended-states",
+    "title": "Validation, loading & recovery",
+    "detail": "Reading planes, explicit outcomes and semantic markers across loading, empty, offline and recovery states.",
+    "width": 390,
+    "version": "before",
+    "file": "before-extended-states-390.jpg",
+    "height": 2452,
+    "captureWidth": 358
+  },
+  {
+    "id": "governed-cards",
+    "title": "Directory card families",
+    "detail": "Doctor, service, location and vacancy specimens share blue structure with explicit freshness and availability.",
+    "width": 390,
+    "version": "before",
+    "file": "before-governed-cards-390.jpg",
+    "height": 2062,
+    "captureWidth": 358
+  }
+]

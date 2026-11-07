@@ -311,3 +311,8 @@ export function loadServerEnvironment(
     personalDataCollection: 'disabled',
   })
 }
+
+// Demo routes are available only to the local Next development server.
+export function isLocalDemo(): boolean {
+  return process.env.NODE_ENV === 'development'
+}

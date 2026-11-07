@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 const applicationRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const [shell, enhancement, styles, fixture, pageFrame, homeFixture, emergencyFixture, appointmentFixture] = await Promise.all([
   read('src/design-system/components/global-shell.tsx'),
-  read('public/shell-navigation.js'),
+  read('src/demo/interactions.tsx'),
   read('src/design-system/components/global-shell.module.css'),
   read('src/design-system/templates/essential-actions-fixture-template.tsx'),
   read('src/design-system/primitives/page-frame.tsx'),
@@ -37,7 +37,7 @@ const requiredShellContracts = [
   ['native popover panel', /id="primary-navigation-panel"[\s\S]*popover="auto"/u],
   ['emergency independent of disclosure', /data-navigation-panel[\s\S]*<\/div>[\s\S]*<div className=\{styles.headerEmergency\} data-shell-emergency/u],
   ['complete compact disclosure', /data-navigation-panel[\s\S]*<PrimaryNavigation[\s\S]*data-shell-utilities[\s\S]*data-shell-routine/u],
-  ['first-party deferred enhancement', /<script data-shell-navigation-script defer src="\/shell-navigation\.js"/u],
+  ['script-independent shell', /<SiteFooter \{\.\.\.footer\} \/>/u],
 ]
 
 for (const [label, pattern] of requiredShellContracts) {
@@ -53,9 +53,10 @@ if (/\$\{brandName\}\s+home/u.test(shell)) {
 
 const requiredEnhancementContracts = [
   ['expanded-state reflection', /setAttribute\('aria-expanded', String\(open\)\)/u],
-  ['close focus restoration', /shouldRestoreFocus[\s\S]*trigger\.focus\(\)/u],
+  ['close focus restoration', /restoreMenuFocus[\s\S]*trigger\?\.focus\(\)/u],
   ['navigation close', /closest\('a\[href\]'\)[\s\S]*hidePopover\(\)/u],
-  ['enhancement marker', /dataset\.shellNavigationEnhanced = 'true'/u],
+  ['effect cleanup', /return \(\) => controller\.abort\(\)/u],
+  ['same-route rebind', /\[pathname, search\]/u],
 ]
 
 for (const [label, pattern] of requiredEnhancementContracts) {
@@ -69,7 +70,7 @@ if (/\b(?:fetch|XMLHttpRequest|sendBeacon|WebSocket|localStorage|sessionStorage)
 const requiredStyleContracts = [
   ['44 px token target', /min-block-size:\s*var\(--component-shell-target-minimum\)/u],
   ['compact popover baseline', /\.navigationPanel[\s\S]*overflow-y:\s*auto/u],
-  ['single wide navigation tree', /@media \(min-width: 64rem\)[\s\S]*\.navigationPanel\[popover\][\s\S]*display:\s*grid/u],
+  ['single wide navigation tree', /@media \(min-width: 80rem\)[\s\S]*\.navigationPanel\[popover\][\s\S]*display:\s*grid/u],
   ['explicit responsive wide mode', /\.header\[data-navigation-mode='responsive'\] \.navigationPanel\[popover\]/u],
   ['wrapping primary navigation', /\.primaryNavigation ul[\s\S]*flex-wrap:\s*wrap/u],
   ['non-color current marker', /\[aria-current='page'\][\s\S]*border-/u],
