@@ -72,6 +72,19 @@ for (const deployment of ['local', 'staging', 'production']) {
 
 expectInvalid({}, [/APP_ENVIRONMENT is required/u, /PERSONAL_DATA_COLLECTION/u, /EXTERNAL_SERVICES/u])
 
+{
+  const source = { HH_DEMO_MODE: 'true', APP_ENVIRONMENT: 'staging' }
+  const result = loadServerEnvironment(source)
+  assert.equal(result.deployment, 'staging')
+  assert.equal(result.personalDataCollection, 'disabled')
+  assert.equal(result.externalServices, 'disabled')
+  assert.equal(result.appointment, undefined)
+  assert.ok(Buffer.byteLength(result.payloadSecret) >= 32)
+  expectInvalid({ ...source, APP_ENVIRONMENT: 'production' }, [/HH_DEMO_MODE requires/u])
+  expectInvalid({ ...source, PERSONAL_DATA_COLLECTION: 'enabled' }, [/Hosted demo requires/u])
+  expectInvalid({ ...source, EXTERNAL_SERVICES: 'enabled' }, [/Hosted demo requires/u])
+}
+
 expectInvalid(
   { ...validEnvironment('local'), APP_ENVIRONMENT: 'review' },
   [/APP_ENVIRONMENT must be local, staging, or production/u],

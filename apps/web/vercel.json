@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "pnpm install --frozen-lockfile --config.engine-strict=false",
+  "buildCommand": "pnpm --config.engine-strict=false build",
+  "env": {
+    "HH_DEMO_MODE": "true",
+    "APP_ENVIRONMENT": "staging"
+  },
+  "build": {
+    "env": {
+      "HH_DEMO_MODE": "true",
+      "APP_ENVIRONMENT": "staging"
+    }
+  }
+}

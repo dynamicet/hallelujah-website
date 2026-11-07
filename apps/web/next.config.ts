@@ -8,7 +8,9 @@ const currentDirectory = path.dirname(fileURLToPath(import.meta.url))
 const workspaceRoot = path.resolve(currentDirectory, '../..')
 
 const developmentScripts = isLocalDemo()
-  ? "; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' ws://localhost:* ws://127.0.0.1:*"
+  ? "; script-src 'self' 'unsafe-inline'" + (process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : '')
+    + "; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'"
+    + (process.env.NODE_ENV === 'development' ? ' ws://localhost:* ws://127.0.0.1:*' : '')
   : ''
 
 const securityHeaders = [

@@ -1,6 +1,14 @@
 # Hallelujah Hospital Website
 
-This repository contains the clean, controlled implementation workspace for the hospital website. The application is not approved for publication, personal-data collection, provider activation, production provisioning, migration, or DNS cutover.
+This repository contains the controlled implementation workspace for the hospital website. The `staging/development` branch supports a hosted presentation demo. Live personal-data collection, provider activation, production provisioning, migration, and DNS cutover remain outside this demo.
+
+## Hosted staging demo
+
+Connect `staging/development` to Railway (repository root) or Vercel (`apps/web`
+root directory). Deployment configuration enables the bundled demo without a
+database or manually entered environment variables. See [the deployment guide](docs/deployment.md)
+for the exact settings and local production commands. Real appointment submission
+remains disabled.
 
 ## Local first-demo branch
 
@@ -50,7 +58,8 @@ questions. Topics without a service mapping, including unreviewed self-care,
 offer contact guidance. Empty searches also offer a contact path. Validate with
 `node apps/web/scripts/check-health-finder.mjs`.
 
-These additional routes require development mode and return 404 in production.
+These additional routes require development mode or the explicit hosted staging
+demo mode. Normal production deployments still return 404 for demo-only routes.
 They reuse existing templates and a frozen, public-shaped demo snapshot in
 `apps/web/src/demo/data.json`; they do not import review scripts at runtime.
 Regenerate the snapshot with `node apps/web/scripts/export-demo-data.mjs`.

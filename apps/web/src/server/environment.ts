@@ -1,3 +1,5 @@
+import { randomBytes } from 'node:crypto'
+
 type DeploymentEnvironment = 'local' | 'staging' | 'production'
 
 type EnvironmentVariableName =
@@ -194,6 +196,23 @@ function validatePayloadSecret(
 export function loadServerEnvironment(
   source: EnvironmentVariables = process.env,
 ): ServerEnvironment {
+  if (source.HH_DEMO_MODE === 'true') {
+    if (source.APP_ENVIRONMENT !== 'staging') {
+      throw new EnvironmentConfigurationError(['HH_DEMO_MODE requires APP_ENVIRONMENT=staging'])
+    }
+    if (source.PERSONAL_DATA_COLLECTION === 'enabled' || source.EXTERNAL_SERVICES === 'enabled') {
+      throw new EnvironmentConfigurationError(['Hosted demo requires personal data collection and external services to remain disabled'])
+    }
+    // Payload's configuration is evaluated at build time. Demo routes never use
+    // its database or expose CMS endpoints; no live credentials are needed.
+    return Object.freeze({
+      deployment: 'staging',
+      databaseUrl: 'postgresql://demo:unused@127.0.0.1:1/hallelujah_content_staging',
+      payloadSecret: randomBytes(32).toString('base64url'),
+      personalDataCollection: 'disabled',
+      externalServices: 'disabled',
+    })
+  }
   const issues: string[] = []
   const deployment = parseDeployment(source.APP_ENVIRONMENT, issues)
 
@@ -312,7 +331,8 @@ export function loadServerEnvironment(
   })
 }
 
-// Demo routes are available only to the local Next development server.
+// Hosted demo deployments explicitly opt in; normal production remains closed.
 export function isLocalDemo(): boolean {
   return process.env.NODE_ENV === 'development'
+    || (process.env.HH_DEMO_MODE === 'true' && process.env.APP_ENVIRONMENT === 'staging')
 }
