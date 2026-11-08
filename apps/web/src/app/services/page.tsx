@@ -12,6 +12,7 @@ export default async function ServicesPage({ searchParams }: { searchParams: Dem
   const parameters = await searchParams
   const state = demoScenario(parameters.demo, ['ready', 'loading', 'empty', 'failure', 'offline'] as const, 'ready')
   const directory = serviceDirectoryFromViews({ entries: services.filter((service) => !visitGuides[service.publicId]), filters: data.serviceFilters,
+    groupOrder: ['grp_202020202020', 'grp_303030303030', 'grp_101010101010'],
     locale: 'en', pageSize: 6, searchParameters: parameters, urgentTerms: ['emergency', 'urgent'] })
   const serviceActions = Object.fromEntries(services.map((service) => {
     const access = careEntry(service.publicId)?.access

@@ -126,7 +126,7 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                     options={directory.filters}
                     selectedValues={searchState.groups}
                   />
-                  <button type="submit">Apply groups</button>
+                  <button type="submit">{serviceDetailLinks ? 'Apply filters' : 'Apply groups'}</button>
                   <a className={`${styles.resetFilters} ds-touch-target`} href={pathname}><InterfaceText>Reset all</InterfaceText></a>
                 </FilterDisclosure>
               </aside>
@@ -167,8 +167,8 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                   </div>
                 ) : noMatches ? (
                   <div className={styles.statePanel} data-directory-section="S6" data-directory-empty>
-                    <h2>No services match</h2>
-                    <p>Check the spelling, remove a group, or start again. You can also explore clinicians by area of care.</p>
+                    <h2>{serviceDetailLinks ? 'No care options match' : 'No services match'}</h2>
+                    <p>{serviceDetailLinks ? 'Check the spelling, remove a filter, or start again. You can also explore doctors by specialty.' : 'Check the spelling, remove a group, or start again. You can also explore clinicians by area of care.'}</p>
                     <div className={styles.stateActions}>
                       <a className="ds-touch-target" href={pathname}><InterfaceText>Reset search</InterfaceText></a>
                       <Link className="ds-touch-target" href="/doctors">Find a doctor</Link>

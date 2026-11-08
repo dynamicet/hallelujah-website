@@ -16,6 +16,8 @@ Doctor specialty filters derive from specialty links only. Service teams derive 
 
 Preparation guides stay in the existing patient-information presentation. Admission, contact-only and emergency entries must not become ordinary appointment choices.
 
+`demo/care-content.ts` holds representative care-specific overview and preparation copy separately from relationships. The public directory opts into a clinical-first group order before pagination; other directory consumers retain their existing ordering. Detail pages keep one main action in the introduction and one next step beside the explicit doctor list or team-access guidance.
+
 ## Selection handoff
 
 Only selected IDs travel in URLs: `doctor` and `service`. Contact details never belong in route context. The shared helpers resolve known, requestable entries and compatible pairs before generating appointment links.

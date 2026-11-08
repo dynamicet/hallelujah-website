@@ -225,3 +225,15 @@ Open fresh screenshots at mobile, tablet, and desktop widths. Check relevant int
 ### Completion record
 
 Report changed behavior, the representative content set, verification evidence, and the remaining integration boundary. The frontend is complete when the agreed journeys prepare valid requests locally; real API submission, persistence, notifications, and confirmed scheduling remain future work.
+
+### Follow-up polish groups
+
+- `82ebac2` — preserve the selected doctor when returning to care details, clear outdated selection notices after care edits, and distinguish required dropdown prompts from optional preferences.
+- `5182474` — show preselected care once with an accessible editor, put the required care choice first in DOM/tab order, reopen controls for errors, and remove repeated rail/review identities.
+- Directory/detail polish — order clinical care before admission guidance before pagination, shorten directory summaries, align filter copy, add care-specific mock overview/preparation content, and consolidate repeated actions into the introduction and final care-team/access section.
+
+The selection and booking groups passed focused checks, typecheck, lint, and browser continuity at 390/768/1440px. Appointment usability also passed, including explicit recovery examples and the no-JavaScript fallback. Fresh responsive booking captures were separately inspected in `2026-11-08T19-25-31.200Z-responsive-uK9reR` and `2026-11-08T19-29-25.594Z-responsive-x2hA0i`. The final directory/detail group passed 23 directory cases, pure selection, care-journey and health-finder checks, typecheck, lint, optimized build, local links, and the mechanical design scan. No backend integration or saving was added.
+
+Final directory/detail captures in `2026-11-08T19-33-59.402Z-responsive-wW6I5Y` passed automated checks and separate inspection of all 12 images (services, Cardiology, team-led Physiotherapy, and contact-only Speech & language therapy at all three widths). No clipping or control collisions were observed. The earlier format-check limitation above remains outside this polish scope.
+
+`pnpm visual:quality` also passed its 16-page structural/fragment/skip-link inventory and keyboard/recovery checks at three widths (`2026-11-08T19-35-14.319Z-site-quality-F7r4OZ`). Its screenshots were not separately inspected; visual presentation evidence is recorded in the responsive runs above.
