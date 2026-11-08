@@ -224,7 +224,7 @@ export function SiteHeader({
       ) : null}
       <div className={styles.headerInner}>
         <Link
-          aria-label={homeLabel}
+          aria-label={homeLabel === 'Hallelujah Hospital home' ? 'Hallelujah General Hospital home' : homeLabel}
           className={styles.identity}
           data-shell-identity
           href={homeHref}
@@ -235,7 +235,7 @@ export function SiteHeader({
               {brandMark}
             </span>
           ) : null}
-          <span className={styles.wordmark}>{brandName === 'Hallelujah Hospital' ? <>Hallelujah<span>Hospital</span></> : brandName}</span>
+          <span className={styles.wordmark}>{brandName === 'Hallelujah Hospital' ? <>Hallelujah<span>General Hospital</span></> : brandName}</span>
         </Link>
 
         <button
