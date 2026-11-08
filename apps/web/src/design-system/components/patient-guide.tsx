@@ -4,7 +4,7 @@ import { InterfaceCopy, InterfaceLink as Link } from '@/website/interface-langua
 import { useEffect, useId, useRef, useState, type RefObject, type ReactNode, type FormEvent } from 'react'
 import { answerGuide, maxGuideQuestionLength } from '@/patient-guide/engine'
 import { guideTopics } from '@/patient-guide/content'
-import type { GuideAction, GuideCatalog, GuideReply } from '@/patient-guide/types'
+import type { GuideAction, GuideCatalog, GuideContext, GuideReply } from '@/patient-guide/types'
 import styles from './patient-guide.module.css'
 
 interface Turn { readonly id: number; readonly question: string; readonly reply: GuideReply }
@@ -37,6 +37,7 @@ export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false 
   const input = useRef<HTMLInputElement>(null)
   const transcript = useRef<HTMLDivElement>(null)
   const nextId = useRef(0)
+  const context = useRef<GuideContext>({})
   const latest = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -53,10 +54,11 @@ export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false 
     }
   }, [turns])
 
-  function ask(value: string) {
+  function ask(value: string, selectedContext?: GuideContext) {
     const clean = value.trim().slice(0, maxGuideQuestionLength)
     if (!clean) return
-    const reply = answerGuide(clean, catalog)
+    const reply = answerGuide(clean, catalog, selectedContext ?? context.current)
+    context.current = reply.context ?? {}
     const id = nextId.current++
     setTurns((previous) => [...previous.slice(-19), { id, question: clean, reply }])
     setQuestion('')
@@ -71,6 +73,7 @@ export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false 
 
   function reset() {
     setTurns([])
+    context.current = {}
     setQuestion('')
     setAnnouncement('Conversation cleared. Choose a topic to start again.')
     if (transcript.current) transcript.current.scrollTop = 0
@@ -80,7 +83,7 @@ export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false 
   function action(item: GuideAction, index: number) {
     return item.href
       ? <Link className={styles.answerLink} href={item.href} key={`${item.label}-${index}`} onClick={() => dialogRef.current?.close()}>{item.label}<span aria-hidden="true">→</span></Link>
-      : <button className={styles.suggestion} key={`${item.label}-${index}`} onClick={() => { if (item.query) ask(item.query) }} type="button">{item.label}<span aria-hidden="true">›</span></button>
+      : <button className={styles.suggestion} key={`${item.label}-${index}`} onClick={() => { if (item.query) ask(item.query, item.context) }} type="button">{item.label}<span aria-hidden="true">›</span></button>
   }
 
   return (

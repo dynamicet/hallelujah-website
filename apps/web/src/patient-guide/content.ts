@@ -1,4 +1,5 @@
 import type { GuideAction, GuideFaq } from './types'
+import { hospitalContact } from '@/website/hospital-contact'
 
 export const guideTopics = [
   { label: 'Find a doctor', query: 'Find a doctor' },
@@ -13,31 +14,31 @@ export const guideTopics = [
 export const previewFaqs: readonly GuideFaq[] = [
   {
     id: 'appointment', question: 'How do I request an appointment?',
-    aliases: ['appointment', 'book', 'book a visit', 'booking', 'schedule a visit', 'request an appointment'],
+    aliases: ['appointment', 'book', 'book a visit', 'booking', 'schedule a visit', 'request an appointment', 'schedule', 'make a booking', 'reserve a visit'],
     answer: 'The appointment page is a preview. You can try the steps without choosing a doctor, but no request is sent or saved and no appointment is booked. Contact the hospital to arrange a visit and confirm a time.',
     actions: [{ label: 'Open appointment form', href: '/appointment' }, { label: 'Choose a doctor first', query: 'Find a doctor' }],
   },
   {
     id: 'visit', question: 'How can I prepare for my visit?',
-    aliases: ['plan my visit', 'prepare', 'preparation', 'what to bring', 'first visit', 'documents', 'referral'],
+    aliases: ['plan my visit', 'prepare', 'preparation', 'what to bring', 'first visit', 'documents', 'referral', 'what should i bring', 'check in', 'checklist'],
     answer: 'Use the visit guide to plan your questions and ask what documents or earlier results you may need. Preparation can differ by service, so confirm any instructions with the hospital before your visit.',
     actions: [{ label: 'Read the visit guide', href: '/patients-visitors' }, { label: 'Location & arrival', query: 'Directions' }],
   },
   {
     id: 'contact', question: 'How do I contact the hospital?',
-    aliases: ['contact', 'phone', 'telephone', 'call', 'reception', 'human', 'staff', 'email', 'talk to someone'],
-    answer: 'Call the hospital on +251 11 470 4242 or +251 11 470 4244. For general enquiries, email info@hallelujahhospital.com. These details are published on the hospital’s website. For time-sensitive questions, please call; email is not an emergency channel.',
-    actions: [{ label: 'View contact information', href: '/#home-call' }, { label: 'Location & arrival', href: '/#home-directions' }],
+    aliases: ['contact', 'phone', 'telephone', 'call', 'reception', 'human', 'staff', 'email', 'talk to someone', 'speak to someone', 'real person', 'talk to a person', 'speak to staff'],
+    answer: `Call the hospital on ${hospitalContact.phone} or ${hospitalContact.alternatePhone}. For general enquiries, email ${hospitalContact.email}. These details are published on the hospital’s website. For time-sensitive questions, please call; email is not an emergency channel.`,
+    actions: [{ label: 'Call the hospital', href: hospitalContact.phoneHref }, { label: 'Email the hospital', href: `mailto:${hospitalContact.email}` }, { label: 'View contact information', href: '/#home-call' }, { label: 'Location & arrival', href: '/#home-directions' }],
   },
   {
     id: 'directions', question: 'Where is the hospital?',
-    aliases: ['directions', 'location', 'address', 'where', 'map', 'parking', 'entrance', 'getting there', 'get there'],
+    aliases: ['directions', 'location', 'address', 'where', 'map', 'parking', 'entrance', 'getting there', 'get there', 'how do i get there', 'get to the hospital'],
     answer: 'Hallelujah General Hospital is around Gotera Condominium, Addis Ababa, Ethiopia. Open Contact & directions for the hospital’s Google Maps location. Call before travelling to confirm your department, entrance, and any parking or access arrangements you need.',
     actions: [{ label: 'View location & arrival', href: '/#home-directions' }],
   },
   {
     id: 'hours', question: 'What are the opening and visiting hours?',
-    aliases: ['hours', 'opening', 'visiting', 'visitors', 'open', 'closed', 'close', 'opening times', 'visiting times', 'weekend', 'sunday', 'saturday'],
+    aliases: ['hours', 'opening', 'visiting', 'visitors', 'open', 'closed', 'close', 'opening times', 'visiting times', 'weekend', 'sunday', 'saturday', 'weekdays', 'when are you open'],
     answer: 'Opening and visiting hours are not verified in this preview. Hours may differ by department. Please confirm with the hospital before planning a visit.',
     actions: [{ label: 'Contact information', href: '/#home-call' }, { label: 'Plan a visit', query: 'Plan my visit' }],
   },
@@ -49,7 +50,7 @@ export const previewFaqs: readonly GuideFaq[] = [
   },
   {
     id: 'fees', question: 'What does a visit cost?',
-    aliases: ['cost', 'price', 'prices', 'fees', 'payment', 'pay', 'insurance', 'cash', 'bill'],
+    aliases: ['cost', 'price', 'prices', 'fees', 'payment', 'pay', 'insurance', 'cash', 'bill', 'how much', 'charges', 'pricing', 'coverage'],
     answer: 'Verified prices, payment methods and insurance arrangements are not available in this preview. Ask the hospital to confirm the cost and coverage for the specific service you need.',
     actions: [{ label: 'View all services', query: 'Explore services' }, { label: 'Contact information', href: '/#home-call' }],
   },
@@ -67,14 +68,14 @@ export const previewFaqs: readonly GuideFaq[] = [
   },
   {
     id: 'results', question: 'How do I get my test results?',
-    aliases: ['results', 'test result', 'lab', 'laboratory', 'report', 'medical record', 'records'],
+    aliases: ['results', 'test result', 'test results', 'lab results', 'lab', 'laboratory', 'report', 'medical record', 'records'],
     answer: 'This guide cannot access test results or patient records. Ask the team that arranged your test how and when to receive the result. Please do not share a report or patient number in this chat.',
     actions: [{ label: 'Contact information', href: '/#home-call' }],
   },
   {
     id: 'changes', question: 'Can I change or cancel an appointment?',
-    aliases: ['cancel', 'reschedule', 'change appointment', 'change my appointment', 'confirmation', 'confirmed', 'appointment status'],
-    answer: 'Contact the hospital team handling your appointment to change or cancel it. Have your appointment details ready.',
+    aliases: ['cancel', 'reschedule', 'change appointment', 'change my appointment', 'confirmation', 'confirmed', 'appointment status', 'move my appointment', 'cancel booking', 'change booking', 'when is my appointment'],
+    answer: 'This guide cannot look up appointment details or change a booking. Contact the hospital team handling your appointment to confirm a time, or to change or cancel it. Have your appointment details ready.',
     actions: [{ label: 'Contact information', href: '/#home-call' }],
   },
   {

@@ -1,6 +1,18 @@
-export type GuideAction =
+export type GuideSelection = { readonly kind: 'doctor' | 'service'; readonly id: string }
+export type GuideChoice = GuideSelection | { readonly kind: 'faq' | 'specialty' | 'topic'; readonly id: string }
+
+// Only public record/topic identifiers and a recovery count; never patient data.
+export interface GuideContext {
+  readonly selection?: GuideSelection
+  readonly topicId?: string
+  readonly choices?: readonly GuideChoice[]
+  readonly unmatchedCount?: number
+}
+
+export type GuideAction = (
   | { readonly label: string; readonly query: string; readonly href?: never }
   | { readonly label: string; readonly href: string; readonly query?: never }
+) & { readonly context?: GuideContext }
 
 export interface GuideCard {
   readonly id: string
@@ -10,10 +22,11 @@ export interface GuideCard {
 }
 
 export interface GuideReply {
-  readonly kind: 'answer' | 'directory' | 'fallback' | 'emergency'
+  readonly kind: 'answer' | 'directory' | 'clarification' | 'fallback' | 'emergency'
   readonly text: string
   readonly actions?: readonly GuideAction[]
   readonly cards?: readonly GuideCard[]
+  readonly context?: GuideContext
 }
 
 export interface GuideFaq {

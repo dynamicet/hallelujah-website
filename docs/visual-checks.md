@@ -19,7 +19,7 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 | `pnpm visual:motion` | Existing home motion, live reduced-motion, and static fallback contracts |
 | `pnpm visual:care-continuity` | Service → doctor → appointment context, keyboard care editing, validation, and unrelated-service rejection at three widths |
 | `pnpm visual:appointment` | Appointment error focus and keyboard recovery, retained choices, date limits, review validation, retry editing, unsure-care guidance, long-script text, repeat-submit protection, completion/restart, consent clearing and synthesized cached-page lifecycle recovery at three widths; unknown/duplicate/delivery-warning recovery on mobile |
-| `pnpm visual:help` | Help access on home/directory, two-option menu, guide topics/replies, keyboard dismissal/return, reset/reopen, profile/service appointment context, reduced motion and failed-download retry at phone/tablet/desktop/short viewports |
+| `pnpm visual:help` | Help access on home/directory, two-option menu, guide topics/replies, spelling confirmation and topic clarification, session care follow-ups, contact actions, keyboard dismissal/return, reset/reopen, profile/service appointment context, reduced motion and failed-download retry at phone/tablet/desktop/short viewports |
 | `pnpm visual:quality` | Public-page skip links, control names and fragment targets; keyboard section jumps, feedback recovery, health-reader focus, navigation and help dismissal |
 | `pnpm visual:journeys` | Existing six-route responsive checks, service selection, mobile navigation, and reduced motion |
 
