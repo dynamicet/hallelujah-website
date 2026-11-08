@@ -228,9 +228,6 @@
 .enhanced-home .partners-controls button:not(:disabled) { border: 1px solid var(--semantic-color-text-link); background: var(--semantic-color-surface-subtle); color: var(--semantic-color-text-link); }
 .enhanced-home .partners-controls button:not(:disabled):hover { background: var(--semantic-color-action-primary); color: var(--semantic-color-text-inverse); }
 
-/* The topic index sits directly within the shared page frame. */
-.enhanced-home #health-library { background: transparent; padding: 0; border: 0; border-radius: 0; }
-
 @media (max-width: 899px) {
   .enhanced-home .home-quick-access-list li { padding-inline: 16px; }
   .enhanced-home .home-quick-access-list a { flex-wrap: wrap; gap: 12px; align-content: flex-start; }

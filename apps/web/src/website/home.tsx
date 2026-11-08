@@ -13,8 +13,7 @@ import { HospitalStoryIntroduction } from './hospital-story-introduction'
 import { SpecialtyGrid } from './specialty-grid'
 import { EquipmentShowcase } from './equipment-showcase'
 import { HospitalStatistics } from './hospital-statistics'
-import { HealthLibrary } from './health-library'
-import { healthTopics } from '@/demo/health-topics'
+import { HomeHealthTopics } from './home-health-topics'
 import { partners } from '@/demo/partners'
 import { Partners } from './partners'
 import { NewsResources } from './news-resources'
@@ -132,7 +131,7 @@ export function WebsiteHome() {
 
         <ContactDirections />
 
-        <HealthLibrary topics={healthTopics} />
+        <HomeHealthTopics />
 
         <EquipmentShowcase />
 
