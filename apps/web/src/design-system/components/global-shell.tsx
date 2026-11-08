@@ -357,7 +357,18 @@ export function SiteFooter({
         </nav>
       </div>
       <div className={styles.footerClose}>
-        <strong>{variant === 'compact' ? brandName : brandName.replace(' Hospital', '')}</strong>
+        {brandName === 'Hallelujah Hospital' ? (
+          <Link className={styles.footerBrand} href="/" aria-label="Hallelujah General Hospital home">
+            <span className={styles.footerEmblem} aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/hallelujah-emblem.png" width="280" height="252" alt="" />
+            </span>
+            <span className={styles.footerBrandCopy}>
+              <strong>Hallelujah<span>General Hospital</span></strong>
+              <span className={styles.footerTagline}>Bringing Quality Care Home</span>
+            </span>
+          </Link>
+        ) : <strong>{variant === 'compact' ? brandName : brandName.replace(' Hospital', '')}</strong>}
         <div>
           {contact ? <address className={styles.footerContact}>
             <span>{contact.address}</span>

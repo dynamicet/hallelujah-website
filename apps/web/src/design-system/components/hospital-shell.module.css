@@ -235,6 +235,14 @@
 .footer .footerClose > strong { font-size: clamp(24px, 3vw, 40px); letter-spacing: -.025em; }
 .footer .footerClose { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
 .footer .footerClose > div { margin-top: 0; flex: 1; justify-content: flex-end; flex-wrap: wrap; }
+.footerClose .footerBrand { display: inline-flex; align-items: center; gap: 16px; max-width: 100%; text-decoration: none; border-radius: 4px; }
+.footerEmblem { display: flex; align-items: center; justify-content: center; flex: 0 0 64px; width: 64px; height: 64px; padding: 8px; box-sizing: border-box; background: var(--site-white); border-radius: 8px; }
+.footerEmblem img { display: block; width: 100%; height: auto; }
+.footerBrandCopy { display: grid; gap: 8px; min-width: 0; }
+.footerBrandCopy > strong { display: block; font-family: var(--site-display); font-size: 28px; font-weight: 500; line-height: 1.1; letter-spacing: -.02em; }
+.footerBrandCopy > strong > span { display: block; margin-top: 4px; font-family: var(--site-font); font-size: 16px; line-height: 1.4; font-weight: 600; letter-spacing: normal; }
+.footerTagline { font-size: var(--site-small); line-height: 1.5; }
+.footerBrand:hover .footerBrandCopy > strong { text-decoration: underline; text-underline-offset: 5px; }
 @media (min-width: 600px) {
   .footer:not([data-footer-variant='compact']) .footerInner { grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: 48px; padding-block: 56px 48px; }
 }
