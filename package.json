@@ -9,6 +9,8 @@
   },
   "scripts": {
     "visual:check": "node scripts/check-visual.mjs",
+    "visual:language-loading": "node scripts/check-interface-language-loading.mjs",
+    "visual:language": "node scripts/check-interface-language.mjs",
     "visual:specialists": "node scripts/check-featured-specialists.mjs",
     "visual:journey-quality": "node scripts/check-journey-quality.mjs",
     "visual:cross-browser": "node scripts/check-motion-cross-browser.mjs",

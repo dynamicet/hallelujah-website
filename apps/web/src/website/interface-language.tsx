@@ -1,9 +1,23 @@
 'use client'
 
 import Link from 'next/link'
-import { Children, Fragment, cloneElement, isValidElement, useSyncExternalStore, type ComponentProps, type ReactNode, type ReactElement } from 'react'
-import { translateInterface, type InterfaceLanguage } from './interface-messages'
+import { Children, Fragment, cloneElement, isValidElement, useEffect, useState, useSyncExternalStore, type ComponentProps, type ReactNode, type ReactElement } from 'react'
+import type { InterfaceLanguage } from './interface-messages'
 import styles from '@/design-system/components/hospital-shell.module.css'
+
+let translateInterface: typeof import('./interface-messages')['translateInterface'] = (text) => text
+let messagesReady = false
+let messageRequest: Promise<void> | undefined
+function loadMessages() {
+  messageRequest ??= import('./interface-messages').then((messages) => {
+    translateInterface = messages.translateInterface
+    messagesReady = true
+    window.dispatchEvent(new Event(interfaceLanguageChangeEvent))
+  }).catch((error) => { messageRequest = undefined; throw error })
+  return messageRequest
+}
+const messagesSnapshot = () => messagesReady
+const serverMessagesSnapshot = () => false
 
 const storageKey = 'hh-interface-language'
 export const interfaceLanguageChangeEvent = 'hh-interface-language-change'
@@ -23,7 +37,10 @@ function subscribe(callback: () => void) {
 const serverLanguage = (): InterfaceLanguage => 'en'
 
 export function useInterfaceLanguage() {
-  const language = useSyncExternalStore(subscribe, getInterfaceLanguage, serverLanguage)
+  const requested = useSyncExternalStore(subscribe, getInterfaceLanguage, serverLanguage)
+  const ready = useSyncExternalStore(subscribe, messagesSnapshot, serverMessagesSnapshot)
+  useEffect(() => { if (requested === 'am') void loadMessages().catch(() => {}) }, [requested])
+  const language = requested === 'am' && !ready ? 'en' : requested
   return { language, t: (text: string) => translateInterface(text, language) }
 }
 
@@ -90,6 +107,7 @@ export function InterfaceLink(props: ComponentProps<typeof Link>) {
 
 export function InterfaceLanguageSwitcher({ enabled, fallback }: { readonly enabled: boolean; readonly fallback: ReactNode }) {
   const { language, t } = useInterfaceLanguage()
+  const [loadError, setLoadError] = useState(false)
   if (!enabled) return fallback
   const alternate = language === 'en' ? 'am' : 'en'
   return <details className={styles.languageSwitcher} data-language-switcher>
@@ -98,14 +116,19 @@ export function InterfaceLanguageSwitcher({ enabled, fallback }: { readonly enab
       <svg aria-hidden="true" className={styles.languageChevron} focusable="false" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" /></svg>
     </summary>
     <div aria-label={t('Language')} className={styles.languageOptions} role="group">
-      <button type="button" lang={alternate} data-select-interface-language={alternate} onClick={(event) => {
+      <button type="button" lang={alternate} data-select-interface-language={alternate} onClick={async (event) => {
+        const details = event.currentTarget.closest('details')
+        setLoadError(false)
+        if (alternate === 'am') {
+          try { await loadMessages() } catch { setLoadError(true); return }
+        }
         // Keep the choice usable in memory even when persistent storage is blocked.
         try { localStorage.setItem(storageKey, alternate) } catch { storageWriteFailed = true }
         memoryLanguage = alternate
         window.dispatchEvent(new Event(interfaceLanguageChangeEvent))
-        const details = event.currentTarget.closest('details')
         if (details) { details.open = false; details.querySelector('summary')?.focus({ preventScroll: true }) }
       }}>{alternate === 'en' ? 'English' : 'አማርኛ'}</button>
+      {loadError ? <p role="status">Language could not load. Try again.</p> : null}
     </div>
   </details>
 }
