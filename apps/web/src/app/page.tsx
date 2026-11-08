@@ -1,9 +1,8 @@
+import { WebsiteHome, DemoHeroArtwork, HomeCareContent, HomeDemoContactDetails, HomeInstitutionalContent } from '@home-experience'
 import { HomePageTemplate } from '@/design-system/templates'
 import { isLocalDemo } from '@/server/environment'
-import { DemoHeroArtwork, HomeCareContent, HomeDemoContactDetails, HomeInstitutionalContent } from '@/demo/home-content'
 import { demoScenario } from '@/demo/scenarios'
 import type { DemoSearchParams } from '@/demo/site'
-import { WebsiteHome } from '@/website/home'
 
 const link = (id: string, label: string) => ({ href: `#home-${id}`, label })
 const tasks = {

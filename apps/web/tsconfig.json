@@ -12,6 +12,7 @@
     "noEmit": true,
     "paths": {
       "@/*": ["./src/*"],
+      "@home-experience": ["./src/demo/home-experience.tsx"],
       "@payload-config": ["./src/payload.config.ts"]
     },
     "plugins": [{ "name": "next" }],

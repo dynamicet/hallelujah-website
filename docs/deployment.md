@@ -51,6 +51,10 @@ Run `HH_PREVIEW_URL=http://localhost:3000 pnpm staging:smoke` against the runnin
 server to verify public routes, demo rendering, unknown-route handling, and the
 disabled appointment endpoint. Browser checks also accept `HH_PREVIEW_URL`.
 
+The enhanced homepage is selected at build time. Use `pnpm build:demo` for a
+hosted demo; setting a demo flag only at runtime cannot enable it in a normal
+production build. Normal builds exclude the enhanced homepage client modules.
+
 Hosted demo mode requires both `HH_DEMO_MODE=true` and
 `APP_ENVIRONMENT=staging`. It rejects enabled collection/provider gates. Without
 the demo flag, the existing strict environment and credential requirements apply.

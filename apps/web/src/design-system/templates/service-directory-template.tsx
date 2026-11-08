@@ -12,7 +12,7 @@ import {
   type ActiveFilter,
   type PaginationPage,
 } from '../components'
-import { DirectorySearchForm, DirectoryResultCount } from '../components/directory-search'
+import { DirectorySearchForm, DirectoryResultCount } from '../components'
 import {
   serviceDirectoryQueryMaximum,
   serviceDirectoryUrl,

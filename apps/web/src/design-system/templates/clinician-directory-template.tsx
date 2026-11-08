@@ -13,9 +13,9 @@ import {
   type ActiveFilter,
   type PaginationPage,
 } from '../components'
-import { DirectorySearchForm, DirectoryResultCount } from '../components/directory-search'
-import { ClinicianTransition, clinicianTransitionName } from '../components/clinician-transition'
-import { ClinicianProfileLink } from '../components/clinician-profile-link'
+import { DirectorySearchForm, DirectoryResultCount } from '../components'
+import { ClinicianTransition, clinicianTransitionName } from '../components'
+import { ClinicianProfileLink } from '../components'
 import {
   clinicianDirectoryQueryMaximum,
   clinicianDirectoryUrl,

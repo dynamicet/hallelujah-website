@@ -5,7 +5,7 @@ import type { ControlledClinicianProfile } from '../../content/clinician-profile
 
 import styles from './clinician-profile-template.module.css'
 import { ClinicianPortrait } from '../components'
-import { ClinicianTransition, clinicianTransitionName } from '../components/clinician-transition'
+import { ClinicianTransition, clinicianTransitionName } from '../components'
 
 export type ClinicianProfileReviewState =
   | 'appointment-unavailable'
