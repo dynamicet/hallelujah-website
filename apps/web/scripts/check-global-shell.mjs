@@ -37,7 +37,7 @@ const requiredShellContracts = [
   ['native popover panel', /id="primary-navigation-panel"[\s\S]*popover="auto"/u],
   ['emergency independent of disclosure', /data-navigation-panel[\s\S]*<\/div>[\s\S]*<div className=\{styles.headerEmergency\} data-shell-emergency/u],
   ['complete compact disclosure', /data-navigation-panel[\s\S]*<PrimaryNavigation[\s\S]*data-shell-utilities[\s\S]*data-shell-routine/u],
-  ['script-independent shell', /<SiteFooter \{\.\.\.footer\} \/>/u],
+  ['script-independent shell', /<SiteFooter \{\.\.\.footer\} publicWebsite=/u],
 ]
 
 for (const [label, pattern] of requiredShellContracts) {

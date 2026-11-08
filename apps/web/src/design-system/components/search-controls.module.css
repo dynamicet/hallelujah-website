@@ -70,7 +70,7 @@
 
 .searchRow button,
 .filterPanel > button {
-  font-size: var(--site-support, 1rem);
+  font-size: var(--component-search-controls-support-font-size);
   appearance: none;
   background: var(--component-search-controls-action);
   border: var(--component-search-controls-border-emphasis) solid
@@ -92,7 +92,7 @@
 }
 
 .searchRow button:active,
-.filterPanel > button:active { background: var(--site-action-active); border-color: var(--site-action-active); }
+.filterPanel > button:active { background: var(--component-context-action-active); border-color: var(--component-context-action-active); }
 
 .filterDisclosure {
   border: var(--component-search-controls-border-width) solid

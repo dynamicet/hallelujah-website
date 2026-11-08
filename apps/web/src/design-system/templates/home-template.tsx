@@ -57,7 +57,7 @@ export interface HomeTemplateProps {
   readonly showSupportBand?: boolean
 }
 
-export function HomeVisitGuidance() {
+export function HomeVisitGuidance({ appointmentHref, directionsHref }: { readonly appointmentHref: string; readonly directionsHref: string }) {
   const stages = [
     ['Before', 'Prepare for your visit', 'Check the appointment details you have, note questions to ask, and bring any records you have been asked to share.'],
     ['During', 'Navigate your visit', 'Use the arrival information below to identify the example entrance. Ask the reception team where to go for your visit.'],
@@ -76,7 +76,7 @@ export function HomeVisitGuidance() {
             <p className={styles.stage}>{stage}</p>
             <h3>{heading}</h3>
             <p>{description}</p>
-            <a href={stage === 'Before' ? '/appointment' : '#home-directions'}>
+            <a href={stage === 'Before' ? appointmentHref : directionsHref}>
               {stage === 'Before' ? 'Review the request journey' : 'Review arrival information'}
             </a>
           </article>
@@ -189,7 +189,7 @@ export function HomeTemplate({
 
         {careContent ?? governedContent}
 
-        {showJourneyGuidance ? <HomeVisitGuidance /> : null}
+        {showJourneyGuidance ? <HomeVisitGuidance appointmentHref={tasks.appointment.href} directionsHref={tasks.directions.href} /> : null}
 
         {contactDetails ? (
           <section aria-label="Contact and arrival information" className={`${styles.section} ${styles.contact}`} data-home-section="H7" data-experience-level="0">

@@ -239,3 +239,7 @@
 :is(.warning, .temporary) .headingRow { color: var(--component-system-state-text-warning); }
 :is(.emergency, .error, .expired, .unavailable) .headingRow { color: var(--component-system-state-text-error); }
 @media (forced-colors: active) { .panel { border-color: CanvasText; } }
+
+@media print {
+  .panel { background: transparent; border-color: CanvasText; color: CanvasText; }
+}

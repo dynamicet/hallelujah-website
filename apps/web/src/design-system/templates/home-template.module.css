@@ -108,7 +108,7 @@
 .arrivalStationSecond { inset: 43% 15% auto auto; border-color: var(--semantic-color-brand-warm); }
 .arrivalStationThird { inset: auto auto 9% 22%; }
 
-.sectionHeading { max-inline-size: var(--semantic-size-reading); }
+.sectionHeading { min-inline-size: 0; max-inline-size: var(--semantic-size-reading); }
 
 .visitGrid {
   display: grid;
@@ -117,6 +117,9 @@
 }
 
 .visitCard {
+  grid-template-columns: minmax(0, 1fr);
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
   background: var(--semantic-color-surface-raised);
   border: var(--semantic-border-default) solid var(--semantic-color-border-default);
   border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
@@ -214,9 +217,9 @@
 .searchForm { margin: 0; }
 .searchField label { font-size: .9rem; }
 .searchField p { font-size: .875rem; }
-.visit { background: var(--semantic-color-surface-supporting); border-radius: 0; padding: 3.5rem 2.5rem; margin-block: 1rem 3rem; display: grid; gap: 2rem 4rem; align-items: center; }
+.visit { background: var(--semantic-color-surface-supporting); border-radius: 0; padding: 3.5rem 2.5rem; margin-block: 1rem 3rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem 4rem; align-items: center; }
 .visit .sectionHeading h2 { max-inline-size: 15ch; margin-block-start: 1rem; }
-.visitGrid { display: grid; grid-template-columns: 1fr; margin: 0; gap: 0; background: var(--semantic-color-surface-raised); padding: .75rem 2rem; border-radius: .4rem; }
+.visitGrid { display: grid; min-inline-size: 0; grid-template-columns: minmax(0, 1fr); margin: 0; gap: 0; background: var(--semantic-color-surface-raised); padding: .75rem 2rem; border-radius: .4rem; }
 .visitCard { background: transparent; border: 0; border-radius: 0; padding: 1.5rem 0; }
 .visitCard + .visitCard { border-block-start: 1px solid var(--semantic-color-border-default); }
 .visitCard h3 { font-size: 1.2rem; }
@@ -237,12 +240,16 @@
  .heroCopy h1 { font-size: clamp(3.25rem, 12vw, 4.5rem); }
  .tasks { grid-template-columns: 1fr; }
  .tasks li + li { border-inline-start: 0; border-block-start: 1px solid var(--semantic-color-border-default); }
- .visit, .contact { padding: 1.5rem; }
- .supportBand.supportBand { padding: 2rem 1.5rem; }
- .visitGrid { padding-inline: 1.25rem; }
+ .visit, .contact { padding: min(1.5rem, 4vw); }
+ .supportBand.supportBand { padding: 2rem min(1.5rem, 4vw); }
+ .visitGrid { padding-inline: min(1.25rem, 4vw); }
 }
 
 .frame { inline-size: min(1240px, calc(100% - 96px)); max-inline-size: none; padding-inline: 0; }
 .visit .sectionHeading h2 { max-inline-size: 18ch; }
-.supportBand.supportBand { display: flex; }
+.supportBand.supportBand { display: flex; flex-wrap: wrap; }
+.supportBand > * { min-inline-size: 0; }
 @media (max-width: 47.99rem) { .frame { inline-size: calc(100% - 32px); } }
+
+/* Let enlarged text reduce the task column count before labels lose their space. */
+.tasks { grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }

@@ -62,3 +62,11 @@
 .row { border-inline-start: 3px solid transparent; }
 .row:hover { border-inline-start-color: var(--semantic-color-accent-supporting); }
 @media (forced-colors: active) { .panel .cue { border-color: LinkText; } }
+
+/* On narrow screens, keep enlarged labels below the icon row. */
+@media (max-width: 30rem) {
+  .row { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto; }
+  .row .symbol { grid-column: 1; grid-row: 1; }
+  .row .cue { grid-column: 2; grid-row: 1; }
+  .row .title, .row .description { grid-column: 1 / -1; }
+}

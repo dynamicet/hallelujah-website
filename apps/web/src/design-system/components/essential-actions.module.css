@@ -16,7 +16,7 @@
 }
 
 .action {
-  font-size: var(--site-support, 1rem);
+  font-size: var(--component-shell-body-font-size);
   align-items: center;
   appearance: none;
   border: var(--component-action-border-width) solid transparent;

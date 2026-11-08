@@ -4,14 +4,14 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
 import { collectFilesUnder, repositoryRoot } from './lib/repository-files.mjs'
-import { reviewGroups } from './review-harness/manifest.mjs'
+import { reviewGroups, standaloneReviews } from './review-harness/manifest.mjs'
 import { createReviewHarnessServer, prepareReviewDocument } from './review-harness/server.mjs'
 import { experienceAreas, protectedExperienceContexts, resolveExperienceLevel } from '../apps/web/src/design-system/contracts/experience.ts'
 import { reviewRequestIsAllowed } from './review-harness/check-browser.mjs'
 
 const appRoot = path.join(repositoryRoot, 'apps/web')
 const componentFiles = await collectFilesUnder(path.join(appRoot, 'src/design-system/components'), (file) => file.endsWith('.tsx'))
-const inventoried = new Set(reviewGroups.flatMap((group) => group.components))
+const inventoried = new Set([...reviewGroups, ...standaloneReviews].flatMap((group) => group.components))
 for (const url of ['https://example.invalid/', 'http://127.0.0.1:2/', 'http://127.0.0.1:1.example.invalid/', 'http://127.0.0.1:1@external.invalid/', 'file:///private', 'blob:http://127.0.0.1:1/value', 'data:text/html,CONTROLLED', 'about:config']) {
   assert.equal(reviewRequestIsAllowed(url, 'http://127.0.0.1:1'), false)
 }
@@ -23,6 +23,7 @@ for (const area of experienceAreas) {
     for (const level of [0, 1, 2, 3]) assert.equal(resolveExperienceLevel(area, level, context), 0)
   }
 }
+for (const review of standaloneReviews) await readFile(path.join(repositoryRoot, review.check), 'utf8')
 for (const file of componentFiles) {
   const source = await readFile(file, 'utf8')
   for (const match of source.matchAll(/export function ([A-Z]\w*)\(/gu)) {

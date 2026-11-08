@@ -82,14 +82,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-:where([lang="am"]) {
-  font-family: var(--semantic-font-family-ethiopic);
-}
-
 :where(button, input, select, textarea) {
   color: inherit;
   font: inherit;
   letter-spacing: inherit;
+}
+
+:where([lang="am"]) {
+  font-family: var(--semantic-font-family-ethiopic);
 }
 
 :where(h1, h2, h3) {

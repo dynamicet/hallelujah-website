@@ -17,3 +17,12 @@ export const reviewCapabilities = [
 ]
 
 export const reviewLanguages = ['en', 'am']
+
+// These components are reviewed on their actual page journeys rather than the
+// original foundation fixture. Listing them does not claim fixture-matrix coverage.
+export const standaloneReviews = [
+  { components: ['BrandCard', 'BrandSurface'], check: 'scripts/check-brand-foundation.mjs' },
+  { components: ['DirectoryBrowse', 'DirectorySearchForm', 'DirectoryResultCount'], check: 'scripts/check-directory-feedback.mjs' },
+  { components: ['ClinicianPortrait', 'ClinicianMonogram', 'ClinicianPhotoPlaceholder', 'ClinicianTransition', 'ClinicianProfileLink'], check: 'scripts/check-clinician-transition.mjs' },
+  { components: ['PatientGuide', 'HelpWidget', 'GuideLauncher', 'HeaderContacts'], check: 'scripts/check-help.mjs' },
+]

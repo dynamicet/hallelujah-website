@@ -5,8 +5,11 @@ import type { GuideCatalog } from '@/patient-guide/types'
 import { HelpWidget } from './help-widget'
 import { GuideLauncher } from './guide-launcher'
 import { HeaderContacts, type HeaderContactTargets } from './header-contacts'
-import styles from './hospital-shell.module.css'
+import controlledStyles from './global-shell.module.css'
+import publicStyles from './hospital-shell.module.css'
 import { hospitalContact } from '../../website/hospital-contact'
+
+const styles = controlledStyles
 
 export interface NavigationItem {
   readonly current?: boolean
@@ -73,6 +76,7 @@ export interface FooterLinkGroup {
 }
 
 export interface SiteFooterProps {
+  readonly publicWebsite?: boolean
   readonly contact?: { readonly address: string; readonly phone: string; readonly phoneHref: string }
   readonly variant?: 'full' | 'compact'
   readonly brandName: string
@@ -103,12 +107,14 @@ export function SkipLink({ label, targetId }: { readonly label: string; readonly
 export function PrimaryNavigation({
   items,
   label,
+  publicWebsite = false,
 }: {
+  readonly publicWebsite?: boolean
   readonly items: readonly NavigationItem[]
   readonly label: string
 }) {
   return (
-    <InterfaceCopy><nav aria-label={label} className={styles.primaryNavigation} data-primary-navigation>
+    <InterfaceCopy><nav aria-label={label} className={(publicWebsite ? publicStyles : styles).primaryNavigation} data-primary-navigation>
       <ul>
         {items.map((item) => (
           <li key={`${item.href}-${item.label}`}>
@@ -184,6 +190,7 @@ export function SiteHeader({
 }: SiteHeaderProps) {
   if (!homeLabel.trim()) throw new Error('SiteHeader homeLabel must not be empty')
   const publicWebsite = homeHref === '/'
+  const styles = publicWebsite ? publicStyles : controlledStyles
   const primaryNavigationItems = navigationItems
     .filter((item) => !(publicWebsite ? [searchItem.href, '/', '/appointment'] : [searchItem.href]).includes(item.href))
     .map((item) => publicWebsite ? { ...item, label: ({ Doctors: 'Find a doctor', Services: 'Care & services', Directions: 'Your visit' } as Record<string, string>)[item.label] ?? item.label } : item)
@@ -224,7 +231,7 @@ export function SiteHeader({
       ) : null}
       <div className={styles.headerInner}>
         <Link
-          aria-label={homeLabel === 'Hallelujah Hospital home' ? 'Hallelujah General Hospital home' : homeLabel}
+          aria-label={homeLabel}
           className={styles.identity}
           data-shell-identity
           href={homeHref}
@@ -264,7 +271,7 @@ export function SiteHeader({
           tabIndex={-1}
         >
           {publicWebsite ? <Link className={styles.mobileAppointment} href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link> : null}
-          <PrimaryNavigation items={primaryNavigationItems} label={primaryNavigationLabel} />
+          <PrimaryNavigation items={primaryNavigationItems} label={primaryNavigationLabel} publicWebsite={publicWebsite} />
           {publicWebsite ? <Link className={styles.aboutLink} href="/#about-hallelujah">About Hallelujah</Link> : null}
           {publicWebsite ? <div className={styles.menuResources}>
             <Link href="/emergency">Emergency information →</Link>
@@ -323,12 +330,14 @@ export function Breadcrumbs({ items, label }: BreadcrumbsProps) {
 
 export function SiteFooter({
   contact,
+  publicWebsite = false,
   variant = 'full',
   brandName,
   description,
   groups,
   navigationLabel,
 }: SiteFooterProps) {
+  const styles = publicWebsite ? publicStyles : controlledStyles
   const careLinks = groups.flatMap((group) => group.links)
   const careLink = careLinks.find((link) => link.href === '/appointment') ?? careLinks.find((link) => link.href === '/doctors')
   return (
@@ -357,7 +366,7 @@ export function SiteFooter({
         </nav>
       </div>
       <div className={styles.footerClose}>
-        {brandName === 'Hallelujah Hospital' ? (
+        {publicWebsite && brandName === 'Hallelujah Hospital' ? (
           <Link className={styles.footerBrand} href="/" aria-label="Hallelujah General Hospital home">
             <span className={styles.footerEmblem} aria-hidden="true">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -374,7 +383,7 @@ export function SiteFooter({
             <span>{contact.address}</span>
             <a href={contact.phoneHref}>{contact.phone}</a>
           </address> : null}
-          <a href="#">Back to top ↑</a>
+          {publicWebsite ? <a href="#">Back to top ↑</a> : null}
         </div>
       </div>
     </footer></InterfaceCopy>
@@ -408,7 +417,7 @@ export function SiteShell({
       <main id={mainId} tabIndex={-1}>
         {children}
       </main>
-      <SiteFooter {...footer} />
+      <SiteFooter {...footer} publicWebsite={header.homeHref === '/'} />
       {header.homeHref === '/' ? <HelpWidget guide={patientGuide} /> : null}
     </>
   )
