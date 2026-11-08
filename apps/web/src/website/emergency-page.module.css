@@ -1,0 +1,84 @@
+.page { width: var(--site-frame); max-width: 1280px; margin-inline: auto; padding-block: clamp(32px, 5vw, 64px) 56px; color: var(--site-reading-ink); }
+.page h1, .page h2, .page p { margin: 0; }
+.page h1 { max-width: 22ch; font-size: clamp(36px, 4.5vw, 60px); line-height: 1.1; color: var(--site-ink); text-wrap: balance; }
+.page h2 { font-size: clamp(26px, 2.5vw, 34px); line-height: 1.15; text-wrap: balance; }
+.page p, .page li { font-size: 17px; line-height: 1.65; }
+.page a, .page summary { transition: none; }
+.page a:focus-visible, .page summary:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
+.introduction > p { margin-top: 16px; max-width: 60ch; font-size: 19px; }
+.priority { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 32px; align-items: stretch; }
+.call, .arrival { min-width: 0; padding: clamp(24px, 3vw, 40px); }
+.call { background: var(--site-ink); color: var(--site-white); }
+.call h2 { color: inherit; }
+.call > p:first-of-type { margin-top: 12px; }
+.callAction { display: flex; align-items: center; gap: 18px; min-height: 96px; margin-block: 24px 16px; padding: 20px; background: var(--site-white); color: var(--site-ink); border-radius: var(--site-action-radius); text-decoration: none; }
+.callAction > svg { flex: 0 0 24px; width: 24px; height: 24px; }
+.callAction > span { display: grid; gap: 6px; min-width: 0; }
+.actionLabel { font-size: 15px; font-weight: 600; line-height: 1.4; }
+.callAction strong { font-size: clamp(24px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; letter-spacing: -.025em; white-space: nowrap; }
+.callAction:hover, .callAction:active { background: var(--site-pale); color: var(--site-ink); }
+.page .callNote { font-size: 15px; line-height: 1.55; }
+.page .warning { margin-top: 24px; padding-top: 20px; border-top: 1px solid currentColor; font-size: 15px; line-height: 1.65; }
+.warning strong { display: block; }
+.arrival { background: var(--site-pale); color: var(--site-ink); }
+.arrival address { display: grid; margin-top: 20px; font-style: normal; font-size: 17px; line-height: 1.65; }
+.arrival address strong { margin-bottom: 4px; font-weight: 600; }
+.directions { display: flex; align-items: center; gap: 12px; width: fit-content; max-width: 100%; min-height: 52px; padding: 12px 18px; margin-block: 24px 20px; border-radius: var(--site-action-radius); background: var(--site-ink); color: var(--site-white); text-decoration: none; font-weight: 600; }
+.directions svg { width: 22px; height: 22px; }
+.directions > span:last-child { margin-left: 12px; }
+.directions:hover, .directions:active { text-decoration: underline; text-underline-offset: 4px; }
+.page .arrival > p { font-size: 15px; line-height: 1.65; }
+.page .arrival .access { margin-top: 12px; }
+.practical { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: clamp(24px, 4vw, 56px); margin-block: 48px; }
+.practical h2, .reception h2 { color: var(--site-ink); }
+.practical > div > p { margin-top: 16px; max-width: 52ch; }
+.questions { border-block: 1px solid var(--semantic-color-border-strong); }
+.questions summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 64px; padding-block: 16px; cursor: pointer; color: var(--site-ink); font-size: 17px; font-weight: 600; list-style: none; }
+.questions summary::-webkit-details-marker { display: none; }
+.questions summary > span { font-size: 26px; font-weight: 400; }
+.questions[open] summary > span { transform: rotate(45deg); }
+.questions > div { padding-bottom: 20px; }
+.questions ul { margin: 0 0 16px; padding-left: 24px; }
+.questions li + li { margin-top: 8px; }
+.page .questions p { font-size: 15px; }
+.reception { display: flex; align-items: center; justify-content: space-between; gap: 24px 40px; padding-top: 32px; border-top: 1px solid var(--semantic-color-border-default); }
+.page .reception h2 { font-size: 26px; }
+.page .reception p { margin-top: 12px; font-size: 15px; }
+.reception > a { display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; flex-shrink: 0; min-height: 52px; color: var(--site-ink); text-decoration: none; }
+.reception > a > span { font-size: 15px; }
+.reception > a > strong { grid-column: 1; font-size: 22px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.reception > a > svg { grid-column: 2; grid-row: 1 / 3; width: 24px; height: 24px; align-self: center; }
+.reception > a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.mobileCall { display: none; }
+@media (max-width: 699px) {
+  .page { padding-block: 28px 36px; }
+  .page h1 { font-size: clamp(32px, 9vw, 40px); max-width: 16ch; }
+  .introduction > p { margin-top: 12px; font-size: 17px; }
+  .priority { grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 24px; }
+  .call, .arrival { padding: 24px 20px; }
+  .page h2 { font-size: 27px; }
+  .callAction { margin-top: 20px; gap: 12px; padding: 16px 14px; }
+  .callAction > svg { width: 20px; height: 20px; flex-basis: 20px; }
+  .actionLabel { font-size: 13px; }
+  .callAction strong { font-size: clamp(22px, 6.2vw, 28px); }
+  .practical { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-block: 32px; }
+  .reception { align-items: start; flex-direction: column; padding-top: 28px; gap: 20px; }
+  .mobileCall { position: fixed; z-index: 30; inset: auto 0 0; display: block; padding: 10px 20px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid var(--semantic-color-border-default); background: var(--site-white); }
+  .mobileCall a { display: flex; align-items: center; justify-content: center; gap: 14px; min-height: 56px; padding: 10px 12px; border-radius: var(--site-action-radius); background: var(--site-ink); color: var(--site-white); text-decoration: none; }
+  .mobileCall svg { width: 22px; height: 22px; }
+  .mobileCall span { display: grid; gap: 2px; font-size: 13px; line-height: 1.4; }
+  .mobileCall strong { font-size: 18px; font-variant-numeric: tabular-nums; }
+  /* Reserve space through the footer and keep keyboard targets above the fixed action. */
+  :global(body:has([data-hospital-emergency])) { padding-bottom: calc(86px + env(safe-area-inset-bottom)); }
+  :global(html:has([data-hospital-emergency])) { scroll-padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+}
+@media (forced-colors: active) {
+  .call, .arrival, .callAction, .directions, .mobileCall, .mobileCall a { border: 1px solid ButtonText; }
+}
+@media print {
+  :global(body:has([data-hospital-emergency])) { padding-bottom: 0; }
+  .page { width: 100%; padding: 0; }
+  .call, .arrival, .callAction, .directions { background: none; color: black; border: 1px solid black; }
+  .priority, .practical { gap: 24px; }
+  .mobileCall { display: none; }
+}

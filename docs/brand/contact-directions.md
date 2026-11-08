@@ -33,8 +33,40 @@ See [the map asset record](../visual-design/gotera-map-asset.md) for sources and
 Supporting prose is newly written. It asks visitors to confirm their department,
 entrance, parking, drop-off and access needs. It does not claim that a particular
 entrance, facility, opening schedule, response time, or parking arrangement exists.
-Emergency information remains a separate route with its existing preview behavior.
+Emergency information remains a separate route; see the 8 November refinement below.
 The shared header now links to that route instead of showing the mock 1234 hotline.
+
+## Emergency refinement — 8 November 2026
+
+Following the client's approval of the emergency comparison, the connected local demo's
+default `/emergency` page now uses `WebsiteEmergencyPage`. It leads with one telephone
+link for emergency and ambulance enquiries, followed immediately by the published
+hospital location and directions. A native disclosure holds call-preparation questions;
+reception is clearly separate. A fixed mobile call link reserves space through the footer.
+The floating Help control and its header launchers are omitted on this page.
+
+The legacy emergency page, https://hallelujahhospital.com/emergency/, was checked again
+on 8 November. Its ambulance, emergency and footer sections consistently list
+`+251-940-105692`, normalized to `tel:+251940105692` and displayed as
+`+251 940 105 692`. This is a source-checked published contact, not a test-called or
+hospital-approved dispatch record. The conflicting sample-like header number remains
+excluded. The page makes no promise about staffing, hours, response times, transport
+equipment or accessible facilities. Directions identify the existing published hospital
+pin; visitors are asked to confirm the emergency entrance and access arrangements.
+No public-service number or unreviewed emergency translation has been introduced.
+
+The route still requires `requireLocalDemo()`. Explicit unavailable, expired, map-failure
+and unsupported-handoff scenarios retain the controlled `EmergencyTemplate` and its
+synthetic boundaries. This refinement does not change the governed template, its
+fixtures, lifecycle validation or public-release approval requirements.
+
+Refinement validation: TypeScript, changed-file ESLint, emergency template contracts
+(52 cases), shell contracts and diff whitespace checks pass. Fresh responsive captures
+for default/unavailable routes pass at 390/768/1440px and were visually inspected.
+Focused Chromium checks also pass at 320/390/768/1440px for phone parity, first-screen
+call visibility, keyboard disclosure/focus, reduced motion and mobile footer clearance.
+Phone links, directions and native disclosure are available without JavaScript.
+This is not a physical dialer test or a screen-reader accessibility certification.
 
 ## Validation
 

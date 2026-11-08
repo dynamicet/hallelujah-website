@@ -4,6 +4,7 @@ import { data, demoShell, requireLocalDemo, type DemoSearchParams } from '@/demo
 import { demoScenario } from '@/demo/scenarios'
 import { CopyArrivalDirections } from '@/demo/copy-arrival-directions'
 import { EmergencyContactAction, EmergencyDemoMap } from '@/demo/emergency-actions'
+import { WebsiteEmergencyPage } from '@/website/emergency-page'
 
 export const metadata = { title: 'Emergency information | Hallelujah Hospital' }
 
@@ -11,6 +12,7 @@ export default async function EmergencyPage({ searchParams }: { searchParams: De
   requireLocalDemo()
   const scenario = demoScenario((await searchParams).demo,
     ['ready', 'unavailable', 'expired', 'map-failed', 'map-blocked', 'call-handoff-unsupported'] as const, 'ready')
+  if (scenario === 'ready') return <WebsiteEmergencyPage />
   if (scenario === 'unavailable' || scenario === 'expired') return <EmergencyTemplate eyebrow="Emergency information" title="Emergency help"
     shell={demoShell('/emergency')} state={{
       announcement: 'static', kind: scenario,

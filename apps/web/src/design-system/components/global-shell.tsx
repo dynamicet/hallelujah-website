@@ -86,6 +86,7 @@ export interface SiteFooterProps {
 }
 
 export interface SiteShellProps {
+  readonly showHelp?: boolean
   readonly patientGuide?: GuideCatalog
   readonly breadcrumbs?: BreadcrumbsProps
   readonly children: ReactNode
@@ -187,7 +188,8 @@ export function SiteHeader({
   primaryNavigationLabel,
   routineAction,
   searchItem,
-}: SiteHeaderProps) {
+  showGuide = true,
+}: SiteHeaderProps & { readonly showGuide?: boolean }) {
   if (!homeLabel.trim()) throw new Error('SiteHeader homeLabel must not be empty')
   const publicWebsite = homeHref === '/'
   const styles = publicWebsite ? publicStyles : controlledStyles
@@ -208,7 +210,7 @@ export function SiteHeader({
             <HeaderContacts targets={contactTargets} />
             <div className={styles.utilityLinks}>
               <div className={styles.utilityContext}>
-                <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link><GuideLauncher /></div>
+                <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link>{showGuide ? <GuideLauncher /> : null}</div>
                 <Link className={styles.contactDirections} href="/#home-directions">Contact & directions</Link>
               </div>
               <div className={styles.utilityEssentials}>
@@ -276,7 +278,7 @@ export function SiteHeader({
           {publicWebsite ? <div className={styles.menuResources}>
             <Link href="/emergency">Emergency information →</Link>
             <Link href="/health-topics">Health &amp; care topics →</Link>
-            <GuideLauncher />
+            {showGuide ? <GuideLauncher /> : null}
           </div> : null}
           {!publicWebsite ? <div className={styles.headerUtilities} data-shell-utilities>
             <Link
@@ -398,6 +400,7 @@ export function SiteShell({
   mainId = 'main-content',
   notice,
   patientGuide,
+  showHelp = true,
   skipLinkLabel,
 }: SiteShellProps) {
   return (
@@ -408,7 +411,7 @@ export function SiteShell({
           <div className={styles.noticeInner}>{notice}</div>
         </div>
       ) : null}
-      <SiteHeader {...header} />
+      <SiteHeader {...header} showGuide={showHelp} />
       {breadcrumbs ? (
         <div className={styles.breadcrumbFrame}>
           <Breadcrumbs {...breadcrumbs} />
@@ -418,7 +421,7 @@ export function SiteShell({
         {children}
       </main>
       <SiteFooter {...footer} publicWebsite={header.homeHref === '/'} />
-      {header.homeHref === '/' ? <HelpWidget guide={patientGuide} /> : null}
+      {showHelp && header.homeHref === '/' ? <HelpWidget guide={patientGuide} /> : null}
     </>
   )
 }
