@@ -190,16 +190,16 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
         </div>
         <ul aria-label="Ways we can help" className={styles.actions}>
           <li>
-            <Link className={`${styles.action} ${styles.appointment}`} href={appointmentHref} onClick={close}>
-              <span className={styles.actionIcon}><HelpIcon><rect x="3.5" y="5" width="17" height="16" rx="2" /><path d="M7.5 3v4M16.5 3v4M3.5 10.5h17M8 15h3M8 18h6" /></HelpIcon></span>
-              <span className={styles.label}><strong>Request an appointment</strong><small>{guide?.preview ? 'Preview · No request is sent' : 'Explore appointment options'}</small></span>
-            </Link>
-          </li>
-          <li>
             <button aria-disabled={guideLoading || undefined} className={`${styles.action} ${styles.guide}`} data-open-patient-guide disabled={!guide} onClick={openGuide} type="button">
               <span className={styles.actionIcon}><HelpIcon><path d="M20.5 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-3.5-.7L3 21l1.7-5.5a9 9 0 0 1-.7-3.5 8.5 8.5 0 0 1 16.5-.5Z" /><path d="M8 12h.01M12 12h.01M16 12h.01" /></HelpIcon></span>
               <span className={styles.label}><strong>Ask the Patient Guide</strong><small>{guide ? 'Prepared answers · Website help' : 'Website guide · Coming soon'}</small></span>
             </button>
+          </li>
+          <li>
+            <Link className={`${styles.action} ${styles.appointment}`} href={appointmentHref} onClick={close}>
+              <span className={styles.actionIcon}><HelpIcon><rect x="3.5" y="5" width="17" height="16" rx="2" /><path d="M7.5 3v4M16.5 3v4M3.5 10.5h17M8 15h3M8 18h6" /></HelpIcon></span>
+              <span className={styles.label}><strong>Request an appointment</strong><small>{guide?.preview ? 'Preview · No request is sent' : 'Explore appointment options'}</small></span>
+            </Link>
           </li>
         </ul>
         <div aria-live="polite" aria-atomic="true" className={styles.status}>
