@@ -660,3 +660,8 @@
   .journeyActions .textButton { align-self: flex-start; }
   .continueButton { inline-size: 100%; margin-inline-start: 0; }
 }
+
+.careEditor, .careSelectors { display: grid; gap: var(--semantic-space-page); min-inline-size: 0; }
+.careEditor[hidden], .careSummary[hidden] { display: none; }
+.careSummary .reviewActions { align-items: center; }
+.careSummary :is(a, button) { display: inline-flex; align-items: center; min-block-size: 44px; }

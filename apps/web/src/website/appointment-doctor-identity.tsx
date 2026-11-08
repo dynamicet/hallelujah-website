@@ -11,7 +11,8 @@ export type AppointmentDoctorIdentity = Readonly<{
 }>
 
 /** The local preview's identity follows the actual form selection, including route changes. */
-export function AppointmentDoctorIdentity({ doctors, initialDoctorId, serviceContext, services = [] }: {
+export function AppointmentDoctorIdentity({ doctors, initialDoctorId, serviceContext, services = [], compact = false }: {
+  readonly compact?: boolean
   readonly doctors: readonly AppointmentDoctorIdentity[]; readonly initialDoctorId?: string
   readonly services?: readonly { publicId: string; name: string; canonicalPath: string }[]
   readonly serviceContext?: { readonly doctorId: string; readonly name: string; readonly href: string }
@@ -34,6 +35,9 @@ export function AppointmentDoctorIdentity({ doctors, initialDoctorId, serviceCon
   const selectedService = services.find((entry) => entry.publicId === serviceId)
   const context = selectedService ? { doctorId: selectedId, name: selectedService.name, href: carePathWithDoctor(selectedService, selectedId) } : services.length ? undefined : serviceContext
   const doctor = doctors.find((entry) => entry.publicId === selectedId)
+  if (compact) return context ? <div data-appointment-service-context>
+    <Link href={`${context.href}#care-team`}>Back to care details</Link>
+  </div> : null
   return <div className={styles.identity} data-appointment-doctor-identity hidden={!doctor} data-clinician-identity-id={doctor?.publicId}>
     {doctor ? <>
       <ClinicianPortrait key={doctor.publicId} name={doctor.name} src={doctor.portraitSrc} />

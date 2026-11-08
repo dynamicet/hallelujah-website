@@ -212,6 +212,35 @@ function AppointmentForm({
   readonly visitType?: ReactNode
 }) {
   const hasError = (field: AppointmentField) => errors.includes(field)
+  const hasSelection = Boolean(selectedDoctorId || selectedServiceId)
+  const selectedCare = [doctorOptions.find((option) => option.value && option.value === selectedDoctorId)?.label,
+    serviceOptions.find((option) => option.value && option.value === selectedServiceId)?.label].filter(Boolean).join(' · ')
+  const doctorSelector = (<div className={styles.careSelector} data-care-selector="doctor" hidden={selectedCareRoute === 'not_sure'}>
+            <SelectField
+              defaultValue={selectedDoctorId ?? ''}
+              error={fieldError('doctor-id', hasError('doctor-id'))}
+              hint="You can leave this blank when choosing a specialty or service."
+              hintId="doctor-id-hint"
+              id="doctor-id"
+              label="Doctor"
+              name="doctor_id"
+              options={doctorOptions}
+              required={selectedCareRoute === 'doctor'}
+            />
+          </div>)
+  const serviceSelector = (<div className={styles.careSelector} data-care-selector="service" hidden={selectedCareRoute === 'not_sure'}>
+            <SelectField
+              defaultValue={selectedServiceId ?? ''}
+              error={fieldError('service-id', hasError('service-id'))}
+              hint="You can leave this blank when choosing a doctor."
+              hintId="service-id-hint"
+              id="service-id"
+              label="Specialty or service"
+              name="service_id"
+              options={serviceOptions}
+              required={selectedCareRoute === 'service'}
+            />
+          </div>)
   return (
     <InterfaceCopy><>
     {localSimulation ? <noscript><p className={styles.noScriptBoundary}>Enable JavaScript to use this form, or <Link href="/#home-directions">contact the hospital</Link>.</p></noscript> : null}
@@ -240,6 +269,15 @@ function AppointmentForm({
 
         <div className={styles.careGroup} data-journey-group="care">
           {localSimulation ? visitType : null}
+          {localSimulation ? <div className={`${styles.selectedCare} ${styles.careSummary}`} data-care-summary hidden={!hasSelection}>
+            <strong data-journey-value="care">{selectedCare}</strong>
+            <div className={styles.reviewActions}>
+              {doctorIdentity}
+              <button aria-controls="appointment-care-editor" aria-expanded={!hasSelection} className={styles.textButton} data-care-edit-toggle type="button">Change care</button>
+            </div>
+          </div> : null}
+          <p role="status" data-selection-notice hidden={!selectionNotice}>{selectionNotice}</p>
+          <div className={styles.careEditor} data-care-editor hidden={localSimulation && hasSelection} id="appointment-care-editor">
           <ChoiceGroup
             error={fieldError('care-route', hasError('care-route'))}
             hint={localSimulation ? undefined : 'Choose the option that feels right for you.'}
@@ -262,34 +300,9 @@ function AppointmentForm({
             <div className={styles.reviewActions}><Link href="/services">Explore services</Link><Link href="/doctors">Browse doctors</Link></div>
           </section> : null}
 
-          <p role="status" data-selection-notice hidden={!selectionNotice}>{selectionNotice}</p>
-          <div className={styles.careSelector} data-care-selector="doctor" hidden={selectedCareRoute === 'not_sure'}>
-            <SelectField
-              defaultValue={selectedDoctorId ?? ''}
-              error={fieldError('doctor-id', hasError('doctor-id'))}
-              hint="You can leave this blank when choosing a specialty or service."
-              hintId="doctor-id-hint"
-              id="doctor-id"
-              label="Doctor"
-              name="doctor_id"
-              options={doctorOptions}
-              required={selectedCareRoute === 'doctor'}
-            />
-            {doctorIdentity}
+          <div className={styles.careSelectors} data-care-selectors>
+            {selectedCareRoute === 'service' ? <>{serviceSelector}{doctorSelector}</> : <>{doctorSelector}{serviceSelector}</>}
           </div>
-
-          <div className={styles.careSelector} data-care-selector="service" hidden={selectedCareRoute === 'not_sure'}>
-            <SelectField
-              defaultValue={selectedServiceId ?? ''}
-              error={fieldError('service-id', hasError('service-id'))}
-              hint="You can leave this blank when choosing a doctor."
-              hintId="service-id-hint"
-              id="service-id"
-              label="Specialty or service"
-              name="service_id"
-              options={serviceOptions}
-              required={selectedCareRoute === 'service'}
-            />
           </div>
         </div>
 
@@ -373,7 +386,6 @@ function AppointmentForm({
           <p data-journey-review-description>Check your choices and contact details.</p>
         </div>
         {localSimulation ? <div className={styles.reviewSummary} data-journey-review hidden>
-          {doctorIdentity}
           <dl>
             {visitType ? <div><dt>Visit</dt><dd data-journey-value="visit">First visit</dd></div> : null}
             <div><dt>Care</dt><dd data-journey-value="care">Help finding the right care</dd></div>
@@ -426,11 +438,10 @@ export function AppointmentTemplate({
   const errors = state.errors ?? []
   const unavailable = state.kind === 'workflow-unavailable'
   const guidance = <InterfaceCopy><aside className={styles.careRail} aria-label="Appointment guidance">
-    {state.localSimulation ? <section className={styles.requestSlip} aria-labelledby="appointment-summary-title">
-      <h2 id="appointment-summary-title">Your selection</h2>
-      {doctorIdentity}
-      <dl>{visitType ? <div><dt><InterfaceText>Your visit</InterfaceText></dt><dd data-journey-value="visit">First visit</dd></div> : null}<div><dt><InterfaceText>Your care</InterfaceText></dt><dd data-journey-value="care">Help finding the right care</dd></div><div><dt><InterfaceText>Preferred date</InterfaceText></dt><dd data-journey-value="date">No preference</dd></div></dl>
-      <p><Link href="/patients-visitors#checklist">Prepare your visit checklist</Link></p>
+    {state.localSimulation ? <section className={styles.requestSlip} aria-labelledby="appointment-preparation-title">
+      <h2 id="appointment-preparation-title">Prepare for your visit</h2>
+      <p>Keep your previous reports, medicine list and questions together.</p>
+      <p><Link href="/patients-visitors#checklist">Make your visit checklist</Link></p>
     </section> : null}
     <section aria-labelledby="appointment-warning-title" className={`${styles.section} ${styles.warning}`} data-appointment-section="A2">
       <h2 id="appointment-warning-title">{state.localSimulation ? 'Need urgent help?' : 'Do not use this form for emergency help'}</h2>

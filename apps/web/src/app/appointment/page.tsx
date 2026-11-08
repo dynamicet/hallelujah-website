@@ -26,7 +26,7 @@ export default async function AppointmentPage({ searchParams }: { searchParams: 
   const doctors = clinicians
   const serviceChoices = careServices
   return <><AppointmentTemplate
-    doctorIdentity={<AppointmentDoctorIdentity doctors={clinicians.map((entry) => ({ publicId: entry.publicId, name: entry.details.name, specialties: entry.details.specialties, portraitSrc: demoClinicianPortraits[entry.publicId] }))} initialDoctorId={selected?.publicId} services={careServices.map(({ publicId, name, canonicalPath }) => ({ publicId, name, canonicalPath }))} serviceContext={selected && selectedService ? { doctorId: selected.publicId, name: selectedService.name, href: selectedService.canonicalPath } : undefined} />}
+    doctorIdentity={<AppointmentDoctorIdentity compact doctors={clinicians.map((entry) => ({ publicId: entry.publicId, name: entry.details.name, specialties: entry.details.specialties, portraitSrc: demoClinicianPortraits[entry.publicId] }))} initialDoctorId={selected?.publicId} services={careServices.map(({ publicId, name, canonicalPath }) => ({ publicId, name, canonicalPath }))} serviceContext={selected && selectedService ? { doctorId: selected.publicId, name: selectedService.name, href: selectedService.canonicalPath } : undefined} />}
     visitType={<AppointmentVisitType />}
     doctorOptions={[{ label: 'No doctor preference', value: '' }, ...doctors.map((entry) => ({ label: entry.details.name, value: entry.publicId }))]}
     eyebrow="Appointment information"

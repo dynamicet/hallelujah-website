@@ -30,6 +30,8 @@ Only selected IDs travel in URLs: `doctor` and `service`. Contact details never 
 
 An affiliation is not an implicit patient selection. Opening a doctor's appointment link does not add that doctor's specialties. Unknown IDs and incompatible pairs produce recoverable guidance. Within the form, a changed primary choice retains compatible context and clears an incompatible dependent choice with feedback. Contact fields remain in memory while the visitor edits care.
 
+Known selections appear once in a compact care summary. “Change care” opens the existing controls; the required choice comes before the optional preference in both visual and keyboard order. Care errors reopen the controls, and returning to care details retains the doctor preference. Choosing a different care option clears outdated reconciliation feedback. These are presentation behaviors, with no change to the prepared payload.
+
 ## Pure preparation boundary
 
 `apps/web/src/demo/appointment-draft.ts` exports `prepareAppointmentRequest`. It validates the chosen IDs, relationship compatibility, name, phone, optional preferred date and privacy acknowledgement, then returns either field errors or a payload:

@@ -64,7 +64,7 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     assert.equal(await page.eval('document.activeElement.matches(":focus-visible")'), true)
     await enter(page)
     assert.equal(await page.eval('document.querySelector("[data-appointment-template]").dataset.journeyStep'), '0')
-    assert.equal(await page.eval('document.activeElement.matches("[data-journey-title]")'), true)
+    assert.equal(await page.eval('document.activeElement.id'), 'doctor-id')
     assert.equal(await page.eval('document.querySelector("#full-name").value'), 'TEST PATIENT')
     await page.eval(() => { const select = document.querySelector('#doctor-id'); select.value = 'pub_101010101010'; select.dispatchEvent(new Event('change', { bubbles: true })) })
     await waitFor(page, 'document.querySelectorAll("[data-appointment-service-context]").length === 0')
@@ -90,6 +90,20 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
     assert.deepEqual(await selected(page), { doctor: doctorId, service: echoId })
     assert.equal(await page.eval('document.querySelector("#service-id").disabled'), false)
+    assert.equal(await page.eval('document.querySelector("[data-care-editor]").hidden'), true)
+    assert.equal(await page.eval('document.querySelector("[data-care-summary]").hidden'), false)
+    assert.equal(await page.eval('document.querySelectorAll("[data-appointment-doctor-identity]").length'), 0)
+    assert.equal(await page.eval('document.querySelector("[data-care-edit-toggle]").getAttribute("aria-expanded")'), 'false')
+    await page.eval(() => document.querySelector('[data-care-edit-toggle]').focus())
+    await enter(page)
+    assert.equal(await page.eval('document.querySelector("[data-care-editor]").hidden'), false)
+    assert.equal(await page.eval('document.activeElement.id'), 'doctor-id')
+    assert.equal(await page.eval('document.querySelector("[data-care-edit-toggle]").getAttribute("aria-expanded")'), 'true')
+    await page.eval(() => document.querySelector('[data-care-edit-toggle]').click())
+    assert.equal(await page.eval('document.querySelector("[data-care-editor]").hidden'), true)
+    assert.equal(await page.eval('document.activeElement.matches("[data-care-edit-toggle]")'), true)
+    assert.deepEqual(await selected(page), { doctor: doctorId, service: echoId })
+    await page.screenshot({ path: `${output}/selected-care-${width}.png` })
     await waitFor(page, `(() => {
       const trigger = document.querySelector('[data-help-widget] button')
       if (!trigger || getComputedStyle(trigger).visibility === 'hidden') return true
@@ -112,6 +126,8 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     await page.goto(base + returnRequest)
     await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
 
+    await page.eval(() => document.querySelector('[data-care-edit-toggle]').click())
+
     // Changing the primary selection clears only the incompatible dependent choice.
     await select(page, 'doctor-id', 'pub_151515151515')
     assert.deepEqual(await selected(page), { doctor: 'pub_151515151515', service: '' })
@@ -120,6 +136,12 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     await select(page, 'service-id', echoId)
     assert.equal(await page.eval('document.querySelector("[data-selection-notice]").hidden'), true)
     await page.eval(() => document.querySelector('input[name=care_route][value=service]').click())
+    assert.equal(await page.eval('document.querySelector("[data-care-selectors]").firstElementChild.dataset.careSelector'), 'service')
+    await page.eval(() => document.querySelector('#service-id').focus())
+    await page.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9 })
+    await page.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9 })
+    assert.equal(await page.eval('document.activeElement.id'), 'doctor-id')
+    await page.screenshot({ path: `${output}/care-editor-${width}.png` })
     await select(page, 'service-id', 'pub_171717171717')
     assert.deepEqual(await selected(page), { doctor: '', service: 'pub_171717171717' })
     assert.match(await page.eval('document.querySelector("[data-selection-notice]").textContent'), /previous doctor/)
@@ -145,10 +167,28 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
       assert.equal(await page.eval('document.querySelector("#service-id").options[0].textContent'), 'Choose a specialty or service')
     }
 
+    // A required-field error must reopen the collapsed editor before recovery.
+    await page.goto(base + `/appointment?doctor=${doctorId}`)
+    await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
+    await page.eval(() => {
+      document.querySelector('#doctor-id').value = ''
+      document.querySelector('[data-journey-next]').click()
+    })
+    assert.equal(await page.eval('document.querySelector("[data-care-editor]").hidden'), false)
+    assert.equal(await page.eval('document.activeElement.id'), 'appointment-error-summary-heading')
+    await page.eval(() => document.querySelector('#appointment-error-summary a[href="#doctor-id"]').click())
+    assert.equal(await page.eval('document.activeElement.id'), 'doctor-id')
+
     // Prepare all normal selection shapes; observe delivery/storage boundaries.
     for (const query of ['', `doctor=${doctorId}`, `service=${echoId}`, `doctor=${doctorId}&service=${echoId}`]) {
       await page.goto(base + '/appointment' + (query ? '?' + query : ''))
       await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
+      if (query === `service=${echoId}`) {
+        await waitFor(page, 'Boolean(document.querySelector("[data-appointment-service-context] a"))')
+        const careBack = await page.eval(() => document.querySelector('[data-appointment-service-context] a').getAttribute('href'))
+        assert.equal(new URL(careBack, base).searchParams.has('doctor'), false)
+        assert.equal(await page.eval('document.querySelector("[data-care-editor]").hidden'), true)
+      }
       await page.eval(() => {
         window.__careDeliveryAttempts = 0
         const originalFetch = window.fetch

@@ -34,6 +34,24 @@ export function DemoInteractions() {
     let timer: number | undefined
     let journeyStep = initialState === 'editing' ? 0 : initialState === 'validation' ? 1 : 2
     let furthestStep = journeyStep
+    const careEditor = form.querySelector<HTMLElement>('[data-care-editor]')
+    const careToggle = form.querySelector<HTMLButtonElement>('[data-care-edit-toggle]')
+    let careExpanded = careEditor ? !careEditor.hidden : true
+    const setCareEditor = (expanded: boolean, focus = false) => {
+      careExpanded = expanded
+      if (careEditor) careEditor.hidden = !expanded
+      if (careToggle) {
+        careToggle.setAttribute('aria-expanded', String(expanded))
+        careToggle.textContent = t(expanded ? 'Done changing care' : 'Change care')
+      }
+      if (focus) {
+        const mode = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
+        const control = expanded ? mode === 'doctor' ? form.querySelector<HTMLSelectElement>('#doctor-id')
+          : mode === 'service' ? form.querySelector<HTMLSelectElement>('#service-id')
+          : form.querySelector<HTMLInputElement>('input[name="care_route"]:checked') : careToggle
+        control?.focus()
+      }
+    }
     const syncCare = (changed?: string) => {
       const selected = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
       const doctor = form.querySelector<HTMLSelectElement>('#doctor-id')
@@ -79,9 +97,18 @@ export function DemoInteractions() {
           }
         }
       })
+      const selectors = form.querySelector<HTMLElement>('[data-care-selectors]')
+      const primary = form.querySelector<HTMLElement>(`[data-care-selector="${selected === 'service' ? 'service' : 'doctor'}"]`)
+      if (selectors && primary && selectors.firstElementChild !== primary) selectors.prepend(primary)
+      const hasSelection = Boolean(doctor?.value || service?.value)
+      const compactSummary = form.querySelector<HTMLElement>('[data-care-summary]')
+      if (compactSummary) compactSummary.hidden = !hasSelection
+      if (!hasSelection) careExpanded = true
+      setCareEditor(careExpanded)
       form.dispatchEvent(new Event('appointment-selection-change'))
     }
     const showErrors = (errors: readonly Field[]) => {
+      if (errors.some((field) => ['care-route', 'doctor-id', 'service-id'].includes(field))) setCareEditor(true)
       if (!summary) return
       summary.hidden = errors.length === 0
       const count = summary.querySelector<HTMLElement>('[data-error-count]')
@@ -196,7 +223,7 @@ export function DemoInteractions() {
       })
       const title = form.querySelector<HTMLElement>('[data-journey-title]')
       const description = form.querySelector<HTMLElement>('[data-journey-description]')
-      if (title) title.textContent = t(journeyStep === 0 ? 'Choose your care' : 'A few details')
+      if (title) title.textContent = t(journeyStep === 0 ? careExpanded ? 'Choose your care' : 'Confirm your care' : 'A few details')
       if (description) description.textContent = ''
       const actions = form.querySelector<HTMLElement>('[data-journey-actions]')
       const back = form.querySelector<HTMLButtonElement>('[data-journey-back]')
@@ -260,7 +287,19 @@ export function DemoInteractions() {
       showErrors([])
       goToStep(Math.max(0, journeyStep - 1))
     }, { signal })
-    form.querySelector<HTMLButtonElement>('[data-journey-edit-care]')?.addEventListener('click', () => { showErrors([]); goToStep(0) }, { signal })
+    careToggle?.addEventListener('click', () => {
+      const errors = careExpanded ? validate().filter((field) => stepForField(field) === 0) : []
+      showErrors(errors)
+      if (errors.length) { summary?.querySelector<HTMLElement>('#appointment-error-summary-heading')?.focus(); return }
+      setCareEditor(!careExpanded, true)
+      syncJourney()
+    }, { signal })
+    form.querySelector<HTMLButtonElement>('[data-journey-edit-care]')?.addEventListener('click', () => {
+      showErrors([])
+      goToStep(0, false)
+      setCareEditor(true, true)
+      syncJourney()
+    }, { signal })
     form.querySelector<HTMLButtonElement>('[data-journey-edit]')?.addEventListener('click', () => goToStep(1), { signal })
     form.querySelectorAll<HTMLButtonElement>('[data-journey-step]').forEach((button) => {
       button.addEventListener('click', () => {

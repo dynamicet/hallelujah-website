@@ -46,6 +46,8 @@ await runVisualCheck('appointment-usability', base, async ({ browser, output }) 
     assert.equal(await page.eval('document.querySelector("#privacy-acknowledged").required'), true)
     const limits = await page.eval('({ min: document.querySelector("#preferred-date").min, max: document.querySelector("#preferred-date").max })')
     assert.equal((Date.parse(limits.max) - Date.parse(limits.min)) / 86400000, 365)
+    await activate(page, '[data-care-edit-toggle]')
+    assert.equal(await page.eval('document.querySelector("[data-care-editor]").hidden'), false)
     // Changing the starting route retains compatible selections in both controls.
     await activate(page, 'input[name=care_route][value=service]')
     await fill(page, { 'service-id': 'pub_151515151515' })
