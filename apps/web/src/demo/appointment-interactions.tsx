@@ -39,6 +39,10 @@ export function DemoInteractions() {
       const doctor = form.querySelector<HTMLSelectElement>('#doctor-id')
       const service = form.querySelector<HTMLSelectElement>('#service-id')
       const notice = form.querySelector<HTMLElement>('[data-selection-notice]')
+      if (notice && ['care-route', 'doctor-id', 'service-id'].includes(changed ?? '')) {
+        notice.hidden = true
+        notice.textContent = ''
+      }
       if (selected === 'not_sure') {
         if (doctor) doctor.value = ''
         if (service) service.value = ''
@@ -57,6 +61,10 @@ export function DemoInteractions() {
         const select = element.querySelector<HTMLSelectElement>('select')
         if (select) {
           select.required = selected === mode
+          const emptyOption = [...select.options].find((option) => !option.value)
+          if (emptyOption) emptyOption.textContent = t(select.required
+            ? mode === 'doctor' ? 'Choose a doctor' : 'Choose a specialty or service'
+            : mode === 'doctor' ? 'No doctor preference' : 'No specialty or service preference')
           select.disabled = selected === 'not_sure'
           const requirement = element.querySelector<HTMLElement>('label > span:last-child')
           if (requirement) requirement.textContent = t(select.required ? 'Required' : 'Optional')
@@ -312,7 +320,7 @@ export function DemoInteractions() {
     }, { signal })
     form.addEventListener('change', (event) => {
       if (state === 'prepared') setState('editing')
-      syncCare(event.target instanceof HTMLElement ? event.target.id : undefined)
+      syncCare(event.target instanceof HTMLInputElement && event.target.name === 'care_route' ? 'care-route' : event.target instanceof HTMLElement ? event.target.id : undefined)
       syncJourney()
       if (!summary?.hidden) showErrors(validate().filter((field) => stepForField(field) === journeyStep))
     }, { signal })

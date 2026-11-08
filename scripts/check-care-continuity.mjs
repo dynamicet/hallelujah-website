@@ -100,12 +100,25 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
       })
     })()`)
 
+    // Exploring care again from appointment keeps the selected doctor preference.
+    const backCare = await page.eval(() => document.querySelector('[data-appointment-service-context] a').getAttribute('href'))
+    assert.equal(new URL(backCare, base).searchParams.get('doctor'), doctorId)
+    assert.equal(new URL(backCare, base).hash, '#care-team')
+    await page.goto(base + backCare)
+    assert.match(await page.eval(() => document.querySelector('[aria-label="Doctor preference"]').textContent), /Chala/)
+    const returnRequest = await page.eval(() => [...document.querySelectorAll('a')].find(link => link.getAttribute('href')?.startsWith('/appointment?')).getAttribute('href'))
+    assert.equal(new URL(returnRequest, base).searchParams.get('doctor'), doctorId)
+    assert.equal(new URL(returnRequest, base).searchParams.get('service'), echoId)
+    await page.goto(base + returnRequest)
+    await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
+
     // Changing the primary selection clears only the incompatible dependent choice.
     await select(page, 'doctor-id', 'pub_151515151515')
     assert.deepEqual(await selected(page), { doctor: 'pub_151515151515', service: '' })
     assert.match(await page.eval('document.querySelector("[data-selection-notice]").textContent'), /previous care choice/)
     await select(page, 'doctor-id', doctorId)
     await select(page, 'service-id', echoId)
+    assert.equal(await page.eval('document.querySelector("[data-selection-notice]").hidden'), true)
     await page.eval(() => document.querySelector('input[name=care_route][value=service]').click())
     await select(page, 'service-id', 'pub_171717171717')
     assert.deepEqual(await selected(page), { doctor: '', service: 'pub_171717171717' })
@@ -120,6 +133,16 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
       await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
       assert.match(await page.eval('document.querySelector("[data-selection-notice]").textContent'), /unavailable/)
       assert.deepEqual(await selected(page), { doctor: '', service: '' })
+      // Initial URL recovery guidance survives unrelated contact edits.
+      await page.eval(() => document.querySelector('#full-name').dispatchEvent(new Event('change', { bubbles: true })))
+      assert.equal(await page.eval('document.querySelector("[data-selection-notice]").hidden'), false)
+      await page.eval(() => document.querySelector('input[name=care_route][value=doctor]').click())
+      assert.equal(await page.eval('document.querySelector("[data-selection-notice]").hidden'), true)
+      assert.equal(await page.eval('document.querySelector("#doctor-id").options[0].textContent'), 'Choose a doctor')
+      assert.equal(await page.eval('document.querySelector("#service-id").options[0].textContent'), 'No specialty or service preference')
+      await page.eval(() => document.querySelector('input[name=care_route][value=service]').click())
+      assert.equal(await page.eval('document.querySelector("#doctor-id").options[0].textContent'), 'No doctor preference')
+      assert.equal(await page.eval('document.querySelector("#service-id").options[0].textContent'), 'Choose a specialty or service')
     }
 
     // Prepare all normal selection shapes; observe delivery/storage boundaries.

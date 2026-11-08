@@ -2,6 +2,7 @@
 
 import { InterfaceLink as Link } from '@/website/interface-language'
 import { useEffect, useState } from 'react'
+import { carePathWithDoctor } from '@/demo/care-model'
 import { ClinicianPortrait } from '@/design-system/components/clinician-portrait'
 import styles from './appointment-doctor-identity.module.css'
 
@@ -31,7 +32,7 @@ export function AppointmentDoctorIdentity({ doctors, initialDoctorId, serviceCon
     return () => { form.removeEventListener('change', sync); form.removeEventListener('appointment-selection-change', sync) }
   }, [])
   const selectedService = services.find((entry) => entry.publicId === serviceId)
-  const context = selectedService ? { doctorId: selectedId, name: selectedService.name, href: selectedService.canonicalPath } : services.length ? undefined : serviceContext
+  const context = selectedService ? { doctorId: selectedId, name: selectedService.name, href: carePathWithDoctor(selectedService, selectedId) } : services.length ? undefined : serviceContext
   const doctor = doctors.find((entry) => entry.publicId === selectedId)
   return <div className={styles.identity} data-appointment-doctor-identity hidden={!doctor} data-clinician-identity-id={doctor?.publicId}>
     {doctor ? <>
