@@ -47,9 +47,13 @@ Original photographs downloaded from the hospital homepage on 8 November 2026:
 | Mr. Gebeyehu Seyoum | Deputy CEO | https://hallelujahhospital.com/wp-content/uploads/2025/08/Frame-32-3.webp |
 | Dr. Abdi Ketema | Medical Director | https://hallelujahhospital.com/wp-content/uploads/2025/08/Frame-31-1.webp |
 
-Files are retained unchanged under `apps/web/public/editorial/leadership/`.
-CSS crops their existing circular compositions into consistent rectangular frames.
-No synthetic identity replacement, retouching, or invented image detail is used.
+Original files are retained unchanged under `apps/web/public/editorial/leadership/`.
+The founder now uses `yetnayet-eshetu-enhanced.webp`, a 1254px square AI-restored
+derivative produced with the built-in imagegen tool. Restoration reconstructs fine
+detail and extends the original circular photograph into the square corners; it
+is a preview enhancement rather than recovered original camera detail. The other
+portraits retain their original files. Responsive founder image sizes account for
+the 1.36× CSS crop, including on the homepage.
 The final photography should provide uncropped originals with adequate headroom.
 Confirm portrait rights and current roles during launch review.
 
@@ -74,3 +78,18 @@ Leadership retains equal frames with individual focal settings for the circular
 legacy source images. Phone names and roles reserve consistent caption space;
 below 360px the list becomes horizontal portrait-and-caption entries to preserve
 readability. Photographs remain replaceable without changing the hierarchy.
+
+## Founder restoration prompt
+
+Built-in imagegen edit, using the original portrait as the sole reference:
+
+> Restore clarity and reduce compression artifacts while strictly preserving her
+> identity, age, facial geometry, expression, pose, makeup, hair, lavender jacket,
+> scarf, lighting, and office setting. Recover natural hair, fabric, and subtle
+> skin detail. Extend the existing photo into the circular mask’s white corners.
+> Avoid beautification, de-aging, facial reshaping, waxy skin, stylization, text,
+> and watermarks.
+
+Requested output was 2048px square; the tool returned 1254px square. The selected
+output is encoded as WebP at quality 92. Inspect likeness against the original
+when replacing provisional launch media.
