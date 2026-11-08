@@ -5,7 +5,8 @@ import type { ClinicianView } from '@/content/clinician-view'
 import type { ServiceView } from '@/content/service-view'
 import data from './data.json'
 import { demoPatientGuide } from './patient-guide'
-import { specialtyServiceExamples } from './specialties'
+import { specialtyServiceExamples, additionalExamples } from './specialties'
+import { careEntry, doctorSpecialties } from './care-model'
 import { hospitalContact } from '@/website/hospital-contact'
 
 // Frozen, fictional presentation data. No credentials, workflow documents, or runtime fixture imports.
@@ -13,6 +14,8 @@ export const clinicians = data.clinicians.map((entry): ClinicianView => ({
   ...entry, locale: 'en', portrait: null, schedule: null,
   details: {
     ...entry.details,
+    specialties: doctorSpecialties(entry.publicId),
+    availabilityGuidance: 'The team will discuss available appointment times with you.',
     languages: entry.publicId === 'pub_101010101010'
       ? [...entry.details.languages, 'French']
       : entry.details.languages,
@@ -20,9 +23,11 @@ export const clinicians = data.clinicians.map((entry): ClinicianView => ({
   appointment: { state: 'withheld', doctorPublicId: entry.publicId },
 }))
 export const clinicianBiographies = new Map(data.clinicians.map((entry) => [entry.publicId, entry.biography]))
-export const services = [...data.services, ...specialtyServiceExamples].map((entry): ServiceView => ({
+export const services = [...data.services, ...specialtyServiceExamples, ...additionalExamples].map((entry): ServiceView => ({
   ...entry, locale: 'en',
-  synonyms: entry.publicId === 'pub_151515151515' ? [...entry.synonyms, 'Heart care', 'Cardiology'] : entry.synonyms,
+  name: careEntry(entry.publicId)?.name ?? entry.name,
+  synonyms: [...new Set([...entry.synonyms, ...(careEntry(entry.publicId)?.synonyms ?? [])])],
+  sections: { ...entry.sections, scope: [careEntry(entry.publicId)?.scope ?? 'Discuss your care needs and prepare your questions before visiting.'] },
   appointment: { state: 'withheld', servicePublicId: entry.publicId },
 }))
 export { data }
@@ -60,7 +65,7 @@ export function demoShell(current: string): Omit<SiteShellProps, 'children'> {
       navigationLabel: 'Footer navigation', groups: [
         { label: 'Find care', links: [
           { href: '/doctors', label: 'Find a doctor' },
-          { href: '/services', label: 'Care & services' },
+          { href: '/services', label: 'Specialties & services' },
           { href: '/appointment', label: 'Request an appointment' },
           { href: '/referrals', label: 'Refer a patient' },
           { href: '/emergency', label: 'Emergency information' },

@@ -43,3 +43,11 @@ export const specialtyServiceExamples: readonly ServiceView[] = featuredSpecialt
     locationPublicIds: [], reviewer: 'Illustrative presentation copy', reviewedAt: '2026-11-03T00:00:00Z',
     appointment: { state: 'withheld', servicePublicId: care.servicePublicId },
   }))
+
+const additionalExamples: readonly ServiceView[] = [
+  { publicId: 'pub_262626262626', name: 'Pediatrics' },
+  { publicId: 'pub_272727272727', name: 'Echocardiography' },
+].map((entry) => ({ ...entry, canonicalPath: `/services/synthetic-service-${entry.publicId.slice(4)}/`, locale: 'en' as const, synonyms: [],
+  group: { publicId: 'grp_202020202020', name: 'Medicine' }, sections: {}, locationPublicIds: [], reviewer: 'Frontend fixture', reviewedAt: '2026-11-08T00:00:00Z',
+  appointment: { state: 'withheld' as const, servicePublicId: entry.publicId } }))
+export { additionalExamples }
