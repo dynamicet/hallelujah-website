@@ -28,6 +28,9 @@
 .support { display: flex; justify-content: space-between; align-items: center; gap: 24px 40px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--semantic-color-border-default); }
 .section .arrivalAdvice p { max-width: 62ch; margin: 0; font-size: 15px; line-height: 1.65; }
 .arrivalAdvice > a { min-height: 44px; }
+.arrivalAdvice { padding: 20px 24px; background: var(--semantic-color-surface-supporting); border-radius: 12px; }
+.arrivalAdvice::before { content: ''; display: block; inline-size: 32px; block-size: 6px; margin-block-end: 12px; border-radius: 3px; background: var(--semantic-color-artwork-orange); }
+@media (forced-colors: active), print { .arrivalAdvice::before { display: none; } }
 .urgent { flex-shrink: 0; }
 .section .urgent p { margin: 0; font-size: 15px; line-height: 1.65; color: var(--site-urgent); }
 .urgent a { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; color: var(--site-urgent); font-size: 15px; font-weight: 600; }

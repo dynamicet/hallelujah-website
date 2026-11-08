@@ -2,6 +2,7 @@
 
 import { InterfaceLink as Link } from '@/website/interface-language'
 import { useState } from 'react'
+import { ConsultationPrompts } from './consultation-prompts'
 
 type SpecialtyPresentation = Readonly<{
   id: 'general' | 'heart' | 'recovery'
@@ -71,10 +72,7 @@ export function ConsultationConversation() {
       <div className="consultation-copy" data-reveal="1">
         <h2 id="consultation-title">Your consultation.</h2>
         <p>Your questions and preferences belong in the conversation. These prompts can help you explain what matters to you.</p>
-        <div className="consultation-prompts">
-          <div><h3>What matters to you?</h3><p>Describe how your concern affects daily life and what you hope to discuss. Say if something is difficult to explain.</p></div>
-          <div><h3>What happens next?</h3><p>Ask for an explanation of anything unclear, what the next step involves, and who to contact with questions afterwards.</p></div>
-        </div>
+        <ConsultationPrompts />
       </div>
     </div>
   </section>

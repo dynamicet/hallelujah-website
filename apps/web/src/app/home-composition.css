@@ -126,7 +126,9 @@
 }
 .enhanced-home #medical-technology [class*='imageNote'] { background: transparent; border: 0; border-radius: 0; }
 .enhanced-home #medical-technology [class*='flagshipCopy'] { padding-block-start: 28px; }
-.enhanced-home #medical-technology [class*='audiences'] { background: var(--semantic-color-surface-raised); border-inline-start: 4px solid var(--semantic-color-accent-supporting); }
+.enhanced-home #medical-technology [class*='audiences'] { background: var(--semantic-color-surface-raised); }
+.enhanced-home #medical-technology [class*='audiences'] > div:first-child { padding: 20px; background: var(--semantic-color-surface-supporting); border-radius: 12px; }
+.enhanced-home #medical-technology [class*='audiences'] > div:first-child::before { content: ''; display: block; inline-size: 32px; block-size: 6px; margin-block-end: 16px; background: var(--semantic-color-artwork-orange); border-radius: 3px; }
 .enhanced-home #medical-technology [class*='plus'] {
   background: var(--semantic-color-surface-supporting);
   color: var(--semantic-color-accent-supporting-text);

@@ -3,6 +3,7 @@ import { requireLocalDemo } from '@/demo/site'
 import { PatientPage, PatientSection, patientPageStyles as styles } from '@/website/patient-page'
 import { VisitChecklist } from '@/website/visit-checklist'
 import { hospitalContact } from '@/website/hospital-contact'
+import { ConsultationPrompts } from '@/website/consultation-prompts'
 
 export const metadata = { title: 'Patients & Visitors | Hallelujah Hospital' }
 
@@ -41,6 +42,7 @@ export default function PatientsVisitorsPage() {
     </PatientSection>
     <PatientSection id="during" title="During your visit">
       <h3>At your consultation</h3><p>Bring your questions into the conversation. Ask the team to explain anything that is unclear, including the next step in your care.</p>
+      <ConsultationPrompts />
       <p><Link href="/health-topics">Browse health topics and preparation questions</Link> before your conversation.</p>
       <h3>Family & visitors</h3><p>Check ward visiting times and whether a companion can join you.</p>
       <h3>A planned hospital stay</h3><p>Ask the team to confirm your admission, what to pack, and whom your family can contact.</p>

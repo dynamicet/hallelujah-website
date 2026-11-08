@@ -229,3 +229,15 @@ main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] [data
     font-size: 20px;
   }
 }
+/* Supporting colors repeat in content details; action and selection retain their roles. */
+.enhanced-home .team-introduction { display: flex; align-items: center; gap: 20px; }
+.enhanced-home .team-introduction::after { content: ''; flex: 0 0 28px; block-size: 28px; background: var(--semantic-color-artwork-yellow); border-radius: 50%; }
+.enhanced-home .everyday-feature-person { width: fit-content; max-width: 100%; padding: 8px 12px; background: var(--semantic-color-surface-expressive); color: var(--semantic-color-accent-expressive-text); border-radius: 8px; }
+.enhanced-home .everyday-quote figcaption::before { content: ''; display: block; inline-size: 32px; block-size: 3px; margin-block-end: 12px; background: var(--semantic-color-artwork-magenta); }
+.enhanced-home .visit-questions summary > span { padding: 4px; box-sizing: content-box; background: var(--semantic-color-surface-raised); border-radius: 50%; }
+.enhanced-home .visit-questions li::marker { color: var(--semantic-color-accent-supporting-text); }
+@media (forced-colors: active), print {
+  .enhanced-home .team-introduction::after,
+  .enhanced-home .everyday-quote figcaption::before,
+  .enhanced-home #medical-technology [class*='audiences'] > div:first-child::before { display: none; }
+}

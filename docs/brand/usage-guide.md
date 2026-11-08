@@ -333,3 +333,22 @@ to a brand hue. Large dark-blue fields, content, layout and behavior stay unchan
 roles separately from decorative artwork tokens. Neither permits white normal-size labels
 on bright cyan or yellow. These changes apply to the homepage; shared task controls retain
 their established functional pairings.
+
+### Supporting-color component details — 8 November 2026
+
+Orange repeats through visit-preparation disclosure icons, list markers, arrival
+advice and the patient preparation inset inside technology disclosures. Magenta
+supports patient-story captions and quote attribution rules. A yellow disc beside
+the specialist introduction echoes its existing yellow guidance panel. Specialty
+cards retain their shared cyan structure and existing full-palette introduction artwork.
+
+Shared patient-page introductions use a small cropped fragment of the existing
+artwork. Consultation prompts now appear in the visit guide’s “During your visit”
+section, with orange and magenta arcs; the same component serves the existing
+consultation composition. Their wording comes from that existing composition.
+Decorative shapes are hidden from assistive technology and suppressed in forced
+colors and print. No new animation or color-based clinical meaning is introduced.
+
+Rendered checks measured story-caption contrast at 6.74:1, technology preparation
+body text at 5.91:1 and its links at 5.97:1. Preparation disclosure chevrons retain
+the existing dark-orange/white pairing, with white on the open dark-orange circle.

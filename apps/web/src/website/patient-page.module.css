@@ -2,6 +2,9 @@
 .page a { text-underline-offset: 5px; }
 .hero { padding: 32px 0; }
 .heroCopy { min-width: 0; }
+.heroArtwork { inline-size: 112px; block-size: 48px; overflow: hidden; margin-block-start: 24px; }
+.heroArtwork > svg { transform: translateY(-12px); }
+@media (forced-colors: active), print { .heroArtwork { display: none; } }
 .hero h1 { font-size: var(--site-page-title); line-height: 1.04; margin: 0; }
 .heroCopy > p { max-width: 60ch; margin: 20px 0; }
 .hero + .section { margin-top: 24px; }

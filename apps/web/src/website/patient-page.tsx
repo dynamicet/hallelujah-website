@@ -4,6 +4,7 @@ import { SiteShell } from '@/design-system/components'
 import { demoShell } from '@/demo/site'
 import styles from './patient-page.module.css'
 import { CarePageImage, type CarePageImageSource } from './care-page-image'
+import { CareBrandArtwork } from './care-brand-artwork'
 
 export { styles as patientPageStyles }
 
@@ -25,6 +26,7 @@ export function PatientPage({ title, description, current, action, children, ima
           {description ? <p data-reveal="1">{description}</p> : null}
           {action.href.startsWith('#') ? <a className="solid-button blue-button" data-reveal="2" href={action.href}>{action.label}<span aria-hidden="true">→</span></a>
             : <Link className="solid-button blue-button" data-reveal="2" href={action.href}>{action.label}<span aria-hidden="true">→</span></Link>}
+          <div className={styles.heroArtwork}><CareBrandArtwork /></div>
         </div>
         {image ? <CarePageImage image={image} /> : null}
       </section>
