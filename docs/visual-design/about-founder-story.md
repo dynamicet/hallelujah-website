@@ -10,7 +10,7 @@ existing opt-in film. Its links land on the institutional story or founder chapt
 of About. The patient-facing homepage opening and care journeys stay intact.
 
 About follows: hospital introduction, chapter navigation, institutional history,
-founder feature, film, values, current leadership, and visit information. Founding
+founder feature, film, values, mission and vision, current leadership, and visit information. Founding
 contribution and current responsibility are separate editorial purposes. Yetnayet
 appears as founder in her own feature and as CEO in the management list. No founder
 status has been inferred for another member of management. Add other founders with
@@ -93,3 +93,18 @@ Built-in imagegen edit, using the original portrait as the sole reference:
 Requested output was 2048px square; the tool returned 1254px square. The selected
 output is encoded as WebP at quality 92. Inspect likeness against the original
 when replacing provisional launch media.
+
+## Mission and vision
+
+Added below the values and before current leadership, with a direct chapter link.
+Both statements are lightly edited from the hospital’s published About page
+(https://hallelujahhospital.com/about/, checked 8 November 2026). The mission
+preserves patient choice, specialist diagnosis and treatment, competitive cost,
+research and training, and support for government preventive healthcare. The vision
+retains the aspiration to regional leadership, strong organization, advanced
+technology, clinical standards, hospitality, compassion and patient satisfaction.
+They are institutional statements, separate from the founder’s personal chapter.
+Two text columns at tablet and desktop widths become a single column below 700px.
+The earlier abbreviated mission sentence in the values intro now introduces values
+to avoid duplicating the new statement. No extra motion or imagery was added for
+this content addition.

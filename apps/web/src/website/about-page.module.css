@@ -19,6 +19,8 @@
 .values { display: grid; gap: 24px; margin: 0; }
 .values dt { font-size: 18px; font-weight: 600; line-height: 1.4; }
 .values dd { max-width: 48ch; margin: 8px 0 0; font-size: 16px; line-height: 1.65; }
+.purpose { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(40px, 6vw, 88px); margin-top: 88px; }
+.purpose p { max-width: 48ch; margin: 24px 0 0; font-size: 18px; line-height: 1.65; }
 .visit address { font-style: normal; font-size: 18px; line-height: 1.6; }
 .visit address strong, .visit address span { display: block; }
 .visit address strong { font-weight: 600; }
@@ -72,6 +74,7 @@
   .identity span { margin-top: 4px; }
   .hero { margin-bottom: 64px; }
   .chapter { margin-top: 64px; }
+  .purpose { margin-top: 64px; gap: 40px; }
   .chapterIntro > p { max-width: 48ch; margin-top: 16px; }
   .valuesChapter { padding-block: 32px; }
   .chapters { margin-top: -8px; gap: 8px 28px; }
@@ -79,6 +82,7 @@
   .founder, .filmChapter, .leadership { margin-top: 80px; }
 }
 @media (max-width: 699px) {
+  .purpose { grid-template-columns: minmax(0, 1fr); }
   .founder { grid-template-columns: minmax(0, 1fr); }
   .founderCopy { padding: 12px 24px 36px; }
   .founderPortrait figcaption { padding: 24px; }
@@ -102,6 +106,7 @@
   .timeline li { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
   .year { font-size: 30px; }
   .timeline p, .chapterIntro > p { font-size: 17px; }
+  .purpose p { font-size: 17px; margin-top: 20px; }
   .actions { align-items: flex-start; flex-direction: column; gap: 12px; }
   .chapters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 20px; }
   .chapters a { justify-content: space-between; gap: 12px; font-size: 15px; }

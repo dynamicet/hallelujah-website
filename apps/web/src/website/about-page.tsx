@@ -47,6 +47,7 @@ export function AboutPage() {
         <a href="#our-story">Our story <Arrow /></a>
         <a href="#founding-vision">Our founder <Arrow /></a>
         <a href="#our-values">Our values <Arrow /></a>
+        <a href="#mission-and-vision">Mission &amp; vision <Arrow /></a>
         <a href="#leadership">Leadership <Arrow /></a>
       </nav>
 
@@ -94,11 +95,25 @@ export function AboutPage() {
       <section className={`${styles.chapter} ${styles.valuesChapter}`} id="our-values" aria-labelledby="about-values-title">
         <div className={styles.chapterIntro}>
           <h2 id="about-values-title">What guides our care</h2>
-          <p>Our mission brings specialized diagnosis and treatment together with trusted, compassionate care.</p>
+          <p>These values shape how we care for patients, support our people and serve our community.</p>
         </div>
         <dl className={styles.values}>
           {values.map((value) => <div key={value.name}><dt>{value.name}</dt><dd>{value.text}</dd></div>)}
         </dl>
+      </section>
+
+      <section className={styles.purpose} id="mission-and-vision" aria-label="Mission and vision">
+        {/* Edited for readability from https://hallelujahhospital.com/about/. */}
+        <div>
+          <h2>Our mission</h2>
+          <p>To be the first choice for patients seeking high-quality specialist care, offering trusted diagnosis and treatment at competitive prices.</p>
+          <p>Through research and training, we strengthen our services and complement the preventive healthcare provided by the Government of Ethiopia.</p>
+        </div>
+        <div>
+          <h2>Our vision</h2>
+          <p>To become a leading healthcare provider in the Horn of Africa through strong organization and advanced technology.</p>
+          <p>We aspire to deliver excellent medical care with close attention to clinical standards, hospitality and compassion, earning the satisfaction of the people we serve.</p>
+        </div>
       </section>
 
       <section className={styles.leadership} id="leadership" aria-labelledby="about-leadership-title">
