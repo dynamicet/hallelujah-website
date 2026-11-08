@@ -69,17 +69,17 @@ function CloserLook({ item }: { item: Equipment }) {
   </details>
 }
 
-export function EquipmentShowcase() {
+export function EquipmentShowcase({ embedded = false }: { embedded?: boolean }) {
   const careLinks = {
     'c-arm': { href: '/services/synthetic-service-252525252525/', label: 'Explore bones & joints' },
     laboratory: { href: '/services/synthetic-service-141414141414/', label: 'Explore general medicine' },
     dental: { href: '/appointment', label: 'Ask about dental care' },
   }
-  return <section className={styles.section} aria-labelledby="equipment-title" id="medical-technology" data-signature-scene="equipment" data-motion-section="technology" data-motion-chapter>
-    <div className="page-frame">
+  return <section className={`${styles.section} ${embedded ? styles.embedded : ''}`} aria-labelledby="equipment-title" id="medical-technology" tabIndex={-1} data-signature-scene="equipment" data-motion-section="technology">
+    <div className={embedded ? undefined : 'page-frame'}>
       <div className={styles.introduction}>
         <h2 id="equipment-title" data-motion="heading" data-reveal="0">Technology behind your care</h2>
-        <EquipmentChapterNav chapters={equipment.map((item) => ({ id: `equipment-${item.id}-scene`, label: item.navigationLabel, name: item.name, device: item.id }))} />
+        {!embedded && <EquipmentChapterNav chapters={equipment.map((item) => ({ id: `equipment-${item.id}-scene`, label: item.navigationLabel, name: item.name, device: item.id }))} />}
       </div>
       <div className={`${styles.supporting} equipment-chapters`}>
         {equipment.map((item, index) => <article id={`equipment-${item.id}-scene`} tabIndex={-1} data-equipment-stop data-motion="card" data-reveal={index} className={`${styles.product} equipment-chapter`} key={item.id} aria-labelledby={`equipment-${item.id}`}>

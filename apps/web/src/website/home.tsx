@@ -11,7 +11,7 @@ import { HomeScenes } from './home-scenes'
 import { CareBackgroundFilm } from './care-background-film'
 import { HospitalStoryIntroduction } from './hospital-story-introduction'
 import { SpecialtyGrid } from './specialty-grid'
-import { EquipmentShowcase } from './equipment-showcase'
+import { EquipmentPreview } from './equipment-preview'
 import { HospitalStatistics } from './hospital-statistics'
 import { HomeHealthTopics } from './home-health-topics'
 import { partners } from '@/demo/partners'
@@ -133,7 +133,7 @@ export function WebsiteHome() {
 
         <HomeHealthTopics />
 
-        <EquipmentShowcase />
+        <EquipmentPreview />
 
         <section className="hospital-film-section" data-motion-section="film" id="about-hallelujah" aria-labelledby="hospital-story-title">
           <HospitalStoryIntroduction />

@@ -5,6 +5,7 @@ import { demoShell } from '@/demo/site'
 import { hospitalContact } from './hospital-contact'
 import { hospitalFounder, hospitalLeadership } from './hospital-leadership'
 import styles from './about-page.module.css'
+import { EquipmentShowcase } from './equipment-showcase'
 
 // Institutional copy condensed from docs/content-reconciliation/sources/hospital-profile.json.
 const milestones = [
@@ -49,6 +50,7 @@ export function AboutPage() {
         <a href="#our-values">Our values <Arrow /></a>
         <a href="#mission-and-vision">Mission &amp; vision <Arrow /></a>
         <a href="#leadership">Leadership <Arrow /></a>
+        <a href="#medical-technology">Medical technology <Arrow /></a>
       </nav>
 
       <section className={styles.chapter} id="our-story" aria-labelledby="about-story-title">
@@ -130,6 +132,8 @@ export function AboutPage() {
           </li>)}
         </ul>
       </section>
+
+      <EquipmentShowcase embedded />
 
       <section className={`${styles.chapter} ${styles.visit}`} aria-labelledby="about-visit-title">
         <h2 id="about-visit-title">Visit Hallelujah</h2>

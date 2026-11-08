@@ -22,3 +22,20 @@ run directories. Static inspection and automated results are recorded separately
 
 Monitor whether visitors still discover health information, and whether unsure
 visitors follow the care-options link; no conversion improvement is claimed.
+
+## Deliverable 2: technology introduction
+
+- Replace three homepage equipment chapters and their miniature navigation with
+  one image, a short range of equipment types, and one descriptive link.
+- Retain all three equipment explanations, patient preparation, referring-clinician
+  guidance, and service links on `/about#medical-technology`. Add that section to
+  About's chapter navigation; native disclosures work without JavaScript.
+- The About presentation uses the existing light page palette and keeps the
+  original illustrative assets and qualified copy. No availability or outcome
+  claim was added.
+
+Validation: responsive checks for `/` and `/about`; focused keyboard checks wait
+for the destination anchor to receive focus before opening its disclosure, then
+verify opening/closing and focus styling at all widths and motion preferences.
+The first desktop keyboard run raced the route's anchor-focus handoff; waiting
+for that observable state resolved it without a delay or application workaround.
