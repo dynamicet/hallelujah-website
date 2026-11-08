@@ -73,25 +73,26 @@
 .enhanced-home .home-quick-access-urgent strong { color: var(--semantic-color-text-urgent); }
 .enhanced-home .home-quick-access-urgent > span:last-child { color: var(--semantic-color-text-urgent); }
 
-/* One quiet card treatment keeps the specialties equally easy to scan. */
+/* Bright artwork carries identity; pale care surfaces retain dark reading roles. */
 .enhanced-home #specialized-care {
   position: relative;
   isolation: isolate;
-  background: var(--semantic-color-surface-inverse);
-  color: var(--semantic-color-text-inverse);
-  border-top: 1px solid var(--semantic-color-border-inverse);
+  background: var(--semantic-color-surface-subtle);
+  color: var(--semantic-color-text-heading);
+  border-top: 1px solid var(--semantic-color-border-default);
 }
 .enhanced-home #specialized-care h2 { color: inherit; max-width: 13em; font-size: var(--site-heading); }
+.enhanced-home #specialized-care::before { background: var(--semantic-color-artwork-cyan); }
 .enhanced-home .home-heading-accent { font-style: italic; font-synthesis: style; }
-.enhanced-home #specialized-care .home-heading-accent { color: var(--semantic-color-text-inverse-accent); }
-.enhanced-home #specialized-care [class*='introduction'] { display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; max-width: none; margin-bottom: 48px; }
+.enhanced-home #specialized-care .home-heading-accent { color: var(--semantic-color-text-link); }
+.enhanced-home #specialized-care [class*='introduction'] { display: flex; align-items: center; justify-content: space-between; gap: 48px; max-width: none; margin-bottom: 48px; }
 .enhanced-home #specialized-care [class*='introduction'] p { color: inherit; max-width: 27ch; margin: 0; font-size: 20px; }
 .enhanced-home #specialized-care [class*='grid'] { gap: 24px; }
 .enhanced-home #specialized-care .home-care-card {
   background: var(--semantic-color-surface-raised);
   color: var(--semantic-color-text-heading);
   border: 0;
-  border-block-start: 3px solid var(--semantic-color-surface-selected);
+  border-block-start: 3px solid var(--semantic-color-artwork-cyan);
   border-radius: var(--site-panel-radius);
   padding: 32px;
 }
@@ -99,8 +100,9 @@
 .enhanced-home #specialized-care .home-care-card [class*='specialty'] { color: var(--semantic-color-text-link); }
 .enhanced-home #specialized-care .home-care-card [class*='description'] { color: var(--semantic-color-text-primary); }
 .enhanced-home #specialized-care .home-care-card:is(:hover, :focus-visible) { background: var(--semantic-color-surface-selected); }
-.enhanced-home #specialized-care .text-link { color: var(--semantic-color-text-inverse); }
-.enhanced-home #specialized-care :is(a, button):focus-visible { outline: 3px solid var(--semantic-color-text-inverse); outline-offset: 5px; box-shadow: 0 0 0 4px var(--semantic-color-surface-inverse); }
+.enhanced-home #specialized-care .text-link { color: var(--semantic-color-text-link); }
+.enhanced-home #specialized-care .signature-link { color: var(--semantic-color-text-link); }
+.enhanced-home #specialized-care :is(a, button):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; box-shadow: 0 0 0 4px var(--semantic-color-surface-subtle); }
 
 @media (min-width: 1200px) {
   .enhanced-home #specialized-care [class*='grid'] { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
@@ -204,6 +206,7 @@
 .enhanced-home .visit-guide { background: var(--semantic-color-surface-supporting); border: 0; }
 .enhanced-home .visit-copy h2 { color: var(--semantic-color-text-heading); max-width: 8em; font-size: var(--site-heading); }
 .enhanced-home .visit-copy .home-heading-accent { color: var(--semantic-color-accent-supporting-text); }
+.enhanced-home .visit-brand-artwork { inline-size: min(240px, 70%); margin-block-start: 32px; }
 .enhanced-home .visit-copy > p { border-inline-start: 3px solid var(--semantic-color-accent-supporting); padding-inline-start: 20px; }
 .enhanced-home .visit-preparation { margin: 0; padding: 0; background: transparent; border: 0; border-radius: 0; }
 .enhanced-home .visit-preparation .visit-questions { gap: 0; margin-bottom: 24px; }
@@ -230,8 +233,10 @@
   .enhanced-home .home-quick-access-list a { flex-wrap: wrap; gap: 12px; align-content: flex-start; }
   .enhanced-home .home-quick-access-copy { flex-basis: calc(100% - 56px); }
   .enhanced-home .home-quick-access-list a > span:last-child { display: none; }
-  .enhanced-home #specialized-care [class*='introduction'] { align-items: flex-start; gap: 24px; flex-direction: column; }
+  .enhanced-home #specialized-care [class*='introduction'] { gap: 24px; }
   .enhanced-home #specialized-care [class*='introduction'] p { max-width: 42ch; }
+  .enhanced-home .visit-copy { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .enhanced-home .visit-brand-artwork { inline-size: 120px; margin: 0; flex-shrink: 0; }
 }
 @media (max-width: 1099px) {
   .enhanced-home .welcome-media::after { background: linear-gradient(to bottom, transparent 52%, var(--semantic-color-surface-inverse) 100%); }
@@ -243,12 +248,14 @@
   .enhanced-home .home-quick-access-list a { flex-wrap: nowrap; min-height: 56px; gap: 16px; }
   .enhanced-home .home-quick-access-list a > span:last-child { display: inline; }
   .enhanced-home .home-quick-access-copy { flex-basis: auto; }
-  .enhanced-home #specialized-care [class*='introduction'] { margin-bottom: 32px; }
+  .enhanced-home #specialized-care [class*='introduction'] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(96px, 30%); gap: 20px; margin-bottom: 32px; }
   .enhanced-home #specialized-care h2 { font-size: var(--site-heading); }
   .enhanced-home #specialized-care [class*='introduction'] p { font-size: 18px; }
   .enhanced-home #specialized-care .home-care-card { padding: 24px; }
   .enhanced-home #specialized-care [class*='grid'] { gap: 16px; }
   .enhanced-home .visit-copy h2 { font-size: var(--site-heading); }
+  .enhanced-home .visit-copy { gap: 16px; }
+  .enhanced-home .visit-brand-artwork { inline-size: clamp(80px, 24vw, 112px); }
   .enhanced-home .hospital-film-stage { padding-inline-start: 8px; }
 }
 @media (forced-colors: active) {

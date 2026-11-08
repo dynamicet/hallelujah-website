@@ -14,12 +14,12 @@
 .enhanced-home .team-list { gap: 24px; }
 .enhanced-home .team-portrait-frame { aspect-ratio: 4 / 3; max-height: 260px; }
 .enhanced-home .team-person-details { padding-top: 16px; }
-.enhanced-home .team-next-step { padding: 32px; border: 0; background: var(--site-surface-inverse); color: var(--site-white); border-radius: var(--site-panel-radius); }
+.enhanced-home .team-next-step { padding: 32px; border: 0; background: var(--site-selection); color: var(--site-ink); border-radius: var(--site-panel-radius); }
 .enhanced-home .team-next-step h3 { color: inherit; font: 400 clamp(26px, 2.4vw, 36px)/1.2 var(--site-display); letter-spacing: -.025em; }
-.enhanced-home .team-care-help { background: var(--site-white); color: var(--site-ink); }
-.enhanced-home .team-care-help:hover { background: var(--site-accent); color: var(--site-ink); }
-.enhanced-home .team-care-help:active { background: var(--site-pale); }
-.enhanced-home .team-care-help:focus-visible { outline-color: var(--site-white); box-shadow: none; }
+.enhanced-home .team-care-help { background: var(--site-action-primary); color: var(--site-white); }
+.enhanced-home .team-care-help:hover { background: var(--site-action-hover); color: var(--site-white); }
+.enhanced-home .team-care-help:active { background: var(--site-action-active); }
+.enhanced-home .team-care-help:focus-visible { outline-color: var(--site-ink); box-shadow: none; }
 .enhanced-home .visit-inner { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(40px, 7vw, 112px); }
 .enhanced-home .visit-copy h2 { max-width: 7ch; font-size: clamp(40px, 4.5vw, 64px); line-height: 1.06; }
 .enhanced-home .visit-copy .home-heading-accent { display: block; }
@@ -91,7 +91,7 @@
 .partner figcaption { margin-top: 8px; }
 
 /* Section openings accommodate useful content without requiring introductory copy. */
-.enhanced-home #specialized-care [class*='introduction'] { display: block; margin-bottom: 28px; }
+.enhanced-home #specialized-care [class*='introduction'] { margin-bottom: 28px; }
 .enhanced-home .hospital-film-copy { display: block; }
 .enhanced-home .hospital-film-copy h2 { max-width: none; }
 .enhanced-home [data-health-library] [class*='examples'] { margin-block: 16px 20px; }

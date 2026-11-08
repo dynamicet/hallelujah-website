@@ -116,7 +116,7 @@
         "magenta": "#E7277C",
         "yellow": "#F5C82D"
       },
-      "usage": "Cyan, orange and magenta for decorative accents; yellow reserved for artwork. Preserve darker functional tokens and existing raster artwork."
+      "usage": "Cyan, orange and magenta for decorative accents; all four bright colors, including yellow, appear in supplementary homepage geometry. Preserve darker functional tokens and existing raster artwork."
     },
     "sourceIdentityStatus": "Historical client-supplied logo-derived palette from 2026-10-21; preserved for provenance, superseded for current interface roles by currentDirection",
     "interfaceStatus": "Earlier foundation values retained as history; currentDirection governs implemented local website roles",

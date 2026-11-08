@@ -177,6 +177,10 @@
   --semantic-color-accent-supporting-text: var(--primitive-color-orange-800);
   --semantic-color-accent-expressive: var(--primitive-color-brand-magenta);
   --semantic-color-accent-expressive-text: var(--primitive-color-magenta-800);
+  --semantic-color-artwork-cyan: var(--primitive-color-brand-cyan);
+  --semantic-color-artwork-orange: var(--primitive-color-brand-orange);
+  --semantic-color-artwork-magenta: var(--primitive-color-brand-magenta);
+  --semantic-color-artwork-yellow: var(--primitive-color-brand-yellow);
   --semantic-font-family-ui: var(--primitive-font-family-latin);
   --semantic-font-family-ethiopic: var(--primitive-font-family-ethiopic);
   --semantic-font-weight-regular: var(--primitive-font-weight-regular);

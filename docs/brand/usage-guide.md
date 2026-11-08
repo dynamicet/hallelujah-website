@@ -29,8 +29,8 @@ content-readiness gates continue to apply.
 The agency supplied `Hallelujah Logo.png` and `Color Palettes.md`. The notes explicitly
 identify the codes as color-picker approximations because formal hospital codes were
 unavailable. Current decorative accents match those supplied codes: cyan `#15B0E6`,
-orange `#F65B25`, and magenta `#E7277C`. Yellow `#F5C82D` is recorded for artwork only;
-no new yellow interface decoration or status meaning is introduced. Existing raster logos
+orange `#F65B25`, and magenta `#E7277C`. Yellow `#F5C82D` is used only within supplementary brand artwork;
+it does not carry interface status or control meaning. Existing raster logos
 remain intact. Earlier source-identity estimates remain historical records.
 
 The implementation separates identity accents from text, action, focus, border and status
@@ -57,10 +57,34 @@ provides an established example of assigning contextual color roles to interface
 and states. Our role separation follows that general pattern; it does not imply Carbon
 approval or a requirement to copy its palette.
 
+## Homepage colorize extension — 8 November 2026
+
+The client selected brighter specialist areas plus supporting artwork. Care discovery now
+uses the existing pale-blue surface, and the desktop specialist heading backdrop uses the
+same pale blue instead of deep blue. Headings, directory links and keyboard focus use the
+appropriate dark roles. The care-help panel uses blue veil with the standard blue action.
+The hero, statistics strip and footer keep their existing dark fields.
+
+`CareBrandArtwork` supplies crisp, flat geometry inspired by the logo’s open, embracing
+composition. It is supporting artwork, not a reconstructed logo. Cyan open curves surround
+orange and magenta arcs and a yellow center. It appears beside the care-discovery heading
+and visit-preparation heading, each in its own layout space. At phone widths it compacts
+alongside the heading. All four colors come from `semantic.color.artwork.*`, which alias
+the agency-aligned primitives. Cyan also supplies the existing care-section boundary and
+specialty-card top rules where the responsive treatment includes them. Cards use one shared
+color treatment; specialties and clinicians are not assigned color meanings.
+
+The motif is decorative (`aria-hidden`, non-focusable, no pointer events), has no new
+animation, and is hidden in forced-color and print modes. Yellow now has a visible artwork
+use. It is not used for labels, buttons, notices, or warning semantics. Bright artwork is
+kept separate from functional text and focus roles; pale/deep pairings retain their contrast.
+This extension is limited to the local homepage presentation and its shared artwork helper.
+
 ## Palette and responsibilities
 
 | Family | Values | Current responsibility |
 | --- | --- | --- |
+| Artwork colors | Cyan `#15B0E6`, orange `#F65B25`, magenta `#E7277C`, yellow `#F5C82D` | Decorative geometric artwork only; no control or status meaning |
 | Brand blue | Primary `#0078A6`, strong `#00678D`, deep `#00445D` | Primary actions, ordinary links, headings, structural marks and substantial identity fields |
 | Agency cyan | `#15B0E6` | Decorative identity marks; functional blues remain separate |
 | Blue companions | Mist `#EAF5F9`, veil `#D5EAF2`, air `#A8D3E4` | Grouping, selected planes, portrait grounds and tonal geometry; deep blue supplies readable text |

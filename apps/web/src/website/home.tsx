@@ -19,6 +19,7 @@ import { Partners } from './partners'
 import { NewsResources } from './news-resources'
 import { editorialEntries } from '@/demo/editorial'
 import { ContactDirections } from './contact-directions'
+import { CareBrandArtwork } from './care-brand-artwork'
 
 const Arrow = () => <span aria-hidden="true">→</span>
 const VisitChevron = () => <span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
@@ -110,6 +111,7 @@ export function WebsiteHome() {
         <section className="visit-guide" data-motion-section="visit" aria-labelledby="visit-guide-title" id="visit-guide" tabIndex={-1}>
           <div className="page-frame visit-inner">
             <div className="visit-copy"><h2 data-motion="heading" data-reveal="0" id="visit-guide-title">Plan <span className="home-heading-accent">your visit</span></h2>
+              <div className="visit-brand-artwork"><CareBrandArtwork /></div>
             </div>
             <div className="visit-preparation">
               <div className="visit-questions">

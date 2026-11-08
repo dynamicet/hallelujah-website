@@ -1,6 +1,7 @@
 import { InterfaceLink as Link } from '@/website/interface-language'
 import { featuredSpecialties } from '@/demo/specialties'
 import { services } from '@/demo/site'
+import { CareBrandArtwork } from './care-brand-artwork'
 import styles from './specialty-grid.module.css'
 
 export function SpecialtyGrid() {
@@ -8,6 +9,7 @@ export function SpecialtyGrid() {
     <div className="page-frame">
       <div className={styles.introduction}>
         <h2 data-reveal="0" data-motion="heading" id="care-areas-title">Specialized care, <span className="home-heading-accent">close to you</span></h2>
+        <div className={styles.artwork}><CareBrandArtwork /></div>
       </div>
       <ul className={styles.grid}>
         {featuredSpecialties.flatMap((care, index) => {
