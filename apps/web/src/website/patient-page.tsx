@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { InterfaceLink as Link } from '@/website/interface-language'
 import type { ReactNode } from 'react'
 import { SiteShell } from '@/design-system/components'
 import { demoShell } from '@/demo/site'

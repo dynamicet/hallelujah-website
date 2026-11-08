@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { InterfaceLink as Link } from '@/website/interface-language'
 import type { SiteShellProps } from '../components'
 import { SiteShell } from '../components'
 import type { ControlledClinicianProfile } from '../../content/clinician-profile.ts'

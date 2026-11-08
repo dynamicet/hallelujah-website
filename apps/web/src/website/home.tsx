@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
+
 import { ClinicianPortrait, Icon, SiteShell } from '@/design-system/components'
 import { clinicians, demoShell } from '@/demo/site'
 import { demoClinicianPortraits } from '@/demo/clinician-portraits'
@@ -31,7 +32,7 @@ const featuredClinicians = Object.keys(demoClinicianPortraits).slice(0, 3).flatM
 export function WebsiteHome() {
   const shell = demoShell('/')
   const receptionTarget = shell.header.contactTargets?.call
-  const receptionAction = <><Icon name="phone" /><span>Call us</span></>
+  const receptionAction = <><Icon name="phone" /><span><InterfaceText>Call us</InterfaceText></span></>
   return (
     <SiteShell {...shell}>
       <div className="hospital-home enhanced-home">
@@ -67,8 +68,8 @@ export function WebsiteHome() {
 
         <nav className="home-quick-access" aria-label="Plan your care and visit">
           <ul className="page-frame home-quick-access-list">
-            <li><a href="#visit-guide"><span className="home-quick-access-icon"><Icon name="calendar" /></span><span className="home-quick-access-copy"><strong>Plan your visit</strong></span><Arrow /></a></li>
-            <li><a href="#home-directions"><span className="home-quick-access-icon"><Icon name="directions" /></span><span className="home-quick-access-copy"><strong>Contact &amp; directions</strong></span><Arrow /></a></li>
+            <li><a href="#visit-guide"><span className="home-quick-access-icon"><Icon name="calendar" /></span><span className="home-quick-access-copy"><strong><InterfaceText>Plan your visit</InterfaceText></strong></span><Arrow /></a></li>
+            <li><a href="#home-directions"><span className="home-quick-access-icon"><Icon name="directions" /></span><span className="home-quick-access-copy"><strong><InterfaceText>Contact &amp; directions</InterfaceText></strong></span><Arrow /></a></li>
             <li><Link className="home-quick-access-urgent" href="/emergency"><span className="home-quick-access-icon"><Icon name="emergency" /></span><span className="home-quick-access-copy"><strong>Emergency information</strong><span>Urgent care and ambulance contacts</span></span><Arrow /></Link></li>
           </ul>
         </nav>

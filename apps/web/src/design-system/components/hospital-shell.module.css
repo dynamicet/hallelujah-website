@@ -259,3 +259,18 @@
   .menuResources a:first-child { color: var(--site-urgent); }
   .menuResources :is(a, button):hover { text-decoration: underline; }
 }
+
+.languageOptions > button:not(:disabled) {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--site-ink);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.languageOptions > button:not(:disabled):hover { color: var(--site-link); }

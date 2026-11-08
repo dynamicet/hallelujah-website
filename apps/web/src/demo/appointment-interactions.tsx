@@ -1,5 +1,8 @@
 'use client'
 
+import { getInterfaceLanguage, interfaceLanguageChangeEvent } from '@/website/interface-language'
+import { translateInterface } from '@/website/interface-messages'
+
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
@@ -7,6 +10,7 @@ export function DemoInteractions() {
   const pathname = usePathname()
   const search = useSearchParams().toString()
   useEffect(() => {
+    const t = (text: string) => translateInterface(text, getInterfaceLanguage())
     const controller = new AbortController()
     const { signal } = controller
     const form = document.querySelector<HTMLFormElement>('#appointment-request-form')
@@ -38,7 +42,7 @@ export function DemoInteractions() {
           select.required = active
           select.disabled = !active
           const requirement = element.querySelector<HTMLElement>('label > span:last-child')
-          if (requirement) requirement.textContent = active ? 'Required' : 'Optional'
+          if (requirement) requirement.textContent = t(active ? 'Required' : 'Optional')
         }
       })
     }
@@ -46,7 +50,7 @@ export function DemoInteractions() {
       if (!summary) return
       summary.hidden = errors.length === 0
       const count = summary.querySelector<HTMLElement>('[data-error-count]')
-      if (count) count.textContent = `There ${errors.length === 1 ? 'is 1 problem' : `are ${errors.length} problems`} to correct.`
+      if (count) count.textContent = t(`There ${errors.length === 1 ? 'is 1 problem' : `are ${errors.length} problems`} to correct.`)
       fields.forEach((field) => {
         const invalid = errors.includes(field)
         const item = summary.querySelector<HTMLElement>(`[data-error-item="${field}"]`)
@@ -92,7 +96,7 @@ export function DemoInteractions() {
       if (action) action.hidden = terminal || next === 'unknown' || next === 'duplicate'
       if (submit) {
         submit.disabled = busy || terminal || next === 'unknown' || next === 'duplicate'
-        submit.textContent = busy ? 'Completing request…' : next === 'known-failure' ? 'Try again' : 'Complete request'
+        submit.textContent = t(busy ? 'Completing request…' : next === 'known-failure' ? 'Try again' : 'Complete request')
       }
       form.setAttribute('aria-busy', String(busy))
       if (terminal) {
@@ -152,7 +156,7 @@ export function DemoInteractions() {
       if (review) review.hidden = journeyStep !== 2 && !outcome
       const reviewTitle = form.querySelector<HTMLElement>('#appointment-submit-title')
       const reviewDescription = form.querySelector<HTMLElement>('[data-journey-review-description]')
-      if (reviewTitle) reviewTitle.textContent = terminal ? 'Your next step' : 'Review your details'
+      if (reviewTitle) reviewTitle.textContent = t(terminal ? 'Your next step' : 'Review your details')
       if (reviewDescription) reviewDescription.hidden = terminal
       const progress = form.querySelector<HTMLElement>('[data-journey-progress]')
       if (progress) progress.hidden = terminal
@@ -165,7 +169,7 @@ export function DemoInteractions() {
       })
       const title = form.querySelector<HTMLElement>('[data-journey-title]')
       const description = form.querySelector<HTMLElement>('[data-journey-description]')
-      if (title) title.textContent = journeyStep === 0 ? 'Choose your care' : 'A few details'
+      if (title) title.textContent = t(journeyStep === 0 ? 'Choose your care' : 'A few details')
       if (description) description.textContent = ''
       const actions = form.querySelector<HTMLElement>('[data-journey-actions]')
       const back = form.querySelector<HTMLButtonElement>('[data-journey-back]')
@@ -175,7 +179,7 @@ export function DemoInteractions() {
       if (next) {
         next.hidden = journeyStep === 2
         const unsure = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value === 'not_sure'
-        next.firstChild!.textContent = journeyStep === 0 ? unsure ? 'Continue without choosing ' : 'Continue ' : 'Review request '
+        next.firstChild!.textContent = t(journeyStep === 0 ? unsure ? 'Continue without choosing ' : 'Continue ' : 'Review request ')
       }
       const reviewSummary = form.querySelector<HTMLElement>('[data-journey-review]')
       if (reviewSummary) reviewSummary.hidden = terminal || outcome || journeyStep !== 2
@@ -188,11 +192,12 @@ export function DemoInteractions() {
         care: route === 'not_sure' ? 'Help finding the right care' : chosen?.value ? chosen.selectedOptions[0].textContent ?? '' : 'Choose your care',
         name: terminal ? 'Not added' : form.querySelector<HTMLInputElement>('#full-name')?.value || 'Not added',
         phone: terminal ? 'Not added' : form.querySelector<HTMLInputElement>('#phone')?.value || 'Not added',
-        date: parsedDate && Number.isFinite(parsedDate.getTime()) ? new Intl.DateTimeFormat('en', { dateStyle: 'medium', timeZone: 'UTC' }).format(parsedDate) : 'No preference',
+        date: parsedDate && Number.isFinite(parsedDate.getTime()) ? new Intl.DateTimeFormat(getInterfaceLanguage(), { dateStyle: 'medium', timeZone: 'UTC' }).format(parsedDate) : 'No preference',
       }
       frame.querySelectorAll<HTMLElement>('[data-journey-value]').forEach((element) => {
         const value = values[element.dataset.journeyValue ?? ''] ?? ''
-        if (element.textContent !== value) element.textContent = value
+        const display = ['visit', 'care', 'date'].includes(element.dataset.journeyValue ?? '') ? t(value) : value
+        if (element.textContent !== display) element.textContent = display
       })
     }
     const goToStep = (step: number, focus = true) => {
@@ -244,6 +249,14 @@ export function DemoInteractions() {
     form.querySelector<HTMLButtonElement>('[data-journey-correct]')?.addEventListener('click', () => {
       setState('editing')
       goToStep(1)
+    }, { signal })
+    window.addEventListener(interfaceLanguageChangeEvent, () => {
+      requestAnimationFrame(() => {
+        if (signal.aborted) return
+        syncCare()
+        setState(state)
+        if (!summary?.hidden) showErrors(validate().filter((field) => stepForField(field) === journeyStep))
+      })
     }, { signal })
     form.noValidate = true
     form.addEventListener('submit', (event) => {

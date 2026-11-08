@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import { InterfaceCopy, InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
+
 import type { ReactNode } from 'react'
 
 import {
@@ -80,7 +81,7 @@ function fieldError(field: AppointmentField, visible: boolean) {
 function AppointmentErrorSummary({ errors }: { readonly errors: readonly AppointmentField[] }) {
   const visible = errors.length > 0
   return (
-    <section
+    <InterfaceCopy><section
       className={styles.errorSummary}
       data-error-summary
       hidden={!visible}
@@ -98,7 +99,7 @@ function AppointmentErrorSummary({ errors }: { readonly errors: readonly Appoint
           </li>
         ))}
       </ul>
-    </section>
+    </section></InterfaceCopy>
   )
 }
 
@@ -112,7 +113,7 @@ function AppointmentStatePanels({
   readonly specimenReference: string
 }) {
   if (!localSimulation) return (
-    <div className={styles.stateStack} data-appointment-state-panels>
+    <InterfaceCopy><div className={styles.stateStack} data-appointment-state-panels>
       {(['pending', 'known-failure', 'unknown', 'duplicate', 'receipt', 'delivery-warning'] as const).map((name) => (
         <div className={styles.statePanel} data-appointment-state-panel={name} key={name}>
           <FormStatus
@@ -124,10 +125,10 @@ function AppointmentStatePanels({
           ><p>No appointment request was sent and no booking is confirmed.</p></FormStatus>
         </div>
       ))}
-    </div>
+    </div></InterfaceCopy>
   )
   return (
-    <div className={styles.stateStack} data-appointment-state-panels>
+    <InterfaceCopy><div className={styles.stateStack} data-appointment-state-panels>
       <div className={styles.statePanel} data-appointment-state-panel="pending">
         <FormStatus heading="Completing your request…" id="appointment-pending" kind="pending" visible={kind === 'pending'}>
           <p>Please wait a moment.</p>
@@ -136,38 +137,38 @@ function AppointmentStatePanels({
       <div className={styles.statePanel} data-appointment-state-panel="known-failure">
         <FormStatus announcement="focus" heading="Please try again" id="appointment-known-failure" kind="failure" visible={kind === 'known-failure'}>
           <p>Your details are still here. Review them or try again.</p>
-          <div className={styles.statusActions}><button data-journey-correct type="button">Edit your details</button></div>
+          <div className={styles.statusActions}><button data-journey-correct type="button"><InterfaceText>Edit your details</InterfaceText></button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="unknown">
         <FormStatus announcement="focus" heading="Check your request status" id="appointment-unknown" kind="warning" visible={kind === 'unknown'}>
           <p>Check for an existing request before trying again.</p>
           <div className={styles.statusActions}>
-            <button data-reconcile="found" type="button">View existing request</button>
-            <button data-reconcile="missing" type="button">Return to review</button>
+            <button data-reconcile="found" type="button"><InterfaceText>View existing request</InterfaceText></button>
+            <button data-reconcile="missing" type="button"><InterfaceText>Return to review</InterfaceText></button>
           </div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="duplicate">
         <FormStatus announcement="focus" heading="You already have a request" id="appointment-duplicate" kind="warning" visible={kind === 'duplicate'}>
           <p>View your existing request to avoid starting another.</p>
-          <div className={styles.statusActions}><button data-reconcile="found" type="button">View your request</button></div>
+          <div className={styles.statusActions}><button data-reconcile="found" type="button"><InterfaceText>View your request</InterfaceText></button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="receipt">
         <FormStatus announcement="focus" heading="Request complete" id="appointment-receipt" kind="warning" visible={kind === 'receipt'}>
           <p>Reference: <strong>{specimenReference}</strong></p>
           <p><Link href="/#home-directions">Contact the hospital</Link> to confirm your appointment time.</p>
-          <div className={styles.statusActions}><button data-journey-restart type="button">Start a new request</button></div>
+          <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Start a new request</InterfaceText></button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="delivery-warning">
         <FormStatus announcement="focus" heading="Request complete; message unavailable" id="appointment-delivery-warning" kind="warning" visible={kind === 'delivery-warning'}>
           <p>Keep your reference: <strong>{specimenReference}</strong>. <Link href="/#home-directions">Contact the hospital</Link> to check your appointment time.</p>
-          <div className={styles.statusActions}><button data-journey-restart type="button">Start a new request</button></div>
+          <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Start a new request</InterfaceText></button></div>
         </FormStatus>
       </div>
-    </div>
+    </div></InterfaceCopy>
   )
 }
 
@@ -196,7 +197,7 @@ function AppointmentForm({
 }) {
   const hasError = (field: AppointmentField) => errors.includes(field)
   return (
-    <>
+    <InterfaceCopy><>
     {localSimulation ? <noscript><p className={styles.noScriptBoundary}>Enable JavaScript to use this form, or <Link href="/#home-directions">contact the hospital</Link>.</p></noscript> : null}
     <div data-appointment-safe-form inert={localSimulation || undefined}>
     <FormPrimitiveForm
@@ -359,11 +360,11 @@ function AppointmentForm({
           <dl>
             {visitType ? <div><dt>Visit</dt><dd data-journey-value="visit">First visit</dd></div> : null}
             <div><dt>Care</dt><dd data-journey-value="care">Help finding the right care</dd></div>
-            <div><dt>Full name</dt><dd data-journey-value="name">Not added</dd></div>
-            <div><dt>Telephone</dt><dd data-journey-value="phone">Not added</dd></div>
-            <div><dt>Preferred date</dt><dd data-journey-value="date">No preference</dd></div>
+            <div><dt><InterfaceText>Full name</InterfaceText></dt><dd data-journey-value="name">Not added</dd></div>
+            <div><dt><InterfaceText>Telephone</InterfaceText></dt><dd data-journey-value="phone">Not added</dd></div>
+            <div><dt><InterfaceText>Preferred date</InterfaceText></dt><dd data-journey-value="date">No preference</dd></div>
           </dl>
-          <div className={styles.reviewActions}><button className={styles.textButton} data-journey-edit-care type="button">Change your care</button><button className={styles.textButton} data-journey-edit type="button">Edit your details</button></div>
+          <div className={styles.reviewActions}><button className={styles.textButton} data-journey-edit-care type="button"><InterfaceText>Change your care</InterfaceText></button><button className={styles.textButton} data-journey-edit type="button"><InterfaceText>Edit your details</InterfaceText></button></div>
         </div> : null}
         <AppointmentStatePanels kind={state} localSimulation={localSimulation} specimenReference={specimenReference} />
         <FormActions label="Appointment form action">
@@ -380,12 +381,12 @@ function AppointmentForm({
         </p> : null}
       </section>
       {localSimulation ? <div className={styles.journeyActions} data-journey-actions hidden>
-        <button className={styles.textButton} data-journey-back type="button">Back</button>
-        <button className={styles.continueButton} data-journey-next type="button">Enter your details <span aria-hidden="true">→</span></button>
+        <button className={styles.textButton} data-journey-back type="button"><InterfaceText>Back</InterfaceText></button>
+        <button className={styles.continueButton} data-journey-next type="button"><InterfaceText>Enter your details</InterfaceText> <span aria-hidden="true">→</span></button>
       </div> : null}
     </FormPrimitiveForm>
     </div>
-    </>
+    </></InterfaceCopy>
   )
 }
 
@@ -407,18 +408,18 @@ export function AppointmentTemplate({
 }: AppointmentTemplateProps) {
   const errors = state.errors ?? []
   const unavailable = state.kind === 'workflow-unavailable'
-  const guidance = <aside className={styles.careRail} aria-label="Appointment guidance">
+  const guidance = <InterfaceCopy><aside className={styles.careRail} aria-label="Appointment guidance">
     {state.localSimulation ? <section className={styles.requestSlip} aria-labelledby="appointment-summary-title">
       <h2 id="appointment-summary-title">Your selection</h2>
       {doctorIdentity}
-      <dl>{visitType ? <div><dt>Your visit</dt><dd data-journey-value="visit">First visit</dd></div> : null}<div><dt>Your care</dt><dd data-journey-value="care">Help finding the right care</dd></div><div><dt>Preferred date</dt><dd data-journey-value="date">No preference</dd></div></dl>
+      <dl>{visitType ? <div><dt><InterfaceText>Your visit</InterfaceText></dt><dd data-journey-value="visit">First visit</dd></div> : null}<div><dt><InterfaceText>Your care</InterfaceText></dt><dd data-journey-value="care">Help finding the right care</dd></div><div><dt><InterfaceText>Preferred date</InterfaceText></dt><dd data-journey-value="date">No preference</dd></div></dl>
       <p><Link href="/patients-visitors#checklist">Prepare your visit checklist</Link></p>
     </section> : null}
     <section aria-labelledby="appointment-warning-title" className={`${styles.section} ${styles.warning}`} data-appointment-section="A2">
       <h2 id="appointment-warning-title">{state.localSimulation ? 'Need urgent help?' : 'Do not use this form for emergency help'}</h2>
       {!state.localSimulation ? <p>{warning}</p> : <Link href="/emergency">Emergency information</Link>}
     </section>
-  </aside>
+  </aside></InterfaceCopy>
 
   return (
     <SiteShell {...shell}>

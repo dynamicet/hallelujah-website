@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { InterfaceLink as Link } from '@/website/interface-language'
 import styles from './equipment-showcase.module.css'
 import { EquipmentChapterNav } from './equipment-chapter-nav'
 

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { InterfaceLink as Link } from '@/website/interface-language'
 
 /** A care montage introduces the hospital; its invitation yields during playback. */
 export function CareBackgroundFilm() {

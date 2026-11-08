@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { InterfaceCopy, InterfaceLink as Link } from '@/website/interface-language'
 import { lazy, Suspense, useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import type { GuideCatalog } from '@/patient-guide/types'
 const PatientGuide = lazy(() => import('./patient-guide').then((module) => ({ default: module.PatientGuide })))
@@ -92,7 +92,7 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
 
   // The native popover supplies expanded state and Escape dismissal even without JavaScript.
   return (
-    <div
+    <InterfaceCopy><div
       className={styles.widget}
       data-help-widget
       ref={widget}
@@ -151,5 +151,6 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
       </div>
       {guide && guideRequested ? <Suspense fallback={<p role="status">Opening the care guide… <Link href="/appointment">Appointment options</Link></p>}><PatientGuide openOnMount catalog={guide} dialogRef={dialog} onClose={() => { const origin = guideReturnFocus.current; if (origin?.isConnected && !widget.current?.contains(origin)) origin.focus(); else trigger.current?.focus() }} /></Suspense> : null}
     </div>
+    </InterfaceCopy>
   )
 }

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { InterfaceLink as Link } from '@/website/interface-language'
 import { featuredSpecialties } from '@/demo/specialties'
 import { services } from '@/demo/site'
 import styles from './specialty-grid.module.css'

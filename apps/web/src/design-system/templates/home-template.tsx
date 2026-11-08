@@ -1,3 +1,4 @@
+import { InterfaceText } from '@/website/interface-language'
 import type { ReactNode } from 'react'
 
 import {
@@ -181,7 +182,7 @@ export function HomeTemplate({
                   maxLength={120} name="q" type="search" />
                 <p id="home-search-hint">Use a care term or doctor name. Do not enter personal or medical details.</p>
               </div>
-              <button className="ds-touch-target" type="submit">Search doctors</button>
+              <button className="ds-touch-target" type="submit"><InterfaceText>Search doctors</InterfaceText></button>
             </form>
           ) : <ActionLink href={tasks.search.href} label={tasks.search.label} variant="tertiary" />}
         </section>

@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { InterfaceLink as Link } from '@/website/interface-language'
 import { useRouter } from 'next/navigation'
 import { useRef, type ReactNode } from 'react'
 

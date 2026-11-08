@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
+
 import type { ReactNode } from 'react'
 import type { SiteShellProps } from '../components'
 import {
@@ -128,8 +129,8 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                     options={directory.filters}
                     selectedValues={searchState.filters}
                   />
-                  <button type="submit">Apply filters</button>
-                  <a className={`${styles.resetFilters} ds-touch-target`} href={pathname}>Reset all</a>
+                  <button type="submit"><InterfaceText>Apply filters</InterfaceText></button>
+                  <a className={`${styles.resetFilters} ds-touch-target`} href={pathname}><InterfaceText>Reset all</InterfaceText></a>
                 </FilterDisclosure>
               </aside>
 
@@ -142,7 +143,7 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                     </DirectoryResultCount>
                   ) : <p className={styles.stateLabel}>Directory status</p>}
                   {!unavailable && directory.resultCount > 0 ? <p className={styles.resultRange}>
-                    Showing {firstResult}–{lastResult} of {directory.resultCount}
+                    <InterfaceText>{`Showing ${firstResult}–${lastResult} of ${directory.resultCount}`}</InterfaceText>
                   </p> : null}
                   <ActiveFilterList
                     clearAllHref={clinicianDirectoryUrl(pathname, { page: 1, query: '', filters: [] }, allowedFilters)}
@@ -157,7 +158,7 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                     <h2>{recovery(state).heading}</h2>
                     <p>{recovery(state).copy}</p>
                     <div className={styles.stateActions}>
-                      <a className="ds-touch-target" href={currentResultsHref}>Try this search again</a>
+                      <a className="ds-touch-target" href={currentResultsHref}><InterfaceText>Try this search again</InterfaceText></a>
                       <Link className="ds-touch-target" href="/services">View all services</Link>
                     </div>
                   </div>
@@ -166,7 +167,7 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                     <h2>No clinicians match</h2>
                     <p>Check the spelling, remove a specialty filter, or begin again. You can also explore care by service.</p>
                     <div className={styles.stateActions}>
-                      <a className="ds-touch-target" href={pathname}>Reset search</a>
+                      <a className="ds-touch-target" href={pathname}><InterfaceText>Reset search</InterfaceText></a>
                       <Link className="ds-touch-target" href="/services">View all services</Link>
                     </div>
                   </div>

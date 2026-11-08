@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { InterfaceLink as Link } from '@/website/interface-language'
 import { useState } from 'react'
 
 type SpecialtyPresentation = Readonly<{

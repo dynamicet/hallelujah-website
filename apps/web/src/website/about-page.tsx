@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import { InterfaceLink as Link } from '@/website/interface-language'
 import { SiteShell } from '@/design-system/components'
 import { demoShell } from '@/demo/site'
 import { hospitalContact } from './hospital-contact'

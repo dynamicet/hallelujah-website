@@ -55,3 +55,37 @@ or confirm a booking. Emergency warnings, privacy instructions, coverage limitat
 and warnings against using inert contact/arrival details for care remain necessary.
 Removing development copy does not authorize publication, activate contact links,
 or change content eligibility and backend acceptance rules.
+
+## English / Amharic shared interface
+
+The public shell offers an English / አማርኛ switch. It changes shared navigation,
+action links, search controls, form labels and validation/status copy without
+changing the current URL, query, hash, scroll position, or entered form values.
+The choice uses the browser's `hh-interface-language` local-storage key and survives
+navigation and reloads. If storage is unavailable, it lasts for the current document.
+English remains the server-rendered and no-JavaScript baseline.
+
+`src/website/interface-messages.ts` holds the reusable UI dictionary. Use
+`InterfaceText` for an isolated label, `InterfaceLink` for common action links, and
+`InterfaceCopy` only around shared native control markup. Component boundaries are
+left intact. The translator never changes input values, option values, route URLs,
+canonical doctor/service names, or editorial content. `data-interface-content`
+explicitly excludes user-entered text and content regions. Translated elements carry
+Amharic language metadata while the document and pending page copy remain English.
+
+Page headings, biographies, service descriptions, articles and guide responses await
+final editorial copy; this does not publish a fully translated Amharic site. Review
+shared Amharic wording with the content team before launch. No preview badge is
+added to the interface.
+
+With `pnpm dev` running, verify the language journey and capture current evidence:
+
+```sh
+node scripts/check-interface-language.mjs
+pnpm visual:check / /doctors /services /appointment
+```
+
+The language check covers keyboard selection/focus return, persistent preference,
+client navigation, unchanged search state, form validation and value/step retention,
+normal/reduced motion, storage denial, and three responsive widths. Inspect the fresh
+screenshots separately as described in [the visual-check guide](../../docs/visual-checks.md).

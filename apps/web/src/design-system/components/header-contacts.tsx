@@ -1,3 +1,4 @@
+import { InterfaceCopy } from '@/website/interface-language'
 import { Icon } from './icon'
 import styles from './hospital-shell.module.css'
 
@@ -17,7 +18,7 @@ const channels = [
 export function HeaderContacts({ targets = {} }: { readonly targets?: HeaderContactTargets }) {
   const receptionNumber = targets.call?.slice(4).replace(/^(\+251)(\d{2})(\d{3})(\d{4})$/, '$1 $2 $3 $4') ?? targets.previewNumber
   return (
-    <div aria-label="Contact the hospital" className={styles.contactActions} data-header-contacts role="group">
+    <InterfaceCopy><div aria-label="Contact the hospital" className={styles.contactActions} data-header-contacts role="group">
       {channels.map(({ key, label, detail, description, unavailable }) => {
         const content = <>
           <span aria-hidden="true" className={styles.contactIcon}>
@@ -49,6 +50,6 @@ export function HeaderContacts({ targets = {} }: { readonly targets?: HeaderCont
           </button>
         )
       })}
-    </div>
+    </div></InterfaceCopy>
   )
 }

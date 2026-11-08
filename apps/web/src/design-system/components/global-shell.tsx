@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { InterfaceCopy, InterfaceLanguageSwitcher, InterfaceLink as Link } from '@/website/interface-language'
 import type { ReactNode } from 'react'
 import type { GuideCatalog } from '@/patient-guide/types'
 
@@ -94,9 +94,9 @@ export interface SiteShellProps {
 
 export function SkipLink({ label, targetId }: { readonly label: string; readonly targetId: string }) {
   return (
-    <a className={styles.skipLink} data-skip-link href={`#${targetId}`}>
+    <InterfaceCopy><a className={styles.skipLink} data-skip-link href={`#${targetId}`}>
       {label}
-    </a>
+    </a></InterfaceCopy>
   )
 }
 
@@ -108,7 +108,7 @@ export function PrimaryNavigation({
   readonly label: string
 }) {
   return (
-    <nav aria-label={label} className={styles.primaryNavigation} data-primary-navigation>
+    <InterfaceCopy><nav aria-label={label} className={styles.primaryNavigation} data-primary-navigation>
       <ul>
         {items.map((item) => (
           <li key={`${item.href}-${item.label}`}>
@@ -122,7 +122,7 @@ export function PrimaryNavigation({
           </li>
         ))}
       </ul>
-    </nav>
+    </nav></InterfaceCopy>
   )
 }
 
@@ -135,7 +135,7 @@ export function LanguageSwitcher({
   const reasonId = `language-${alternate.lang}-availability`
 
   return (
-    <details className={styles.languageSwitcher} data-language-switcher>
+    <InterfaceCopy><details className={styles.languageSwitcher} data-language-switcher>
       <summary aria-label={`${label}: ${currentLabel}`} className={styles.languageTrigger}>
         <span aria-current="true" className={styles.currentLanguage} lang={currentLang}>
           <span className={styles.languageFull}>{currentLabel}</span>
@@ -161,7 +161,7 @@ export function LanguageSwitcher({
           </>
         )}
       </div>
-    </details>
+    </details></InterfaceCopy>
   )
 }
 
@@ -189,7 +189,7 @@ export function SiteHeader({
     .map((item) => publicWebsite ? { ...item, label: ({ Doctors: 'Find a doctor', Services: 'Care & services', Directions: 'Your visit' } as Record<string, string>)[item.label] ?? item.label } : item)
 
   return (
-    <header
+    <InterfaceCopy><header
       className={styles.header}
       data-navigation-mode={navigationMode}
       data-site-header
@@ -205,7 +205,7 @@ export function SiteHeader({
                 <Link className={styles.contactDirections} href="/#home-directions">Contact & directions</Link>
               </div>
               <div className={styles.utilityEssentials}>
-                {languageSwitcher}
+                <InterfaceLanguageSwitcher fallback={languageSwitcher} enabled={publicWebsite} />
                 {previewEmergencyNumber ? (
                   <div aria-label="Emergency help" className={styles.emergencyActions} role="group">
                     <button aria-disabled="true" aria-label={`Call emergency hotline ${previewEmergencyNumber}. Preview only; not connected.`} className={styles.emergencyCall} title="Mock hotline. Calling is not connected." type="button">
@@ -299,13 +299,13 @@ export function SiteHeader({
           {publicWebsite ? <Link className={styles.appointmentLink} href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link> : emergencyAction}
         </div>
       </div>
-    </header>
+    </header></InterfaceCopy>
   )
 }
 
 export function Breadcrumbs({ items, label }: BreadcrumbsProps) {
   return (
-    <nav aria-label={label} className={styles.breadcrumbs} data-breadcrumbs>
+    <InterfaceCopy><nav aria-label={label} className={styles.breadcrumbs} data-breadcrumbs>
       <ol>
         {items.map((item) => (
           <li key={`${item.href}-${item.label}`}>
@@ -317,7 +317,7 @@ export function Breadcrumbs({ items, label }: BreadcrumbsProps) {
           </li>
         ))}
       </ol>
-    </nav>
+    </nav></InterfaceCopy>
   )
 }
 
@@ -332,7 +332,7 @@ export function SiteFooter({
   const careLinks = groups.flatMap((group) => group.links)
   const careLink = careLinks.find((link) => link.href === '/appointment') ?? careLinks.find((link) => link.href === '/doctors')
   return (
-    <footer className={styles.footer} data-site-footer data-footer-variant={variant}>
+    <InterfaceCopy><footer className={styles.footer} data-site-footer data-footer-variant={variant}>
       <div className={styles.footerInner}>
         {variant === 'full' ? (
           <div className={styles.footerIdentity}>
@@ -366,7 +366,7 @@ export function SiteFooter({
           <a href="#">Back to top ↑</a>
         </div>
       </div>
-    </footer>
+    </footer></InterfaceCopy>
   )
 }
 

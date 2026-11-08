@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
+
 import type { ReactNode } from 'react'
 import type { SiteShellProps } from '../components'
 import {
@@ -125,7 +126,7 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                     selectedValues={searchState.groups}
                   />
                   <button type="submit">Apply groups</button>
-                  <a className={`${styles.resetFilters} ds-touch-target`} href={pathname}>Reset all</a>
+                  <a className={`${styles.resetFilters} ds-touch-target`} href={pathname}><InterfaceText>Reset all</InterfaceText></a>
                 </FilterDisclosure>
               </aside>
 
@@ -139,7 +140,7 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                     </DirectoryResultCount>
                   ) : <p className={styles.stateLabel}>Directory status</p>}
                   {!unavailable && state !== 'loading' && directory.resultCount > 0 ? <p className={styles.resultRange}>
-                    Showing {firstResult}–{lastResult} of {directory.resultCount}
+                    <InterfaceText>{`Showing ${firstResult}–${lastResult} of ${directory.resultCount}`}</InterfaceText>
                   </p> : null}
                   <ActiveFilterList
                     clearAllHref={serviceDirectoryUrl(pathname, { page: 1, query: '', groups: [] }, allowedGroups)}
@@ -159,7 +160,7 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                     <h2>{recoveryContent.heading}</h2>
                     <p>{recoveryContent.copy}</p>
                     <div className={styles.stateActions}>
-                      <a className="ds-touch-target" href={currentResultsHref}>Try this search again</a>
+                      <a className="ds-touch-target" href={currentResultsHref}><InterfaceText>Try this search again</InterfaceText></a>
                       <Link className="ds-touch-target" href="/doctors">Find a doctor</Link>
                     </div>
                   </div>
@@ -168,7 +169,7 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                     <h2>No services match</h2>
                     <p>Check the spelling, remove a group, or start again. You can also explore clinicians by area of care.</p>
                     <div className={styles.stateActions}>
-                      <a className="ds-touch-target" href={pathname}>Reset search</a>
+                      <a className="ds-touch-target" href={pathname}><InterfaceText>Reset search</InterfaceText></a>
                       <Link className="ds-touch-target" href="/doctors">Find a doctor</Link>
                     </div>
                   </div>

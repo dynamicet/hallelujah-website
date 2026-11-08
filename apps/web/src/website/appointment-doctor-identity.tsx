@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { InterfaceLink as Link } from '@/website/interface-language'
 import { useEffect, useState } from 'react'
 import { ClinicianPortrait } from '@/design-system/components/clinician-portrait'
 import styles from './appointment-doctor-identity.module.css'

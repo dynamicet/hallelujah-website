@@ -1,5 +1,7 @@
 'use client'
 
+import { InterfaceText } from '@/website/interface-language'
+
 import { useState, useSyncExternalStore } from 'react'
 import styles from './patient-page.module.css'
 
@@ -18,7 +20,7 @@ const clientSnapshot = () => true
 const serverSnapshot = () => false
 
 export function PrintButton({ label = 'Print your checklist' }: { label?: string }) {
-  return <><button className={styles.printButton} onClick={() => window.print()} type="button">{label}</button><noscript><p>Use your browser’s Print command to keep a copy.</p></noscript></>
+  return <><button className={styles.printButton} onClick={() => window.print()} type="button"><InterfaceText>{label}</InterfaceText></button><noscript><p>Use your browser’s Print command to keep a copy.</p></noscript></>
 }
 
 export function VisitChecklist() {

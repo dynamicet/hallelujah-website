@@ -1,3 +1,4 @@
+import { InterfaceCopy } from '@/website/interface-language'
 import type {
   InputHTMLAttributes,
   ReactNode,
@@ -158,7 +159,7 @@ export function FormPrimitiveForm({
   method = 'post',
 }: FormPrimitiveFormProps) {
   return (
-    <form
+    <InterfaceCopy><form
       action={action}
       aria-busy={busy || undefined}
       aria-describedby={descriptionId}
@@ -169,7 +170,7 @@ export function FormPrimitiveForm({
       method={method}
     >
       {children}
-    </form>
+    </form></InterfaceCopy>
   )
 }
 
@@ -195,7 +196,7 @@ export function TextField({
   const describedBy = describedByIds(hint && hintId, error?.visible && error.id)
 
   return (
-    <div className={styles.field} data-form-field>
+    <InterfaceCopy><div className={styles.field} data-form-field>
       <FieldLabel id={id} label={label} optionalLabel={optionalLabel} required={required} />
       <FieldHint hint={hint} hintId={hintId} />
       <input
@@ -217,7 +218,7 @@ export function TextField({
         type={type}
       />
       <FieldErrorMessage error={error} />
-    </div>
+    </div></InterfaceCopy>
   )
 }
 
@@ -239,7 +240,7 @@ export function TextAreaField({
   const describedBy = describedByIds(hint && hintId, error?.visible && error.id)
 
   return (
-    <div className={styles.field} data-form-field>
+    <InterfaceCopy><div className={styles.field} data-form-field>
       <FieldLabel id={id} label={label} optionalLabel={optionalLabel} required={required} />
       <FieldHint hint={hint} hintId={hintId} />
       <textarea
@@ -257,7 +258,7 @@ export function TextAreaField({
         rows={rows}
       />
       <FieldErrorMessage error={error} />
-    </div>
+    </div></InterfaceCopy>
   )
 }
 
@@ -277,7 +278,7 @@ export function SelectField({
   const describedBy = describedByIds(hint && hintId, error?.visible && error.id)
 
   return (
-    <div className={styles.field} data-form-field>
+    <InterfaceCopy><div className={styles.field} data-form-field>
       <FieldLabel id={id} label={label} optionalLabel={optionalLabel} required={required} />
       <FieldHint hint={hint} hintId={hintId} />
       <select
@@ -298,7 +299,7 @@ export function SelectField({
         ))}
       </select>
       <FieldErrorMessage error={error} />
-    </div>
+    </div></InterfaceCopy>
   )
 }
 
@@ -318,7 +319,7 @@ export function ChoiceGroup({
   const describedBy = describedByIds(hint && hintId, error?.visible && error.id)
 
   return (
-    <fieldset
+    <InterfaceCopy><fieldset
       aria-describedby={describedBy}
       aria-invalid={error?.visible ? true : undefined}
       className={styles.choiceGroup}
@@ -334,7 +335,7 @@ export function ChoiceGroup({
         {options.map((option, index) => {
           const optionId = `${id}-${option.value}`
           return (
-            <label className={styles.choice} htmlFor={optionId} key={option.value}>
+            <InterfaceCopy key={option.value}><label className={styles.choice} htmlFor={optionId}>
               <input
                 defaultChecked={selected.has(option.value)}
                 disabled={option.disabled}
@@ -350,12 +351,12 @@ export function ChoiceGroup({
                   <span className={styles.choiceDescription}>{option.description}</span>
                 ) : null}
               </span>
-            </label>
+            </label></InterfaceCopy>
           )
         })}
       </div>
       <FieldErrorMessage error={error} />
-    </fieldset>
+    </fieldset></InterfaceCopy>
   )
 }
 
@@ -369,7 +370,7 @@ export function ErrorSummary({
 
   const headingId = `${id}-heading`
   return (
-    <section
+    <InterfaceCopy><section
       aria-labelledby={headingId}
       className={styles.errorSummary}
       data-error-summary
@@ -388,7 +389,7 @@ export function ErrorSummary({
           </li>
         ))}
       </ul>
-    </section>
+    </section></InterfaceCopy>
   )
 }
 
@@ -403,7 +404,7 @@ export function FormStatus(props: FormStatusProps) {
         : undefined
 
   return (
-    <section
+    <InterfaceCopy><section
       aria-atomic={role === 'group' ? undefined : true}
       aria-labelledby={role === 'group' ? undefined : headingId}
       aria-live={role === 'group' ? undefined : role === 'alert' ? 'assertive' : 'polite'}
@@ -426,20 +427,20 @@ export function FormStatus(props: FormStatusProps) {
           <strong>{reference}</strong>
         </p>
       ) : null}
-    </section>
+    </section></InterfaceCopy>
   )
 }
 
 export function FormActions({ children, label }: FormActionsProps) {
   return (
-    <div
+    <InterfaceCopy><div
       aria-label={label}
       className={styles.actions}
       data-form-actions
       role={label ? 'group' : undefined}
     >
       {children}
-    </div>
+    </div></InterfaceCopy>
   )
 }
 
@@ -454,7 +455,7 @@ export function FormSubmitButton({
   value,
 }: FormSubmitButtonProps) {
   return (
-    <button
+    <InterfaceCopy><button
       aria-describedby={describedBy}
       className={styles.submit}
       data-form-submit
@@ -465,7 +466,7 @@ export function FormSubmitButton({
       value={value}
     >
       {pending ? pendingLabel : label}
-    </button>
+    </button></InterfaceCopy>
   )
 }
 
@@ -476,10 +477,10 @@ function FieldLabel({
   required,
 }: Pick<FieldCopyProps, 'id' | 'label' | 'optionalLabel' | 'required'>) {
   return (
-    <label className={styles.label} htmlFor={id}>
+    <InterfaceCopy><label className={styles.label} htmlFor={id}>
       <span>{label}</span>
       <RequirementCopy optionalLabel={optionalLabel} required={required} />
-    </label>
+    </label></InterfaceCopy>
   )
 }
 
@@ -488,7 +489,7 @@ function RequirementCopy({
   required = false,
 }: Pick<FieldCopyProps, 'optionalLabel' | 'required'>) {
   return (
-    <span className={styles.requirement}>{required ? 'Required' : optionalLabel}</span>
+    <InterfaceCopy><span className={styles.requirement}>{required ? 'Required' : optionalLabel}</span></InterfaceCopy>
   )
 }
 

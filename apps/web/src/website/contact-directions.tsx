@@ -1,5 +1,6 @@
+import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
+
 import Image from 'next/image'
-import Link from 'next/link'
 import { hospitalContact } from './hospital-contact'
 import styles from './contact-directions.module.css'
 
@@ -19,8 +20,8 @@ export function ContactDirections() {
             <span>Addis Ababa, Ethiopia</span>
           </address>
           <div className={styles.locationActions}>
-            <a className="solid-button" href={hospitalContact.directionsHref} target="_blank" rel="noopener noreferrer">Get directions <Arrow /></a>
-            <a className={styles.callAction} href={hospitalContact.phoneHref}>Call the hospital <Arrow /></a>
+            <a className="solid-button" href={hospitalContact.directionsHref} target="_blank" rel="noopener noreferrer"><InterfaceText>Get directions</InterfaceText> <Arrow /></a>
+            <a className={styles.callAction} href={hospitalContact.phoneHref}><InterfaceText>Call the hospital</InterfaceText> <Arrow /></a>
           </div>
           <div className={styles.map}>
             <Image src="/maps/gotera-location.webp" alt="Street map showing the hospital’s location in Gotera, Addis Ababa." width={768} height={440} unoptimized />

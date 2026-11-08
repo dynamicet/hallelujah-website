@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { InterfaceCopy, InterfaceLink as Link } from '@/website/interface-language'
 import { useEffect, useId, useRef, useState, type RefObject, type ReactNode, type FormEvent } from 'react'
 import { answerGuide, maxGuideQuestionLength } from '@/patient-guide/engine'
 import { guideTopics } from '@/patient-guide/content'
@@ -83,7 +83,7 @@ export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false 
   }
 
   return (
-    <dialog aria-labelledby={titleId} className={styles.dialog} data-patient-guide ref={dialogRef} onClose={onClose}>
+    <InterfaceCopy><dialog aria-labelledby={titleId} className={styles.dialog} data-patient-guide ref={dialogRef} onClose={onClose}>
       <div className={styles.frame} data-ui>
         <header className={styles.header}>
           <div className={styles.identity}>
@@ -107,7 +107,7 @@ export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false 
               <p className={styles.try}>Try “visiting hours” or a doctor’s name.</p>
             </div>
             {turns.map((turn, index) => (
-              <div className={styles.turn} data-guide-turn key={turn.id} ref={index === turns.length - 1 ? latest : undefined}>
+              <div data-interface-content lang="en" className={styles.turn} data-guide-turn key={turn.id} ref={index === turns.length - 1 ? latest : undefined}>
                 <div className={styles.question}><span className={styles.srOnly}>You: </span>{turn.question}</div>
                 <div className={styles.reply} data-guide-reply data-kind={turn.reply.kind}>
                   <span className={styles.speaker}>Patient Guide</span>
@@ -130,6 +130,6 @@ export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false 
         </div>
         <footer className={styles.footer}><span>Website guidance · No medical advice</span><Link href="/emergency" onClick={() => dialogRef.current?.close()}>Emergency help →</Link></footer>
       </div>
-    </dialog>
+    </dialog></InterfaceCopy>
   )
 }
