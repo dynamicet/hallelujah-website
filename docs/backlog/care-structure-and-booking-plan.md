@@ -2,7 +2,7 @@
 
 - **Prepared:** 8 November 2026
 - **Scope:** Existing homepage, navigation, care directories, detail pages, appointment journey, and frontend data contracts
-- **Execution state:** Planned; implementation has not started
+- **Execution state:** Frontend implemented; backend integration remains out of scope
 - **Authority:** The user’s decisions in the care structure and booking discussion
 
 Improve the existing website so patients can find care through doctors or specialties/services and carry their selections into an appointment request. Keep the current page systems and visual direction. Prepare consistent frontend data and a future submission payload; backend integration and saving are outside this work.
@@ -170,6 +170,30 @@ The submit action validates and prepares the draft locally for review. The norma
 - This plan and a short frontend integration contract in the established documentation area.
 
 Backend handlers, repositories, SQL/migrations, live source imports, deployment, and publication are excluded.
+
+## Execution record
+
+The UI Designer and Frontend Developer implemented the plan together, with shared contract review and collective milestone commits:
+
+- `f180333`: agreed scope and implementation plan.
+- `23d69f2`: explicit care relationships, representative records, pure appointment draft preparation and integration contract.
+- `dd56210`: aligned directories/detail pages, canonical labels, separate profile specialties/services, bidirectional selection and editable appointment review.
+- Final verification milestone: expanded browser coverage, corrected specialty filter slugs, Help-control clearance, consistent related-topic copy and this handoff.
+
+The [frontend integration contract](../architecture/care-selection-frontend.md) documents the final model, payload, ID mapping and existing backend incompatibility. Frontend implementation does not enable appointment collection.
+
+Verification completed on the local development preview:
+
+- Typecheck, lint and an optimized build passed.
+- Focused care-selection/payload, care-journey, health-finder, homepage and shell checks passed.
+- Directory, profile and appointment contract checks passed, including service-directory validation.
+- `pnpm visual:care-continuity` passed at 390, 768 and 1440px: both directions, explicit filters, compatible edits, invalid context, team care, all four selection shapes and no patient-data delivery/storage.
+- `pnpm visual:appointment` passed: keyboard error recovery, contact/date validation, local preparation, retained edits, explicit example recovery states, lifecycle cleanup, reduced motion and no-JavaScript contact fallback.
+- `pnpm visual:help` passed after updating its earlier always-visible assumption: the launcher keeps its corner anchor, yields to page controls, and remains usable through keyboard access and the header guide entry. The check covers six viewport shapes, topic-page scrolling, menu/dialog focus, context links, reduced motion and lazy-download recovery (`2026-11-08T19-15-36.480Z-help-refinement-myQluX`). Its screenshots were not separately inspected; visual clearance is established by the final responsive run below.
+
+Fresh responsive captures and visual findings are stored under `artifacts/visual-checks/`. Care/home/topic captures are in `2026-11-08T19-10-01.354Z-responsive-chRmmg`; appointment/doctor captures are in `2026-11-08T19-07-59.417Z-responsive-Innyih`. Those inspections found topic-copy and Help-overlap issues. Both were corrected, and the final affected topic/appointment capture `2026-11-08T19-12-34.004Z-responsive-TUq0HI` passed automated checks and separate visual inspection at all three widths. The fully inspected joint-review/prepared states are in `2026-11-08T19-07-56.312Z-care-continuity-1PFdTG`. Automated results and visual inspection are recorded separately in each run. Earlier failed attempts remain historical evidence, not passes.
+
+`pnpm links:check` passed. The repository-wide `pnpm format:check` reports missing final newlines in four pre-existing, ignored `layout-*.json` files under `artifacts/visual-checks/2026-11-08T18-32-55.367Z-mission-vision-Wx3YY4/`. These historical files were not edited. Changed-file whitespace checks passed.
 
 ## Acceptance and verification
 

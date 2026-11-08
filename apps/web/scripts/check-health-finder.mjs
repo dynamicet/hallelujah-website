@@ -9,9 +9,11 @@ async function load(relative, transform = (source) => source) {
   } })
   return import(`data:text/javascript;base64,${Buffer.from(outputText).toString('base64')}`)
 }
+const careModel = await import('../src/demo/care-model.ts')
+const careMetadata = Object.fromEntries(['pub_141414141414', 'pub_171717171717'].map((id) => [id, careModel.careEntry(id)]))
 const data = JSON.parse(readFileSync(new URL('../src/demo/data.json', import.meta.url), 'utf8'))
 const { healthTopics } = await load('../src/demo/health-topics.ts', (source) =>
-  source.replace("import data from './data.json'", `const data = ${JSON.stringify(data)}`))
+  source.replace("import data from './data.json'", `const data = ${JSON.stringify(data)}`).replace("import { careEntry } from './care-model'", `const entriesById = ${JSON.stringify(careMetadata)}; const careEntry = (id) => entriesById[id]`))
 const { searchHealthTopics: search } = await load('../src/website/health-search.ts')
 const names = (query, letter) => search(healthTopics, query, letter).map(({ topic }) => topic.name)
 
@@ -39,7 +41,7 @@ for (const topic of healthTopics) {
   assert.ok(topic.summary && topic.nextStep && topic.preparation.length >= 2)
   assert.equal(names(topic.name)[0], topic.name)
   if (topic.route === 'appointment') {
-    const service = data.services.find((entry) => entry.name === topic.serviceName)
+    const service = data.services.find((entry) => entry.publicId === topic.servicePublicId)
     assert.ok(service)
     assert.equal(topic.appointmentHref, `/appointment?service=${service.publicId}`)
   } else {

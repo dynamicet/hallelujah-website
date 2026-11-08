@@ -1,5 +1,6 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { InterfaceCopy, InterfaceLink as Link } from '@/website/interface-language'
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import type { GuideCatalog } from '@/patient-guide/types'
@@ -16,6 +17,7 @@ function HelpIcon({ children }: { readonly children: ReactNode }) {
 }
 
 export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
+  const pathname = usePathname()
   const [guideRequested, setGuideRequested] = useState(false)
   const [Guide, setGuide] = useState<GuideComponent | null>(null)
   const [guideLoading, setGuideLoading] = useState(false)
@@ -34,7 +36,7 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
     const button = trigger.current
     if (!root || !button) return
     let frame = 0
-    // Keep a predictable corner anchor; only yield to editing, navigation or focus.
+    // Keep a predictable corner anchor and yield when it would cover a care control.
     function updateVisibility() {
       frame = 0
       if (!root || !button) return
@@ -50,12 +52,22 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
       const obscuresFocus = !!focused && focused.width > 0 && focused.height > 0
         && focused.left < control.right && focused.right > control.left
         && focused.top < control.bottom && focused.bottom > control.top
-      root.toggleAttribute('data-help-hidden', editing || keyboard || navigationOpen || obscuresFocus)
+      const obscuresPageControl = [...document.querySelectorAll<HTMLElement>('main input, main select, main textarea, main button, main a[href], main summary, main [contenteditable="true"]')].some((element) => {
+        if (!element.getClientRects().length) return false
+        const bounds = element.getBoundingClientRect()
+        return bounds.width > 0 && bounds.height > 0 && bounds.left < control.right && bounds.right > control.left
+          && bounds.top < control.bottom && bounds.bottom > control.top
+      })
+      root.toggleAttribute('data-help-hidden', editing || keyboard || navigationOpen || obscuresFocus || obscuresPageControl)
     }
     function schedule() {
       if (!frame) frame = requestAnimationFrame(updateVisibility)
     }
     window.addEventListener('resize', schedule)
+    window.addEventListener('scroll', schedule, { passive: true })
+    const main = document.querySelector('main')
+    const observer = new ResizeObserver(schedule)
+    if (main) observer.observe(main)
     document.addEventListener('focusin', schedule)
     document.addEventListener('focusout', schedule)
     document.addEventListener('toggle', schedule, true)
@@ -64,12 +76,14 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
     return () => {
       cancelAnimationFrame(frame)
       window.removeEventListener('resize', schedule)
+      window.removeEventListener('scroll', schedule)
+      observer.disconnect()
       document.removeEventListener('focusin', schedule)
       document.removeEventListener('focusout', schedule)
       document.removeEventListener('toggle', schedule, true)
       window.visualViewport?.removeEventListener('resize', schedule)
     }
-  }, [])
+  }, [pathname])
 
   function close() {
     panel.current?.hidePopover()
@@ -179,7 +193,7 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
           <li>
             <Link className={`${styles.action} ${styles.appointment}`} href={appointmentHref} onClick={close}>
               <span className={styles.actionIcon}><HelpIcon><rect x="3.5" y="5" width="17" height="16" rx="2" /><path d="M7.5 3v4M16.5 3v4M3.5 10.5h17M8 15h3M8 18h6" /></HelpIcon></span>
-              <span className={styles.label}><strong>Request an appointment</strong><small>{guide?.preview ? 'Preview · No request is sent' : 'Explore appointment options'}</small></span>
+              <span className={styles.label}><strong>Request an appointment</strong><small>Explore appointment options</small></span>
             </Link>
           </li>
         </ul>

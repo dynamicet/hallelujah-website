@@ -8,15 +8,32 @@ const key = async (p, key, code = key, num = 13) => {
  await p.send('Input.dispatchKeyEvent', {type:'keyUp',key,code,windowsVirtualKeyCode:num})
 }
 const wait = async (p, expr) => {for(let i=0;i<100;i++){if(await p.eval(expr))return;await pause(100)}throw Error(expr)}
-const activate = async (p, selector) => {await p.eval(`document.querySelector(${JSON.stringify(selector)}).focus()`);await key(p,'Enter')}
+const activate = async (p, selector) => {
+ if(selector==='[data-help-trigger]'&&await p.eval('getComputedStyle(document.querySelector("[data-help-trigger]")).visibility==="hidden"')){
+  await p.eval('window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"})')
+  await wait(p,'getComputedStyle(document.querySelector("[data-help-trigger]")).visibility==="visible"')
+ }
+ await p.eval(`document.querySelector(${JSON.stringify(selector)}).focus()`);await key(p,'Enter')
+}
+const unobscured = p => p.eval(() => {
+ const trigger=document.querySelector('[data-help-trigger]')
+ if(getComputedStyle(trigger).visibility==='hidden')return true
+ const bounds=trigger.getBoundingClientRect()
+ return [...document.querySelectorAll('main input, main select, main textarea, main button, main a[href], main summary')].every(control=>{
+  if(!control.getClientRects().length)return true
+  const rect=control.getBoundingClientRect()
+  return rect.right<=bounds.left||rect.left>=bounds.right||rect.bottom<=bounds.top||rect.top>=bounds.bottom
+ })
+})
 await runVisualCheck('help-refinement',base,async({browser,output})=>{
  const results=[]
  for(const [width,height] of [[390,844],[768,900],[1440,900],[320,700],[375,400],[844,390]]){
   const p=await browser.newPage({width,height,mobile:width<600,reducedMotion:true})
-  for(const route of ['/','/doctors']){
+  for(const route of ['/','/doctors','/health-topics/diabetes']){
    await p.goto(base+route)
-   const visible=await p.eval(()=>{const t=document.querySelector('[data-help-trigger]');const r=t.getBoundingClientRect();return getComputedStyle(t).visibility==='visible'&&r.top>=0&&r.bottom<=innerHeight})
-   assert.equal(visible,true,`${width} ${route}: Help visible naturally`)
+   const inBounds=await p.eval(()=>{const r=document.querySelector('[data-help-trigger]').getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight})
+   assert.equal(inBounds,true,`${width} ${route}: Help anchor in bounds`)
+   assert.equal(await unobscured(p),true,`${width} ${route}: Help yields to page controls`)
    const anchor=await p.eval('(()=>{const r=document.querySelector("[data-help-trigger]").getBoundingClientRect();return {top:r.top,right:r.right}})()')
    const extent=await p.eval('document.documentElement.scrollHeight-innerHeight')
    for(const progress of [0,.15,.3,.5,.7,.9,1,.6,.2,0]){
@@ -24,13 +41,18 @@ await runVisualCheck('help-refinement',base,async({browser,output})=>{
     await pause(70)
     const position=await p.eval('(()=>{const t=document.querySelector("[data-help-trigger]");const r=t.getBoundingClientRect();return {top:r.top,right:r.right,visible:getComputedStyle(t).visibility}})()')
     assert.ok(Math.abs(position.top-anchor.top)<1&&Math.abs(position.right-anchor.right)<1,`${width} ${route}: stable Help anchor while scrolling`)
-    assert.equal(position.visible,'visible')
+    assert.equal(await unobscured(p),true,`${width} ${route}: page controls remain unobscured while scrolling`)
    }
   }
   // A keyboard-focused page action takes priority over the floating launcher.
   await p.eval('(()=>{const a=document.querySelector("main a[href]");a.dataset.helpFocusCheck="";a.dataset.originalStyle=a.getAttribute("style")||"";a.style.cssText="position:fixed;right:16px;bottom:16px;width:48px;height:48px;z-index:1";a.focus()})()')
   await wait(p,'getComputedStyle(document.querySelector("[data-help-trigger]")).visibility==="hidden"')
   await p.eval('(()=>{const a=document.querySelector("[data-help-focus-check]");a.blur();a.setAttribute("style",a.dataset.originalStyle);delete a.dataset.originalStyle;delete a.dataset.helpFocusCheck})()')
+  // Move beyond the main controls before accessing the launcher; it intentionally
+  // yields while they occupy its corner. The header also retains the guide entry.
+  await p.eval('window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"})')
+  await wait(p,'getComputedStyle(document.querySelector("[data-help-trigger]")).visibility==="visible"')
+  await p.eval('document.querySelector("[data-help-trigger]").focus()')
   await wait(p,'getComputedStyle(document.querySelector("[data-help-trigger]")).visibility==="visible"')
   await activate(p,'[data-help-trigger]')
   await wait(p,'document.querySelector("[data-help-panel]").matches(":popover-open")')

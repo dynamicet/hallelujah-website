@@ -317,6 +317,7 @@ export function DemoInteractions() {
       if (!summary?.hidden) showErrors(validate().filter((field) => stepForField(field) === journeyStep))
     }, { signal })
     form.addEventListener('input', () => {
+      if (state === 'prepared') setState('editing')
       syncJourney()
       if (!summary?.hidden) showErrors(validate().filter((field) => stepForField(field) === journeyStep))
     }, { signal })

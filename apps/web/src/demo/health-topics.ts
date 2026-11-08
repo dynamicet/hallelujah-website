@@ -1,4 +1,5 @@
 import data from './data.json'
+import { careEntry } from './care-model'
 
 export interface HealthTopic {
   readonly id: string
@@ -35,7 +36,7 @@ const entries: readonly {
   {
     name: 'Back pain', aliases: ['backache', 'aching back', 'back hurts', 'lower back pain'], route: 'appointment', service: 'Rehabilitation care',
     summary: 'Questions about back pain, movement and everyday activities.',
-    nextStep: 'The preview connects this topic to Rehabilitation care. Request a visit to discuss your concerns and goals; the care team can confirm the appropriate service.',
+    nextStep: 'Request a Rehabilitation care visit to discuss your concerns and goals; the care team can confirm the appropriate service.',
     preparation: ['How does your back concern affect everyday activities?', 'What movement or recovery goals would you like to discuss?'],
   },
   {
@@ -96,13 +97,14 @@ const entries: readonly {
 
 export const healthTopics: readonly HealthTopic[] = entries.map((entry) => {
   const service = data.services.find((candidate) => candidate.name === entry.service)
+  const canonicalName = service ? careEntry(service.publicId)?.name ?? service.name : undefined
   return {
     id: entry.name.toLowerCase().replaceAll(' ', '-'), name: entry.name, aliases: entry.aliases,
-    summary: entry.summary, nextStep: entry.nextStep, preparation: entry.preparation,
+    summary: entry.summary, nextStep: service && canonicalName ? entry.nextStep.replaceAll(service.name, canonicalName) : entry.nextStep, preparation: entry.preparation,
     route: entry.route === 'appointment' && service ? 'appointment' : 'guidance',
     servicePublicId: service?.publicId,
     servicePath: service?.canonicalPath,
-    serviceName: service?.name,
+    serviceName: canonicalName,
     appointmentHref: entry.route === 'appointment' && service ? `/appointment?service=${encodeURIComponent(service.publicId)}` : undefined,
   }
 })

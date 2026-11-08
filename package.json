@@ -73,6 +73,7 @@
     "local-db-isolation:check": "pnpm --dir apps/web local-db-isolation:check",
     "foundations:smoke": "node scripts/check-rendered-foundations.mjs",
     "care-journeys:check": "pnpm --dir apps/web care-journeys:check",
+    "care-selection:check": "pnpm --dir apps/web care-selection:check",
     "care-journeys:smoke": "pnpm --dir apps/web care-journeys:smoke",
     "health-finder:check": "pnpm --dir apps/web health-finder:check",
     "home:check": "pnpm --dir apps/web home:check",
