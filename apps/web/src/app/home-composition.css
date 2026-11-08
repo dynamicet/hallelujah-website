@@ -208,8 +208,6 @@
 .enhanced-home .visit-guide { background: var(--semantic-color-surface-supporting); border: 0; }
 .enhanced-home .visit-copy h2 { color: var(--semantic-color-text-heading); max-width: 8em; font-size: var(--site-heading); }
 .enhanced-home .visit-copy .home-heading-accent { color: var(--semantic-color-accent-supporting-text); }
-.enhanced-home .visit-brand-artwork { inline-size: min(240px, 70%); margin-block-start: 32px; }
-.enhanced-home .visit-copy > p { border-inline-start: 3px solid var(--semantic-color-accent-supporting); padding-inline-start: 20px; }
 .enhanced-home .visit-preparation { margin: 0; padding: 0; background: transparent; border: 0; border-radius: 0; }
 .enhanced-home .visit-preparation .visit-questions { gap: 0; margin-bottom: 24px; }
 .enhanced-home .visit-questions details { background: transparent; border-radius: 0; border: 0; border-bottom: 1px solid var(--semantic-color-border-default); padding: 14px 0; }
@@ -235,8 +233,6 @@
   .enhanced-home .home-quick-access-list a > span:last-child { display: none; }
   .enhanced-home #specialized-care [class*='introduction'] { gap: 24px; }
   .enhanced-home #specialized-care [class*='introduction'] p { max-width: 42ch; }
-  .enhanced-home .visit-copy { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-  .enhanced-home .visit-brand-artwork { inline-size: 120px; margin: 0; flex-shrink: 0; }
 }
 @media (max-width: 1099px) {
   .enhanced-home .welcome-media::after { background: linear-gradient(to bottom, transparent 52%, var(--semantic-color-surface-inverse) 100%); }
@@ -254,8 +250,6 @@
   .enhanced-home #specialized-care .home-care-card { padding: 24px; }
   .enhanced-home #specialized-care [class*='grid'] { gap: 16px; }
   .enhanced-home .visit-copy h2 { font-size: var(--site-heading); }
-  .enhanced-home .visit-copy { gap: 16px; }
-  .enhanced-home .visit-brand-artwork { inline-size: clamp(80px, 24vw, 112px); }
   .enhanced-home .hospital-film-stage { padding-inline-start: 8px; }
 }
 @media (forced-colors: active) {

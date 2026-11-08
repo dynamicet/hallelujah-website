@@ -16,7 +16,6 @@ import { Partners } from './partners'
 import { NewsResources } from './news-resources'
 import { editorialEntries } from '@/demo/editorial'
 import { ContactDirections } from './contact-directions'
-import { CareBrandArtwork } from './care-brand-artwork'
 import { FeaturedSpecialists } from './featured-specialists'
 
 const Arrow = () => <span aria-hidden="true">→</span>
@@ -111,15 +110,16 @@ export function WebsiteHome() {
         <section className="visit-guide" data-motion-section="visit" aria-labelledby="visit-guide-title" id="visit-guide" tabIndex={-1}>
           <div className="page-frame visit-inner">
             <div className="visit-copy"><h2 data-motion="heading" data-reveal="0" id="visit-guide-title">Plan <span className="home-heading-accent">your visit</span></h2>
-              <div className="visit-brand-artwork"><CareBrandArtwork /></div>
+              <div className="visit-checklist">
+                <h3>What to bring</h3>
+                <ul><li>Your questions and medicine list</li><li>Referral letter, if you have one</li><li>Relevant previous results</li></ul>
+                <p>Confirm any additional requirements before travelling.</p>
+              </div>
             </div>
             <div className="visit-preparation">
               <div className="visit-questions">
-                <details data-motion-disclosure><summary>What should I bring?<VisitChevron /></summary><ul><li>Your questions and medicine list</li><li>Referral letter, if you have one</li><li>Relevant previous results</li></ul><p>Confirm any additional requirements before travelling.</p></details>
-                <details data-motion-disclosure><summary>How do appointment requests work?<VisitChevron /></summary><p>Choose your care, add your contact details, and review your request. Contact the hospital to confirm a time.</p></details>
-                <details data-motion-disclosure><summary>Can someone come with me?<VisitChevron /></summary><p>Ask the hospital about companions and visiting arrangements before your visit.</p></details>
-                <details data-motion-disclosure><summary>When should I arrive?<VisitChevron /></summary><p>Call to confirm department opening hours, your arrival time, and where to check in. Ask how much time to allow for registration. <Link href="/patients-visitors#visit-times">Hours &amp; arrival guidance</Link></p></details>
-                <details data-motion-disclosure><summary>What if I need extra support?<VisitChevron /></summary><p>Confirm language, mobility, or other support with the hospital before travelling, including step-free access if you need it.</p></details>
+                <details data-motion-disclosure><summary>Appointments &amp; arrival<VisitChevron /></summary><p>Choose your care, add your contact details, and review your request. Contact the hospital to confirm a time.</p><p>Call to confirm department opening hours, your arrival time, and where to check in. Ask how much time to allow for registration. <Link href="/patients-visitors#visit-times">Hours &amp; arrival guidance</Link></p></details>
+                <details data-motion-disclosure><summary>Companions &amp; extra support<VisitChevron /></summary><p>Ask the hospital about companions and visiting arrangements before your visit.</p><p>Confirm language, mobility, or other support with the hospital before travelling, including step-free access if you need it.</p></details>
               </div>
               <Link className="text-link" href="/patients-visitors">Read the full visit guide <Arrow /></Link>
             </div>

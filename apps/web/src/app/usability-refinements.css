@@ -20,13 +20,17 @@
 .enhanced-home .team-care-help:hover { background: transparent; color: var(--site-action-hover); text-decoration-thickness: 2px; }
 .enhanced-home .team-care-help:active { background: transparent; }
 .enhanced-home .team-care-help:focus-visible { outline-color: var(--site-ink); box-shadow: none; }
-.enhanced-home .visit-inner { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(40px, 7vw, 112px); }
-.enhanced-home .visit-copy h2 { max-width: 7ch; font-size: clamp(40px, 4.5vw, 64px); line-height: 1.06; }
-.enhanced-home .visit-copy .home-heading-accent { display: block; }
+.enhanced-home .visit-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); }
+.enhanced-home .visit-copy h2 { max-width: none; font-size: var(--site-heading); line-height: 1.16; }
+.enhanced-home .visit-checklist { margin-top: 28px; }
+.enhanced-home .visit-checklist h3 { margin: 0; font: 600 18px/1.4 var(--site-font); letter-spacing: normal; }
+.enhanced-home .visit-checklist ul { margin: 12px 0; padding-inline-start: 20px; font-size: var(--site-body); line-height: 1.65; }
+.enhanced-home .visit-checklist li + li { margin-top: 4px; }
+.enhanced-home .visit-checklist p { max-width: 40ch; margin: 0; color: var(--site-muted); font-size: var(--site-support); line-height: 1.6; }
 .enhanced-home .visit-questions { margin-block: 0 20px; }
 .enhanced-home .visit-questions details { padding-block: 20px; }
 .enhanced-home .visit-questions details:first-child { border-top: 1px solid var(--semantic-color-border-strong); }
-.enhanced-home .visit-questions summary { font-size: clamp(18px, 1.6vw, 22px); font-weight: 600; }
+.enhanced-home .visit-questions summary { font-size: clamp(18px, 1.4vw, 20px); font-weight: 600; }
 .enhanced-home .visit-questions summary span { width: 32px; height: 32px; flex-basis: 32px; border-radius: 50%; background: var(--site-white); color: var(--site-supporting-text); }
 .enhanced-home .visit-questions details[open] summary span { background: var(--site-supporting-text); color: var(--site-white); }
 .enhanced-home .visit-preparation > .text-link { font-weight: 600; }

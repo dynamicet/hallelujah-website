@@ -83,3 +83,30 @@ accessibility audit or a production-performance/conversion claim.
 Monitor whether people find the full organization lists and About technology
 content. Approved content must still replace fictional patient examples and
 unverified institutional material before publication.
+
+## Deliverable 4: preparation at a glance
+
+- Make the three-item What to bring checklist visible without opening a control,
+  keeping the reminder to confirm additional requirements before travelling.
+- Combine appointment-request and arrival guidance into Appointments & arrival;
+  combine companion and access guidance into Companions & extra support. Both
+  native disclosures can remain open together. All existing guidance and the
+  hours/arrival destination remain available.
+- Keep Read the full visit guide and the warm preparation surface. Remove the
+  repeated large brand artwork, its import, and obsolete artwork sizing rules;
+  give the checklist and questions equal desktop columns and a tighter gap.
+
+Validation: `pnpm visual:check /`, `node scripts/check-home-visit.mjs`,
+`pnpm typecheck`, scoped ESLint, and `git diff --check` passed. Fresh homepage
+screenshots at 390/768/1440 and focused collapsed/expanded states were inspected.
+The focused runner checks visible checklist content, independent keyboard
+opening/closing, retained focus, live reduced motion, full-guide navigation,
+no-JavaScript disclosure/link availability, and browser errors. The muted
+confirmation text measures **5.91:1** against its warm background from computed
+browser colors, above the normal-text threshold of 4.5:1.
+
+The detector ran once for this deliverable and reported five existing thick-border
+rules elsewhere in `home-composition.css`; none were added by this section change.
+No claim is made about the full site's accessibility or the previously unresolved
+signature-motion check. Monitor whether visitors find preparation requirements
+without having to explore the full guide.

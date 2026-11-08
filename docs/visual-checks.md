@@ -75,3 +75,9 @@ Run `pnpm visual:media` against the current preview for native About-film contro
 Both commands create the standard unique evidence directory. Open their fresh screenshots and record visual inspection separately. The development-only enhanced homepage and the normal optimized-build fallback are different experiences; identify the preview actually inspected.
 
 `node scripts/check-home-distill.mjs` verifies keyboard access from the homepage to the full topic browser and About equipment section, destination-anchor focus, equipment disclosures, normal/reduced motion, and native links without JavaScript.
+
+`node scripts/check-home-visit.mjs` verifies the homepage's visible preparation
+checklist, two independent native disclosures, keyboard focus and opening/closing,
+live reduced motion, computed confirmation-text contrast, full-guide navigation,
+and no-JavaScript fallback at the supported widths. Inspect its collapsed and
+expanded captures separately from the automated results.
