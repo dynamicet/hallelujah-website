@@ -33,7 +33,7 @@ const featuredClinicians = Object.keys(demoClinicianPortraits).slice(0, 3).flatM
 export function WebsiteHome() {
   const shell = demoShell('/')
   const receptionTarget = shell.header.contactTargets?.call
-  const receptionAction = <><Icon name="phone" /><span><InterfaceText>Call us</InterfaceText></span></>
+  const receptionAction = <><Icon name="phone" /><span><InterfaceText>Call reception</InterfaceText></span></>
   return (
     <SiteShell {...shell}>
       <div className="hospital-home enhanced-home">

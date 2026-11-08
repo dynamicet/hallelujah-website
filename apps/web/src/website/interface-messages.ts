@@ -88,6 +88,8 @@ export const amharicInterface: Readonly<Record<string, string>> = {
   'Contact the hospital': 'ሆስፒታሉን ያግኙ',
   'Call us': 'ይደውሉልን',
   'Call reception': 'ወደ መቀበያ ይደውሉ',
+  'Hotline 9975': 'የቀጥታ ስልክ 9975',
+  'Call hotline 9975': 'ወደ ቀጥታ ስልክ 9975 ይደውሉ',
   'Message the hospital on WhatsApp': 'በዋትስአፕ መልዕክት ይላኩ',
   'Message the hospital on Telegram': 'በቴሌግራም መልዕክት ይላኩ',
   'Your visit': 'ጉብኝትዎ',

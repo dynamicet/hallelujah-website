@@ -132,6 +132,8 @@
   .utilityBar .contactActions { display: flex; gap: 0; margin-inline: -8px 0; }
   .utilityBar .contactAction { min-width: 44px; flex-shrink: 0; }
   .utilityBar .contactAction .contactLabel { display: none; }
+  .utilityBar .contactAction[data-contact-channel='call'] .contactLabel { display: inline; font-size: 12px; white-space: nowrap; }
+  .utilityBar .contactAction[data-contact-channel='call'] { padding-inline: 4px; gap: 4px; }
   .utilityBar .languageFull { display: none; }
   .utilityBar .languageShort { display: inline; }
   .utilityBar .languageTrigger { min-width: 44px; justify-content: center; }

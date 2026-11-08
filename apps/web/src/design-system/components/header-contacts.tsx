@@ -10,16 +10,16 @@ export interface HeaderContactTargets {
 }
 
 const channels = [
-  { key: 'call', label: 'Call us', detail: '', description: 'Call reception', unavailable: 'Reception number' },
+  { key: 'call', label: 'Hotline 9975', detail: '', description: 'Call hotline 9975', unavailable: 'Hotline number' },
   { key: 'whatsapp', label: 'WhatsApp', detail: '', description: 'Message the hospital on WhatsApp', unavailable: 'WhatsApp conversation' },
   { key: 'telegram', label: 'Telegram', detail: '', description: 'Message the hospital on Telegram', unavailable: 'Telegram conversation' },
 ] as const
 
 export function HeaderContacts({ targets = {} }: { readonly targets?: HeaderContactTargets }) {
-  const receptionNumber = targets.call?.slice(4).replace(/^(\+251)(\d{2})(\d{3})(\d{4})$/, '$1 $2 $3 $4') ?? targets.previewNumber
   return (
     <InterfaceCopy><div aria-label="Contact the hospital" className={styles.contactActions} data-header-contacts role="group">
       {channels.map(({ key, label, detail, description, unavailable }) => {
+        const href = key === 'call' ? 'tel:9975' : targets[key]
         const content = <>
           <span aria-hidden="true" className={styles.contactIcon}>
             {key === 'call' ? <Icon name="phone" /> : (
@@ -32,8 +32,8 @@ export function HeaderContacts({ targets = {} }: { readonly targets?: HeaderCont
             {label}{detail ? <span className={styles.contactDetail}>{detail}</span> : null}
           </span>
         </>
-        return targets[key] ? (
-          <a aria-label={key === 'call' ? `${description}: ${receptionNumber}` : description} className={styles.contactAction} data-contact-channel={key} href={targets[key]} key={key} title={description}>
+        return href ? (
+          <a aria-label={description} className={styles.contactAction} data-contact-channel={key} href={href} key={key} title={description}>
             {content}
           </a>
         ) : (
