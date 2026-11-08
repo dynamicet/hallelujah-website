@@ -20,12 +20,15 @@ import { NewsResources } from './news-resources'
 import { editorialEntries } from '@/demo/editorial'
 import { ContactDirections } from './contact-directions'
 import { CareBrandArtwork } from './care-brand-artwork'
+import { FeaturedSpecialists } from './featured-specialists'
 
 const Arrow = () => <span aria-hidden="true">→</span>
 const VisitChevron = () => <span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
 const HeroArrow = () => <span className="welcome-action-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></span>
 
-const featuredClinicians = Object.keys(demoClinicianPortraits).slice(0, 3).flatMap((publicId) => {
+// Editorial order for the preview, independent of portrait-map insertion order.
+const featuredClinicianIds = ['pub_101010101010', 'pub_111111111111', 'pub_121212121212', 'pub_131313131313', 'pub_141414141414', 'pub_151515151515']
+const featuredClinicians = featuredClinicianIds.flatMap((publicId) => {
   const clinician = clinicians.find((entry) => entry.publicId === publicId)
   return clinician ? [clinician] : []
 })
@@ -85,9 +88,9 @@ export function WebsiteHome() {
               </div>
               <Link className="team-directory text-link" href="/doctors">View all doctors <Arrow /></Link>
             </div>
-            <div className="team-list">
+            <FeaturedSpecialists>
               {featuredClinicians.map((clinician, index) => (
-                <Link data-motion="card" data-reveal={index} className="team-person" aria-labelledby={`team-name-${clinician.publicId} team-profile-${clinician.publicId}`} data-clinician-identity-id={clinician.publicId} key={clinician.publicId} href={clinician.canonicalPath}>
+                <Link data-motion="card" data-reveal={index % 3} className="team-person" aria-labelledby={`team-name-${clinician.publicId} team-profile-${clinician.publicId}`} data-clinician-identity-id={clinician.publicId} key={clinician.publicId} href={clinician.canonicalPath}>
                   <div className="team-portrait-frame" data-signature-frame="portrait">
                     <ClinicianPortrait className="team-portrait" name={clinician.details.name} src={demoClinicianPortraits[clinician.publicId]} />
                   </div>
@@ -100,7 +103,7 @@ export function WebsiteHome() {
                   </div>
                 </Link>
               ))}
-            </div>
+            </FeaturedSpecialists>
             <div className="team-next-step">
               <h3>Not sure who to see?</h3>
               <Link className="team-care-help" href="/services">Explore care options <Arrow /></Link>

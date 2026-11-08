@@ -9,6 +9,7 @@
   },
   "scripts": {
     "visual:check": "node scripts/check-visual.mjs",
+    "visual:specialists": "node scripts/check-featured-specialists.mjs",
     "visual:journey-quality": "node scripts/check-journey-quality.mjs",
     "visual:cross-browser": "node scripts/check-motion-cross-browser.mjs",
     "visual:hero": "node scripts/check-home-hero.mjs",
