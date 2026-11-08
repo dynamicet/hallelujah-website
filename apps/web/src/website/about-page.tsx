@@ -3,12 +3,14 @@ import { InterfaceLink as Link } from '@/website/interface-language'
 import { SiteShell } from '@/design-system/components'
 import { demoShell } from '@/demo/site'
 import { hospitalContact } from './hospital-contact'
+import { hospitalFounder, hospitalLeadership } from './hospital-leadership'
 import styles from './about-page.module.css'
 
 // Institutional copy condensed from docs/content-reconciliation/sources/hospital-profile.json.
 const milestones = [
   { year: '2006', text: 'Hallelujah Center for Internal Medicine and Chest Disease was established.' },
   { year: '2007', text: 'The center began welcoming patients on Bole Road.' },
+  { year: '2010', text: 'The center became Hallelujah Higher Medical Clinic.' },
   { year: '2017', text: 'Hallelujah General Hospital became fully operational.' },
 ]
 
@@ -41,17 +43,55 @@ export function AboutPage() {
         </div>
       </header>
 
-      <section className={styles.chapter} aria-labelledby="about-story-title">
+      <nav className={styles.chapters} aria-label="Explore About Hallelujah">
+        <a href="#our-story">Our story <Arrow /></a>
+        <a href="#founding-vision">Our founder <Arrow /></a>
+        <a href="#our-values">Our values <Arrow /></a>
+        <a href="#leadership">Leadership <Arrow /></a>
+      </nav>
+
+      <section className={styles.chapter} id="our-story" aria-labelledby="about-story-title">
         <div className={styles.chapterIntro}>
           <h2 id="about-story-title">Our story</h2>
           <p>From a specialist center to a general hospital, Hallelujah’s story began with internal medicine and chest disease care.</p>
+          <p>Established in 2006, the center grew into a clinic and later a general hospital, opening its doors in May 2017. That specialist beginning remains part of our identity today.</p>
         </div>
         <ol className={styles.timeline}>
           {milestones.map((milestone) => <li key={milestone.year}><span className={styles.year}>{milestone.year}</span><p>{milestone.text}</p></li>)}
         </ol>
       </section>
 
-      <section className={`${styles.chapter} ${styles.valuesChapter}`} aria-labelledby="about-values-title">
+      <section className={styles.founder} id="founding-vision" aria-labelledby="about-founder-title">
+        <figure className={styles.founderPortrait}>
+          <div className={styles.portraitCrop}><Image src={hospitalFounder.portrait} alt={hospitalFounder.name} width={hospitalFounder.width} height={hospitalFounder.height} sizes="(max-width: 699px) 90vw, 45vw" /></div>
+          <figcaption>{hospitalFounder.name}<span>Founder &amp; Chief Executive Officer</span></figcaption>
+        </figure>
+        <div className={styles.founderCopy}>
+          <h2 id="about-founder-title">The founding vision</h2>
+          {/* Replaceable editorial draft. No invented first-person quotation or biography. */}
+          <p className={styles.founderLead}>Behind a hospital is a human story.</p>
+          <p>For Hallelujah, that story includes Mrs. Yetnayet Eshetu, founder and Chief Executive Officer. Her place in the hospital’s beginning is a distinct part of the story we share today.</p>
+          <p>From the first specialist center to the hospital it has become, Hallelujah’s journey brings together a founding commitment and the work of many people: clinicians, nurses, colleagues, and the community they serve.</p>
+          <a className="text-link" href="#hospital-film">See Hallelujah in motion <Arrow /></a>
+        </div>
+      </section>
+
+      <section className={styles.filmChapter} id="hospital-film" aria-labelledby="about-film-title">
+        <div className={styles.filmIntro}>
+          <h2 id="about-film-title">A closer look</h2>
+          <p>A glimpse of care at Hallelujah.<span>18 seconds · Silent film</span></p>
+        </div>
+        {/* Current concept montage; replace with the founder interview when produced.
+            Native controls support sound/captions for that future asset without
+            coupling the story page to the homepage's muted montage controller. */}
+        <video className={styles.film} controls playsInline preload="none" poster="/editorial/hallelujah-home-loop-poster.webp" aria-label="Care in every detail: silent hospital care montage">
+          <source src="/editorial/hallelujah-home-loop.webm" type="video/webm" />
+          <source src="/editorial/hallelujah-home-loop.mp4" type="video/mp4" />
+          Your browser does not support embedded video.
+        </video>
+      </section>
+
+      <section className={`${styles.chapter} ${styles.valuesChapter}`} id="our-values" aria-labelledby="about-values-title">
         <div className={styles.chapterIntro}>
           <h2 id="about-values-title">What guides our care</h2>
           <p>Our mission brings specialized diagnosis and treatment together with trusted, compassionate care.</p>
@@ -59,6 +99,21 @@ export function AboutPage() {
         <dl className={styles.values}>
           {values.map((value) => <div key={value.name}><dt>{value.name}</dt><dd>{value.text}</dd></div>)}
         </dl>
+      </section>
+
+      <section className={styles.leadership} id="leadership" aria-labelledby="about-leadership-title">
+        <div className={styles.leadershipIntro}>
+          <h2 id="about-leadership-title">Leadership today</h2>
+          <p>The people leading Hallelujah’s management and clinical teams.</p>
+        </div>
+        <ul className={styles.leaders}>
+          {hospitalLeadership.map((person) => <li key={person.name}>
+            <div className={styles.leaderPortrait}><Image src={person.portrait} alt={person.name} width={person.width} height={person.height} sizes="(max-width: 599px) 43vw, (max-width: 999px) 44vw, 22vw" /></div>
+            <h3>{person.name}</h3>
+            <p>{person.role}</p>
+            {person === hospitalFounder && <a href="#founding-vision">Meet our founder <Arrow /></a>}
+          </li>)}
+        </ul>
       </section>
 
       <section className={`${styles.chapter} ${styles.visit}`} aria-labelledby="about-visit-title">

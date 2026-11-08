@@ -9,6 +9,7 @@ import { EverydayStories } from './everyday-stories'
 import { CareSearch } from './care-search'
 import { HomeScenes } from './home-scenes'
 import { CareBackgroundFilm } from './care-background-film'
+import { HospitalStoryIntroduction } from './hospital-story-introduction'
 import { SpecialtyGrid } from './specialty-grid'
 import { EquipmentShowcase } from './equipment-showcase'
 import { HospitalStatistics } from './hospital-statistics'
@@ -135,7 +136,8 @@ export function WebsiteHome() {
 
         <EquipmentShowcase />
 
-        <section className="hospital-film-section" data-motion-section="film" id="about-hallelujah" aria-labelledby="hospital-film-title">
+        <section className="hospital-film-section" data-motion-section="film" id="about-hallelujah" aria-labelledby="hospital-story-title">
+          <HospitalStoryIntroduction />
           <div className="page-frame hospital-film-stage" data-motion="image" data-reveal="1"><CareBackgroundFilm /></div>
         </section>
 

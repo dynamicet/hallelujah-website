@@ -25,6 +25,41 @@
 .visit address span { margin-top: 8px; }
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 28px; margin-top: 28px; }
 .page :is(a, button):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
+.chapters { display: flex; flex-wrap: wrap; gap: 16px 40px; margin-top: -24px; }
+.chapters a { display: inline-flex; align-items: center; gap: 24px; min-height: 44px; color: var(--site-ink); text-underline-offset: 6px; }
+.page section[id] { scroll-margin-top: 140px; }
+.founder { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); margin-top: 112px; background: var(--site-pale); }
+.founderPortrait { margin: 0; }
+.portraitCrop { aspect-ratio: 4 / 5; overflow: hidden; }
+/* The legacy portraits contain circular edges. Enlarge within the rectangular
+   frame without altering or synthesizing the subject's identity. */
+.portraitCrop img, .leaderPortrait img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.28); }
+.founderPortrait figcaption { padding: 24px 28px 28px; font-size: 20px; font-weight: 600; line-height: 1.4; }
+.founderPortrait figcaption span { display: block; margin-top: 6px; font-size: 15px; font-weight: 400; }
+.founderCopy { align-self: center; padding: clamp(28px, 4vw, 64px); }
+.page .founderCopy h2 { max-width: 12ch; font-size: clamp(40px, 4.5vw, 64px); }
+.founderCopy p { max-width: 43ch; margin: 24px 0 0; font-size: 17px; line-height: 1.65; }
+.founderCopy .founderLead { margin-top: 32px; font-size: 23px; line-height: 1.4; }
+.founderCopy a { margin-top: 32px; }
+.filmChapter { margin-top: 112px; }
+.filmIntro { display: flex; justify-content: space-between; align-items: start; gap: 24px; margin-bottom: 32px; }
+.filmIntro p { margin: 0; max-width: 36ch; font-size: 18px; line-height: 1.6; }
+.filmIntro span { display: block; margin-top: 6px; font-size: 14px; }
+.film { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--site-ink); object-fit: contain; }
+.film:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
+.leadership { margin-top: 112px; }
+.leadershipIntro { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 88px); margin-bottom: 40px; }
+.leadershipIntro p { margin: 0; max-width: 37ch; font-size: 18px; line-height: 1.6; }
+.leaders { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.leaderPortrait { aspect-ratio: 4 / 5; overflow: hidden; background: var(--site-pale); }
+.leaders h3 { margin: 22px 0 8px; max-width: 22ch; font-size: 20px; line-height: 1.35; font-weight: 600; }
+.leaders p { margin: 0; font-size: 16px; line-height: 1.5; }
+.leaders a { display: inline-flex; align-items: center; gap: 12px; margin-top: 14px; min-height: 44px; color: var(--site-ink); font-size: 15px; text-underline-offset: 5px; }
+.chapters a:hover, .leaders a:hover { text-decoration-thickness: 2px; }
+@media (max-width: 999px) {
+  .leaders { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; }
+  .founderCopy { padding: 28px; }
+}
 @media (max-width: 899px) {
   .page { padding-bottom: 64px; }
   .scene { margin-bottom: 32px; }
@@ -35,6 +70,15 @@
   .chapter { margin-top: 64px; }
   .chapterIntro > p { max-width: 48ch; margin-top: 16px; }
   .valuesChapter { padding-block: 32px; }
+  .chapters { margin-top: -8px; gap: 8px 28px; }
+  .leadershipIntro { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .founder, .filmChapter, .leadership { margin-top: 80px; }
+}
+@media (max-width: 699px) {
+  .founder { grid-template-columns: minmax(0, 1fr); }
+  .founderCopy { padding: 12px 24px 36px; }
+  .founderPortrait figcaption { padding: 24px; }
+  .filmIntro { flex-direction: column; gap: 20px; }
 }
 @media (max-width: 599px) {
   .page { padding-top: 8px; }
@@ -46,5 +90,13 @@
   .year { font-size: 30px; }
   .timeline p, .chapterIntro > p { font-size: 17px; }
   .actions { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .chapters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 20px; }
+  .chapters a { justify-content: space-between; gap: 12px; font-size: 15px; }
+  .founder, .filmChapter, .leadership { margin-top: 64px; }
+  .page .founderCopy h2 { font-size: 42px; }
+  .founderCopy .founderLead { font-size: 22px; }
+  .leaders { gap: 32px 16px; }
+  .leaders h3 { font-size: 17px; margin-top: 16px; }
+  .leaders p, .leaders a { font-size: 14px; }
 }
 @media (forced-colors: active) { .page :is(a, button):focus-visible { outline-color: Highlight; } }
