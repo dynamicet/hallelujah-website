@@ -8,10 +8,9 @@ export type PatientQuote = {
   attribution: string
 }
 
-export function EverydayStories({ stories, quotes, preview = false }: {
+export function EverydayStories({ stories, quotes }: {
   stories: readonly PatientStory[]
   quotes: readonly PatientQuote[]
-  preview?: boolean
 }) {
   const featured = stories.filter((story) => story.status === 'published'
     && story.title.trim() && story.attribution.trim()
@@ -28,7 +27,6 @@ export function EverydayStories({ stories, quotes, preview = false }: {
       <div className="everyday-stories-intro">
         <h2 data-motion="heading" data-reveal="0" id="everyday-stories-title">Everyday stories.</h2>
       </div>
-      {preview && <p className="everyday-stories-note">Fictional stories and generated images. Videos are silent illustrated previews.</p>}
       {featured.length > 0 && <div className="everyday-stories-features">
         {featured.map((story, index) => {
           const video = story.video
@@ -50,7 +48,6 @@ export function EverydayStories({ stories, quotes, preview = false }: {
                     <details id={`film-${story.id}`} data-motion-disclosure className="everyday-film">
                       <summary aria-label={`Watch story: ${story.title}`}><span aria-hidden="true">▷</span> Watch story</summary>
                       <div className="everyday-film-content">
-                        {preview ? <p>Silent illustrated preview · Fictional account. Captions available.</p> : null}
                         <StoryFilm transcriptId={`transcript-${story.id}`} title={`${story.attribution}’s story`} poster={story.photograph.src} source={video} />
                         <details id={`transcript-${story.id}`} data-motion-disclosure className="everyday-transcript">
                           <summary>Read video transcript</summary>

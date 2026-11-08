@@ -136,7 +136,7 @@ export function WebsiteHome() {
 
         <section className="human-care" aria-label="Hospital in numbers and patient stories">
           <HospitalStatistics {...hospitalStatistics} />
-          <div className="home-stories-room"><EverydayStories stories={patientStories} quotes={patientQuotes} preview /></div>
+          <div className="home-stories-room"><EverydayStories stories={patientStories} quotes={patientQuotes} /></div>
         </section>
 
         <NewsResources entries={editorialEntries} />

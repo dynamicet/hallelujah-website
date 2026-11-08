@@ -9,7 +9,6 @@ export function DemoHeroArtwork() {
     {/* Bundled concept art, never presented as hospital photography. */}
     {/* eslint-disable-next-line @next/next/no-img-element */}
     <img alt="Illustration of an Ethiopian clinician in conversation with a family" src="/editorial/care-illustration.webp" width={1200} height={800} fetchPriority="high" />
-    <figcaption>Original concept illustration · Fictional people and setting</figcaption>
   </figure>
 }
 
