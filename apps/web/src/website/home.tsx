@@ -148,7 +148,7 @@ export function WebsiteHome() {
 
         <NewsResources entries={editorialEntries} />
 
-        {/* Shared organizations appear once; the complete list remains available on demand. */}
+        {/* Shared organizations appear once; the complete list remains available through horizontal paging. */}
         <Partners partners={partners} billingPartners={partners} />
       </div>
     </SiteShell>

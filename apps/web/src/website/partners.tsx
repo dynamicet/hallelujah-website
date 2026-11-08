@@ -23,6 +23,8 @@ function PartnerMark({ partner, named = false, clone = false }: { partner: Partn
 }
 
 export function Partners({ partners, billingPartners = [] }: { partners: readonly Partner[]; billingPartners?: readonly Partner[] }) {
+  const billingViewport = useRef<HTMLDivElement>(null)
+  const [billingPage, setBillingPage] = useState(0)
   const rail = useRef<HTMLDivElement>(null)
   const track = useRef<HTMLDivElement>(null)
   const originals = useRef<HTMLUListElement>(null)
@@ -34,6 +36,12 @@ export function Partners({ partners, billingPartners = [] }: { partners: readonl
   const [inView, setInView] = useState(false)
   const [pageVisible, setPageVisible] = useState(true)
   const billing = billingPartners.filter(eligible)
+  const pageCount = Math.ceil(billing.length / 6)
+  const goToBillingPage = (page: number) => {
+    const viewport = billingViewport.current
+    if (!viewport || page < 0 || page >= pageCount) return
+    viewport.scrollTo({ left: page * viewport.clientWidth, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+  }
   const billingIds = new Set(billing.map((partner) => partner.id))
   const collaborations = partners.filter((partner) => eligible(partner) && !billingIds.has(partner.id))
 
@@ -68,7 +76,7 @@ export function Partners({ partners, billingPartners = [] }: { partners: readonl
       movement?.cancel()
       distance = list.scrollWidth + (parseFloat(getComputedStyle(belt).columnGap) || 0)
       if (!distance) return
-      duration = distance / 24 * 1000
+      duration = distance / 18 * 1000
       viewport.scrollLeft = 0
       movement = belt.animate([{ transform: 'translateX(0)' }, { transform: `translateX(-${distance}px)` }], { duration, iterations: Infinity, easing: 'linear' })
       movement.currentTime = position / distance * duration
@@ -101,23 +109,28 @@ export function Partners({ partners, billingPartners = [] }: { partners: readonl
     <div className="page-frame partners-bands">
       {billing.length ? <section className="partners-band partners-billing-band" aria-labelledby="partners-billing-title">
         <div className="partners-heading">
-          <h2 id="partners-billing-title">Insurance &amp; corporate billing</h2>
-          <p className="partners-copy">Confirm payment arrangements with the hospital before your visit.</p>
+          <h2 id="partners-billing-title">Corporate healthcare agreements</h2>
+          <p className="partners-copy">We work with companies to provide employee healthcare through agreed credit and health service arrangements. Contact your employer or the hospital to confirm your eligibility and requirements.</p>
+          <a className="partners-contact" href="#home-call">Confirm your arrangement <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
         </div>
-        <div>
-          <ul className="partners-billing-list" id="partners-billing-list">{billing.slice(0, 6).map((partner) => <PartnerMark partner={partner} named key={partner.id} />)}</ul>
-          {billing.length > 6 ? <details className="partners-billing-more">
-            <summary><span className="partners-more-closed">View all organizations ({billing.length})</span><span className="partners-more-open">Show fewer</span></summary>
-            <ul className="partners-billing-list">{billing.slice(6).map((partner) => <PartnerMark partner={partner} named key={partner.id} />)}</ul>
-            <button className="partners-billing-collapse" type="button" onClick={(event) => {
-              const details = event.currentTarget.closest('details')
-              const summary = details?.querySelector('summary')
-              if (!details || !summary) return
-              details.open = false
-              summary.focus({ preventScroll: true })
-              summary.scrollIntoView({ block: 'nearest', behavior: 'instant' })
-            }}>Show fewer</button>
-          </details> : null}
+        <div className="partners-directory">
+          <div className="partners-directory-heading">
+            <p>Find your company</p>
+            <span>{billing.length} organizations</span>
+          </div>
+          <div className="partners-billing-viewport" id="partners-billing-list" ref={billingViewport} tabIndex={0} role="region" aria-label="Companies with healthcare agreements; scroll horizontally to browse"
+            onScroll={(event) => { const viewport = event.currentTarget; setBillingPage(Math.round(viewport.scrollLeft / viewport.clientWidth)) }}>
+            {Array.from({ length: pageCount }, (_, page) => <ul className="partners-billing-list" aria-label={`Companies, page ${page + 1} of ${pageCount}`} key={page}>
+              {billing.slice(page * 6, page * 6 + 6).map((partner) => <PartnerMark partner={partner} named key={partner.id} />)}
+            </ul>)}
+          </div>
+          {pageCount > 1 ? <div className="partners-pagination">
+            <p role="status" aria-live="polite" aria-atomic="true">Page <strong>{billingPage + 1}</strong> of {pageCount}</p>
+            <div className="partners-page-controls">
+              <button type="button" aria-label="Previous companies" aria-controls="partners-billing-list" aria-disabled={billingPage === 0} onClick={() => goToBillingPage(billingPage - 1)}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg><span>Previous</span></button>
+              <button type="button" aria-label="Next companies" aria-controls="partners-billing-list" aria-disabled={billingPage === pageCount - 1} onClick={() => goToBillingPage(billingPage + 1)}><span>Next</span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+            </div>
+          </div> : null}
         </div>
       </section> : null}
       {collaborations.length ? <section className="partners-band partners-collaboration-band" aria-labelledby="partners-title">

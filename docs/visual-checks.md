@@ -14,7 +14,7 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 | `pnpm visual:hero` | Existing home hero layout, focus, and fallback contracts |
 | `pnpm visual:signature` | Desktop scroll-responsive image scenes, compact fallback, stop/reverse behavior, stable copy, live resize/reduced motion and keyboard section links |
 | `pnpm visual:choreography` | Full-home reading sequence, reverse/fast scrolling, focus settling, section accents, reduced motion and client navigation |
-| `pnpm visual:interactions` | Care-mode keyboard/query continuity, deduplicated organization listing and disclosure focus, menu focus/Escape, reduced motion and no-JavaScript fallback |
+| `pnpm visual:interactions` | Care-mode keyboard/query continuity, deduplicated organization listing, fixed-height corporate paging and retained keyboard focus, menu focus/Escape, reduced motion and no-JavaScript fallback |
 | `pnpm visual:search-feedback` | Doctor/service pending and updated result counts, retained keyboard focus, repeated search/filter submissions, empty results, reduced motion and native GET fallback |
 | `pnpm visual:clinician-playback` | Uninterrupted client navigation at three widths and normal/4× CPU, two samples each; records frame intervals and long tasks, asserts a 20ms mean-frame budget and document reuse. Run alone; no screenshots or physical-device/GPU certification |
 | `pnpm visual:clinician-transition` | Directory → profile portrait/name transitions at three widths, paused start/middle/end frames, keyboard activation, filtered browser history, reduced motion (including a live change), and initials/no-JavaScript fallback |
