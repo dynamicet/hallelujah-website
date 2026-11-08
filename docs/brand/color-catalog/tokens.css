@@ -25,6 +25,7 @@
   --hh-warning-tint: #FFF6E5;
   --hh-error: #A33330;
   --hh-error-tint: #FBEFED;
+  --hh-yellow: #F5C82D;
 
   --hh-surface-page: var(--hh-paper);
   --hh-surface-raised: var(--hh-white);

@@ -29,13 +29,13 @@ content-readiness gates continue to apply.
 The agency supplied `Hallelujah Logo.png` and `Color Palettes.md`. The notes explicitly
 identify the codes as color-picker approximations because formal hospital codes were
 unavailable. Current decorative accents match those supplied codes: cyan `#15B0E6`,
-orange `#F65B25`, and magenta `#E7277C`. Yellow `#F5C82D` is used only within supplementary brand artwork;
-it does not carry interface status or control meaning. Existing raster logos
+orange `#F65B25`, and magenta `#E7277C`. Yellow `#F5C82D` appears in supplementary artwork and the bounded homepage care-navigation help surface;
+it does not carry warning or selection meaning. Existing raster logos
 remain intact. Earlier source-identity estimates remain historical records.
 
 The implementation separates identity accents from text, action, focus, border and status
 roles using the existing primitive → semantic → component token layers. Bright cyan is
-used only for existing decorative identity rules. Orange and magenta flow through existing
+used for decorative identity rules and the featured homepage appointment link with dark ink. Orange and magenta flow through existing
 image edges, quotation rules and editorial markers. Pale surfaces and deep accent text
 retain their existing pairings. Layout, content, behavior and motion are outside this change.
 
@@ -75,8 +75,8 @@ specialty-card top rules where the responsive treatment includes them. Cards use
 color treatment; specialties and clinicians are not assigned color meanings.
 
 The motif is decorative (`aria-hidden`, non-focusable, no pointer events), has no new
-animation, and is hidden in forced-color and print modes. Yellow now has a visible artwork
-use. It is not used for labels, buttons, notices, or warning semantics. Bright artwork is
+animation, and is hidden in forced-color and print modes. Yellow has a visible artwork
+use and, in the later extension below, a bounded care-navigation surface. It has no warning semantics. Bright artwork is
 kept separate from functional text and focus roles; pale/deep pairings retain their contrast.
 This extension is limited to the local homepage presentation and its shared artwork helper.
 
@@ -111,7 +111,8 @@ updated together; existing contrast-policy minimums remain in force.
 | --- | --- | --- |
 | Artwork colors | Cyan `#15B0E6`, orange `#F65B25`, magenta `#E7277C`, yellow `#F5C82D` | Decorative geometric artwork only; no control or status meaning |
 | Brand blue | Primary `#0078A6`, strong `#00678D`, deep `#00445D` | Primary actions, ordinary links, headings, structural marks and substantial identity fields |
-| Agency cyan | `#15B0E6` | Decorative identity marks; functional blues remain separate |
+| Agency cyan | `#15B0E6` | Decorative identity marks and featured appointment link on deep blue, with ink labels |
+| Brand yellow | `#F5C82D` | Bounded care-navigation help surface, dark ink text; no warning or selection meaning |
 | Blue companions | Mist `#EAF5F9`, veil `#D0EFFA`, air `#A8D3E4` | Grouping, selected planes, portrait grounds and tonal geometry; deep blue supplies readable text |
 | Supporting orange | Anchor `#F65B25`, pale `#FFF7F2`, deep `#A8430C` | Warm image edges, markers, frames, action-adjacent details, readable accent copy and bounded warm planes |
 | Expressive magenta | Anchor `#E7277C`, pale `#FDF3F8`, deep `#A61558` | Quotation punctuation, metadata, contrasting rules, inset planes and expressive moments |
@@ -123,8 +124,7 @@ updated together; existing contrast-policy minimums remain in force.
 | Caution | `#80530C` on `#FFF6E5` | Actual cautions with written meaning |
 | Error and urgency | `#A33330` on `#FBEFED` | Distinct error and emergency aliases, wording, structure and recovery actions |
 
-The original logo artwork remains intact. Its yellow is an artwork color, with no current
-standalone website family. No new complementary hue was added in this delivery. Future
+The original logo artwork remains intact. Its yellow now also provides a bounded care-navigation surface. No new complementary hue was added in this delivery. Future
 extensions are welcome when a real composition benefits: propose pale, middle and deep
 companions, demonstrate them beside existing blues on desktop and phone, test readable and
 interactive pairings, then add semantic bindings and update this guide. Older documents do
@@ -318,3 +318,18 @@ useful. The system is a foundation for further design, not a fixed catalog of se
 | [Initial adoption](color-catalog/homepage-adoption.md) / [review agreement](color-catalog/review-agreement.md) | Dated initial review and evidence; no new consensus implied |
 | [Foundation review board](review-board.html) | Historical palette and typography specimens; current guide linked on the board |
 | Catalog PDF | Historical v1.1 snapshot; use this guide and live catalog for current decisions |
+
+## Full-palette homepage emphasis — 8 November 2026
+
+The featured appointment link now uses supplied cyan with body ink `#17313D`; hover uses
+cyan veil with the same ink. Its existing active and keyboard-focus states remain distinct.
+The “Not sure who to see?” panel uses supplied yellow with dark ink and the existing
+blue action. Orange continues to support visit preparation, and magenta patient stories.
+Selection states remain consistently pale cyan with explicit state markers. This gives
+the complete roster purposeful coverage beyond artwork without assigning clinical meaning
+to a brand hue. Large dark-blue fields, content, layout and behavior stay unchanged.
+
+`semantic.color.action.featured` and `semantic.color.surface.highlight` define the new
+roles separately from decorative artwork tokens. Neither permits white normal-size labels
+on bright cyan or yellow. These changes apply to the homepage; shared task controls retain
+their established functional pairings.

@@ -140,6 +140,7 @@ export const designTokenValues = {
   "semantic.color.surface.selected": "{primitive.color.blue.100}",
   "semantic.color.surface.supporting": "{primitive.color.orange.050}",
   "semantic.color.surface.expressive": "{primitive.color.magenta.050}",
+  "semantic.color.surface.highlight": "{primitive.color.brand.yellow}",
   "semantic.color.brand.cool": "{primitive.color.brand.cyan}",
   "semantic.color.brand.warm": "{primitive.color.orange.600}",
   "semantic.color.brand.navy": "{primitive.color.blue.800}",
@@ -166,6 +167,7 @@ export const designTokenValues = {
   "semantic.color.action.emergency-hover": "{primitive.color.red.800}",
   "semantic.color.action.emergency-active": "{primitive.color.red.800}",
   "semantic.color.action.on-solid": "{primitive.color.white}",
+  "semantic.color.action.featured": "{primitive.color.brand.cyan}",
   "semantic.color.focus": "{primitive.color.blue.800}",
   "semantic.color.accent.supporting": "{primitive.color.orange.600}",
   "semantic.color.accent.supporting-text": "{primitive.color.orange.800}",
@@ -621,6 +623,7 @@ export const resolvedDesignTokenValues = {
   "semantic.color.surface.selected": "#d0effa",
   "semantic.color.surface.supporting": "#fff7f2",
   "semantic.color.surface.expressive": "#fdf3f8",
+  "semantic.color.surface.highlight": "#f5c82d",
   "semantic.color.brand.cool": "#15b0e6",
   "semantic.color.brand.warm": "#f65b25",
   "semantic.color.brand.navy": "#00445d",
@@ -647,6 +650,7 @@ export const resolvedDesignTokenValues = {
   "semantic.color.action.emergency-hover": "#a33330",
   "semantic.color.action.emergency-active": "#a33330",
   "semantic.color.action.on-solid": "#ffffff",
+  "semantic.color.action.featured": "#15b0e6",
   "semantic.color.focus": "#00445d",
   "semantic.color.accent.supporting": "#f65b25",
   "semantic.color.accent.supporting-text": "#a8430c",
@@ -1185,6 +1189,18 @@ export const designTokenMetadata = {
       "background": "semantic.color.surface.expressive",
       "minimum": 4.5,
       "usage": "Reusable expressive surface primary"
+    },
+    {
+      "foreground": "semantic.color.text.primary",
+      "background": "semantic.color.action.featured",
+      "minimum": 4.5,
+      "usage": "Dark ink on featured cyan appointment link"
+    },
+    {
+      "foreground": "semantic.color.text.primary",
+      "background": "semantic.color.surface.highlight",
+      "minimum": 4.5,
+      "usage": "Dark ink on yellow care-navigation help"
     }
   ],
   "motion": {

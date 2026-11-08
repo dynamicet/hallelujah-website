@@ -14,7 +14,7 @@
 .enhanced-home .team-list { gap: 24px; }
 .enhanced-home .team-portrait-frame { aspect-ratio: 4 / 3; max-height: 260px; }
 .enhanced-home .team-person-details { padding-top: 16px; }
-.enhanced-home .team-next-step { padding: 32px; border: 0; background: var(--site-selection); color: var(--site-ink); border-radius: var(--site-panel-radius); }
+.enhanced-home .team-next-step { padding: 32px; border: 0; background: var(--semantic-color-surface-highlight); color: var(--semantic-color-text-primary); border-radius: var(--site-panel-radius); }
 .enhanced-home .team-next-step h3 { color: inherit; font: 400 clamp(26px, 2.4vw, 36px)/1.2 var(--site-display); letter-spacing: -.025em; }
 .enhanced-home .team-care-help { background: var(--site-action-primary); color: var(--site-white); }
 .enhanced-home .team-care-help:hover { background: var(--site-action-hover); color: var(--site-white); }

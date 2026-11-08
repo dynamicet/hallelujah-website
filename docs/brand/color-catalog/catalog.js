@@ -27,7 +27,7 @@ async function copy(value) {
     window.prompt('Copy this color:', value);
   }
 }
-for (const group of ['blue','orange','magenta','neutral']) {
+for (const group of ['blue','orange','magenta','yellow','neutral']) {
   for (const color of palette.colors.filter(color => color.group === group)) {
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'swatch';

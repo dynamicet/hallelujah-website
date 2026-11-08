@@ -9,12 +9,12 @@
   color: inherit;
 }
 .enhanced-home .welcome-appointment {
-  background: var(--semantic-color-surface-supporting);
-  color: var(--semantic-color-accent-supporting-text);
+  background: var(--semantic-color-action-featured);
+  color: var(--semantic-color-text-primary);
 }
 .enhanced-home .welcome-appointment:hover {
-  background: var(--semantic-color-surface-raised);
-  color: var(--semantic-color-accent-supporting-text);
+  background: var(--semantic-color-surface-selected);
+  color: var(--semantic-color-text-primary);
 }
 .enhanced-home .welcome-appointment:active {
   background: var(--semantic-color-surface-selected);

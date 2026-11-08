@@ -61,11 +61,13 @@
         "surfaceRaised": "#FFFFFF",
         "surfaceSubtle": "#EAF5F9",
         "surfaceSelected": "#D0EFFA",
+        "surfaceHighlight": "#F5C82D",
         "decorativeBlue": "#A8D3E4",
         "textPrimary": "#17313D",
         "textSecondary": "#52636B",
         "textHeading": "#00445D",
         "actionPrimary": "#0078A6",
+        "actionFeatured": "#15B0E6",
         "actionHover": "#00678D",
         "actionActive": "#00445D",
         "textLink": "#00678D",
@@ -93,7 +95,7 @@
         "Compose ground, text, actions and decorative detail independently; recurring blue links tonal fields, natural imagery, orange and magenta details, frames and inset planes",
         "No fixed color percentages, one-accent-per-section restriction or exclusive section/department color ownership; preserve hierarchy and tested pairs",
         "Blue leads; orange supports; magenta is occasional editorial expression without gender, condition, or specialty coding",
-        "Original logo artwork remains unchanged; yellow stays inside artwork",
+        "Original logo artwork remains unchanged; yellow also highlights bounded care-navigation help with dark ink and no warning meaning",
         "Ordinary links use strong blue on approved light surfaces; dark surfaces require inverse links",
         "White fields use control edge; quiet edge is decorative",
         "Use deep orange on pale orange for normal accent text; avoid normal white text on orange and primary-blue text on mist",
@@ -116,7 +118,7 @@
         "magenta": "#E7277C",
         "yellow": "#F5C82D"
       },
-      "usage": "Cyan, orange and magenta for decorative accents; all four bright colors, including yellow, appear in supplementary homepage geometry. Preserve darker functional tokens and existing raster artwork."
+      "usage": "All four bright colors appear in supplementary geometry. Cyan also fills the homepage appointment link with dark ink; yellow highlights bounded care-navigation help. Orange supports visit preparation and magenta patient stories. Preserve dark structural fields and raster artwork."
     },
     "sourceIdentityStatus": "Historical client-supplied logo-derived palette from 2026-10-21; preserved for provenance, superseded for current interface roles by currentDirection",
     "interfaceStatus": "Earlier foundation values retained as history; currentDirection governs implemented local website roles",

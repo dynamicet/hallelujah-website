@@ -146,6 +146,7 @@
   --semantic-color-surface-selected: var(--primitive-color-blue-100);
   --semantic-color-surface-supporting: var(--primitive-color-orange-050);
   --semantic-color-surface-expressive: var(--primitive-color-magenta-050);
+  --semantic-color-surface-highlight: var(--primitive-color-brand-yellow);
   --semantic-color-brand-cool: var(--primitive-color-brand-cyan);
   --semantic-color-brand-warm: var(--primitive-color-orange-600);
   --semantic-color-brand-navy: var(--primitive-color-blue-800);
@@ -172,6 +173,7 @@
   --semantic-color-action-emergency-hover: var(--primitive-color-red-800);
   --semantic-color-action-emergency-active: var(--primitive-color-red-800);
   --semantic-color-action-on-solid: var(--primitive-color-white);
+  --semantic-color-action-featured: var(--primitive-color-brand-cyan);
   --semantic-color-focus: var(--primitive-color-blue-800);
   --semantic-color-accent-supporting: var(--primitive-color-orange-600);
   --semantic-color-accent-supporting-text: var(--primitive-color-orange-800);

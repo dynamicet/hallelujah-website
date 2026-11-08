@@ -32,7 +32,7 @@ window.HALLELUJAH_PALETTE = {
       "id": "cyan",
       "name": "Agency cyan",
       "hex": "#15B0E6",
-      "role": "Decorative identity marks only; darker blue for text and actions",
+      "role": "Decorative identity marks and featured appointment link on deep blue; dark ink labels",
       "group": "blue",
       "ink": "#17313D"
     },
@@ -182,6 +182,14 @@ window.HALLELUJAH_PALETTE = {
       "role": "Urgent access or an error, separated by words and context",
       "group": "status",
       "ink": "#FFFFFF"
+    },
+    {
+      "id": "yellow",
+      "name": "Agency yellow",
+      "hex": "#F5C82D",
+      "role": "Supporting artwork and bounded care-navigation help surface; no warning meaning",
+      "group": "yellow",
+      "ink": "#17313D"
     }
   ],
   "semantic": {
