@@ -8,6 +8,7 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 | Command | Coverage |
 | --- | --- |
 | `pnpm visual:check / /doctors` | Fresh full-page captures at 390, 768, and 1440px; basic structure, overflow, image loading, and console errors |
+| `pnpm visual:contact` | Header → homepage contact section → Contact page at 320/390/768/1440px; mobile menu focus handoff, return link, preparation deep link, section shortcuts and header clearance, native contact targets, Help clearance, normal/reduced motion, skip navigation, touch and no-JavaScript directions shortcut |
 | `pnpm visual:language` | Language selection, directory navigation, retained form steps/values, guide controls, feedback text preservation and storage-denied fallback |
 | `pnpm visual:language-loading` | On-demand Amharic messages, keyboard selection/focus return, reload persistence, editorial preservation, failed-download recovery and retry at three widths |
 | `pnpm visual:specialists` | Featured homepage specialists: desktop/tablet row controls and directory end panel, compact three-row mobile list, keyboard profile access, resize focus recovery, live reduced motion and native no-JavaScript scrolling |

@@ -5,6 +5,7 @@ import type { GuideCatalog } from '@/patient-guide/types'
 import { HelpWidget } from './help-widget'
 import { GuideLauncher } from './guide-launcher'
 import { HeaderContacts, type HeaderContactTargets } from './header-contacts'
+import { Icon } from './icon'
 import controlledStyles from './global-shell.module.css'
 import publicStyles from './hospital-shell.module.css'
 import { hospitalContact } from '../../website/hospital-contact'
@@ -51,6 +52,8 @@ export interface SiteHeaderProps {
   readonly brandMark?: ReactNode
   readonly brandName: string
   readonly contactTargets?: HeaderContactTargets
+  readonly contactHref?: string
+  readonly contactCurrent?: boolean
   readonly previewEmergencyNumber?: string
   readonly emergencyAction: ReactNode
   readonly homeHref: string
@@ -176,6 +179,8 @@ export function SiteHeader({
   brandMark,
   brandName,
   contactTargets,
+  contactHref = '/contact',
+  contactCurrent = false,
   previewEmergencyNumber,
   emergencyAction,
   homeHref,
@@ -192,6 +197,8 @@ export function SiteHeader({
 }: SiteHeaderProps & { readonly showGuide?: boolean }) {
   if (!homeLabel.trim()) throw new Error('SiteHeader homeLabel must not be empty')
   const publicWebsite = homeHref === '/'
+  // Native same-page anchors transfer focus after the mobile menu closes.
+  const ContactLink = contactHref.startsWith('#') ? 'a' : Link
   const styles = publicWebsite ? publicStyles : controlledStyles
   const primaryNavigationItems = navigationItems
     .filter((item) => !(publicWebsite ? [searchItem.href, '/', '/appointment'] : [searchItem.href]).includes(item.href))
@@ -211,7 +218,7 @@ export function SiteHeader({
             <div className={styles.utilityLinks}>
               <div className={styles.utilityContext}>
                 <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link>{showGuide ? <GuideLauncher /> : null}</div>
-                <Link className={styles.contactDirections} href="/contact">Contact & directions</Link>
+                <ContactLink aria-current={contactCurrent ? 'page' : undefined} className={styles.contactDirections} href={contactHref}>Contact & directions</ContactLink>
               </div>
               <div className={styles.utilityEssentials}>
                 <InterfaceLanguageSwitcher fallback={languageSwitcher} enabled={publicWebsite} />
@@ -293,7 +300,7 @@ export function SiteHeader({
           </div> : null}
           {publicWebsite ? <div className={styles.mobileVisitActions} aria-label="Plan your arrival" role="group">
             <a href={hospitalContact.phoneHref}>Call the hospital <span>{hospitalContact.phone}</span></a>
-            <Link href="/contact">Contact &amp; directions <span aria-hidden="true">→</span></Link>
+            <ContactLink aria-current={contactCurrent ? 'page' : undefined} href={contactHref}>Contact &amp; directions <Icon name="arrow-right" /></ContactLink>
           </div> : null}
           {routineAction ? (
             <div className={styles.headerRoutine} data-shell-routine>

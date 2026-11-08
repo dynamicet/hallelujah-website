@@ -2,6 +2,11 @@
 .intro { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 32px; }
 .intro h2 { max-width: none; }
 .intro > a { min-height: 44px; }
+.pageLink { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 48px; padding: 12px 18px; border-radius: var(--site-action-radius); background: var(--site-white); color: var(--site-link); font-size: var(--site-support); font-weight: 600; }
+.section .pageLink:hover { background: var(--site-ink); color: var(--site-white); }
+.section .pageLink:active { background: var(--site-action-active); color: var(--site-white); }
+.section a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
+.section svg { width: 20px; height: 20px; flex-shrink: 0; }
 .columns { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; gap: clamp(32px, 4.5vw, 64px); margin-top: 36px; }
 .contact, .location { min-width: 0; }
 .section h3 { margin: 0 0 20px; font-family: var(--site-font); font-size: 24px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; }
@@ -17,8 +22,8 @@
 .mapPin span { padding: 7px 10px; background: var(--site-white); color: var(--site-ink); font-size: 13px; font-weight: 600; white-space: nowrap; }
 .mapPin b { display: grid; place-items: center; width: 38px; height: 38px; border: 3px solid var(--site-white); border-radius: 50%; background: var(--site-ink); color: var(--site-white); font-size: 17px; line-height: 1; }
 .mapCredit { position: absolute; right: 0; bottom: 0; display: inline-flex; align-items: center; min-height: 44px; padding: 4px 8px; background: var(--site-white); color: var(--site-ink); font-size: 12px; line-height: 1.4; }
-.section .mapCredit:hover { text-decoration: underline; text-underline-offset: 3px; }
-.mapCredit:focus-visible { outline-offset: -4px; }
+.mapCredit:hover { text-decoration: underline; text-underline-offset: 3px; }
+.mapCredit:focus-visible, .section .mapCredit:focus-visible { outline-offset: -4px; }
 .phone { display: inline-flex; align-items: center; width: fit-content; max-width: 100%; min-height: 48px; font-size: clamp(26px, 2.4vw, 36px); line-height: 1.3; letter-spacing: -.025em; font-variant-numeric: tabular-nums; color: inherit; }
 .section .phone:hover { text-decoration: underline; text-underline-offset: 6px; }
 .otherContacts { display: grid; gap: 20px; margin-top: 28px; }
@@ -30,9 +35,7 @@
 .support { display: flex; justify-content: space-between; align-items: center; gap: 24px 40px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--semantic-color-border-default); }
 .section .arrivalAdvice p { max-width: 62ch; margin: 0; font-size: 15px; line-height: 1.65; }
 .arrivalAdvice > a { min-height: 44px; }
-.arrivalAdvice { padding: 20px 24px; background: var(--semantic-color-surface-supporting); border-radius: 12px; }
-.arrivalAdvice::before { content: ''; display: block; inline-size: 32px; block-size: 6px; margin-block-end: 12px; border-radius: 3px; background: var(--semantic-color-artwork-orange); }
-@media (forced-colors: active), print { .arrivalAdvice::before { display: none; } }
+.arrivalAdvice { max-width: 64ch; }
 .urgent { flex-shrink: 0; }
 .section .urgent p { margin: 0; font-size: 15px; line-height: 1.65; color: var(--site-urgent); }
 .urgent a { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; color: var(--site-urgent); font-size: 15px; font-weight: 600; }
@@ -44,6 +47,8 @@
   .map { height: 290px; }
 }
 @media (max-width: 699px) {
+  .intro { gap: 20px; }
+  .pageLink { width: 100%; }
   .columns { grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 28px; }
   .section h3 { margin-bottom: 12px; font-size: 22px; }
   .locationActions { gap: 8px 20px; }

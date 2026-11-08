@@ -50,6 +50,8 @@ export function demoShell(current: string): Omit<SiteShellProps, 'children'> {
     skipLinkLabel: 'Skip to main content',
     header: {
       contactTargets: { call: hospitalContact.phoneHref },
+      contactHref: current === '/' ? '#home-directions' : '/contact',
+      contactCurrent: current === '/contact',
       brandMark: <HospitalBrandMark />,
       brandName: 'Hallelujah Hospital', homeHref: '/', homeLabel: 'Hallelujah Hospital home',
       identityLanguage: 'en', menuLabel: 'Menu', navigationMode: 'responsive',

@@ -9,6 +9,7 @@
   },
   "scripts": {
     "visual:check": "node scripts/check-visual.mjs",
+    "visual:contact": "node scripts/check-contact-flow.mjs",
     "visual:language-loading": "node scripts/check-interface-language-loading.mjs",
     "visual:language": "node scripts/check-interface-language.mjs",
     "visual:specialists": "node scripts/check-featured-specialists.mjs",

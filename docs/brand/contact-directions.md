@@ -1,5 +1,35 @@
 # Contact & directions
 
+## Contact-flow polish — 8 November 2026
+
+The homepage header now jumps to its contact section; other pages link directly to
+`/contact`, with the Contact page marked current. The section's “All contact
+details” action and arrival-guidance link continue to the page and its preparation
+section. The page adds native shortcuts to reception, directions and travel
+preparation, plus a return link to the homepage overview. Existing factual copy,
+contact values and direct actions remain intact.
+
+Spacing and shared SVG icons now give the two surfaces a consistent hierarchy.
+Travel advice uses compact open rows; urgent help has its own supporting surface.
+The floating Help control yields around marked arrival information. The map's
+attribution focus outline stays inside its clipped boundary. Mobile-menu fragment
+navigation now retains focus at its destination after popover dismissal; client
+navigation to a focusable fragment also transfers keyboard focus there.
+
+`pnpm visual:contact` reproduces the header → section → page journey, return and
+preparation links, shortcut focus and sticky-header clearance, native action
+targets, 44px link heights, map-credit focus, Help clearance, normal/reduced motion,
+skip navigation, touch and no-JavaScript shortcut checks at 320/390/768/1440px.
+TypeScript, changed-file ESLint, shell contracts, home-contact contracts and shared
+component interaction checks also pass. Responsive screenshots and focused flow
+captures are recorded separately under `artifacts/visual-checks/`; each inspected
+run includes its own findings and inspected-file list.
+
+Impeccable's detector reported one existing footer accent-border warning in
+`hospital-shell.module.css`; the footer identity is outside this refinement.
+This pass does not claim a screen-reader audit, cross-browser certification,
+physical dialer handoff or a production release.
+
 ## Dedicated Contact page — 8 November 2026
 
 The connected local demo now includes `/contact`, linked from the homepage contact
