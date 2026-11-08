@@ -2,7 +2,7 @@
 target: Help button and both functionality paths
 total_score: 28
 max_score: 40
-na_heuristics: 
+na_heuristics:
 p0_count: 0
 p1_count: 1
 target_identity: "file:/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/apps/web/src/design-system/components/help-widget.tsx"
