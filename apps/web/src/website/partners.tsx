@@ -42,8 +42,7 @@ export function Partners({ partners, billingPartners = [] }: { partners: readonl
     if (!viewport || page < 0 || page >= pageCount) return
     viewport.scrollTo({ left: page * viewport.clientWidth, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
   }
-  const billingIds = new Set(billing.map((partner) => partner.id))
-  const collaborations = partners.filter((partner) => eligible(partner) && !billingIds.has(partner.id))
+  const collaborations = partners.filter(eligible)
 
   useEffect(() => {
     const preference = matchMedia('(prefers-reduced-motion: reduce)')

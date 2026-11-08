@@ -36,6 +36,11 @@ assert.ok(render([{ ...partners[0], name: '<script>unsafe</script>' }]).includes
 
 assert.equal(partners.length, 19)
 assert.equal(new Set(partners.map((partner) => partner.id)).size, partners.length)
+const sharedHtml = renderToStaticMarkup(createElement(Partners, { partners: partners.slice(0, 10), billingPartners: partners }))
+assert.ok(sharedHtml.includes('Corporate healthcare agreements'))
+assert.ok(sharedHtml.includes('>Our partners</h2>'))
+assert.equal((sharedHtml.match(/data-partner="safaricom"/gu) ?? []).length, 2, 'Shared identities must appear in both sections')
+assert.equal((sharedHtml.match(/<li\b/gu) ?? []).length, 29)
 const html = render(partners)
 assert.equal((html.match(/<li\b/gu) ?? []).length, partners.length)
 assert.ok(html.includes('>Our partners</h2>'))

@@ -148,8 +148,8 @@ export function WebsiteHome() {
 
         <NewsResources entries={editorialEntries} />
 
-        {/* Shared organizations appear once; the complete list remains available through horizontal paging. */}
-        <Partners partners={partners} billingPartners={partners} />
+        {/* The partner showcase reuses a selection of the existing organization artwork. */}
+        <Partners partners={partners.slice(0, 10)} billingPartners={partners} />
       </div>
     </SiteShell>
   )
