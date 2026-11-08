@@ -17,7 +17,21 @@ await runVisualCheck('help-refinement',base,async({browser,output})=>{
    await p.goto(base+route)
    const visible=await p.eval(()=>{const t=document.querySelector('[data-help-trigger]');const r=t.getBoundingClientRect();return getComputedStyle(t).visibility==='visible'&&r.top>=0&&r.bottom<=innerHeight})
    assert.equal(visible,true,`${width} ${route}: Help visible naturally`)
+   const anchor=await p.eval('(()=>{const r=document.querySelector("[data-help-trigger]").getBoundingClientRect();return {top:r.top,right:r.right}})()')
+   const extent=await p.eval('document.documentElement.scrollHeight-innerHeight')
+   for(const progress of [0,.15,.3,.5,.7,.9,1,.6,.2,0]){
+    await p.eval(`window.scrollTo({top:${extent}*${progress},behavior:'instant'})`)
+    await pause(70)
+    const position=await p.eval('(()=>{const t=document.querySelector("[data-help-trigger]");const r=t.getBoundingClientRect();return {top:r.top,right:r.right,visible:getComputedStyle(t).visibility}})()')
+    assert.ok(Math.abs(position.top-anchor.top)<1&&Math.abs(position.right-anchor.right)<1,`${width} ${route}: stable Help anchor while scrolling`)
+    assert.equal(position.visible,'visible')
+   }
   }
+  // A keyboard-focused page action takes priority over the floating launcher.
+  await p.eval('(()=>{const a=document.querySelector("main a[href]");a.dataset.helpFocusCheck="";a.dataset.originalStyle=a.getAttribute("style")||"";a.style.cssText="position:fixed;right:16px;bottom:16px;width:48px;height:48px;z-index:1";a.focus()})()')
+  await wait(p,'getComputedStyle(document.querySelector("[data-help-trigger]")).visibility==="hidden"')
+  await p.eval('(()=>{const a=document.querySelector("[data-help-focus-check]");a.blur();a.setAttribute("style",a.dataset.originalStyle);delete a.dataset.originalStyle;delete a.dataset.helpFocusCheck})()')
+  await wait(p,'getComputedStyle(document.querySelector("[data-help-trigger]")).visibility==="visible"')
   await activate(p,'[data-help-trigger]')
   await wait(p,'document.querySelector("[data-help-panel]").matches(":popover-open")')
   await p.screenshot({path:`${output}/help-open-${width}x${height}.png`})

@@ -34,9 +34,8 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
     const button = trigger.current
     if (!root || !button) return
     let frame = 0
-    // Avoid nearby controls without hiding Help during ordinary reading.
-    // Limit movement to keep the launcher recognizable in its usual corner.
-    function place() {
+    // Keep a predictable corner anchor; only yield to editing, navigation or focus.
+    function updateVisibility() {
       frame = 0
       if (!root || !button) return
       const active = document.activeElement
@@ -44,33 +43,18 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
         && !root.contains(active) && active.matches('input, textarea, select, [contenteditable="true"]')
       const keyboard = !!window.visualViewport && window.visualViewport.height < window.innerHeight * .75
       const navigationOpen = !!document.querySelector('[data-navigation-panel]:popover-open')
-      root.toggleAttribute('data-help-hidden', editing || keyboard || navigationOpen)
-      if (editing || keyboard || navigationOpen || panel.current?.matches(':popover-open') || root.contains(active)) return
-      const current = button.getBoundingClientRect()
-      const previousLift = Number.parseFloat(root.style.getPropertyValue('--help-lift')) || 0
-      const baseBottom = current.bottom + previousLift
-      const obstacles = Array.from(document.querySelectorAll('main :is(a, button, input, select, textarea, summary), [data-site-footer] a'))
-        .filter((node) => node.getClientRects().length && getComputedStyle(node).visibility !== 'hidden')
-        .flatMap((node) => Array.from(node.getClientRects()))
-        .filter((rect) => rect.width && rect.height && rect.left < current.right + 8 && rect.right > current.left - 8)
-      let bottom = baseBottom
-      for (let attempt = 0; attempt <= obstacles.length; attempt++) {
-        const collisions = obstacles.filter((rect) => rect.top < bottom + 8 && rect.bottom > bottom - current.height - 8)
-        if (!collisions.length) break
-        bottom = Math.min(...collisions.map((rect) => rect.top)) - 8
-      }
-      const lift = baseBottom - bottom
-      root.style.setProperty('--help-lift', `${lift <= 96 && bottom - current.height >= 8 ? lift : 0}px`)
+      const control = button.getBoundingClientRect()
+      const focused = active instanceof HTMLElement && !root.contains(active)
+        && active.matches('a[href], button, input, select, textarea, summary, [tabindex], [contenteditable="true"]')
+        ? active.getBoundingClientRect() : null
+      const obscuresFocus = !!focused && focused.width > 0 && focused.height > 0
+        && focused.left < control.right && focused.right > control.left
+        && focused.top < control.bottom && focused.bottom > control.top
+      root.toggleAttribute('data-help-hidden', editing || keyboard || navigationOpen || obscuresFocus)
     }
     function schedule() {
-      if (!frame) frame = requestAnimationFrame(place)
+      if (!frame) frame = requestAnimationFrame(updateVisibility)
     }
-    const resize = new ResizeObserver(schedule)
-    resize.observe(document.body)
-    const changes = new MutationObserver(schedule)
-    const main = document.querySelector('main')
-    if (main) changes.observe(main, { childList: true, subtree: true, attributes: true, attributeFilter: ['open', 'hidden', 'aria-invalid'] })
-    window.addEventListener('scroll', schedule, { passive: true, capture: true })
     window.addEventListener('resize', schedule)
     document.addEventListener('focusin', schedule)
     document.addEventListener('focusout', schedule)
@@ -79,9 +63,6 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
     schedule()
     return () => {
       cancelAnimationFrame(frame)
-      resize.disconnect()
-      changes.disconnect()
-      window.removeEventListener('scroll', schedule, true)
       window.removeEventListener('resize', schedule)
       document.removeEventListener('focusin', schedule)
       document.removeEventListener('focusout', schedule)

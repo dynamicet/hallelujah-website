@@ -1,7 +1,6 @@
 .widget {
   --help-edge: 16px;
   --help-bottom: max(var(--help-edge), env(safe-area-inset-bottom, 0px));
-  --help-lift: 0px;
   min-block-size: calc(80px + env(safe-area-inset-bottom, 0px));
   background: var(--site-pale);
 }
@@ -15,8 +14,6 @@
   z-index: 45;
   inset-inline-end: max(var(--help-edge), env(safe-area-inset-right, 0px));
   bottom: var(--help-bottom);
-  /* Collision avoidance changes only the painted position, not layout. */
-  transform: translateY(calc(-1 * var(--help-lift)));
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +38,6 @@
 /* Before hydration the native Help control remains usable in the footer. */
 :global(html[data-hydration='pending']) .trigger {
   position: static;
-  transform: none;
   margin: 16px;
 }
 
@@ -73,9 +69,9 @@
 
 .panel {
   position: fixed;
-  inset: auto max(var(--help-edge), env(safe-area-inset-right, 0px)) calc(var(--help-bottom) + var(--help-lift) + 56px) auto;
+  inset: auto max(var(--help-edge), env(safe-area-inset-right, 0px)) calc(var(--help-bottom) + 56px) auto;
   inline-size: min(320px, calc(100vw - 2 * var(--help-edge)));
-  max-block-size: calc(100dvh - var(--help-bottom) - var(--help-lift) - 72px - env(safe-area-inset-top, 0px));
+  max-block-size: calc(100dvh - var(--help-bottom) - 72px - env(safe-area-inset-top, 0px));
   margin: 0;
   padding: 10px;
   overflow-y: auto;
