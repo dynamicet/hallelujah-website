@@ -38,13 +38,13 @@
   --primitive-color-red-700: #a33330;
   --primitive-color-red-800: #a33330;
   --primitive-color-red-050: #fbefed;
-  --primitive-color-brand-cyan: #0078a6;
-  --primitive-color-brand-orange: #f26522;
+  --primitive-color-brand-cyan: #15b0e6;
+  --primitive-color-brand-orange: #f65b25;
   --primitive-color-brand-deep-teal-blue: #00678d;
   --primitive-color-brand-navy: #00445d;
-  --primitive-color-brand-yellow: #f5b820;
-  --primitive-color-brand-magenta: #d81b72;
-  --primitive-color-orange-600: #f26522;
+  --primitive-color-brand-yellow: #f5c82d;
+  --primitive-color-brand-magenta: #e7277c;
+  --primitive-color-orange-600: #f65b25;
   --primitive-color-orange-800: #a8430c;
   --primitive-color-orange-050: #fff0e7;
   --primitive-color-magenta-600: #d81b72;
@@ -146,7 +146,7 @@
   --semantic-color-surface-selected: var(--primitive-color-blue-100);
   --semantic-color-surface-supporting: var(--primitive-color-orange-050);
   --semantic-color-surface-expressive: var(--primitive-color-magenta-050);
-  --semantic-color-brand-cool: var(--primitive-color-blue-600);
+  --semantic-color-brand-cool: var(--primitive-color-brand-cyan);
   --semantic-color-brand-warm: var(--primitive-color-orange-600);
   --semantic-color-brand-navy: var(--primitive-color-blue-800);
   --semantic-color-text-heading: var(--primitive-color-blue-800);
@@ -175,7 +175,7 @@
   --semantic-color-focus: var(--primitive-color-blue-800);
   --semantic-color-accent-supporting: var(--primitive-color-orange-600);
   --semantic-color-accent-supporting-text: var(--primitive-color-orange-800);
-  --semantic-color-accent-expressive: var(--primitive-color-magenta-600);
+  --semantic-color-accent-expressive: var(--primitive-color-brand-magenta);
   --semantic-color-accent-expressive-text: var(--primitive-color-magenta-800);
   --semantic-font-family-ui: var(--primitive-font-family-latin);
   --semantic-font-family-ethiopic: var(--primitive-font-family-ethiopic);

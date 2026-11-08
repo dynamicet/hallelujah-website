@@ -24,14 +24,48 @@ This guide consolidates the client-directed revision and completed rollout. It d
 a new expert-panel consensus or hospital publication approval. The local preview and existing
 content-readiness gates continue to apply.
 
+## Agency palette alignment — 8 November 2026
+
+The agency supplied `Hallelujah Logo.png` and `Color Palettes.md`. The notes explicitly
+identify the codes as color-picker approximations because formal hospital codes were
+unavailable. Current decorative accents match those supplied codes: cyan `#15B0E6`,
+orange `#F65B25`, and magenta `#E7277C`. Yellow `#F5C82D` is recorded for artwork only;
+no new yellow interface decoration or status meaning is introduced. Existing raster logos
+remain intact. Earlier source-identity estimates remain historical records.
+
+The implementation separates identity accents from text, action, focus, border and status
+roles using the existing primitive → semantic → component token layers. Bright cyan is
+used only for existing decorative identity rules. Orange and magenta flow through existing
+image edges, quotation rules and editorial markers. Pale surfaces and deep accent text
+retain their existing pairings. Layout, content, behavior and motion are outside this change.
+
+For the hospital meeting:
+
+> We have matched the website’s bright decorative accents to the palette supplied by the
+> agency. The deeper blue shades support readable headings, links and buttons. This gives
+> the hospital’s identity a consistent expression while making practical information easier
+> for patients to read and use.
+
+Technical basis: [WCAG 2.2 contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
+sets 4.5:1 for normal text and 3:1 for large text, with a logo-text exception. Against white,
+the supplied cyan measures 2.50:1 and supplied shade `#1286AF` measures 4.15:1; the retained
+action blue `#0078A6` measures 4.96:1, link blue `#00678D` 6.32:1, and deep blue `#00445D`
+10.58:1. These figures explain particular color pairs, not complete site compliance.
+The standard requires sufficient contrast, not these exact dark hex codes.
+[Carbon’s color token guidance](https://www.carbondesignsystem.com/building-blocks/foundations/color/guidelines)
+provides an established example of assigning contextual color roles to interface layers
+and states. Our role separation follows that general pattern; it does not imply Carbon
+approval or a requirement to copy its palette.
+
 ## Palette and responsibilities
 
 | Family | Values | Current responsibility |
 | --- | --- | --- |
 | Brand blue | Primary `#0078A6`, strong `#00678D`, deep `#00445D` | Primary actions, ordinary links, headings, structural marks and substantial identity fields |
+| Agency cyan | `#15B0E6` | Decorative identity marks; functional blues remain separate |
 | Blue companions | Mist `#EAF5F9`, veil `#D5EAF2`, air `#A8D3E4` | Grouping, selected planes, portrait grounds and tonal geometry; deep blue supplies readable text |
-| Supporting orange | Anchor `#F26522`, pale `#FFF0E7`, deep `#A8430C` | Warm image edges, markers, frames, action-adjacent details, readable accent copy and bounded warm planes |
-| Expressive magenta | Anchor `#D81B72`, pale `#FCEAF2`, deep `#A61558` | Quotation punctuation, metadata, contrasting rules, inset planes and expressive moments |
+| Supporting orange | Anchor `#F65B25`, pale `#FFF0E7`, deep `#A8430C` | Warm image edges, markers, frames, action-adjacent details, readable accent copy and bounded warm planes |
+| Expressive magenta | Anchor `#E7277C`, pale `#FCEAF2`, deep `#A61558` | Quotation punctuation, metadata, contrasting rules, inset planes and expressive moments |
 | Reading surfaces | Paper `#FBF8F6`, white `#FFFFFF` | Page ground, quiet reading, distinct working planes and fields |
 | Reading text | Ink `#17313D`, slate `#52636B` | Essential body copy and supporting metadata; blue headings orient the reader |
 | Edges | Quiet `#CBD8DE`, control `#718892` | Decorative separation versus meaningful boundaries around white controls |
@@ -174,8 +208,10 @@ actual pairs and states, including hover, nested surfaces, opacity and image ove
 
 - Strong blue carries ordinary links on approved light grounds. Primary blue on mist is
   4.47:1 and fails normal text; strong blue on air also fails normal text, so use deep blue there.
-- White on orange is 3.15:1 and fails normal text; ink on orange is only 4.32:1. Use deep
-  orange on pale orange for normal accent copy. White on magenta is 4.86:1.
+- Bright agency orange and magenta are decorative accents, not grounds for normal white text.
+  Use deep orange on pale orange and deep magenta on pale magenta for accent copy.
+  The reserved darker magenta primitive `#D81B72` retains 4.86:1 against white;
+  it is distinct from the bright decorative magenta `#E7277C`.
 - Quiet edges are decorative. Control edge on veil is 2.9936:1 and fails 3:1; keep the approved
   white field plane or test a stronger boundary.
 - Light-surface focus uses a 3px deep-blue outline and 4px white separation; inverse surfaces
@@ -199,7 +235,7 @@ These are scoped measurements, not a complete accessibility certification.
 For finalization, the documentation was checked against runtime colors, surface APIs,
 editorial font declarations and saved desktop/tablet/phone evidence. Conflicting active color
 tables and stale rollout status were reconciled. No new visual defect requiring another source
-change was identified in that closeout review; existing visual evidence remains applicable.
+change was identified in that closeout review. Those historical captures describe the November 4 state; the November 8 palette refinement requires fresh evidence.
 The [finalization record](evidence/finalization-checks.json) records passing brand, token and repository-link checks. The updated catalog and historical-study
 labels passed eight browser checks across 1440, 768, 390 and 320px, with one H1, a guide link
 and no horizontal overflow on each page. The catalog's default, failing and passing contrast

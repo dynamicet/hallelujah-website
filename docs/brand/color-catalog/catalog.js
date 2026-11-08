@@ -82,9 +82,9 @@ const pairings = [
   ['White on deep blue','white','blue-800','Footer text'],
   ['Control edge on white','control','white','Input boundary · 3:1 minimum'],
   ['Deep orange on pale orange','orange-deep','orange-tint','Supporting accent pairing'],
-  ['White on magenta','white','magenta','Expressive accent pairing'],
+  ['White on agency magenta','white','magenta','Decorative only · fails normal white text'],
   ['Deep magenta on pale magenta','magenta-deep','magenta-tint','Expressive accent pairing'],
-  ['White on orange','white','orange','3.15:1 · do not use for normal text'],
+  ['White on orange','white','orange','Do not use for normal white text'],
   ['Hallelujah blue on blue mist','blue-600','blue-50','4.47:1 · do not use for normal text']
 ];
 for (const [name,fg,bg,role] of pairings) {

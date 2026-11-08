@@ -73,10 +73,10 @@
         "borderSubtle": "#CBD8DE",
         "borderControl": "#718892",
         "focus": "#00445D",
-        "accentSupporting": "#F26522",
+        "accentSupporting": "#F65B25",
         "accentSupportingTint": "#FFF0E7",
         "accentSupportingText": "#A8430C",
-        "accentExpressive": "#D81B72",
+        "accentExpressive": "#E7277C",
         "accentExpressiveTint": "#FCEAF2",
         "accentExpressiveText": "#A61558",
         "statusSuccess": "#24634B",
@@ -104,6 +104,19 @@
       "boundary": "Implemented in application tokens, homepage, shared components and reviewed local inner pages; usage guide finalized. Existing publication and content-readiness gates remain. Digital colors are not authenticated historical logo values",
       "usageGuide": "docs/brand/usage-guide.md",
       "implementationStage": "deliverables-1-through-6-complete-for-local-website"
+    },
+    "agencyPalette": {
+      "received": "2026-11-08",
+      "source": "Client-supplied Hallelujah Logo.png and Color Palettes.md from marketing agency",
+      "status": "Agency color-picker approximations; no formal hospital color specification supplied",
+      "colors": {
+        "cyan": "#15B0E6",
+        "shade": "#1286AF",
+        "orange": "#F65B25",
+        "magenta": "#E7277C",
+        "yellow": "#F5C82D"
+      },
+      "usage": "Cyan, orange and magenta for decorative accents; yellow reserved for artwork. Preserve darker functional tokens and existing raster artwork."
     },
     "sourceIdentityStatus": "Historical client-supplied logo-derived palette from 2026-10-21; preserved for provenance, superseded for current interface roles by currentDirection",
     "interfaceStatus": "Earlier foundation values retained as history; currentDirection governs implemented local website roles",

@@ -1,7 +1,7 @@
 {
   "name": "Hallelujah \u2014 One blue, a whole experience",
   "status": "Adopted in the local website; final usage guide at docs/brand/usage-guide.md; production publication remains separate",
-  "date": "2026-11-04",
+  "date": "2026-11-08",
   "colors": [
     {
       "id": "blue-50",
@@ -26,6 +26,14 @@
       "role": "Decorative, nonessential diagram fills; use deep blue for text",
       "group": "blue",
       "ink": "#00445D"
+    },
+    {
+      "id": "cyan",
+      "name": "Agency cyan",
+      "hex": "#15B0E6",
+      "role": "Decorative identity marks only; darker blue for text and actions",
+      "group": "blue",
+      "ink": "#17313D"
     },
     {
       "id": "blue-600",
@@ -62,8 +70,8 @@
     {
       "id": "orange",
       "name": "Warm orange",
-      "hex": "#F26522",
-      "role": "Main supporting accent",
+      "hex": "#F65B25",
+      "role": "Agency orange; supporting decorative accent, deep orange for text",
       "group": "orange",
       "ink": "#17313D"
     },
@@ -86,10 +94,10 @@
     {
       "id": "magenta",
       "name": "Magenta",
-      "hex": "#D81B72",
-      "role": "Occasional expressive accent",
+      "hex": "#E7277C",
+      "role": "Agency magenta; decorative accent only, use deep magenta for text",
       "group": "magenta",
-      "ink": "#FFFFFF"
+      "ink": "#000000"
     },
     {
       "id": "magenta-deep",
@@ -203,5 +211,5 @@
     "accent-expressive-subtle": "magenta-tint",
     "accent-expressive-text": "magenta-deep"
   },
-  "version": "1.1"
+  "version": "1.2"
 }

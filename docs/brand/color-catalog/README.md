@@ -21,6 +21,10 @@ give reading and task content distinct planes. No section owns an accent; no per
 one-accent-per-section limit governs composition. The usage guide contains the complete
 palette, representative examples and extension process.
 
+Bright decorative cyan, orange and magenta were aligned to agency estimates on 8 November 2026;
+functional blues and readable deep accent shades remain separate. See the usage guide for
+the source qualification, measured contrast and meeting explanation.
+
 ## Sources and maintenance
 
 The [application token manifest](../../../apps/web/src/design-system/tokens/tokens.json) is the
