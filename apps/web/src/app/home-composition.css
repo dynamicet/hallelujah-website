@@ -223,7 +223,7 @@
 
 /* Partner identities keep their own artwork and a quiet, consistent frame. */
 .enhanced-home .partners { background: var(--semantic-color-surface-raised); border-block-start: 1px solid var(--semantic-color-border-default); }
-.enhanced-home .partners-heading h2 { max-width: 13ch; padding: 0; border: 0; font-size: clamp(32px, 3.4vw, 48px); letter-spacing: -.025em; line-height: 1.08; }
+.enhanced-home .partners-heading h2 { max-width: 18ch; padding: 0; border: 0; font-size: clamp(30px, 2.8vw, 40px); letter-spacing: -.025em; line-height: 1.12; }
 .enhanced-home .partners-collaboration-band .partners-heading h2 { max-width: none; font-size: clamp(28px, 2.8vw, 40px); }
 .enhanced-home .partners-controls button:not(:disabled) { border: 1px solid var(--semantic-color-text-link); background: var(--semantic-color-surface-subtle); color: var(--semantic-color-text-link); }
 .enhanced-home .partners-controls button:not(:disabled):hover { background: var(--semantic-color-action-primary); color: var(--semantic-color-text-inverse); }

@@ -5,14 +5,17 @@
 .partners-collaboration-band { grid-template-columns: minmax(0, 1fr); gap: 24px; }
 .partners-collaboration-band .partners-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .partners-heading h2 { margin: 0; font-size: clamp(28px, 2.8vw, 40px); line-height: 1.15; }
-.partners-copy { max-width: 30ch; margin: 20px 0 0; font-size: 16px; line-height: 1.6; color: var(--site-muted); }
+.partners-copy { max-width: 40ch; margin: 16px 0 0; font-size: 16px; line-height: 1.6; color: var(--site-muted); }
 .partners-billing-list, .partners-collaboration-list { list-style: none; margin: 0; padding: 0; }
 .partners-billing-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .partner { min-width: 0; text-align: center; }
 .partner figure { margin: 0; }
 .partners .partner-logo { display: flex; align-items: center; justify-content: center; height: 88px; padding: 8px; background: transparent; }
 .partners .partner-logo img { display: block; width: 100%; height: 72px; max-width: 100%; max-height: 72px; object-fit: contain; mix-blend-mode: multiply; transform: scale(var(--partner-logo-scale, 1)); }
-.partners-billing-list .partner figcaption { margin: 8px 0 0; font-size: 14px; line-height: 1.45; overflow-wrap: anywhere; }
+.partners-billing-list .partner figure { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 16px; align-items: center; height: 100%; text-align: start; }
+.partners-billing-list .partner .partner-logo { height: 56px; padding: 4px; }
+.partners-billing-list .partner .partner-logo img { height: 48px; max-height: 48px; }
+.partners-billing-list .partner figcaption { margin: 0; font-size: 14px; line-height: 1.45; overflow-wrap: anywhere; }
 /* Optical balance preserves the source artwork and its different white margins. */
 .partner[data-partner='total-energies'] { --partner-logo-scale: 1.2; }
 .partner[data-partner='nib-bank'], .partner[data-partner='ethiopian-airlines'] { --partner-logo-scale: 1.1; }
@@ -20,16 +23,16 @@
 .partner[data-partner='moha-soft-drink-industries'], .partner[data-partner='dashen-bank'] { --partner-logo-scale: .9; }
 .partner[data-partner='united-states-embassy'], .partner[data-partner='civil-aviation-authority'], .partner[data-partner='ethiopia-investment-holdings'] { --partner-logo-scale: .85; }
 .partner[data-partner='iom'] { --partner-logo-scale: .82; }
-.partners-contact { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; min-height: 44px; color: var(--site-link); font-weight: 600; text-decoration: underline; text-underline-offset: 5px; }
-.partners-directory { min-width: 0; padding: 28px 32px 20px; background: var(--site-pale); }
-.partners-directory-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; margin-bottom: 24px; }
+.partners-contact { display: inline-flex; align-items: center; gap: 12px; margin-top: 16px; min-height: 44px; color: var(--site-link); font-weight: 600; text-decoration: underline; text-underline-offset: 5px; }
+.partners-directory { min-width: 0; padding: 24px; background: var(--site-pale); }
+.partners-directory-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; margin-bottom: 12px; }
 .partners-directory-heading p { margin: 0; font-size: 20px; font-weight: 600; }
 .partners-directory-heading > span { font-size: 14px; color: var(--site-muted); }
 .partners-billing-viewport { display: flex; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--site-link) transparent; }
 html[data-hydration='ready'] .partners-billing-viewport { scrollbar-width: none; }
 html[data-hydration='ready'] .partners-billing-viewport::-webkit-scrollbar { display: none; }
-.partners-billing-viewport > .partners-billing-list { flex: 0 0 100%; min-width: 0; grid-template-rows: repeat(2, 148px); gap: 12px 20px; scroll-snap-align: start; scroll-snap-stop: always; align-content: start; }
-.partners-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; }
+.partners-billing-viewport > .partners-billing-list { flex: 0 0 100%; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, 72px); gap: 0 24px; scroll-snap-align: start; scroll-snap-stop: always; align-content: start; }
+.partners-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--semantic-color-border-default); }
 .partners-pagination > p { margin: 0; font-size: 14px; font-variant-numeric: tabular-nums; }
 .partners-page-controls { display: flex; gap: 8px; }
 .partners-page-controls button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 44px; padding: 10px 14px; border: 1px solid var(--site-link); border-radius: 0; color: var(--site-link); background: transparent; font: inherit; font-size: 14px; cursor: pointer; }
@@ -54,16 +57,21 @@ html:not([data-hydration='ready']) .partners-pagination { display: none; }
   .partners-band { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .partners-bands { gap: 48px; }
   .partners-copy { max-width: 48ch; }
+  .partners-billing-viewport > .partners-billing-list { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, 100px); gap: 8px 20px; }
+  .partners-billing-list .partner figure { grid-template-columns: minmax(0, 1fr); grid-template-rows: 56px auto; gap: 4px; align-content: start; text-align: center; }
 }
 @media (max-width: 599px) {
   .partners-directory { padding: 20px 16px 16px; }
-  .partners-billing-viewport > .partners-billing-list { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, 132px); gap: 12px 16px; }
+  .partners-billing-viewport > .partners-billing-list { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, 100px); gap: 8px 16px; }
   .partners-page-controls button { padding-inline: 10px; gap: 6px; }
   .partners-collaboration-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
   .partners .partner-logo { height: 76px; padding: 6px; }
   .partners .partner-logo img { height: 64px; max-height: 64px; }
   .partners-rail:not([data-motion-state='static']) .partner { flex-basis: 120px; width: 120px; }
   .partners-rail:not([data-motion-state='static']) .partners-rail-track, .partners-rail:not([data-motion-state='static']) .partners-collaboration-list { gap: 24px; }
+}
+@media (max-width: 359px) {
+  .partners-billing-viewport > .partners-billing-list { grid-template-rows: repeat(3, 124px); }
 }
 @media (prefers-reduced-motion: reduce), print {
   .partners .partners-rail { overflow: visible; }
