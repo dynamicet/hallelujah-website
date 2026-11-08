@@ -24,7 +24,7 @@ function PartnerMark({ partner, named = false, clone = false }: { partner: Partn
 
 export function Partners({ partners, billingPartners = [] }: { partners: readonly Partner[]; billingPartners?: readonly Partner[] }) {
   const billingViewport = useRef<HTMLDivElement>(null)
-  const [billingPage, setBillingPage] = useState(0)
+  const [billingRange, setBillingRange] = useState({ start: 1, end: 6, previous: false, next: true })
   const rail = useRef<HTMLDivElement>(null)
   const track = useRef<HTMLDivElement>(null)
   const originals = useRef<HTMLUListElement>(null)
@@ -36,12 +36,33 @@ export function Partners({ partners, billingPartners = [] }: { partners: readonl
   const [inView, setInView] = useState(false)
   const [pageVisible, setPageVisible] = useState(true)
   const billing = billingPartners.filter(eligible)
-  const pageCount = Math.ceil(billing.length / 6)
-  const goToBillingPage = (page: number) => {
+  const updateBillingRange = () => {
     const viewport = billingViewport.current
-    if (!viewport || page < 0 || page >= pageCount) return
-    viewport.scrollTo({ left: page * viewport.clientWidth, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+    if (!viewport) return
+    const bounds = viewport.getBoundingClientRect()
+    const items = [...viewport.querySelectorAll<HTMLElement>('.partner')]
+    const visible = items.flatMap((item, index) => {
+      const rect = item.getBoundingClientRect()
+      return rect.left >= bounds.left - 2 && rect.right <= bounds.right + 2 ? [index + 1] : []
+    })
+    setBillingRange({ start: visible[0] ?? 1, end: visible.at(-1) ?? 1, previous: viewport.scrollLeft > 2, next: viewport.scrollLeft + viewport.clientWidth < viewport.scrollWidth - 2 })
   }
+  const moveBilling = (direction: -1 | 1) => {
+    const viewport = billingViewport.current
+    const item = viewport?.querySelector<HTMLElement>('.partner')
+    if (!viewport || !item) return
+    const count = Number(getComputedStyle(viewport).getPropertyValue('--billing-visible')) || 2
+    const gap = parseFloat(getComputedStyle(item.parentElement!).columnGap) || 0
+    viewport.scrollBy({ left: direction * count * (item.getBoundingClientRect().width + gap), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+  }
+  useEffect(() => {
+    const viewport = billingViewport.current
+    if (!viewport) return
+    const observer = new ResizeObserver(updateBillingRange)
+    observer.observe(viewport)
+    updateBillingRange()
+    return () => observer.disconnect()
+  }, [billing.length])
   const collaborations = partners.filter(eligible)
 
   useEffect(() => {
@@ -115,21 +136,20 @@ export function Partners({ partners, billingPartners = [] }: { partners: readonl
         <div className="partners-directory">
           <div className="partners-directory-heading">
             <p>Find your company</p>
-            <span>{billing.length} organizations</span>
-          </div>
-          <div className="partners-billing-viewport" id="partners-billing-list" ref={billingViewport} tabIndex={0} role="region" aria-label="Companies with healthcare agreements; scroll horizontally to browse"
-            onScroll={(event) => { const viewport = event.currentTarget; setBillingPage(Math.round(viewport.scrollLeft / viewport.clientWidth)) }}>
-            {Array.from({ length: pageCount }, (_, page) => <ul className="partners-billing-list" aria-label={`Companies, page ${page + 1} of ${pageCount}`} key={page}>
-              {billing.slice(page * 6, page * 6 + 6).map((partner) => <PartnerMark partner={partner} named key={partner.id} />)}
-            </ul>)}
-          </div>
-          {pageCount > 1 ? <div className="partners-pagination">
-            <p role="status" aria-live="polite" aria-atomic="true">Page <strong>{billingPage + 1}</strong> of {pageCount}</p>
-            <div className="partners-page-controls">
-              <button type="button" aria-label="Previous companies" aria-controls="partners-billing-list" aria-disabled={billingPage === 0} onClick={() => goToBillingPage(billingPage - 1)}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg><span>Previous</span></button>
-              <button type="button" aria-label="Next companies" aria-controls="partners-billing-list" aria-disabled={billingPage === pageCount - 1} onClick={() => goToBillingPage(billingPage + 1)}><span>Next</span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+            <span className="partners-total">{billing.length} organizations</span>
+            <div className="partners-pagination">
+              <p role="status" aria-live="polite" aria-atomic="true"><span className="ds-visually-hidden">Companies </span>{billingRange.start}–{Math.min(billingRange.end, billing.length)} of {billing.length}</p>
+              <div className="partners-page-controls">
+                <button type="button" aria-label="Previous companies" aria-controls="partners-billing-list" aria-disabled={!billingRange.previous} onClick={() => { if (billingRange.previous) moveBilling(-1) }}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg></button>
+                <button type="button" aria-label="Next companies" aria-controls="partners-billing-list" aria-disabled={!billingRange.next} onClick={() => { if (billingRange.next) moveBilling(1) }}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+              </div>
             </div>
-          </div> : null}
+          </div>
+          <div className="partners-billing-viewport" id="partners-billing-list" ref={billingViewport} tabIndex={0} role="region" aria-label="Companies with healthcare agreements; scroll horizontally to browse" onScroll={updateBillingRange}>
+            <ul className="partners-billing-list" aria-label="Companies with healthcare agreements">
+              {billing.map((partner) => <PartnerMark partner={partner} named key={partner.id} />)}
+            </ul>
+          </div>
         </div>
       </section> : null}
       {collaborations.length ? <section className="partners-band partners-collaboration-band" aria-labelledby="partners-title">
