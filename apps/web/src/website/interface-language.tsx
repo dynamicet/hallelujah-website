@@ -69,7 +69,23 @@ export function InterfaceLink(props: ComponentProps<typeof Link>) {
   const { language, t } = useInterfaceLanguage()
   const directText = Children.toArray(props.children).filter((child): child is string => typeof child === 'string')
   const translated = directText.some(text => t(text) !== text) || !!(props['aria-label'] && t(props['aria-label']) !== props['aria-label'])
-  return <Link {...props} lang={translated ? language : props.lang} aria-label={props['aria-label'] ? t(props['aria-label']) : undefined} title={props.title ? t(props.title) : undefined}>{localize(props.children, language)}</Link>
+  return <Link {...props} onClick={(event) => {
+    props.onClick?.(event)
+    const link = event.currentTarget
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey ||
+      (link.target && link.target !== '_self') || link.hasAttribute('download') || !link.closest('[data-site-header]')) return
+    const destination = new URL(link.href)
+    // Only repeat visits to this exact page return to its beginning. Queries and
+    // section links retain their navigation behavior, including directory resets.
+    if (destination.origin !== location.origin || destination.pathname !== location.pathname ||
+      destination.search !== location.search || destination.hash) return
+    event.preventDefault()
+    if (link.closest('[data-navigation-panel]')) {
+      const trigger = document.querySelector<HTMLButtonElement>('[data-menu-trigger]')
+      if (trigger?.getClientRects().length) trigger.focus({ preventScroll: true })
+    }
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+  }} lang={translated ? language : props.lang} aria-label={props['aria-label'] ? t(props['aria-label']) : undefined} title={props.title ? t(props.title) : undefined}>{localize(props.children, language)}</Link>
 }
 
 export function InterfaceLanguageSwitcher({ enabled, fallback }: { readonly enabled: boolean; readonly fallback: ReactNode }) {
