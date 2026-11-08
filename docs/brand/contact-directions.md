@@ -1,5 +1,44 @@
 # Contact & directions
 
+## Dedicated Contact page — 8 November 2026
+
+The connected local demo now includes `/contact`, linked from the homepage contact
+section, desktop utility navigation, mobile menu, footer and About page. The home
+section retains its direct telephone and directions actions and existing fragment
+targets. The page uses the same `hospitalContact` facts and shared static map;
+it adds visit-confirmation and access-planning guidance without asserting opening
+hours or facilities. It remains behind `requireLocalDemo()`.
+
+The composition borrows the clarity of a destination guide: Gotera's published
+hospital pin becomes the visual anchor, beside reception telephone and email rows.
+Arrival advice follows in two quiet bands, with a separate emergency link. Existing
+brand typography and colours are retained. Decorative photography, footage and
+entrance animation were omitted to keep this utility page focused on contacting
+the hospital and finding it. No new contact facts, external embed, message form,
+or delivery service was introduced.
+
+Current validation: TypeScript, changed-file ESLint, home-contact contracts (134
+cases), shell contracts and diff whitespace checks pass. Fresh repository responsive
+checks pass for `/contact`, `/` and `/about` at 390/768/1440px. Those screenshots
+were opened and inspected; the new homepage link was also inspected in focused
+captures at each width. Evidence is in
+`artifacts/visual-checks/2026-11-08T20-19-15.726Z-responsive-X54Z8P/`.
+
+Focused Chromium checks pass at 320/390/768/1440px for the homepage-to-contact
+keyboard journey, skip-link focus, visible phone-link focus, native action targets,
+44px link heights, reduced motion, mobile menu availability and browser errors.
+Phone and directions anchors also pass without JavaScript. Evidence is in
+`artifacts/visual-checks/2026-11-08T20-21-19.602Z-contact-journey-WHK9KU/`;
+the local reproduction script is `.taste-skill/check-contact-page.mjs`.
+No telephone call or email was sent.
+
+The design source lint has zero failures and one warning for the forced-colours
+border. The whole-page design inspector is not a pass: it flags the existing Help
+button shadow, the single content image and limited motion, alongside warnings
+about shared typography, palette, footer and sizing. Its output is retained at
+`.taste-skill/contact-page/`. This utility-page review does not certify broader
+accessibility, physical telephone handoff or production release readiness.
+
 The client authorized sourcing hospital contact and location facts from the old website
 and Google on 4 November 2026, with newly written supporting content. This applies to
 the connected local demo. It does not publish the site or activate appointment submission.

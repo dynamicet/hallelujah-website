@@ -1,7 +1,7 @@
 import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
 
-import Image from 'next/image'
 import { hospitalContact } from './hospital-contact'
+import { HospitalLocationMap } from './hospital-location-map'
 import styles from './contact-directions.module.css'
 
 const Arrow = () => <span aria-hidden="true">↗</span>
@@ -11,6 +11,7 @@ export function ContactDirections() {
     <div className="page-frame">
       <div className={styles.intro} data-motion="heading" data-reveal="0">
         <h2 id="contact-directions-title">Contact &amp; directions</h2>
+        <Link className="text-link" href="/contact">View contact page <span aria-hidden="true">→</span></Link>
       </div>
       <div className={styles.columns}>
         <section className={styles.location} aria-label="Hospital location">
@@ -23,11 +24,7 @@ export function ContactDirections() {
             <a className="solid-button" href={hospitalContact.directionsHref} target="_blank" rel="noopener noreferrer"><InterfaceText>Get directions</InterfaceText> <Arrow /></a>
             <a className={styles.callAction} href={hospitalContact.phoneHref}><InterfaceText>Call the hospital</InterfaceText> <Arrow /></a>
           </div>
-          <div className={styles.map}>
-            <Image src="/maps/gotera-location.webp" alt="Street map showing the hospital’s location in Gotera, Addis Ababa." width={768} height={440} unoptimized />
-            <div className={styles.mapPin} aria-hidden="true"><span>{hospitalContact.name}</span><b>H</b></div>
-            <a className={styles.mapCredit} href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
-          </div>
+          <HospitalLocationMap />
         </section>
         <section className={styles.contact} id="home-call" tabIndex={-1} aria-labelledby="contact-phone-title">
           <h3 id="contact-phone-title">Call the hospital</h3>

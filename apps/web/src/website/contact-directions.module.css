@@ -1,5 +1,7 @@
 .section { padding-block: var(--home-space); background: var(--site-pale); color: var(--site-ink); }
+.intro { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 32px; }
 .intro h2 { max-width: none; }
+.intro > a { min-height: 44px; }
 .columns { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; gap: clamp(32px, 4.5vw, 64px); margin-top: 36px; }
 .contact, .location { min-width: 0; }
 .section h3 { margin: 0 0 20px; font-family: var(--site-font); font-size: 24px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; }

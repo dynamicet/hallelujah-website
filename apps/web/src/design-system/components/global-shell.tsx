@@ -211,7 +211,7 @@ export function SiteHeader({
             <div className={styles.utilityLinks}>
               <div className={styles.utilityContext}>
                 <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link>{showGuide ? <GuideLauncher /> : null}</div>
-                <Link className={styles.contactDirections} href="/#home-directions">Contact & directions</Link>
+                <Link className={styles.contactDirections} href="/contact">Contact & directions</Link>
               </div>
               <div className={styles.utilityEssentials}>
                 <InterfaceLanguageSwitcher fallback={languageSwitcher} enabled={publicWebsite} />
@@ -293,9 +293,7 @@ export function SiteHeader({
           </div> : null}
           {publicWebsite ? <div className={styles.mobileVisitActions} aria-label="Plan your arrival" role="group">
             <a href={hospitalContact.phoneHref}>Call the hospital <span>{hospitalContact.phone}</span></a>
-            {/* Native fragment navigation transfers keyboard focus to the arrival section. */}
-            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-            <a href="/#home-directions">Contact &amp; directions <span aria-hidden="true">→</span></a>
+            <Link href="/contact">Contact &amp; directions <span aria-hidden="true">→</span></Link>
           </div> : null}
           {routineAction ? (
             <div className={styles.headerRoutine} data-shell-routine>

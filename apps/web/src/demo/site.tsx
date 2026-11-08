@@ -72,7 +72,7 @@ export function demoShell(current: string): Omit<SiteShellProps, 'children'> {
         ] },
         { label: 'Plan your visit', links: [
           { href: '/patients-visitors', label: 'Patients & visitors' },
-          { href: '/#home-directions', label: 'Contact & directions' },
+          { href: '/contact', label: 'Contact & directions' },
         ] },
         { label: 'Our hospital', links: [
           { href: '/about', label: 'About Hallelujah' },
