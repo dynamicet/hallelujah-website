@@ -549,8 +549,8 @@
 .frame[data-local-journey] [data-appointment-form-controller] { background: var(--semantic-color-surface-raised); padding: 28px; border-block-start: 3px solid var(--semantic-color-action-primary); }
 .frame[data-local-journey] .progress { container: appointment-progress / inline-size; margin-block-end: 28px; }
 .frame[data-local-journey] .progress button { border-block-end: 3px solid var(--semantic-color-border-default); background: var(--semantic-color-surface-subtle); color: var(--semantic-color-text-heading); }
-.frame[data-local-journey] .progress button[aria-current='step'] { background: var(--semantic-color-action-primary); color: var(--semantic-color-text-inverse); border-block-end-color: var(--semantic-color-text-heading); }
-.frame[data-local-journey] .progress button[data-complete='true'] { background: var(--semantic-color-surface-selected); color: var(--semantic-color-text-heading); }
+.frame[data-local-journey] .progress button[aria-current='step'] { background: var(--semantic-color-surface-selected); color: var(--semantic-color-text-heading); border-block-end-color: var(--semantic-color-text-heading); font-weight: var(--semantic-font-weight-strong); }
+.frame[data-local-journey] .progress button[data-complete='true']:not([aria-current='step']) { background: var(--semantic-color-surface-raised); color: var(--semantic-color-text-heading); }
 .frame[data-local-journey] .careGroup [data-choice-group] label { align-items: center; border: 1px solid var(--semantic-color-border-default); border-radius: var(--site-control-radius); min-block-size: 56px; padding: var(--semantic-space-regular); background: var(--semantic-color-surface-raised); }
 .frame[data-local-journey] .careGroup [data-choice-group] input { min-block-size: 0; margin-block: 0; }
 .frame[data-local-journey] .careGroup [data-choice-group] label:hover { transform: none; background: var(--semantic-color-surface-subtle); }
@@ -641,8 +641,9 @@
 
 @media (forced-colors: active) {
   .frame[data-local-journey] .progress button[aria-current='step'] {
-    background: Highlight;
-    color: HighlightText;
+    background: Canvas;
+    color: CanvasText;
+    border-block-end-color: Highlight;
   }
 }
 

@@ -14,9 +14,9 @@ window.HALLELUJAH_PALETTE = {
     },
     {
       "id": "blue-100",
-      "name": "Blue veil",
-      "hex": "#D5EAF2",
-      "role": "Selected surfaces and subtle blue fields",
+      "name": "Cyan veil",
+      "hex": "#D0EFFA",
+      "role": "Selected surfaces and pale cyan fields; retain explicit state markers",
       "group": "blue",
       "ink": "#00445D"
     },
@@ -63,7 +63,7 @@ window.HALLELUJAH_PALETTE = {
     {
       "id": "orange-tint",
       "name": "Pale orange",
-      "hex": "#FFF0E7",
+      "hex": "#FFF7F2",
       "role": "Pale companion to the supporting orange",
       "group": "orange",
       "ink": "#A8430C"
@@ -87,7 +87,7 @@ window.HALLELUJAH_PALETTE = {
     {
       "id": "magenta-tint",
       "name": "Pale magenta",
-      "hex": "#FCEAF2",
+      "hex": "#FDF3F8",
       "role": "Pale companion to the expressive magenta",
       "group": "magenta",
       "ink": "#A61558"
@@ -212,5 +212,5 @@ window.HALLELUJAH_PALETTE = {
     "accent-expressive-subtle": "magenta-tint",
     "accent-expressive-text": "magenta-deep"
   },
-  "version": "1.2"
+  "version": "1.3"
 };

@@ -80,6 +80,31 @@ use. It is not used for labels, buttons, notices, or warning semantics. Bright a
 kept separate from functional text and focus roles; pale/deep pairings retain their contrast.
 This extension is limited to the local homepage presentation and its shared artwork helper.
 
+## Inner-page and selection refinement — 8 November 2026
+
+The client approved extending the lighter treatment to related pages, using cyan more
+purposefully in selection states, and softening the warm surfaces. Directory introductions,
+clinician profile introductions, and shared patient/service guidance headers now use pale
+blue fields. Service cards and reading-section rules repeat the decorative cyan. General
+care handoffs use pale blue; visit preparation retains a lighter warm companion. Existing
+content, artwork and task ordering remain in place.
+
+Cyan veil `#D0EFFA` replaces the previous blue veil `#D5EAF2` as the selected surface.
+It is used for care-mode radios, checked directory filters and applied chips, current
+pagination, news-category filters, health-topic letters, appointment choices/current progress, and checked visit
+checklist rows. Dark text, native check/radio marks, removal labels, underlines, current-step
+wording, and selected borders supply non-color cues. Current appointment progress is
+emphasized by a strong bottom rule and weight; completed steps remain a separate white state.
+Primary submit and navigation actions retain solid functional blue and white labels.
+Forced-color appointment progress uses system Canvas/CanvasText with an explicit state
+outline and bottom rule so the current label remains readable.
+
+The orange companion changes from `#FFF0E7` to `#FFF7F2`; the magenta companion changes
+from `#FCEAF2` to `#FDF3F8`. Both are intentionally quieter than the previous surfaces.
+The original bright accents and readable deep text shades stay unchanged. These are derived
+digital companions, not additional hospital-supplied colors. Token and catalog sources are
+updated together; existing contrast-policy minimums remain in force.
+
 ## Palette and responsibilities
 
 | Family | Values | Current responsibility |
@@ -87,9 +112,9 @@ This extension is limited to the local homepage presentation and its shared artw
 | Artwork colors | Cyan `#15B0E6`, orange `#F65B25`, magenta `#E7277C`, yellow `#F5C82D` | Decorative geometric artwork only; no control or status meaning |
 | Brand blue | Primary `#0078A6`, strong `#00678D`, deep `#00445D` | Primary actions, ordinary links, headings, structural marks and substantial identity fields |
 | Agency cyan | `#15B0E6` | Decorative identity marks; functional blues remain separate |
-| Blue companions | Mist `#EAF5F9`, veil `#D5EAF2`, air `#A8D3E4` | Grouping, selected planes, portrait grounds and tonal geometry; deep blue supplies readable text |
-| Supporting orange | Anchor `#F65B25`, pale `#FFF0E7`, deep `#A8430C` | Warm image edges, markers, frames, action-adjacent details, readable accent copy and bounded warm planes |
-| Expressive magenta | Anchor `#E7277C`, pale `#FCEAF2`, deep `#A61558` | Quotation punctuation, metadata, contrasting rules, inset planes and expressive moments |
+| Blue companions | Mist `#EAF5F9`, veil `#D0EFFA`, air `#A8D3E4` | Grouping, selected planes, portrait grounds and tonal geometry; deep blue supplies readable text |
+| Supporting orange | Anchor `#F65B25`, pale `#FFF7F2`, deep `#A8430C` | Warm image edges, markers, frames, action-adjacent details, readable accent copy and bounded warm planes |
+| Expressive magenta | Anchor `#E7277C`, pale `#FDF3F8`, deep `#A61558` | Quotation punctuation, metadata, contrasting rules, inset planes and expressive moments |
 | Reading surfaces | Paper `#FBF8F6`, white `#FFFFFF` | Page ground, quiet reading, distinct working planes and fields |
 | Reading text | Ink `#17313D`, slate `#52636B` | Essential body copy and supporting metadata; blue headings orient the reader |
 | Edges | Quiet `#CBD8DE`, control `#718892` | Decorative separation versus meaningful boundaries around white controls |
@@ -236,8 +261,8 @@ actual pairs and states, including hover, nested surfaces, opacity and image ove
   Use deep orange on pale orange and deep magenta on pale magenta for accent copy.
   The reserved darker magenta primitive `#D81B72` retains 4.86:1 against white;
   it is distinct from the bright decorative magenta `#E7277C`.
-- Quiet edges are decorative. Control edge on veil is 2.9936:1 and fails 3:1; keep the approved
-  white field plane or test a stronger boundary.
+- Quiet edges are decorative. Control edge on the revised cyan veil is 3.09:1. Keep
+  the established white field plane; test actual adjacent pairs before extending that usage.
 - Light-surface focus uses a 3px deep-blue outline and 4px white separation; inverse surfaces
   use white outlines. Selection, disabled, invalid and focus states remain distinguishable.
 

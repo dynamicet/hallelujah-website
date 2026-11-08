@@ -145,7 +145,7 @@
 .root .searchBox { border-block-end: 3px solid var(--semantic-color-accent-expressive); border-radius: 8px; }
 .root .alphabet button { border: 1px solid var(--semantic-color-border-default); border-radius: var(--site-control-radius); }
 .root .alphabet button:disabled { border-style: dashed; background: transparent; color: var(--semantic-color-text-secondary); }
-.root .alphabet button[aria-pressed=true] { background: var(--semantic-color-action-primary); color: var(--semantic-color-text-inverse); border-color: var(--semantic-color-text-link); border-block-end: 4px solid var(--semantic-color-text-heading); }
+.root .alphabet button[aria-pressed=true] { background: var(--semantic-color-surface-selected); color: var(--semantic-color-text-heading); border-color: var(--semantic-color-text-link); border-block-end: 4px solid var(--semantic-color-text-heading); font-weight: 700; }
 .root .alphabet button:hover:not(:disabled):not([aria-pressed=true]) { border-color: var(--semantic-color-text-link); background: var(--semantic-color-surface-selected); }
 .root .resultLetter { border-inline-start: 4px solid var(--semantic-color-accent-expressive); padding-inline-start: 16px; }
 .root .topic { border-inline-start: 3px solid var(--semantic-color-surface-selected); }
@@ -189,7 +189,7 @@
 .root.home .alphabet button { border: 0; background: transparent; font-size: 22px; font-weight: 400; }
 .root.home .alphabet button:disabled { color: var(--health-muted); opacity: .6; }
 .root.home .alphabet button:hover:not(:disabled):not([aria-pressed=true]) { background: var(--semantic-color-surface-selected); }
-.root.home .alphabet button[aria-pressed=true] { background: var(--semantic-color-action-primary); color: var(--semantic-color-text-inverse); }
+.root.home .alphabet button[aria-pressed=true] { background: var(--semantic-color-surface-selected); color: var(--semantic-color-text-heading); }
 .root .homeClear { display: block; margin-top: 12px; padding: 0; font-size: var(--site-support); text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 899px) {
   .root.home .opening { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-bottom: 24px; }

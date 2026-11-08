@@ -25,7 +25,7 @@
   --primitive-color-teal-700: #0078a6;
   --primitive-color-teal-800: #00678d;
   --primitive-color-teal-900: #00445d;
-  --primitive-color-blue-100: #d5eaf2;
+  --primitive-color-blue-100: #d0effa;
   --primitive-color-blue-200: #a8d3e4;
   --primitive-color-blue-600: #0078a6;
   --primitive-color-blue-700: #00678d;
@@ -46,10 +46,10 @@
   --primitive-color-brand-magenta: #e7277c;
   --primitive-color-orange-600: #f65b25;
   --primitive-color-orange-800: #a8430c;
-  --primitive-color-orange-050: #fff0e7;
+  --primitive-color-orange-050: #fff7f2;
   --primitive-color-magenta-600: #d81b72;
   --primitive-color-magenta-800: #a61558;
-  --primitive-color-magenta-050: #fceaf2;
+  --primitive-color-magenta-050: #fdf3f8;
   --primitive-font-family-latin: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --primitive-font-family-ethiopic: "Noto Sans Ethiopic", "Noto Sans", system-ui, sans-serif;
   --primitive-font-weight-regular: 400;
@@ -361,6 +361,7 @@
   --component-search-controls-accent: var(--semantic-color-accent-supporting);
   --component-search-controls-focus-color: var(--semantic-color-focus);
   --component-search-controls-focus-gap: var(--semantic-color-surface-raised);
+  --component-search-controls-surface-selected: var(--semantic-color-surface-selected);
   --component-form-surface-raised: var(--semantic-color-surface-raised);
   --component-form-surface-subtle: var(--semantic-color-surface-subtle);
   --component-form-surface-information: var(--semantic-color-surface-information);

@@ -184,9 +184,9 @@
 .archiveHeader p { padding-inline-start: 24px; border-inline-start: 3px solid var(--semantic-color-accent-supporting); }
 .filters { padding-block: 20px; border-block: 1px solid var(--semantic-color-border-default); }
 .filters a { border-radius: var(--site-control-radius); background: var(--semantic-color-surface-raised); border: 1px solid var(--semantic-color-border-default); }
-.filters a[aria-current=page] { background: var(--semantic-color-action-primary); color: var(--semantic-color-text-inverse); border-color: var(--semantic-color-text-link); box-shadow: inset 0 -3px var(--semantic-color-text-heading); }
+.filters a[aria-current=page] { background: var(--semantic-color-surface-selected); color: var(--semantic-color-text-heading); border-color: var(--semantic-color-text-link); box-shadow: inset 0 -3px var(--semantic-color-text-heading); font-weight: 700; }
 .filters a:hover { background: var(--semantic-color-surface-selected); color: var(--semantic-color-text-heading); }
-.filters a[aria-current=page]:hover { background: var(--semantic-color-action-primary-hover); color: var(--semantic-color-text-inverse); }
+.filters a[aria-current=page]:hover { background: var(--semantic-color-surface-selected); color: var(--semantic-color-text-heading); text-decoration: underline; text-underline-offset: 4px; }
 .archiveGrid .card { border-radius: 0; padding-block-start: 16px; border-block-start: 3px solid var(--semantic-color-action-primary); }
 .archiveGrid .card:first-child { border-block-start-color: var(--semantic-color-accent-expressive); }
 .archiveGrid .card:nth-child(3n) { border-block-start-color: var(--semantic-color-accent-supporting); }

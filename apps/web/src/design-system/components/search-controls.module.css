@@ -117,7 +117,7 @@
 
 .disclosureChevron { flex: 0 0 auto; }
 .filterDisclosure[open] .disclosureChevron { transform: rotate(180deg); }
-.filterGroup label:has(input:checked) { font-weight: var(--component-search-controls-font-weight-strong); }
+.filterGroup label:has(input:checked) { font-weight: var(--component-search-controls-font-weight-strong); background: var(--component-search-controls-surface-selected); color: var(--component-search-controls-text-primary); border-radius: var(--component-search-controls-radius); }
 .filterGroup label:focus-within { outline: 3px solid var(--component-search-controls-focus-color); outline-offset: 4px; }
 
 .browse { display: grid; gap: var(--component-search-controls-space-regular); min-inline-size: 0; }
@@ -137,7 +137,7 @@
   text-decoration: none;
 }
 .browse a > span { overflow-wrap: anywhere; }
-.browse a[aria-current] { background: var(--component-search-controls-action); border-color: var(--component-search-controls-action); color: var(--component-search-controls-action-on-solid); font-weight: var(--component-search-controls-font-weight-strong); }
+.browse a[aria-current] { background: var(--component-search-controls-surface-selected); border-color: var(--component-search-controls-action); color: var(--component-search-controls-text-primary); font-weight: var(--component-search-controls-font-weight-strong); text-decoration: underline; text-underline-offset: .25em; }
 .browse a:hover { text-decoration: underline; text-underline-offset: .25em; }
 .browseCount { font-size: .875em; font-variant-numeric: tabular-nums; }
 .browse a:focus-visible { outline: 3px solid var(--component-search-controls-focus-color); outline-offset: 4px; }
@@ -267,8 +267,9 @@
 }
 
 .pagination [aria-current='page'] {
-  background: var(--component-search-controls-text-primary);
-  color: var(--component-search-controls-surface-raised);
+  background: var(--component-search-controls-surface-selected);
+  color: var(--component-search-controls-text-primary);
+  border-color: var(--component-search-controls-action);
   font-weight: var(--component-search-controls-font-weight-strong);
 }
 
@@ -326,10 +327,10 @@
   }
 }
 
-/* Selection and navigation retain blue; a warm edge highlights the applied filter. */
+/* Pale cyan marks selection; native checks, underlines and borders retain state cues. */
 .searchBox { border-inline-start: 3px solid var(--component-search-controls-action); padding-inline-start: var(--component-search-controls-space-regular); }
 .filterGroup input { accent-color: var(--component-search-controls-action); }
-.activeFilters li a { border-inline-start: 3px solid var(--component-search-controls-accent); }
+.activeFilters li a { background: var(--component-search-controls-surface-selected); border-color: var(--component-search-controls-action); color: var(--component-search-controls-text-primary); }
 .pagination [aria-current='page'] { border-block-end: 4px solid var(--component-search-controls-action); }
 .form :is(input, button, a, summary):focus-visible, .pagination a:focus-visible, .activeFilters a:focus-visible {
   outline: 3px solid var(--component-search-controls-focus-color);

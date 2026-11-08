@@ -110,7 +110,7 @@
 .heroCopy > a { text-decoration: none; }
 .hero:has(:global(.care-page-image)) h1 { max-width: 16ch; }
 .hero :global(.care-page-image) { aspect-ratio: 4 / 3; }
-.hero:not(:has(:global(.care-page-image))) { grid-template-columns: minmax(0, 1fr); max-width: 880px; }
+.hero:not(:has(:global(.care-page-image))) { grid-template-columns: minmax(0, 1fr); }
 .jumpLinks { background: var(--site-ground); padding: 20px 32px; gap: 8px 32px; }
 .section { grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); gap: clamp(24px, 4vw, 56px); margin-top: 56px; }
 .section h2 { max-width: 18ch; }
@@ -142,15 +142,16 @@
 }
 .sectionBody > :global(.care-page-image) { aspect-ratio: 16 / 9; margin-bottom: 28px; }
 .heroCopy > p, .topicOpening p { font-size: var(--site-page-intro); }
+.hero { background: var(--semantic-color-surface-subtle); padding: clamp(20px, 3vw, 32px); border-radius: var(--site-panel-radius); }
 @media print { .sectionBody > :global(.care-page-image) { display: none; } }
 
 /* Open reading columns share a blue spine; accents identify a useful moment,
    rather than recoloring all the content in a section. */
 .hero h1, .topicOpening h1, .section :is(h2, h3) { color: var(--semantic-color-text-heading); }
-.jumpLinks { background: var(--semantic-color-surface-raised); border-block: 1px solid var(--semantic-color-border-default); padding-inline: 0; }
+.jumpLinks { background: var(--semantic-color-surface-subtle); border-block: 1px solid var(--semantic-color-border-default); }
 .jumpLinks a { text-decoration: none; }
 .jumpLinks a:hover { text-decoration: underline; text-decoration-color: var(--semantic-color-accent-supporting); text-decoration-thickness: 3px; }
-.section > h2 { padding-block-start: 16px; border-block-start: 3px solid var(--semantic-color-action-primary); }
+.section > h2 { padding-block-start: 16px; border-block-start: 3px solid var(--semantic-color-artwork-cyan); }
 .sectionBody { color: var(--semantic-color-text-primary); }
 .sectionBody li::marker { color: var(--semantic-color-text-link); }
 .tone { background: var(--semantic-color-surface-subtle); border-radius: var(--site-panel-radius); }
@@ -162,7 +163,7 @@
 .field :is(select, textarea) { border-color: var(--semantic-color-border-strong); border-radius: var(--site-control-radius); }
 .review { background: var(--semantic-color-surface-subtle); border-block-start: 4px solid var(--semantic-color-accent-expressive); }
 .checklist label { padding: 14px 0; margin: 0; border-block-end: 1px solid var(--semantic-color-border-default); }
-.checklist label:has(input:checked) { color: var(--semantic-color-text-heading); }
+.checklist label:has(input:checked) { color: var(--semantic-color-text-heading); background: var(--semantic-color-surface-selected); }
 .checklist input { min-block-size: 0; }
 .checklist label:focus-within { outline: 3px solid var(--semantic-color-focus); outline-offset: 3px; }
 .topicOpening p { border-inline-start: 3px solid var(--semantic-color-accent-supporting); padding-inline-start: 24px; }

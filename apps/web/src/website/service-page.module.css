@@ -7,7 +7,7 @@
   align-items: stretch;
   background: var(--semantic-color-surface-raised);
   border: 1px solid var(--semantic-color-border-default);
-  border-inline-start: 3px solid var(--semantic-color-action-primary);
+  border-block-start: 3px solid var(--semantic-color-artwork-cyan);
   color: var(--semantic-color-text-primary);
   text-decoration: none;
   overflow-wrap: anywhere;
@@ -19,7 +19,7 @@
 .doctorDetails { display: grid; gap: 8px; padding: 20px; }
 .doctorDetails strong { font-size: 20px; color: var(--semantic-color-text-heading); }
 .profileAction { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--semantic-color-text-link); font-weight: 600; }
-.careTeam a:hover { border-inline-start-color: var(--semantic-color-accent-supporting); background: var(--semantic-color-surface-subtle); }
+.careTeam a:hover { border-block-start-color: var(--semantic-color-accent-supporting); background: var(--semantic-color-surface-subtle); }
 .careTeam a:hover .profileAction { text-decoration: underline; }
 .backLink:focus-visible, .careTeam a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
 @media (max-width: 359px) {

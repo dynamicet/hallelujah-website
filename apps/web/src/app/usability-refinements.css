@@ -5,7 +5,7 @@
 .care-mode-options { display: flex; gap: 0; padding: 4px; border-radius: var(--site-control-radius); background: var(--site-white); }
 .care-search-panel .care-mode-options label { position: relative; display: flex; flex: 1; align-items: center; justify-content: center; min-height: 48px; padding: 8px 12px; border: 0; border-radius: calc(var(--site-control-radius) - 3px); background: transparent; cursor: pointer; }
 .care-mode-options input { position: absolute; width: 1px; height: 1px; margin: 0; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }
-.care-mode-options label:has(:checked) { color: var(--site-white); background: var(--site-action-primary); }
+.care-mode-options label:has(:checked) { color: var(--site-ink); background: var(--site-selection); font-weight: 700; }
 .care-mode-options label:focus-within { outline: 3px solid var(--semantic-color-focus); outline-offset: 3px; }
 .enhanced-home .care-search-panel form { grid-template-columns: 280px minmax(0, 1fr); gap: 24px; }
 .enhanced-home .care-search-links [data-care-guide] { border: 0; padding: 0; }
