@@ -3,16 +3,13 @@ import { InterfaceText, InterfaceLink as Link } from '@/website/interface-langua
 import { ClinicianPortrait, Icon, SiteShell } from '@/design-system/components'
 import { clinicians, demoShell } from '@/demo/site'
 import { demoClinicianPortraits } from '@/demo/clinician-portraits'
-import { hospitalStatistics } from '@/demo/hospital-statistics'
-import { patientStories, patientQuotes } from '@/demo/patient-stories'
+import { patientStories } from '@/demo/patient-stories'
 import { EverydayStories } from './everyday-stories'
 import { CareSearch } from './care-search'
 import { HomeScenes } from './home-scenes'
-import { CareBackgroundFilm } from './care-background-film'
 import { HospitalStoryIntroduction } from './hospital-story-introduction'
 import { SpecialtyGrid } from './specialty-grid'
 import { EquipmentPreview } from './equipment-preview'
-import { HospitalStatistics } from './hospital-statistics'
 import { HomeHealthTopics } from './home-health-topics'
 import { partners } from '@/demo/partners'
 import { Partners } from './partners'
@@ -135,15 +132,11 @@ export function WebsiteHome() {
 
         <EquipmentPreview />
 
-        <section className="hospital-film-section" data-motion-section="film" id="about-hallelujah" aria-labelledby="hospital-story-title">
+        <section className="hospital-film-section" id="about-hallelujah" aria-labelledby="hospital-story-title">
           <HospitalStoryIntroduction />
-          <div className="page-frame hospital-film-stage" data-motion="image" data-reveal="1"><CareBackgroundFilm /></div>
         </section>
 
-        <section className="human-care" aria-label="Hospital in numbers and patient stories">
-          <HospitalStatistics {...hospitalStatistics} />
-          <div className="home-stories-room"><EverydayStories stories={patientStories} quotes={patientQuotes} /></div>
-        </section>
+        <div className="home-stories-room"><EverydayStories stories={patientStories.slice(0, 1)} quotes={[]} /></div>
 
         <NewsResources entries={editorialEntries} />
 

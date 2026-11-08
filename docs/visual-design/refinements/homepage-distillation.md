@@ -39,3 +39,47 @@ for the destination anchor to receive focus before opening its disclosure, then
 verify opening/closing and focus styling at all widths and motion preferences.
 The first desktop keyboard run raced the route's anchor-focus handoff; waiting
 for that observable state resolved it without a delay or application workaround.
+
+## Deliverable 3: one hospital introduction, one featured story
+
+- Keep the founder introduction and its About links. The hospital film remains
+  available with native controls on About; remove the duplicate homepage player.
+- Keep one featured patient story with its existing read, watch, captions,
+  transcript, and keyboard-return behavior. Remove the second feature, repeated
+  quotations, and demonstration statistics from the homepage. These were preview
+  presentation material, not additional care functionality or verified proof;
+  their source records remain available for future approved editorial use.
+- Combine organization presentation into one compact section with two clearly
+  named native disclosures. All 19 corporate entries and 10 partner entries,
+  including shared identities, remain available with visible names and local
+  logos. Retain arrangement-confirmation guidance and source provenance in
+  `demo/partners.ts` and `partner-sources.json`.
+- Remove automatic logo movement, paging state, and the unused homepage film
+  observer. These disclosures work with keyboard, reduced motion, and JavaScript
+  disabled. Their expansion is allowed to increase page height intentionally.
+
+Validation passed: responsive homepage checks at 390/768/1440; component
+interactions (care/query retention, organization keyboard opening/closing and
+focus, mobile menu/Escape, live reduced motion, native no-JavaScript behavior);
+reading continuity (dedicated topic browser and retained story/transcript);
+media checks (retained story playback/transcript and native About film controls);
+partner source/asset tests; TypeScript and scoped ESLint.
+
+The current `visual:signature` run passed mobile/tablet and failed its desktop
+portrait scroll-progress assertion: early and middle transforms were identical.
+This assertion remains unresolved; baseline behavior was not reproduced, so it
+is not classified as pre-existing. No motion redesign was included in this
+refinement. Equipment animation expectations and removed inter-section links
+were removed from that script; its remaining assertion is not weakened.
+The choreography and integrated journey scripts have route/section-contract
+updates but were not rerun as part of this focused verification.
+
+The Impeccable detector ran once on changed UI targets. Its six warnings concern
+thick border declarations in incumbent `home-composition.css`; several target
+removed or overridden treatments. It reported no findings in the new invitation,
+technology-preview, or organization-disclosure files. This is not a complete
+accessibility audit or a production-performance/conversion claim.
+
+Monitor whether people find the full organization lists and About technology
+content. Approved content must still replace fictional patient examples and
+unverified institutional material before publication.

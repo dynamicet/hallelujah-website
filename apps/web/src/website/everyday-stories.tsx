@@ -23,7 +23,7 @@ export function EverydayStories({ stories, quotes }: {
   if (!featured.length && !visibleQuotes.length) return null
 
   return (
-    <section className="page-frame everyday-stories" id="patient-testimonials" tabIndex={-1} data-signature-scene="stories" data-motion-section="stories" data-motion-chapter aria-labelledby="everyday-stories-title">
+    <section className="page-frame everyday-stories" id="patient-testimonials" tabIndex={-1} data-signature-scene="stories" data-motion-section="stories" aria-labelledby="everyday-stories-title">
       <div className="everyday-stories-intro">
         <h2 data-motion="heading" data-reveal="0" id="everyday-stories-title">Everyday stories.</h2>
       </div>

@@ -9,7 +9,7 @@ async function enter(page) {
 await runVisualCheck('reading-continuity', base, async ({ browser, output }) => {
   for (const width of [390, 768, 1440]) {
     const page = await browser.newPage({ width, height: 1000, mobile: width < 600 })
-    await page.goto(base)
+    await page.goto(base + '/health-topics')
     await page.eval("document.querySelector('[data-health-library] [aria-controls=health-topic-matches]').click()")
     await delay(200)
     await page.eval("document.querySelector('[data-health-topic]').scrollIntoView({block:'center',behavior:'instant'}); document.querySelector('[data-health-topic]').focus({preventScroll:true})")
@@ -29,6 +29,7 @@ await runVisualCheck('reading-continuity', base, async ({ browser, output }) => 
     assert.ok(Math.abs(await page.eval("scrollY") - original.y) < 3, 'return restores scroll position')
     assert.equal(await page.eval("document.activeElement.dataset.lastRead"), 'true')
     await page.screenshot({ path: output + '/returned-' + width + '.png' })
+    await page.goto(base)
     await page.eval("document.querySelector('.everyday-account summary').scrollIntoView({block:'start',behavior:'instant'}); document.querySelector('.everyday-account summary').focus({preventScroll:true})")
     await delay(600)
     await enter(page)
@@ -51,8 +52,7 @@ await runVisualCheck('reading-continuity', base, async ({ browser, output }) => 
     assert.ok(await page.eval("document.activeElement === document.querySelector('.story-cinema[open] .everyday-transcript summary')"))
     await page.eval("document.querySelector('.story-cinema[open]').close()")
     await page.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
-    await page.eval("document.querySelector('[data-health-topic]').click(); document.querySelector('.everyday-account summary').click()")
-    assert.equal(await page.eval("getComputedStyle(document.querySelector('#health-topic-reader')).animationName"), 'none')
+    await page.eval("document.querySelector('.everyday-account summary').click()")
     assert.equal(await page.eval("getComputedStyle(document.querySelector('.everyday-account .story-reading-body'),'::before').animationName"), 'none')
     assert.equal(await page.eval("document.documentElement.scrollWidth > innerWidth"), false)
     assert.deepEqual(page.consoleErrors, [])

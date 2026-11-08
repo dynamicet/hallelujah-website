@@ -14,7 +14,8 @@ await runVisualCheck('home-choreography', baseUrl, async ({ browser, output }) =
     const page = await browser.newPage({ width, height: 1000, mobile: width < 600 })
     await page.goto(baseUrl)
     const sections = await page.eval(`[...document.querySelectorAll('[data-motion-section]')].map(e=>e.dataset.motionSection)`)
-    assert.equal(sections.length, 11, 'all eleven post-hero sections have a deliberate motion allocation')
+    assert.ok(sections.includes('care') && sections.includes('specialists') && sections.includes('stories'), 'core care and story sections retain motion allocation')
+    assert.ok(!sections.includes('technology') && !sections.includes('film'), 'equipment invitation and hospital introduction stay static')
     const journey = []
     for (const name of sections) {
       await scrollToSection(page, name)
@@ -49,10 +50,10 @@ await runVisualCheck('home-choreography', baseUrl, async ({ browser, output }) =
     // Boundary accents respond in both directions, with no content re-entry.
     await page.eval(`scrollTo({top:0,behavior:'instant'})`)
     await pause(page, 800)
-    const collapsed = await page.eval(`getComputedStyle(document.querySelector('[data-motion-section="technology"]'),'::before').transform`)
-    await scrollToSection(page, 'technology')
+    const collapsed = await page.eval(`getComputedStyle(document.querySelector('[data-motion-section="care"]'),'::before').transform`)
+    await scrollToSection(page, 'care')
     await pause(page, 850)
-    const expanded = await page.eval(`getComputedStyle(document.querySelector('[data-motion-section="technology"]'),'::before').transform`)
+    const expanded = await page.eval(`getComputedStyle(document.querySelector('[data-motion-section="care"]'),'::before').transform`)
     assert.notEqual(collapsed, expanded)
     await page.screenshot({ path: `${output}/technology-settled-${width}.png` })
     // Live preference change also settles decorative section boundaries.

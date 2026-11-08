@@ -6,7 +6,6 @@ const baseUrl = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
 const pause = (page, ms) => page.eval(`new Promise(r=>setTimeout(r,${ms}))`)
 const frames = [
   ['portrait', '[data-signature-frame="portrait"]', 'img'],
-  ['equipment', '[data-signature-frame="equipment"]', 'picture'],
   ['story', '[data-signature-frame="story"]', 'img'],
 ]
 async function position(page, selector, progress) {
@@ -74,10 +73,10 @@ await runVisualCheck('signature-scenes',baseUrl,async({browser,output})=>{
     if(width>=900){
       await page.setViewport({width:768,height:1000})
       await pause(page,100)
-      assert.equal((await state(page,'[data-signature-frame="equipment"]','picture')).name,'none')
+      assert.equal((await state(page,'[data-signature-frame="portrait"]','picture')).name,'none')
       await page.setViewport({width,height:1000})
       await pause(page,100)
-      assert.equal((await state(page,'[data-signature-frame="equipment"]','picture')).name,'signature-equipment')
+      assert.equal((await state(page,'[data-signature-frame="portrait"]','picture')).name,'signature-portrait')
     }
     await page.send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]})
     await pause(page,80)
@@ -89,7 +88,7 @@ await runVisualCheck('signature-scenes',baseUrl,async({browser,output})=>{
       assert.equal(reduced.clip,'none')
     }
     // Real keyboard activation of the two inter-section links.
-    for(const target of ['home-doctors','patient-testimonials']){
+    for(const target of ['home-doctors']){
       await page.eval(`document.querySelector('a.signature-link[href="#${target}"]').focus()`)
       await page.send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r'})
       await page.send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13})
