@@ -91,7 +91,6 @@ export function EquipmentShowcase() {
       <div className={styles.footer}>
         <Link href="/services">Explore services<span aria-hidden="true">→</span></Link>
       </div>
-      <p className={styles.imageNote}>Equipment shown in AI-generated illustrations.</p>
     </div>
   </section>
 }
