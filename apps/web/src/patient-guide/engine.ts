@@ -34,7 +34,8 @@ export function answerGuide(question: string, catalog: GuideCatalog): GuideReply
   if (any(query, ['diagnose', 'diagnosis', 'symptom', 'symptoms', 'medicine should', 'medication', 'dosage', 'dose', 'prescription', 'treatment', 'pain', 'fever', 'rash', 'sick'])) {
     return { kind: 'answer', text: 'I can help with website information, but cannot assess symptoms, recommend treatment or explain a diagnosis. Please discuss medical questions with a qualified clinician. You do not need to share symptoms here.', actions: [doctors, contact, { label: 'Emergency information', href: '/emergency' }] }
   }
-  if (any(query, ['hello', 'hi', 'hey', 'thanks', 'thank you'])) {
+  // A greeting within a question must not hide the visitor's actual request.
+  if (['hello', 'hi', 'hey', 'thanks', 'thank you'].includes(query)) {
     return { kind: 'answer', text: 'You’re welcome here. What would you like help finding?', actions: [{ label: 'Find a doctor', query: 'Find a doctor' }, { label: 'View all services', query: 'Explore services' }, { label: 'Plan my visit', query: 'Plan my visit' }] }
   }
   if (any(query, ['common questions', 'faq', 'faqs'])) {

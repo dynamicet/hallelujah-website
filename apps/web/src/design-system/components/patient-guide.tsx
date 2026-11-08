@@ -16,11 +16,11 @@ function Icon({ children }: { readonly children: ReactNode }) {
 const topicIcons = [
   <><circle key="head" cx="12" cy="7" r="3" /><path key="body" d="M5 21v-3a7 7 0 0 1 14 0v3M9 17h6m-3-3v6" /></>,
   <><rect key="box" x="4" y="5" width="16" height="16" rx="2" /><path key="cross" d="M9 5V3h6v2m-3 5v6m-3-3h6" /></>,
-  <><rect key="box" x="4" y="5" width="16" height="16" rx="2" /><path key="dates" d="M8 3v4m8-4v4M4 11h16m-11 5 2 2 4-4" /></>,
   <><path key="bag" d="M5 8h14v13H5zM9 8V4h6v4m-6 5h6m-6 4h4" /></>,
-  <><circle key="circle" cx="12" cy="12" r="9" /><path key="question" d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4m0 3h.01" /></>,
   <><path key="pin" d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" /><circle key="center" cx="12" cy="10" r="2.5" /></>,
 ]
+
+const startingTopics = [guideTopics[0], guideTopics[1], guideTopics[3], guideTopics[5]]
 
 export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false }: {
   readonly openOnMount?: boolean
@@ -57,9 +57,10 @@ export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false 
     const clean = value.trim().slice(0, maxGuideQuestionLength)
     if (!clean) return
     const reply = answerGuide(clean, catalog)
-    setTurns((previous) => [...previous.slice(-19), { id: nextId.current++, question: clean, reply }])
+    const id = nextId.current++
+    setTurns((previous) => [...previous.slice(-19), { id, question: clean, reply }])
     setQuestion('')
-    setAnnouncement(`${reply.text}${reply.cards?.map((card) => ` ${card.title}. ${card.description}`).join('') ?? ''}`)
+    setAnnouncement(`Reply ${id + 1}. ${reply.text}${reply.cards?.map((card) => ` ${card.title}. ${card.description}`).join('') ?? ''}`)
   }
 
   function submit(event: FormEvent<HTMLFormElement>) {
@@ -88,21 +89,21 @@ export function PatientGuide({ catalog, dialogRef, onClose, openOnMount = false 
         <header className={styles.header}>
           <div className={styles.identity}>
             <span className={styles.mark} aria-hidden="true"><Icon><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7Z" /></Icon></span>
-            <div><h2 id={titleId}>Hallelujah Patient Guide</h2><p>Automated website help</p></div>
+            <div><h2 id={titleId}>Hallelujah Patient Guide</h2><p>Prepared answers · Website help</p></div>
           </div>
           <button aria-label="Close patient guide" className={styles.iconButton} onClick={() => dialogRef.current?.close()} type="button"><Icon><path d="m6 6 12 12M18 6 6 18" /></Icon></button>
         </header>
         <div className={styles.sheet}>
           <div className={styles.toolbar}>
             <span>{catalog.preview ? 'Preview · Sample information' : 'Hospital information'}</span>
-            <button disabled={!turns.length && !question} onClick={reset} type="button">Start over <span aria-hidden="true">↺</span></button>
+            <button disabled={!turns.length && !question} onClick={reset} type="button">Start over <Icon><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6" /></Icon></button>
           </div>
           <div aria-label="Conversation" className={styles.transcript} data-guide-transcript ref={transcript} role="region" tabIndex={0}>
             <div className={styles.welcome}>
-              <p className={styles.greeting}>Let’s find your next step.</p>
-              <p>Find a doctor, explore care or plan your visit. Choose a topic, or ask a short question below.</p>
+              <p className={styles.greeting}>How can we help?</p>
+              <p>Choose a topic or ask a short question about the hospital.</p>
               <div aria-label="Choose a topic" className={styles.topics}>
-                {guideTopics.map((topic, index) => <button key={topic.label} onClick={() => ask(topic.query)} type="button"><Icon>{topicIcons[index]}</Icon><span>{topic.label}</span></button>)}
+                {startingTopics.map((topic, index) => <button key={topic.label} onClick={() => ask(topic.query)} type="button"><Icon>{topicIcons[index]}</Icon><span>{topic.label}</span></button>)}
               </div>
               <p className={styles.try}>Try “visiting hours” or a doctor’s name.</p>
             </div>

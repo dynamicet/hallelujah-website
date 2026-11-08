@@ -14,7 +14,7 @@ export const previewFaqs: readonly GuideFaq[] = [
   {
     id: 'appointment', question: 'How do I request an appointment?',
     aliases: ['appointment', 'book', 'book a visit', 'booking', 'schedule a visit', 'request an appointment'],
-    answer: 'Choose your care, add your contact details, and review your request. You can continue without choosing a doctor. Contact the hospital to confirm a time.',
+    answer: 'The appointment page is a preview. You can try the steps without choosing a doctor, but no request is sent or saved and no appointment is booked. Contact the hospital to arrange a visit and confirm a time.',
     actions: [{ label: 'Open appointment form', href: '/appointment' }, { label: 'Choose a doctor first', query: 'Find a doctor' }],
   },
   {

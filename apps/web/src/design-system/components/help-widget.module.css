@@ -20,11 +20,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  inline-size: 48px;
+  gap: 8px;
+  min-inline-size: 48px;
   block-size: 48px;
-  padding: 12px;
-  border: 0;
-  border-radius: 50%;
+  padding: 10px 16px;
+  border: 2px solid var(--site-white);
+  border-radius: 999px;
   background: var(--site-ink);
   color: var(--site-white);
   font: inherit;
@@ -34,10 +35,10 @@
 }
 
 .widget[data-help-hidden] .trigger { visibility: hidden; }
-.widget[data-help-hidden] .trigger:focus-visible { visibility: visible; }
+.widget[data-help-hidden]:focus-within .trigger { visibility: visible; }
 .widget:has(dialog[open]) .trigger { visibility: hidden; }
 
-/* Collision avoidance needs JavaScript; the native fallback stays in the footer. */
+/* Before hydration the native Help control remains usable in the footer. */
 :global(html[data-hydration='pending']) .trigger {
   position: static;
   transform: none;
@@ -46,8 +47,8 @@
 
 .trigger:hover,
 .widget:has(.panel:popover-open) .trigger {
-  background: var(--site-accent);
-  color: var(--site-ink);
+  background: var(--site-action-hover);
+  color: var(--site-white);
 }
 
 .trigger:focus-visible {
@@ -73,23 +74,26 @@
 .panel {
   position: fixed;
   inset: auto max(var(--help-edge), env(safe-area-inset-right, 0px)) calc(var(--help-bottom) + var(--help-lift) + 56px) auto;
-  inline-size: min(280px, calc(100vw - 2 * var(--help-edge)));
+  inline-size: min(320px, calc(100vw - 2 * var(--help-edge)));
   max-block-size: calc(100dvh - var(--help-bottom) - var(--help-lift) - 72px - env(safe-area-inset-top, 0px));
   margin: 0;
-  padding: 8px;
+  padding: 10px;
   overflow-y: auto;
   overscroll-behavior: contain;
   border: 0;
   border-radius: 16px;
-  background: var(--site-pale);
+  background: var(--site-white);
   color: var(--site-ink);
   box-shadow: 0 3px 12px #073e5326; /* taste-skill-ignore: the open Help menu needs separation from the page. */
 }
 
-.panelHeader { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-inline-start: 12px; }
+.triggerLabel { font-size: var(--site-support); }
+
+.panelHeader { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-inline-start: 10px; padding-block-end: 6px; }
+.panelHeader > strong { font-size: 1.125rem; font-weight: 700; }
 .dismiss { display: grid; place-items: center; flex: 0 0 44px; inline-size: 44px; block-size: 44px; padding: 10px; border: 0; background: transparent; color: var(--site-ink); cursor: pointer; }
 .dismiss svg { inline-size: 24px; block-size: 24px; }
-.dismiss:hover { background: var(--site-white); }
+.dismiss:hover { background: var(--site-pale); }
 
 .panel::backdrop {
   background: transparent;
@@ -97,7 +101,7 @@
 
 .actions {
   display: grid;
-  gap: 4px;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -111,26 +115,28 @@
 .action {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 12px;
   inline-size: 100%;
   max-inline-size: 100%;
-  min-block-size: 44px;
-  padding: 8px 12px;
+  min-block-size: 88px;
+  padding: 12px;
   border: 0;
   border-radius: 8px;
   background: var(--site-white);
   color: var(--site-ink);
   text-align: start;
   text-decoration: none;
+  font: inherit;
+  cursor: pointer;
 }
 
 .actionIcon {
   display: grid;
   place-items: center;
-  flex: 0 0 20px;
-  inline-size: 20px;
-  block-size: 20px;
+  flex: 0 0 28px;
+  inline-size: 28px;
+  block-size: 28px;
 }
 
 .actionIcon svg {
@@ -152,8 +158,8 @@
 .action small {
   display: block;
   margin-block-start: 1px;
-  color: var(--site-muted);
-  font-size: var(--site-support);
+  color: var(--site-ink);
+  font-size: var(--site-small);
   line-height: 1.4;
 }
 
@@ -167,13 +173,26 @@
 }
 
 .appointment {
-  background: var(--site-accent);
+  background: var(--semantic-color-surface-highlight);
 }
 
 .appointment:hover {
-  background: var(--site-pale);
+  background: color-mix(in srgb, var(--semantic-color-surface-highlight) 80%, var(--site-white));
   color: var(--site-ink);
 }
+
+.guide { background: var(--semantic-color-surface-information); }
+.guide .actionIcon { color: var(--semantic-color-text-information); }
+.guide:hover { background: var(--site-selection); }
+.action:active { transform: translateY(1px); }
+.action:disabled { background: var(--site-pale); color: var(--site-muted); }
+.action[aria-disabled=true] { cursor: progress; }
+
+.status:empty { display: none; }
+.status { padding: 12px 10px 2px; font-size: var(--site-small); color: var(--site-ink); }
+.status p { margin: 0; }
+.status a, .retry { display: inline-flex; align-items: center; min-block-size: 44px; color: var(--site-link); text-decoration: underline; text-underline-offset: 3px; }
+.retry { margin-inline-end: 16px; padding: 0; border: 0; background: transparent; font: inherit; font-weight: 700; cursor: pointer; }
 
 .action:focus-visible {
   outline-offset: 2px;
@@ -182,8 +201,14 @@
 .noScript { margin: 10px 0 0; padding: 16px; border-radius: 16px; background: var(--site-white); color: var(--site-ink); font-size: var(--site-support); }
 .noScript a { color: var(--site-link); text-decoration: underline; }
 
+@media (max-width: 599px) {
+  .trigger { inline-size: 48px; padding: 10px; }
+  .triggerLabel { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .trigger, .action { transition: none; }
+  .action:active { transform: none; }
 }
 
 @media (forced-colors: active) {

@@ -25,6 +25,19 @@ for (const faq of catalog.faqs) {
 for (const topic of guideTopics) assert.notEqual(answer(topic.query, catalog).kind, 'fallback', topic.label)
 assert.equal(answer('  ', catalog).kind, 'fallback')
 assert.equal(answer('this is unrelated', catalog).kind, 'fallback', 'no substring greeting match')
+for (const query of ['hello', 'HI!', 'hey', 'Thanks.', 'thank you']) {
+  assert.match(answer(query, catalog).text, /What would you like help finding/, query)
+}
+for (const [query, faqId] of [
+  ['hello visiting hours', 'hours'],
+  ['thanks where is the hospital', 'directions'],
+  ['hey I need an appointment', 'appointment'],
+  ['thank you, how can I prepare for my visit?', 'visit'],
+]) {
+  assert.equal(answer(query, catalog).text, catalog.faqs.find((faq) => faq.id === faqId).answer, query)
+}
+assert.equal(answer('hello completely unlisted question', catalog).kind, 'fallback', 'unknown intent with a greeting still receives recovery options')
+assert.match(answer('request an appointment', catalog).text, /no request is sent or saved and no appointment is booked/, 'appointment preview cannot imply a live request')
 assert.equal(answer('unlisted surgery', catalog).kind, 'fallback')
 assert.equal(answer('<script>alert(1)</script>', catalog).kind, 'fallback')
 assert.equal(answer('Which medication should I take?', catalog).kind, 'answer')
@@ -33,6 +46,10 @@ for (const query of ['emergency', 'I have chest pain', 'cannot breathe', 'urgent
   assert.equal(answer(query, catalog).kind, 'emergency', query)
   assert.equal(answer(query, catalog).actions[0].href, '/emergency')
 }
+for (const query of ['hello, I have chest pain', 'thanks, urgent appointment', 'thank you, cannot breathe']) {
+  assert.equal(answer(query, catalog).kind, 'emergency', `safety precedes greeting: ${query}`)
+}
+assert.match(answer('hello, which medication should I take?', catalog).text, /cannot assess/, 'medical boundary precedes greeting')
 const heart = answer('I need a cardiologist', catalog)
 assert.equal(heart.cards.length, 3)
 assert.ok(heart.cards.every((card) => card.description === 'Heart care'))

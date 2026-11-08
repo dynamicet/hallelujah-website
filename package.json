@@ -26,6 +26,7 @@
     "visual:signature": "node scripts/check-signature-scenes.mjs",
     "visual:care-continuity": "node scripts/check-care-continuity.mjs",
     "visual:appointment": "node scripts/check-appointment-usability.mjs",
+    "visual:help": "node scripts/check-help.mjs",
     "visual:quality": "node scripts/check-site-quality.mjs",
     "visual:usability": "node scripts/check-usability-refinements.mjs",
     "visual:journeys": "node scripts/check-intentional-design.mjs",
