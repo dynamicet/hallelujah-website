@@ -1,6 +1,6 @@
 'use client'
 
-import { InterfaceText, InterfaceCopy, useInterfaceLanguage } from '@/website/interface-language'
+import { InterfaceText, InterfaceCopy, InterfaceLink as Link, useInterfaceLanguage } from '@/website/interface-language'
 
 import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react'
 import styles from './patient-page.module.css'
@@ -37,6 +37,7 @@ export function FeedbackComposer() {
   }
   return <InterfaceCopy><>
     <p id="feedback-privacy">Use a sample message without names, contact details, patient numbers, or medical information. It stays in this page’s memory; clear it with “Clear & start again” or reload.</p>
+    <p><Link href="/privacy">Read the privacy notice</Link> for how website information is handled.</p>
     <noscript><p>The feedback preview needs JavaScript. Sending feedback is unavailable here. Read the contact and handling information below for what still needs confirmation.</p></noscript>
     <form className={styles.form} onSubmit={showReview} aria-describedby="feedback-privacy" autoComplete="off" hidden={reviewing}>
       <div className={styles.field}><label htmlFor="feedback-category"><InterfaceText>What would you like to share?</InterfaceText></label>

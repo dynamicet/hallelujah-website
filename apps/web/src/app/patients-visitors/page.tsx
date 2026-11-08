@@ -18,6 +18,7 @@ export default function PatientsVisitorsPage() {
     <PatientSection id="before" title="Before your visit">
       <p>Choose your care, add your details, and review your request.</p>
       <Link className="text-link" href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link>
+      <p><Link href="/faq">Find answers to common questions</Link> about appointments and your visit.</p>
     </PatientSection>
     <PatientSection id="checklist" title="Your visit checklist" tone>
       <VisitChecklist />
@@ -58,6 +59,7 @@ export default function PatientsVisitorsPage() {
       <p>Follow the instructions your care team gives you.</p>
     </PatientSection>
     <PatientSection id="your-experience" title="Patient feedback" tone>
+      <p><Link href="/patient-rights">Read your patient rights & responsibilities</Link>, including privacy, communication and taking part in decisions.</p>
       <Link className="text-link" href="/feedback">Patient feedback <span aria-hidden="true">→</span></Link>
       <p>For urgent care needs, use <Link href="/emergency">emergency information</Link>. Feedback is not an emergency channel.</p>
     </PatientSection>

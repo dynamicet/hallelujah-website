@@ -75,12 +75,16 @@ export function demoShell(current: string): Omit<SiteShellProps, 'children'> {
         { label: 'Plan your visit', links: [
           { href: '/patients-visitors', label: 'Patients & visitors' },
           { href: '/contact', label: 'Contact & directions' },
+          { href: '/faq', label: 'Frequently asked questions' },
+          { href: '/patient-rights', label: 'Patient rights & responsibilities' },
+          { href: '/privacy', label: 'Privacy notice' },
         ] },
         { label: 'Our hospital', links: [
           { href: '/about', label: 'About Hallelujah' },
           { href: '/news-resources', label: 'News & resources' },
           { href: '/health-topics', label: 'Health & care topics' },
           { href: '/feedback', label: 'Patient feedback' },
+          { href: '/careers', label: 'Careers' },
         ] },
       ],
     },

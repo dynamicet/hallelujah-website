@@ -1,0 +1,19 @@
+.disclosures { margin: 0; }
+.disclosure { border-block-end: 1px solid var(--semantic-color-border-default); }
+.disclosure:first-child { border-block-start: 1px solid var(--semantic-color-border-default); }
+.disclosure summary { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 24px 0; cursor: pointer; list-style: none; color: var(--semantic-color-text-heading); font-weight: 700; min-height: 48px; }
+.disclosure summary::-webkit-details-marker { display: none; }
+.disclosure summary::after { content: '+'; font-size: 1.5em; line-height: 1; flex-shrink: 0; }
+.disclosure[open] summary::after { content: '−'; }
+.disclosure summary:hover { color: var(--semantic-color-text-link); }
+.disclosure summary:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
+.answer { padding-block: 0 24px; }
+.answer > :first-child { margin-top: 0; }
+.answer > :last-child { margin-bottom: 0; }
+.jobTitle { display: block; font-size: var(--site-label-heading); }
+.jobMeta { display: block; margin-top: 8px; font-size: var(--site-support); font-weight: 400; color: var(--semantic-color-text-primary); }
+.answer a { display: inline-flex; align-items: center; min-height: 44px; }
+.contactLinks { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.contactLinks a { min-height: 44px; display: inline-flex; align-items: center; }
+@media (max-width: 599px) { .disclosure summary { padding-block: 20px; gap: 16px; } }
+@media print { .disclosure .answer { display: block !important; } .disclosure summary::after { display: none; } }

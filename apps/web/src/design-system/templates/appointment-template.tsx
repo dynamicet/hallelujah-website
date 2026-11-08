@@ -355,6 +355,7 @@ function AppointmentForm({
       </section>
 
       <section aria-labelledby={localSimulation ? undefined : 'appointment-privacy-title'} className={`${styles.formSection} ${styles.privacy}`} data-appointment-section="A5">
+        <p><Link href="/privacy">Read the privacy notice</Link> before adding your details.</p>
         {!localSimulation ? <div className={styles.sectionHeading}>
           <h2 id="appointment-privacy-title">Your privacy</h2>
           <div id="privacy-disclosure">{privacyDisclosure}</div>
@@ -442,6 +443,7 @@ export function AppointmentTemplate({
       <h2 id="appointment-preparation-title">Prepare for your visit</h2>
       <p>Keep your previous reports, medicine list and questions together.</p>
       <p><Link href="/patients-visitors#checklist">Make your visit checklist</Link></p>
+      <p><Link href="/faq">Common appointment questions</Link></p>
     </section> : null}
     <section aria-labelledby="appointment-warning-title" className={`${styles.section} ${styles.warning}`} data-appointment-section="A2">
       <h2 id="appointment-warning-title">{state.localSimulation ? 'Need urgent help?' : 'Do not use this form for emergency help'}</h2>
