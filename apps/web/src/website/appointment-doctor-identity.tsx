@@ -10,22 +10,28 @@ export type AppointmentDoctorIdentity = Readonly<{
 }>
 
 /** The local preview's identity follows the actual form selection, including route changes. */
-export function AppointmentDoctorIdentity({ doctors, initialDoctorId, serviceContext }: {
+export function AppointmentDoctorIdentity({ doctors, initialDoctorId, serviceContext, services = [] }: {
   readonly doctors: readonly AppointmentDoctorIdentity[]; readonly initialDoctorId?: string
+  readonly services?: readonly { publicId: string; name: string; canonicalPath: string }[]
   readonly serviceContext?: { readonly doctorId: string; readonly name: string; readonly href: string }
 }) {
   const [selectedId, setSelectedId] = useState(initialDoctorId)
+  const [serviceId, setServiceId] = useState<string>()
   useEffect(() => {
     const form = document.querySelector<HTMLFormElement>('#appointment-request-form')
     if (!form) return
     const sync = () => {
       const route = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
-      setSelectedId(route === 'doctor' ? form.querySelector<HTMLSelectElement>('#doctor-id')?.value : undefined)
+      setSelectedId(route !== 'not_sure' ? form.querySelector<HTMLSelectElement>('#doctor-id')?.value : undefined)
+      setServiceId(route !== 'not_sure' ? form.querySelector<HTMLSelectElement>('#service-id')?.value : undefined)
     }
     sync()
     form.addEventListener('change', sync)
-    return () => form.removeEventListener('change', sync)
+    form.addEventListener('appointment-selection-change', sync)
+    return () => { form.removeEventListener('change', sync); form.removeEventListener('appointment-selection-change', sync) }
   }, [])
+  const selectedService = services.find((entry) => entry.publicId === serviceId)
+  const context = selectedService ? { doctorId: selectedId, name: selectedService.name, href: selectedService.canonicalPath } : services.length ? undefined : serviceContext
   const doctor = doctors.find((entry) => entry.publicId === selectedId)
   return <div className={styles.identity} data-appointment-doctor-identity hidden={!doctor} data-clinician-identity-id={doctor?.publicId}>
     {doctor ? <>
@@ -33,9 +39,9 @@ export function AppointmentDoctorIdentity({ doctors, initialDoctorId, serviceCon
       <div><p className={styles.name}>{doctor.name}</p><p>{doctor.specialties.join(' · ')}</p>
         {!doctor.portraitSrc ? <p className={styles.disclosure}>Portrait unavailable</p> : null}
       </div>
-      {serviceContext?.doctorId === doctor.publicId ? <div className={styles.serviceContext} data-appointment-service-context>
-        <p>Service you explored</p><p><strong>{serviceContext.name}</strong></p>
-        <Link href={`${serviceContext.href}#care-team`}>Back to service details</Link>
+      {context?.doctorId === doctor.publicId ? <div className={styles.serviceContext} data-appointment-service-context>
+        <p>Selected specialty or service</p><p><strong>{context.name}</strong></p>
+        <Link href={`${context.href}#care-team`}>Back to care details</Link>
       </div> : null}
     </> : null}
   </div>

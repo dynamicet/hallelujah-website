@@ -13,6 +13,8 @@ assert.deepEqual(relatedDoctorIds('pub_171717171717'), [])
 assert.equal(isCompatibleCare('pub_151515151515', serviceId), false)
 assert.equal(doctorSpecialties(doctorId).length, 2)
 assert.ok(relatedCareIds(doctorId).includes(serviceId))
+assert.equal(clinicianFilters.length, 3)
+assert.ok(clinicianFilters.every((filter) => /^[a-z0-9][a-z0-9-]{0,39}$/u.test(filter.value)))
 assert.ok(!clinicianFilters.some((filter) => filter.label === 'Echocardiography'))
 for (const selection of [{}, { doctorId }, { serviceId }, { doctorId, serviceId }]) {
   assert.deepEqual(resolveCareSelection(selection), { doctorId: selection.doctorId, serviceId: selection.serviceId })

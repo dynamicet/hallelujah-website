@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { healthTopics } from '@/demo/health-topics'
 import { clinicians, requireLocalDemo } from '@/demo/site'
-import { relatedServiceIds } from '@/demo/service-details'
+import { relatedCareIds } from '@/demo/care-model'
 import { PatientPage, PatientSection, patientPageStyles as styles } from '@/website/patient-page'
 import { PrintButton } from '@/website/visit-checklist'
 
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function HealthTopicPage({ params }: { params: Promise<{ slug: string }> }) {
   const topic = await resolveTopic(params)
-  const doctors = clinicians.filter((doctor) => topic.servicePublicId && relatedServiceIds(doctor.details.specialties).includes(topic.servicePublicId))
+  const doctors = clinicians.filter((doctor) => topic.servicePublicId && relatedCareIds(doctor.publicId).includes(topic.servicePublicId))
   return <PatientPage title={topic.name} description={topic.summary} current={`/health-topics/${topic.id}`}
     action={{ href: '#care-options', label: 'View care options' }}>
     <nav className={styles.jumpLinks} aria-label="Health topic sections">

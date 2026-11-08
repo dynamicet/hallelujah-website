@@ -53,7 +53,7 @@ export function doctorSpecialties(doctorId: string): readonly string[] {
   return relatedCareIds(doctorId).flatMap((id) => entries[id]?.kind === 'specialty' ? [entries[id].name] : [])
 }
 export const clinicianFilters = Object.entries(entries).filter(([id, entry]) => entry.kind === 'specialty' && relatedDoctorIds(id).length)
-  .map(([id, entry]) => ({ value: id, specialty: entry.name, label: entry.name }))
+  .map(([id, entry]) => ({ value: ({ pub_141414141414: 'synthetic-family', pub_151515151515: 'synthetic-heart', pub_262626262626: 'synthetic-child' } as Record<string, string>)[id] ?? entry.name.toLowerCase().replaceAll(/[^a-z0-9]+/gu, '-'), specialty: entry.name, label: entry.name }))
 
 export type CareSelection = Readonly<{ doctorId?: string; serviceId?: string }>
 export function resolveCareSelection(input: CareSelection): CareSelection & { notice?: string } {

@@ -30,7 +30,7 @@ export function SpecialtyGrid() {
       </ul>
       <div className={styles.footer}>
         <a className="signature-link" href="#home-doctors">Meet our specialists<span aria-hidden="true">↓</span></a>
-        <Link className="text-link" href="/services">View all services<span aria-hidden="true">→</span></Link>
+        <Link className="text-link" href="/services">View specialties &amp; services<span aria-hidden="true">→</span></Link>
       </div>
     </div>
   </section>

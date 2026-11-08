@@ -23,6 +23,7 @@ export type AppointmentReviewStateKind =
   | 'editing'
   | 'known-failure'
   | 'pending'
+  | 'prepared'
   | 'receipt'
   | 'unknown'
   | 'validation'
@@ -54,6 +55,9 @@ export interface AppointmentTemplateProps {
     readonly kind: AppointmentReviewStateKind
     readonly outcome?: AppointmentReviewStateKind
     readonly selectedCareRoute?: 'doctor' | 'not_sure' | 'service'
+    readonly selectedDoctorId?: string
+    readonly selectedServiceId?: string
+    readonly selectionNotice?: string
     readonly specimenReference: string
   }
   readonly title: string
@@ -67,7 +71,7 @@ const errorCopy: Readonly<Record<AppointmentField, { label: string; message: str
   phone: { label: 'Telephone', message: 'Enter a telephone number with 7 to 15 digits, including the country code.' },
   'preferred-date': { label: 'Preferred date', message: 'Choose a valid date within the next 365 days or leave it empty.' },
   'privacy-acknowledged': { label: 'Contact permission', message: 'Confirm that you agree to be contacted about this request.' },
-  'service-id': { label: 'Service', message: 'Choose a service.' },
+  'service-id': { label: 'Specialty or service', message: 'Choose an available specialty or service for this doctor.' },
 }
 
 function fieldError(field: AppointmentField, visible: boolean) {
@@ -129,6 +133,12 @@ function AppointmentStatePanels({
   )
   return (
     <InterfaceCopy><div className={styles.stateStack} data-appointment-state-panels>
+      <div className={styles.statePanel} data-appointment-state-panel="prepared">
+        <FormStatus announcement="focus" heading="Your details are ready" id="appointment-prepared" kind="warning" visible={kind === 'prepared'}>
+          <p>Your choices have been checked. <Link href="/#home-directions">Contact the hospital</Link> to arrange your appointment request.</p>
+          <p>No request has been sent. You can still edit your details here.</p>
+        </FormStatus>
+      </div>
       <div className={styles.statePanel} data-appointment-state-panel="pending">
         <FormStatus heading="Completing your request…" id="appointment-pending" kind="pending" visible={kind === 'pending'}>
           <p>Please wait a moment.</p>
@@ -156,14 +166,14 @@ function AppointmentStatePanels({
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="receipt">
-        <FormStatus announcement="focus" heading="Request complete" id="appointment-receipt" kind="warning" visible={kind === 'receipt'}>
-          <p>Reference: <strong>{specimenReference}</strong></p>
+        <FormStatus announcement="focus" heading="Example request outcome" id="appointment-receipt" kind="warning" visible={kind === 'receipt'}>
+          <p>Example reference: <strong>{specimenReference}</strong>. No request has been sent.</p>
           <p><Link href="/#home-directions">Contact the hospital</Link> to confirm your appointment time.</p>
           <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Start a new request</InterfaceText></button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="delivery-warning">
-        <FormStatus announcement="focus" heading="Request complete; message unavailable" id="appointment-delivery-warning" kind="warning" visible={kind === 'delivery-warning'}>
+        <FormStatus announcement="focus" heading="Example message outcome" id="appointment-delivery-warning" kind="warning" visible={kind === 'delivery-warning'}>
           <p>Keep your reference: <strong>{specimenReference}</strong>. <Link href="/#home-directions">Contact the hospital</Link> to check your appointment time.</p>
           <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Start a new request</InterfaceText></button></div>
         </FormStatus>
@@ -179,6 +189,9 @@ function AppointmentForm({
   localSimulation,
   privacyDisclosure,
   selectedCareRoute,
+  selectedDoctorId,
+  selectedServiceId,
+  selectionNotice,
   serviceOptions,
   specimenReference,
   state,
@@ -190,6 +203,9 @@ function AppointmentForm({
   readonly localSimulation?: boolean
   readonly privacyDisclosure: ReactNode
   readonly selectedCareRoute?: 'doctor' | 'not_sure' | 'service'
+  readonly selectedDoctorId?: string
+  readonly selectedServiceId?: string
+  readonly selectionNotice?: string
   readonly serviceOptions: readonly SelectOption[]
   readonly specimenReference: string
   readonly state: AppointmentReviewStateKind
@@ -233,7 +249,7 @@ function AppointmentForm({
             name="care_route"
             options={[
               { label: 'A specific doctor', value: 'doctor' },
-              { label: 'A service', value: 'service' },
+              { label: 'A specialty or service', value: 'service' },
               { label: 'Help me choose', value: 'not_sure' },
             ]}
             required
@@ -246,11 +262,12 @@ function AppointmentForm({
             <div className={styles.reviewActions}><Link href="/services">Explore services</Link><Link href="/doctors">Browse doctors</Link></div>
           </section> : null}
 
-          <div className={styles.careSelector} data-care-selector="doctor" hidden={selectedCareRoute !== 'doctor'}>
+          <p role="status" data-selection-notice hidden={!selectionNotice}>{selectionNotice}</p>
+          <div className={styles.careSelector} data-care-selector="doctor" hidden={selectedCareRoute === 'not_sure'}>
             <SelectField
-              defaultValue={selectedCareRoute === 'doctor' ? doctorOptions[1]?.value : ''}
+              defaultValue={selectedDoctorId ?? ''}
               error={fieldError('doctor-id', hasError('doctor-id'))}
-              hint="Choose an option."
+              hint="You can leave this blank when choosing a specialty or service."
               hintId="doctor-id-hint"
               id="doctor-id"
               label="Doctor"
@@ -261,14 +278,14 @@ function AppointmentForm({
             {doctorIdentity}
           </div>
 
-          <div className={styles.careSelector} data-care-selector="service" hidden={selectedCareRoute !== 'service'}>
+          <div className={styles.careSelector} data-care-selector="service" hidden={selectedCareRoute === 'not_sure'}>
             <SelectField
-              defaultValue={selectedCareRoute === 'service' ? serviceOptions[1]?.value : ''}
+              defaultValue={selectedServiceId ?? ''}
               error={fieldError('service-id', hasError('service-id'))}
-              hint="Choose an option."
+              hint="You can leave this blank when choosing a doctor."
               hintId="service-id-hint"
               id="service-id"
-              label="Service"
+              label="Specialty or service"
               name="service_id"
               options={serviceOptions}
               required={selectedCareRoute === 'service'}
@@ -353,7 +370,7 @@ function AppointmentForm({
       <section aria-labelledby="appointment-submit-title" className={styles.formSection} data-appointment-section="A6">
         <div className={styles.sectionHeading}>
           <h2 id="appointment-submit-title" tabIndex={-1}>Review your details</h2>
-          <p data-journey-review-description>Check your details before completing your request.</p>
+          <p data-journey-review-description>Check your choices and contact details.</p>
         </div>
         {localSimulation ? <div className={styles.reviewSummary} data-journey-review hidden>
           {doctorIdentity}
@@ -371,7 +388,7 @@ function AppointmentForm({
           <FormSubmitButton
             describedBy={localSimulation ? undefined : 'controlled-submit-explanation'}
             disabled={!localSimulation || state === 'pending' || state === 'unknown' || state === 'duplicate' || state === 'receipt' || state === 'delivery-warning'}
-            label={localSimulation ? 'Complete request' : 'Check details'}
+            label="Check details"
             pending={state === 'pending'}
             pendingLabel="Completing request…"
           />
@@ -448,6 +465,9 @@ export function AppointmentTemplate({
               localSimulation={state.localSimulation}
               privacyDisclosure={privacyDisclosure}
               selectedCareRoute={state.selectedCareRoute}
+              selectedDoctorId={state.selectedDoctorId}
+              selectedServiceId={state.selectedServiceId}
+              selectionNotice={state.selectionNotice}
               serviceOptions={serviceOptions}
               specimenReference={state.specimenReference}
               state={state.kind}

@@ -3,6 +3,8 @@
 import { getInterfaceLanguage, interfaceLanguageChangeEvent } from '@/website/interface-language'
 import { translateInterface } from '@/website/interface-messages'
 
+import { isCompatibleCare } from './care-model'
+import { prepareAppointmentRequest } from './appointment-draft'
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
@@ -32,19 +34,44 @@ export function DemoInteractions() {
     let timer: number | undefined
     let journeyStep = initialState === 'editing' ? 0 : initialState === 'validation' ? 1 : 2
     let furthestStep = journeyStep
-    const syncCare = () => {
+    const syncCare = (changed?: string) => {
       const selected = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
+      const doctor = form.querySelector<HTMLSelectElement>('#doctor-id')
+      const service = form.querySelector<HTMLSelectElement>('#service-id')
+      const notice = form.querySelector<HTMLElement>('[data-selection-notice]')
+      if (selected === 'not_sure') {
+        if (doctor) doctor.value = ''
+        if (service) service.value = ''
+      }
+      if (doctor?.value && service?.value && !isCompatibleCare(doctor.value, service.value)) {
+        if (changed === 'service-id') doctor.value = ''
+        else service.value = ''
+        if (notice) {
+          notice.hidden = false
+          notice.textContent = t(changed === 'service-id' ? 'Your previous doctor does not provide this care. Choose a related doctor or continue without a doctor preference.' : 'Your previous care choice is not listed for this doctor. Choose related care or continue with the doctor.')
+        }
+      }
       form.querySelectorAll<HTMLElement>('[data-care-selector]').forEach((element) => {
-        const active = element.dataset.careSelector === selected
-        element.hidden = !active
+        const mode = element.dataset.careSelector
+        element.hidden = mode === 'not_sure' ? selected !== 'not_sure' : selected === 'not_sure'
         const select = element.querySelector<HTMLSelectElement>('select')
         if (select) {
-          select.required = active
-          select.disabled = !active
+          select.required = selected === mode
+          select.disabled = selected === 'not_sure'
           const requirement = element.querySelector<HTMLElement>('label > span:last-child')
-          if (requirement) requirement.textContent = t(active ? 'Required' : 'Optional')
+          if (requirement) requirement.textContent = t(select.required ? 'Required' : 'Optional')
+          for (const option of select.options) {
+            if (!option.value) continue
+            const related = select === doctor && selected === 'service' && service?.value
+              ? isCompatibleCare(option.value, service.value)
+              : select === service && selected === 'doctor' && doctor?.value
+                ? isCompatibleCare(doctor.value, option.value) : true
+            option.disabled = !related
+            option.hidden = !related
+          }
         }
       })
+      form.dispatchEvent(new Event('appointment-selection-change'))
     }
     const showErrors = (errors: readonly Field[]) => {
       if (!summary) return
@@ -96,7 +123,7 @@ export function DemoInteractions() {
       if (action) action.hidden = terminal || next === 'unknown' || next === 'duplicate'
       if (submit) {
         submit.disabled = busy || terminal || next === 'unknown' || next === 'duplicate'
-        submit.textContent = t(busy ? 'Completing request…' : next === 'known-failure' ? 'Try again' : 'Complete request')
+        submit.textContent = t(busy ? 'Checking details…' : next === 'known-failure' ? 'Try again' : 'Check details')
       }
       form.setAttribute('aria-busy', String(busy))
       if (terminal) {
@@ -111,27 +138,19 @@ export function DemoInteractions() {
       const route = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
       const doctor = form.querySelector<HTMLSelectElement>('#doctor-id')
       const service = form.querySelector<HTMLSelectElement>('#service-id')
-      const name = form.querySelector<HTMLInputElement>('#full-name')?.value.trim() ?? ''
-      const phone = form.querySelector<HTMLInputElement>('#phone')?.value.trim() ?? ''
-      const dateInput = form.querySelector<HTMLInputElement>('#preferred-date')
-      const date = dateInput?.value ?? ''
-      const acknowledged = form.querySelector<HTMLInputElement>('#privacy-acknowledged')?.checked
       if (!['doctor', 'service', 'not_sure'].includes(route ?? '')) errors.push('care-route')
       if (route === 'doctor' && !doctor?.value) errors.push('doctor-id')
       if (route === 'service' && !service?.value) errors.push('service-id')
-      if (name.length < 2 || name.length > 120) errors.push('full-name')
-      const digits = phone.replace(/\D/gu, '')
-      if (!/^[+\d\s().-]+$/u.test(phone) || digits.length < 7 || digits.length > 15) errors.push('phone')
-      if (dateInput?.validity.badInput) errors.push('preferred-date')
-      else if (date) {
-        const parsed = new Date(`${date}T00:00:00Z`)
-        const today = new Date()
-        const first = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())
-        const last = first + 365 * 24 * 60 * 60 * 1000
-        if (!/^\d{4}-\d{2}-\d{2}$/u.test(date) || !Number.isFinite(parsed.getTime()) ||
-          parsed.toISOString().slice(0, 10) !== date || parsed.getTime() < first || parsed.getTime() > last) errors.push('preferred-date')
-      }
-      if (!acknowledged) errors.push('privacy-acknowledged')
+      const result = prepareAppointmentRequest({
+        doctorId: route === 'not_sure' ? undefined : doctor?.value || undefined,
+        serviceId: route === 'not_sure' ? undefined : service?.value || undefined,
+        fullName: form.querySelector<HTMLInputElement>('#full-name')?.value ?? '',
+        phone: form.querySelector<HTMLInputElement>('#phone')?.value ?? '',
+        preferredDate: form.querySelector<HTMLInputElement>('#preferred-date')?.value || undefined,
+        privacyAcknowledged: form.querySelector<HTMLInputElement>('#privacy-acknowledged')?.checked ?? false,
+      })
+      if (!result.ok) errors.push(...result.errors.filter((field) => !errors.includes(field)))
+      if (form.querySelector<HTMLInputElement>('#preferred-date')?.validity.badInput && !errors.includes('preferred-date')) errors.push('preferred-date')
       return errors
     }
     const dateControl = form.querySelector<HTMLInputElement>('#preferred-date')
@@ -143,7 +162,7 @@ export function DemoInteractions() {
     }
     const syncJourney = () => {
       const terminal = ['receipt', 'delivery-warning'].includes(state)
-      const outcome = !['editing', 'validation'].includes(state)
+      const outcome = !['editing', 'validation', 'prepared'].includes(state)
       frame.dataset.journeyStep = String(journeyStep)
       form.querySelectorAll<HTMLElement>('[data-journey-group]').forEach((group) => {
         group.hidden = terminal || journeyStep !== (group.dataset.journeyGroup === 'care' ? 0 : 1)
@@ -184,12 +203,14 @@ export function DemoInteractions() {
       const reviewSummary = form.querySelector<HTMLElement>('[data-journey-review]')
       if (reviewSummary) reviewSummary.hidden = terminal || outcome || journeyStep !== 2
       const route = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
-      const chosen = form.querySelector<HTMLSelectElement>(route === 'doctor' ? '#doctor-id' : '#service-id')
+      const chosenDoctor = form.querySelector<HTMLSelectElement>('#doctor-id')
+      const chosenService = form.querySelector<HTMLSelectElement>('#service-id')
+      const selectedLabels = [chosenDoctor, chosenService].flatMap((select) => select?.value ? [select.selectedOptions[0]?.textContent ?? ''] : [])
       const date = form.querySelector<HTMLInputElement>('#preferred-date')?.value
       const parsedDate = date ? new Date(`${date}T00:00:00Z`) : undefined
       const values: Record<string, string> = {
         visit: form.querySelector<HTMLInputElement>('input[name="visit_type"]:checked')?.value === 'follow-up' ? 'Follow-up visit' : 'First visit',
-        care: route === 'not_sure' ? 'Help finding the right care' : chosen?.value ? chosen.selectedOptions[0].textContent ?? '' : 'Choose your care',
+        care: route === 'not_sure' ? 'Help finding the right care' : selectedLabels.length ? selectedLabels.join(' · ') : 'Choose your care',
         name: terminal ? 'Not added' : form.querySelector<HTMLInputElement>('#full-name')?.value || 'Not added',
         phone: terminal ? 'Not added' : form.querySelector<HTMLInputElement>('#phone')?.value || 'Not added',
         date: parsedDate && Number.isFinite(parsedDate.getTime()) ? new Intl.DateTimeFormat(getInterfaceLanguage(), { dateStyle: 'medium', timeZone: 'UTC' }).format(parsedDate) : 'No preference',
@@ -271,6 +292,10 @@ export function DemoInteractions() {
         summary?.querySelector<HTMLElement>("#appointment-error-summary-heading")?.focus()
         return
       }
+      if (!['known-failure', 'unknown', 'duplicate', 'delivery-warning', 'receipt'].includes(outcomeScenario)) {
+        setState('prepared', true)
+        return
+      }
       busy = true
       goToStep(2, false)
       setState('pending')
@@ -285,8 +310,9 @@ export function DemoInteractions() {
         setState(outcome, true)
       }, 500)
     }, { signal })
-    form.addEventListener('change', () => {
-      syncCare()
+    form.addEventListener('change', (event) => {
+      if (state === 'prepared') setState('editing')
+      syncCare(event.target instanceof HTMLElement ? event.target.id : undefined)
       syncJourney()
       if (!summary?.hidden) showErrors(validate().filter((field) => stepForField(field) === journeyStep))
     }, { signal })

@@ -29,6 +29,7 @@ export interface ServiceDirectoryTemplateProps {
   readonly directory: ServiceDirectoryView
   readonly pathname: string
   readonly serviceRequestLinks?: boolean
+  readonly serviceActions?: Readonly<Record<string, Readonly<{ href: string; label: string }>>>
   readonly serviceDetailLinks?: boolean
   readonly shell: Omit<SiteShellProps, 'breadcrumbs' | 'children'>
   readonly state: ServiceDirectoryReviewState
@@ -49,7 +50,7 @@ function recovery(state: Exclude<ServiceDirectoryReviewState, 'ready' | 'loading
   }
 }
 
-export function ServiceDirectoryTemplate({ introVisual, directory, pathname, serviceRequestLinks = false, serviceDetailLinks = false, preparationGuides = [], shell, state }: ServiceDirectoryTemplateProps) {
+export function ServiceDirectoryTemplate({ introVisual, directory, pathname, serviceRequestLinks = false, serviceActions, serviceDetailLinks = false, preparationGuides = [], shell, state }: ServiceDirectoryTemplateProps) {
   const allowedGroups = directory.filters.map((filter) => filter.value)
   const searchState = directory.state
   const activeFilters: ActiveFilter[] = directory.filters
@@ -83,24 +84,24 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
       <div className={styles.frame} data-service-directory-state={state} data-service-directory-template data-care-directory={serviceDetailLinks || undefined}>
         <section aria-labelledby="service-directory-title" className={styles.introduction} data-directory-section="S1">
           <div className={styles.introductionCopy}>
-            <h1 data-reveal="0" id="service-directory-title">Find a service</h1>
-            <Link className="ds-touch-target" href="/appointment">Not sure which service?</Link>
+            <h1 data-reveal="0" id="service-directory-title">{serviceDetailLinks ? 'Specialties & services' : 'Find a service'}</h1>
+            {serviceDetailLinks ? <p>Explore specialist care, tests and treatments. Choose a care option to see the team and how to arrange your visit.</p> : null}
+            <Link className="ds-touch-target" href="/appointment">Need help choosing care?</Link>
           </div>
           {introVisual}
         </section>
 
         {searchState.urgent ? (
           <aside aria-labelledby="service-urgent-title" className={styles.urgentNotice} data-directory-section="S2">
-            <p className={styles.eyebrow}>Emergency information</p>
             <h2 id="service-urgent-title">Need urgent help?</h2>
             <p>This directory does not assess medical urgency. Online requests are not emergency channels.</p>
-            <Link className="ds-touch-target" href="/emergency">See emergency information</Link>
+            <Link className="ds-touch-target" href="/emergency">Emergency information</Link>
           </aside>
         ) : null}
 
         <section aria-labelledby="service-search-title" className={styles.directory} data-directory-section="S3">
           <div className={styles.directoryHeading}>
-            <h2 className={styles.visuallyHidden} id="service-search-title">Search services</h2>
+            <h2 className={styles.visuallyHidden} id="service-search-title">{serviceDetailLinks ? 'Search specialties and services' : 'Search services'}</h2>
           </div>
           <DirectorySearchForm action={pathname} label="Search services" resultKey={currentResultsHref}>
             <div className={styles.searchPanel}>
@@ -109,7 +110,7 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                 hint="Do not enter personal or medical information."
                 hintId="service-search-hint"
                 inputId="service-search-query"
-                label="Search services"
+                label={serviceDetailLinks ? 'Specialty, service or area of care' : 'Search services'}
                 maximumLength={serviceDirectoryQueryMaximum}
                 query={searchState.query}
                 submitLabel="Search"
@@ -120,7 +121,7 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
               <aside aria-label="service groups" className={styles.filterRail}>
                 <FilterDisclosure label={`Filter services (${activeFilters.length})`} open>
                   <FilterGroup
-                    legend="Service group"
+                    legend={serviceDetailLinks ? 'Area of care' : 'Service group'}
                     name="group"
                     options={directory.filters}
                     selectedValues={searchState.groups}
@@ -136,7 +137,7 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                 <div className={styles.resultsToolbar}>
                   {!unavailable && state !== 'loading' ? (
                     <DirectoryResultCount id="service-result-count" resultKey={currentResultsHref}>
-                      {directory.resultCount} {directory.resultCount === 1 ? 'service' : 'services'}
+                      {directory.resultCount} {serviceDetailLinks ? directory.resultCount === 1 ? 'care option' : 'care options' : directory.resultCount === 1 ? 'service' : 'services'}
                     </DirectoryResultCount>
                   ) : <p className={styles.stateLabel}>Directory status</p>}
                   {!unavailable && state !== 'loading' && directory.resultCount > 0 ? <p className={styles.resultRange}>
@@ -186,7 +187,7 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                                 <h3>{serviceDetailLinks ? <Link href={`${service.canonicalPath}?from=${encodeURIComponent(currentResultsHref)}`}>{service.name}</Link> : service.name}</h3>
                                 <p className={styles.cardSummary}>{service.sections.scope?.[0] ?? 'Explore this care area and choose a next step.'}</p>
                                 <div className={styles.cardActions}>
-                                  {serviceRequestLinks ? <Link className="ds-touch-target" aria-label={`Request an appointment for ${service.name}`} href={`/appointment?service=${encodeURIComponent(service.publicId)}`}>Request an appointment</Link> : !serviceDetailLinks ? <span aria-disabled="true" className={styles.disabledAction}>Service details unavailable</span> : null}
+                                  {serviceActions?.[service.publicId] ? <Link className="ds-touch-target" aria-label={`${serviceActions[service.publicId].label} for ${service.name}`} href={serviceActions[service.publicId].href}>{serviceActions[service.publicId].label}</Link> : serviceRequestLinks ? <Link className="ds-touch-target" aria-label={`Request an appointment for ${service.name}`} href={`/appointment?service=${encodeURIComponent(service.publicId)}`}>Request an appointment</Link> : !serviceDetailLinks ? <span aria-disabled="true" className={styles.disabledAction}>Service details unavailable</span> : null}
                                 </div>
                               </article>
                             </li>

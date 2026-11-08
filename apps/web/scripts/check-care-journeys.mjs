@@ -10,10 +10,12 @@ async function load(relative, transform = (source) => source) {
 const data = JSON.parse(readFileSync(new URL('../src/demo/data.json', import.meta.url), 'utf8'))
 const { healthTopics } = await load('../src/demo/health-topics.ts', (source) => source.replace("import data from './data.json'", `const data = ${JSON.stringify(data)}`))
 const { searchHealthTopics } = await load('../src/website/health-search.ts')
-const { relatedServiceIds } = await load('../src/demo/service-details.ts')
+const model = await import('../src/demo/care-model.ts')
+const { relatedCareIds } = model
+const careLinks = Object.fromEntries(data.clinicians.map((doctor) => [doctor.publicId, relatedCareIds(doctor.publicId)]))
 const { doctorSearchTerms } = await load('../src/demo/care-discovery.ts', (source) => source
   .replace("import { healthTopics } from './health-topics'", `const healthTopics = ${JSON.stringify(healthTopics)}`)
-  .replace("import { relatedServiceIds } from './service-details'", `const relatedServiceIds = ${relatedServiceIds.toString()}`)
+  .replace("import { relatedCareIds } from './care-model'", `const links = ${JSON.stringify(careLinks)}; const relatedCareIds = ${relatedCareIds.toString()}`)
   .replace("import { searchHealthTopics } from '../website/health-search'", `const searchHealthTopics = ${searchHealthTopics.toString()}`)
   // The search function references its normalizer in its module scope.
   .replace('const searchHealthTopics =', "const normalizeHealthQuery = (text) => text.normalize('NFKC').toLocaleLowerCase('en').replaceAll(/[^\\p{L}\\p{N}]+/gu, ' ').trim(); const searchHealthTopics ="))
@@ -24,7 +26,7 @@ function search(query, filters = {}) {
 }
 const sugar = search('blood sugar')
 assert.ok(sugar.resultCount > 0)
-assert.ok(sugar.results.every((doctor) => relatedServiceIds(doctor.details.specialties).includes(healthTopics.find((topic) => topic.id === 'diabetes').servicePublicId)))
+assert.ok(sugar.results.every((doctor) => relatedCareIds(doctor.publicId).includes(healthTopics.find((topic) => topic.id === 'diabetes').servicePublicId)))
 assert.ok(Object.values(sugar.matchReasons).every((reason) => reason.includes('General medicine')))
 assert.deepEqual(search('  BLOOD   SUGAR  ').results, sugar.results)
 assert.equal(search('backache').resultCount, 0, 'no invented rehabilitation doctor affiliation')

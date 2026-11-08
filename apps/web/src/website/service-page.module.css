@@ -1,4 +1,8 @@
 .backLink { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; margin-block-end: 16px; color: var(--semantic-color-text-link); }
+.selectionContext { padding: 20px 24px; margin-block: 8px 24px; background: var(--semantic-color-surface-subtle); }
+.selectionContext p { margin: 0 0 8px; max-width: 64ch; }
+.selectionContext p:last-child { margin-bottom: 0; }
+.selectionContext a { display: inline-flex; align-items: center; min-height: 44px; color: var(--semantic-color-text-link); }
 .careTeam.careTeam { display: grid; gap: 16px; list-style: none; padding: 0; margin: 24px 0 0; }
 .careTeam li { margin: 0; padding: 0; min-width: 0; }
 .careTeam a {

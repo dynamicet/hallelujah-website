@@ -15,6 +15,8 @@ export type ClinicianProfileReviewState =
   | 'unavailable'
 
 export interface ClinicianProfileTemplateProps {
+  readonly selectionNotice?: string
+  readonly relatedSpecialtyIds?: readonly string[]
   readonly serviceContext?: { readonly name: string; readonly href: string }
   readonly portraitSrc?: string
   readonly portraitDisclosure?: string
@@ -67,7 +69,7 @@ function UnavailableProfile({ directoryHref, retryHref, state }: {
   )
 }
 
-export function ClinicianProfileTemplate({ serviceContext, portraitSrc, portraitDisclosure, relatedTopics = [], appointmentHref, biography, directoryHref = '/doctors', profile, shell, state }: ClinicianProfileTemplateProps) {
+export function ClinicianProfileTemplate({ selectionNotice, relatedSpecialtyIds = [], serviceContext, portraitSrc, portraitDisclosure, relatedTopics = [], appointmentHref, biography, directoryHref = '/doctors', profile, shell, state }: ClinicianProfileTemplateProps) {
   const unavailable = state === 'failure' || state === 'gone' || state === 'unavailable'
   const clinician = profile.clinician
   const hasEditorial = Boolean(biography || clinician?.details.interests.length || clinician?.details.credentials.length || clinician?.details.languages.length)
@@ -173,28 +175,36 @@ export function ClinicianProfileTemplate({ serviceContext, portraitSrc, portrait
               </aside>
             </div>
 
+            {selectionNotice ? <p role="status">{selectionNotice}</p> : null}
             {profile.relatedServices.length ? (
               <section aria-labelledby="clinician-profile-services-title" className={`${styles.section} ${styles.relatedServices}`} data-profile-section="P5">
-                <h2 id="clinician-profile-services-title">Related services</h2>
-                <ul className={styles.serviceList}>
-                  {profile.relatedServices.map((service) => (
-                    <li data-canonical-path={service.canonicalPath} data-service-public-id={service.publicId} key={service.publicId}>
-                      <strong>{service.name}</strong>
-                      {appointmentHref ? <Link className="ds-touch-target" href={service.canonicalPath}>View service details</Link> : <span>Service information unavailable</span>}
-                    </li>
-                  ))}
-                </ul>
+                <h2 id="clinician-profile-services-title">Specialties & services</h2>
+                {(['specialty', 'service'] as const).map((kind) => {
+                  const entries = profile.relatedServices.filter((service) => relatedSpecialtyIds.includes(service.publicId) === (kind === 'specialty'))
+                  if (!entries.length) return null
+                  return <div key={kind}>
+                    <h3>{kind === 'specialty' ? 'Specialties' : 'Services provided'}</h3>
+                    <ul className={styles.serviceList}>
+                      {entries.map((service) => (
+                        <li data-canonical-path={service.canonicalPath} data-service-public-id={service.publicId} key={service.publicId}>
+                          <strong>{service.name}</strong>
+                          {appointmentHref ? <Link className="ds-touch-target" href={service.canonicalPath}>View care details</Link> : <span>Service information unavailable</span>}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                })}
               </section>
             ) : null}
 
             {relatedTopics.length ? <section aria-labelledby="clinician-topics-title" className={styles.section}>
               <h2 id="clinician-topics-title">Prepare your questions</h2>
-              <p>These preview guides connect through the services listed above. Confirm the right care for your concern with the hospital.</p>
+              <p>Explore these topics to prepare questions for your consultation.</p>
               <ul>{relatedTopics.map((topic) => <li key={topic.href}><Link href={topic.href}>{topic.name}</Link></li>)}</ul>
             </section> : null}
             {appointmentHref ? <section aria-labelledby="clinician-profile-review-title" className={styles.reviewNote} data-profile-section="P6">
-              <h2 id="clinician-profile-review-title">About this information</h2>
-              <p>This illustrative profile has not been reviewed for public clinical or operational use. Appointment times and availability are not shown.</p>
+              <h2 id="clinician-profile-review-title">Before your appointment</h2>
+              <p>Bring your previous reports and a current medicine list. The care team will discuss appointment availability and any preparation with you.</p>
             </section> : null}
 
             <section aria-labelledby="clinician-profile-support-title" className={`${styles.support} ds-support-band`} data-profile-section="P7" id="profile-support">

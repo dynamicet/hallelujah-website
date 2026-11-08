@@ -193,7 +193,7 @@ export function SiteHeader({
   const styles = publicWebsite ? publicStyles : controlledStyles
   const primaryNavigationItems = navigationItems
     .filter((item) => !(publicWebsite ? [searchItem.href, '/', '/appointment'] : [searchItem.href]).includes(item.href))
-    .map((item) => publicWebsite ? { ...item, label: ({ Doctors: 'Find a doctor', Services: 'Care & services', Directions: 'Your visit' } as Record<string, string>)[item.label] ?? item.label } : item)
+    .map((item) => publicWebsite ? { ...item, label: ({ Doctors: 'Find a doctor', Directions: 'Your visit' } as Record<string, string>)[item.label] ?? item.label } : item)
 
   return (
     <InterfaceCopy><header
