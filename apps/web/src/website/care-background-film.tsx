@@ -1,5 +1,3 @@
-import { InterfaceLink as Link } from '@/website/interface-language'
-
 /** A care montage introduces the hospital; its invitation yields during playback. */
 export function CareBackgroundFilm() {
   return <figure className="care-background-film" data-film-state="poster">
@@ -18,7 +16,6 @@ export function CareBackgroundFilm() {
           <svg className="care-film-pause" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z" fill="currentColor" /></svg>
           <span data-film-control-label>Watch film</span>
         </button>
-        <Link className="care-film-about" href="/about">About us <span aria-hidden="true">→</span></Link>
       </div>
     </figcaption>
     <button hidden type="button" className="care-film-stop">Return to still</button>

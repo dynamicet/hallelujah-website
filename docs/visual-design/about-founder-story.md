@@ -61,3 +61,16 @@ The 2010 milestone restores the published clinic name change to the short timeli
 This is an extension of the incumbent system: existing display face, body face,
 ink, blue accent, pale ground, page frame, shell, and care actions. No global token
 or design-system change was needed.
+
+## Composition polish
+
+The homepage introduction and founder invitation share the film's 1120px maximum
+width. The founder portrait has more presence within that frame, while the story
+remains the main invitation. The redundant About link over the film was removed;
+its control now serves playback, and both story links stay outside the player.
+
+Tablet founder copy uses a tighter measure and spacing to balance the portrait.
+Leadership retains equal frames with individual focal settings for the circular
+legacy source images. Phone names and roles reserve consistent caption space;
+below 360px the list becomes horizontal portrait-and-caption entries to preserve
+readability. Photographs remain replaceable without changing the hierarchy.

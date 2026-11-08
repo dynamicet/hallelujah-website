@@ -28,7 +28,7 @@ await runVisualCheck('media-experience', base, async ({ browser, output }) => {
     await waitFor(page, "document.querySelector('.care-background-film').dataset.filmState === 'playing'")
     assert.equal(await page.eval("document.querySelector('[data-film-control-label]').textContent"), 'Pause film')
     assert.equal(await page.eval("document.querySelector('.care-film-control').querySelectorAll('svg').length"), 2)
-    assert.equal(await page.eval("getComputedStyle(document.querySelector('.care-film-about')).visibility"), 'visible')
+    assert.equal(await page.eval(() => getComputedStyle(document.querySelector('#about-hallelujah a[href="/about#our-story"]')).visibility), 'visible')
     assert.equal(await page.eval("document.querySelector('.care-background-film video').loop"), false)
     assert.equal(await page.eval("document.querySelector('.care-background-film').getBoundingClientRect().height"), initialHeight)
     await delay(900)

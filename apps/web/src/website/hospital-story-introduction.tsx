@@ -11,7 +11,7 @@ export function HospitalStoryIntroduction() {
       <Link className="text-link" href="/about#our-story">Explore our story <span aria-hidden="true">→</span></Link>
     </div>
     <Link className={styles.founder} href="/about#founding-vision">
-      <span className={styles.portrait}><Image src={hospitalFounder.portrait} alt="" width={786} height={786} sizes="100px" /></span>
+      <span className={styles.portrait}><Image src={hospitalFounder.portrait} alt="" width={786} height={786} sizes="(max-width: 599px) 80px, (max-width: 899px) 100px, 120px" /></span>
       <span className={styles.person}><strong>{hospitalFounder.name}</strong><span>Founder &amp; CEO</span><span className={styles.invitation}>Meet our founder <span aria-hidden="true">→</span></span></span>
     </Link>
   </div>

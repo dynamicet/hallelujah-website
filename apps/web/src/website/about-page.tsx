@@ -63,7 +63,7 @@ export function AboutPage() {
 
       <section className={styles.founder} id="founding-vision" aria-labelledby="about-founder-title">
         <figure className={styles.founderPortrait}>
-          <div className={styles.portraitCrop}><Image src={hospitalFounder.portrait} alt={hospitalFounder.name} width={hospitalFounder.width} height={hospitalFounder.height} sizes="(max-width: 699px) 90vw, 45vw" /></div>
+          <div className={styles.portraitCrop} data-framing={hospitalFounder.framing}><Image src={hospitalFounder.portrait} alt={hospitalFounder.name} width={hospitalFounder.width} height={hospitalFounder.height} sizes="(max-width: 699px) 90vw, 45vw" /></div>
           <figcaption>{hospitalFounder.name}<span>Founder &amp; Chief Executive Officer</span></figcaption>
         </figure>
         <div className={styles.founderCopy}>
@@ -108,7 +108,7 @@ export function AboutPage() {
         </div>
         <ul className={styles.leaders}>
           {hospitalLeadership.map((person) => <li key={person.name}>
-            <div className={styles.leaderPortrait}><Image src={person.portrait} alt={person.name} width={person.width} height={person.height} sizes="(max-width: 599px) 43vw, (max-width: 999px) 44vw, 22vw" /></div>
+            <div className={styles.leaderPortrait} data-framing={person.framing}><Image src={person.portrait} alt={person.name} width={person.width} height={person.height} sizes="(max-width: 359px) 104px, (max-width: 599px) 43vw, (max-width: 999px) 44vw, 22vw" /></div>
             <h3>{person.name}</h3>
             <p>{person.role}</p>
             {person === hospitalFounder && <a href="#founding-vision">Meet our founder <Arrow /></a>}
