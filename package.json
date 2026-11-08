@@ -138,7 +138,8 @@
     "home-enhancement:check": "pnpm --dir apps/web home-enhancement:check",
     "build:demo": "HH_DEMO_MODE=true APP_ENVIRONMENT=staging pnpm build",
     "start:demo": "HH_DEMO_MODE=true APP_ENVIRONMENT=staging pnpm start --hostname 0.0.0.0",
-    "staging:smoke": "node scripts/check-staging-demo.mjs"
+    "staging:smoke": "node scripts/check-staging-demo.mjs",
+    "composition:preview": "node scripts/serve-composition-study.mjs"
   },
   "pnpm": {
     "overrides": {

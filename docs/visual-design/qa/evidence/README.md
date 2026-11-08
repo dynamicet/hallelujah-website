@@ -1,5 +1,7 @@
 # Order 11 Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Final Chromium run:** 12 September 2026  
 **Environment:** Chromium 152.0.7977.64, headless Linux, DevTools Protocol  
 **Publication status:** Not approved
@@ -12,9 +14,9 @@
 
 | Capture | Evidence |
 | --- | --- |
-| [`emergency-320-en-forced-colors-reduced.png`](emergency-320-en-forced-colors-reduced.png) | Emergency at 320 CSS px with Chromium forced colors and reduced motion. |
-| [`appointment-failure-360-en-reduced.png`](appointment-failure-360-en-reduced.png) | Known recoverable appointment failure with retained editing and explicit non-operational identity. |
-| [`doctor-directory-loading-360-am-reduced.png`](doctor-directory-loading-360-am-reduced.png) | Controlled loading state in the visibly disclaimed Amharic geometry fixture. |
+| `emergency-320-en-forced-colors-reduced.png` (unavailable archive: `emergency-320-en-forced-colors-reduced.png`) | Emergency at 320 CSS px with Chromium forced colors and reduced motion. |
+| `appointment-failure-360-en-reduced.png` (unavailable archive: `appointment-failure-360-en-reduced.png`) | Known recoverable appointment failure with retained editing and explicit non-operational identity. |
+| `doctor-directory-loading-360-am-reduced.png` (unavailable archive: `doctor-directory-loading-360-am-reduced.png`) | Controlled loading state in the visibly disclaimed Amharic geometry fixture. |
 
 The captures were visually inspected after the final corrections. No generated Firefox capture is listed because the installed headless Firefox renderer failed before producing an image; that limitation is recorded in the QA report.
 

@@ -1,5 +1,7 @@
 # B04-011 Controlled Service Directory Evidence — 1 October 2026
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 | Field | Result |
 | --- | --- |
 | Branch | `b04-011-controlled-service-directory` |
@@ -51,8 +53,8 @@ readiness or publication authority.
 
 | Specimen | Result |
 | --- | --- |
-| [360 px initial directory](b04-011-artifacts/service-directory-360.png) | Pass: synthetic boundary, GET controls, groups, result cards and recovery boundary remain legible without clipping; 106,142 bytes; SHA-256 `fa5b531bd2ca0db7ddca341f242605b57dc348732f49cd8f4eab0ea6d9a024c0` |
-| [1280 px urgent boundary](b04-011-artifacts/service-directory-urgent-1280.png) | Pass: static fictional priority guidance precedes controls and does not expose a callable emergency action; 155,006 bytes; SHA-256 `6b1c190cc056b45eec5b73616029a656b41852c43400825d75182a0d485fb035` |
+| 360 px initial directory (unavailable archive: `b04-011-artifacts/service-directory-360.png`) | Pass: synthetic boundary, GET controls, groups, result cards and recovery boundary remain legible without clipping; 106,142 bytes; SHA-256 `fa5b531bd2ca0db7ddca341f242605b57dc348732f49cd8f4eab0ea6d9a024c0` |
+| 1280 px urgent boundary (unavailable archive: `b04-011-artifacts/service-directory-urgent-1280.png`) | Pass: static fictional priority guidance precedes controls and does not expose a callable emergency action; 155,006 bytes; SHA-256 `6b1c190cc056b45eec5b73616029a656b41852c43400825d75182a0d485fb035` |
 
 The UI/UX review used the repository design tokens, existing shell and search primitives, then
 checked compact targets, wrapping, source order and responsive behavior against the controlled

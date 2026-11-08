@@ -1,5 +1,7 @@
 # `B01-011` — Provider-Neutral Optional-Map Completion Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Recorded:** 16 September 2026, Africa/Addis_Ababa
 **Result:** Done for controlled development; client acceptance, local `T0`, and hosted implementation `T1` pass
 **Tester:** Codex directed by client workspace identity `befikadusata` in the temporary Frontend/QA roles
@@ -23,7 +25,7 @@
 | Built budget smoke | Passed: 146,077 compressed JavaScript bytes, 183,163 initial compressed bytes, 15 requests, zero external initial origins. |
 | `pnpm secrets:check --history` | Passed for the current tree and reachable Git history; matched values would be redacted. |
 | `pnpm audit:dependencies` | Fresh approved-network audit passed for 650 dependencies with zero moderate, high, or critical known vulnerabilities. The dependency graph is unchanged. |
-| Sanitized visual inspection | [320 px](b01-011-rendered/b01-011-optional-map-320.png) and [1440 px](b01-011-rendered/b01-011-optional-map-1440.png) reviewed for complete fallback, wrapping, grouping, state wording, inert acknowledgement, and synthetic disclaimers. Captures focus the map fixture by temporarily hiding unrelated sibling fixtures; no production DOM or code is changed by capture framing. |
+| Sanitized visual inspection | 320 px (unavailable archive: `b01-011-rendered/b01-011-optional-map-320.png`) and 1440 px (unavailable archive: `b01-011-rendered/b01-011-optional-map-1440.png`) reviewed for complete fallback, wrapping, grouping, state wording, inert acknowledgement, and synthetic disclaimers. Captures focus the map fixture by temporarily hiding unrelated sibling fixtures; no production DOM or code is changed by capture framing. |
 
 ## Source fingerprints
 

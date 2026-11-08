@@ -1,5 +1,7 @@
 # Health & Care finder — desktop and mobile design
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 ## Website integration — current direction (6 November 2026)
 
 The homepage finder at `/#health-library`, after Contact & directions, combines one heading, **“Find health topics”**, a prominent search field and the complete A–Z including disabled letters. Introductory/helper paragraphs, example chips and repeated browse headings are omitted. All 26 letters stay visible; disabled letters automatically become available when a matching topic is supplied.
@@ -49,7 +51,7 @@ All 12 topics, aliases, introductory copy and hospital service mappings remain i
 
 Screenshot links below and the integrated website artifacts refer to local review output, which is intentionally Git-ignored. The standalone JSON reports are committed alongside this study; screenshots are not included in a fresh checkout.
 
-Review the [desktop](evidence/desktop-fold.jpg), [mobile Search entry](evidence/mobile-fold.jpg), [mobile A–Z entry](evidence/mobile-alphabet.jpg), [letter matches](evidence/mobile-matches.jpg), [symptom-search matches](evidence/mobile-search-matches.jpg), [focused guide](evidence/mobile-reader.jpg), and [full-screen reading sheet](evidence/mobile-full-guide.jpg).
+Review the desktop (unavailable archive: `evidence/desktop-fold.jpg`), mobile Search entry (unavailable archive: `evidence/mobile-fold.jpg`), mobile A–Z entry (unavailable archive: `evidence/mobile-alphabet.jpg`), letter matches (unavailable archive: `evidence/mobile-matches.jpg`), symptom-search matches (unavailable archive: `evidence/mobile-search-matches.jpg`), focused guide (unavailable archive: `evidence/mobile-reader.jpg`), and full-screen reading sheet (unavailable archive: `evidence/mobile-full-guide.jpg`).
 
 **47 browser checks passed**; see [interaction-checks.json](evidence/interaction-checks.json). Checks cover shared search/filter/pagination/handoff behavior, separate mobile modes, clearing stale matches, focused reading, sheet dimensions, reachable Close, focus restoration, 44px targets at 320/360/390px, reduced motion and no browser exceptions. Syntax and source design lint pass. The responsive inspection still records the standalone component's unused space below it and the small mobile heading; its adjacent explanation, explicit mode labels and field label supply the task context. These are browser prototype checks, not clinical or screen-reader certification.
 

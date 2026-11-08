@@ -7,7 +7,7 @@ import path from 'node:path'
 import { repositoryRoot } from './lib/repository-files.mjs'
 
 const fixtureRoot = await mkdtemp(path.join(os.tmpdir(), 'b00-011-controls-'))
-const exclusions = new Set(['.git', '.next', 'node_modules', 'tsconfig.tsbuildinfo'])
+const exclusions = new Set(['.git', '.next', 'node_modules', 'tsconfig.tsbuildinfo', 'artifacts', '.taste-skill', '.visual-review'])
 let completed = 0
 
 function expectFailure(script, expectedMessage) {
@@ -46,6 +46,8 @@ try {
       return relative === '' || !relative.split(path.sep).some((part) => exclusions.has(part))
     },
   })
+
+  execFileSync('git', ['init', '--quiet'], { cwd: fixtureRoot, stdio: 'pipe' })
 
   const workflowPath = path.join(fixtureRoot, '.github/workflows/toolchain-policy.yml')
   const workflow = await readFile(workflowPath, 'utf8')

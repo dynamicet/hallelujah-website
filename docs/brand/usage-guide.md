@@ -1,5 +1,7 @@
 # Hallelujah website brand and composition guide
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 Deliverable 6 · Finalized 4 November 2026 for the implemented local website.
 
 This is the current website usage guide. Blue supplies a recognizable care identity;
@@ -162,23 +164,23 @@ and patient groups have no exclusive accent ownership.
 ## Representative compositions
 
 These are implemented examples, not fixed color assignments for future components.
-The [27-group comparison study](http://localhost:3000/composition-study) shows previous and
+The [27-group comparison study](http://127.0.0.1:3977) shows previous and
 revised treatments. The [component library](http://localhost:3000/component-library) shows
 live shared states. Both require the development server and return 404 in production.
 
 | Experience | Relationship to reuse | Reference |
 | --- | --- | --- |
 | Opening and navigation | Human photograph, readable blue scrim, inverse action with warm edge; pale-blue header structure and warm current-page detail | [Homepage implementation](color-catalog/composition-implementation.md) |
-| Care discovery | Blue headings/actions, distinct white results and mist filter rail, portrait planes with varied top edges | [Doctor directory, desktop](evidence/route-rollout/after/doctors-1440.jpg) |
-| Services and profiles | Comparable destinations, readable blue titles, warm portrait/image edge and independently framed next-step rail | [Service directory, phone](evidence/route-rollout/after/services-390.jpg) |
+| Care discovery | Blue headings/actions, distinct white results and mist filter rail, portrait planes with varied top edges | Doctor directory, desktop (unavailable archive: `evidence/route-rollout/after/doctors-1440.jpg`) |
+| Services and profiles | Comparable destinations, readable blue titles, warm portrait/image edge and independently framed next-step rail | Service directory, phone (unavailable archive: `evidence/route-rollout/after/services-390.jpg`) |
 | Technology and film | Image stages carry the subject; blue structure and warm disclosure/action details connect the sequence | [Homepage composition matrix](color-catalog/composition-implementation.md#what-changed) |
-| Human stories | Natural imagery, blue headings, varied white/mist/peach quotation planes and contrasting punctuation | [Story comparison](evidence/composition-revision/captures/after-stories-1440.jpg) |
-| Preparation and arrival | Blue reading hierarchy, white insets within mist, warm guidance marker; written urgency remains distinct | [Visitor guide, tablet](evidence/route-rollout/after/patients-visitors-768.jpg) |
-| Appointment | White workspace, blue progress and selection, warm photo edge and magenta care-summary marker | [Appointment, phone](evidence/route-rollout/after/appointment-390.jpg) |
-| Feedback | Blue labels, defined white fields, clear review action and expressive review edge | [Feedback, desktop](evidence/route-rollout/after/feedback-1440.jpg) |
-| Topics | Mist enclosure, white search, magenta search edge, blue selection and care handoff | [Topic finder, desktop](evidence/route-rollout/after/health-topics-1440.jpg) |
-| Editorial | Strong lead story, blue reading links, consistent image treatment and varied metadata rules | [Archive, tablet](evidence/route-rollout/after/news-resources-768.jpg) |
-| Emergency | Blue orientation and white practical information with explicit red urgency | [Emergency, phone](evidence/route-rollout/after/emergency-390.jpg) |
+| Human stories | Natural imagery, blue headings, varied white/mist/peach quotation planes and contrasting punctuation | Story comparison (unavailable archive: `evidence/composition-revision/captures/after-stories-1440.jpg`) |
+| Preparation and arrival | Blue reading hierarchy, white insets within mist, warm guidance marker; written urgency remains distinct | Visitor guide, tablet (unavailable archive: `evidence/route-rollout/after/patients-visitors-768.jpg`) |
+| Appointment | White workspace, blue progress and selection, warm photo edge and magenta care-summary marker | Appointment, phone (unavailable archive: `evidence/route-rollout/after/appointment-390.jpg`) |
+| Feedback | Blue labels, defined white fields, clear review action and expressive review edge | Feedback, desktop (unavailable archive: `evidence/route-rollout/after/feedback-1440.jpg`) |
+| Topics | Mist enclosure, white search, magenta search edge, blue selection and care handoff | Topic finder, desktop (unavailable archive: `evidence/route-rollout/after/health-topics-1440.jpg`) |
+| Editorial | Strong lead story, blue reading links, consistent image treatment and varied metadata rules | Archive, tablet (unavailable archive: `evidence/route-rollout/after/news-resources-768.jpg`) |
+| Emergency | Blue orientation and white practical information with explicit red urgency | Emergency, phone (unavailable archive: `evidence/route-rollout/after/emergency-390.jpg`) |
 | Footer | Deep-blue closing field, inverse reading, warm identity marker and tonal divider | [Homepage implementation](color-catalog/composition-implementation.md) |
 
 ## Component and state contract
@@ -352,3 +354,5 @@ colors and print. No new animation or color-based clinical meaning is introduced
 Rendered checks measured story-caption contrast at 6.74:1, technology preparation
 body text at 5.91:1 and its links at 5.97:1. Preparation disclosure chevrons retain
 the existing dark-orange/white pairing, with white on the open dark-orange circle.
+
+Run `pnpm composition:preview` to open the loopback composition archive. Review evidence is kept outside the deployable application.

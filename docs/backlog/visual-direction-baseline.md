@@ -1,5 +1,7 @@
 # Visual direction baseline and correction criteria
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 The implemented hospital templates preserve the color foundation and much of the functional hierarchy, but their composition has drifted from Calm Wayfinding. The largest corrections are the shared shell, Home, and desktop discovery layouts. Emergency, Appointment, and clinician profiles retain useful structure but lose the reference's surface hierarchy, grouping, and support treatments.
 
 This is step 1 of the visual correction plan on `fix/visual-direction-alignment`, recorded on 8 October 2026 against source commit `43c1f5706d89040602b90b929026eedd7e5378ce`. It establishes the before state and correction criteria. Steps 2–8 below track the shared shell, Home, discovery, clinician profile, Emergency, and Appointment corrections. All template composition slices in this inventory now have implementation records; these are controlled review results, not production acceptance. Existing ticket completion records continue to describe their original controlled-development scope.
@@ -22,16 +24,16 @@ Generated screenshots are local review artifacts under `artifacts/visual/` and a
 
 | Template | Current desktop | Current mobile | Design desktop | Design mobile |
 | --- | --- | --- | --- | --- |
-| Home | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/critical-journeys/evidence/home-H0-H9-1440-en-standard.png) | [360](../visual-design/pages/critical-journeys/evidence/home-H0-H9-360-en-standard.png) |
-| Emergency | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-1440-en-reduced.png) | [360](../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-360-en-reduced.png) |
-| Appointment | 1440 (local capture) | 360 (local capture) | [1280](../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-1280-en-standard.png) | [360](../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-360-en-standard.png) |
-| Clinician directory | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-1440-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-360-en-standard.png) |
-| Clinician profile | 1440 (local capture) | 360 (local capture) | [1280](../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-1280-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-360-en-standard.png) |
-| Service directory | 1440 (local capture) | 360 (local capture) | [1440](../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-1440-en-standard.png) | [360](../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-360-en-standard.png) |
+| Home | 1440 (local capture) | 360 (local capture) | 1440 (unavailable archive: `../visual-design/pages/critical-journeys/evidence/home-H0-H9-1440-en-standard.png`) | 360 (unavailable archive: `../visual-design/pages/critical-journeys/evidence/home-H0-H9-360-en-standard.png`) |
+| Emergency | 1440 (local capture) | 360 (local capture) | 1440 (unavailable archive: `../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-1440-en-reduced.png`) | 360 (unavailable archive: `../visual-design/pages/critical-journeys/evidence/emergency-E0-E8-360-en-reduced.png`) |
+| Appointment | 1440 (local capture) | 360 (local capture) | 1280 (unavailable archive: `../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-1280-en-standard.png`) | 360 (unavailable archive: `../visual-design/pages/critical-journeys/evidence/appointment-A0-A8-360-en-standard.png`) |
+| Clinician directory | 1440 (local capture) | 360 (local capture) | 1440 (unavailable archive: `../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-1440-en-standard.png`) | 360 (unavailable archive: `../visual-design/pages/care-discovery/evidence/doctor-directory-D0-D6-360-en-standard.png`) |
+| Clinician profile | 1440 (local capture) | 360 (local capture) | 1280 (unavailable archive: `../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-1280-en-standard.png`) | 360 (unavailable archive: `../visual-design/pages/care-discovery/evidence/doctor-profile-P0-P7-360-en-standard.png`) |
+| Service directory | 1440 (local capture) | 360 (local capture) | 1440 (unavailable archive: `../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-1440-en-standard.png`) | 360 (unavailable archive: `../visual-design/pages/care-discovery/evidence/services-directory-S0-S7-360-en-standard.png`) |
 
 Appointment and profile desktop references are 1280 px; compare hierarchy and relationships rather than exact pixel positions against their 1440 px captures. Reference captures use different controlled copy and data. Their standard-motion frames establish static composition, not animation parity.
 
-Home's preview adapter appends a controlled destination review and abstract transcript after H3. Those large sections belong to the harness and must not be counted as Home composition drift or removed from functional tests merely to improve a screenshot. The static Home fixture omits governed sections; [existing governed-content evidence](evidence/b03-006-artifacts/governed-current-1440-no-js.png) and [contact evidence](evidence/b03-005-artifacts/contacts-current-1440-no-js.png) cover those additional modules.
+Home's preview adapter appends a controlled destination review and abstract transcript after H3. Those large sections belong to the harness and must not be counted as Home composition drift or removed from functional tests merely to improve a screenshot. The static Home fixture omits governed sections; existing governed-content evidence (unavailable archive: `evidence/b03-006-artifacts/governed-current-1440-no-js.png`) and contact evidence (unavailable archive: `evidence/b03-005-artifacts/contacts-current-1440-no-js.png`) cover those additional modules.
 
 ## Verified differences and correction criteria
 

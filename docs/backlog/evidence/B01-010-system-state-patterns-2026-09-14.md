@@ -1,5 +1,7 @@
 # `B01-010` System State and Recovery Patterns — Local Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
 **Result:** Done for controlled development; full local `T0` and hosted implementation `T1` pass
@@ -17,7 +19,7 @@
 | Responsive/reflow | 320, 360, 375, 667 × 375 landscape, 768, 1280, 1440, 200%/400% viewport equivalents, and 200% root-text enlargement pass without detected clipping or page overflow. Compact state headings stack their icon and text. |
 | Interaction and resilience | Recovery targets measure at least 44 × 44 CSS px; programmatic panel focus has a visible three-pixel outline; no-JavaScript HTML retains state, recovery, dates, loading boundary, and critical facts; forced colors and print retain boundaries and wording. |
 | Built and runtime gates | Built semantic checks and runtime/security-header checks pass. The final local closeout run measured 166,729 compressed initial bytes across 13 requests with 139,428 compressed JavaScript bytes and zero external origins. The state implementation is server-rendered and adds no client component or provider request. |
-| Visual review | [320px](b01-010-rendered/b01-010-system-states-320.png) and [1440px](b01-010-rendered/b01-010-system-states-1440.png) captures were inspected for hierarchy, wrapping, distinct state wording, recovery prominence, dated metadata, loading boundaries, and controlled-data disclaimers. |
+| Visual review | 320px (unavailable archive: `b01-010-rendered/b01-010-system-states-320.png`) and 1440px (unavailable archive: `b01-010-rendered/b01-010-system-states-1440.png`) captures were inspected for hierarchy, wrapping, distinct state wording, recovery prominence, dated metadata, loading boundaries, and controlled-data disclaimers. |
 | Security/dependencies | Current-tree and reachable-history secret scans pass. The audit reports 650 dependencies with zero moderate, high, or critical known vulnerabilities. |
 | External boundary | Synthetic state text only; no real hospital fact, operational notice, crisis content, contact, translation, action outcome, provider, request, personal data, public route, or publication authority was introduced. |
 | Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34896169521) passed in 2m13s on implementation commit `3774c0c`. |

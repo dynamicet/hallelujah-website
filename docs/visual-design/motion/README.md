@@ -1,5 +1,7 @@
 # Order 3 — Motion, Storytelling, and Experience Direction
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Prepared:** 12 September 2026  
 **Status:** Complete historical prototype evidence; production planning is superseded by the 14 September 2026 amendment
 **Working visual direction:** Direction A — Calm Wayfinding  
@@ -23,7 +25,7 @@ This decision closes `VD-17` for non-public prototype work. It does not close `B
 - [Motion and storytelling direction](motion-and-storytelling.md) — emotional goals, intensity system, page/section treatments, tokens, signature moments, micro-interactions, reduced-motion equivalence, mobile and performance limits, traceability, and acceptance criteria.
 - [Critical-experience storyboards](storyboards.md) — frame-by-frame standard and reduced-motion behavior for Home routing, Emergency, appointment request and recovery, care discovery, site search, arrival, patient guidance, institutional trust, and language continuity.
 - [Interactive motion study](studies.html) — local, dependency-free comparison of standard and reduced treatments. All controls are inert demonstrations; the file makes no external requests and collects no data.
-- [Rendered evidence](evidence/) — 1440 px standard/reduced captures plus 360 px standard and 320 px reduced captures. They evidence responsive layout and visible end states, not timing quality or completed human/device testing.
+- Rendered evidence (unavailable archive: `evidence/`) — 1440 px standard/reduced captures plus 360 px standard and 320 px reduced captures. They evidence responsive layout and visible end states, not timing quality or completed human/device testing.
 
 ## Decision summary
 

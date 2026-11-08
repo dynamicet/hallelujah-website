@@ -54,7 +54,7 @@
       "catalog": "docs/brand/color-catalog/index.html",
       "paletteSource": "docs/brand/color-catalog/palette.json",
       "roleMapping": "docs/brand/usage-guide.md",
-      "componentStudy": "development route /composition-study; historical standalone study at docs/brand/color-catalog/component-study.html",
+      "componentStudy": "loopback archive: pnpm composition:preview (port 3977); historical standalone study at docs/brand/color-catalog/component-study.html",
       "compositionDirection": "docs/brand/color-catalog/composition-implementation.md",
       "interface": {
         "surfacePage": "#FBF8F6",

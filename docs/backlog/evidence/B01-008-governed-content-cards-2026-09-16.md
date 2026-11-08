@@ -1,5 +1,7 @@
 # `B01-008` Governed-Content Cards — Local Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Recorded:** 16 September 2026, Africa/Addis_Ababa
 
 **Environment:** Local Next.js build, pinned Node.js 24.21.0 and pnpm 10.27.0, headless Chromium
@@ -25,7 +27,7 @@ public vacancy contract requires explicit privacy and application approvals befo
 | Resilience | Server HTML retains synthetic cards without JavaScript; print keeps borders and transparent surfaces; forced colors keeps the retired boundary and visible link focus. |
 | Security and dependency | Reachable-history scan passed; dependency audit returned 650 dependencies and zero moderate, high, or critical known vulnerabilities. |
 | Built budget | 145,350 compressed JavaScript bytes, 178,289 compressed initial bytes, 14 requests, zero external origins. |
-| Visual review | [320 px](b01-008-rendered/b01-008-governed-cards-320.png) and [1440 px](b01-008-rendered/b01-008-governed-cards-1440.png) screenshots show readable stacked/column layouts, visible synthetic labels, neutral media, and distinct retired wording. |
+| Visual review | 320 px (unavailable archive: `b01-008-rendered/b01-008-governed-cards-320.png`) and 1440 px (unavailable archive: `b01-008-rendered/b01-008-governed-cards-1440.png`) screenshots show readable stacked/column layouts, visible synthetic labels, neutral media, and distinct retired wording. |
 | Hosted implementation and documentation | [`quality-and-security` run `35030463614`](https://github.com/dynamicet/hallelujah-website/actions/runs/35030463614) passed on exact implementation commit `f0e8dcb`, including frozen install, history secret scan, dependency audit, `pnpm verify`, and clean rebuild. [Run `35030914802`](https://github.com/dynamicet/hallelujah-website/actions/runs/35030914802) passed on exact documentation commit `b62d65b`. [PR `#23`](https://github.com/dynamicet/hallelujah-website/pull/23) carries the final review and merge gate. |
 
 The default shell exposed Node.js 25.2.1 and correctly failed the engine guard. Accepted checks

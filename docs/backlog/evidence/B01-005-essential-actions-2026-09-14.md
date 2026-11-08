@@ -1,5 +1,7 @@
 # `B01-005` Essential Actions — Local Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
 **Result:** Done for controlled development; local `T0` and hosted implementation `T1` pass
@@ -18,7 +20,7 @@
 | Emergency | Visible “Emergency” text, supporting siren icon, persistent divider, and `data-experience-level="0"` remain; computed transition duration is zero. |
 | Resilience | Server-rendered actions require no client JavaScript, provider, external request, remote asset, custom font, personal data, or approved hospital facts. Reduced motion, forced colors, and print have explicit treatments. |
 | Security and dependencies | Current source plus reachable Git history secret scanning passes; 650 dependencies report zero moderate, high, or critical known vulnerabilities. |
-| Visual review | [320px](b01-005-rendered/b01-005-essential-actions-320.png) and [1440px](b01-005-rendered/b01-005-essential-actions-1440.png) captures were inspected for hierarchy, wrapping, separation, focus, disabled reasoning, and non-color emergency meaning. |
+| Visual review | 320px (unavailable archive: `b01-005-rendered/b01-005-essential-actions-320.png`) and 1440px (unavailable archive: `b01-005-rendered/b01-005-essential-actions-1440.png`) captures were inspected for hierarchy, wrapping, separation, focus, disabled reasoning, and non-color emergency meaning. |
 | Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34869074953) passed in 2m06s on commit `c8491ef`. |
 
 ## Performed commands
