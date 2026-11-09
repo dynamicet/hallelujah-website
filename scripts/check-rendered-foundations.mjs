@@ -13,7 +13,6 @@ const appPort = 3212
 const upstreamOrigin = `http://${host}:${appPort}`
 let origin = upstreamOrigin
 let reviewHarness
-const browserPort = 20_000 + (randomBytes(2).readUInt16BE(0) % 30_000)
 const captureFlag = process.argv.indexOf('--capture-dir')
 const captureDirectory = captureFlag >= 0 ? path.resolve(process.argv[captureFlag + 1] ?? '') : undefined
 const capturePrefixFlag = process.argv.indexOf('--capture-prefix')
@@ -27,8 +26,10 @@ const systemStatesMode = reviewHarnessMode || process.argv.includes('--system-st
 const motionMediaMode = reviewHarnessMode || process.argv.includes('--motion-media')
 const governedCardsMode = reviewHarnessMode || process.argv.includes('--governed-cards')
 const optionalMapMode = reviewHarnessMode || process.argv.includes('--optional-map')
-const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const browserExecutable = findBrowser()
+const browserVersion = spawnSync(browserExecutable, ['--version'], { encoding: 'utf8' }).stdout.trim()
+console.log(`Foundation browser: ${browserExecutable} (${browserVersion})`)
+const browserProfile = await mkdtemp(path.join(tmpdir(), 'hallelujah-foundations-'))
 const environment = {
   ...process.env,
   APP_ENVIRONMENT: 'local',
@@ -55,7 +56,7 @@ const browser = spawn(
     '--no-first-run',
     '--no-default-browser-check',
     '--remote-debugging-address=127.0.0.1',
-    `--remote-debugging-port=${browserPort}`,
+    '--remote-debugging-port=0',
     `--user-data-dir=${browserProfile}`,
     'about:blank',
   ],
@@ -63,10 +64,12 @@ const browser = spawn(
 )
 let serverOutput = ''
 let browserOutput = ''
+let browserStartupError
 server.stdout.on('data', (chunk) => { serverOutput += chunk.toString() })
 server.stderr.on('data', (chunk) => { serverOutput += chunk.toString() })
-browser.stdout.on('data', (chunk) => { browserOutput += chunk.toString() })
-browser.stderr.on('data', (chunk) => { browserOutput += chunk.toString() })
+browser.on('error', (error) => { browserStartupError = error })
+browser.stdout.on('data', (chunk) => { browserOutput = (browserOutput + chunk.toString()).slice(-8000) })
+browser.stderr.on('data', (chunk) => { browserOutput = (browserOutput + chunk.toString()).slice(-8000) })
 
 try {
   await waitForServer()
@@ -1341,7 +1344,8 @@ try {
 } catch (error) {
   console.error(`Rendered foundation smoke failed: ${error.message}`)
   if (serverOutput.trim()) console.error('Application server output was captured without environment values.')
-  if (browserOutput.trim()) console.error('Browser output was captured; rerun directly for local diagnostics.')
+  console.error(`Browser process: exit=${browser.exitCode}, signal=${browser.signalCode}`)
+  if (browserOutput.trim()) console.error(`Browser diagnostics:\n${browserOutput.trim()}`)
   process.exitCode = 1
 } finally {
   if (reviewHarness) await reviewHarness.close()
@@ -1355,6 +1359,12 @@ try {
 }
 
 function findBrowser() {
+  if (process.env.CHROME_PATH) {
+    if (spawnSync(process.env.CHROME_PATH, ['--version']).status !== 0) {
+      throw new Error('CHROME_PATH does not identify a working Chromium executable')
+    }
+    return process.env.CHROME_PATH
+  }
   const candidates = [
     'google-chrome-stable',
     'google-chrome',
@@ -1384,19 +1394,14 @@ async function waitForServer() {
 }
 
 async function waitForDevTools() {
+  // Chrome binds an available port before announcing its DevTools endpoint.
   for (let attempt = 0; attempt < 60; attempt += 1) {
-    if (browser.exitCode !== null) throw new Error('browser exited before DevTools became ready')
-    try {
-      const response = await fetch(`http://${host}:${browserPort}/json/version`, {
-        signal: AbortSignal.timeout(500),
-      })
-      if (response.ok) {
-        const version = await response.json()
-        if (version.webSocketDebuggerUrl) return version.webSocketDebuggerUrl
-      }
-    } catch {
-      // Chromium has not exposed its endpoint yet.
+    if (browserStartupError) throw browserStartupError
+    if (browser.exitCode !== null || browser.signalCode !== null) {
+      throw new Error('browser exited before DevTools became ready')
     }
+    const endpoint = browserOutput.match(/DevTools listening on (ws:\/\/(?:127\.0\.0\.1|localhost|\[::1\]):\d+\/devtools\/browser\/[^\s]+)/u)?.[1]
+    if (endpoint) return endpoint
     await pause(250)
   }
   throw new Error('browser DevTools endpoint did not become ready within 15 seconds')
@@ -1759,7 +1764,7 @@ function stopProcess(processHandle, signal = 'SIGTERM') {
 }
 
 async function waitForExit(processHandle) {
-  if (processHandle.exitCode !== null) return
+  if (processHandle.exitCode !== null || processHandle.signalCode !== null) return
   await Promise.race([
     new Promise((resolve) => processHandle.once('exit', resolve)),
     pause(2000),
