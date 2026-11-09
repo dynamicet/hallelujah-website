@@ -13,8 +13,8 @@ function Question({ question, children }: { question: string; children: ReactNod
 
 export default function FaqPage() {
   requireLocalDemo()
-  return <PatientPage title="A little clarity before your visit." description="Find answers to common questions about appointments, arriving at the hospital and getting the support you need."
-    current="/faq" action={{ href: '#appointments', label: 'Find an answer' }}>
+  return <PatientPage variant="document" title="A little clarity before your visit." description="Find answers to common questions about appointments, arriving at the hospital and getting the support you need."
+    current="/faq">
     <nav className={styles.jumpLinks} aria-label="Frequently asked question categories"><a href="#appointments">Appointments</a><a href="#your-visit">Your visit</a><a href="#support">Support & questions</a></nav>
     <PatientSection id="appointments" title="Appointments & finding care">
       <div className={informationStyles.disclosures}>

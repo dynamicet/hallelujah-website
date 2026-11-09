@@ -7,14 +7,13 @@ export const metadata = { title: 'Patient Feedback | Hallelujah Hospital' }
 
 export default function FeedbackPage() {
   requireLocalDemo()
-  return <PatientPage title="Patient feedback" description="Compliments, suggestions and concerns about your hospital experience."
-    current="/feedback"
-    action={{ href: '#share', label: 'Try the feedback form' }}>
+  return <PatientPage variant="task" title="Patient feedback" description="Compliments, suggestions and concerns about your hospital experience."
+    current="/feedback">
     <PatientSection id="share" title="Prepare your feedback">
       <p>The feedback recipient is awaiting confirmation. You can prepare and review a sample here; nothing can be sent.</p>
       <FeedbackComposer />
     </PatientSection>
-    <PatientSection id="feedback-handling" title="What happens next?" tone>
+    <PatientSection context="story" id="feedback-handling" title="What happens next?">
       <p>Feedback handling and response times are awaiting hospital confirmation.</p>
       <p>If you are currently receiving care, ask your care team whom to speak with about your experience.</p>
       <Link className="text-link" href="/#home-call">Hospital contact information <span aria-hidden="true">→</span></Link>

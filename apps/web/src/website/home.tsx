@@ -109,7 +109,7 @@ export function WebsiteHome() {
 
         <section className="visit-guide" data-motion-section="visit" aria-labelledby="visit-guide-title" id="visit-guide" tabIndex={-1}>
           <div className="page-frame visit-inner">
-            <div className="visit-copy"><h2 data-motion="heading" data-reveal="0" id="visit-guide-title">Plan <span className="home-heading-accent">your visit</span></h2>
+            <div className="visit-copy"><h2 data-motion="heading" data-reveal="0" id="visit-guide-title">Plan your visit</h2>
               <div className="visit-checklist">
                 <h3>What to bring</h3>
                 <ul><li>Your questions and medicine list</li><li>Referral letter, if you have one</li><li>Relevant previous results</li></ul>

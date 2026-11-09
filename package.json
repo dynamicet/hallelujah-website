@@ -143,7 +143,8 @@
     "build:demo": "HH_DEMO_MODE=true APP_ENVIRONMENT=staging pnpm build",
     "start:demo": "HH_DEMO_MODE=true APP_ENVIRONMENT=staging pnpm start --hostname 0.0.0.0",
     "staging:smoke": "node scripts/check-staging-demo.mjs",
-    "composition:preview": "node scripts/serve-composition-study.mjs"
+    "composition:preview": "node scripts/serve-composition-study.mjs",
+    "visual:colors": "node scripts/check-color-contexts.mjs"
   },
   "pnpm": {
     "overrides": {

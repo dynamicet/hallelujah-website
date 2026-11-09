@@ -15,7 +15,7 @@
 .timeline li { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 24px; align-items: start; }
 .year { font-family: var(--site-display); font-size: 36px; line-height: 1.15; }
 .timeline p { margin: 0; max-width: 36ch; font-size: 18px; line-height: 1.65; }
-.valuesChapter { padding-block: 48px; border-block: 1px solid var(--semantic-color-border-default); }
+.valuesChapter { padding-block: 48px; }
 .values { display: grid; gap: 24px; margin: 0; }
 .values dt { font-size: 18px; font-weight: 600; line-height: 1.4; }
 .values dd { max-width: 48ch; margin: 8px 0 0; font-size: 16px; line-height: 1.65; }
@@ -30,7 +30,7 @@
 .chapters { display: flex; flex-wrap: wrap; gap: 16px 40px; margin-top: -24px; }
 .chapters a { display: inline-flex; align-items: center; gap: 24px; min-height: 44px; color: var(--site-ink); text-underline-offset: 6px; }
 .page section[id] { scroll-margin-top: 140px; }
-.founder { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); margin-top: 112px; background: var(--site-pale); }
+.founder { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); margin-top: 88px; background: var(--semantic-color-surface-expressive); border-radius: var(--site-image-radius); overflow: hidden; }
 .founderPortrait { margin: 0; }
 .portraitCrop { aspect-ratio: 4 / 5; overflow: hidden; }
 /* The legacy portraits contain circular edges. Enlarge within the rectangular
@@ -43,7 +43,7 @@
 .founderPortrait figcaption { padding: 24px 28px 28px; font-size: 20px; font-weight: 600; line-height: 1.4; }
 .founderPortrait figcaption span { display: block; margin-top: 6px; font-size: 15px; font-weight: 400; }
 .founderCopy { align-self: center; padding: clamp(28px, 4vw, 64px); }
-.page .founderCopy h2 { max-width: 12ch; font-size: clamp(40px, 4.5vw, 64px); }
+.page .founderCopy h2 { color: var(--semantic-color-accent-expressive-text); max-width: 12ch; font-size: clamp(40px, 4.5vw, 64px); }
 .founderCopy p { max-width: 43ch; margin: 24px 0 0; font-size: 17px; line-height: 1.65; }
 .founderCopy .founderLead { margin-top: 32px; font-size: 23px; line-height: 1.4; }
 .founderCopy a { margin-top: 32px; }

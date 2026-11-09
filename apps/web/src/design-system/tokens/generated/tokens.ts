@@ -42,9 +42,11 @@ export const designTokenValues = {
   "primitive.color.brand.navy": "#00445d",
   "primitive.color.brand.yellow": "#f5c82d",
   "primitive.color.brand.magenta": "#e7277c",
+  "primitive.color.orange.100": "#ffeddf",
   "primitive.color.orange.600": "#f65b25",
   "primitive.color.orange.800": "#a8430c",
   "primitive.color.orange.050": "#fff7f2",
+  "primitive.color.magenta.100": "#fbe4ef",
   "primitive.color.magenta.600": "#d81b72",
   "primitive.color.magenta.800": "#a61558",
   "primitive.color.magenta.050": "#fdf3f8",
@@ -138,8 +140,8 @@ export const designTokenValues = {
   "semantic.color.surface.error": "{primitive.color.red.050}",
   "semantic.color.surface.inverse": "{primitive.color.blue.800}",
   "semantic.color.surface.selected": "{primitive.color.blue.100}",
-  "semantic.color.surface.supporting": "{primitive.color.orange.050}",
-  "semantic.color.surface.expressive": "{primitive.color.magenta.050}",
+  "semantic.color.surface.supporting": "{primitive.color.orange.100}",
+  "semantic.color.surface.expressive": "{primitive.color.magenta.100}",
   "semantic.color.surface.highlight": "{primitive.color.brand.yellow}",
   "semantic.color.brand.cool": "{primitive.color.brand.cyan}",
   "semantic.color.brand.warm": "{primitive.color.orange.600}",
@@ -157,6 +159,8 @@ export const designTokenValues = {
   "semantic.color.text.inverse-accent": "{primitive.color.blue.200}",
   "semantic.color.text.link": "{primitive.color.blue.700}",
   "semantic.color.text.urgent": "{primitive.color.red.800}",
+  "semantic.color.text.link-hover": "{primitive.color.blue.700}",
+  "semantic.color.text.link-active": "{primitive.color.blue.800}",
   "semantic.color.border.default": "{primitive.color.mineral.200}",
   "semantic.color.border.strong": "{primitive.color.mineral.400}",
   "semantic.color.border.inverse": "{primitive.color.blue.200}",
@@ -168,6 +172,11 @@ export const designTokenValues = {
   "semantic.color.action.emergency-active": "{primitive.color.red.800}",
   "semantic.color.action.on-solid": "{primitive.color.white}",
   "semantic.color.action.featured": "{primitive.color.brand.cyan}",
+  "semantic.color.action.featured-foreground": "{primitive.color.mineral.900}",
+  "semantic.color.action.story": "{primitive.color.magenta.600}",
+  "semantic.color.action.story-hover": "{primitive.color.magenta.800}",
+  "semantic.color.action.story-active": "{primitive.color.magenta.800}",
+  "semantic.color.action.story-foreground": "{primitive.color.white}",
   "semantic.color.focus": "{primitive.color.blue.800}",
   "semantic.color.accent.supporting": "{primitive.color.orange.600}",
   "semantic.color.accent.supporting-text": "{primitive.color.orange.800}",
@@ -177,6 +186,7 @@ export const designTokenValues = {
   "semantic.color.artwork.orange": "{primitive.color.brand.orange}",
   "semantic.color.artwork.magenta": "{primitive.color.brand.magenta}",
   "semantic.color.artwork.yellow": "{primitive.color.brand.yellow}",
+  "semantic.color.focus-inverse": "{primitive.color.white}",
   "semantic.font.family.ui": "{primitive.font.family.latin}",
   "semantic.font.family.ethiopic": "{primitive.font.family.ethiopic}",
   "semantic.font.weight.regular": "{primitive.font.weight.regular}",
@@ -281,6 +291,8 @@ export const designTokenValues = {
   "component.action.focus-gap": "{semantic.color.surface.raised}",
   "component.action.focus-color": "{semantic.color.focus}",
   "component.action.link-color": "{semantic.color.text.link}",
+  "component.action.link-hover-color": "{semantic.color.text.link-hover}",
+  "component.action.link-active-color": "{semantic.color.text.link-active}",
   "component.shell.identity-text": "{semantic.color.brand.navy}",
   "component.shell.identity-accent": "{semantic.color.brand.warm}",
   "component.shell.surface-raised": "{semantic.color.surface.raised}",
@@ -477,7 +489,16 @@ export const designTokenValues = {
   "component.context.focus-gap": "{semantic.color.surface.raised}",
   "component.context.muted": "{semantic.color.text.secondary}",
   "component.context.heading": "{semantic.color.text.heading}",
-  "component.context.accent": "{semantic.color.action.primary}"
+  "component.context.accent": "{semantic.color.action.primary}",
+  "component.context.link-hover": "{semantic.color.text.link-hover}",
+  "component.context.link-active": "{semantic.color.text.link-active}",
+  "component.story-media.background": "{semantic.color.action.story}",
+  "component.story-media.hover": "{semantic.color.action.story-hover}",
+  "component.story-media.active": "{semantic.color.action.story-active}",
+  "component.story-media.foreground": "{semantic.color.action.story-foreground}",
+  "component.story-media.pressed-cue": "{semantic.color.text.inverse}",
+  "component.story-media.focus": "{semantic.color.focus}",
+  "component.story-media.focus-gap": "{semantic.color.text.inverse}"
 } as const
 
 export type DesignTokenName = keyof typeof designTokenValues
@@ -525,9 +546,11 @@ export const resolvedDesignTokenValues = {
   "primitive.color.brand.navy": "#00445d",
   "primitive.color.brand.yellow": "#f5c82d",
   "primitive.color.brand.magenta": "#e7277c",
+  "primitive.color.orange.100": "#ffeddf",
   "primitive.color.orange.600": "#f65b25",
   "primitive.color.orange.800": "#a8430c",
   "primitive.color.orange.050": "#fff7f2",
+  "primitive.color.magenta.100": "#fbe4ef",
   "primitive.color.magenta.600": "#d81b72",
   "primitive.color.magenta.800": "#a61558",
   "primitive.color.magenta.050": "#fdf3f8",
@@ -621,8 +644,8 @@ export const resolvedDesignTokenValues = {
   "semantic.color.surface.error": "#fbefed",
   "semantic.color.surface.inverse": "#00445d",
   "semantic.color.surface.selected": "#d0effa",
-  "semantic.color.surface.supporting": "#fff7f2",
-  "semantic.color.surface.expressive": "#fdf3f8",
+  "semantic.color.surface.supporting": "#ffeddf",
+  "semantic.color.surface.expressive": "#fbe4ef",
   "semantic.color.surface.highlight": "#f5c82d",
   "semantic.color.brand.cool": "#15b0e6",
   "semantic.color.brand.warm": "#f65b25",
@@ -640,6 +663,8 @@ export const resolvedDesignTokenValues = {
   "semantic.color.text.inverse-accent": "#a8d3e4",
   "semantic.color.text.link": "#00678d",
   "semantic.color.text.urgent": "#a33330",
+  "semantic.color.text.link-hover": "#00678d",
+  "semantic.color.text.link-active": "#00445d",
   "semantic.color.border.default": "#cbd8de",
   "semantic.color.border.strong": "#718892",
   "semantic.color.border.inverse": "#a8d3e4",
@@ -651,6 +676,11 @@ export const resolvedDesignTokenValues = {
   "semantic.color.action.emergency-active": "#a33330",
   "semantic.color.action.on-solid": "#ffffff",
   "semantic.color.action.featured": "#15b0e6",
+  "semantic.color.action.featured-foreground": "#17313d",
+  "semantic.color.action.story": "#d81b72",
+  "semantic.color.action.story-hover": "#a61558",
+  "semantic.color.action.story-active": "#a61558",
+  "semantic.color.action.story-foreground": "#ffffff",
   "semantic.color.focus": "#00445d",
   "semantic.color.accent.supporting": "#f65b25",
   "semantic.color.accent.supporting-text": "#a8430c",
@@ -660,6 +690,7 @@ export const resolvedDesignTokenValues = {
   "semantic.color.artwork.orange": "#f65b25",
   "semantic.color.artwork.magenta": "#e7277c",
   "semantic.color.artwork.yellow": "#f5c82d",
+  "semantic.color.focus-inverse": "#ffffff",
   "semantic.font.family.ui": "\"Noto Sans\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
   "semantic.font.family.ethiopic": "\"Noto Sans Ethiopic\", \"Noto Sans\", system-ui, sans-serif",
   "semantic.font.weight.regular": "400",
@@ -764,6 +795,8 @@ export const resolvedDesignTokenValues = {
   "component.action.focus-gap": "#ffffff",
   "component.action.focus-color": "#00445d",
   "component.action.link-color": "#00678d",
+  "component.action.link-hover-color": "#00678d",
+  "component.action.link-active-color": "#00445d",
   "component.shell.identity-text": "#00445d",
   "component.shell.identity-accent": "#f65b25",
   "component.shell.surface-raised": "#ffffff",
@@ -960,7 +993,16 @@ export const resolvedDesignTokenValues = {
   "component.context.focus-gap": "#ffffff",
   "component.context.muted": "#52636b",
   "component.context.heading": "#00445d",
-  "component.context.accent": "#0078a6"
+  "component.context.accent": "#0078a6",
+  "component.context.link-hover": "#00678d",
+  "component.context.link-active": "#00445d",
+  "component.story-media.background": "#d81b72",
+  "component.story-media.hover": "#a61558",
+  "component.story-media.active": "#a61558",
+  "component.story-media.foreground": "#ffffff",
+  "component.story-media.pressed-cue": "#ffffff",
+  "component.story-media.focus": "#00445d",
+  "component.story-media.focus-gap": "#ffffff"
 } as const
 
 export const designTokenMetadata = {
@@ -1201,6 +1243,78 @@ export const designTokenMetadata = {
       "background": "semantic.color.surface.highlight",
       "minimum": 4.5,
       "usage": "Dark ink on yellow care-navigation help"
+    },
+    {
+      "foreground": "semantic.color.accent.supporting-text",
+      "background": "semantic.color.surface.supporting",
+      "minimum": 4.5,
+      "usage": "Preparation heading"
+    },
+    {
+      "foreground": "semantic.color.accent.expressive-text",
+      "background": "semantic.color.surface.expressive",
+      "minimum": 4.5,
+      "usage": "Story heading"
+    },
+    {
+      "foreground": "semantic.color.text.secondary",
+      "background": "semantic.color.surface.supporting",
+      "minimum": 4.5,
+      "usage": "Secondary preparation text"
+    },
+    {
+      "foreground": "semantic.color.text.secondary",
+      "background": "semantic.color.surface.expressive",
+      "minimum": 4.5,
+      "usage": "Secondary story text"
+    },
+    {
+      "foreground": "semantic.color.border.strong",
+      "background": "semantic.color.surface.supporting",
+      "minimum": 3,
+      "usage": "Preparation field boundary"
+    },
+    {
+      "foreground": "semantic.color.border.strong",
+      "background": "semantic.color.surface.expressive",
+      "minimum": 3,
+      "usage": "Story field boundary"
+    },
+    {
+      "foreground": "semantic.color.focus",
+      "background": "semantic.color.surface.supporting",
+      "minimum": 3,
+      "usage": "Preparation focus"
+    },
+    {
+      "foreground": "semantic.color.focus",
+      "background": "semantic.color.surface.expressive",
+      "minimum": 3,
+      "usage": "Story focus"
+    },
+    {
+      "foreground": "semantic.color.focus-inverse",
+      "background": "semantic.color.surface.inverse",
+      "minimum": 3,
+      "usage": "Inverse focus"
+    },
+    {
+      "foreground": "semantic.color.action.story-foreground",
+      "background": "semantic.color.action.story",
+      "minimum": 4.5,
+      "usage": "Story Watch label"
+    },
+    {
+      "foreground": "semantic.color.action.story-foreground",
+      "background": "semantic.color.action.story-hover",
+      "minimum": 4.5,
+      "usage": "Story Watch hover label"
+    },
+    {
+      "foreground": "semantic.color.action.story-foreground",
+      "background": "semantic.color.action.story-active",
+      "minimum": 4.5,
+      "usage": "Story Watch pressed label"
     }
   ],
   "motion": {

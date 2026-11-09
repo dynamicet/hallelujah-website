@@ -2,7 +2,7 @@
   --help-edge: 16px;
   --help-bottom: max(var(--help-edge), env(safe-area-inset-bottom, 0px));
   min-block-size: calc(80px + env(safe-area-inset-bottom, 0px));
-  background: var(--site-pale);
+  background: var(--site-surface-inverse);
 }
 
 :global(html:has([data-help-widget])) {
@@ -169,9 +169,11 @@
 }
 
 .appointment {
+  color: var(--site-reading-ink);
   background: var(--semantic-color-surface-highlight);
 }
 
+.appointment :is(strong, small) { color: var(--site-reading-ink); }
 .appointment:hover {
   background: color-mix(in srgb, var(--semantic-color-surface-highlight) 80%, var(--site-white));
   color: var(--site-ink);

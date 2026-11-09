@@ -12,7 +12,12 @@
   "identity": {
     "name": "Hallelujah General Hospital",
     "tagline": "Bringing Quality Care Home",
-    "character": ["calm", "capable", "human", "clinical"]
+    "character": [
+      "calm",
+      "capable",
+      "human",
+      "clinical"
+    ]
   },
   "sources": {
     "homepage": {
@@ -47,15 +52,15 @@
   },
   "colors": {
     "currentDirection": {
-      "name": "One blue. A whole experience.",
-      "effectiveDate": "2026-11-04",
+      "name": "X \u2014 composed blue with richer preparation and story fields",
+      "effectiveDate": "2026-11-09",
       "status": "adopted-in-application-tokens-and-homepage",
-      "agreement": "Initial application rules reviewed by Brand Guardian, UI Designer and UX Architect; later client-directed composition correction implemented and consolidated without claiming a new panel consensus",
-      "catalog": "docs/brand/color-catalog/index.html",
-      "paletteSource": "docs/brand/color-catalog/palette.json",
-      "roleMapping": "docs/brand/usage-guide.md",
+      "agreement": "Client-selected X following comparative UI Designer review; richer supporting-color composition authorized for implementation on 9 November 2026",
+      "catalog": "docs/visual-design/x-color-composition-map.svg",
+      "paletteSource": "apps/web/src/design-system/tokens/tokens.json",
+      "roleMapping": "docs/visual-design/x-color-composition-spec.md",
       "componentStudy": "loopback archive: pnpm composition:preview (port 3977); historical standalone study at docs/brand/color-catalog/component-study.html",
-      "compositionDirection": "docs/brand/color-catalog/composition-implementation.md",
+      "compositionDirection": "docs/visual-design/x-color-composition-spec.md",
       "interface": {
         "surfacePage": "#FBF8F6",
         "surfaceRaised": "#FFFFFF",
@@ -76,10 +81,10 @@
         "borderControl": "#718892",
         "focus": "#00445D",
         "accentSupporting": "#F65B25",
-        "accentSupportingTint": "#FFF7F2",
+        "accentSupportingTint": "#FFEDDF",
         "accentSupportingText": "#A8430C",
         "accentExpressive": "#E7277C",
-        "accentExpressiveTint": "#FDF3F8",
+        "accentExpressiveTint": "#FBE4EF",
         "accentExpressiveText": "#A61558",
         "statusSuccess": "#24634B",
         "statusSuccessTint": "#EEF7F1",
@@ -92,9 +97,9 @@
         "statusInfoTint": "#EAF5F9"
       },
       "rules": [
-        "Compose ground, text, actions and decorative detail independently; recurring blue links tonal fields, natural imagery, orange and magenta details, frames and inset planes",
-        "No fixed color percentages, one-accent-per-section restriction or exclusive section/department color ownership; preserve hierarchy and tested pairs",
-        "Blue leads; orange supports; magenta is occasional editorial expression without gender, condition, or specialty coding",
+        "Deep blue provides orientation and care actions; cyan retains identity and the featured hero action.",
+        "Richer peach supports preparation, pink supports human stories, and bounded yellow supports assistance; neutral task and reading surfaces retain clarity.",
+        "Use whole contextual headings, natural imagery and chapter composition rather than decorative accent words, card rules or arbitrary specialty colors.",
         "Original logo artwork remains unchanged; yellow also highlights bounded care-navigation help with dark ink and no warning meaning",
         "Ordinary links use strong blue on approved light surfaces; dark surfaces require inverse links",
         "White fields use control edge; quiet edge is decorative",
@@ -123,12 +128,36 @@
     "sourceIdentityStatus": "Historical client-supplied logo-derived palette from 2026-10-21; preserved for provenance, superseded for current interface roles by currentDirection",
     "interfaceStatus": "Earlier foundation values retained as history; currentDirection governs implemented local website roles",
     "sourceIdentity": {
-      "cyan": {"hex": "#17AEE5", "contrastOnWhite": 2.55, "usage": "decorative-identity-only"},
-      "orange": {"hex": "#F26522", "contrastOnWhite": 3.15, "usage": "decorative-identity-only"},
-      "deepTealBlue": {"hex": "#0B86B0", "contrastOnWhite": 4.16, "usage": "identity-only-not-white-label-actions"},
-      "navy": {"hex": "#0A3D5C", "contrastOnWhite": 11.44, "usage": "heading-and-inverse-surface"},
-      "yellow": {"hex": "#F5B820", "contrastOnWhite": 1.79, "usage": "source-artwork-detail-only"},
-      "magenta": {"hex": "#E6197D", "contrastOnWhite": 4.38, "usage": "source-artwork-detail-only"}
+      "cyan": {
+        "hex": "#17AEE5",
+        "contrastOnWhite": 2.55,
+        "usage": "decorative-identity-only"
+      },
+      "orange": {
+        "hex": "#F26522",
+        "contrastOnWhite": 3.15,
+        "usage": "decorative-identity-only"
+      },
+      "deepTealBlue": {
+        "hex": "#0B86B0",
+        "contrastOnWhite": 4.16,
+        "usage": "identity-only-not-white-label-actions"
+      },
+      "navy": {
+        "hex": "#0A3D5C",
+        "contrastOnWhite": 11.44,
+        "usage": "heading-and-inverse-surface"
+      },
+      "yellow": {
+        "hex": "#F5B820",
+        "contrastOnWhite": 1.79,
+        "usage": "source-artwork-detail-only"
+      },
+      "magenta": {
+        "hex": "#E6197D",
+        "contrastOnWhite": 4.38,
+        "usage": "source-artwork-detail-only"
+      }
     },
     "reconciliation": {
       "date": "2026-10-21",
@@ -154,7 +183,11 @@
   },
   "typography": {
     "license": "SIL Open Font License 1.1",
-    "weights": [400, 600, 700],
+    "weights": [
+      400,
+      600,
+      700
+    ],
     "families": [
       {
         "family": "Noto Sans",
@@ -180,7 +213,16 @@
           "600": "ac85f3f57f2e16aae2fcf95d700bcdf8ac6c02bde7e76443141ba571696ad06e",
           "700": "8099fe1fb27b793fb27e8416fc20c46fb171009d0308489c64133a7d67e88aca"
         },
-        "auditedLanguages": ["am", "gez", "ti-er", "ti-et", "tig", "byn", "sid", "wal"],
+        "auditedLanguages": [
+          "am",
+          "gez",
+          "ti-er",
+          "ti-et",
+          "tig",
+          "byn",
+          "sid",
+          "wal"
+        ],
         "audit": "Representative Amharic hospital/care text and Ethiopic numerals shaped without missing glyphs"
       }
     ],
@@ -194,7 +236,15 @@
     "posterFirst": true,
     "videoPreIntentRequests": 0,
     "protectedContextsMaximumMotionLevel": 0,
-    "requiredLifecycle": ["proposed", "quarantined", "reviewed", "approved", "published", "expired-or-withdrawn", "purged"]
+    "requiredLifecycle": [
+      "proposed",
+      "quarantined",
+      "reviewed",
+      "approved",
+      "published",
+      "expired-or-withdrawn",
+      "purged"
+    ]
   },
   "renderEvidence": [
     {

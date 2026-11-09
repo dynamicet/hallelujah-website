@@ -117,7 +117,7 @@
 
 .disclosureChevron { flex: 0 0 auto; }
 .filterDisclosure[open] .disclosureChevron { transform: rotate(180deg); }
-.filterGroup label:has(input:checked) { font-weight: var(--component-search-controls-font-weight-strong); background: var(--component-search-controls-surface-selected); color: var(--component-search-controls-text-primary); border-radius: var(--component-search-controls-radius); }
+.filterGroup label:has(input:checked) { background: var(--component-search-controls-surface-selected); color: var(--component-search-controls-text-primary); border-radius: var(--component-search-controls-radius); }
 .filterGroup label:focus-within { outline: 3px solid var(--component-search-controls-focus-color); outline-offset: 4px; }
 
 .browse { display: grid; gap: var(--component-search-controls-space-regular); min-inline-size: 0; }
@@ -234,7 +234,7 @@
 
 .activeFilters li a:hover {
   background: var(--component-search-controls-surface-raised);
-  color: var(--component-search-controls-action-hover);
+  color: var(--component-context-link);
 }
 
 .clearAll {
@@ -328,7 +328,6 @@
 }
 
 /* Pale cyan marks selection; native checks, underlines and borders retain state cues. */
-.searchBox { border-inline-start: 3px solid var(--component-search-controls-action); padding-inline-start: var(--component-search-controls-space-regular); }
 .filterGroup input { accent-color: var(--component-search-controls-action); }
 .activeFilters li a { background: var(--component-search-controls-surface-selected); border-color: var(--component-search-controls-action); color: var(--component-search-controls-text-primary); }
 .pagination [aria-current='page'] { border-block-end: 4px solid var(--component-search-controls-action); }

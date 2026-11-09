@@ -62,14 +62,12 @@
 .services .card:first-child { padding-block-start: 0; }
 .services .card .kicker { display: none; }
 .services .directoryLink { margin-block-start: 1rem; }
-.tinted { background: transparent; padding-inline: 0; }
-.portrait { position: relative; background: #e4f0f4; margin: -1.5rem -1.5rem .5rem; min-block-size: 12rem; display: grid; place-items: center; overflow: hidden; }
-.card:nth-child(2) .portrait { background: #f3e1d3; }
-.card:nth-child(3) .portrait { background: #e8eddf; }
-.initials { font-family: Editorial, serif; font-size: 4rem; line-height: 1; color: #0a3d5c; margin-block-end: 1rem; }
+.tinted { background: var(--semantic-color-surface-subtle); padding-inline: var(--semantic-space-surface); }
+.portrait { position: relative; background: var(--semantic-color-surface-subtle); margin: -1.5rem -1.5rem .5rem; min-block-size: 12rem; display: grid; place-items: center; overflow: hidden; }
+.initials { font-family: Editorial, serif; font-size: 4rem; line-height: 1; color: var(--semantic-color-text-heading); margin-block-end: 1rem; }
 .portrait [data-clinician-photo-placeholder] { position: absolute; inset: auto 0 0; background: transparent; border: 0; border-radius: 0; min-block-size: 2rem; max-block-size: 2rem; aspect-ratio: auto; }
 .portrait [data-clinician-photo-placeholder] span { font-size: .75rem; font-weight: 400; }
-.story { display: block; background: transparent; border-block: 1px solid #d8dedb; border-radius: 0; padding: 2.5rem 0; margin-block: 1rem 3rem; }
+.story { display: block; background: var(--semantic-color-surface-raised); border: 0; border-radius: 0; padding: 2.5rem 0; margin-block: 1rem 3rem; }
 .story h2 { font-size: clamp(1.8rem, 2.6vw, 2.5rem); }
 .storyCopy { max-inline-size: 55rem; }
 .storyCopy .kicker { display: none; }
@@ -78,7 +76,7 @@
 .heroArtwork img { inline-size: 100%; block-size: 100%; min-block-size: 22rem; max-block-size: 33rem; object-fit: cover; object-position: 45% center; }
 .heroArtwork figcaption { position: absolute; inset: auto .75rem .75rem; inline-size: fit-content; max-inline-size: calc(100% - 1.5rem); background: #fffefaed; padding: .25rem .5rem; color: #183b4d; font-size: .65rem; border-radius: .2rem; }
 .contacts { gap: 2rem; }
-.contacts section { padding: 1.5rem; background: #fffefa; border-radius: .3rem; }
+.contacts section { padding: 1.5rem; background: var(--semantic-color-surface-raised); border-radius: var(--site-control-radius); }
 .contacts h2 { font-size: 1.8rem; }
 @media (min-width: 54rem) {
  .services { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: start; }

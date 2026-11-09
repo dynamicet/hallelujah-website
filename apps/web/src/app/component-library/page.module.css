@@ -13,3 +13,23 @@
 .intro nav { display: flex; flex-wrap: wrap; gap: var(--semantic-space-page); }
 .grid { align-items: start; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--semantic-space-page); }
 @media (max-width: 48rem) { .grid { grid-template-columns: 1fr; } }
+
+.storyAction {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 8px;
+  min-block-size: 48px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: var(--component-story-media-background);
+  color: var(--component-story-media-foreground);
+  text-decoration: none;
+}
+.storyAction:hover { background: var(--component-story-media-hover); color: var(--component-story-media-foreground); }
+.storyAction:active { background: var(--component-story-media-active); box-shadow: inset 0 0 0 2px var(--component-story-media-pressed-cue); }
+.storyAction:focus-visible { outline: 3px solid var(--component-story-media-focus); outline-offset: 4px; box-shadow: 0 0 0 4px var(--component-story-media-focus-gap); }
+@media (forced-colors: active) {
+  .storyAction { border: 1px solid ButtonText; background: ButtonFace; color: ButtonText; }
+  .storyAction:focus-visible { outline-color: Highlight; box-shadow: none; }
+}

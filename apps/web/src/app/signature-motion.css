@@ -110,7 +110,7 @@
 .enhanced-home .everyday-feature:nth-child(2) .everyday-feature-copy { grid-column:1; grid-row:1; }
 .enhanced-home .everyday-feature h3 { font:400 clamp(30px,3.4vw,48px)/1.15 var(--site-display); }
 @media(min-width:900px) {
-  .enhanced-home .team-guide { position:relative; isolation:isolate; background:white; padding-top:48px; }
+  .enhanced-home .team-guide { position:relative; isolation:isolate; background:var(--semantic-color-surface-subtle); padding-top:48px; }
   .enhanced-home .team-guide::before {
     content:''; position:absolute; inset:0 0 auto; height:240px; z-index:-1;
     background:var(--semantic-color-surface-subtle); transform-origin:top;

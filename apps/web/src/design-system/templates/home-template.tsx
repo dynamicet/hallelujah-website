@@ -67,7 +67,6 @@ export function HomeVisitGuidance({ appointmentHref, directionsHref }: { readonl
   return (
     <section aria-labelledby="home-visit-title" className={`${styles.section} ${styles.visit}`} data-home-section="H6">
       <div className={styles.sectionHeading}>
-        <p className={styles.eyebrow}>Patient journey guidance</p>
         <h2 id="home-visit-title">A more comfortable visit.</h2>
       </div>
       <div className={styles.visitGrid}>
@@ -93,7 +92,7 @@ export function HomeSupportBand({ href }: { readonly href: string }) {
         <h2 id="home-support-title">Let’s make the first conversation easier.</h2>
         <p>Review contact and arrival information before choosing your next step.</p>
       </div>
-      <ActionLink href={href} label="Review contact information" variant="secondary" />
+      <ActionLink href={href} label="Review contact information" variant="tertiary" />
     </section>
   )
 }
@@ -138,13 +137,12 @@ export function HomeTemplate({
                 <MotionAccent level={3} />
               </ExperienceRegion>
             </div>
-            <p className={styles.eyebrow}>{eyebrow}</p>
             <h1 id="home-title">{title}</h1>
-            <p className={styles.description}>{description}</p>
-            <ActionGroup>
+            <p className={styles.description}>{eyebrow} {description}</p>
+            <div className={styles.heroActions}><ActionGroup>
               <ActionLink href={tasks.appointment.href} label={tasks.appointment.label} />
               <ActionLink href={tasks.doctor.href} label={tasks.doctor.label} variant="secondary" />
-            </ActionGroup>
+            </ActionGroup></div>
             <div data-experience-level="0" data-protected-context="emergency">
               <EmergencyAction compact href={tasks.emergency.href} label={tasks.emergency.label} />
             </div>

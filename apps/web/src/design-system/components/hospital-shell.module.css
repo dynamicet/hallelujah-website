@@ -22,7 +22,7 @@
 .contactIcon :is(svg, img) { display: block; width: 22px; height: 22px; }
 .contactLabel { text-align: start; }
 .languageShort { display: none; }
-.urgentLink { color: var(--site-urgent) !important; }
+.utilityEssentials > .urgentLink { color: var(--site-urgent); }
 .emergencyActions { display: flex; align-items: center; gap: 12px; color: var(--site-urgent); }
 .emergencyCall { display: flex; justify-content: center; align-items: center; gap: 6px; min-width: 44px; min-height: 44px; padding: 0 8px; border: 0; background: transparent; color: inherit; font-family: inherit; line-height: 1.3; }
 .emergencyLabel { font-size: var(--site-small); }
@@ -71,7 +71,7 @@
 .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; font-size: var(--site-small); }
 .breadcrumbs li:not(:last-child)::after { content: '›'; padding-left: 10px; }
 .breadcrumbs a { color: var(--site-ink); }
-.footer { background: var(--site-pale); color: var(--site-ink); border-radius: 0; }
+.footer { background: var(--site-surface-inverse); color: var(--site-ink); border-radius: 0; }
 .footerInner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 100px; padding-block: 88px 72px; }
 .footerInner > *, .footerNavigation > * { min-width: 0; overflow-wrap: anywhere; }
 .footerIdentity h2 { color: var(--site-ink); font-size: var(--site-heading); font-weight: 500; }
@@ -226,9 +226,9 @@
 @keyframes menu-enter { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
 
 /* Repeated detail connects navigation to the editorial and care compositions. */
-.header { border-block-end: 3px solid var(--semantic-color-surface-selected); }
-.navigationLink[aria-current=page] { text-decoration-color: var(--semantic-color-accent-supporting); text-decoration-thickness: 3px; }
-.footerIdentity { align-self: start; border-inline-start: 4px solid var(--semantic-color-accent-supporting); padding-inline-start: 24px; }
+.header { border-block-end: 1px solid var(--semantic-color-border-default); }
+.navigationLink[aria-current=page] { text-decoration-color: currentColor; text-decoration-thickness: 3px; }
+.footerIdentity { align-self: start; }
 .footerClose { border-block-start: 1px solid var(--semantic-color-border-inverse); padding-block-start: 24px; }
 .languageOptions > button:disabled { display: block; width: 100%; min-height: 44px; padding: 8px 12px; border: 1px dashed var(--semantic-color-border-strong); border-radius: var(--site-control-radius); font: inherit; text-align: start; color: var(--site-muted); background: var(--site-ground); cursor: not-allowed; }
 .menuResources { display: none; }
@@ -287,3 +287,19 @@
   cursor: pointer;
 }
 .languageOptions > button:not(:disabled):hover { color: var(--site-link); }
+
+/* The closing chapter uses inverse colors in every layout. */
+.footer { background: var(--site-surface-inverse); color: var(--site-white); }
+.footer :is(h2, p, a, strong) { color: inherit; }
+.footerIdentity h2 { font-weight: 400; }
+.footer .footerAction { background: var(--site-white); color: var(--site-ink); }
+.footer .footerAction:hover { background: var(--site-pale); color: var(--site-ink); }
+.footer .footerAction:active { background: var(--site-selection); }
+.footer a:focus-visible { outline-color: var(--semantic-color-focus-inverse); box-shadow: 0 0 0 4px var(--site-surface-inverse); }
+@media (forced-colors: active) {
+  .footer { background: Canvas; color: CanvasText; }
+  .footer a:focus-visible { outline-color: Highlight; box-shadow: none; }
+}
+@media print {
+  .footer { background: white; color: black; }
+}

@@ -80,7 +80,7 @@
 }
 
 .story {
-  background: var(--semantic-color-surface-subtle);
+  background: var(--semantic-color-surface-expressive);
   border-radius: var(--semantic-radius-card);
   margin-block: var(--semantic-space-gutter-regular);
   padding: var(--semantic-space-surface);
@@ -89,6 +89,7 @@
 .story .media {
   max-inline-size: var(--semantic-size-reading);
 }
+.story .media > [data-media-heading] > figcaption > strong { color: var(--semantic-color-accent-expressive-text); }
 
 .contact {
   background: var(--semantic-color-surface-information);
@@ -202,34 +203,47 @@
 /* Close to home: scale, open patient routes, and a distinct visit chapter. */
 .frame { max-inline-size: 89.5rem; }
 .introduction { padding-block: 4.5rem; gap: 3.5rem; position: relative; }
-.introduction::before { content: ''; position: absolute; inset: 0 calc((100vw - 100%) / -2); background: var(--semantic-color-surface-page); z-index: -1; }
+.introduction::before { content: ''; position: absolute; inset: 0 calc((100vw - 100%) / -2); background: var(--semantic-color-surface-inverse); z-index: -1; }
 .introduction { isolation: isolate; }
-.heroCopy h1 { font-size: clamp(3.5rem, 6.1vw, 5.5rem); max-inline-size: 8.5ch; line-height: 1.02; }
-.heroCopy .description { max-inline-size: 27rem; font-size: 1.2rem; color: var(--semantic-color-text-secondary); margin-block: 1.75rem; }
+.heroCopy h1 { font-size: clamp(3.5rem, 6.1vw, 5.5rem); max-inline-size: 8.5ch; line-height: 1.02; color: var(--semantic-color-text-inverse); }
+.heroCopy .description { max-inline-size: 27rem; font-size: var(--site-intro); color: var(--semantic-color-text-inverse); margin-block: 1.75rem; }
+.heroActions {
+  --component-context-action-background: var(--semantic-color-action-featured);
+  --component-context-action-hover: var(--semantic-color-surface-selected);
+  --component-context-action-active: var(--semantic-color-surface-subtle);
+  --component-context-action-foreground: var(--semantic-color-action-featured-foreground);
+  --component-context-secondary-background: var(--semantic-color-surface-raised);
+  --component-context-secondary-hover: var(--semantic-color-surface-selected);
+  --component-context-link: var(--semantic-color-text-heading);
+  --component-context-link-hover: var(--semantic-color-text-heading);
+  --component-context-link-active: var(--semantic-color-text-heading);
+  --component-context-focus: var(--semantic-color-focus-inverse);
+  --component-context-focus-gap: var(--semantic-color-surface-inverse);
+}
 .wayfinding { block-size: 0; overflow: hidden; margin: 0; }
 .eyebrow { color: var(--semantic-color-text-secondary); font-weight: 400; font-size: .9rem; }
 .heroCopy > [data-protected-context] { margin-block-start: 1.25rem; }
-.taskSection { padding: 2rem 0; background: transparent; border-radius: 0; border-block-end: 1px solid var(--semantic-color-border-default); }
+.taskSection { padding: 2rem 0; background: var(--semantic-color-surface-raised); border-radius: 0; border: 0; }
 .taskSection h2 { font-family: Lato, sans-serif; font-size: 1.1rem; font-weight: 700; }
 .tasks { margin-block-start: 1rem; gap: 0; }
 .tasks li + li { border-inline-start: 1px solid var(--semantic-color-border-default); }
-.search { background: transparent; border-radius: 0; padding: 3rem 0 1rem; display: grid; gap: 1rem 3rem; }
+.search { background: var(--semantic-color-surface-subtle); border-radius: var(--site-control-radius); padding: 2rem; display: grid; gap: 1rem 3rem; }
 .searchForm { margin: 0; }
 .searchField label { font-size: .9rem; }
 .searchField p { font-size: .875rem; }
 .visit { background: var(--semantic-color-surface-supporting); border-radius: 0; padding: 3.5rem 2.5rem; margin-block: 1rem 3rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem 4rem; align-items: center; }
-.visit .sectionHeading h2 { max-inline-size: 15ch; margin-block-start: 1rem; }
+.visit .sectionHeading h2 { max-inline-size: 15ch; margin-block-start: 0; color: var(--semantic-color-accent-supporting-text); }
 .visitGrid { display: grid; min-inline-size: 0; grid-template-columns: minmax(0, 1fr); margin: 0; gap: 0; background: var(--semantic-color-surface-raised); padding: .75rem 2rem; border-radius: .4rem; }
 .visitCard { background: transparent; border: 0; border-radius: 0; padding: 1.5rem 0; }
 .visitCard + .visitCard { border-block-start: 1px solid var(--semantic-color-border-default); }
-.visitCard h3 { font-size: 1.2rem; }
+.visitCard h3 { font-size: var(--site-label-heading); color: var(--semantic-color-accent-supporting-text); }
 .stage { text-transform: none; color: var(--semantic-color-accent-supporting-text); }
-.contact { background: var(--semantic-color-surface-subtle); border: 0; padding: 2.5rem; margin-block: 0 3rem; }
+.contact { background: var(--semantic-color-surface-raised); border: 0; padding: 2.5rem; margin-block: 0 3rem; }
 .arrivalPlane { background: var(--semantic-color-surface-page); }
-.supportBand.supportBand { background: var(--semantic-color-surface-inverse); border: 0; border-radius: 0; padding: 3.5rem; margin-block: 0; gap: 2rem; }
-.supportBand.supportBand h2, .supportBand.supportBand p { color: var(--semantic-color-text-inverse); }
+.supportBand.supportBand { --component-context-link: var(--semantic-color-text-primary); --component-context-link-hover: var(--semantic-color-text-primary); --component-context-link-active: var(--semantic-color-text-primary); --component-context-secondary-background: transparent; --component-context-secondary-hover: transparent; background: var(--semantic-color-surface-highlight); border: 0; border-radius: var(--site-control-radius); padding: 2rem; margin-block: 0; gap: 2rem; }
+.supportBand.supportBand h2, .supportBand.supportBand p { color: var(--semantic-color-text-primary); }
 .supportBand h2 { max-inline-size: 20ch; margin-block-end: 1rem; }
-.supportBand a { background: var(--semantic-color-surface-raised); color: var(--semantic-color-text-heading); }
+.supportBand a { background: transparent; color: var(--semantic-color-text-primary); }
 @media (min-width: 54rem) {
  .introduction { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-block-size: 38rem; }
  .search { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); align-items: center; }

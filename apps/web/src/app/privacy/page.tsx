@@ -7,8 +7,8 @@ export const metadata = { title: 'Privacy Notice | Hallelujah Hospital', descrip
 
 export default function PrivacyPage() {
   requireLocalDemo()
-  return <PatientPage title="Privacy notice" description="Understand what happens to information you enter on this website and how to ask for help."
-    current="/privacy" action={{ href: '#website-information', label: 'Your information on this website' }}>
+  return <PatientPage variant="document" title="Privacy notice" description="Understand what happens to information you enter on this website and how to ask for help."
+    current="/privacy">
     <nav className={styles.jumpLinks} aria-label="Privacy notice sections"><a href="#website-information">Website forms</a><a href="#preferences">Preferences & links</a><a href="#privacy-help">Ask a question</a></nav>
     <PatientSection id="website-information" title="Information you enter">
       <h3>Appointment information</h3>
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
       <h3>Careers</h3>
       <p>The Careers page does not collect applications or accept document uploads. Confirm the application process with the hospital before sharing a CV or supporting documents.</p>
     </PatientSection>
-    <PatientSection id="preferences" title="Your browser & external links" tone>
+    <PatientSection id="preferences" title="Your browser & external links">
       <p>Your interface language choice is saved in this browser using local storage under <strong>hh-interface-language</strong>. This lets the website remember your choice when you return. You can remove it through your browser’s site-data settings.</p>
       <p>Opening a website sends technical information, such as your IP address and browser information, to the server providing it. This notice does not describe the hospital’s clinical-record system.</p>
       <p>Directions links open Google Maps. Telephone and email links open your chosen calling or email application. Information you share through those services is handled under their own privacy terms.</p>

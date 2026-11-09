@@ -1,6 +1,6 @@
 .dialog {
   --guide-edge: color-mix(in srgb, var(--site-ink) 15%, var(--site-white));
-  --guide-control: color-mix(in srgb, var(--site-ink) 45%, var(--site-white));
+  --guide-control: var(--semantic-color-border-strong);
   position: fixed;
   inset: auto 24px 24px auto;
   inline-size: min(440px, calc(100vw - 48px));

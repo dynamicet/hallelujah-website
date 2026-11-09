@@ -5,10 +5,10 @@ import { CareBrandArtwork } from './care-brand-artwork'
 import styles from './specialty-grid.module.css'
 
 export function SpecialtyGrid() {
-  return <section className="care-areas" aria-labelledby="care-areas-title" id="specialized-care" data-motion-section="care" data-motion-chapter>
+  return <section className="care-areas" aria-labelledby="care-areas-title" id="specialized-care" data-motion-section="care">
     <div className="page-frame">
       <div className={styles.introduction}>
-        <h2 data-reveal="0" data-motion="heading" id="care-areas-title">Specialized care, <span className="home-heading-accent">close to you</span></h2>
+        <h2 data-reveal="0" data-motion="heading" id="care-areas-title">Specialized care, close to you</h2>
         <div className={styles.artwork}><CareBrandArtwork /></div>
       </div>
       <ul className={styles.grid}>

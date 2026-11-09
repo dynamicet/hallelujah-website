@@ -49,15 +49,14 @@
   max-inline-size: var(--semantic-size-reading);
 }
 
-.eyebrow,
 .cardLabel,
 .stateLabel {
   color: var(--semantic-color-text-secondary);
   font-size: var(--site-support, 1rem);
   font-weight: var(--semantic-font-weight-strong);
-  letter-spacing: var(--semantic-type-eyebrow-tracking);
+  letter-spacing: 0;
   line-height: var(--semantic-type-small-line);
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .description {
@@ -76,9 +75,7 @@
 
 .guidance {
   align-self: center;
-  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
   max-inline-size: var(--semantic-size-reading);
-  padding-inline-start: var(--semantic-space-page);
 }
 
 .guidance h2 {
@@ -292,7 +289,6 @@
   align-content: center;
   background: var(--semantic-color-surface-raised);
   border: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
   border-radius: var(--semantic-radius-card);
   min-block-size: 12rem;
   padding: var(--semantic-space-section);
@@ -314,6 +310,34 @@
 .support h2 {
   font-size: var(--semantic-type-h2-size);
   line-height: var(--semantic-type-h2-line);
+}
+
+/* Preparation and uncertainty have different jobs and complete reading contexts. */
+.frame .support[data-care-band='preparation'] {
+  background: var(--semantic-color-surface-supporting);
+  color: var(--semantic-color-text-primary);
+}
+.frame .support[data-care-band='preparation'] h2 {
+  color: var(--semantic-color-accent-supporting-text);
+}
+.frame .support[data-care-band='assistance'] {
+  background: var(--semantic-color-surface-highlight);
+  color: var(--semantic-color-text-primary);
+}
+.frame .support[data-care-band='assistance'] :is(h2, h3, p, li, small, a) {
+  color: var(--semantic-color-text-primary);
+}
+.frame .support[data-care-band='assistance'] a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.frame .support[data-care-band='assistance'] a:is(:hover, :active) {
+  color: var(--semantic-color-text-primary);
+  text-decoration-thickness: 2px;
+}
+.frame .support[data-care-band] :is(a, button):focus-visible {
+  outline: 3px solid var(--semantic-color-focus);
+  outline-offset: 4px;
 }
 
 .visuallyHidden {
@@ -381,6 +405,9 @@
 }
 
 @media (forced-colors: active) {
+  .frame .support[data-care-band],
+  .frame .support[data-care-band] :is(h2, h3, p, li, small, a) { color: CanvasText; background: Canvas; }
+  .frame .support[data-care-band] :is(a, button):focus-visible { outline-color: Highlight; }
   .fixtureNotice,
   .searchPanel,
   .filterRail,
@@ -396,6 +423,8 @@
 }
 
 @media print {
+  .frame .support[data-care-band],
+  .frame .support[data-care-band] :is(h2, h3, p, li, small, a) { background: transparent; color: CanvasText; }
   .frame {
     max-inline-size: none;
     padding: 0;

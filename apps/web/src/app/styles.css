@@ -8,6 +8,8 @@
   --site-reading-ink: var(--semantic-color-text-primary);
   --site-ink: var(--semantic-color-text-heading);
   --site-link: var(--semantic-color-text-link);
+  --site-link-hover: var(--semantic-color-text-link-hover);
+  --site-link-active: var(--semantic-color-text-link-active);
   --site-pale: var(--semantic-color-surface-subtle);
   --site-ground: var(--semantic-color-surface-page);
   --site-selection: var(--semantic-color-surface-selected);
@@ -30,9 +32,9 @@
   --site-action-radius: 8px;
   --site-action-duration: 180ms;
   --site-action-weight: 600;
-  --site-image-radius: 28px;
-  --site-panel-radius: 28px;
-  --site-control-radius: 12px;
+  --site-image-radius: 20px;
+  --site-panel-radius: 12px;
+  --site-control-radius: 8px;
   --site-gap: var(--semantic-presentation-gap);
   --site-display: 'Clash Grotesk', Ethiopic, sans-serif;
   --site-curve: clamp(64px, 9vw, 136px);
@@ -81,6 +83,8 @@ body {
   overflow-wrap: break-word;
   text-rendering: optimizeLegibility;
 }
+
+:where(input, textarea) { caret-color: var(--semantic-color-text-link); }
 
 :where(button, input, select, textarea) {
   color: inherit;
@@ -136,12 +140,12 @@ h3 {
 }
 
 :where(a):hover {
-  color: var(--semantic-color-action-primary-hover);
+  color: var(--semantic-color-text-link-hover);
   text-decoration-thickness: var(--semantic-border-emphasis);
 }
 
 :where(a):active {
-  color: var(--semantic-color-action-primary-active);
+  color: var(--semantic-color-text-link-active);
 }
 
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {

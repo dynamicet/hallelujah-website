@@ -39,13 +39,13 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
     }
   }
   const guide = visitGuides[service.publicId]
-  if (guide) return <PatientPage title={guide.title} description={service.sections.scope?.join(' ') ?? 'Prepare questions for your visit.'} current={service.canonicalPath} action={{ href: '#prepare', label: guide.action }}>
-    <PatientSection id="prepare" title="Questions to bring">
+  if (guide) return <PatientPage variant="document" title={guide.title} description={service.sections.scope?.join(' ') ?? 'Prepare questions for your visit.'} current={service.canonicalPath} action={{ href: '#prepare', label: guide.action }}>
+    <PatientSection id="prepare" title="Questions to bring" context="preparation">
       <ul>{serviceVisitQuestions[service.publicId]?.map((question) => <li key={question}>{question}</li>)}</ul>
       <p>Keep your referral, earlier reports and current medicine list together. Follow the preparation instructions provided by your care team and contact reception if you need help planning your arrival.</p>
       <Link href="/patients-visitors#checklist">Make your visit checklist</Link>
     </PatientSection>
-    <PatientSection id="care-options" title="Find care for your visit" tone>
+    <PatientSection id="care-options" title="Find care for your visit" context="assistance">
       <p><Link href="/services">View specialties &amp; services</Link></p>
       <p><Link href="/appointment">Help choosing care</Link></p>
       <p>Online requests do not provide emergency help. <Link href="/emergency">Read emergency information</Link>.</p>
@@ -67,7 +67,7 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
     ? careEntry(entry.publicId)?.specialtyIds.includes(service.publicId)
     : care?.specialtyIds.includes(entry.publicId))
   const topics = healthTopics.filter((topic) => topic.servicePublicId === service.publicId)
-  return <PatientPage image={/heart|cardio/i.test(service.name) ? carePageImages.heart : /rehab|physio/i.test(service.name) ? carePageImages.recovery : carePageImages.general} title={service.name} description={service.sections.scope?.join(' ') ?? 'Explore this area of care and prepare for your visit.'}
+  return <PatientPage variant="care-detail" image={/heart|cardio/i.test(service.name) ? carePageImages.heart : /rehab|physio/i.test(service.name) ? carePageImages.recovery : carePageImages.general} title={service.name} description={service.sections.scope?.join(' ') ?? 'Explore this area of care and prepare for your visit.'}
     current={service.canonicalPath}
     action={action}>
     <Link className={serviceStyles.backLink} href={directoryHref}><span aria-hidden="true">←</span> Back to service results</Link>
@@ -95,7 +95,7 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
       <p>{specialty ? 'Your doctor may discuss these services as part of your care plan. Each has its own team and arrangements.' : 'Explore the specialties connected with this service.'}</p>
       <ul>{connectedCare.map((entry) => <li key={entry.publicId}><Link href={carePathWithDoctor(entry, selectedDoctor?.publicId)}>{entry.name}</Link></li>)}</ul>
     </PatientSection> : null}
-    <PatientSection id="prepare" title="Before your visit" tone>
+    <PatientSection id="prepare" title="Before your visit" context="preparation">
       {topics.length ? <><h3>Questions about a concern?</h3><ul>{topics.map((topic) => <li key={topic.id}><Link href={`/health-topics/${topic.id}`}>{topic.name}: prepare for a conversation</Link></li>)}</ul></> : null}
       {(service.sections.preparation ?? [copy?.preparation ?? 'Bring earlier reports and any referral letter. Follow the preparation instructions provided by your care team.']).map((text) => <p key={text}>{text}</p>)}
       <Link className="text-link" href="/patients-visitors#before">Read the visit guide <span aria-hidden="true">→</span></Link>

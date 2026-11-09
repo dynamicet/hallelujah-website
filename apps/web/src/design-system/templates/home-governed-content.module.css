@@ -2,13 +2,14 @@
   padding-block: var(--semantic-space-section);
 }
 
-.collection[data-home-governed-section="doctors"],
-.collection[data-home-governed-section="institutional"] {
+.collection[data-home-governed-section="doctors"] {
   background: var(--semantic-color-surface-subtle);
   border-radius: var(--semantic-radius-card);
   margin-block: var(--semantic-space-gutter-regular);
   padding: var(--semantic-space-surface);
 }
+.collection[data-home-governed-section="services"],
+.collection[data-home-governed-section="institutional"] { background: var(--semantic-color-surface-raised); }
 
 .headingGroup {
   max-inline-size: var(--semantic-size-reading);
@@ -53,7 +54,7 @@
 .directoryCard a { margin-block-start: auto; }
 
 .editorial {
-  border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
+  border: 0;
 }
 
 .editorialGrid {

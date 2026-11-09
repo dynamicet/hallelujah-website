@@ -4,150 +4,128 @@
 .care-page-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
 main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']) {
   display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 48px;
-  padding: clamp(20px, 3vw, 32px); margin-block: 8px 48px; background: var(--semantic-color-surface-subtle); color: var(--site-ink); border-radius: var(--site-panel-radius); max-inline-size: none;
+  padding: clamp(20px, 3vw, 32px); margin-block: 8px 48px; background: var(--semantic-color-surface-page); color: var(--site-ink); border-radius: var(--site-panel-radius); max-inline-size: none;
 }
 main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']) h1 { color: var(--site-ink); font-size: var(--site-page-title); }
 main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']) a { color: var(--site-link); }
-main [data-care-directory] [class*='introductionCopy'] { max-inline-size: none; gap: 24px; }
-main [data-care-directory] [class*='description'] { max-inline-size: 42ch; font-size: var(--site-body); }
-main [data-care-directory] .care-page-image { aspect-ratio: 16 / 9; border-block-end: 1px solid var(--semantic-color-border-default); border-radius: var(--site-image-radius); }
+main [data-care-directory] [data-directory-introduction-copy] { max-inline-size: none; gap: 24px; }
+main [data-care-directory] [data-directory-description] { max-inline-size: 42ch; font-size: var(--site-body); }
+main [data-care-directory] .care-page-image { aspect-ratio: 16 / 9; border-radius: var(--site-image-radius); }
 main [data-care-directory] :is([data-directory-section='D2'], [data-directory-section='S3']) { padding: 32px; border-radius: var(--site-panel-radius); background: var(--semantic-color-surface-raised); border-block: 1px solid var(--semantic-color-border-default); margin-inline: 0; }
-main [data-care-directory] [class*='directoryHeading'] { margin-bottom: 8px; }
-main [data-care-directory] [class*='searchPanel'] { border: 0; padding: 0; background: transparent; }
-main [data-care-directory] [class*='discoveryWorkspace'] { gap: 40px; }
-main [data-care-directory] [class*='filterRail'] { position: static; background: var(--site-pale); border: 0; border-block-start: 1px solid var(--semantic-color-border-default); padding: 20px; align-self: start; border-radius: var(--site-control-radius); }
+main [data-care-directory] [data-directory-heading] { margin-bottom: 8px; }
+main [data-care-directory] [data-directory-search-panel] { border: 0; padding: 0; background: transparent; }
+main [data-care-directory] [data-directory-workspace] { gap: 40px; }
+main [data-care-directory] [data-directory-filter-rail] { position: static; background: var(--site-pale); border: 0; padding: 20px; align-self: start; border-radius: var(--site-control-radius); }
 main [data-care-directory] [data-filter-disclosure] { border: 0; }
-main [data-care-directory] [data-clinician-public-id] { grid-template-columns: 144px minmax(0, 1fr); border-radius: var(--site-control-radius); background: var(--site-white); border: 1px solid var(--semantic-color-border-default); overflow: hidden; }
-main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] { padding: 0; align-self: stretch; background: var(--site-pale); }
+main [data-care-directory] [data-clinician-public-id] { grid-template-columns: 144px minmax(0, 1fr); border-radius: var(--site-panel-radius); background: var(--site-white); border: 1px solid var(--semantic-color-border-default); overflow: hidden; }
+main [data-care-directory] [data-clinician-public-id] [data-directory-card-photo] { padding: 0; align-self: stretch; background: var(--site-pale); }
 main [data-care-directory] [data-clinician-public-id] [data-clinician-portrait] { width: 100%; height: 100%; min-height: 200px; max-height: 260px; object-fit: contain; object-position: center bottom; }
 main [data-care-directory] [data-clinician-public-id] [data-clinician-monogram] { width: 100%; height: 100%; min-height: 200px; border-radius: 0; }
-main [data-care-directory] [data-clinician-public-id] [class*='cardContent'] { padding: 24px; gap: 12px; }
+main [data-care-directory] [data-clinician-public-id] [data-directory-card-content] { padding: 24px; gap: 12px; }
 main [data-care-directory] [data-clinician-public-id] h2 { font-family: var(--site-font); font-weight: 700; letter-spacing: -.015em; line-height: 1.35; }
-main [data-care-directory] [class*='specialties'] li { background: transparent; padding: 0; }
-main [data-care-directory] [data-service-public-id] { padding: 24px; border-radius: var(--site-control-radius); background: var(--semantic-color-surface-subtle); gap: 12px; border: 0; border-block-start: 3px solid var(--semantic-color-artwork-cyan); }
-main [data-care-directory] section[class*='support'] { margin: 48px 0 0; padding: clamp(24px, 3vw, 32px); background: var(--site-pale); border: 0; border-radius: var(--site-control-radius); }
-main [data-care-directory] section[class*='support'] > ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-main [data-care-profile] [data-profile-section='P1'] { grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr); align-items: center; gap: clamp(32px, 6vw, 88px); padding: clamp(20px, 3vw, 32px); margin-block-end: 48px; background: var(--semantic-color-surface-subtle); border-radius: var(--site-panel-radius); border-block-end-color: var(--semantic-color-border-default); }
-main [data-care-profile] [data-profile-section='P1'] > :is([data-clinician-portrait], [data-clinician-monogram]) { width: 100%; height: 440px; object-fit: contain; object-position: center bottom; background: var(--site-pale); border-radius: 24px 0 0 0; border-block-end: 3px solid var(--semantic-color-artwork-cyan); }
+main [data-care-directory] [data-directory-specialties] li { background: transparent; padding: 0; }
+main [data-care-directory] [data-service-public-id] { padding: 24px; border-radius: var(--site-panel-radius); background: var(--semantic-color-surface-raised); gap: 12px; border: 1px solid var(--semantic-color-border-default); }
+main [data-care-directory] [data-directory-support] { margin: 48px 0 0; padding: clamp(24px, 3vw, 32px); background: var(--site-pale); border: 0; border-radius: var(--site-control-radius); }
+main [data-care-directory] [data-directory-support] > ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+main [data-care-profile] [data-profile-introduction] { grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr); align-items: center; gap: clamp(32px, 6vw, 88px); padding: clamp(20px, 3vw, 32px); margin-block-end: 48px; background: var(--semantic-color-surface-subtle); border-radius: var(--site-panel-radius); border-block-end-color: var(--semantic-color-border-default); }
+main [data-care-profile] [data-profile-introduction] > :is([data-clinician-portrait], [data-clinician-monogram]) { width: 100%; height: 440px; object-fit: contain; object-position: center bottom; background: var(--semantic-color-surface-raised); border-radius: var(--site-image-radius); }
 main [data-care-profile] h1 { font-size: var(--site-page-title); }
-main [data-care-profile] [class*='specialties'] li { background: transparent; padding: 0; }
-main [data-care-profile] [class*='primaryLink'] { background: var(--site-action-primary); color: var(--site-white); border: 0; text-align: left; border-radius: var(--site-action-radius); }
-main [data-care-profile] [class*='primaryLink']:hover { background: var(--site-action-hover); }
-main [data-care-profile] [class*='requestRail'] { padding: 0; }
-main [data-care-profile] [class*='contentLayout'] { gap: 64px; }
-main [data-care-profile] [class*='editorialColumn'] > section { padding-block: 0 48px; }
-main [data-care-profile] [class*='editorialColumn'] h2 { font-size: var(--site-subheading); border-inline-start: 3px solid var(--semantic-color-action-primary); padding-inline-start: 16px; }
-main [data-care-profile] section[class*='support'] { background: var(--site-pale); padding: 40px; margin-top: 40px; border-block-start: 3px solid var(--semantic-color-accent-supporting); border-radius: 0 24px 0 0; }
-main [data-appointment-template][data-local-journey] [data-appointment-section='A1'] { padding-block: 32px 48px; }
-main [data-appointment-template][data-local-journey] [data-appointment-section='A1'] h1 { max-width: 18ch; }
-main [data-emergency-template] [data-emergency-section='E1'] { padding-block: 32px 48px; }
-main [data-emergency-template] h1 { font-size: var(--site-page-title); }
-main [data-emergency-template] :is([class*='section'], [class*='callCard']) { border-radius: 0; }
+main [data-care-profile] [data-profile-specialties] li { background: transparent; padding: 0; }
+main [data-care-profile] [data-profile-primary-action] { background: var(--site-action-primary); color: var(--site-white); border: 0; text-align: left; border-radius: var(--site-action-radius); }
+main [data-care-profile] [data-profile-primary-action]:hover { background: var(--site-action-hover); }
+main [data-care-profile] [data-profile-request-rail] { padding: 0; }
+main [data-care-profile] [data-profile-content-layout] { gap: 64px; }
+main [data-care-profile] [data-profile-editorial-column] > section { padding-block: 0 48px; }
+main [data-care-profile] [data-profile-editorial-column] h2 { font-size: var(--site-subheading); }
+main [data-care-profile] [data-profile-support] { background: var(--semantic-color-surface-subtle); padding: 32px; margin-top: 40px; border: 0; border-radius: var(--site-panel-radius); }
 @media (max-width: 1023px) {
   main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']) { gap: 32px; }
-  main [data-care-profile] [data-profile-section='P1'] > :is([data-clinician-portrait], [data-clinician-monogram]) { height: 340px; }
-  main [data-care-profile] [class*='contentLayout'] { gap: 32px; }
+  main [data-care-profile] [data-profile-introduction] > :is([data-clinician-portrait], [data-clinician-monogram]) { height: 340px; }
+  main [data-care-profile] [data-profile-content-layout] { gap: 32px; }
 }
 @media (max-width: 767px) {
   main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']) { grid-template-columns: 1fr; gap: 24px; margin-block: 8px 32px; }
-  main [data-care-directory] [class*='introductionCopy'] { gap: 16px; }
+  main [data-care-directory] [data-directory-introduction-copy] { gap: 16px; }
   main [data-care-directory] .care-page-image { display: none; } /* Search remains visible on the first phone screen. */
   main [data-care-directory] :is([data-directory-section='D2'], [data-directory-section='S3']) { padding: 20px; }
-  main [data-care-directory] [class*='directoryHeading'] { position: static; width: auto; height: auto; clip-path: none; overflow: visible; }
-  main [data-care-directory] [class*='directoryHeading'] h2 { font-size: var(--site-label-heading); }
+  main [data-care-directory] [data-directory-heading] { position: static; width: auto; height: auto; clip-path: none; overflow: visible; }
+  main [data-care-directory] [data-directory-heading] h2 { font-size: var(--site-label-heading); }
   main [data-care-directory] [data-clinician-public-id] { grid-template-columns: 72px minmax(0, 1fr); }
-  main [data-care-directory] [data-clinician-public-id] [class*='cardContent'] { padding: 16px; }
+  main [data-care-directory] [data-clinician-public-id] [data-directory-card-content] { padding: 16px; }
   main [data-care-directory] [data-clinician-public-id] :is([data-clinician-portrait], [data-clinician-monogram]) { min-height: 160px; }
   main [data-care-directory] [data-clinician-public-id] h2 { font-size: 20px; }
-  main [data-care-directory] section[class*='support'] { padding: 24px; margin-top: 40px; }
-  main [data-care-directory] section[class*='support'] > ul { grid-template-columns: 1fr; gap: 24px; }
-  main [data-care-profile] [data-profile-section='P1'] { grid-template-columns: 1fr; gap: 24px; padding-block: 16px 40px; }
-  main [data-care-profile] [data-profile-section='P1'] > :is([data-clinician-portrait], [data-clinician-monogram]) { grid-row: 2; height: 320px; }
-  main [data-care-profile] section[class*='support'] { padding: 24px; }
-  main [data-appointment-template][data-local-journey] [data-appointment-section='A1'] { padding-block: 24px 32px; }
+  main [data-care-directory] [data-directory-support] { padding: 24px; margin-top: 40px; }
+  main [data-care-directory] [data-directory-support] > ul { grid-template-columns: 1fr; gap: 24px; }
+  main [data-care-profile] [data-profile-introduction] { grid-template-columns: 1fr; gap: 24px; padding-block: 16px 40px; }
+  main [data-care-profile] [data-profile-introduction] > :is([data-clinician-portrait], [data-clinician-monogram]) { grid-row: 2; height: 320px; }
+  main [data-care-profile] [data-profile-support] { padding: 24px; }
 }
 @media (max-width: 359px) {
   main [data-care-directory] :is([data-directory-section='D2'], [data-directory-section='S3']) { padding: 16px; }
   main [data-care-directory] [data-clinician-public-id] { grid-template-columns: 1fr; }
-  main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] { height: 180px; }
+  main [data-care-directory] [data-clinician-public-id] [data-directory-card-photo] { height: 180px; }
 }
 @media print {
   .care-page-image { display: none; }
-  main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']), main [data-care-profile] [data-profile-section='P1'] { display: block; padding: 0; }
-  main [data-care-directory] :is([data-directory-section='D2'], [data-directory-section='S3']), main [data-care-directory] section[class*='support'] { background: transparent; padding: 0; }
-  main [data-care-profile] [data-profile-section='P1'] > [data-clinician-portrait] { display: none; }
+  main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']), main [data-care-profile] [data-profile-introduction] { display: block; padding: 0; }
+  main [data-care-directory] :is([data-directory-section='D2'], [data-directory-section='S3']), main [data-care-directory] [data-directory-support] { background: transparent; padding: 0; }
+  main [data-care-profile] [data-profile-introduction] > [data-clinician-portrait] { display: none; }
 }
-main:has([data-care-topics]) [data-health-library] { margin-block: 40px 80px; padding: 32px; background: var(--semantic-color-surface-subtle); }
-main:has([data-care-topics]) [data-health-library] [class*='titleBlock'] { padding-left: 0; }
-main:has([data-care-topics]) [data-health-library] [class*='titleBlock']::before { display: none; }
-main:has([data-care-topics]) [data-health-library] [class*='searchBox'] { border-radius: var(--site-control-radius); background: var(--site-white); }
-main:has([data-care-topics]) [data-health-library] [class*='topic'] { background: var(--site-white); }
-main:has([data-care-topics]) [data-health-library] [class*='topicTitle'] { background: transparent; }
-main [data-care-directory] [class*='description'] { font-size: var(--site-page-intro); }
-main [data-care-directory] section[class*='support'] { align-content: start; gap: 20px; }
+main [data-care-directory] [data-directory-description] { font-size: var(--site-page-intro); }
+main [data-care-directory] [data-directory-support] { align-content: start; gap: 20px; }
 /* Care handoffs share the homepage's pale-blue field; warmth stays in preparation. */
-main [data-care-directory] section[class*='support'] {
+main [data-care-directory] [data-directory-support] {
   background: var(--semantic-color-surface-subtle);
   border-block-start-color: var(--semantic-color-artwork-cyan);
 }
-main [data-care-directory] section[class*='support'] h2 {
+main [data-care-directory] [data-directory-support] h2 {
   color: var(--semantic-color-text-heading);
 }
 
 /* Blue stays recognizable across discovery, profile, guidance and urgent care. */
-main [data-care-directory] [class*='directoryHeading'] { position: static; inline-size: auto; block-size: auto; overflow: visible; clip-path: none; }
+main [data-care-directory] [data-directory-heading] { position: static; inline-size: auto; block-size: auto; overflow: visible; clip-path: none; }
 main [data-care-directory] :is(h1, h2, h3), main [data-care-profile] :is(h1, h2, h3) { color: var(--semantic-color-text-heading); }
-main [data-care-directory] [class*='resultGroup'] > h3 { font-size: var(--site-label-heading); padding-block-end: 12px; }
+main [data-care-directory] [data-directory-result-group] > h3 { font-size: var(--site-label-heading); padding-block-end: 12px; }
 main [data-care-directory] [data-service-public-id] h3 { font-size: var(--site-label-heading); line-height: 1.3; }
-main [data-care-directory] [class*='cardLabel'] { font-weight: 400; text-transform: none; letter-spacing: 0; }
-main [data-care-directory] [class*='cardSummary'] { color: var(--semantic-color-text-primary); line-height: 1.6; }
+main [data-care-directory] [data-directory-card-label] { font-weight: 400; text-transform: none; letter-spacing: 0; }
+main [data-care-directory] [data-directory-card-summary] { color: var(--semantic-color-text-primary); line-height: 1.6; }
 main [data-care-directory] [data-service-public-id] a { text-underline-offset: 5px; }
 main [data-care-directory] [data-service-public-id] > a { justify-content: start; text-align: start; }
-main [data-care-directory] [data-service-public-id] h3 a:hover { color: var(--semantic-color-action-primary-hover); }
-main [data-care-profile] [class*='requestRail'] [data-profile-section='P4'] { background: var(--semantic-color-surface-raised); border: 1px solid var(--semantic-color-border-default); border-block-start: 4px solid var(--semantic-color-accent-supporting); border-radius: 0 16px 0 0; padding: 28px; }
+main [data-care-directory] [data-service-public-id] h3 a:hover { color: var(--semantic-color-text-link-hover); }
+main [data-care-profile] [data-profile-request-rail] [data-profile-section='P4'] { background: var(--semantic-color-surface-raised); border: 1px solid var(--semantic-color-border-default); border-radius: var(--site-panel-radius); padding: 28px; }
 main [data-care-profile] [data-profile-section='P4'] h2 { font-size: var(--site-label-heading); line-height: 1.3; }
-main [data-care-profile] [data-profile-section='P5'] { border-block-start: 3px solid var(--semantic-color-action-primary); }
-main [data-care-profile] [class*='serviceList'] li { border-radius: var(--site-control-radius); }
+main [data-care-profile] [data-profile-section='P5'] { border: 0; }
+main [data-care-profile] [data-profile-service-list] li { border-radius: var(--site-control-radius); }
 
 /* Recovery keeps the same reading scale and action geometry as care results. */
 main [data-care-directory] :is([data-directory-empty], [data-directory-unavailable], [data-directory-loading]) {
   align-content: start; min-block-size: 0; padding: clamp(20px, 3vw, 32px);
   border: 1px solid var(--semantic-color-border-default);
-  border-inline-start: 3px solid var(--semantic-color-action-primary);
   border-radius: 0 var(--site-panel-radius) 0 0;
 }
-main [data-care-directory] [data-directory-unavailable] { border-inline-start-color: var(--semantic-color-text-warning); }
+main [data-care-directory] [data-directory-unavailable] { border-color: var(--semantic-color-border-default); }
 main [data-care-directory] :is([data-directory-empty], [data-directory-unavailable], [data-directory-loading]) h2 { font-size: var(--site-subheading); line-height: 1.25; }
 main [data-care-directory] :is([data-directory-empty], [data-directory-unavailable], [data-directory-loading]) p { max-inline-size: 56ch; }
-main [data-care-directory] [class*='stateActions'] { gap: 12px 24px; align-items: center; }
-main [data-care-directory] [class*='stateActions'] a:first-child {
+main [data-care-directory] [data-directory-state-actions] { gap: 12px 24px; align-items: center; }
+main [data-care-directory] [data-directory-state-actions] a:first-child {
   min-block-size: 44px; padding: 10px 16px; border-radius: var(--site-control-radius);
   background: var(--semantic-color-surface-subtle); color: var(--semantic-color-text-link);
   font-weight: 600; text-underline-offset: 5px;
 }
-main [data-care-directory] [class*='stateActions'] a:first-child:hover { background: var(--semantic-color-surface-selected); }
+main [data-care-directory] [data-directory-state-actions] a:first-child:hover { background: var(--semantic-color-surface-selected); }
 main :is([data-care-directory], [data-care-profile]) :is(a, button, summary):focus-visible {
   outline: 3px solid var(--semantic-color-focus); outline-offset: 4px;
 }
-main [data-emergency-template] [data-emergency-section='E1'] { max-inline-size: none; }
-main [data-emergency-template] [data-emergency-section='E1'] h1 { color: var(--semantic-color-text-heading); }
-main [data-emergency-template] :is([data-emergency-section='E2'], [data-emergency-section='E5'], [data-emergency-section='E6']) { background: var(--semantic-color-surface-raised); padding: 28px; border-block-start: 3px solid var(--semantic-color-action-primary); }
-main [data-emergency-template] [data-emergency-section='E8'] { background: var(--semantic-color-surface-subtle); border: 0; border-block-start: 3px solid var(--semantic-color-action-primary); margin-block: 48px; }
-main [data-emergency-template] :is([data-emergency-section='E3'], [data-emergency-section='E1'] [class*='fixtureNotice']) { background: var(--semantic-color-surface-error); color: var(--semantic-color-text-error); border: 0; border-inline-start: 4px solid var(--semantic-color-text-error); }
-main [data-emergency-template] [class*='callCard'] { border: 1px solid var(--semantic-color-border-default); border-block-start: 4px solid var(--semantic-color-text-error); background: var(--semantic-color-surface-raised); }
-main [data-emergency-template] :is([data-emergency-section='E2'], [data-emergency-section='E4'], [data-emergency-section='E5'], [data-emergency-section='E6'], [data-emergency-section='E7'], [data-emergency-section='E8']) h2 { color: var(--semantic-color-text-heading); font-size: var(--site-subheading); }
 @media (min-width: 1200px) {
   main [data-care-directory] ol[data-directory-section='D4'] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
   main [data-care-directory] [data-clinician-public-id] { grid-template-columns: 104px minmax(0, 1fr); }
-  main [data-care-directory] [data-clinician-public-id] [class*='cardContent'] { padding: 20px; }
+  main [data-care-directory] [data-clinician-public-id] [data-directory-card-content] { padding: 20px; }
   main [data-care-directory] [data-clinician-public-id] h2 { font-size: 24px; }
 }
 @media (max-width: 767px) {
-  main [data-care-directory] [class*='filterRail'] { padding: 16px; }
-  main [data-care-profile] [data-profile-section='P1'] { margin-block-end: 32px; }
-  main [data-care-profile] [class*='requestRail'] [data-profile-section='P4'] { padding: 24px; }
-  main:has([data-care-topics]) [data-health-library] { padding: 24px 16px; }
-  main [data-emergency-template] :is([data-emergency-section='E2'], [data-emergency-section='E5'], [data-emergency-section='E6']) { padding: 20px; }
+  main [data-care-directory] [data-directory-filter-rail] { padding: 16px; }
+  main [data-care-profile] [data-profile-introduction] { margin-block-end: 32px; }
+  main [data-care-profile] [data-profile-request-rail] [data-profile-section='P4'] { padding: 24px; }
 }
 /* Names and service titles scan as a single role, beneath editorial group titles. */
 main [data-care-directory] :is([data-clinician-public-id] h2, [data-service-public-id] h3) {
@@ -155,24 +133,24 @@ main [data-care-directory] :is([data-clinician-public-id] h2, [data-service-publ
   font-weight: 700; line-height: 1.3; letter-spacing: -.01em;
   text-wrap: pretty; overflow-wrap: anywhere;
 }
-main [data-care-directory] [class*='resultGroup'] > h2 {
+main [data-care-directory] [data-directory-result-group] > h2 {
   font-size: var(--site-subheading); line-height: 1.2; letter-spacing: -.02em;
 }
 main [data-care-directory] [data-clinician-public-id] :is(p, li),
-main [data-care-directory] [class*='cardSummary'] {
+main [data-care-directory] [data-directory-card-summary] {
   font-size: var(--site-support); line-height: 1.6; max-inline-size: 65ch;
 }
-main [data-care-directory] section[class*='support'] h3 {
+main [data-care-directory] [data-directory-support] h3 {
   font-size: var(--site-label-heading); font-weight: 700; line-height: 1.35;
 }
-main [data-care-directory] section[class*='support'] > ul {
+main [data-care-directory] [data-directory-support] > ul {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
 }
-main [data-care-directory] section[class*='support'] > ul > li {
+main [data-care-directory] [data-directory-support] > ul > li {
   display: grid; align-content: start; justify-items: start; gap: 8px;
 }
-main [data-care-directory] section[class*='support'] > ul h3 { margin: 0; }
-main [data-care-directory] section[class*='support'] > ul a { text-align: start; }
+main [data-care-directory] [data-directory-support] > ul h3 { margin: 0; }
+main [data-care-directory] [data-directory-support] > ul a { text-align: start; }
 @media (max-width: 767px) {
   main [data-care-directory] :is([data-clinician-public-id] h2, [data-service-public-id] h3) { font-size: 1.3125rem; }
 }
@@ -181,28 +159,28 @@ main [data-care-directory] section[class*='support'] > ul a { text-align: start;
   main :is([data-care-directory], [data-care-profile]) :is(a, button, summary):focus-visible { outline-color: Highlight; }
 }
 @media print {
-  main [data-care-profile] [class*='requestRail'] [data-profile-section='P4'],
+  main [data-care-profile] [data-profile-request-rail] [data-profile-section='P4'],
   main [data-care-directory] :is([data-directory-empty], [data-directory-unavailable], [data-directory-loading]) { padding: 0; background: transparent; }
-  main [data-care-directory] [class*='filterRail'], main [data-care-profile] [data-profile-section='P4'], main:has([data-care-topics]) [data-health-library] { padding: 0; background: transparent; }
+  main [data-care-directory] [data-directory-filter-rail], main [data-care-profile] [data-profile-section='P4'] { padding: 0; background: transparent; }
 }
 
-/* The next-step panels share one quiet treatment across care journeys. */
-main :is([data-care-directory], [data-appointment-template][data-local-journey]) section.ds-support-band {
+/* Directory handoffs establish geometry; their explicit band context owns color. */
+main [data-care-directory] section.ds-support-band {
   background: var(--semantic-color-surface-subtle);
   border: 0;
   border-radius: var(--site-control-radius);
   gap: 16px;
   padding: clamp(24px, 3vw, 32px);
 }
-main :is([data-care-directory], [data-appointment-template][data-local-journey]) section.ds-support-band h2 {
+main [data-care-directory] section.ds-support-band h2 {
   color: var(--semantic-color-text-heading);
   font-size: var(--site-label-heading);
   line-height: 1.2;
 }
-main :is([data-care-directory], [data-appointment-template][data-local-journey]) .ds-support-actions {
+main [data-care-directory] .ds-support-actions {
   gap: 8px 24px;
 }
-main :is([data-care-directory], [data-appointment-template][data-local-journey]) .ds-support-actions a {
+main [data-care-directory] .ds-support-actions a {
   padding-inline: 0;
 }
 main [data-care-directory] section[aria-labelledby='visit-guides-title'] > ul {

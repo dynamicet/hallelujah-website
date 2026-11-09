@@ -1,3 +1,4 @@
+import { InterfaceLink as Link } from '@/website/interface-language'
 import { notFound } from 'next/navigation'
 
 import {
@@ -14,11 +15,12 @@ import { GovernedCardsFixtureTemplate } from '@/design-system/templates'
 import styles from '@/app/component-library/page.module.css'
 
 const fields: readonly { tone: BrandSurfaceTone; accent: BrandAccent; title: string; copy: string }[] = [
-  { tone: 'paper', accent: 'orange', title: 'A warm foundation', copy: 'Paper, blue structure and a warm edge work together. The accent is independent of the ground.' },
-  { tone: 'mist', accent: 'magenta', title: 'Space to explore care', copy: 'Mist carries blue identity. A contrasting corner adds editorial emphasis.' },
-  { tone: 'inverse', accent: 'orange', title: 'A confident blue field', copy: 'Deep blue, a warm edge and a white inset create distinct layers. Actions retain a clear hierarchy.' },
-  { tone: 'supporting', accent: 'magenta', title: 'Prepare with confidence', copy: 'A warm field can carry blue headings, blue actions and an expressive contrasting detail.' },
-  { tone: 'expressive', accent: 'orange', title: 'The people behind care', copy: 'Pink supplies atmosphere. Blue connects the content to the hospital, with a warm framing detail.' },
+  { tone: 'paper', accent: 'none', title: 'A quiet foundation', copy: 'Paper makes room for reading, with blue destinations and a clear action hierarchy.' },
+  { tone: 'mist', accent: 'none', title: 'Space to explore care', copy: 'Pale blue groups comparable care information without assigning colors to specialties.' },
+  { tone: 'inverse', accent: 'none', title: 'A confident blue field', copy: 'Deep blue supports orientation and closing information. Nested white panels restore their own working context.' },
+  { tone: 'supporting', accent: 'none', title: 'Prepare with confidence', copy: 'Richer peach and deep-orange headings identify preparation. Ordinary care actions remain blue.' },
+  { tone: 'expressive', accent: 'none', title: 'The people behind care', copy: 'Richer pink and deep-magenta headings give human stories a recognizable editorial setting.' },
+  { tone: 'assistance', accent: 'none', title: 'Help with your next step', copy: 'Bounded yellow assistance uses ink for every text role and link state.' },
 ]
 
 export default function ComponentLibraryPage() {
@@ -28,7 +30,7 @@ export default function ComponentLibraryPage() {
     <main className={styles.library} id="component-library">
       <header className={styles.intro}>
         <TextLink href="/" label="Back to the homepage" />
-        <TextLink href="/composition-study" label="Compare the previous and revised compositions" />
+
         <h1>Color in practice.</h1>
         <p>Shared components for Hallelujah. Development study: examples below do not submit patient information.</p>
         <nav aria-label="Component study">
@@ -43,7 +45,7 @@ export default function ComponentLibraryPage() {
       </header>
       <div id="surface-study" className={styles.stack}>
         {fields.map(({ tone, accent, title, copy }) => (
-          <BrandSurface key={tone} labelledBy={`surface-${tone}`} tone={tone} accent={accent} detail={tone === 'mist' ? 'corner' : 'rule'}>
+          <BrandSurface key={tone} labelledBy={`surface-${tone}`} tone={tone} accent={accent}>
             <h2 id={`surface-${tone}`}>{title}</h2>
             <p>{copy}</p>
             <ActionGroup label={`${tone} actions`}>
@@ -52,9 +54,16 @@ export default function ComponentLibraryPage() {
               <ActionLink href="#notice-study" label="Read the guidance" variant="tertiary" />
             </ActionGroup>
             <TextLink href="#card-study" label="An ordinary text link" />
-            {tone === 'inverse' ? (
-              <BrandCard labelledBy="nested-card" accent="magenta" detail="corner">
-                <h3 id="nested-card">A white card within blue</h3>
+            {tone === 'supporting' || tone === 'expressive' ? (
+              <>
+                <TextField id={`context-field-${tone}`} name={`context-field-${tone}`} label="Example field" hint="White fields keep their control boundary within a colored context." hintId={`context-hint-${tone}`} />
+                <SystemAlert id={`context-status-${tone}`} kind="information" heading="Information within this chapter"><p>Status messages keep their own meaning and white working surface.</p></SystemAlert>
+              </>
+            ) : null}
+            {tone === 'expressive' ? <Link className={styles.storyAction} data-story-action-example href="/#patient-testimonials">Watch story action example</Link> : null}
+            {tone === 'inverse' || tone === 'assistance' ? (
+              <BrandCard labelledBy={`nested-card-${tone}`}>
+                <h3 id={`nested-card-${tone}`}>A white panel within a colored field</h3>
                 <p>Nested cards restore light-surface actions and focus indicators.</p>
                 <ActionLink href="#form-study" label="Review the form" />
               </BrandCard>
@@ -65,14 +74,14 @@ export default function ComponentLibraryPage() {
       <section className={styles.study} aria-labelledby="card-study">
         <h2 id="card-study">Cards with a purpose.</h2>
         <div className={styles.grid}>
-          <BrandCard labelledBy="guide-card" tone="mist" accent="orange" detail="frame">
+          <BrandCard labelledBy="guide-card" tone="supporting">
             <h3 id="guide-card">Before your visit</h3>
             <p>An editorial card can hold guidance and a separate action.</p>
             <TextLink href="#form-study" label="See the form example" />
           </BrandCard>
-          <BrandCard labelledBy="story-card" tone="expressive" accent="blue" detail="corner">
+          <BrandCard labelledBy="story-card" tone="expressive">
             <h3 id="story-card">Care, in conversation</h3>
-            <p>A pink reading surface, blue heading and blue corner belong to one composition.</p>
+            <p>A pink reading surface and deep-magenta heading establish a human editorial chapter.</p>
             <TextLink href="#notice-study" label="Read the example notices" />
           </BrandCard>
           <TaskCard appearance="panel" href="#form-study" icon="care" label="Explore a care task" description="One linked panel, with a clear destination and visible keyboard focus." />
@@ -83,7 +92,7 @@ export default function ComponentLibraryPage() {
         <h2 id="form-study">Clear at every state.</h2>
         <p>State examples only. No data is collected or submitted here.</p>
         <div className={styles.grid}>
-          <BrandCard labelledBy="input-study" accent="blue">
+          <BrandCard labelledBy="input-study">
             <h3 id="input-study">Fields & choices</h3>
             <TextField id="study-name" name="study-name" label="Your name" hint="Example field; use Tab to review focus." hintId="study-name-hint" autoComplete="off" />
             <TextField id="study-invalid" name="study-invalid" label="Email address" type="email" defaultValue="example" error={{ id: 'study-email-error', message: 'Enter a complete email address.', visible: true }} />
@@ -91,7 +100,7 @@ export default function ComponentLibraryPage() {
             <TextField id="study-disabled" name="study-disabled" label="Unavailable field" disabled hint="This example is unavailable." hintId="study-disabled-hint" />
             <ChoiceGroup id="study-choice" legend="Contact preference" name="study-choice" type="radio" selectedValues={['phone']} options={[{ value: 'phone', label: 'Phone' }, { value: 'email', label: 'Email' }, { value: 'unavailable', label: 'Unavailable option', disabled: true }]} />
           </BrandCard>
-          <BrandCard labelledBy="button-study" tone="mist" accent="orange" detail="corner">
+          <BrandCard labelledBy="button-study" tone="mist">
             <h3 id="button-study">Actions & feedback</h3>
             <ActionButton label="Available example" />
             <ActionButton label="Unavailable example" disabled disabledReason="Choose a care preference before continuing." disabledReasonId="study-disabled-reason" />
@@ -117,7 +126,7 @@ export default function ComponentLibraryPage() {
       <section className={styles.study} aria-labelledby="search-study">
         <h2 id="search-study">Find, narrow, continue.</h2>
         <p>Working GET search and filter controls. These examples navigate within this development gallery.</p>
-        <BrandCard labelledBy="search-example" accent="magenta" detail="frame">
+        <BrandCard labelledBy="search-example">
           <h3 id="search-example">Search and filter example</h3>
           <SearchControlsForm action="/component-library#search-study" label="Component search example">
             <SearchBox inputId="library-search" label="Search care" hint="Example controls; use a sample word." hintId="library-search-hint" maximumLength={80} submitLabel="Search" />
@@ -134,14 +143,14 @@ export default function ComponentLibraryPage() {
         <h2 id="extended-states">Details under pressure.</h2>
         <p>Additional state specimens. All messages below are demonstrations, with no request or appointment created.</p>
         <div className={styles.grid}>
-          <BrandCard labelledBy="extended-fields" accent="orange">
+          <BrandCard labelledBy="extended-fields">
             <h3 id="extended-fields">Long input & error recovery</h3>
             <TextAreaField id="study-notes" name="study-notes" label="Example notes" hint="Use sample text only." hintId="study-notes-hint" rows={3} />
             <ErrorSummary id="study-error-summary" heading="Review this example" items={[{ fieldId: 'study-invalid', label: 'Email address', message: 'Enter a complete email address.' }]} />
             <FormStatus kind="failure" heading="Failure example"><p>The example could not be sent. Your entered information stays visible.</p></FormStatus>
             <FormStatus kind="warning" heading="Warning example"><p>Review the information before continuing.</p></FormStatus>
           </BrandCard>
-          <BrandCard labelledBy="extended-feedback" tone="mist" accent="magenta" detail="corner">
+          <BrandCard labelledBy="extended-feedback" tone="mist">
             <h3 id="extended-feedback">Loading & preserved context</h3>
             <LoadingStatus id="study-loading" label="Loading example" detail={<p>Existing content remains available.</p>} />
             <NonCriticalSkeleton id="study-skeleton" label="Supplementary content loading example" rows={2} />

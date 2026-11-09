@@ -35,9 +35,9 @@ export default async function EditorialPage({ params, searchParams }: { params: 
     <article data-editorial-reader className={`${styles.article} page-frame`}>
       <Link data-editorial-return className={styles.back} href={returnHref}><span aria-hidden="true">←</span> {returnLabel}</Link>
       <header className={styles.articleHeader}>
-        <p className={styles.articleEyebrow}>{entry.category} <span aria-hidden="true">/</span> {entry.readingMinutes} minute read</p>
+
         <h1>{entry.title}</h1><p>{entry.summary}</p>
-        <div className={styles.articleMeta}><span>Published <time dateTime={entry.publishedAt}>{editorialDate(entry.publishedAt)}</time></span></div>
+        <div className={styles.articleMeta}><span>{entry.category} · {entry.readingMinutes} minute read</span><span>Published <time dateTime={entry.publishedAt}>{editorialDate(entry.publishedAt)}</time></span></div>
       </header>
       <div className={styles.articleLayout}>
         <div className={styles.readingAside}>{chapters.length >= 3 ? <ArticleReadingGuide chapters={chapters} /> : null}<aside className={styles.aside} aria-labelledby="editorial-next-step"><h2 id="editorial-next-step">Visit preparation</h2><Link className="text-link" href="/patients-visitors#checklist">Make a visit checklist <span aria-hidden="true">→</span></Link><Link className="text-link" href="/health-topics">View health & care topics <span aria-hidden="true">→</span></Link></aside></div>
@@ -51,7 +51,7 @@ export default async function EditorialPage({ params, searchParams }: { params: 
         <img src={entry.image.src} alt={entry.image.alt} width={entry.image.width} height={entry.image.height} fetchPriority="high" />
       </figure>}
 
-          {entry.sections.map((section, index) => <section data-reading-section id={chapters[index].id} tabIndex={-1} key={section.title}><span className={styles.sectionNumber} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h2>{section.title}</h2><p>{section.text}</p></section>)}
+          {entry.sections.map((section, index) => <section data-reading-section id={chapters[index].id} tabIndex={-1} key={section.title}><h2>{section.title}</h2><p>{section.text}</p></section>)}
           <footer className={styles.readingEnd}><p>Keep exploring</p><Link data-editorial-return className="text-link" href={returnHref}>{returnLabel} <span aria-hidden="true">↗</span></Link><Link className="text-link" href="/news-resources">All news and resources <span aria-hidden="true">→</span></Link></footer>
         </div>
 

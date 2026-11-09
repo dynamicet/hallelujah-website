@@ -56,7 +56,7 @@ export function HealthLibrary({ topics, title = 'Find health topics', standalone
   function showAll() {
     setQuery(''); setLetter(''); setSelected(null); setBrowseAll(true); setVisibleCount(resultBatchSize)
   }
-  return <section aria-labelledby="health-library-title" className={`page-frame ${styles.root} ${standalone ? '' : styles.home}`} data-health-library data-motion-section={standalone ? undefined : "health"} id="health-library" ref={root}>
+  return <section aria-labelledby="health-library-title" className={`page-frame ${styles.root} ${standalone ? '' : styles.home}`} data-health-library={standalone ? 'standalone' : 'embedded'} data-motion-section={standalone ? undefined : "health"} id="health-library" ref={root}>
     <div className={styles.controls}>
       <div className={`${styles.opening} ${standalone ? styles.standalone : ''}`}>
         <div className={standalone ? styles.srOnly : styles.titleBlock}><h2 data-reveal={standalone ? undefined : "0"} data-motion="heading" className={styles.title} id="health-library-title">{title}</h2></div>

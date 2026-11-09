@@ -36,7 +36,7 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
     const button = trigger.current
     if (!root || !button) return
     let frame = 0
-    // Keep a predictable corner anchor and yield to controls or marked arrival information.
+    // Keep a predictable corner anchor and yield to controls, arrival information and document reading.
     function updateVisibility() {
       frame = 0
       if (!root || !button) return
@@ -52,7 +52,7 @@ export function HelpWidget({ guide }: { readonly guide?: GuideCatalog }) {
       const obscuresFocus = !!focused && focused.width > 0 && focused.height > 0
         && focused.left < control.right && focused.right > control.left
         && focused.top < control.bottom && focused.bottom > control.top
-      const obscuresPageControl = [...document.querySelectorAll<HTMLElement>('main input, main select, main textarea, main button, main a[href], main summary, main [contenteditable="true"], main [data-help-clearance]')].some((element) => {
+      const obscuresPageControl = [...document.querySelectorAll<HTMLElement>('main input, main select, main textarea, main button, main a[href], main summary, main [contenteditable="true"], main [data-help-clearance], [data-site-footer] a[href], main [data-page-variant="document"] :is(p, li, h2, h3), main [data-page-variant="task"] :is(p, li, h2, h3)')].some((element) => {
         if (!element.getClientRects().length) return false
         const bounds = element.getBoundingClientRect()
         return bounds.width > 0 && bounds.height > 0 && bounds.left < control.right && bounds.right > control.left

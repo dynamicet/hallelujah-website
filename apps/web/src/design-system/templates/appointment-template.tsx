@@ -439,7 +439,7 @@ export function AppointmentTemplate({
   const errors = state.errors ?? []
   const unavailable = state.kind === 'workflow-unavailable'
   const guidance = <InterfaceCopy><aside className={styles.careRail} aria-label="Appointment guidance">
-    {state.localSimulation ? <section className={styles.requestSlip} aria-labelledby="appointment-preparation-title">
+    {state.localSimulation ? <section className={styles.requestSlip} data-section-context="preparation" aria-labelledby="appointment-preparation-title">
       <h2 id="appointment-preparation-title">Prepare for your visit</h2>
       <p>Keep your previous reports, medicine list and questions together.</p>
       <p><Link href="/patients-visitors#checklist">Make your visit checklist</Link></p>
@@ -491,7 +491,7 @@ export function AppointmentTemplate({
         {state.localSimulation ? guidance : null}
         </div>
 
-        <section aria-labelledby="appointment-support-title" className={`${styles.section} ${styles.support} ds-support-band`} data-appointment-section="A7" id="appointment-support">
+        <section aria-labelledby="appointment-support-title" className={`${styles.section} ${styles.support} ds-support-band`} data-appointment-section="A7" data-section-context={state.localSimulation ? 'assistance' : undefined} id="appointment-support">
           <h2 id="appointment-support-title">{state.localSimulation ? 'Need help choosing care?' : recipientLabel}</h2>
           {!state.localSimulation ? <p>Review the illustrative contact details or return to care discovery before deciding what to request.</p> : null}
           {state.localSimulation ? <div className="ds-support-actions"><Link className="ds-touch-target" href="/#home-call">Contact information</Link><Link className="ds-touch-target" href="/doctors">Find a doctor</Link></div> : null}

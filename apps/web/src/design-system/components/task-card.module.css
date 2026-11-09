@@ -36,6 +36,8 @@
 }
 .panel {
   --component-context-link: var(--semantic-color-text-link);
+  --component-context-link-hover: var(--semantic-color-text-link-hover);
+  --component-context-link-active: var(--semantic-color-text-link-active);
   --component-context-muted: var(--semantic-color-text-secondary);
   --component-context-focus: var(--semantic-color-focus);
   --component-context-focus-gap: var(--semantic-color-surface-raised);
@@ -54,14 +56,6 @@
 @media print {
   .card { background: transparent; color: CanvasText; break-inside: avoid; }
 }
-
-/* Destination cues carry blue identity independently of their surrounding surface. */
-.panel { border-block-start: 3px solid var(--semantic-color-action-primary); border-radius: 0 var(--semantic-radius-card) 0 0; }
-.panel .symbol { padding: var(--semantic-space-compact); background: var(--semantic-color-surface-subtle); inline-size: fit-content; border-radius: 50%; }
-.panel .cue { border-block-end: 3px solid var(--semantic-color-accent-supporting); padding-block-end: var(--semantic-space-fine); }
-.row { border-inline-start: 3px solid transparent; }
-.row:hover { border-inline-start-color: var(--semantic-color-accent-supporting); }
-@media (forced-colors: active) { .panel .cue { border-color: LinkText; } }
 
 /* On narrow screens, keep enlarged labels below the icon row. */
 @media (max-width: 30rem) {

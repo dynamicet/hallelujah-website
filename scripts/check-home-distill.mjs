@@ -22,7 +22,8 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
       try {
         await page.goto(base)
         assert.equal(await page.eval("document.querySelector('#health-library input') === null"), true)
-        assert.equal(await page.eval("getComputedStyle(document.querySelector('.team-next-step')).backgroundColor"), 'rgba(0, 0, 0, 0)')
+        assert.equal(await page.eval("getComputedStyle(document.querySelector('.team-next-step')).backgroundColor"), 'rgb(245, 200, 45)', 'approved X assistance uses a bounded yellow field')
+        assert.equal(await page.eval("getComputedStyle(document.querySelector('.team-care-help')).color"), 'rgb(23, 49, 61)', 'yellow assistance destination uses readable ink')
         await page.eval("document.querySelector('#health-library a').scrollIntoView({block:'center',behavior:'instant'}); document.querySelector('#health-library a').focus({preventScroll:true})")
         assert.equal(await page.eval("getComputedStyle(document.activeElement).outlineStyle"), 'solid')
         await page.screenshot({ path: `${output}/health-invitation-${width}-${reducedMotion ? 'reduced' : 'normal'}.png` })

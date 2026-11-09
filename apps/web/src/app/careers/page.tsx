@@ -15,7 +15,7 @@ const jobs = [
 
 export default function CareersPage() {
   requireLocalDemo()
-  return <PatientPage title="Make care your everyday work." description="Join the people who help patients feel heard, supported and cared for at Hallelujah General Hospital in Addis Ababa."
+  return <PatientPage variant="recruitment" title="Make care your everyday work." description="Join the people who help patients feel heard, supported and cared for at Hallelujah General Hospital in Addis Ababa."
     current="/careers" action={{ href: '#open-roles', label: 'Explore open roles' }}>
     <nav className={styles.jumpLinks} aria-label="Careers sections"><a href="#working-together">Working together</a><a href="#open-roles">Open roles · 3</a><a href="#apply">How to apply</a></nav>
     <PatientSection id="working-together" title="Every role touches a life.">
@@ -29,7 +29,7 @@ export default function CareersPage() {
         <div className={informationStyles.answer}><p>{job.description}</p><h3>What you’ll do</h3><ul>{job.responsibilities.map((responsibility) => <li key={responsibility}>{responsibility}</li>)}</ul><h3>What you’ll bring</h3><p>{job.qualifications}</p><p><strong>Role reference:</strong> {job.reference}</p><a className="text-link" href="#apply">Prepare your application <span aria-hidden="true">→</span></a></div>
       </details>)}</div>
     </PatientSection>
-    <PatientSection id="apply" title="Take the next step" tone>
+    <PatientSection id="apply" title="Take the next step">
       <p>Have your CV, a short introduction and the role title ready. For clinical roles, include details of your professional qualification and current licence.</p>
       <ol><li>Choose a role and note its reference.</li><li>Prepare a CV highlighting the experience relevant to that role.</li><li>Contact the hospital to confirm the application channel, required documents and closing date before submitting.</li></ol>
       <div className={informationStyles.contactLinks}><a className="text-link" href={hospitalContact.phoneHref}>Call about applications <span aria-hidden="true">→</span></a><Link href="/contact">Contact & directions</Link></div>

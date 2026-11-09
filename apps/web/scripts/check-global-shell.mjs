@@ -54,8 +54,8 @@ if (/\$\{brandName\}\s+home/u.test(shell)) {
 const requiredEnhancementContracts = [
   ['expanded-state reflection', /setAttribute\('aria-expanded', String\(open\)\)/u],
   ['close focus restoration', /restoreMenuFocus[\s\S]*trigger\?\.focus\(\)/u],
-  ['navigation close', /closest\('a\[href\]'\)[\s\S]*hidePopover\(\)/u],
-  ['effect cleanup', /return \(\) => controller\.abort\(\)/u],
+  ['navigation close', /closest(?:<HTMLAnchorElement>)?\('a\[href\]'\)[\s\S]*hidePopover\(\)/u],
+  ['effect cleanup', /return \(\) => \{[\s\S]*cancelAnimationFrame\(arrivalFrame\)[\s\S]*controller\.abort\(\)/u],
   ['same-route rebind', /\[pathname, search\]/u],
 ]
 

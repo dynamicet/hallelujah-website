@@ -40,8 +40,8 @@ export function EverydayStories({ stories, quotes }: {
                 <img src={story.photograph.src} alt={story.photograph.alt} width={story.photograph.width} height={story.photograph.height} loading="lazy" />
               </figure>
               <div data-motion="soft" data-reveal={index + 1} className="everyday-feature-copy">
-                <p className="everyday-feature-person">{story.attribution}’s story</p>
                 <h3 id={`everyday-${story.id}`}>{story.title}</h3>
+                <p className="everyday-feature-person">{story.attribution}’s story</p>
                 <p className="everyday-feature-introduction">{story.quote}</p>
                 <div className="everyday-feature-actions">
                   {playable && video ? (

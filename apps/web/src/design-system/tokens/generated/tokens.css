@@ -44,9 +44,11 @@
   --primitive-color-brand-navy: #00445d;
   --primitive-color-brand-yellow: #f5c82d;
   --primitive-color-brand-magenta: #e7277c;
+  --primitive-color-orange-100: #ffeddf;
   --primitive-color-orange-600: #f65b25;
   --primitive-color-orange-800: #a8430c;
   --primitive-color-orange-050: #fff7f2;
+  --primitive-color-magenta-100: #fbe4ef;
   --primitive-color-magenta-600: #d81b72;
   --primitive-color-magenta-800: #a61558;
   --primitive-color-magenta-050: #fdf3f8;
@@ -144,8 +146,8 @@
   --semantic-color-surface-error: var(--primitive-color-red-050);
   --semantic-color-surface-inverse: var(--primitive-color-blue-800);
   --semantic-color-surface-selected: var(--primitive-color-blue-100);
-  --semantic-color-surface-supporting: var(--primitive-color-orange-050);
-  --semantic-color-surface-expressive: var(--primitive-color-magenta-050);
+  --semantic-color-surface-supporting: var(--primitive-color-orange-100);
+  --semantic-color-surface-expressive: var(--primitive-color-magenta-100);
   --semantic-color-surface-highlight: var(--primitive-color-brand-yellow);
   --semantic-color-brand-cool: var(--primitive-color-brand-cyan);
   --semantic-color-brand-warm: var(--primitive-color-orange-600);
@@ -163,6 +165,8 @@
   --semantic-color-text-inverse-accent: var(--primitive-color-blue-200);
   --semantic-color-text-link: var(--primitive-color-blue-700);
   --semantic-color-text-urgent: var(--primitive-color-red-800);
+  --semantic-color-text-link-hover: var(--primitive-color-blue-700);
+  --semantic-color-text-link-active: var(--primitive-color-blue-800);
   --semantic-color-border-default: var(--primitive-color-mineral-200);
   --semantic-color-border-strong: var(--primitive-color-mineral-400);
   --semantic-color-border-inverse: var(--primitive-color-blue-200);
@@ -174,6 +178,11 @@
   --semantic-color-action-emergency-active: var(--primitive-color-red-800);
   --semantic-color-action-on-solid: var(--primitive-color-white);
   --semantic-color-action-featured: var(--primitive-color-brand-cyan);
+  --semantic-color-action-featured-foreground: var(--primitive-color-mineral-900);
+  --semantic-color-action-story: var(--primitive-color-magenta-600);
+  --semantic-color-action-story-hover: var(--primitive-color-magenta-800);
+  --semantic-color-action-story-active: var(--primitive-color-magenta-800);
+  --semantic-color-action-story-foreground: var(--primitive-color-white);
   --semantic-color-focus: var(--primitive-color-blue-800);
   --semantic-color-accent-supporting: var(--primitive-color-orange-600);
   --semantic-color-accent-supporting-text: var(--primitive-color-orange-800);
@@ -183,6 +192,7 @@
   --semantic-color-artwork-orange: var(--primitive-color-brand-orange);
   --semantic-color-artwork-magenta: var(--primitive-color-brand-magenta);
   --semantic-color-artwork-yellow: var(--primitive-color-brand-yellow);
+  --semantic-color-focus-inverse: var(--primitive-color-white);
   --semantic-font-family-ui: var(--primitive-font-family-latin);
   --semantic-font-family-ethiopic: var(--primitive-font-family-ethiopic);
   --semantic-font-weight-regular: var(--primitive-font-weight-regular);
@@ -291,6 +301,8 @@
   --component-action-focus-gap: var(--semantic-color-surface-raised);
   --component-action-focus-color: var(--semantic-color-focus);
   --component-action-link-color: var(--semantic-color-text-link);
+  --component-action-link-hover-color: var(--semantic-color-text-link-hover);
+  --component-action-link-active-color: var(--semantic-color-text-link-active);
   --component-shell-identity-text: var(--semantic-color-brand-navy);
   --component-shell-identity-accent: var(--semantic-color-brand-warm);
   --component-shell-surface-raised: var(--semantic-color-surface-raised);
@@ -488,6 +500,15 @@
   --component-context-muted: var(--semantic-color-text-secondary);
   --component-context-heading: var(--semantic-color-text-heading);
   --component-context-accent: var(--semantic-color-action-primary);
+  --component-context-link-hover: var(--semantic-color-text-link-hover);
+  --component-context-link-active: var(--semantic-color-text-link-active);
+  --component-story-media-background: var(--semantic-color-action-story);
+  --component-story-media-hover: var(--semantic-color-action-story-hover);
+  --component-story-media-active: var(--semantic-color-action-story-active);
+  --component-story-media-foreground: var(--semantic-color-action-story-foreground);
+  --component-story-media-pressed-cue: var(--semantic-color-text-inverse);
+  --component-story-media-focus: var(--semantic-color-focus);
+  --component-story-media-focus-gap: var(--semantic-color-text-inverse);
 }
 
 /* Enhanced roles resolve to intentional static equivalents when motion is reduced. */

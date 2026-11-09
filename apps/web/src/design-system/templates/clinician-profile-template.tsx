@@ -60,7 +60,7 @@ function UnavailableProfile({ directoryHref, retryHref, state }: {
         <p>{content.copy}</p>
         {retryHref && state === 'failure' ? <Link className="ds-touch-target" href={retryHref}>Try this profile again</Link> : null}
       </section>
-      <section aria-labelledby="clinician-profile-recovery-title" className={`${styles.support} ds-support-band`} data-profile-section="P7" id="profile-support">
+      <section aria-labelledby="clinician-profile-recovery-title" className={`${styles.support} ds-support-band`} data-profile-support data-care-band="recovery" data-profile-section="P7" id="profile-support">
         <h2 id="clinician-profile-recovery-title">Continue browsing</h2>
         <p>Search other clinicians or explore services while this profile is unavailable.</p>
         <div className="ds-support-actions"><Link className="ds-touch-target" href={directoryHref}>Back to doctor results</Link><Link className="ds-touch-target" href="/services">View all services</Link><Link className="ds-touch-target" href="/">Home</Link></div>
@@ -84,17 +84,16 @@ export function ClinicianProfileTemplate({ selectionNotice, relatedSpecialtyIds 
             state={unavailable ? state : 'unavailable'} />
         ) : (
           <>
-            <section aria-labelledby="clinician-profile-title" className={styles.introduction} data-profile-section="P1">
+            <section aria-labelledby="clinician-profile-title" className={styles.introduction} data-profile-introduction data-profile-section="P1">
               <ClinicianPortrait name={clinician.details.name} src={portraitSrc} transitionName={clinicianTransitionName(clinician.publicId, 'portrait')} />
               <div className={styles.identity}>
-                {appointmentHref ? <p className={styles.eyebrow}>Doctor profile</p> : null}
                 <h1 data-care-transition-name id="clinician-profile-title" tabIndex={-1} style={{ viewTransitionName: clinicianTransitionName(clinician.publicId, 'name') }}>{clinician.details.name}</h1>
                 {portraitDisclosure ? <p className={styles.portraitDisclosure}>{portraitDisclosure}</p> : null}
                 {clinician.details.professionalTitle ? <p className={styles.professionalTitle}>{clinician.details.professionalTitle}</p> : null}
-                <ul aria-label="Specialties" className={styles.specialties}>
+                <ul aria-label="Specialties" className={styles.specialties} data-profile-specialties>
                   {clinician.details.specialties.map((specialty) => <li key={specialty}>{specialty}</li>)}
                 </ul>
-                {requestHref ? <Link className={`${styles.primaryLink} ds-touch-target`} href={requestHref} aria-label={`Request an appointment with ${clinician.details.name}`}>Request an appointment</Link> : (
+                {requestHref ? <Link className={`${styles.primaryLink} ds-touch-target`} data-profile-primary-action href={requestHref} aria-label={`Request an appointment with ${clinician.details.name}`}>Request an appointment</Link> : (
                   <span
                     aria-disabled="true"
                     className={styles.disabledAction}
@@ -118,7 +117,7 @@ export function ClinicianProfileTemplate({ selectionNotice, relatedSpecialtyIds 
             </nav> : null}
 
             <div className={`${styles.contentLayout} ${hasEditorial ? '' : styles.railOnly}`} data-profile-content-layout>
-              {hasEditorial ? <div className={styles.editorialColumn}>
+              {hasEditorial ? <div className={styles.editorialColumn} data-profile-editorial-column>
                 {clinician.details.interests.length ? (
                   <section aria-labelledby="clinician-profile-care-title" className={styles.section} data-profile-section="P2">
                     <h2 id="clinician-profile-care-title" tabIndex={-1}>Areas of care</h2>
@@ -152,7 +151,7 @@ export function ClinicianProfileTemplate({ selectionNotice, relatedSpecialtyIds 
                 ) : null}
               </div> : null}
 
-              <aside aria-label="Care request information" className={styles.requestRail}>
+              <aside aria-label="Care request information" className={styles.requestRail} data-profile-request-rail>
                 <section aria-labelledby="clinician-profile-request-title" className={`${styles.section} ${styles.requestPanel}`} data-profile-section="P4">
                   <h2 id="clinician-profile-request-title" tabIndex={-1}>Where and how to request care</h2>
                   <p className={styles.selectedDoctor}>Selected doctor: <strong>{clinician.details.name}</strong></p>
@@ -170,7 +169,7 @@ export function ClinicianProfileTemplate({ selectionNotice, relatedSpecialtyIds 
                   {state === 'appointment-unavailable' ? (
                     <p className={styles.stateMessage} role="status">The appointment route is unavailable. No request was started.</p>
                   ) : null}
-                  {requestHref ? <Link className={`${styles.primaryLink} ds-touch-target`} href={requestHref}>Request an appointment</Link> : <span aria-disabled="true" className={styles.disabledAction}>Appointment requests unavailable</span>}
+                  {requestHref ? <Link className={`${styles.primaryLink} ds-touch-target`} data-profile-primary-action href={requestHref}>Request an appointment</Link> : <span aria-disabled="true" className={styles.disabledAction}>Appointment requests unavailable</span>}
                 </section>
               </aside>
             </div>
@@ -184,7 +183,7 @@ export function ClinicianProfileTemplate({ selectionNotice, relatedSpecialtyIds 
                   if (!entries.length) return null
                   return <div key={kind}>
                     <h3>{kind === 'specialty' ? 'Specialties' : 'Services provided'}</h3>
-                    <ul className={styles.serviceList}>
+                    <ul className={styles.serviceList} data-profile-service-list>
                       {entries.map((service) => (
                         <li data-canonical-path={service.canonicalPath} data-service-public-id={service.publicId} key={service.publicId}>
                           <strong>{service.name}</strong>
@@ -202,12 +201,12 @@ export function ClinicianProfileTemplate({ selectionNotice, relatedSpecialtyIds 
               <p>Explore these topics to prepare questions for your consultation.</p>
               <ul>{relatedTopics.map((topic) => <li key={topic.href}><Link href={topic.href}>{topic.name}</Link></li>)}</ul>
             </section> : null}
-            {appointmentHref ? <section aria-labelledby="clinician-profile-review-title" className={styles.reviewNote} data-profile-section="P6">
+            {appointmentHref ? <section aria-labelledby="clinician-profile-review-title" className={styles.reviewNote} data-care-band="preparation" data-profile-section="P6">
               <h2 id="clinician-profile-review-title">Before your appointment</h2>
               <p>Bring your previous reports and a current medicine list. The care team will discuss appointment availability and any preparation with you.</p>
             </section> : null}
 
-            <section aria-labelledby="clinician-profile-support-title" className={`${styles.support} ds-support-band`} data-profile-section="P7" id="profile-support">
+            <section aria-labelledby="clinician-profile-support-title" className={`${styles.support} ds-support-band`} data-profile-support data-care-band="assistance" data-profile-section="P7" id="profile-support">
               <h2 id="clinician-profile-support-title">Need help choosing?</h2>
               <div className="ds-support-actions"><Link className="ds-touch-target" href={directoryHref}>Back to doctor results</Link><Link className="ds-touch-target" href="/services">View all services</Link><Link className="ds-touch-target" href="/#home-call">Contact options</Link></div>
             </section>
