@@ -2,7 +2,7 @@
 target: current homepage and connected care journeys
 total_score: 29
 max_score: 40
-na_heuristics: 
+na_heuristics:
 p0_count: 0
 p1_count: 2
 target_identity: "file:/home/befikadusata/Devs/dynamik/halleluja-hospital/website/hallelujah/apps/web/src/website/home.tsx"

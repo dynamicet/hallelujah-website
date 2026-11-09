@@ -10,6 +10,10 @@ export function ShellInteractions() {
   useEffect(() => {
     const controller = new AbortController()
     const { signal } = controller
+    // Client route changes scroll to fragments but can leave focus on the document body.
+    const arrival = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null
+    const arrivalFrame = arrival?.getAttribute('tabindex') === '-1'
+      ? requestAnimationFrame(() => arrival.focus({ preventScroll: true })) : 0
     const panel = document.querySelector<HTMLElement>('[data-navigation-panel]')
     const trigger = document.querySelector<HTMLButtonElement>('[data-menu-trigger]')
     let restoreMenuFocus = false
@@ -23,9 +27,20 @@ export function ShellInteractions() {
       restoreMenuFocus = false
     }, { signal })
     panel?.addEventListener('click', (event) => {
-      if (event.target instanceof Element && event.target.closest('a[href]') && panel.matches(':popover-open')) {
-        restoreMenuFocus = false
+      const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null
+      if (link && panel.matches(':popover-open')) {
         panel.hidePopover()
+        // beforetoggle runs during hidePopover; navigation owns focus after it returns.
+        restoreMenuFocus = false
+        // Closing a native popover can return focus to its trigger after an anchor jump.
+        // Complete same-page navigation after that handoff so keyboard reading starts at the section.
+        const destination = new URL(link.href)
+        const target = destination.pathname === location.pathname && destination.search === location.search && destination.hash
+          ? document.getElementById(decodeURIComponent(destination.hash.slice(1))) : null
+        if (target?.hasAttribute('tabindex')) requestAnimationFrame(() => {
+          target.focus({ preventScroll: true })
+          target.scrollIntoView({ block: 'start' })
+        })
       }
     }, { signal })
     const language = document.querySelector<HTMLDetailsElement>('[data-language-switcher]')
@@ -53,7 +68,10 @@ export function ShellInteractions() {
         element.querySelector('summary')?.focus()
       }
     }, { signal }))
-    return () => controller.abort()
+    return () => {
+      cancelAnimationFrame(arrivalFrame)
+      controller.abort()
+    }
   }, [pathname, search])
   return null
 }

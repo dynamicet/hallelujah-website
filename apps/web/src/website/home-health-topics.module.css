@@ -1,0 +1,11 @@
+.invitation { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; padding-block: var(--home-space); background: var(--semantic-color-surface-page); }
+.invitation h2 { margin: 0; font-family: var(--site-display); font-size: var(--site-heading); font-weight: 400; color: var(--site-ink); }
+.invitation p { max-width: 40ch; margin: 0 0 16px; color: var(--site-muted); font-size: var(--site-body); line-height: 1.6; }
+.invitation a { min-height: 44px; }
+.invitation a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
+@media (max-width: 699px) {
+  .invitation { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+@media (forced-colors: active) {
+  .invitation a:focus-visible { outline-color: Highlight; }
+}

@@ -7,18 +7,25 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 
 | Command | Coverage |
 | --- | --- |
+| `pnpm visual:colors` | Rendered text/action rest, hover and pressed contrast; light/inverse focus; nested white panels; field boundaries on peach/pink. Requires local demo component library. |
 | `pnpm visual:check / /doctors` | Fresh full-page captures at 390, 768, and 1440px; basic structure, overflow, image loading, and console errors |
+| `pnpm visual:contact` | Header → homepage contact section → Contact page at 320/390/768/1440px; mobile menu focus handoff, return link, preparation deep link, section shortcuts and header clearance, native contact targets, Help clearance, normal/reduced motion, skip navigation, touch and no-JavaScript directions shortcut |
+| `pnpm visual:language` | Language selection, directory navigation, retained form steps/values, guide controls, feedback text preservation and storage-denied fallback |
+| `pnpm visual:language-loading` | On-demand Amharic messages, keyboard selection/focus return, reload persistence, editorial preservation, failed-download recovery and retry at three widths |
+| `pnpm visual:specialists` | Featured homepage specialists: desktop/tablet row controls and directory end panel, compact three-row mobile list, keyboard profile access, resize focus recovery, live reduced motion and native no-JavaScript scrolling |
 | `pnpm visual:hero` | Existing home hero layout, focus, and fallback contracts |
-| `pnpm visual:signature` | Desktop scroll-responsive image scenes, compact fallback, stop/reverse behavior, stable copy, live resize/reduced motion and keyboard section links |
+| `pnpm visual:signature` | Settled carousel portraits, story image scroll progress, compact fallback, stop/reverse behavior, stable copy, live resize/reduced motion and doctor-section link; horizontal specialist browsing has its own check |
 | `pnpm visual:choreography` | Full-home reading sequence, reverse/fast scrolling, focus settling, section accents, reduced motion and client navigation |
-| `pnpm visual:interactions` | Care-mode keyboard/query continuity, deduplicated organization listing and disclosure focus, menu focus/Escape, reduced motion and no-JavaScript fallback |
+| `pnpm visual:interactions` | Care-mode keyboard/query continuity, separate native organization disclosures and retained keyboard focus, menu focus/Escape, reduced motion and no-JavaScript fallback |
 | `pnpm visual:search-feedback` | Doctor/service pending and updated result counts, retained keyboard focus, repeated search/filter submissions, empty results, reduced motion and native GET fallback |
 | `pnpm visual:clinician-playback` | Uninterrupted client navigation at three widths and normal/4× CPU, two samples each; records frame intervals and long tasks, asserts a 20ms mean-frame budget and document reuse. Run alone; no screenshots or physical-device/GPU certification |
 | `pnpm visual:clinician-transition` | Directory → profile portrait/name transitions at three widths, paused start/middle/end frames, keyboard activation, filtered browser history, reduced motion (including a live change), and initials/no-JavaScript fallback |
 | `pnpm visual:foundation` | Anchored disclosure controls, intermediate open/close geometry, keyboard and reduced motion at three widths |
+| `node scripts/check-partner-loop.mjs` | Compatibility alias for current component interactions; the automatic partner loop was replaced by native disclosures |
 | `pnpm visual:motion` | Existing home motion, live reduced-motion, and static fallback contracts |
-| `pnpm visual:care-continuity` | Service → doctor → appointment context, keyboard care editing, validation, and unrelated-service rejection at three widths |
-| `pnpm visual:appointment` | Appointment error focus and keyboard recovery, retained choices, date limits, review validation, retry editing, unsure-care guidance, long-script text, repeat-submit protection, completion/restart, consent clearing and synthesized cached-page lifecycle recovery at three widths; unknown/duplicate/delivery-warning recovery on mobile |
+| `pnpm visual:care-continuity` | Specialty filters; care → doctor and doctor → care → appointment; joint selections, compatible editing, invalid context, team-only care, keyboard recovery, reduced motion and four local preparation paths without patient-data delivery/storage at three widths |
+| `pnpm visual:appointment` | Appointment error focus and keyboard recovery, compatible choices, date limits, review validation, local preparation and retained editing, unsure-care guidance, long-script text and synthesized cached-page lifecycle cleanup at three widths; explicit example receipt/retry/unknown/duplicate/delivery-warning states remain separate from normal local preparation |
+| `pnpm visual:help` | Stable Help anchor and clearance from controls while scrolling home/directory/topic pages, keyboard access, two-option menu, guide topics/replies, spelling confirmation and topic clarification, session care follow-ups, contact actions, keyboard dismissal/return, reset/reopen, profile/service appointment context, reduced motion and failed-download retry at phone/tablet/desktop/short viewports |
 | `pnpm visual:quality` | Public-page skip links, control names and fragment targets; keyboard section jumps, feedback recovery, health-reader focus, navigation and help dismissal |
 | `pnpm visual:journeys` | Existing six-route responsive checks, service selection, mobile navigation, and reduced motion |
 
@@ -58,7 +65,7 @@ reading, Escape/Close/backdrop dismissal, page-position restoration, reduced
 motion and the native inline video fallback without JavaScript. Inspect the
 fresh captures separately from the automated result.
 
-Run `pnpm visual:media` against the current preview for poster-first activation, keyboard playback/return, finite playback, off-screen pause, reduced motion, Save-Data, failure/retry, and native story player checks. See [D6 media experience](visual-design/motion/media-experience.md) for scope and limitations. Inspect the fresh screenshots and record findings in the run directory.
+Run `pnpm visual:media` against the current preview for native About-film controls and the retained story player, transcript, and reduced-motion checks. The former homepage film controller, its Save-Data/retry states, and the partner loop were retired during [homepage distillation](visual-design/refinements/homepage-distillation.md). See [D6 media experience](visual-design/motion/media-experience.md) for scope and limitations. Inspect the fresh screenshots and record findings in the run directory.
 
 ### D7 integrated journey quality
 
@@ -67,3 +74,11 @@ Run `pnpm visual:media` against the current preview for poster-first activation,
 `pnpm visual:cross-browser` uses an optional isolated Playwright installation. Set `HH_PLAYWRIGHT_MODULE` to its absolute `index.mjs` path and install the matching Firefox/WebKit engines first. For example, install `playwright-core@1.57.0` in a temporary tools directory with `npm install --prefix /tmp/hh-browser-tools playwright-core@1.57.0`, then run that package's `cli.js install firefox webkit`. The website gains no runtime dependency. Set `PLAYWRIGHT_BROWSERS_PATH` consistently if isolating downloaded engines. Host libraries must also support the engines; a failed launch is retained as a failed run. `HH_BROWSER_ENGINES=firefox` selects one engine explicitly; the default checks both. A single-engine pass is not a cross-browser release pass.
 
 Both commands create the standard unique evidence directory. Open their fresh screenshots and record visual inspection separately. The development-only enhanced homepage and the normal optimized-build fallback are different experiences; identify the preview actually inspected.
+
+`node scripts/check-home-distill.mjs` verifies keyboard access from the homepage to the full topic browser and About equipment section, destination-anchor focus, equipment disclosures, normal/reduced motion, and native links without JavaScript.
+
+`node scripts/check-home-visit.mjs` verifies the homepage's visible preparation
+checklist, two independent native disclosures, keyboard focus and opening/closing,
+live reduced motion, computed confirmation-text contrast, full-guide navigation,
+and no-JavaScript fallback at the supported widths. Inspect its collapsed and
+expanded captures separately from the automated results.

@@ -62,7 +62,7 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
 
   for (const width of [390, 768, 1440]) {
     const page = await browser.newPage({ width, height: 1000, mobile: width < 600, reducedMotion: true })
-    for (const [route, target] of [['/referrals', 'prepare'], ['/feedback', 'share']]) {
+    for (const [route, target] of [['/referrals', 'prepare']]) {
       await page.goto(base + route)
       await activate(page, `main a[href="#${target}"]`)
       await settled(page)
@@ -70,6 +70,11 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
       assert.equal(await page.eval('getComputedStyle(document.activeElement).outlineStyle'), 'solid')
       assert.equal(await page.eval('document.activeElement.getBoundingClientRect().top >= document.querySelector("[data-site-header]").getBoundingClientRect().bottom'), true)
     }
+    await page.goto(base + '/feedback')
+    assert.equal(await page.eval('document.querySelector("[data-page-variant=task] h1").textContent'), 'Patient feedback')
+    assert.equal(await page.eval('Boolean(document.querySelector("#share form"))'), true, 'feedback opens directly into its task')
+    await page.eval('document.querySelector("#share select").focus()')
+    assert.equal(await page.eval('document.activeElement.closest("section").id'), 'share', 'feedback form is keyboard reachable')
     await waitFor(page, '!document.querySelector("#feedback-message").disabled')
     await page.eval(() => document.querySelector('#feedback-message').focus())
     await page.send('Input.insertText', { text: 'SAMPLE FEEDBACK: clearer arrival signs would help.' })
@@ -87,7 +92,10 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
     assert.equal(await page.eval('document.activeElement.id'), 'feedback-message')
     assert.equal(await page.eval('document.activeElement.value'), '')
 
-    for (const route of ['/health-topics', '/']) {
+    await page.goto(base + '/')
+    await activate(page, 'main a[href="/health-topics"]')
+    await waitFor(page, 'location.pathname === "/health-topics" && !!document.querySelector("#health-topic-search")')
+    for (const route of ['/health-topics']) {
       await page.goto(base + route)
       await activate(page, '[aria-controls="health-topic-matches"]')
       await waitFor(page, '!!document.querySelector("[data-health-topic]")')

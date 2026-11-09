@@ -52,7 +52,7 @@
 
 .profileNavigation a {
   align-items: center;
-  color: var(--semantic-color-action-primary);
+  color: var(--semantic-color-text-link);
   display: inline-flex;
   font-size: var(--site-support, 1rem);
   font-weight: var(--semantic-font-weight-strong);
@@ -114,14 +114,7 @@
   line-height: var(--semantic-type-body-large-line);
 }
 
-.eyebrow {
-  color: var(--semantic-color-text-secondary);
-  font-size: var(--site-support, 1rem);
-  font-weight: var(--semantic-font-weight-strong);
-  letter-spacing: var(--semantic-type-eyebrow-tracking);
-  line-height: var(--semantic-type-small-line);
-  text-transform: uppercase;
-}
+
 
 .professionalTitle {
   font-size: var(--site-intro, 1.25rem);
@@ -155,6 +148,40 @@
   padding: var(--semantic-space-page);
 }
 
+/* Recovery is a readable document block, independent of the portrait introduction. */
+.frame .statePanel {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--semantic-space-regular);
+  max-inline-size: var(--semantic-size-reading);
+  padding: clamp(24px, 3vw, 32px);
+}
+.frame .statePanel h1 {
+  font-size: var(--site-content-heading);
+  line-height: 1.15;
+}
+.frame .statePanel a { justify-self: start; }
+
+/* A bounded next-step handoff; recovery messages retain their neutral/status context. */
+.frame .support[data-care-band='assistance'] {
+  background: var(--semantic-color-surface-highlight);
+  color: var(--semantic-color-text-primary);
+}
+.frame .support[data-care-band='assistance'] :is(h2, h3, p, li, small, a) {
+  color: var(--semantic-color-text-primary);
+}
+.frame .support[data-care-band='assistance'] a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.frame .support[data-care-band='assistance'] a:is(:hover, :active) {
+  color: var(--semantic-color-text-primary);
+  text-decoration-thickness: 2px;
+}
+.frame .support[data-care-band='assistance'] a:focus-visible {
+  outline: 3px solid var(--semantic-color-focus);
+  outline-offset: 4px;
+}
+
 .fixtureNotice {
   background: var(--semantic-color-surface-warning);
   border: var(--semantic-border-emphasis) solid currentColor;
@@ -170,7 +197,6 @@
 }
 
 .requestPanel {
-  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-cool);
   padding: var(--semantic-space-page);
 }
 
@@ -215,15 +241,18 @@
 }
 
 .reviewNote {
-  border-block-start: var(--semantic-border-default) solid var(--semantic-color-border-default);
-  color: var(--semantic-color-text-secondary);
+  background: var(--semantic-color-surface-supporting);
+  border: 0;
+  border-radius: var(--site-panel-radius);
+  color: var(--semantic-color-text-primary);
   display: grid;
   gap: var(--semantic-space-compact);
   max-inline-size: var(--semantic-size-reading);
-  padding-block: var(--semantic-space-page);
+  padding: clamp(24px, 3vw, 32px);
 }
 
-.reviewNote h2 {
+.frame .reviewNote h2 {
+  color: var(--semantic-color-accent-supporting-text);
   font-size: var(--site-lead, 1.75rem);
   line-height: var(--semantic-type-h3-line);
 }
@@ -355,6 +384,9 @@
 }
 
 @media (forced-colors: active) {
+  .frame .support[data-care-band], .frame .reviewNote,
+  .frame .support[data-care-band] :is(h2, h3, p, li, small, a), .frame .reviewNote h2 { background: Canvas; color: CanvasText; }
+  .frame .support[data-care-band] a:focus-visible { outline-color: Highlight; }
   .fixtureNotice,
   .requestPanel,
   .review,
@@ -372,6 +404,8 @@
 }
 
 @media print {
+  .frame .support[data-care-band], .frame .reviewNote,
+  .frame .support[data-care-band] :is(h2, h3, p, li, small, a), .frame .reviewNote h2 { background: transparent; color: CanvasText; }
   .frame {
     max-inline-size: none;
     padding: 0;
@@ -405,7 +439,7 @@
 .portraitDisclosure { font-size: var(--site-support, 1rem); line-height: 1.5; }
 @media (max-width: 599px) { .introduction > [data-clinician-portrait] { width: 100px; height: 100px; } }
 
-.serviceContext { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-block: 24px; padding: 24px; border: 1px solid var(--semantic-color-border-default); border-inline-start: 3px solid var(--semantic-color-action-primary); background: var(--semantic-color-surface-subtle); }
+.serviceContext { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-block: 24px; padding: 24px; border: 1px solid var(--semantic-color-border-default); background: var(--semantic-color-surface-subtle); }
 .serviceContext p { margin: 0; line-height: 1.6; }
 .serviceContext strong { display: block; margin-block: 4px; font-size: 1.25rem; color: var(--semantic-color-text-heading); }
 .serviceContext a { color: var(--semantic-color-text-link); }

@@ -79,7 +79,7 @@ if (!templates.includes('SystemStatesFixtureTemplate')) {
 
 for (const [label, pattern] of [
   ['intrinsic containment', /\.panel[\s\S]*max-inline-size:[\s\S]*min-inline-size:\s*0/u],
-  ['non-color boundary', /border-inline-start-width:\s*var\(--component-system-state-border-emphasis\)/u],
+  ['non-color boundary', /border:\s*var\(--component-system-state-border-width\) solid currentColor/u],
   ['distinct semantic treatments', /\.information,[\s\S]*\.success[\s\S]*\.warning,[\s\S]*\.emergency,/u],
   ['minimum recovery target', /min-block-size:\s*var\(--component-system-state-target-minimum\)/u],
   ['focus target visibility', /\.panel:focus-visible/u],

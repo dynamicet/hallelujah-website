@@ -13,13 +13,17 @@ Finalized 4 November 2026 after the revised homepage/shared study and inner-page
   before/after captures, interaction checks and remaining limits.
 - [Reusable component specification](component-system.md): current contracts and state rules.
 - Development previews: [component library](http://localhost:3000/component-library) and
-  [27-group comparison](http://localhost:3000/composition-study).
+  [27-group comparison](http://127.0.0.1:3977).
 
 Blue leads identity, headings, destinations and tonal structure. Orange and magenta participate
 through independently composed type, lines, frames, shapes, controls and surfaces. Neutrals
 give reading and task content distinct planes. No section owns an accent; no percentage or
 one-accent-per-section limit governs composition. The usage guide contains the complete
 palette, representative examples and extension process.
+
+Bright decorative cyan, orange and magenta were aligned to agency estimates on 8 November 2026;
+functional blues and readable deep accent shades remain separate. See the usage guide for
+the source qualification, measured contrast and meeting explanation.
 
 ## Sources and maintenance
 
@@ -45,3 +49,5 @@ The PDF is the older v1.1 snapshot, not the final website usage guide.
 The [client correction](composition-review-2026-11-04.md) explains why surface and accent were
 separated. Its comparison and rollout are implemented. The local preview remains distinct
 from production publication and hospital content approval.
+
+Run `pnpm composition:preview` to open the loopback composition archive. Review evidence is kept outside the deployable application.

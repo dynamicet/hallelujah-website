@@ -6,12 +6,13 @@
   --component-context-secondary-background: transparent;
   --component-context-secondary-hover: var(--semantic-color-surface-selected);
   --component-context-link: var(--semantic-color-text-link);
+  --component-context-link-hover: var(--semantic-color-text-link-hover);
+  --component-context-link-active: var(--semantic-color-text-link-active);
   --component-context-boundary: var(--semantic-color-text-link);
   --component-context-focus: var(--semantic-color-focus);
   --component-context-focus-gap: var(--semantic-color-surface-raised);
   --component-context-muted: var(--semantic-color-text-secondary);
   border: var(--component-system-state-border-width) solid currentColor;
-  border-inline-start-width: var(--component-system-state-border-emphasis);
   border-radius: var(--component-system-state-radius);
   display: grid;
   gap: var(--component-system-state-space-regular);
@@ -207,6 +208,7 @@
   .warning,
   .temporary {
     border-style: double;
+    border-width: var(--semantic-border-focus);
   }
 
   .spinner {
@@ -239,3 +241,7 @@
 :is(.warning, .temporary) .headingRow { color: var(--component-system-state-text-warning); }
 :is(.emergency, .error, .expired, .unavailable) .headingRow { color: var(--component-system-state-text-error); }
 @media (forced-colors: active) { .panel { border-color: CanvasText; } }
+
+@media print {
+  .panel { background: transparent; border-color: CanvasText; color: CanvasText; }
+}

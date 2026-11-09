@@ -63,7 +63,7 @@ for (const file of files) {
     const inspected = rule.label === 'external URL'
       && relativeFile === path.join('src', 'content', 'governed-discovery.ts')
       ? contents.split('\n').filter((line) => !namespaces.has(line)).join('\n') : contents
-    if (rule.pattern.test(inspected)) {
+    if (rule.pattern.test(rule.label === 'external URL' ? withoutApprovedUrls(relativeFile, inspected) : inspected)) {
       failures.push(`${relativeFile}: ${rule.label}`)
     }
   }
@@ -78,6 +78,12 @@ for (const file of files) {
     failures.push(`${relativeFile}: environment access must use the server environment contract`)
   }
 }
+
+if (!/https?:\/\//u.test(withoutApprovedUrls('src/website/hospital-contact.ts', "'https://unapproved.invalid'"))) failures.push('external URL control regression')
+for (const file of ['src/website/hospital-location-map.tsx', 'src/website/about-page.tsx', 'src/website/hospital-leadership.ts']) {
+  if (!/https?:\/\//u.test(withoutApprovedUrls(file, "'https://unapproved.invalid'"))) failures.push(`${file}: external URL control regression`)
+}
+if (!/https?:\/\//u.test(withoutApprovedUrls('src/website/hospital-location-map.tsx', "'https://www.openstreetmap.org/copyright/unapproved'"))) failures.push('map attribution URL control regression')
 
 const architectureControlCases = [
   {
@@ -121,6 +127,7 @@ for (const assignment of exampleAssignments) {
 }
 
 const requiredEnvironmentNames = [
+  'HH_DEMO_MODE',
   'APP_ENVIRONMENT',
   'PERSONAL_DATA_COLLECTION',
   'EXTERNAL_SERVICES',
@@ -247,4 +254,16 @@ function findLayer(relativePath) {
 
 function isWithin(candidate, root) {
   return candidate === root || candidate.startsWith(`${root}${path.sep}`)
+}
+
+function withoutApprovedUrls(file, source) {
+  const approved = {
+    'src/app/doctors/[slug]/page.tsx': ['https://local.invalid'],
+    'src/website/service-detail-page.tsx': ['https://local.invalid'],
+    'src/design-system/components/header-contacts.tsx': ['https://wa.me/${string}', 'https://t.me/${string}'],
+    'src/website/contact-directions.tsx': ['https://www.openstreetmap.org/copyright'],
+    'src/website/hospital-location-map.tsx': ['https://www.openstreetmap.org/copyright'],
+    'src/website/hospital-contact.ts': ['https://maps.app.goo.gl/VQMCJFfeZX1MtXUN7', 'https://www.google.com/maps/dir/?api=1&destination=8.9861882%2C38.7590401'],
+  }
+  return source.replace(/https?:\/\/[^\s"'`<>]+/gu, (url) => approved[file]?.includes(url) ? '' : url)
 }

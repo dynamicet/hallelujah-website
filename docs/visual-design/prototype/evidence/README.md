@@ -1,5 +1,7 @@
 # Order 10 Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Final run:** 12 September 2026  
 **Environment:** Local headless Chromium through DevTools Protocol  
 **External requests:** None observed  
@@ -22,11 +24,11 @@ The interaction assertions cover connected routing, controlled canonical handoff
 
 | Capture | Evidence |
 | --- | --- |
-| [`home-connected-routes-360-en-standard.png`](home-connected-routes-360-en-standard.png) | Connected Home at compact width with review controls and essential task hierarchy. |
-| [`appointment-authoritative-receipt-1280-en-standard.png`](appointment-authoritative-receipt-1280-en-standard.png) | Mutually exclusive simulated receipt replacing the form and explicitly remaining “not a confirmed appointment.” |
-| [`doctor-directory-failure-1280-en-reduced.png`](doctor-directory-failure-1280-en-reduced.png) | Known directory failure with retained context and recovery. |
-| [`doctor-directory-handoff-360-am-reduced.png`](doctor-directory-handoff-360-am-reduced.png) | Compact Amharic geometry fixture, controlled filter state, and visible translation disclaimer. |
-| [`search-offline-360-en-reduced.png`](search-offline-360-en-reduced.png) | Mutually exclusive offline search state with text-first recovery routes. |
+| `home-connected-routes-360-en-standard.png` (unavailable archive: `home-connected-routes-360-en-standard.png`) | Connected Home at compact width with review controls and essential task hierarchy. |
+| `appointment-authoritative-receipt-1280-en-standard.png` (unavailable archive: `appointment-authoritative-receipt-1280-en-standard.png`) | Mutually exclusive simulated receipt replacing the form and explicitly remaining “not a confirmed appointment.” |
+| `doctor-directory-failure-1280-en-reduced.png` (unavailable archive: `doctor-directory-failure-1280-en-reduced.png`) | Known directory failure with retained context and recovery. |
+| `doctor-directory-handoff-360-am-reduced.png` (unavailable archive: `doctor-directory-handoff-360-am-reduced.png`) | Compact Amharic geometry fixture, controlled filter state, and visible translation disclaimer. |
+| `search-offline-360-en-reduced.png` (unavailable archive: `search-offline-360-en-reduced.png`) | Mutually exclusive offline search state with text-first recovery routes. |
 
 ## What this evidence does not prove
 

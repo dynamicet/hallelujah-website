@@ -1,3 +1,4 @@
+import { InterfaceCopy } from '@/website/interface-language'
 import type { ReactNode } from 'react'
 
 import styles from './search-controls.module.css'
@@ -79,7 +80,7 @@ export interface PaginationProps {
 
 export function SearchControlsForm({ action, children, label }: SearchControlsFormProps) {
   return (
-    <form
+    <InterfaceCopy><form
       action={action}
       aria-label={label}
       className={styles.form}
@@ -88,7 +89,7 @@ export function SearchControlsForm({ action, children, label }: SearchControlsFo
       role="search"
     >
       {children}
-    </form>
+    </form></InterfaceCopy>
   )
 }
 
@@ -104,7 +105,7 @@ export function SearchBox({
   submitLabel,
 }: SearchBoxProps) {
   return (
-    <div className={styles.searchBox} data-search-box>
+    <InterfaceCopy><div className={styles.searchBox} data-search-box>
       <label className={styles.label} htmlFor={inputId}>
         {label}
       </label>
@@ -124,24 +125,24 @@ export function SearchBox({
         <button type="submit">{submitLabel}</button>
         {clearHref && query ? <a href={clearHref}>{clearLabel}</a> : null}
       </div>
-    </div>
+    </div></InterfaceCopy>
   )
 }
 
 export function FilterDisclosure({ children, label, open = false }: FilterDisclosureProps) {
   return (
-    <details className={styles.filterDisclosure} data-filter-disclosure open={open}>
+    <InterfaceCopy><details className={styles.filterDisclosure} data-filter-disclosure open={open}>
       <summary>
         <span>{label}</span>
         <svg aria-hidden="true" className={styles.disclosureChevron} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6" /></svg>
       </summary>
       <div className={styles.filterPanel}>{children}</div>
-    </details>
+    </details></InterfaceCopy>
   )
 }
 
 export function DirectoryBrowse({ label, options }: DirectoryBrowseProps) {
-  return <nav aria-label={label} className={styles.browse} data-directory-browse>
+  return <InterfaceCopy><nav aria-label={label} className={styles.browse} data-directory-browse>
     <p>{label}</p>
     <ul>{options.map((option) => <li key={option.href}>
       <a aria-current={option.current ? 'true' : undefined} href={option.href}>
@@ -149,7 +150,7 @@ export function DirectoryBrowse({ label, options }: DirectoryBrowseProps) {
         {option.count === undefined ? null : <span className={styles.browseCount} aria-label={`${option.count} results`}>{option.count}</span>}
       </a>
     </li>)}</ul>
-  </nav>
+  </nav></InterfaceCopy>
 }
 
 export function FilterGroup({
@@ -161,12 +162,12 @@ export function FilterGroup({
   const selected = new Set(selectedValues)
 
   return (
-    <fieldset className={styles.filterGroup} data-filter-group>
+    <InterfaceCopy><fieldset className={styles.filterGroup} data-filter-group>
       <legend>{legend}</legend>
       {options.map((option) => {
         const optionId = `filter-${name}-${option.value}`
         return (
-          <label htmlFor={optionId} key={option.value}>
+          <InterfaceCopy key={option.value}><label htmlFor={optionId}>
             <input
               defaultChecked={selected.has(option.value)}
               id={optionId}
@@ -180,10 +181,10 @@ export function FilterGroup({
                 {option.count}
               </span>
             )}
-          </label>
+          </label></InterfaceCopy>
         )
       })}
-    </fieldset>
+    </fieldset></InterfaceCopy>
   )
 }
 
@@ -196,7 +197,7 @@ export function ActiveFilterList({
   if (filters.length === 0) return null
 
   return (
-    <div aria-label={label} className={styles.activeFilters} data-active-filters role="group">
+    <InterfaceCopy><div aria-label={label} className={styles.activeFilters} data-active-filters role="group">
       <ul>
         {filters.map((filter) => (
           <li key={`${filter.value}-${filter.removeHref}`}>
@@ -210,13 +211,13 @@ export function ActiveFilterList({
       <a className={styles.clearAll} href={clearAllHref}>
         {clearAllLabel}
       </a>
-    </div>
+    </div></InterfaceCopy>
   )
 }
 
 export function ResultCount({ children, id }: ResultCountProps) {
   return (
-    <p
+    <InterfaceCopy><p
       aria-atomic="true"
       aria-live="polite"
       className={styles.resultCount}
@@ -225,7 +226,7 @@ export function ResultCount({ children, id }: ResultCountProps) {
       role="status"
     >
       {children}
-    </p>
+    </p></InterfaceCopy>
   )
 }
 
@@ -233,7 +234,7 @@ export function Pagination({ label, next, pages, previous }: PaginationProps) {
   if (pages.length < 2) return null
 
   return (
-    <nav aria-label={label} className={styles.pagination} data-pagination>
+    <InterfaceCopy><nav aria-label={label} className={styles.pagination} data-pagination>
       <ul>
         {previous ? <PaginationLink kind="previous" page={previous} /> : null}
         {pages.map((page) => (
@@ -241,7 +242,7 @@ export function Pagination({ label, next, pages, previous }: PaginationProps) {
         ))}
         {next ? <PaginationLink kind="next" page={next} /> : null}
       </ul>
-    </nav>
+    </nav></InterfaceCopy>
   )
 }
 
@@ -255,7 +256,7 @@ function PaginationLink({
   const rel = kind === 'next' ? 'next' : kind === 'previous' ? 'prev' : undefined
 
   return (
-    <li>
+    <InterfaceCopy><li>
       {page.current ? (
         <span aria-current="page" aria-label={`Page ${page.page}`}>
           {page.label}
@@ -265,6 +266,6 @@ function PaginationLink({
           {page.label}
         </a>
       )}
-    </li>
+    </li></InterfaceCopy>
   )
 }

@@ -25,14 +25,6 @@ body :where([lang='am']) { font-family: Ethiopic, sans-serif; letter-spacing: no
 }
 [data-site-header] [class*='appointmentLink']:hover { transform: none; }
 [data-site-header] [class*='navigationLink'], [data-site-header] [class*='aboutLink'] { font-family: var(--site-font); letter-spacing: normal; }
-[data-site-footer] [class*='footerIdentity'] h2 { font-weight: 400; }
-[data-site-footer] { background: var(--site-surface-inverse); color: var(--site-white); }
-[data-site-footer] :is(h2,p,a,strong) { color: inherit; }
-[data-site-footer] [class*='footerAction'] { background: white; color: var(--site-ink); }
-[data-site-footer] [class*='footerAction']:hover { background: var(--site-pale); }
-[data-site-footer] [class*='footerAction']:active { background: var(--site-selection); }
-[data-site-footer] a:focus-visible { outline-color: var(--site-white); box-shadow: 0 0 0 4px var(--site-surface-inverse); }
-[data-site-footer] [class*='footerClose'] > strong { font-family: var(--site-display); font-weight: 400; letter-spacing: -.025em; }
 
 .enhanced-home {
   --home-gutter: 40px;
@@ -171,7 +163,7 @@ body :where([lang='am']) { font-family: Ethiopic, sans-serif; letter-spacing: no
 .enhanced-home .care-spotlight-label { font-size: 24px; font-weight: 400; }
 .enhanced-home .care-spotlight-copy { padding-inline: 24px; }
 .enhanced-home .care-spotlight-all { margin-left: 24px; }
-.enhanced-home .team-guide { background: white; }
+.enhanced-home .team-guide { background: var(--semantic-color-surface-subtle); }
 .enhanced-home .team-person h3 { font-size: 22px; font-weight: 700; line-height: 1.35; }
 .enhanced-home .team-person-details { padding-top: 20px; }
 .enhanced-home .team-portrait-frame { border-radius: 16px; background: var(--site-ground); }
@@ -185,9 +177,6 @@ body :where([lang='am']) { font-family: Ethiopic, sans-serif; letter-spacing: no
 .enhanced-home .human-story blockquote { font-family: var(--site-display); font-size: 26px; line-height: 1.4; }
 .enhanced-home [data-health-library] { margin-block: var(--home-space); }
 /* Appointment steps use the same action language as the route into them. */
-main [data-appointment-template] :is([class*='continueButton'], [data-form-submit]) { background: var(--site-action-primary); color: var(--site-white); min-height: 52px; border-radius: var(--site-action-radius); font-size: 16px; }
-main [data-appointment-template] :is([class*='continueButton'], [data-form-submit]):hover { background: var(--site-link); color: white; transform: none; }
-main [data-appointment-template] :is([class*='continueButton'], [data-form-submit]):active:not(:disabled) { background: var(--site-action-active); }
 main [data-clinician-public-id] h3 { font-family: var(--site-font); font-weight: 700; font-size: 22px; }
 /* The directories retain a visible page title on small screens. */
 @media (max-width: 767px) {

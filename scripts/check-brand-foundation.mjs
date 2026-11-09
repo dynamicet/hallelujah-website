@@ -86,8 +86,10 @@ for (const [record, role] of Object.entries(adoptedRoles)) {
   expect(resolveToken(`semantic.color.${role}`)?.toUpperCase() === current?.interface?.[record],
     `current ${record} drifted from semantic.color.${role}`)
 }
-expect(tokens.primitive?.color?.brand?.yellow?.$value.toUpperCase() === brand.colors.sourceIdentity.yellow.hex,
-  'source artwork yellow must remain unchanged')
+for (const name of ['cyan', 'orange', 'magenta', 'yellow']) {
+  expect(tokens.primitive?.color?.brand?.[name]?.$value.toUpperCase() === brand.colors.agencyPalette.colors[name],
+    `current ${name} must match the agency artwork reference`)
+}
 expect(
   tokens.primitive?.font?.family?.latin?.$value.startsWith('"Noto Sans"'),
   'canonical Latin stack must start with Noto Sans',

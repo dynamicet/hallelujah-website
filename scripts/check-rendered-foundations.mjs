@@ -1321,7 +1321,7 @@ try {
   if (process.exitCode) throw new Error('one or more rendered foundation assertions failed')
   console.log(
     reviewHarnessMode
-      ? 'Rendered B01-013 harness passed (all shared component interactions plus bilingual capability, viewport, media-end and history matrix; production exclusion and zero external/pre-intent media requests).'
+      ? 'Rendered B01-013 harness passed (foundation component interactions plus bilingual capability, viewport, media-end and history matrix; production exclusion and zero external/pre-intent media requests).'
       : optionalMapMode
       ? 'Rendered optional-map smoke passed (complete text-first fallback, four controlled states, explicit keyboard intent, removal/focus, route cleanup, zero activation/external requests, true no-JavaScript mode, responsive/enlarged text, reduced motion, print, and forced colors).'
       : governedCardsMode
@@ -1995,7 +1995,7 @@ function renderedShellChecksSource() {
   const current = header.querySelector('[data-primary-navigation] [aria-current="page"]')
   const currentStyle = getComputedStyle(current)
   const breadcrumb = document.querySelector('[data-breadcrumbs]')
-  const unavailableLanguage = header.querySelector('[data-language-switcher] [aria-disabled="true"]')
+  const unavailableLanguage = header.querySelector('[data-language-switcher] :is([aria-disabled="true"],button:disabled)')
   const reasonId = unavailableLanguage?.getAttribute('aria-describedby')
   const identity = header.querySelector('[data-shell-identity]')
   const emergency = header.querySelector('[data-shell-emergency]')
@@ -2039,7 +2039,7 @@ function renderedShellChecksSource() {
     identityLabel: identity.getAttribute('aria-label'),
     identityLanguage: identity.getAttribute('lang'),
     languageReason: Boolean(reasonId && document.getElementById(reasonId)?.textContent.trim()),
-    languageUnavailable: unavailableLanguage?.getAttribute('aria-disabled') === 'true',
+    languageUnavailable: Boolean(unavailableLanguage?.matches('[aria-disabled="true"],button:disabled')),
     emergencyVisible: visible(emergency),
     navigationMode: header.dataset.navigationMode,
     panelHeight: panel.getBoundingClientRect().height,

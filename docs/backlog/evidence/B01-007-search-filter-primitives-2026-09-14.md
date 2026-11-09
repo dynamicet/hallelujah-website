@@ -1,5 +1,7 @@
 # `B01-007` Search and Filter Primitives — Local Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
 **Result:** Done for controlled development; full local `T0` and hosted implementation `T1` pass
@@ -17,7 +19,7 @@
 | Interaction | Search/filter serialization, filtered response, real-link page 2, Back restoration, active-chip/count agreement, and compact Escape focus pass in headless Chromium. Visible targets measure at least 44 × 44 CSS px. |
 | Resilience | The no-JavaScript GET response retains bounded query/filter state and its matching controlled result. Reduced motion, forced colors, and print have explicit treatments. Empty results include reset guidance. |
 | Built and runtime gates | Request-rendered accessibility and asset-budget checks pass through the bounded built-application harness; initial transfer is 154,645 compressed bytes across 12 requests with 138,632 compressed JavaScript bytes and zero external origins. Runtime headers permit same-origin form submission while retaining default-self, frame, object, referrer, MIME, and powered-by protections. |
-| Visual review | [320px](b01-007-rendered/b01-007-search-controls-320.png) and [1440px](b01-007-rendered/b01-007-search-controls-1440.png) captures were inspected for hierarchy, wrapping, disclosure, filter readability, clear controls, count/result association, pagination labels, and controlled-data/privacy boundaries. |
+| Visual review | 320px (unavailable archive: `b01-007-rendered/b01-007-search-controls-320.png`) and 1440px (unavailable archive: `b01-007-rendered/b01-007-search-controls-1440.png`) captures were inspected for hierarchy, wrapping, disclosure, filter readability, clear controls, count/result association, pagination labels, and controlled-data/privacy boundaries. |
 | External boundary | Five synthetic records only; no real hospital record, route, contact, taxonomy, translation, provider, request, analytics, query log, personal data, or publication authority was introduced. |
 | Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34884990666) passed in 1m45s on implementation commit `eb58db6`. |
 

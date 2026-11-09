@@ -110,6 +110,7 @@ export function controlledServiceDirectory(input: Readonly<{
 export function serviceDirectoryFromViews(input: Readonly<{
   entries: readonly ServiceView[]
   filters: readonly ControlledServiceGroupFilter[]
+  groupOrder?: readonly string[]
   locale: GovernedLocale
   pageSize?: number
   searchParameters: SearchInput
@@ -123,8 +124,11 @@ export function serviceDirectoryFromViews(input: Readonly<{
   const needle = textKey(normalizedQuery, input.locale)
   const urgentVocabulary = new Set((input.urgentTerms ?? [])
     .map((term) => textKey(normalizedText(term), input.locale)).filter(Boolean))
+  const groupOrder = new Map((input.groupOrder ?? []).map((id, index) => [id, index]))
   const indexed = [...input.entries]
-    .sort((left, right) => left.group.name.localeCompare(right.group.name, input.locale)
+    .sort((left, right) => (groupOrder.get(left.group.publicId) ?? Number.MAX_SAFE_INTEGER)
+      - (groupOrder.get(right.group.publicId) ?? Number.MAX_SAFE_INTEGER)
+      || left.group.name.localeCompare(right.group.name, input.locale)
       || left.name.localeCompare(right.name, input.locale))
   const matchingQuery = indexed.filter((service) => !needle
     || [service.name, ...service.synonyms].some((term) => textKey(term, input.locale).includes(needle)))

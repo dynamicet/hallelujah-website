@@ -1,5 +1,7 @@
 # B04-009 Controlled Clinician Profile Evidence — 29 September 2026
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 ## Boundary
 
 This evidence covers only the synthetic English, loopback-only/noindex B04-009 composition. It is
@@ -61,8 +63,8 @@ All three corrected cases are covered by the passing browser matrix.
 
 | Artifact | Scope | Bytes | SHA-256 |
 | --- | --- | ---: | --- |
-| [Controlled profile at 360 px](b04-009-artifacts/clinician-profile-controlled-360.png) | Full fictional P0–P7 composition; screenshot height is intentionally bounded | 118,352 | `6bfc807c281e3364134036797716141e91624f4a26df1c9aba170500781e790f` |
-| [Partial profile at 1280 px](b04-009-artifacts/clinician-profile-partial-1280.png) | Optional-content and relationship omission | 168,531 | `106e1af76a34e404e1f4f3e94252f7ee14cd26f4e41bff548719e48f4dcdc261` |
+| Controlled profile at 360 px (unavailable archive: `b04-009-artifacts/clinician-profile-controlled-360.png`) | Full fictional P0–P7 composition; screenshot height is intentionally bounded | 118,352 | `6bfc807c281e3364134036797716141e91624f4a26df1c9aba170500781e790f` |
+| Partial profile at 1280 px (unavailable archive: `b04-009-artifacts/clinician-profile-partial-1280.png`) | Optional-content and relationship omission | 168,531 | `106e1af76a34e404e1f4f3e94252f7ee14cd26f4e41bff548719e48f4dcdc261` |
 
 Both images were inspected locally. They contain only synthetic content and no authentic person,
 contact, location, portrait or hospital capability claim.

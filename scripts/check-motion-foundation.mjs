@@ -21,11 +21,14 @@ await runVisualCheck('motion-foundation', baseUrl, async ({ browser, output }) =
     const page = await browser.newPage({ width, height: 1000, mobile: width < 600 })
     await page.goto(baseUrl)
     assert.ok(['240ms', '.24s', '0.24s'].includes(await page.eval(`getComputedStyle(document.documentElement).getPropertyValue('--motion-change').trim()`)), 'current foundation must be served')
+    await page.eval(`document.querySelector('.visit-questions details:first-child summary').focus()`)
+    await activate(page)
+    await pause(page)
+    assert.equal(await page.eval(`document.querySelector('.visit-questions details:first-child').open`), true)
     const checks = []
     for (const [name, selector] of [
       ['visit', '.visit-questions details:nth-child(2) summary'],
       ['story', '.everyday-account summary'],
-      ['film', '.everyday-film > summary'],
     ]) {
       await page.eval(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({behavior:'instant', block:'center'})`)
       await pause(page, 700)
@@ -40,7 +43,8 @@ await runVisualCheck('motion-foundation', baseUrl, async ({ browser, output }) =
       assert.ok(during.bodyHeight > before.bodyHeight && during.bodyHeight < after.bodyHeight, name + ': body grows through an intermediate height')
       assert.equal(after.focused, true)
       assert.equal(after.focusVisible, true)
-      assert.ok(Math.abs(after.x - before.x) < 1 && Math.abs(after.y - before.y) < 1, name + ': trigger stays anchored')
+      if (name === 'visit') assert.ok(Math.abs(after.x - before.x) < 1 && Math.abs(after.y - before.y) < 1, name + ': trigger stays anchored')
+      else assert.ok(after.y >= 0 && after.y + after.height <= 1000, 'story reading keeps its focused trigger in view')
       if (name === 'visit') assert.equal(await page.eval(`document.querySelector('.visit-questions details').open`), true, 'previous answer stays available')
       await page.screenshot({ path: `${output}/${name}-open-${width}.png` })
       await activate(page, ' ')
@@ -65,16 +69,16 @@ await runVisualCheck('motion-foundation', baseUrl, async ({ browser, output }) =
     assert.equal(await page.eval('document.documentElement.scrollWidth > innerWidth'), false)
     assert.deepEqual(page.consoleErrors, [])
     records.push({ width, checks })
-    await writeFile(output + '/observations.json', JSON.stringify(records, null, 2))
+    await writeFile(output + '/observations.json', JSON.stringify(records, null, 2) + '\n')
     await page.close()
     console.log(`PASS ${width}px: anchored controls, keyboard open/close, rapid reversal, live reduced motion`)
   }
   const page = await browser.newPage({ width: 390, height: 844 })
   await page.send('Emulation.setScriptExecutionDisabled', { value: true })
   await page.goto(baseUrl)
-  await page.eval(`document.querySelector('.everyday-account summary').focus()`)
+  await page.eval(`document.querySelector('.visit-questions details summary').focus()`)
   await activate(page)
-  assert.equal(await page.eval(`document.querySelector('.everyday-account').open`), true)
+  assert.equal(await page.eval(`document.querySelector('.visit-questions details').open`), true)
   await page.close()
-  console.log('PASS native story disclosure without JavaScript')
+  console.log('PASS native visit disclosure without JavaScript; story cinema is covered separately')
 })

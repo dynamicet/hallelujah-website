@@ -1,5 +1,7 @@
 # Order 4 — Final Prototype Foundations
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Prepared:** 12 September 2026  
 **Status:** Complete for non-public prototype use; hospital brand approval and performed validation remain open  
 **Selected direction:** [Calm Wayfinding](../direction/visual-directions.md#3-direction-a--calm-wayfinding-recommended)  
@@ -38,8 +40,8 @@ The existing [design-system foundations](../../design-system/foundations.md) and
 ## Review sequence
 
 1. Read the [foundation specification](prototype-foundations.md), especially Sections 2–11.
-2. Inspect the [desktop standard study](evidence/order-4-foundations-1440-standard.png) for the complete scale and state grammar.
-3. Inspect the [360 px standard](evidence/order-4-foundations-360-standard.png) and [320 px reduced](evidence/order-4-foundations-320-reduced.png) captures for reflow and long-label behavior.
+2. Inspect the desktop standard study (unavailable archive: `evidence/order-4-foundations-1440-standard.png`) for the complete scale and state grammar.
+3. Inspect the 360 px standard (unavailable archive: `evidence/order-4-foundations-360-standard.png`) and 320 px reduced (unavailable archive: `evidence/order-4-foundations-320-reduced.png`) captures for reflow and long-label behavior.
 4. Inspect the [print evidence](evidence/order-4-foundations-print.pdf) for the text-first patient-guidance baseline.
 5. Use `tokens.css` and `tokens.json` as the value source when building Order 5 component variants.
 

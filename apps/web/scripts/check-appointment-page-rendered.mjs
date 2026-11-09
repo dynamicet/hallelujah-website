@@ -170,7 +170,7 @@ try {
           visibleStates: [...document.querySelectorAll('[data-form-status]:not([hidden])')].map(el => el.dataset.formStatus),
           text: document.body.innerText,
           languageReason: (() => {
-            const unavailable = document.querySelector('[data-language-switcher] [aria-disabled="true"]');
+            const unavailable = document.querySelector('[data-language-switcher] :is([aria-disabled="true"],button:disabled)');
             return document.getElementById(unavailable?.getAttribute('aria-describedby'))?.textContent.trim();
           })(),
         })`)
@@ -189,7 +189,7 @@ try {
             const r = el.getBoundingClientRect(); return { text: el.textContent?.trim().slice(0, 80), width: r.width, height: r.height };
           }).filter(r => (r.width || r.height) && (r.width < 43.5 || r.height < 43.5))
         `))}`)
-        assert.equal(result.anchors, true, label)
+        assert.equal(result.anchors, true, `${label}: missing anchors ${JSON.stringify(await evaluate("[...document.querySelectorAll('a[href^=\"#\"]')].filter(a=>!document.getElementById(a.hash.slice(1))).map(a=>a.getAttribute('href'))"))}`)
         assert.equal(result.currentAppointment, true, label)
         assert.equal(result.activeContacts, 0, label)
         assert.equal(result.externalElements, 0, label)
@@ -241,7 +241,7 @@ try {
     form.requestSubmit();
     return true;
   })()`), true)
-  await until("document.activeElement?.id === 'appointment-error-summary'")
+  await until("document.activeElement?.id === 'appointment-error-summary-heading'")
   assert.equal(await evaluate("document.querySelectorAll('#appointment-error-summary li:not([hidden])').length"), 4)
   assert.equal(await evaluate(`(() => {
     document.querySelector('#care-route-not_sure').click();

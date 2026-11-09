@@ -1,4 +1,15 @@
 .section { --equipment-ground: #101a20; --equipment-ink: #f5f8f8; --equipment-muted: #bdcdd2; --equipment-accent: #a4e3dc; scroll-margin-top: 24px; padding-block: var(--home-space); background: var(--equipment-ground); color: var(--equipment-ink); }
+.embedded { --equipment-ink: var(--site-ink); --equipment-muted: var(--site-muted); --equipment-accent: var(--site-link); padding-block: clamp(48px, 6vw, 88px); background: var(--semantic-color-surface-subtle); }
+.embedded .introduction { grid-template-columns: minmax(0, 1fr); }
+.embedded .audiences { padding: 24px; background: var(--semantic-color-surface-supporting); color: var(--semantic-color-text-primary); border-radius: var(--site-panel-radius); }
+.embedded .audiences p { color: var(--semantic-color-text-primary); }
+.embedded .audiences h4 { color: var(--semantic-color-accent-supporting-text); }
+.embedded .plus { color: var(--semantic-color-accent-supporting-text); background: var(--semantic-color-surface-raised); }
+.embedded .details summary { color: var(--semantic-color-accent-supporting-text); }
+.embedded .details[open] .plus { color: var(--semantic-color-text-inverse); background: var(--semantic-color-accent-supporting-text); }
+.embedded .details summary:hover .plus { background: var(--semantic-color-surface-supporting); }
+.embedded .details[open] summary:hover .plus { background: var(--semantic-color-accent-supporting-text); }
+.embedded :is(a, summary):focus-visible { outline-color: var(--semantic-color-focus); }
 .introduction { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(32px, 4.5vw, 64px); margin-bottom: 32px; }
 .section .introduction h2 { margin: 0; font-family: var(--site-display); font-size: var(--site-heading); font-weight: 400; line-height: 1.16; letter-spacing: -.025em; color: inherit; }
 .introduction > p { max-width: 33ch; margin: 0 0 4px; color: var(--equipment-muted); font-size: 18px; line-height: 1.6; }

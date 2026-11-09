@@ -6,7 +6,7 @@ let output
 let commandStatus = 0
 
 try {
-  output = execFileSync('pnpm', ['audit', '--json'], {
+  output = execFileSync('pnpm', ['audit', '--audit-level', 'moderate', '--json'], {
     cwd: repositoryRoot,
     encoding: 'utf8',
     maxBuffer: 32 * 1024 * 1024,
@@ -32,7 +32,13 @@ if (!counts || severities.some((severity) => !Number.isInteger(counts[severity])
 }
 
 const blocking = counts.moderate + counts.high + counts.critical
-if (commandStatus !== 0 || blocking > 0 || report.error) {
+// pnpm 10.27 returns from its JSON branch before applying --audit-level.
+// Exit 1 is expected for a complete report containing only low/info findings.
+const advisories = Object.values(report.advisories ?? {})
+const advisoryExit = commandStatus === 1 && counts.low + counts.info > 0
+  && advisories.length === counts.low + counts.info
+  && advisories.every(advisory => advisory.severity === 'low' || advisory.severity === 'info')
+if ((commandStatus !== 0 && !advisoryExit) || blocking > 0 || report.error) {
   console.error(
     `Dependency audit failed: ${counts.moderate} moderate, ${counts.high} high, and ${counts.critical} critical known vulnerabilities.`,
   )
@@ -40,5 +46,5 @@ if (commandStatus !== 0 || blocking > 0 || report.error) {
 }
 
 console.log(
-  `Dependency audit passed (${report.metadata.totalDependencies} dependencies; zero moderate, high, or critical known vulnerabilities).`,
+  `Dependency audit passed (${report.metadata.totalDependencies} dependencies; zero moderate, high, or critical known vulnerabilities; ${counts.low} low and ${counts.info} informational advisories).`,
 )

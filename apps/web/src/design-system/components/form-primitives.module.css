@@ -224,7 +224,7 @@
 }
 
 .submit {
-  font-size: var(--site-support, 1rem);
+  font-size: var(--component-form-support-font-size);
   appearance: none;
   background: var(--component-form-action);
   border: var(--component-form-border-emphasis) solid var(--component-form-action);

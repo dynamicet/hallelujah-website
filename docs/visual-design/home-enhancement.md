@@ -1,5 +1,7 @@
 # Homepage enhancement review — 2 November 2026
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 Implemented locally in the existing Next.js application. Publication is outside this
 pass. The ready local preview at `/` uses the new composition; controlled and governed
 homepage specimens retain their eligibility, omission and unavailable-state contracts.
@@ -15,14 +17,14 @@ away; the teal footer closes with an appointment action.
 
 | Evidence | Desktop | Tablet | Mobile |
 | --- | --- | --- | --- |
-| Before | [1440px](evidence/home-enhancement/before/desktop-fold.jpg) | [768px](evidence/home-enhancement/before/tablet-fold.jpg) | [390px](evidence/home-enhancement/before/mobile-fold.jpg) |
-| After | [1440px](evidence/home-enhancement/after/desktop-fold.jpg) | [768px](evidence/home-enhancement/after/tablet-fold.jpg) | [390px](evidence/home-enhancement/after/mobile-fold.jpg) |
+| Before | 1440px (unavailable archive: `evidence/home-enhancement/before/desktop-fold.jpg`) | 768px (unavailable archive: `evidence/home-enhancement/before/tablet-fold.jpg`) | 390px (unavailable archive: `evidence/home-enhancement/before/mobile-fold.jpg`) |
+| After | 1440px (unavailable archive: `evidence/home-enhancement/after/desktop-fold.jpg`) | 768px (unavailable archive: `evidence/home-enhancement/after/tablet-fold.jpg`) | 390px (unavailable archive: `evidence/home-enhancement/after/mobile-fold.jpg`) |
 
 Full-page contact sheets are alongside each fold capture. Additional full-page
-captures cover [1024px](evidence/home-enhancement/after-1024.jpg) and
-[320px](evidence/home-enhancement/after-320.jpg). A
-[320×568 capture](evidence/home-enhancement/short-mobile.jpg) confirms the primary
-action fits the short first screen. The [200% equivalent](evidence/home-enhancement/zoom-200.jpg)
+captures cover 1024px (unavailable archive: `evidence/home-enhancement/after-1024.jpg`) and
+320px (unavailable archive: `evidence/home-enhancement/after-320.jpg`). A
+320×568 capture (unavailable archive: `evidence/home-enhancement/short-mobile.jpg`) confirms the primary
+action fits the short first screen. The 200% equivalent (unavailable archive: `evidence/home-enhancement/zoom-200.jpg`)
 uses a 720×450 CSS viewport at device scale 2; this is not a substitute for manual
 browser text-zoom testing. The appointment specimen suite separately covers 200% text.
 
@@ -30,9 +32,9 @@ Final motion recordings: [hero continuity](evidence/home-enhancement/hero-motion
 and [human-care expansion](evidence/home-enhancement/human-motion.webm). These are
 12fps sequences of actual browser frames captured while scrolling, not wall-clock
 performance recordings. The baseline has still screenshots only. The
-[desktop scene sheet](evidence/home-enhancement/scenes/scene-1-desktop.jpg),
-[phone sheet](evidence/home-enhancement/scenes/scene-1-phone.jpg), and
-[reduced-motion sheet](evidence/home-enhancement/scenes/reduced-desktop.jpg) show the
+desktop scene sheet (unavailable archive: `evidence/home-enhancement/scenes/scene-1-desktop.jpg`),
+phone sheet (unavailable archive: `evidence/home-enhancement/scenes/scene-1-phone.jpg`), and
+reduced-motion sheet (unavailable archive: `evidence/home-enhancement/scenes/reduced-desktop.jpg`) show the
 hold, exit and settled alternatives. Headless scene sampling reported 66 frames,
 16.7ms median and no frames above 34ms; this is a rough local observation.
 

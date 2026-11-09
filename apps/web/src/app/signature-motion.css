@@ -110,12 +110,13 @@
 .enhanced-home .everyday-feature:nth-child(2) .everyday-feature-copy { grid-column:1; grid-row:1; }
 .enhanced-home .everyday-feature h3 { font:400 clamp(30px,3.4vw,48px)/1.15 var(--site-display); }
 @media(min-width:900px) {
-  .enhanced-home .team-guide { position:relative; isolation:isolate; background:white; padding-top:48px; }
+  .enhanced-home .team-guide { position:relative; isolation:isolate; background:var(--semantic-color-surface-subtle); padding-top:48px; }
   .enhanced-home .team-guide::before {
     content:''; position:absolute; inset:0 0 auto; height:240px; z-index:-1;
-    background:var(--semantic-color-surface-inverse); transform-origin:top;
+    background:var(--semantic-color-surface-subtle); transform-origin:top;
   }
-  .enhanced-home .team-intro h2,.enhanced-home .team-directory { color:white; }
+  .enhanced-home .team-intro h2 { color:var(--semantic-color-text-heading); }
+  .enhanced-home .team-directory { color:var(--semantic-color-text-link); }
   .enhanced-home .team-portrait-frame { aspect-ratio:1; max-height:none; border-radius:4px 40px 4px 4px; }
 }
 @keyframes signature-passage { from { transform:scaleY(1.6); } to { transform:scaleY(1); } }

@@ -1,5 +1,7 @@
 # Homepage color adoption
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Document status — deliverable 6:** Historical deliverables 1–3 review. Later composition corrections and rollout are consolidated in the current guide. Evidence below retains its original scope. Use the [current usage guide](../usage-guide.md).
 
 4 November 2026 · Deliverables 1–3 · Base: `3f3b10a`
@@ -30,10 +32,10 @@ All images below are browser captures of the final implementation, not concept m
 
 | View | Evidence |
 | --- | --- |
-| Desktop, 1440px | [Opening and care discovery](../evidence/homepage-color-adoption/desktop.jpg), [technology and specialists](../evidence/homepage-color-adoption/desktop-middle.jpg), [stories and contact](../evidence/homepage-color-adoption/desktop-lower.jpg) |
-| Tablet, 768px | [Stories, contact, visit preparation and resources](../evidence/homepage-color-adoption/tablet-lower.jpg) |
-| Phone, 390px | [Opening and discovery](../evidence/homepage-color-adoption/mobile.jpg), [specialists and stories](../evidence/homepage-color-adoption/mobile-middle.jpg) |
-| Lower sections, desktop/phone | [Desktop visit](../evidence/homepage-color-adoption/desktop-visit.jpg), [phone visit](../evidence/homepage-color-adoption/mobile-visit.jpg), [desktop footer](../evidence/homepage-color-adoption/desktop-footer.jpg), [phone footer](../evidence/homepage-color-adoption/mobile-footer.jpg) |
+| Desktop, 1440px | Opening and care discovery (unavailable archive: `../evidence/homepage-color-adoption/desktop.jpg`), technology and specialists (unavailable archive: `../evidence/homepage-color-adoption/desktop-middle.jpg`), stories and contact (unavailable archive: `../evidence/homepage-color-adoption/desktop-lower.jpg`) |
+| Tablet, 768px | Stories, contact, visit preparation and resources (unavailable archive: `../evidence/homepage-color-adoption/tablet-lower.jpg`) |
+| Phone, 390px | Opening and discovery (unavailable archive: `../evidence/homepage-color-adoption/mobile.jpg`), specialists and stories (unavailable archive: `../evidence/homepage-color-adoption/mobile-middle.jpg`) |
+| Lower sections, desktop/phone | Desktop visit (unavailable archive: `../evidence/homepage-color-adoption/desktop-visit.jpg`), phone visit (unavailable archive: `../evidence/homepage-color-adoption/mobile-visit.jpg`), desktop footer (unavailable archive: `../evidence/homepage-color-adoption/desktop-footer.jpg`), phone footer (unavailable archive: `../evidence/homepage-color-adoption/mobile-footer.jpg`) |
 
 Original logo, existing fonts, imagery, content, routes, and interaction behavior remain.
 No assets were sourced or generated for this refinement. Existing generated images,

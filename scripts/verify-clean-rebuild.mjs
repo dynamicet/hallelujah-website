@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url'
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const cleanRoot = await mkdtemp(path.join(os.tmpdir(), 'b00-005-clean-'))
-const exclusions = new Set(['.git', '.next', 'node_modules', 'tsconfig.tsbuildinfo'])
+// Local browser profiles may contain sockets and are not rebuild inputs.
+const exclusions = new Set(['.git', '.next', 'node_modules', 'tsconfig.tsbuildinfo', 'artifacts', '.taste-skill', '.visual-review'])
 
 function run(command, args, cwd, options = {}) {
   return execFileSync(command, args, {

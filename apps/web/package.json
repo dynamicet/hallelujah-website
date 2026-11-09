@@ -57,7 +57,7 @@
     "lint": "eslint . --max-warnings=0",
     "start": "pnpm config:check && NEXT_TELEMETRY_DISABLED=1 next start",
     "system-states:check": "node scripts/check-system-states.mjs",
-    "test": "pnpm partners:check && pnpm patient-guide:check && pnpm health-finder:check && pnpm care-journeys:check && pnpm patient-testimonials:check && pnpm tokens:check && pnpm foundations:check && pnpm home:check && pnpm home-enhancement:check && pnpm home-contacts:check && pnpm home-governed:check && pnpm emergency:check && pnpm actions:check && pnpm appointment:check && pnpm appointment-page:check && pnpm clinician-directory:check && pnpm clinician-directory:validate && pnpm clinician-profile:check && pnpm clinician-profile:validate && pnpm service-directory:check && pnpm service-directory:validate && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && pnpm system-states:check && pnpm optional-map:check && pnpm governed-records:check && pnpm content-transfer:check && pnpm cms-workflow:check && pnpm site-settings:check && pnpm clinicians:check && pnpm services:check && pnpm care-relationships:check && pnpm visitor-topics:check && pnpm institutional-blocks:check && pnpm utility-statements:check && pnpm discovery:check && pnpm content-integrity:check && pnpm assets:check && pnpm assets:formats:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
+    "test": "pnpm partners:check && pnpm patient-guide:check && pnpm health-finder:check && pnpm care-journeys:check && pnpm care-selection:check && pnpm patient-testimonials:check && pnpm tokens:check && pnpm foundations:check && pnpm home:check && pnpm home-enhancement:check && pnpm home-contacts:check && pnpm home-governed:check && pnpm emergency:check && pnpm actions:check && pnpm appointment:check && pnpm appointment-page:check && pnpm clinician-directory:check && pnpm clinician-directory:validate && pnpm clinician-profile:check && pnpm clinician-profile:validate && pnpm service-directory:check && pnpm service-directory:validate && pnpm shell:check && pnpm search-controls:check && pnpm form-primitives:check && pnpm system-states:check && pnpm optional-map:check && pnpm governed-records:check && pnpm content-transfer:check && pnpm cms-workflow:check && pnpm site-settings:check && pnpm clinicians:check && pnpm services:check && pnpm care-relationships:check && pnpm visitor-topics:check && pnpm institutional-blocks:check && pnpm utility-statements:check && pnpm discovery:check && pnpm content-integrity:check && pnpm assets:check && pnpm assets:formats:check && node scripts/check-boundaries.mjs && node scripts/check-environment.mjs",
     "tokens:check": "node scripts/generate-design-tokens.mjs --check",
     "tokens:generate": "node scripts/generate-design-tokens.mjs",
     "typecheck": "tsc --noEmit",
@@ -83,13 +83,14 @@
     "service-directory:validate": "node scripts/check-service-directory-validation.mjs",
     "patient-guide:check": "node scripts/check-patient-guide.mjs",
     "patient-guide:smoke": "node scripts/check-patient-guide-rendered.mjs",
-    "home-enhancement:check": "node scripts/check-home-enhancement.mjs"
+    "home-enhancement:check": "node scripts/check-home-enhancement.mjs",
+    "care-selection:check": "node scripts/check-care-selection.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.90.0",
     "@payloadcms/next": "3.90.0",
     "graphql": "16.11.0",
-    "next": "16.3.8",
+    "next": "16.4.1",
     "payload": "3.90.0",
     "pg": "8.20.0",
     "react": "19.2.6",
@@ -102,7 +103,7 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.3.8",
+    "eslint-config-next": "16.4.1",
     "typescript": "5.9.3"
   }
 }

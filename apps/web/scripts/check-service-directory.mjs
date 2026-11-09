@@ -26,6 +26,30 @@ assert.equal(initial.groups.some((group) => group.services.some((service) => ser
 assert.deepEqual(initial.groups.map((group) => group.name), [...initial.groups.map((group) => group.name)].sort())
 cases++
 
+// Editorial precedence must apply before pagination so clinical care can lead a directory.
+// Every result must still occur once, and filtering/counts must keep their original meaning.
+const { serviceDirectoryFromViews } = await import('../src/content/service-directory.ts')
+const allEntries = Array.from({ length: initial.pageCount }, (_, index) =>
+  resolveServiceDirectory(fixture, new URLSearchParams({ page: String(index + 1) })))
+  .flatMap((page) => page.groups.flatMap((group) => group.services))
+const groupOrder = [...initial.filters].reverse().map((filter) => filter.publicId)
+const orderedInput = { entries: allEntries, filters: initial.filters, groupOrder, locale: 'en', pageSize: 4 }
+const orderedPages = Array.from({ length: initial.pageCount }, (_, index) =>
+  serviceDirectoryFromViews({ ...orderedInput, searchParameters: new URLSearchParams({ page: String(index + 1) }) }))
+const orderedEntries = orderedPages.flatMap((page) => page.groups.flatMap((group) => group.services))
+assert.equal(orderedEntries[0].group.publicId, groupOrder[0])
+assert.equal(orderedEntries.at(-1).group.publicId, groupOrder.at(-1))
+assert.equal(new Set(orderedEntries.map((entry) => entry.publicId)).size, initial.resultCount)
+assert.deepEqual(new Set(orderedEntries.map((entry) => entry.publicId)), new Set(allEntries.map((entry) => entry.publicId)))
+assert.deepEqual(orderedPages[0].filters, initial.filters)
+assert.equal(orderedPages[0].pageCount, initial.pageCount)
+const orderedFiltered = serviceDirectoryFromViews({ ...orderedInput, searchParameters: new URLSearchParams('group=synthetic-access&page=2') })
+assert.equal(orderedFiltered.resultCount, 3)
+assert.equal(orderedFiltered.state.page, 1)
+assert.deepEqual(orderedFiltered.state.groups, ['synthetic-access'])
+assert.ok(orderedFiltered.groups.every((group) => group.name.includes('access')))
+cases++
+
 const searched = resolveServiceDirectory(fixture, new URLSearchParams({ q: '  HEART\u0000  ' }))
 assert.equal(searched.state.query, 'HEART')
 assert.equal(searched.resultCount, 1)

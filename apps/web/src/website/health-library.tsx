@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { InterfaceCopy, InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { HealthTopic } from '@/demo/health-topics'
 import styles from './health-library.module.css'
@@ -56,25 +56,25 @@ export function HealthLibrary({ topics, title = 'Find health topics', standalone
   function showAll() {
     setQuery(''); setLetter(''); setSelected(null); setBrowseAll(true); setVisibleCount(resultBatchSize)
   }
-  return <section aria-labelledby="health-library-title" className={`page-frame ${styles.root} ${standalone ? '' : styles.home}`} data-health-library data-motion-section={standalone ? undefined : "health"} id="health-library" ref={root}>
+  return <section aria-labelledby="health-library-title" className={`page-frame ${styles.root} ${standalone ? '' : styles.home}`} data-health-library={standalone ? 'standalone' : 'embedded'} data-motion-section={standalone ? undefined : "health"} id="health-library" ref={root}>
     <div className={styles.controls}>
       <div className={`${styles.opening} ${standalone ? styles.standalone : ''}`}>
         <div className={standalone ? styles.srOnly : styles.titleBlock}><h2 data-reveal={standalone ? undefined : "0"} data-motion="heading" className={styles.title} id="health-library-title">{title}</h2></div>
-        <form className={styles.searchForm} role="search" aria-label="Health and care topics" onSubmit={(event) => { event.preventDefault(); if (matchMedia('(max-width: 700px)').matches) input.current?.blur() }}>
+        <InterfaceCopy><form className={styles.searchForm} role="search" aria-label="Health and care topics" onSubmit={(event) => { event.preventDefault(); if (matchMedia('(max-width: 700px)').matches) input.current?.blur() }}>
           <label className={standalone ? undefined : styles.srOnly} htmlFor="health-topic-search">Search topics</label>
           <div className={styles.searchBox}>
             <svg aria-hidden="true" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 5 5" /></svg>
             <input autoComplete="off" enterKeyHint="search" id="health-topic-search" maxLength={80} onChange={(event) => { setQuery(event.target.value); setLetter(''); setSelected(null); setBrowseAll(false); setVisibleCount(resultBatchSize) }} placeholder={standalone ? 'Try “back pain”' : 'Search health topics'} ref={input} type="search" value={query} />
             {standalone ? <button aria-label="Search health topics" type="submit"><Arrow /></button> : null}
           </div>
-        </form>
+        </form></InterfaceCopy>
       </div>
       {standalone && !active ? <div className={styles.examples} aria-label="Suggested topics"><span>Try:</span>{topics.slice(0, 3).map((topic) => <button key={topic.id} type="button" onClick={() => { setQuery(topic.name); setLetter(''); setBrowseAll(false); setVisibleCount(resultBatchSize) }}>{topic.name}</button>)}</div> : null}
-      {standalone ? <div className={styles.browseHeading}><h3>Browse by first letter</h3><button aria-controls="health-topic-matches" aria-expanded={active} onClick={active ? reset : showAll} type="button">{active ? 'Clear results' : 'View all topics'}</button></div> : null}
+      {standalone ? <InterfaceCopy><div className={styles.browseHeading}><h3>Browse by first letter</h3><button aria-controls="health-topic-matches" aria-expanded={active} onClick={active ? reset : showAll} type="button">{active ? 'Clear results' : 'View all topics'}</button></div></InterfaceCopy> : null}
       <div aria-label="Find topics by first letter" className={styles.alphabet} role="group">
         {alphabet.map((value) => <button aria-controls="health-topic-matches" aria-label={`Topics beginning with ${value}`} aria-pressed={letter === value} disabled={!topics.some((topic) => topic.name.startsWith(value))} key={value} onClick={() => { setLetter(value); setQuery(''); setSelected(null); setBrowseAll(false); setVisibleCount(resultBatchSize) }} type="button">{value}</button>)}
       </div>
-      {!standalone && active ? <button aria-controls="health-topic-matches" className={styles.homeClear} onClick={reset} type="button">Clear results</button> : null}
+      {!standalone && active ? <button aria-controls="health-topic-matches" className={styles.homeClear} onClick={reset} type="button"><InterfaceText>Clear results</InterfaceText></button> : null}
     </div>
     {standalone && !active ? <p className={styles.prompt}>Dimmed letters have no topics.</p> : null}
     <p aria-atomic="true" aria-live="polite" className={styles.srOnly} role="status">{active ? `${matches.length} ${matches.length === 1 ? 'topic' : 'topics'}${letter ? ` beginning with ${letter}` : term ? ` for ${query.trim()}` : ' available'}. Showing ${results.length}.` : ''}</p>
@@ -83,12 +83,12 @@ export function HealthLibrary({ topics, title = 'Find health topics', standalone
       <div className={styles.matchesHeading}>{letter ? <span aria-hidden="true" className={styles.resultLetter}>{letter}</span> : null}<h3 id="health-matches-title">{letter ? `Topics beginning with ${letter}` : term ? 'Matching topics' : 'All topics'}</h3><p>{matches.length} {matches.length === 1 ? 'topic' : 'topics'}{term ? ` for “${query.trim()}”` : ''}</p></div>
       <div className={styles.results}>
         {results.map(({ topic, explanation }) => <button aria-controls="health-topic-reader" className={styles.topic} data-health-topic={topic.id} data-last-read={lastRead === topic.id || undefined} key={topic.id} onClick={() => { sourceScroll.current = window.scrollY; setLastRead(topic.id); setSelected(topic) }} ref={(element) => { if (element) resultButtons.current.set(topic.id, element); else resultButtons.current.delete(topic.id) }} type="button"><span><span><span className={styles.topicTitle}>{topic.name}</span>{lastRead === topic.id ? <small className={styles.lastRead}>Last opened</small> : null}{explanation ? <small className={styles.matchReason}>{explanation}</small> : null}</span><small>{topic.serviceName ?? routeLabels[topic.route]}</small></span><Arrow /></button>)}
-        {!matches.length ? <div className={styles.empty}><h3>No matching topics</h3><p>Try another word, choose a letter, or <Link href="/appointment">ask for help choosing a service</Link>.</p><button onClick={showAll} type="button">View all topics</button></div> : null}
+        {!matches.length ? <div className={styles.empty}><h3>No matching topics</h3><p>Try another word, choose a letter, or <Link href="/appointment">ask for help choosing a service</Link>.</p><button onClick={showAll} type="button"><InterfaceText>View all topics</InterfaceText></button></div> : null}
       </div>
-      {matches.length > resultBatchSize ? <div className={styles.pagination}><p>Showing {results.length} of {matches.length} topics</p><button disabled={results.length === matches.length} onClick={() => { expansionFocus.current = matches[visibleCount]?.topic.id ?? null; setVisibleCount((count) => count + resultBatchSize) }} type="button">{results.length === matches.length ? 'All topics shown' : 'Show more topics'}</button></div> : null}
+      {matches.length > resultBatchSize ? <div className={styles.pagination}><p>Showing {results.length} of {matches.length} topics</p><button disabled={results.length === matches.length} onClick={() => { expansionFocus.current = matches[visibleCount]?.topic.id ?? null; setVisibleCount((count) => count + resultBatchSize) }} type="button"><InterfaceText>{results.length === matches.length ? 'All topics shown' : 'Show more topics'}</InterfaceText></button></div> : null}
     </div> : null}
     {selected ? <section aria-labelledby="health-selected-title" className={styles.reader} id="health-topic-reader" ref={reader} tabIndex={-1}>
-      <button className={styles.back} onClick={() => { returnFocus.current = selected.id; setSelected(null) }} type="button">← Back to matches</button>
+      <button className={styles.back} onClick={() => { returnFocus.current = selected.id; setSelected(null) }} type="button"><InterfaceText>← Back to matches</InterfaceText></button>
       <h3 className={styles.readerTitle} id="health-selected-title">{selected.name}</h3>
       <p className={styles.summary}>{selected.summary}</p>
       <div className={styles.care}>

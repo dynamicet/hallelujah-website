@@ -34,7 +34,7 @@ This ticket changes no application route, CMS collection, database connection, e
 | --- | --- | --- |
 | Node.js | `24.21.0` | Exact `.nvmrc`, CI and container baseline; manifest engine `24.x` permits host-managed patches for staging deployment; Maintenance LTS through April 2028 |
 | pnpm | `10.27.0` | Exact `packageManager` and manifest engines |
-| Next.js | `16.3.8` | Exact direct dependency and matching `eslint-config-next`; October security refresh recorded below |
+| Next.js | `16.4.1` | Exact direct dependency and matching `eslint-config-next`; November security refresh recorded below |
 | Payload CMS | `3.90.0` | Exact `payload`, `@payloadcms/next`, and `@payloadcms/db-postgres` versions |
 | TypeScript | `5.9.3` | Exact direct development dependency; current stable TypeScript 5 line selected instead of a new major |
 | PostgreSQL | `18.6` | Current supported PostgreSQL 18 minor; upstream support ends 14 November 2030 |
@@ -46,7 +46,7 @@ This ticket changes no application route, CMS collection, database connection, e
 
 - Node.js 24 enters Maintenance LTS on 20 October 2026 and remains supported through April 2028; the exact `24.21.0` release is available in the [official archive](https://nodejs.org/en/download/archive/v24). Odd Node.js 25 is EOL and is rejected.
 - Next.js 16 requires Node.js `20.9+` and TypeScript `5.1+`; see the [official Next.js 16 upgrade requirements](https://nextjs.org/docs/app/guides/upgrading/version-16).
-- Payload `3.90.0` supports the selected Next.js `16.3.8` through its `>=16.3.3 <17.0.0` peer range and Node.js `20.9+`; see the [Payload installation requirements](https://payloadcms.com/docs/getting-started/installation). All three Payload direct packages remain on one exact release.
+- Payload `3.90.0` supports the selected Next.js `16.4.1` through its `>=16.3.3 <17.0.0` peer range and Node.js `20.9+`; see the [Payload installation requirements](https://payloadcms.com/docs/getting-started/installation). All three Payload direct packages remain on one exact release.
 - PostgreSQL supports each major for five years and recommends the current minor. The [upstream version policy](https://www.postgresql.org/support/versioning/) lists `18.6` as the current PostgreSQL 18 minor.
 - Docker `29.8.0` is the current selected patch baseline in the [official Engine 29 release notes](https://docs.docker.com/engine/release-notes/29/). Mutable image tags are insufficient, so the selected Node and PostgreSQL official-image tags also carry verified index digests.
 - The first audit found transitive DOMPurify and legacy esbuild advisories. Scoped exact overrides
@@ -92,3 +92,11 @@ The controlled-development acceptance result and exact hashes are in the [13 Sep
 ## 20 October 2026 security refresh
 
 PR #89's dependency audit reported 7 moderate, 13 high, 3 critical, and 1 low advisory across Next.js, Payload, Sharp, and source-map-js. The [dated remediation record](evidence/B00-005-security-refresh-2026-10-20.md) records patched versions, compatibility, database implications, and verification. The audit gate and monthly-review enforcement remain unchanged.
+
+## 9 November 2026 pre-merge security refresh
+
+The pre-merge audit found 7 moderate, 7 high, 3 critical, and 4 low advisories.
+The [dated remediation and verification record](evidence/B00-005-pre-merge-security-2026-11-09.md)
+records patched pins, the remaining low advisory, audit threshold regression tests,
+and current verification evidence. The moderate-or-higher policy in B00-011 remains
+the release gate; this refresh does not grant production deployment approval.

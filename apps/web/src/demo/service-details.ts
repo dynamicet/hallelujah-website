@@ -11,10 +11,3 @@ export const serviceVisitQuestions: Readonly<Record<string, readonly string[]>> 
   pub_191919191919: ['Will I need a referral before arranging a visit?', 'Who can explain which therapy options are relevant?'],
   pub_212121212121: ['Which earlier visit notes should I bring?', 'What should I clarify at my next conversation?'],
 }
-
-// Match the illustrative affiliations already used by the doctor profiles.
-export function relatedServiceIds(specialties: readonly string[]): readonly string[] {
-  if (specialties.includes('Heart care')) return ['pub_151515151515', 'pub_212121212121']
-  if (specialties.includes('Family care')) return ['pub_141414141414', 'pub_212121212121']
-  return []
-}

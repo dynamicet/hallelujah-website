@@ -6,7 +6,6 @@ const baseUrl = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
 const pause = (page, ms) => page.eval(`new Promise(r=>setTimeout(r,${ms}))`)
 const frames = [
   ['portrait', '[data-signature-frame="portrait"]', 'img'],
-  ['equipment', '[data-signature-frame="equipment"]', 'picture'],
   ['story', '[data-signature-frame="story"]', 'img'],
 ]
 async function position(page, selector, progress) {
@@ -46,7 +45,14 @@ await runVisualCheck('signature-scenes',baseUrl,async({browser,output})=>{
       assert.equal(early.copyTop,middle.copyTop,'names and descriptions stay in place')
       await position(page,selector,1.2)
       const complete=await state(page,selector,child)
-      if(width>=900){
+      if(width>=900 && name==='portrait'){
+        // The horizontal specialist rail is the portrait's scroll container.
+        // Its vertical timeline stays complete; portrait browsing has its own check.
+        assert.equal(early.transform,middle.transform,'carousel portrait stays settled during vertical scrolling')
+        assert.equal(middle.transform,complete.transform)
+        assert.equal(early.clip,middle.clip,'carousel portrait keeps its complete crop')
+        assert.equal(await page.eval(`new DOMMatrix(getComputedStyle(document.querySelector(${JSON.stringify(selector)}).querySelector('img')).transform).isIdentity`),true)
+      }else if(width>=900){
         assert.ok(early.name.startsWith('signature-'),name+' uses an actual signature animation')
         assert.notEqual(early.transform,middle.transform,name+' responds to scroll progress')
         assert.notEqual(middle.transform,complete.transform)
@@ -74,10 +80,10 @@ await runVisualCheck('signature-scenes',baseUrl,async({browser,output})=>{
     if(width>=900){
       await page.setViewport({width:768,height:1000})
       await pause(page,100)
-      assert.equal((await state(page,'[data-signature-frame="equipment"]','picture')).name,'none')
+      assert.equal((await state(page,'[data-signature-frame="portrait"]','img')).name,'none')
       await page.setViewport({width,height:1000})
       await pause(page,100)
-      assert.equal((await state(page,'[data-signature-frame="equipment"]','picture')).name,'signature-equipment')
+      assert.equal((await state(page,'[data-signature-frame="portrait"]','img')).name,'signature-portrait')
     }
     await page.send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]})
     await pause(page,80)
@@ -89,7 +95,7 @@ await runVisualCheck('signature-scenes',baseUrl,async({browser,output})=>{
       assert.equal(reduced.clip,'none')
     }
     // Real keyboard activation of the two inter-section links.
-    for(const target of ['home-doctors','patient-testimonials']){
+    for(const target of ['home-doctors']){
       await page.eval(`document.querySelector('a.signature-link[href="#${target}"]').focus()`)
       await page.send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r'})
       await page.send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13})
@@ -101,7 +107,7 @@ await runVisualCheck('signature-scenes',baseUrl,async({browser,output})=>{
     assert.equal(await page.eval('document.documentElement.scrollWidth > innerWidth'),false)
     assert.deepEqual(page.consoleErrors,[])
     records.push({width,scenes})
-    await writeFile(output+'/observations.json',JSON.stringify(records,null,2))
+    await writeFile(output+'/observations.json',JSON.stringify(records,null,2) + '\n')
     await page.close()
     console.log(`PASS ${width}px: scroll response/fallback, stop, reverse, stable geometry, focus, reduced motion and chapter links`)
   }

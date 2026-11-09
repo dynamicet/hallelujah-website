@@ -2,7 +2,7 @@
 window.HALLELUJAH_PALETTE = {
   "name": "Hallelujah \u2014 One blue, a whole experience",
   "status": "Adopted in the local website; final usage guide at docs/brand/usage-guide.md; production publication remains separate",
-  "date": "2026-11-04",
+  "date": "2026-11-08",
   "colors": [
     {
       "id": "blue-50",
@@ -14,9 +14,9 @@ window.HALLELUJAH_PALETTE = {
     },
     {
       "id": "blue-100",
-      "name": "Blue veil",
-      "hex": "#D5EAF2",
-      "role": "Selected surfaces and subtle blue fields",
+      "name": "Cyan veil",
+      "hex": "#D0EFFA",
+      "role": "Selected surfaces and pale cyan fields; retain explicit state markers",
       "group": "blue",
       "ink": "#00445D"
     },
@@ -27,6 +27,14 @@ window.HALLELUJAH_PALETTE = {
       "role": "Decorative, nonessential diagram fills; use deep blue for text",
       "group": "blue",
       "ink": "#00445D"
+    },
+    {
+      "id": "cyan",
+      "name": "Agency cyan",
+      "hex": "#15B0E6",
+      "role": "Decorative identity marks and featured appointment link on deep blue; dark ink labels",
+      "group": "blue",
+      "ink": "#17313D"
     },
     {
       "id": "blue-600",
@@ -55,7 +63,7 @@ window.HALLELUJAH_PALETTE = {
     {
       "id": "orange-tint",
       "name": "Pale orange",
-      "hex": "#FFF0E7",
+      "hex": "#FFF7F2",
       "role": "Pale companion to the supporting orange",
       "group": "orange",
       "ink": "#A8430C"
@@ -63,8 +71,8 @@ window.HALLELUJAH_PALETTE = {
     {
       "id": "orange",
       "name": "Warm orange",
-      "hex": "#F26522",
-      "role": "Main supporting accent",
+      "hex": "#F65B25",
+      "role": "Agency orange; supporting decorative accent, deep orange for text",
       "group": "orange",
       "ink": "#17313D"
     },
@@ -79,7 +87,7 @@ window.HALLELUJAH_PALETTE = {
     {
       "id": "magenta-tint",
       "name": "Pale magenta",
-      "hex": "#FCEAF2",
+      "hex": "#FDF3F8",
       "role": "Pale companion to the expressive magenta",
       "group": "magenta",
       "ink": "#A61558"
@@ -87,10 +95,10 @@ window.HALLELUJAH_PALETTE = {
     {
       "id": "magenta",
       "name": "Magenta",
-      "hex": "#D81B72",
-      "role": "Occasional expressive accent",
+      "hex": "#E7277C",
+      "role": "Agency magenta; decorative accent only, use deep magenta for text",
       "group": "magenta",
-      "ink": "#FFFFFF"
+      "ink": "#000000"
     },
     {
       "id": "magenta-deep",
@@ -174,6 +182,14 @@ window.HALLELUJAH_PALETTE = {
       "role": "Urgent access or an error, separated by words and context",
       "group": "status",
       "ink": "#FFFFFF"
+    },
+    {
+      "id": "yellow",
+      "name": "Agency yellow",
+      "hex": "#F5C82D",
+      "role": "Supporting artwork and bounded care-navigation help surface; no warning meaning",
+      "group": "yellow",
+      "ink": "#17313D"
     }
   ],
   "semantic": {
@@ -204,5 +220,5 @@ window.HALLELUJAH_PALETTE = {
     "accent-expressive-subtle": "magenta-tint",
     "accent-expressive-text": "magenta-deep"
   },
-  "version": "1.1"
+  "version": "1.3"
 };

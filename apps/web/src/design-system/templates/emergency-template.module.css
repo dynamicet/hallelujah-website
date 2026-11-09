@@ -112,7 +112,6 @@
 .callCard {
   background: var(--semantic-color-surface-raised);
   border: var(--semantic-border-default) solid var(--semantic-color-border-strong);
-  border-inline-start: var(--semantic-border-focus) solid var(--semantic-color-action-emergency);
   border-radius: var(--semantic-radius-card);
   min-inline-size: 0;
   padding: var(--semantic-space-surface);
@@ -188,7 +187,6 @@
 
 .scope {
   background: var(--semantic-color-surface-subtle);
-  border-block-start: var(--semantic-border-emphasis) solid var(--semantic-color-brand-warm);
   border-radius: var(--semantic-radius-card);
   margin-block: var(--semantic-space-section);
   max-inline-size: none;
@@ -253,7 +251,6 @@
 .frame[data-demo-emergency] .fixtureNotice {
   background: transparent;
   border: 0;
-  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-action-emergency);
   border-radius: 0;
   padding: var(--semantic-space-compact) var(--semantic-space-regular);
 }
@@ -292,7 +289,6 @@
 
 .frame[data-demo-emergency] .warning {
   border: 0;
-  border-inline-start: var(--semantic-border-emphasis) solid var(--semantic-color-action-emergency);
   border-radius: 0;
 }
 

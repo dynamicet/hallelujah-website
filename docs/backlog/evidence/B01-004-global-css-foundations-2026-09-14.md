@@ -1,5 +1,7 @@
 # `B01-004` Global CSS Foundations — Local Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
 **Result:** Done for controlled development; local `T0` and hosted implementation `T1` pass
@@ -16,7 +18,7 @@
 | Resilience | Essential fixture content is server rendered without image, custom-font, or non-essential JavaScript dependence. |
 | Media modes | Enhanced motion duration computes to zero for reduced motion; print uses a white shadow-free surface; forced colors uses system focus/link colors and no decorative shadow. |
 | Performance | Production build remains one static application page, zero external origins, 8 initial requests, and within existing compressed JavaScript/transfer budgets. |
-| Visual review | [320px](b01-004-rendered/b01-004-foundations-320.png) and [1440px](b01-004-rendered/b01-004-foundations-1440.png) screenshots were inspected after the enlarged-text overflow correction. |
+| Visual review | 320px (unavailable archive: `b01-004-rendered/b01-004-foundations-320.png`) and 1440px (unavailable archive: `b01-004-rendered/b01-004-foundations-1440.png`) screenshots were inspected after the enlarged-text overflow correction. |
 | Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34837389038) passed on commit `b3868f405c1e9ce7a0b174ff3bb1ed64837acd3c`. |
 
 ## Performed commands

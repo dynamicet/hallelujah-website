@@ -1,5 +1,9 @@
 # Hallelujah website brand and composition guide
 
+> Current application direction: [X implementation specification](../visual-design/x-color-composition-spec.md) and [DESIGN.md](../../DESIGN.md), adopted 9 November 2026. Their component contexts and richer tints supersede conflicting examples below. Historical brand provenance remains unchanged.
+
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 Deliverable 6 · Finalized 4 November 2026 for the implemented local website.
 
 This is the current website usage guide. Blue supplies a recognizable care identity;
@@ -24,14 +28,98 @@ This guide consolidates the client-directed revision and completed rollout. It d
 a new expert-panel consensus or hospital publication approval. The local preview and existing
 content-readiness gates continue to apply.
 
+## Agency palette alignment — 8 November 2026
+
+The agency supplied `Hallelujah Logo.png` and `Color Palettes.md`. The notes explicitly
+identify the codes as color-picker approximations because formal hospital codes were
+unavailable. Current decorative accents match those supplied codes: cyan `#15B0E6`,
+orange `#F65B25`, and magenta `#E7277C`. Yellow `#F5C82D` appears in supplementary artwork and the bounded homepage care-navigation help surface;
+it does not carry warning or selection meaning. Existing raster logos
+remain intact. Earlier source-identity estimates remain historical records.
+
+The implementation separates identity accents from text, action, focus, border and status
+roles using the existing primitive → semantic → component token layers. Bright cyan is
+used for decorative identity rules and the featured homepage appointment link with dark ink. Orange and magenta flow through existing
+image edges, quotation rules and editorial markers. Pale surfaces and deep accent text
+retain their existing pairings. Layout, content, behavior and motion are outside this change.
+
+For the hospital meeting:
+
+> We have matched the website’s bright decorative accents to the palette supplied by the
+> agency. The deeper blue shades support readable headings, links and buttons. This gives
+> the hospital’s identity a consistent expression while making practical information easier
+> for patients to read and use.
+
+Technical basis: [WCAG 2.2 contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
+sets 4.5:1 for normal text and 3:1 for large text, with a logo-text exception. Against white,
+the supplied cyan measures 2.50:1 and supplied shade `#1286AF` measures 4.15:1; the retained
+action blue `#0078A6` measures 4.96:1, link blue `#00678D` 6.32:1, and deep blue `#00445D`
+10.58:1. These figures explain particular color pairs, not complete site compliance.
+The standard requires sufficient contrast, not these exact dark hex codes.
+[Carbon’s color token guidance](https://www.carbondesignsystem.com/building-blocks/foundations/color/guidelines)
+provides an established example of assigning contextual color roles to interface layers
+and states. Our role separation follows that general pattern; it does not imply Carbon
+approval or a requirement to copy its palette.
+
+## Homepage colorize extension — 8 November 2026
+
+The client selected brighter specialist areas plus supporting artwork. Care discovery now
+uses the existing pale-blue surface, and the desktop specialist heading backdrop uses the
+same pale blue instead of deep blue. Headings, directory links and keyboard focus use the
+appropriate dark roles. The care-help panel uses blue veil with the standard blue action.
+The hero, statistics strip and footer keep their existing dark fields.
+
+`CareBrandArtwork` supplies crisp, flat geometry inspired by the logo’s open, embracing
+composition. It is supporting artwork, not a reconstructed logo. Cyan open curves surround
+orange and magenta arcs and a yellow center. It appears beside the care-discovery heading
+and visit-preparation heading, each in its own layout space. At phone widths it compacts
+alongside the heading. All four colors come from `semantic.color.artwork.*`, which alias
+the agency-aligned primitives. Cyan also supplies the existing care-section boundary and
+specialty-card top rules where the responsive treatment includes them. Cards use one shared
+color treatment; specialties and clinicians are not assigned color meanings.
+
+The motif is decorative (`aria-hidden`, non-focusable, no pointer events), has no new
+animation, and is hidden in forced-color and print modes. Yellow has a visible artwork
+use and, in the later extension below, a bounded care-navigation surface. It has no warning semantics. Bright artwork is
+kept separate from functional text and focus roles; pale/deep pairings retain their contrast.
+This extension is limited to the local homepage presentation and its shared artwork helper.
+
+## Inner-page and selection refinement — 8 November 2026
+
+The client approved extending the lighter treatment to related pages, using cyan more
+purposefully in selection states, and softening the warm surfaces. Directory introductions,
+clinician profile introductions, and shared patient/service guidance headers now use pale
+blue fields. Service cards and reading-section rules repeat the decorative cyan. General
+care handoffs use pale blue; visit preparation retains a lighter warm companion. Existing
+content, artwork and task ordering remain in place.
+
+Cyan veil `#D0EFFA` replaces the previous blue veil `#D5EAF2` as the selected surface.
+It is used for care-mode radios, checked directory filters and applied chips, current
+pagination, news-category filters, health-topic letters, appointment choices/current progress, and checked visit
+checklist rows. Dark text, native check/radio marks, removal labels, underlines, current-step
+wording, and selected borders supply non-color cues. Current appointment progress is
+emphasized by a strong bottom rule and weight; completed steps remain a separate white state.
+Primary submit and navigation actions retain solid functional blue and white labels.
+Forced-color appointment progress uses system Canvas/CanvasText with an explicit state
+outline and bottom rule so the current label remains readable.
+
+The orange companion changes from `#FFF0E7` to `#FFF7F2`; the magenta companion changes
+from `#FCEAF2` to `#FDF3F8`. Both are intentionally quieter than the previous surfaces.
+The original bright accents and readable deep text shades stay unchanged. These are derived
+digital companions, not additional hospital-supplied colors. Token and catalog sources are
+updated together; existing contrast-policy minimums remain in force.
+
 ## Palette and responsibilities
 
 | Family | Values | Current responsibility |
 | --- | --- | --- |
+| Artwork colors | Cyan `#15B0E6`, orange `#F65B25`, magenta `#E7277C`, yellow `#F5C82D` | Decorative geometric artwork only; no control or status meaning |
 | Brand blue | Primary `#0078A6`, strong `#00678D`, deep `#00445D` | Primary actions, ordinary links, headings, structural marks and substantial identity fields |
-| Blue companions | Mist `#EAF5F9`, veil `#D5EAF2`, air `#A8D3E4` | Grouping, selected planes, portrait grounds and tonal geometry; deep blue supplies readable text |
-| Supporting orange | Anchor `#F26522`, pale `#FFF0E7`, deep `#A8430C` | Warm image edges, markers, frames, action-adjacent details, readable accent copy and bounded warm planes |
-| Expressive magenta | Anchor `#D81B72`, pale `#FCEAF2`, deep `#A61558` | Quotation punctuation, metadata, contrasting rules, inset planes and expressive moments |
+| Agency cyan | `#15B0E6` | Decorative identity marks and featured appointment link on deep blue, with ink labels |
+| Brand yellow | `#F5C82D` | Bounded care-navigation help surface, dark ink text; no warning or selection meaning |
+| Blue companions | Mist `#EAF5F9`, veil `#D0EFFA`, air `#A8D3E4` | Grouping, selected planes, portrait grounds and tonal geometry; deep blue supplies readable text |
+| Supporting orange | Anchor `#F65B25`, pale `#FFF7F2`, deep `#A8430C` | Warm image edges, markers, frames, action-adjacent details, readable accent copy and bounded warm planes |
+| Expressive magenta | Anchor `#E7277C`, pale `#FDF3F8`, deep `#A61558` | Quotation punctuation, metadata, contrasting rules, inset planes and expressive moments |
 | Reading surfaces | Paper `#FBF8F6`, white `#FFFFFF` | Page ground, quiet reading, distinct working planes and fields |
 | Reading text | Ink `#17313D`, slate `#52636B` | Essential body copy and supporting metadata; blue headings orient the reader |
 | Edges | Quiet `#CBD8DE`, control `#718892` | Decorative separation versus meaningful boundaries around white controls |
@@ -40,8 +128,7 @@ content-readiness gates continue to apply.
 | Caution | `#80530C` on `#FFF6E5` | Actual cautions with written meaning |
 | Error and urgency | `#A33330` on `#FBEFED` | Distinct error and emergency aliases, wording, structure and recovery actions |
 
-The original logo artwork remains intact. Its yellow is an artwork color, with no current
-standalone website family. No new complementary hue was added in this delivery. Future
+The original logo artwork remains intact. Its yellow now also provides a bounded care-navigation surface. No new complementary hue was added in this delivery. Future
 extensions are welcome when a real composition benefits: propose pale, middle and deep
 companions, demonstrate them beside existing blues on desktop and phone, test readable and
 interactive pairings, then add semantic bindings and update this guide. Older documents do
@@ -79,23 +166,23 @@ and patient groups have no exclusive accent ownership.
 ## Representative compositions
 
 These are implemented examples, not fixed color assignments for future components.
-The [27-group comparison study](http://localhost:3000/composition-study) shows previous and
+The [27-group comparison study](http://127.0.0.1:3977) shows previous and
 revised treatments. The [component library](http://localhost:3000/component-library) shows
 live shared states. Both require the development server and return 404 in production.
 
 | Experience | Relationship to reuse | Reference |
 | --- | --- | --- |
 | Opening and navigation | Human photograph, readable blue scrim, inverse action with warm edge; pale-blue header structure and warm current-page detail | [Homepage implementation](color-catalog/composition-implementation.md) |
-| Care discovery | Blue headings/actions, distinct white results and mist filter rail, portrait planes with varied top edges | [Doctor directory, desktop](evidence/route-rollout/after/doctors-1440.jpg) |
-| Services and profiles | Comparable destinations, readable blue titles, warm portrait/image edge and independently framed next-step rail | [Service directory, phone](evidence/route-rollout/after/services-390.jpg) |
+| Care discovery | Blue headings/actions, distinct white results and mist filter rail, portrait planes with varied top edges | Doctor directory, desktop (unavailable archive: `evidence/route-rollout/after/doctors-1440.jpg`) |
+| Services and profiles | Comparable destinations, readable blue titles, warm portrait/image edge and independently framed next-step rail | Service directory, phone (unavailable archive: `evidence/route-rollout/after/services-390.jpg`) |
 | Technology and film | Image stages carry the subject; blue structure and warm disclosure/action details connect the sequence | [Homepage composition matrix](color-catalog/composition-implementation.md#what-changed) |
-| Human stories | Natural imagery, blue headings, varied white/mist/peach quotation planes and contrasting punctuation | [Story comparison](evidence/composition-revision/captures/after-stories-1440.jpg) |
-| Preparation and arrival | Blue reading hierarchy, white insets within mist, warm guidance marker; written urgency remains distinct | [Visitor guide, tablet](evidence/route-rollout/after/patients-visitors-768.jpg) |
-| Appointment | White workspace, blue progress and selection, warm photo edge and magenta care-summary marker | [Appointment, phone](evidence/route-rollout/after/appointment-390.jpg) |
-| Feedback | Blue labels, defined white fields, clear review action and expressive review edge | [Feedback, desktop](evidence/route-rollout/after/feedback-1440.jpg) |
-| Topics | Mist enclosure, white search, magenta search edge, blue selection and care handoff | [Topic finder, desktop](evidence/route-rollout/after/health-topics-1440.jpg) |
-| Editorial | Strong lead story, blue reading links, consistent image treatment and varied metadata rules | [Archive, tablet](evidence/route-rollout/after/news-resources-768.jpg) |
-| Emergency | Blue orientation and white practical information with explicit red urgency | [Emergency, phone](evidence/route-rollout/after/emergency-390.jpg) |
+| Human stories | Natural imagery, blue headings, varied white/mist/peach quotation planes and contrasting punctuation | Story comparison (unavailable archive: `evidence/composition-revision/captures/after-stories-1440.jpg`) |
+| Preparation and arrival | Blue reading hierarchy, white insets within mist, warm guidance marker; written urgency remains distinct | Visitor guide, tablet (unavailable archive: `evidence/route-rollout/after/patients-visitors-768.jpg`) |
+| Appointment | White workspace, blue progress and selection, warm photo edge and magenta care-summary marker | Appointment, phone (unavailable archive: `evidence/route-rollout/after/appointment-390.jpg`) |
+| Feedback | Blue labels, defined white fields, clear review action and expressive review edge | Feedback, desktop (unavailable archive: `evidence/route-rollout/after/feedback-1440.jpg`) |
+| Topics | Mist enclosure, white search, magenta search edge, blue selection and care handoff | Topic finder, desktop (unavailable archive: `evidence/route-rollout/after/health-topics-1440.jpg`) |
+| Editorial | Strong lead story, blue reading links, consistent image treatment and varied metadata rules | Archive, tablet (unavailable archive: `evidence/route-rollout/after/news-resources-768.jpg`) |
+| Emergency | Blue orientation and white practical information with explicit red urgency | Emergency, phone (unavailable archive: `evidence/route-rollout/after/emergency-390.jpg`) |
 | Footer | Deep-blue closing field, inverse reading, warm identity marker and tonal divider | [Homepage implementation](color-catalog/composition-implementation.md) |
 
 ## Component and state contract
@@ -174,10 +261,12 @@ actual pairs and states, including hover, nested surfaces, opacity and image ove
 
 - Strong blue carries ordinary links on approved light grounds. Primary blue on mist is
   4.47:1 and fails normal text; strong blue on air also fails normal text, so use deep blue there.
-- White on orange is 3.15:1 and fails normal text; ink on orange is only 4.32:1. Use deep
-  orange on pale orange for normal accent copy. White on magenta is 4.86:1.
-- Quiet edges are decorative. Control edge on veil is 2.9936:1 and fails 3:1; keep the approved
-  white field plane or test a stronger boundary.
+- Bright agency orange and magenta are decorative accents, not grounds for normal white text.
+  Use deep orange on pale orange and deep magenta on pale magenta for accent copy.
+  The reserved darker magenta primitive `#D81B72` retains 4.86:1 against white;
+  it is distinct from the bright decorative magenta `#E7277C`.
+- Quiet edges are decorative. Control edge on the revised cyan veil is 3.09:1. Keep
+  the established white field plane; test actual adjacent pairs before extending that usage.
 - Light-surface focus uses a 3px deep-blue outline and 4px white separation; inverse surfaces
   use white outlines. Selection, disabled, invalid and focus states remain distinguishable.
 
@@ -199,7 +288,7 @@ These are scoped measurements, not a complete accessibility certification.
 For finalization, the documentation was checked against runtime colors, surface APIs,
 editorial font declarations and saved desktop/tablet/phone evidence. Conflicting active color
 tables and stale rollout status were reconciled. No new visual defect requiring another source
-change was identified in that closeout review; existing visual evidence remains applicable.
+change was identified in that closeout review. Those historical captures describe the November 4 state; the November 8 palette refinement requires fresh evidence.
 The [finalization record](evidence/finalization-checks.json) records passing brand, token and repository-link checks. The updated catalog and historical-study
 labels passed eight browser checks across 1440, 768, 390 and 320px, with one H1, a guide link
 and no horizontal overflow on each page. The catalog's default, failing and passing contrast
@@ -233,3 +322,39 @@ useful. The system is a foundation for further design, not a fixed catalog of se
 | [Initial adoption](color-catalog/homepage-adoption.md) / [review agreement](color-catalog/review-agreement.md) | Dated initial review and evidence; no new consensus implied |
 | [Foundation review board](review-board.html) | Historical palette and typography specimens; current guide linked on the board |
 | Catalog PDF | Historical v1.1 snapshot; use this guide and live catalog for current decisions |
+
+## Full-palette homepage emphasis — 8 November 2026
+
+The featured appointment link now uses supplied cyan with body ink `#17313D`; hover uses
+cyan veil with the same ink. Its existing active and keyboard-focus states remain distinct.
+The “Not sure who to see?” panel uses supplied yellow with dark ink and the existing
+blue action. Orange continues to support visit preparation, and magenta patient stories.
+Selection states remain consistently pale cyan with explicit state markers. This gives
+the complete roster purposeful coverage beyond artwork without assigning clinical meaning
+to a brand hue. Large dark-blue fields, content, layout and behavior stay unchanged.
+
+`semantic.color.action.featured` and `semantic.color.surface.highlight` define the new
+roles separately from decorative artwork tokens. Neither permits white normal-size labels
+on bright cyan or yellow. These changes apply to the homepage; shared task controls retain
+their established functional pairings.
+
+### Supporting-color component details — 8 November 2026
+
+Orange repeats through visit-preparation disclosure icons, list markers, arrival
+advice and the patient preparation inset inside technology disclosures. Magenta
+supports patient-story captions and quote attribution rules. A yellow disc beside
+the specialist introduction echoes its existing yellow guidance panel. Specialty
+cards retain their shared cyan structure and existing full-palette introduction artwork.
+
+Shared patient-page introductions use a small cropped fragment of the existing
+artwork. Consultation prompts now appear in the visit guide’s “During your visit”
+section, with orange and magenta arcs; the same component serves the existing
+consultation composition. Their wording comes from that existing composition.
+Decorative shapes are hidden from assistive technology and suppressed in forced
+colors and print. No new animation or color-based clinical meaning is introduced.
+
+Rendered checks measured story-caption contrast at 6.74:1, technology preparation
+body text at 5.91:1 and its links at 5.97:1. Preparation disclosure chevrons retain
+the existing dark-orange/white pairing, with white on the open dark-orange circle.
+
+Run `pnpm composition:preview` to open the loopback composition archive. Review evidence is kept outside the deployable application.

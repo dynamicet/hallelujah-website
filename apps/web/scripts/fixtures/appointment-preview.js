@@ -96,7 +96,7 @@
     if (invalid.size > 0) {
       if (summary instanceof HTMLElement) {
         summary.hidden = false
-        summary.focus()
+        summary.querySelector('h3')?.focus()
       }
       if (summaryCount instanceof HTMLElement) {
         summaryCount.textContent = invalid.size === 1

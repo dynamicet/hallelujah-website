@@ -1,5 +1,7 @@
 # `B01-006` Global Shell and Navigation — Local Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
 **Result:** Done for controlled development; local `T0` and hosted implementation `T1` pass
@@ -17,7 +19,7 @@
 | Responsive/reflow | 320, 360, 375, 667 × 375 landscape, 768, 1280, 1440, 200%/400% viewport equivalents, and 200% root-text enlargement pass without detected clipping or page overflow. |
 | Interaction | Visible targets measure at least 44 × 44 CSS px; the compact popover opens natively; Escape closes it and restores focus; the skip link moves focus to main. |
 | Resilience | Navigation, links, popover, breadcrumb, language status, and footer are server-rendered. The enhancement makes no request and stores no state. Reduced motion, forced colors, and print have explicit treatments. |
-| Visual review | [320px](b01-006-rendered/b01-006-global-shell-320.png) and [1440px](b01-006-rendered/b01-006-global-shell-1440.png) captures were inspected for hierarchy, wrapping, action separation, current state, controlled-language status, and footer fallback. |
+| Visual review | 320px (unavailable archive: `b01-006-rendered/b01-006-global-shell-320.png`) and 1440px (unavailable archive: `b01-006-rendered/b01-006-global-shell-1440.png`) captures were inspected for hierarchy, wrapping, action separation, current state, controlled-language status, and footer fallback. |
 | Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34879240044) passed in 2m00s on implementation commit `fc672b8`. |
 
 ## Performed commands

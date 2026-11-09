@@ -1,0 +1,6 @@
+.prompts { display: grid; gap: 28px; margin-block: 28px; }
+.prompts h3 { margin: 12px 0; color: var(--semantic-color-text-heading); }
+.prompts p { margin: 0; color: var(--semantic-color-text-primary); }
+.orange, .magenta { display: block; inline-size: 36px; block-size: 18px; border: 6px solid var(--semantic-color-artwork-orange); border-block-end: 0; border-radius: 36px 36px 0 0; }
+.magenta { border-color: var(--semantic-color-artwork-magenta); }
+@media (forced-colors: active), print { .orange, .magenta { display: none; } }

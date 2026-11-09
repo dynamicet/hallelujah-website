@@ -1,5 +1,7 @@
 # Reusable color components — deliverable 4
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Current contract:** The [final usage guide](../usage-guide.md) consolidates the revised
 composition. Surface tone, accent and detail are independent in the API below. The
 [revised implementation](composition-implementation.md) records the correction and comparison;
@@ -104,9 +106,9 @@ Actual Tab navigation skips the disabled field, inputs show keyboard focus, nati
 selection works, hash links navigate, and the component content/styles remain available
 with page JavaScript disabled.
 
-[Desktop study](../evidence/component-system/desktop.jpg),
-[tablet study](../evidence/component-system/tablet.jpg) and
-[mobile study](../evidence/component-system/mobile.jpg) show the final reference.
+Desktop study (unavailable archive: `../evidence/component-system/desktop.jpg`),
+tablet study (unavailable archive: `../evidence/component-system/tablet.jpg`) and
+mobile study (unavailable archive: `../evidence/component-system/mobile.jpg`) show the final reference.
 The approved direction was reused; no new palette, typeface, imagery, claims or dependency
 was introduced.
 

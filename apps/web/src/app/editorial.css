@@ -6,8 +6,8 @@
 :root {
  --primitive-font-family-latin: Lato, Ethiopic, sans-serif;
  --primitive-font-family-ethiopic: Ethiopic, Lato, sans-serif;
- --primitive-radius-control: .3rem;
- --primitive-radius-card: .4rem;
+ --primitive-radius-control: .5rem;
+ --primitive-radius-card: .75rem;
 }
 body :where(h1, h2) { font-family: Editorial, Ethiopic, serif; font-weight: 400; letter-spacing: -.035em; line-height: 1.08; }
 body h1 { font-size: clamp(2.75rem, 4.8vw, 4.75rem); }

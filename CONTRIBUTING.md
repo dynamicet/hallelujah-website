@@ -31,3 +31,17 @@ Do not introduce hospital facts, translations, brand assets, providers, personal
 Temporary development routing uses the Delivery and Security roles recorded on the execution board. Named production ownership and acceptance remain mandatory before production approval.
 
 Dependency or toolchain changes must update [`toolchain-versions.json`](toolchain-versions.json), exact manifests, the lockfile, checks, and dated evidence together. Run `pnpm rebuild:verify` after any such change. The policy review date fails closed when overdue; do not bypass it by weakening the checker.
+
+## Local asset processors
+
+The asset checks use the same pinned Python processors as CI. Install them in an
+isolated environment and select that interpreter before verification:
+
+```sh
+python3 -m venv /tmp/hallelujah-asset-tools
+/tmp/hallelujah-asset-tools/bin/pip install --require-hashes -r apps/web/scripts/lib/asset-format-requirements.txt
+ASSET_FORMAT_PYTHON=/tmp/hallelujah-asset-tools/bin/python pnpm verify
+```
+
+The asset checks also need `ffmpeg` and `pdftoppm` on `PATH`. Browser checks require
+Chromium and permission to run local loopback servers.

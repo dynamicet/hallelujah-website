@@ -1,0 +1,18 @@
+.section { background: var(--semantic-color-surface-subtle); padding-block: var(--home-space); scroll-margin-top: 24px; }
+.composition { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: clamp(32px, 5vw, 72px); }
+.image { margin: 0; overflow: hidden; border-radius: var(--site-image-radius); background: #101a20; }
+.image picture, .image img { display: block; width: 100%; }
+.image img { height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
+.copy h2 { max-width: 15ch; margin: 0; font: 400 var(--site-heading)/1.16 var(--site-display); color: var(--site-ink); }
+.copy p { max-width: 40ch; margin: 24px 0 16px; color: var(--site-muted); font-size: var(--site-body); line-height: 1.6; }
+.copy a { min-height: 44px; }
+.copy a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
+@media (max-width: 899px) {
+  .composition { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .image { max-width: 640px; }
+  .copy h2 { max-width: 20ch; }
+  .copy p { margin-top: 20px; }
+}
+@media (forced-colors: active) {
+  .copy a:focus-visible { outline-color: Highlight; }
+}

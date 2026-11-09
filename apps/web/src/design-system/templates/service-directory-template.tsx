@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
+
 import type { ReactNode } from 'react'
 import type { SiteShellProps } from '../components'
 import {
@@ -11,7 +12,7 @@ import {
   type ActiveFilter,
   type PaginationPage,
 } from '../components'
-import { DirectorySearchForm, DirectoryResultCount } from '../components/directory-search'
+import { DirectorySearchForm, DirectoryResultCount } from '../components'
 import {
   serviceDirectoryQueryMaximum,
   serviceDirectoryUrl,
@@ -28,6 +29,7 @@ export interface ServiceDirectoryTemplateProps {
   readonly directory: ServiceDirectoryView
   readonly pathname: string
   readonly serviceRequestLinks?: boolean
+  readonly serviceActions?: Readonly<Record<string, Readonly<{ href: string; label: string }>>>
   readonly serviceDetailLinks?: boolean
   readonly shell: Omit<SiteShellProps, 'breadcrumbs' | 'children'>
   readonly state: ServiceDirectoryReviewState
@@ -48,7 +50,7 @@ function recovery(state: Exclude<ServiceDirectoryReviewState, 'ready' | 'loading
   }
 }
 
-export function ServiceDirectoryTemplate({ introVisual, directory, pathname, serviceRequestLinks = false, serviceDetailLinks = false, preparationGuides = [], shell, state }: ServiceDirectoryTemplateProps) {
+export function ServiceDirectoryTemplate({ introVisual, directory, pathname, serviceRequestLinks = false, serviceActions, serviceDetailLinks = false, preparationGuides = [], shell, state }: ServiceDirectoryTemplateProps) {
   const allowedGroups = directory.filters.map((filter) => filter.value)
   const searchState = directory.state
   const activeFilters: ActiveFilter[] = directory.filters
@@ -81,51 +83,51 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
     <SiteShell {...shell}>
       <div className={styles.frame} data-service-directory-state={state} data-service-directory-template data-care-directory={serviceDetailLinks || undefined}>
         <section aria-labelledby="service-directory-title" className={styles.introduction} data-directory-section="S1">
-          <div className={styles.introductionCopy}>
-            <h1 data-reveal="0" id="service-directory-title">Find a service</h1>
-            <Link className="ds-touch-target" href="/appointment">Not sure which service?</Link>
+          <div className={styles.introductionCopy} data-directory-introduction-copy>
+            <h1 data-reveal="0" id="service-directory-title">{serviceDetailLinks ? 'Specialties & services' : 'Find a service'}</h1>
+            {serviceDetailLinks ? <p>Explore specialist care, tests and treatments. Choose a care option to see the team and how to arrange your visit.</p> : null}
+            <Link className="ds-touch-target" href="/appointment">Need help choosing care?</Link>
           </div>
           {introVisual}
         </section>
 
         {searchState.urgent ? (
           <aside aria-labelledby="service-urgent-title" className={styles.urgentNotice} data-directory-section="S2">
-            <p className={styles.eyebrow}>Emergency information</p>
             <h2 id="service-urgent-title">Need urgent help?</h2>
             <p>This directory does not assess medical urgency. Online requests are not emergency channels.</p>
-            <Link className="ds-touch-target" href="/emergency">See emergency information</Link>
+            <Link className="ds-touch-target" href="/emergency">Emergency information</Link>
           </aside>
         ) : null}
 
         <section aria-labelledby="service-search-title" className={styles.directory} data-directory-section="S3">
-          <div className={styles.directoryHeading}>
-            <h2 className={styles.visuallyHidden} id="service-search-title">Search services</h2>
+          <div className={styles.directoryHeading} data-directory-heading>
+            <h2 className={styles.visuallyHidden} id="service-search-title">{serviceDetailLinks ? 'Search specialties and services' : 'Search services'}</h2>
           </div>
           <DirectorySearchForm action={pathname} label="Search services" resultKey={currentResultsHref}>
-            <div className={styles.searchPanel}>
+            <div className={styles.searchPanel} data-directory-search-panel>
               <SearchBox
                 clearHref={serviceDirectoryUrl(pathname, { ...searchState, page: 1, query: '' }, allowedGroups)}
                 hint="Do not enter personal or medical information."
                 hintId="service-search-hint"
                 inputId="service-search-query"
-                label="Search services"
+                label={serviceDetailLinks ? 'Specialty, service or area of care' : 'Search services'}
                 maximumLength={serviceDirectoryQueryMaximum}
                 query={searchState.query}
                 submitLabel="Search"
               />
             </div>
 
-            <div className={styles.discoveryWorkspace}>
-              <aside aria-label="service groups" className={styles.filterRail}>
+            <div className={styles.discoveryWorkspace} data-directory-workspace>
+              <aside aria-label="service groups" className={styles.filterRail} data-directory-filter-rail>
                 <FilterDisclosure label={`Filter services (${activeFilters.length})`} open>
                   <FilterGroup
-                    legend="Service group"
+                    legend={serviceDetailLinks ? 'Area of care' : 'Service group'}
                     name="group"
                     options={directory.filters}
                     selectedValues={searchState.groups}
                   />
-                  <button type="submit">Apply groups</button>
-                  <a className={`${styles.resetFilters} ds-touch-target`} href={pathname}>Reset all</a>
+                  <button type="submit">{serviceDetailLinks ? 'Apply filters' : 'Apply groups'}</button>
+                  <a className={`${styles.resetFilters} ds-touch-target`} href={pathname}><InterfaceText>Reset all</InterfaceText></a>
                 </FilterDisclosure>
               </aside>
 
@@ -135,11 +137,11 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                 <div className={styles.resultsToolbar}>
                   {!unavailable && state !== 'loading' ? (
                     <DirectoryResultCount id="service-result-count" resultKey={currentResultsHref}>
-                      {directory.resultCount} {directory.resultCount === 1 ? 'service' : 'services'}
+                      {directory.resultCount} {serviceDetailLinks ? directory.resultCount === 1 ? 'care option' : 'care options' : directory.resultCount === 1 ? 'service' : 'services'}
                     </DirectoryResultCount>
                   ) : <p className={styles.stateLabel}>Directory status</p>}
                   {!unavailable && state !== 'loading' && directory.resultCount > 0 ? <p className={styles.resultRange}>
-                    Showing {firstResult}–{lastResult} of {directory.resultCount}
+                    <InterfaceText>{`Showing ${firstResult}–${lastResult} of ${directory.resultCount}`}</InterfaceText>
                   </p> : null}
                   <ActiveFilterList
                     clearAllHref={serviceDirectoryUrl(pathname, { page: 1, query: '', groups: [] }, allowedGroups)}
@@ -158,34 +160,34 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
                   <div className={styles.statePanel} data-directory-section="S6" data-directory-unavailable>
                     <h2>{recoveryContent.heading}</h2>
                     <p>{recoveryContent.copy}</p>
-                    <div className={styles.stateActions}>
-                      <a className="ds-touch-target" href={currentResultsHref}>Try this search again</a>
+                    <div className={styles.stateActions} data-directory-state-actions>
+                      <a className="ds-touch-target" href={currentResultsHref}><InterfaceText>Try this search again</InterfaceText></a>
                       <Link className="ds-touch-target" href="/doctors">Find a doctor</Link>
                     </div>
                   </div>
                 ) : noMatches ? (
                   <div className={styles.statePanel} data-directory-section="S6" data-directory-empty>
-                    <h2>No services match</h2>
-                    <p>Check the spelling, remove a group, or start again. You can also explore clinicians by area of care.</p>
-                    <div className={styles.stateActions}>
-                      <a className="ds-touch-target" href={pathname}>Reset search</a>
+                    <h2>{serviceDetailLinks ? 'No care options match' : 'No services match'}</h2>
+                    <p>{serviceDetailLinks ? 'Check the spelling, remove a filter, or start again. You can also explore doctors by specialty.' : 'Check the spelling, remove a group, or start again. You can also explore clinicians by area of care.'}</p>
+                    <div className={styles.stateActions} data-directory-state-actions>
+                      <a className="ds-touch-target" href={pathname}><InterfaceText>Reset search</InterfaceText></a>
                       <Link className="ds-touch-target" href="/doctors">Find a doctor</Link>
                     </div>
                   </div>
                 ) : (
                   <div className={styles.groupCollection} data-directory-section="S5">
                     {directory.groups.map((group) => (
-                      <section aria-labelledby={`service-group-${group.publicId}`} className={styles.resultGroup} key={group.publicId}>
+                      <section aria-labelledby={`service-group-${group.publicId}`} className={styles.resultGroup} data-directory-result-group key={group.publicId}>
                         <h2 id={`service-group-${group.publicId}`}>{group.name}</h2>
                         <ol aria-labelledby={`service-group-${group.publicId}`} className={styles.results}>
                           {group.services.map((service) => (
                             <li key={service.publicId}>
                               <article className={styles.card} data-service-public-id={service.publicId}>
-                                {!serviceDetailLinks ? <p className={styles.cardLabel}>{service.group.name}</p> : null}
+                                {!serviceDetailLinks ? <p className={styles.cardLabel} data-directory-card-label>{service.group.name}</p> : null}
                                 <h3>{serviceDetailLinks ? <Link href={`${service.canonicalPath}?from=${encodeURIComponent(currentResultsHref)}`}>{service.name}</Link> : service.name}</h3>
-                                <p className={styles.cardSummary}>{service.sections.scope?.[0] ?? 'Explore this care area and choose a next step.'}</p>
+                                <p className={styles.cardSummary} data-directory-card-summary>{service.sections.scope?.[0] ?? 'Explore this care area and choose a next step.'}</p>
                                 <div className={styles.cardActions}>
-                                  {serviceRequestLinks ? <Link className="ds-touch-target" aria-label={`Request an appointment for ${service.name}`} href={`/appointment?service=${encodeURIComponent(service.publicId)}`}>Request an appointment</Link> : !serviceDetailLinks ? <span aria-disabled="true" className={styles.disabledAction}>Service details unavailable</span> : null}
+                                  {serviceActions?.[service.publicId] ? <Link className="ds-touch-target" aria-label={`${serviceActions[service.publicId].label} for ${service.name}`} href={serviceActions[service.publicId].href}>{serviceActions[service.publicId].label}</Link> : serviceRequestLinks ? <Link className="ds-touch-target" aria-label={`Request an appointment for ${service.name}`} href={`/appointment?service=${encodeURIComponent(service.publicId)}`}>Request an appointment</Link> : !serviceDetailLinks ? <span aria-disabled="true" className={styles.disabledAction}>Service details unavailable</span> : null}
                                 </div>
                               </article>
                             </li>
@@ -206,12 +208,12 @@ export function ServiceDirectoryTemplate({ introVisual, directory, pathname, ser
           </DirectorySearchForm>
         </section>
 
-        {preparationGuides.length ? <section className={`${styles.support} ds-support-band`} aria-labelledby="visit-guides-title">
+        {preparationGuides.length ? <section className={`${styles.support} ds-support-band`} data-directory-support data-care-band="preparation" aria-labelledby="visit-guides-title">
           <h2 id="visit-guides-title">Visit preparation guides</h2>
           <p>Practical questions to prepare for a stay, day visit or therapy conversation.</p>
           <ul>{preparationGuides.map((guide) => <li key={guide.href}><Link className="ds-touch-target" href={guide.href}>{guide.title}<span aria-hidden="true"> →</span></Link></li>)}</ul>
         </section> : null}
-        <section aria-labelledby="service-support-title" className={`${styles.support} ds-support-band`} data-directory-section="S7"
+        <section aria-labelledby="service-support-title" className={`${styles.support} ds-support-band`} data-directory-support data-care-band="assistance" data-directory-section="S7"
           id="service-directory-support">
           <h2 id="service-support-title">Still not sure?</h2>
           <div className="ds-support-actions">

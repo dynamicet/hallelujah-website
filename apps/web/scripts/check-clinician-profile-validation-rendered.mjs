@@ -120,7 +120,7 @@ try {
     emptyHeadings: [...document.querySelectorAll('h1,h2,h3')].filter(node => !node.textContent.trim()).length,
     portraitImages: document.querySelectorAll('img,picture,source').length,
     forms: document.querySelectorAll('form,input,textarea,select').length,
-    disabledActions: [...document.querySelectorAll('[aria-disabled=true]')]
+    disabledActions: [...document.querySelectorAll('[aria-disabled=true],button:disabled')]
       .map(node => node.textContent.trim()).sort(),
   })`)
   assert.deepEqual(semantics, {
@@ -128,7 +128,7 @@ try {
     disabledActions: [
       'Appointment requests unavailable',
       'Appointment requests unavailable',
-      'አማርኛ',
+      'አማርኛ · Unavailable',
     ].sort(),
     duplicateIds: 0,
     emptyHeadings: 0,
@@ -173,7 +173,7 @@ try {
   cases.push('no-JavaScript optional-field omission')
 
   await navigate('/portrait-omitted', { width: 360 })
-  assert.equal(await evaluate("document.querySelectorAll('[data-portrait-omitted]').length"), 1)
+  assert.equal(await evaluate("document.querySelectorAll('[data-clinician-monogram]').length"), 1)
   assert.equal(await evaluate("document.querySelectorAll('img,picture,source').length"), 0)
   assert.doesNotMatch(await evaluate('document.body.innerText'), /Synthetic portrait metadata only|Synthetic rights fixture/u)
   cases.push('portrait evidence withheld')

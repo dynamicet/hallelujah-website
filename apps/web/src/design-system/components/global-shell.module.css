@@ -608,5 +608,5 @@
 .footerNavigation a { text-decoration: none; }
 .footerNavigation a:hover { text-decoration: underline; }
 
-.headerInner, .noticeInner, .breadcrumbFrame, .footerInner { inline-size: min(1240px, calc(100% - 96px)); max-inline-size: none; padding-inline: 0; }
-@media (max-width: 47.99rem) { .headerInner, .noticeInner, .breadcrumbFrame, .footerInner { inline-size: calc(100% - 32px); } }
+.headerInner, .noticeInner, .breadcrumbFrame, .footerInner { inline-size: min(1280px, calc(100% - 80px)); max-inline-size: none; padding-inline: 0; }
+@media (max-width: 47.99rem) { .headerInner, .noticeInner, .breadcrumbFrame, .footerInner { inline-size: calc(100% - 40px); } }

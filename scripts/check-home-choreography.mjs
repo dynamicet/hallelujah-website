@@ -14,7 +14,8 @@ await runVisualCheck('home-choreography', baseUrl, async ({ browser, output }) =
     const page = await browser.newPage({ width, height: 1000, mobile: width < 600 })
     await page.goto(baseUrl)
     const sections = await page.eval(`[...document.querySelectorAll('[data-motion-section]')].map(e=>e.dataset.motionSection)`)
-    assert.equal(sections.length, 11, 'all eleven post-hero sections have a deliberate motion allocation')
+    assert.ok(sections.includes('care') && sections.includes('specialists') && sections.includes('stories'), 'core care and story sections retain motion allocation')
+    assert.ok(!sections.includes('technology') && !sections.includes('film'), 'equipment invitation and hospital introduction stay static')
     const journey = []
     for (const name of sections) {
       await scrollToSection(page, name)
@@ -46,20 +47,21 @@ await runVisualCheck('home-choreography', baseUrl, async ({ browser, output }) =
       await frame(page)
       assert.equal(await page.eval(`${entrances}.length`), 0)
     }
-    // Boundary accents respond in both directions, with no content re-entry.
+    // The selected composition keeps the care chapter boundary static.
     await page.eval(`scrollTo({top:0,behavior:'instant'})`)
     await pause(page, 800)
-    const collapsed = await page.eval(`getComputedStyle(document.querySelector('[data-motion-section="technology"]'),'::before').transform`)
-    await scrollToSection(page, 'technology')
+    const collapsed = await page.eval(`getComputedStyle(document.querySelector('[data-motion-section="care"]'),'::before').transform`)
+    await scrollToSection(page, 'care')
     await pause(page, 850)
-    const expanded = await page.eval(`getComputedStyle(document.querySelector('[data-motion-section="technology"]'),'::before').transform`)
-    assert.notEqual(collapsed, expanded)
+    const expanded = await page.eval(`getComputedStyle(document.querySelector('[data-motion-section="care"]'),'::before').transform`)
+    assert.equal(collapsed, 'none')
+    assert.equal(expanded, 'none')
     await page.screenshot({ path: `${output}/technology-settled-${width}.png` })
     // Live preference change also settles decorative section boundaries.
     await page.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
     await frame(page)
     assert.equal(await page.eval('document.getAnimations().length'), 0)
-    assert.equal(await page.eval(`getComputedStyle(document.querySelector('[data-motion-chapter]'),'::before').transform`), 'none')
+    assert.equal(await page.eval(`document.querySelectorAll('[data-motion-chapter]').length`), 0, 'retired decorative chapter boundaries remain absent')
     assert.equal(await page.eval(`[...document.querySelectorAll('video')].filter(v=>!v.paused).length`), 0)
     await page.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'no-preference' }] })
 
@@ -93,7 +95,7 @@ await runVisualCheck('home-choreography', baseUrl, async ({ browser, output }) =
     await pause(page, 1000)
     assert.deepEqual(page.consoleErrors, [])
     records.push({ width, journey, boundary: { collapsed, expanded }, fastScroll: 'passed', keyboardFocus: 'passed', clientNavigation: 'passed' })
-    await writeFile(output + '/observations.json', JSON.stringify(records, null, 2))
+    await writeFile(output + '/observations.json', JSON.stringify(records, null, 2) + '\n')
     await page.close()
     console.log(`PASS ${width}px: full-home sequence, reverse/fast scroll, focus, reduced motion, client navigation`)
   }

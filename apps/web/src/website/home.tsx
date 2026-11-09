@@ -1,29 +1,30 @@
-import Link from 'next/link'
+import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
+
 import { ClinicianPortrait, Icon, SiteShell } from '@/design-system/components'
 import { clinicians, demoShell } from '@/demo/site'
 import { demoClinicianPortraits } from '@/demo/clinician-portraits'
-import { hospitalStatistics } from '@/demo/hospital-statistics'
-import { patientStories, patientQuotes } from '@/demo/patient-stories'
+import { patientStories } from '@/demo/patient-stories'
 import { EverydayStories } from './everyday-stories'
 import { CareSearch } from './care-search'
 import { HomeScenes } from './home-scenes'
-import { CareBackgroundFilm } from './care-background-film'
+import { HospitalStoryIntroduction } from './hospital-story-introduction'
 import { SpecialtyGrid } from './specialty-grid'
-import { EquipmentShowcase } from './equipment-showcase'
-import { HospitalStatistics } from './hospital-statistics'
-import { HealthLibrary } from './health-library'
-import { healthTopics } from '@/demo/health-topics'
+import { EquipmentPreview } from './equipment-preview'
+import { HomeHealthTopics } from './home-health-topics'
 import { partners } from '@/demo/partners'
 import { Partners } from './partners'
 import { NewsResources } from './news-resources'
 import { editorialEntries } from '@/demo/editorial'
 import { ContactDirections } from './contact-directions'
+import { FeaturedSpecialists } from './featured-specialists'
 
 const Arrow = () => <span aria-hidden="true">→</span>
 const VisitChevron = () => <span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
 const HeroArrow = () => <span className="welcome-action-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></span>
 
-const featuredClinicians = Object.keys(demoClinicianPortraits).slice(0, 3).flatMap((publicId) => {
+// Editorial order for the preview, independent of portrait-map insertion order.
+const featuredClinicianIds = ['pub_101010101010', 'pub_111111111111', 'pub_121212121212', 'pub_131313131313', 'pub_141414141414', 'pub_151515151515']
+const featuredClinicians = featuredClinicianIds.flatMap((publicId) => {
   const clinician = clinicians.find((entry) => entry.publicId === publicId)
   return clinician ? [clinician] : []
 })
@@ -31,7 +32,7 @@ const featuredClinicians = Object.keys(demoClinicianPortraits).slice(0, 3).flatM
 export function WebsiteHome() {
   const shell = demoShell('/')
   const receptionTarget = shell.header.contactTargets?.call
-  const receptionAction = <><Icon name="phone" /><span>Call us</span></>
+  const receptionAction = <><Icon name="phone" /><span><InterfaceText>Call reception</InterfaceText></span></>
   return (
     <SiteShell {...shell}>
       <div className="hospital-home enhanced-home">
@@ -67,8 +68,8 @@ export function WebsiteHome() {
 
         <nav className="home-quick-access" aria-label="Plan your care and visit">
           <ul className="page-frame home-quick-access-list">
-            <li><a href="#visit-guide"><span className="home-quick-access-icon"><Icon name="calendar" /></span><span className="home-quick-access-copy"><strong>Plan your visit</strong></span><Arrow /></a></li>
-            <li><a href="#home-directions"><span className="home-quick-access-icon"><Icon name="directions" /></span><span className="home-quick-access-copy"><strong>Contact &amp; directions</strong></span><Arrow /></a></li>
+            <li><a href="#visit-guide"><span className="home-quick-access-icon"><Icon name="calendar" /></span><span className="home-quick-access-copy"><strong><InterfaceText>Plan your visit</InterfaceText></strong></span><Arrow /></a></li>
+            <li><a href="#home-directions"><span className="home-quick-access-icon"><Icon name="directions" /></span><span className="home-quick-access-copy"><strong><InterfaceText>Contact &amp; directions</InterfaceText></strong></span><Arrow /></a></li>
             <li><Link className="home-quick-access-urgent" href="/emergency"><span className="home-quick-access-icon"><Icon name="emergency" /></span><span className="home-quick-access-copy"><strong>Emergency information</strong><span>Urgent care and ambulance contacts</span></span><Arrow /></Link></li>
           </ul>
         </nav>
@@ -83,9 +84,9 @@ export function WebsiteHome() {
               </div>
               <Link className="team-directory text-link" href="/doctors">View all doctors <Arrow /></Link>
             </div>
-            <div className="team-list">
+            <FeaturedSpecialists>
               {featuredClinicians.map((clinician, index) => (
-                <Link data-motion="card" data-reveal={index} className="team-person" aria-labelledby={`team-name-${clinician.publicId} team-profile-${clinician.publicId}`} data-clinician-identity-id={clinician.publicId} key={clinician.publicId} href={clinician.canonicalPath}>
+                <Link data-motion="card" data-reveal={index % 3} className="team-person" aria-labelledby={`team-name-${clinician.publicId} team-profile-${clinician.publicId}`} data-clinician-identity-id={clinician.publicId} key={clinician.publicId} href={clinician.canonicalPath}>
                   <div className="team-portrait-frame" data-signature-frame="portrait">
                     <ClinicianPortrait className="team-portrait" name={clinician.details.name} src={demoClinicianPortraits[clinician.publicId]} />
                   </div>
@@ -98,7 +99,7 @@ export function WebsiteHome() {
                   </div>
                 </Link>
               ))}
-            </div>
+            </FeaturedSpecialists>
             <div className="team-next-step">
               <h3>Not sure who to see?</h3>
               <Link className="team-care-help" href="/services">Explore care options <Arrow /></Link>
@@ -108,15 +109,17 @@ export function WebsiteHome() {
 
         <section className="visit-guide" data-motion-section="visit" aria-labelledby="visit-guide-title" id="visit-guide" tabIndex={-1}>
           <div className="page-frame visit-inner">
-            <div className="visit-copy"><h2 data-motion="heading" data-reveal="0" id="visit-guide-title">Plan <span className="home-heading-accent">your visit</span></h2>
+            <div className="visit-copy"><h2 data-motion="heading" data-reveal="0" id="visit-guide-title">Plan your visit</h2>
+              <div className="visit-checklist">
+                <h3>What to bring</h3>
+                <ul><li>Your questions and medicine list</li><li>Referral letter, if you have one</li><li>Relevant previous results</li></ul>
+                <p>Confirm any additional requirements before travelling.</p>
+              </div>
             </div>
             <div className="visit-preparation">
               <div className="visit-questions">
-                <details data-motion-disclosure><summary>What should I bring?<VisitChevron /></summary><ul><li>Your questions and medicine list</li><li>Referral letter, if you have one</li><li>Relevant previous results</li></ul><p>Confirm any additional requirements before travelling.</p></details>
-                <details data-motion-disclosure><summary>How do appointment requests work?<VisitChevron /></summary><p>Choose your care, add your contact details, and review your request. Contact the hospital to confirm a time.</p></details>
-                <details data-motion-disclosure><summary>Can someone come with me?<VisitChevron /></summary><p>Ask the hospital about companions and visiting arrangements before your visit.</p></details>
-                <details data-motion-disclosure><summary>When should I arrive?<VisitChevron /></summary><p>Call to confirm department opening hours, your arrival time, and where to check in. Ask how much time to allow for registration. <Link href="/patients-visitors#visit-times">Hours &amp; arrival guidance</Link></p></details>
-                <details data-motion-disclosure><summary>What if I need extra support?<VisitChevron /></summary><p>Confirm language, mobility, or other support with the hospital before travelling, including step-free access if you need it.</p></details>
+                <details data-motion-disclosure><summary>Appointments &amp; arrival<VisitChevron /></summary><p>Choose your care, add your contact details, and review your request. Contact the hospital to confirm a time.</p><p>Call to confirm department opening hours, your arrival time, and where to check in. Ask how much time to allow for registration. <Link href="/patients-visitors#visit-times">Hours &amp; arrival guidance</Link></p></details>
+                <details data-motion-disclosure><summary>Companions &amp; extra support<VisitChevron /></summary><p>Ask the hospital about companions and visiting arrangements before your visit.</p><p>Confirm language, mobility, or other support with the hospital before travelling, including step-free access if you need it.</p></details>
               </div>
               <Link className="text-link" href="/patients-visitors">Read the full visit guide <Arrow /></Link>
             </div>
@@ -125,23 +128,20 @@ export function WebsiteHome() {
 
         <ContactDirections />
 
-        <HealthLibrary topics={healthTopics} />
+        <HomeHealthTopics />
 
-        <EquipmentShowcase />
+        <EquipmentPreview />
 
-        <section className="hospital-film-section" data-motion-section="film" id="about-hallelujah" aria-labelledby="hospital-film-title">
-          <div className="page-frame hospital-film-stage" data-motion="image" data-reveal="1"><CareBackgroundFilm /></div>
+        <section className="hospital-film-section" id="about-hallelujah" aria-labelledby="hospital-story-title">
+          <HospitalStoryIntroduction />
         </section>
 
-        <section className="human-care" aria-label="Hospital in numbers and patient stories">
-          <HospitalStatistics {...hospitalStatistics} />
-          <div className="home-stories-room"><EverydayStories stories={patientStories} quotes={patientQuotes} preview /></div>
-        </section>
+        <div className="home-stories-room"><EverydayStories stories={patientStories.slice(0, 1)} quotes={[]} /></div>
 
         <NewsResources entries={editorialEntries} />
 
-        {/* Shared organizations appear once; the complete list remains available on demand. */}
-        <Partners partners={partners} billingPartners={partners} />
+        {/* The partner showcase reuses a selection of the existing organization artwork. */}
+        <Partners partners={partners.slice(0, 10)} billingPartners={partners} />
       </div>
     </SiteShell>
   )

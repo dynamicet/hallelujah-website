@@ -16,7 +16,7 @@
 }
 
 .action {
-  font-size: var(--site-support, 1rem);
+  font-size: var(--component-shell-body-font-size);
   align-items: center;
   appearance: none;
   border: var(--component-action-border-width) solid transparent;
@@ -67,6 +67,7 @@
 
 .primary:active {
   background: var(--component-context-action-active, var(--component-action-primary-background-active));
+  color: var(--component-context-action-foreground, var(--component-action-primary-foreground));
 }
 
 .secondary {
@@ -129,10 +130,12 @@
   overflow-wrap: anywhere;
 }
 
-.textLink:hover,
-.textLink:active {
-  color: var(--component-context-link, var(--component-action-primary-background-hover));
+.textLink:hover {
+  color: var(--component-context-link-hover, var(--component-context-link, var(--component-action-link-hover-color)));
   text-decoration-thickness: var(--component-action-underline-width-hover);
+}
+.textLink:active {
+  color: var(--component-context-link-active, var(--component-context-link, var(--component-action-link-active-color)));
 }
 .icon {
   block-size: var(--component-action-icon-size);

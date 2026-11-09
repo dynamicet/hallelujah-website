@@ -1,0 +1,46 @@
+{
+  "delivery": "X implementation",
+  "date": "2026-11-09",
+  "screenshots": [
+    {
+      "file": "home-desktop.webp",
+      "width": 1200,
+      "height": 6509,
+      "sha256": "a2f26de030eb38eb69d2ed001ec45a9accae5d0777c6182d095a21556869c37e",
+      "preview": "http://localhost:3001",
+      "mode": "optimized staging demo; existing concept/fictional content",
+      "sourceRun": "2026-11-09T06-00-20.276Z-responsive-uK59ab",
+      "sourceCapture": "route-0-1440.png"
+    },
+    {
+      "file": "home-phone.webp",
+      "width": 390,
+      "height": 10538,
+      "sha256": "728732ebdd454323f309e2af000a88b9c0aa452055999fa82972bbe4cb5c915a",
+      "preview": "http://localhost:3001",
+      "mode": "optimized staging demo; existing concept/fictional content",
+      "sourceRun": "2026-11-09T06-00-20.276Z-responsive-uK59ab",
+      "sourceCapture": "route-0-390.png"
+    },
+    {
+      "file": "appointment-desktop.webp",
+      "width": 1200,
+      "height": 1557,
+      "sha256": "dd74230e56e70cb91d872ffd98280360458156b948e20a8133f7e7a0ad1b8dd2",
+      "preview": "http://localhost:3001",
+      "mode": "optimized staging demo; existing concept/fictional content",
+      "sourceRun": "2026-11-08T22-44-56.836Z-responsive-GHY4Yy",
+      "sourceCapture": "route-4-1440.png"
+    },
+    {
+      "file": "privacy-phone.webp",
+      "width": 390,
+      "height": 3334,
+      "sha256": "3fe25e52b4df45a36464546acf4eb6dd78a89aea28f986e2eaa82f706a1aba06",
+      "preview": "http://localhost:3001",
+      "mode": "optimized staging demo; existing concept/fictional content",
+      "sourceRun": "2026-11-08T22-44-56.836Z-responsive-GHY4Yy",
+      "sourceCapture": "route-5-390.png"
+    }
+  ]
+}

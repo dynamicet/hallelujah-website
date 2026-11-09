@@ -1,5 +1,10 @@
 'use client'
 
+import { getInterfaceLanguage, interfaceLanguageChangeEvent } from '@/website/interface-language'
+import { translateInterface } from '@/website/interface-messages'
+
+import { isCompatibleCare } from './care-model'
+import { prepareAppointmentRequest } from './appointment-draft'
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
@@ -7,6 +12,7 @@ export function DemoInteractions() {
   const pathname = usePathname()
   const search = useSearchParams().toString()
   useEffect(() => {
+    const t = (text: string) => translateInterface(text, getInterfaceLanguage())
     const controller = new AbortController()
     const { signal } = controller
     const form = document.querySelector<HTMLFormElement>('#appointment-request-form')
@@ -28,25 +34,85 @@ export function DemoInteractions() {
     let timer: number | undefined
     let journeyStep = initialState === 'editing' ? 0 : initialState === 'validation' ? 1 : 2
     let furthestStep = journeyStep
-    const syncCare = () => {
+    const careEditor = form.querySelector<HTMLElement>('[data-care-editor]')
+    const careToggle = form.querySelector<HTMLButtonElement>('[data-care-edit-toggle]')
+    let careExpanded = careEditor ? !careEditor.hidden : true
+    const setCareEditor = (expanded: boolean, focus = false) => {
+      careExpanded = expanded
+      if (careEditor) careEditor.hidden = !expanded
+      if (careToggle) {
+        careToggle.setAttribute('aria-expanded', String(expanded))
+        careToggle.textContent = t(expanded ? 'Done changing care' : 'Change care')
+      }
+      if (focus) {
+        const mode = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
+        const control = expanded ? mode === 'doctor' ? form.querySelector<HTMLSelectElement>('#doctor-id')
+          : mode === 'service' ? form.querySelector<HTMLSelectElement>('#service-id')
+          : form.querySelector<HTMLInputElement>('input[name="care_route"]:checked') : careToggle
+        control?.focus()
+      }
+    }
+    const syncCare = (changed?: string) => {
       const selected = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
+      const doctor = form.querySelector<HTMLSelectElement>('#doctor-id')
+      const service = form.querySelector<HTMLSelectElement>('#service-id')
+      const notice = form.querySelector<HTMLElement>('[data-selection-notice]')
+      if (notice && ['care-route', 'doctor-id', 'service-id'].includes(changed ?? '')) {
+        notice.hidden = true
+        notice.textContent = ''
+      }
+      if (selected === 'not_sure') {
+        if (doctor) doctor.value = ''
+        if (service) service.value = ''
+      }
+      if (doctor?.value && service?.value && !isCompatibleCare(doctor.value, service.value)) {
+        if (changed === 'service-id') doctor.value = ''
+        else service.value = ''
+        if (notice) {
+          notice.hidden = false
+          notice.textContent = t(changed === 'service-id' ? 'Your previous doctor does not provide this care. Choose a related doctor or continue without a doctor preference.' : 'Your previous care choice is not listed for this doctor. Choose related care or continue with the doctor.')
+        }
+      }
       form.querySelectorAll<HTMLElement>('[data-care-selector]').forEach((element) => {
-        const active = element.dataset.careSelector === selected
-        element.hidden = !active
+        const mode = element.dataset.careSelector
+        element.hidden = mode === 'not_sure' ? selected !== 'not_sure' : selected === 'not_sure'
         const select = element.querySelector<HTMLSelectElement>('select')
         if (select) {
-          select.required = active
-          select.disabled = !active
+          select.required = selected === mode
+          const emptyOption = [...select.options].find((option) => !option.value)
+          if (emptyOption) emptyOption.textContent = t(select.required
+            ? mode === 'doctor' ? 'Choose a doctor' : 'Choose a specialty or service'
+            : mode === 'doctor' ? 'No doctor preference' : 'No specialty or service preference')
+          select.disabled = selected === 'not_sure'
           const requirement = element.querySelector<HTMLElement>('label > span:last-child')
-          if (requirement) requirement.textContent = active ? 'Required' : 'Optional'
+          if (requirement) requirement.textContent = t(select.required ? 'Required' : 'Optional')
+          for (const option of select.options) {
+            if (!option.value) continue
+            const related = select === doctor && selected === 'service' && service?.value
+              ? isCompatibleCare(option.value, service.value)
+              : select === service && selected === 'doctor' && doctor?.value
+                ? isCompatibleCare(doctor.value, option.value) : true
+            option.disabled = !related
+            option.hidden = !related
+          }
         }
       })
+      const selectors = form.querySelector<HTMLElement>('[data-care-selectors]')
+      const primary = form.querySelector<HTMLElement>(`[data-care-selector="${selected === 'service' ? 'service' : 'doctor'}"]`)
+      if (selectors && primary && selectors.firstElementChild !== primary) selectors.prepend(primary)
+      const hasSelection = Boolean(doctor?.value || service?.value)
+      const compactSummary = form.querySelector<HTMLElement>('[data-care-summary]')
+      if (compactSummary) compactSummary.hidden = !hasSelection
+      if (!hasSelection) careExpanded = true
+      setCareEditor(careExpanded)
+      form.dispatchEvent(new Event('appointment-selection-change'))
     }
     const showErrors = (errors: readonly Field[]) => {
+      if (errors.some((field) => ['care-route', 'doctor-id', 'service-id'].includes(field))) setCareEditor(true)
       if (!summary) return
       summary.hidden = errors.length === 0
       const count = summary.querySelector<HTMLElement>('[data-error-count]')
-      if (count) count.textContent = `There ${errors.length === 1 ? 'is 1 problem' : `are ${errors.length} problems`} to correct.`
+      if (count) count.textContent = t(`There ${errors.length === 1 ? 'is 1 problem' : `are ${errors.length} problems`} to correct.`)
       fields.forEach((field) => {
         const invalid = errors.includes(field)
         const item = summary.querySelector<HTMLElement>(`[data-error-item="${field}"]`)
@@ -92,7 +158,7 @@ export function DemoInteractions() {
       if (action) action.hidden = terminal || next === 'unknown' || next === 'duplicate'
       if (submit) {
         submit.disabled = busy || terminal || next === 'unknown' || next === 'duplicate'
-        submit.textContent = busy ? 'Completing request…' : next === 'known-failure' ? 'Try again' : 'Complete request'
+        submit.textContent = t(busy ? 'Checking details…' : next === 'known-failure' ? 'Try again' : 'Check details')
       }
       form.setAttribute('aria-busy', String(busy))
       if (terminal) {
@@ -107,27 +173,19 @@ export function DemoInteractions() {
       const route = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
       const doctor = form.querySelector<HTMLSelectElement>('#doctor-id')
       const service = form.querySelector<HTMLSelectElement>('#service-id')
-      const name = form.querySelector<HTMLInputElement>('#full-name')?.value.trim() ?? ''
-      const phone = form.querySelector<HTMLInputElement>('#phone')?.value.trim() ?? ''
-      const dateInput = form.querySelector<HTMLInputElement>('#preferred-date')
-      const date = dateInput?.value ?? ''
-      const acknowledged = form.querySelector<HTMLInputElement>('#privacy-acknowledged')?.checked
       if (!['doctor', 'service', 'not_sure'].includes(route ?? '')) errors.push('care-route')
       if (route === 'doctor' && !doctor?.value) errors.push('doctor-id')
       if (route === 'service' && !service?.value) errors.push('service-id')
-      if (name.length < 2 || name.length > 120) errors.push('full-name')
-      const digits = phone.replace(/\D/gu, '')
-      if (!/^[+\d\s().-]+$/u.test(phone) || digits.length < 7 || digits.length > 15) errors.push('phone')
-      if (dateInput?.validity.badInput) errors.push('preferred-date')
-      else if (date) {
-        const parsed = new Date(`${date}T00:00:00Z`)
-        const today = new Date()
-        const first = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())
-        const last = first + 365 * 24 * 60 * 60 * 1000
-        if (!/^\d{4}-\d{2}-\d{2}$/u.test(date) || !Number.isFinite(parsed.getTime()) ||
-          parsed.toISOString().slice(0, 10) !== date || parsed.getTime() < first || parsed.getTime() > last) errors.push('preferred-date')
-      }
-      if (!acknowledged) errors.push('privacy-acknowledged')
+      const result = prepareAppointmentRequest({
+        doctorId: route === 'not_sure' ? undefined : doctor?.value || undefined,
+        serviceId: route === 'not_sure' ? undefined : service?.value || undefined,
+        fullName: form.querySelector<HTMLInputElement>('#full-name')?.value ?? '',
+        phone: form.querySelector<HTMLInputElement>('#phone')?.value ?? '',
+        preferredDate: form.querySelector<HTMLInputElement>('#preferred-date')?.value || undefined,
+        privacyAcknowledged: form.querySelector<HTMLInputElement>('#privacy-acknowledged')?.checked ?? false,
+      })
+      if (!result.ok) errors.push(...result.errors.filter((field) => !errors.includes(field)))
+      if (form.querySelector<HTMLInputElement>('#preferred-date')?.validity.badInput && !errors.includes('preferred-date')) errors.push('preferred-date')
       return errors
     }
     const dateControl = form.querySelector<HTMLInputElement>('#preferred-date')
@@ -139,7 +197,7 @@ export function DemoInteractions() {
     }
     const syncJourney = () => {
       const terminal = ['receipt', 'delivery-warning'].includes(state)
-      const outcome = !['editing', 'validation'].includes(state)
+      const outcome = !['editing', 'validation', 'prepared'].includes(state)
       frame.dataset.journeyStep = String(journeyStep)
       form.querySelectorAll<HTMLElement>('[data-journey-group]').forEach((group) => {
         group.hidden = terminal || journeyStep !== (group.dataset.journeyGroup === 'care' ? 0 : 1)
@@ -152,7 +210,7 @@ export function DemoInteractions() {
       if (review) review.hidden = journeyStep !== 2 && !outcome
       const reviewTitle = form.querySelector<HTMLElement>('#appointment-submit-title')
       const reviewDescription = form.querySelector<HTMLElement>('[data-journey-review-description]')
-      if (reviewTitle) reviewTitle.textContent = terminal ? 'Your next step' : 'Review your details'
+      if (reviewTitle) reviewTitle.textContent = t(terminal ? 'Your next step' : 'Review your details')
       if (reviewDescription) reviewDescription.hidden = terminal
       const progress = form.querySelector<HTMLElement>('[data-journey-progress]')
       if (progress) progress.hidden = terminal
@@ -165,7 +223,7 @@ export function DemoInteractions() {
       })
       const title = form.querySelector<HTMLElement>('[data-journey-title]')
       const description = form.querySelector<HTMLElement>('[data-journey-description]')
-      if (title) title.textContent = journeyStep === 0 ? 'Choose your care' : 'A few details'
+      if (title) title.textContent = t(journeyStep === 0 ? careExpanded ? 'Choose your care' : 'Confirm your care' : 'A few details')
       if (description) description.textContent = ''
       const actions = form.querySelector<HTMLElement>('[data-journey-actions]')
       const back = form.querySelector<HTMLButtonElement>('[data-journey-back]')
@@ -175,24 +233,27 @@ export function DemoInteractions() {
       if (next) {
         next.hidden = journeyStep === 2
         const unsure = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value === 'not_sure'
-        next.firstChild!.textContent = journeyStep === 0 ? unsure ? 'Continue without choosing ' : 'Continue ' : 'Review request '
+        next.firstChild!.textContent = t(journeyStep === 0 ? unsure ? 'Continue without choosing ' : 'Continue ' : 'Review request ')
       }
       const reviewSummary = form.querySelector<HTMLElement>('[data-journey-review]')
       if (reviewSummary) reviewSummary.hidden = terminal || outcome || journeyStep !== 2
       const route = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value
-      const chosen = form.querySelector<HTMLSelectElement>(route === 'doctor' ? '#doctor-id' : '#service-id')
+      const chosenDoctor = form.querySelector<HTMLSelectElement>('#doctor-id')
+      const chosenService = form.querySelector<HTMLSelectElement>('#service-id')
+      const selectedLabels = [chosenDoctor, chosenService].flatMap((select) => select?.value ? [select.selectedOptions[0]?.textContent ?? ''] : [])
       const date = form.querySelector<HTMLInputElement>('#preferred-date')?.value
       const parsedDate = date ? new Date(`${date}T00:00:00Z`) : undefined
       const values: Record<string, string> = {
         visit: form.querySelector<HTMLInputElement>('input[name="visit_type"]:checked')?.value === 'follow-up' ? 'Follow-up visit' : 'First visit',
-        care: route === 'not_sure' ? 'Help finding the right care' : chosen?.value ? chosen.selectedOptions[0].textContent ?? '' : 'Choose your care',
+        care: route === 'not_sure' ? 'Help finding the right care' : selectedLabels.length ? selectedLabels.join(' · ') : 'Choose your care',
         name: terminal ? 'Not added' : form.querySelector<HTMLInputElement>('#full-name')?.value || 'Not added',
         phone: terminal ? 'Not added' : form.querySelector<HTMLInputElement>('#phone')?.value || 'Not added',
-        date: parsedDate && Number.isFinite(parsedDate.getTime()) ? new Intl.DateTimeFormat('en', { dateStyle: 'medium', timeZone: 'UTC' }).format(parsedDate) : 'No preference',
+        date: parsedDate && Number.isFinite(parsedDate.getTime()) ? new Intl.DateTimeFormat(getInterfaceLanguage(), { dateStyle: 'medium', timeZone: 'UTC' }).format(parsedDate) : 'No preference',
       }
       frame.querySelectorAll<HTMLElement>('[data-journey-value]').forEach((element) => {
         const value = values[element.dataset.journeyValue ?? ''] ?? ''
-        if (element.textContent !== value) element.textContent = value
+        const display = ['visit', 'care', 'date'].includes(element.dataset.journeyValue ?? '') ? t(value) : value
+        if (element.textContent !== display) element.textContent = display
       })
     }
     const goToStep = (step: number, focus = true) => {
@@ -226,7 +287,19 @@ export function DemoInteractions() {
       showErrors([])
       goToStep(Math.max(0, journeyStep - 1))
     }, { signal })
-    form.querySelector<HTMLButtonElement>('[data-journey-edit-care]')?.addEventListener('click', () => { showErrors([]); goToStep(0) }, { signal })
+    careToggle?.addEventListener('click', () => {
+      const errors = careExpanded ? validate().filter((field) => stepForField(field) === 0) : []
+      showErrors(errors)
+      if (errors.length) { summary?.querySelector<HTMLElement>('#appointment-error-summary-heading')?.focus(); return }
+      setCareEditor(!careExpanded, true)
+      syncJourney()
+    }, { signal })
+    form.querySelector<HTMLButtonElement>('[data-journey-edit-care]')?.addEventListener('click', () => {
+      showErrors([])
+      goToStep(0, false)
+      setCareEditor(true, true)
+      syncJourney()
+    }, { signal })
     form.querySelector<HTMLButtonElement>('[data-journey-edit]')?.addEventListener('click', () => goToStep(1), { signal })
     form.querySelectorAll<HTMLButtonElement>('[data-journey-step]').forEach((button) => {
       button.addEventListener('click', () => {
@@ -245,6 +318,14 @@ export function DemoInteractions() {
       setState('editing')
       goToStep(1)
     }, { signal })
+    window.addEventListener(interfaceLanguageChangeEvent, () => {
+      requestAnimationFrame(() => {
+        if (signal.aborted) return
+        syncCare()
+        setState(state)
+        if (!summary?.hidden) showErrors(validate().filter((field) => stepForField(field) === journeyStep))
+      })
+    }, { signal })
     form.noValidate = true
     form.addEventListener('submit', (event) => {
       event.preventDefault()
@@ -256,6 +337,10 @@ export function DemoInteractions() {
         setState('validation')
         goToStep(stepForField(errors[0]), false)
         summary?.querySelector<HTMLElement>("#appointment-error-summary-heading")?.focus()
+        return
+      }
+      if (!['known-failure', 'unknown', 'duplicate', 'delivery-warning', 'receipt'].includes(outcomeScenario)) {
+        setState('prepared', true)
         return
       }
       busy = true
@@ -272,12 +357,14 @@ export function DemoInteractions() {
         setState(outcome, true)
       }, 500)
     }, { signal })
-    form.addEventListener('change', () => {
-      syncCare()
+    form.addEventListener('change', (event) => {
+      if (state === 'prepared') setState('editing')
+      syncCare(event.target instanceof HTMLInputElement && event.target.name === 'care_route' ? 'care-route' : event.target instanceof HTMLElement ? event.target.id : undefined)
       syncJourney()
       if (!summary?.hidden) showErrors(validate().filter((field) => stepForField(field) === journeyStep))
     }, { signal })
     form.addEventListener('input', () => {
+      if (state === 'prepared') setState('editing')
       syncJourney()
       if (!summary?.hidden) showErrors(validate().filter((field) => stepForField(field) === journeyStep))
     }, { signal })

@@ -103,7 +103,7 @@ cases++
 const previewScript = await readFile(new URL('./fixtures/appointment-preview.js', import.meta.url), 'utf8')
 assert.doesNotMatch(previewScript, /fetch\(|XMLHttpRequest|sendBeacon|WebSocket|localStorage|sessionStorage|document\.cookie/u)
 assert.match(previewScript, /event\.preventDefault\(\)/u)
-assert.match(previewScript, /summary\.focus\(\)/u)
+assert.match(previewScript, /summary\.querySelector\('h3'\)\?\.focus\(\)/u)
 assert.match(previewScript, /showPanel\('known-failure', true\)/u)
 cases++
 

@@ -1,0 +1,8 @@
+.artwork { display: block; inline-size: 100%; block-size: auto; pointer-events: none; }
+.cyan { stroke: var(--semantic-color-artwork-cyan); }
+.orange { stroke: var(--semantic-color-artwork-orange); }
+.magenta { stroke: var(--semantic-color-artwork-magenta); }
+.yellow { fill: var(--semantic-color-artwork-yellow); }
+@media (forced-colors: active), print {
+  .artwork { visibility: hidden; }
+}

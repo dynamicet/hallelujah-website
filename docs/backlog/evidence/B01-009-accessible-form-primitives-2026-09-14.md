@@ -1,5 +1,7 @@
 # `B01-009` Accessible Form Primitives — Local Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
 **Result:** Done for controlled development; full local `T0` and hosted implementation `T1` pass
@@ -16,7 +18,7 @@
 | Progressive behavior | Server HTML keeps submit disabled. The first-party enhancement installs request prevention before enabling it, performs local validation only, and makes no network or persistent-storage call. Valid fixture input ends in explicit non-acceptance, never a receipt. |
 | Responsive and resilience | 320, 360, 375, 667 × 375 landscape, 768, 1280, 1440, 200%/400% reflow equivalents, and 200% root-text enlargement pass without detected clipping or page overflow. No-JavaScript, reduced-motion, forced-colors, and print assertions pass. Visible actionable controls and choice labels meet the 44 × 44 CSS px target. |
 | Built and runtime gates | Request-rendered accessibility, asset-budget, and runtime checks pass. The final local run measured 139,428 compressed JavaScript bytes, 161,014 initial compressed bytes, 13 requests, and zero external origins. |
-| Visual review | [320px](b01-009-rendered/b01-009-form-primitives-320.png) and [1440px](b01-009-rendered/b01-009-form-primitives-1440.png) captures were inspected for hierarchy, label/help association, wrapping, target size, disabled state, and distinct receipt/warning/failure presentation. |
+| Visual review | 320px (unavailable archive: `b01-009-rendered/b01-009-form-primitives-320.png`) and 1440px (unavailable archive: `b01-009-rendered/b01-009-form-primitives-1440.png`) captures were inspected for hierarchy, label/help association, wrapping, target size, disabled state, and distinct receipt/warning/failure presentation. |
 | External boundary | Synthetic fixture text only; no hospital content, personal data, appointment route, server action, provider, analytics, storage, authoritative outcome, deployment, or publication capability was introduced. |
 | Hosted implementation gate | [`quality-and-security`](https://github.com/dynamicet/hallelujah-website/actions/runs/34892559476) passed in 2m25s on implementation commit `a921e61`, including frozen install, reachable-history secret scan, dependency audit, full verification, and clean rebuild. |
 

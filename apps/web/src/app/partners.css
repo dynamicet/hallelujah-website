@@ -1,18 +1,24 @@
-.partners { padding-block: 48px; background: transparent; }
-.partners-bands { display: grid; gap: 64px; }
-.partners-band { display: grid; grid-template-columns: minmax(220px, .7fr) minmax(0, 1.6fr); gap: 48px; align-items: start; }
-.partners-band .partners-heading { display: block; margin: 0; }
-.partners-collaboration-band { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-.partners-collaboration-band .partners-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.partners-heading h2 { margin: 0; font-size: clamp(28px, 2.8vw, 40px); line-height: 1.15; }
-.partners-copy { max-width: 30ch; margin: 20px 0 0; font-size: 16px; line-height: 1.6; color: var(--site-muted); }
-.partners-billing-list, .partners-collaboration-list { list-style: none; margin: 0; padding: 0; }
-.partners-billing-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.partners { padding-block: 48px; background: var(--site-white); }
+.organizations-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(40px, 6vw, 88px); align-items: start; }
+.organizations-intro h2 { max-width: 16ch; margin: 0; }
+.organizations-intro p { max-width: 40ch; margin: 24px 0 12px; color: var(--site-muted); }
+.organization-group { border-block-end: 1px solid var(--semantic-color-border-default); }
+.organization-group:first-child { border-block-start: 1px solid var(--semantic-color-border-default); }
+.organization-group summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 88px; padding-block: 20px; color: var(--site-ink); font-size: 20px; line-height: 1.4; cursor: pointer; list-style: none; }
+.organization-group summary::-webkit-details-marker { display: none; }
+.organization-group summary small { display: block; margin-top: 6px; font-size: 14px; color: var(--site-muted); }
+.organization-group summary svg { flex: 0 0 20px; color: var(--site-link); }
+.organization-group[open] summary svg { transform: rotate(180deg); }
+.organization-group summary:hover { color: var(--site-link); }
+.organization-group summary:focus-visible, .partners a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
+.organization-content { padding-bottom: 28px; }
+.organization-content > p { margin: 0 0 24px; max-width: 60ch; color: var(--site-muted); }
+.organization-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 0; margin: 0; list-style: none; }
 .partner { min-width: 0; text-align: center; }
 .partner figure { margin: 0; }
-.partners .partner-logo { display: flex; align-items: center; justify-content: center; height: 88px; padding: 8px; background: transparent; }
-.partners .partner-logo img { display: block; width: 100%; height: 72px; max-width: 100%; max-height: 72px; object-fit: contain; mix-blend-mode: multiply; transform: scale(var(--partner-logo-scale, 1)); }
-.partners-billing-list .partner figcaption { margin: 8px 0 0; font-size: 14px; line-height: 1.45; overflow-wrap: anywhere; }
+.partners .partner-logo { display: flex; align-items: center; justify-content: center; height: 64px; padding: 8px; }
+.partners .partner-logo img { display: block; width: 100%; height: 48px; object-fit: contain; mix-blend-mode: multiply; transform: scale(var(--partner-logo-scale, 1)); }
+.partner figcaption { margin-top: 8px; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; color: var(--site-ink); }
 /* Optical balance preserves the source artwork and its different white margins. */
 .partner[data-partner='total-energies'] { --partner-logo-scale: 1.2; }
 .partner[data-partner='nib-bank'], .partner[data-partner='ethiopian-airlines'] { --partner-logo-scale: 1.1; }
@@ -20,49 +26,18 @@
 .partner[data-partner='moha-soft-drink-industries'], .partner[data-partner='dashen-bank'] { --partner-logo-scale: .9; }
 .partner[data-partner='united-states-embassy'], .partner[data-partner='civil-aviation-authority'], .partner[data-partner='ethiopia-investment-holdings'] { --partner-logo-scale: .85; }
 .partner[data-partner='iom'] { --partner-logo-scale: .82; }
-.partners-billing-more { margin-top: 16px; }
-.partners-billing-more > summary, .partners-motion-toggle, .partners-billing-collapse { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--site-link); font: inherit; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
-.partners-billing-more > summary { list-style: none; margin-bottom: 16px; }
-.partners-billing-more > summary::-webkit-details-marker { display: none; }
-.partners-more-open, .partners-billing-more[open] .partners-more-closed { display: none; }
-.partners-billing-more[open] .partners-more-open { display: inline; }
-.partners-billing-collapse { margin-top: 16px; }
-html:not([data-hydration='ready']) .partners-billing-collapse { display: none; }
-.partners-motion-toggle { margin-top: 0; }
-.partners-rail { min-width: 0; overflow: visible; }
-.partners-rail-track { min-width: 0; }
-.partners-collaboration-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
-.partners-rail:not([data-motion-state='static']) { overflow: hidden; }
-.partners-rail:not([data-motion-state='static']) .partners-rail-track { display: flex; width: max-content; column-gap: 32px; }
-.partners-rail:not([data-motion-state='static']) .partners-collaboration-list { display: flex; flex: 0 0 auto; gap: 32px; }
-.partners-rail:not([data-motion-state='static']) .partner { flex: 0 0 140px; width: 140px; }
-.partners-rail[data-paused='true'] { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--site-link) var(--site-pale); }
-.partners-rail[data-paused='true'] .partners-rail-clone { display: none; }
-.partners :is(button, summary):focus-visible, .partners-rail:focus-visible { outline: 3px solid var(--site-link); outline-offset: 4px; }
 @media (max-width: 899px) {
-  .partners-band { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  .partners-bands { gap: 48px; }
-  .partners-copy { max-width: 48ch; }
+  .organizations-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .organizations-intro h2 { max-width: none; }
 }
 @media (max-width: 599px) {
-  .partners-billing-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
-  .partners-collaboration-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .partners .partner-logo { height: 76px; padding: 6px; }
-  .partners .partner-logo img { height: 64px; max-height: 64px; }
-  .partners-rail:not([data-motion-state='static']) .partner { flex-basis: 120px; width: 120px; }
-  .partners-rail:not([data-motion-state='static']) .partners-rail-track, .partners-rail:not([data-motion-state='static']) .partners-collaboration-list { gap: 24px; }
-}
-@media (prefers-reduced-motion: reduce), print {
-  .partners .partners-rail { overflow: visible; }
-  .partners .partners-rail-track { display: block; width: auto; transform: none !important; }
-  .partners .partners-collaboration-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-  .partners .partners-collaboration-list .partner { width: auto; }
-  .partners .partners-rail-clone, .partners-motion-toggle { display: none; }
+  .organization-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+  .organization-group summary { font-size: 18px; }
 }
 @media print {
-  .partners { break-inside: avoid; }
-  .partners-billing-more > summary { display: none; }
-  .partners-billing-more > .partners-billing-collapse { display: none; }
-  .partners-billing-more > .partners-billing-list { display: grid; }
+  .organization-group > .organization-content { display: block; }
+  .organization-group summary svg { display: none; }
 }
-@media (forced-colors: active) { .partners :is(button, summary):focus-visible, .partners-rail:focus-visible { outline-color: Highlight; } }
+@media (forced-colors: active) {
+  .organization-group summary:focus-visible, .partners a:focus-visible { outline-color: Highlight; }
+}

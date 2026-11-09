@@ -1,5 +1,7 @@
 # B03-004 Controlled Home Artifacts
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Environment / method:** Isolated loopback T0, actual server React template/component sources,
 generated design tokens and colocated CSS Modules; headless Chromium CDP.
 **Tester / review identity:** `befikadusata` directing Codex in temporary Frontend/Product/QA roles.
@@ -16,9 +18,9 @@ Inline `data:image/` events from native video controls open no connection and ar
 
 | Controlled composition | 320 px without JavaScript | 1440 px without JavaScript |
 | --- | --- | --- |
-| Static Home | [Mobile capture](static-320-no-js.png) | [Desktop capture](static-1440-no-js.png) |
-| Optional hero media | [Mobile capture](hero-320-no-js.png) | [Desktop capture](hero-1440-no-js.png) |
-| Optional story media | [Mobile capture](story-320-no-js.png) | [Desktop capture](story-1440-no-js.png) |
+| Static Home | Mobile capture (unavailable archive: `static-320-no-js.png`) | Desktop capture (unavailable archive: `static-1440-no-js.png`) |
+| Optional hero media | Mobile capture (unavailable archive: `hero-320-no-js.png`) | Desktop capture (unavailable archive: `hero-1440-no-js.png`) |
+| Optional story media | Mobile capture (unavailable archive: `story-320-no-js.png`) | Desktop capture (unavailable archive: `story-1440-no-js.png`) |
 
 The captures retain focus on the final Directions destination after successful native keyboard
 activation, then return scroll to the top. The focus boundary is intentional evidence. Copy,

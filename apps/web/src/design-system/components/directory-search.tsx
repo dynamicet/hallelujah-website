@@ -1,5 +1,7 @@
 'use client'
 
+import { InterfaceCopy } from '@/website/interface-language'
+
 import Form from 'next/form'
 import { useEffect, useLayoutEffect, useRef, type ReactNode } from 'react'
 import { useFormStatus } from 'react-dom'
@@ -23,10 +25,10 @@ export function DirectorySearchForm({ action, children, label, resultKey }: {
     // without replacing controls or taking keyboard focus away.
     form.current?.reset()
   }, [resultKey])
-  return <Form ref={form} action={action} scroll={false} aria-label={label}
+  return <InterfaceCopy><Form ref={form} action={action} scroll={false} aria-label={label}
     className={styles.form} data-search-controls-form role="search">
     {children}
-  </Form>
+  </Form></InterfaceCopy>
 }
 
 export function DirectoryResultCount({ children, id, resultKey }: {
@@ -56,9 +58,9 @@ export function DirectoryResultCount({ children, id, resultKey }: {
     }
   }, [pending, resultKey])
 
-  return <p ref={count} id={id} className={`${styles.resultCount} ${styles.directoryCount}`}
+  return <InterfaceCopy><p ref={count} id={id} className={`${styles.resultCount} ${styles.directoryCount}`}
     data-result-count data-search-pending={pending || undefined}
     role="status" aria-live="polite" aria-atomic="true">
     {pending ? 'Updating results…' : children}
-  </p>
+  </p></InterfaceCopy>
 }

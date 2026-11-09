@@ -1,5 +1,74 @@
 # Contact & directions
 
+## Contact-flow polish — 8 November 2026
+
+The homepage header now jumps to its contact section; other pages link directly to
+`/contact`, with the Contact page marked current. The section's “All contact
+details” action and arrival-guidance link continue to the page and its preparation
+section. The page adds native shortcuts to reception, directions and travel
+preparation, plus a return link to the homepage overview. Existing factual copy,
+contact values and direct actions remain intact.
+
+Spacing and shared SVG icons now give the two surfaces a consistent hierarchy.
+Travel advice uses compact open rows; urgent help has its own supporting surface.
+The floating Help control yields around marked arrival information. The map's
+attribution focus outline stays inside its clipped boundary. Mobile-menu fragment
+navigation now retains focus at its destination after popover dismissal; client
+navigation to a focusable fragment also transfers keyboard focus there.
+
+`pnpm visual:contact` reproduces the header → section → page journey, return and
+preparation links, shortcut focus and sticky-header clearance, native action
+targets, 44px link heights, map-credit focus, Help clearance, normal/reduced motion,
+skip navigation, touch and no-JavaScript shortcut checks at 320/390/768/1440px.
+TypeScript, changed-file ESLint, shell contracts, home-contact contracts and shared
+component interaction checks also pass. Responsive screenshots and focused flow
+captures are recorded separately under `artifacts/visual-checks/`; each inspected
+run includes its own findings and inspected-file list.
+
+Impeccable's detector reported one existing footer accent-border warning in
+`hospital-shell.module.css`; the footer identity is outside this refinement.
+This pass does not claim a screen-reader audit, cross-browser certification,
+physical dialer handoff or a production release.
+
+## Dedicated Contact page — 8 November 2026
+
+The connected local demo now includes `/contact`, linked from the homepage contact
+section, desktop utility navigation, mobile menu, footer and About page. The home
+section retains its direct telephone and directions actions and existing fragment
+targets. The page uses the same `hospitalContact` facts and shared static map;
+it adds visit-confirmation and access-planning guidance without asserting opening
+hours or facilities. It remains behind `requireLocalDemo()`.
+
+The composition borrows the clarity of a destination guide: Gotera's published
+hospital pin becomes the visual anchor, beside reception telephone and email rows.
+Arrival advice follows in two quiet bands, with a separate emergency link. Existing
+brand typography and colours are retained. Decorative photography, footage and
+entrance animation were omitted to keep this utility page focused on contacting
+the hospital and finding it. No new contact facts, external embed, message form,
+or delivery service was introduced.
+
+Current validation: TypeScript, changed-file ESLint, home-contact contracts (134
+cases), shell contracts and diff whitespace checks pass. Fresh repository responsive
+checks pass for `/contact`, `/` and `/about` at 390/768/1440px. Those screenshots
+were opened and inspected; the new homepage link was also inspected in focused
+captures at each width. Evidence is in
+`artifacts/visual-checks/2026-11-08T20-19-15.726Z-responsive-X54Z8P/`.
+
+Focused Chromium checks pass at 320/390/768/1440px for the homepage-to-contact
+keyboard journey, skip-link focus, visible phone-link focus, native action targets,
+44px link heights, reduced motion, mobile menu availability and browser errors.
+Phone and directions anchors also pass without JavaScript. Evidence is in
+`artifacts/visual-checks/2026-11-08T20-21-19.602Z-contact-journey-WHK9KU/`;
+the local reproduction script is `.taste-skill/check-contact-page.mjs`.
+No telephone call or email was sent.
+
+The design source lint has zero failures and one warning for the forced-colours
+border. The whole-page design inspector is not a pass: it flags the existing Help
+button shadow, the single content image and limited motion, alongside warnings
+about shared typography, palette, footer and sizing. Its output is retained at
+`.taste-skill/contact-page/`. This utility-page review does not certify broader
+accessibility, physical telephone handoff or production release readiness.
+
 The client authorized sourcing hospital contact and location facts from the old website
 and Google on 4 November 2026, with newly written supporting content. This applies to
 the connected local demo. It does not publish the site or activate appointment submission.
@@ -33,8 +102,40 @@ See [the map asset record](../visual-design/gotera-map-asset.md) for sources and
 Supporting prose is newly written. It asks visitors to confirm their department,
 entrance, parking, drop-off and access needs. It does not claim that a particular
 entrance, facility, opening schedule, response time, or parking arrangement exists.
-Emergency information remains a separate route with its existing preview behavior.
+Emergency information remains a separate route; see the 8 November refinement below.
 The shared header now links to that route instead of showing the mock 1234 hotline.
+
+## Emergency refinement — 8 November 2026
+
+Following the client's approval of the emergency comparison, the connected local demo's
+default `/emergency` page now uses `WebsiteEmergencyPage`. It leads with one telephone
+link for emergency and ambulance enquiries, followed immediately by the published
+hospital location and directions. A native disclosure holds call-preparation questions;
+reception is clearly separate. A fixed mobile call link reserves space through the footer.
+The floating Help control and its header launchers are omitted on this page.
+
+The legacy emergency page, https://hallelujahhospital.com/emergency/, was checked again
+on 8 November. Its ambulance, emergency and footer sections consistently list
+`+251-940-105692`, normalized to `tel:+251940105692` and displayed as
+`+251 940 105 692`. This is a source-checked published contact, not a test-called or
+hospital-approved dispatch record. The conflicting sample-like header number remains
+excluded. The page makes no promise about staffing, hours, response times, transport
+equipment or accessible facilities. Directions identify the existing published hospital
+pin; visitors are asked to confirm the emergency entrance and access arrangements.
+No public-service number or unreviewed emergency translation has been introduced.
+
+The route still requires `requireLocalDemo()`. Explicit unavailable, expired, map-failure
+and unsupported-handoff scenarios retain the controlled `EmergencyTemplate` and its
+synthetic boundaries. This refinement does not change the governed template, its
+fixtures, lifecycle validation or public-release approval requirements.
+
+Refinement validation: TypeScript, changed-file ESLint, emergency template contracts
+(52 cases), shell contracts and diff whitespace checks pass. Fresh responsive captures
+for default/unavailable routes pass at 390/768/1440px and were visually inspected.
+Focused Chromium checks also pass at 320/390/768/1440px for phone parity, first-screen
+call visibility, keyboard disclosure/focus, reduced motion and mobile footer clearance.
+Phone links, directions and native disclosure are available without JavaScript.
+This is not a physical dialer test or a screen-reader accessibility certification.
 
 ## Validation
 

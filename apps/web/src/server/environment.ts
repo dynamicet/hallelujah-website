@@ -336,3 +336,7 @@ export function isLocalDemo(): boolean {
   return process.env.NODE_ENV === 'development'
     || (process.env.HH_DEMO_MODE === 'true' && process.env.APP_ENVIRONMENT === 'staging')
 }
+
+export function isDevelopment(): boolean {
+  return process.env.NODE_ENV === 'development'
+}

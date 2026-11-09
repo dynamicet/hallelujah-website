@@ -139,7 +139,7 @@ try {
         accentEnabled: document.querySelector('[data-motion-accent]').dataset.motionEnabled,
         text: document.body.innerText,
         languageReason: (() => {
-          const unavailable = document.querySelector('[data-language-switcher] [aria-disabled="true"]');
+          const unavailable = document.querySelector('[data-language-switcher] :is([aria-disabled="true"],button:disabled)');
           return document.getElementById(unavailable?.getAttribute('aria-describedby'))?.textContent.trim();
         })(),
         hasFields: !!document.querySelector('form,input,iframe'),
@@ -154,7 +154,7 @@ try {
       assert.equal(result.taskCount, 5, label)
       if (capability !== 'no-css') assert.equal(result.targets, true, label)
       assert.equal(result.safeMotion, true, label)
-      assert.equal(result.anchors, true, label)
+      assert.equal(result.anchors, true, `${label}: missing anchors ${JSON.stringify(await evaluate("[...document.querySelectorAll('a[href^=\"#\"]')].filter(a=>!document.getElementById(a.hash.slice(1))).map(a=>a.getAttribute('href'))"))}`)
       assert.equal(result.videoSource, false, label)
       assert.equal(result.hasFields, false, label)
       assert.equal(result.headingOrder[0], 1, label)
@@ -272,7 +272,7 @@ try {
     await evaluate("document.querySelector('[data-language-switcher] summary').focus()")
     await key()
     await until("document.querySelector('[data-language-switcher]').open")
-    assert.ok(await evaluate("document.querySelector('[data-language-switcher] [aria-disabled]').getBoundingClientRect().height >= 44"))
+    assert.ok(await evaluate("document.querySelector('[data-language-switcher] :is([aria-disabled],button:disabled)').getBoundingClientRect().height >= 44"))
     assert.ok(await evaluate("document.querySelector('[data-language-switcher] p').getBoundingClientRect().height > 0"))
     await key(capability === 'no-js' ? 'Enter' : 'Escape', capability === 'no-js' ? 13 : 27)
     await until("!document.querySelector('[data-language-switcher]').open")

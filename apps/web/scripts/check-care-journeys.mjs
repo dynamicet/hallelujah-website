@@ -7,13 +7,17 @@ async function load(relative, transform = (source) => source) {
   const { outputText } = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } })
   return import(`data:text/javascript;base64,${Buffer.from(outputText).toString('base64')}`)
 }
+const careModel = await import('../src/demo/care-model.ts')
+const careMetadata = Object.fromEntries(['pub_141414141414', 'pub_171717171717'].map((id) => [id, careModel.careEntry(id)]))
 const data = JSON.parse(readFileSync(new URL('../src/demo/data.json', import.meta.url), 'utf8'))
-const { healthTopics } = await load('../src/demo/health-topics.ts', (source) => source.replace("import data from './data.json'", `const data = ${JSON.stringify(data)}`))
+const { healthTopics } = await load('../src/demo/health-topics.ts', (source) => source.replace("import data from './data.json'", `const data = ${JSON.stringify(data)}`).replace("import { careEntry } from './care-model'", `const entriesById = ${JSON.stringify(careMetadata)}; const careEntry = (id) => entriesById[id]`))
 const { searchHealthTopics } = await load('../src/website/health-search.ts')
-const { relatedServiceIds } = await load('../src/demo/service-details.ts')
+const model = await import('../src/demo/care-model.ts')
+const { relatedCareIds } = model
+const careLinks = Object.fromEntries(data.clinicians.map((doctor) => [doctor.publicId, relatedCareIds(doctor.publicId)]))
 const { doctorSearchTerms } = await load('../src/demo/care-discovery.ts', (source) => source
   .replace("import { healthTopics } from './health-topics'", `const healthTopics = ${JSON.stringify(healthTopics)}`)
-  .replace("import { relatedServiceIds } from './service-details'", `const relatedServiceIds = ${relatedServiceIds.toString()}`)
+  .replace("import { relatedCareIds } from './care-model'", `const links = ${JSON.stringify(careLinks)}; const relatedCareIds = ${relatedCareIds.toString()}`)
   .replace("import { searchHealthTopics } from '../website/health-search'", `const searchHealthTopics = ${searchHealthTopics.toString()}`)
   // The search function references its normalizer in its module scope.
   .replace('const searchHealthTopics =', "const normalizeHealthQuery = (text) => text.normalize('NFKC').toLocaleLowerCase('en').replaceAll(/[^\\p{L}\\p{N}]+/gu, ' ').trim(); const searchHealthTopics ="))
@@ -22,15 +26,16 @@ function search(query, filters = {}) {
   return directory({ entries: data.clinicians, filters: data.clinicianFilters, locale: 'en', pageSize: 4,
     searchParameters: { q: query, ...filters }, searchTerms: doctorSearchTerms(query, data.clinicians, data.services) })
 }
+data.services = data.services.map((entry) => ({ ...entry, name: careModel.careEntry(entry.publicId)?.name ?? entry.name }))
 const sugar = search('blood sugar')
 assert.ok(sugar.resultCount > 0)
-assert.ok(sugar.results.every((doctor) => relatedServiceIds(doctor.details.specialties).includes(healthTopics.find((topic) => topic.id === 'diabetes').servicePublicId)))
-assert.ok(Object.values(sugar.matchReasons).every((reason) => reason.includes('General medicine')))
+assert.ok(sugar.results.every((doctor) => relatedCareIds(doctor.publicId).includes(healthTopics.find((topic) => topic.id === 'diabetes').servicePublicId)))
+assert.ok(Object.values(sugar.matchReasons).every((reason) => reason.includes('Family medicine')))
 assert.deepEqual(search('  BLOOD   SUGAR  ').results, sugar.results)
 assert.equal(search('backache').resultCount, 0, 'no invented rehabilitation doctor affiliation')
 assert.equal(search('unlisted procedure').resultCount, 0)
 assert.equal(search('<script>alert(1)</script>').resultCount, 0)
-assert.ok(search('Heart medicine').resultCount > 0, 'service names connect to affiliated doctors')
+assert.ok(search('Cardiology').resultCount > 0, 'service names connect to affiliated doctors')
 assert.equal(search('aching hurts').resultCount, 0, 'aliases cannot assemble unrelated query words')
 assert.ok(search('Dr Aster').results.some((doctor) => doctor.details.name.includes('Aster')))
 assert.equal(search('blood sugar', { page: '99' }).state.page, sugar.pageCount)

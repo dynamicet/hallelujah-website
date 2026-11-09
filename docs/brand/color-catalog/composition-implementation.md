@@ -8,7 +8,7 @@ multi-reviewer agreement. The subsequent [deliverable 5 route rollout](route-rol
 
 ## Review the result
 
-- [Side-by-side comparison](http://localhost:3000/composition-study): 27 groups, desktop/phone
+- [Side-by-side comparison](http://127.0.0.1:3977): 27 groups, desktop/phone
   switch, homepage/shared-component filters, full-resolution capture links, expandable comparisons.
 - [Live homepage](http://localhost:3000/): revised composition in its full sequence.
 - [Live component gallery](http://localhost:3000/component-library): interactive controls and
@@ -169,3 +169,5 @@ type-scale variety. The current result is ready for client comparison and furthe
 Scope limits: this study covers the homepage and reusable component foundation. The subsequent
 [deliverable 5 rollout](route-rollout.md) covers the remaining route compositions. Existing publication/content-readiness decisions are retained.
 No assistive-technology certification or complete site accessibility audit is claimed.
+
+Run `pnpm composition:preview` to open the loopback composition archive. Review evidence is kept outside the deployable application.

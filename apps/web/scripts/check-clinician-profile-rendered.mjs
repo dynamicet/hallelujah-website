@@ -137,7 +137,7 @@ try {
           anchors: [...document.querySelectorAll('a[href^="#"]')].every(a => !!document.getElementById(a.hash.slice(1))),
           external: document.querySelectorAll('a[href^="http"],a[href^="tel:"],a[href^="mailto:"],iframe,img,video,form,input,textarea').length,
           profileId: document.querySelectorAll('[data-appointment-doctor-public-id]').length,
-          portrait: document.querySelectorAll('[data-portrait-omitted]').length,
+          portrait: document.querySelectorAll('[data-clinician-monogram]').length,
           text: document.body.innerText,
         })`)
         const label = `${state}/${width}/${capability}`

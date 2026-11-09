@@ -24,7 +24,7 @@ const requiredShellContracts = [
   ['single labeled primary navigation', /<nav aria-label=\{label\}[\s\S]*data-primary-navigation/u],
   ['navigation list', /data-primary-navigation[\s\S]*<ul>[\s\S]*<li/u],
   ['current page semantics', /aria-current=\{item\.current \? 'page'/u],
-  ['Next Link internal navigation', /import Link from 'next\/link'/u],
+  ['localized internal navigation', /import \{[^}]*InterfaceLink as Link[^}]*\} from '@\/website\/interface-language'/u],
   ['skip link target', /href=\{`#\$\{targetId\}`\}/u],
   ['breadcrumb navigation list', /data-breadcrumbs[\s\S]*<ol>/u],
   ['breadcrumb current page', /<span aria-current="page">/u],
@@ -32,12 +32,12 @@ const requiredShellContracts = [
   ['native language disclosure', /<details[\s\S]*data-language-switcher[\s\S]*<summary/u],
   ['unavailable language explanation', /aria-describedby=\{reasonId\}[\s\S]*alternate\.reason/u],
   ['semantic footer', /<footer[\s\S]*data-site-footer/u],
-  ['focusable main target', /<main id=\{mainId\} tabIndex=\{-1\}>/u],
+  ['focusable main target', /<main[^>]*id=\{mainId\}[^>]*tabIndex=\{-1\}/u],
   ['native popover trigger', /<button[\s\S]*popoverTarget="primary-navigation-panel"/u],
   ['native popover panel', /id="primary-navigation-panel"[\s\S]*popover="auto"/u],
   ['emergency independent of disclosure', /data-navigation-panel[\s\S]*<\/div>[\s\S]*<div className=\{styles.headerEmergency\} data-shell-emergency/u],
   ['complete compact disclosure', /data-navigation-panel[\s\S]*<PrimaryNavigation[\s\S]*data-shell-utilities[\s\S]*data-shell-routine/u],
-  ['script-independent shell', /<SiteFooter \{\.\.\.footer\} \/>/u],
+  ['script-independent shell', /<SiteFooter \{\.\.\.footer\} publicWebsite=/u],
 ]
 
 for (const [label, pattern] of requiredShellContracts) {
@@ -54,8 +54,8 @@ if (/\$\{brandName\}\s+home/u.test(shell)) {
 const requiredEnhancementContracts = [
   ['expanded-state reflection', /setAttribute\('aria-expanded', String\(open\)\)/u],
   ['close focus restoration', /restoreMenuFocus[\s\S]*trigger\?\.focus\(\)/u],
-  ['navigation close', /closest\('a\[href\]'\)[\s\S]*hidePopover\(\)/u],
-  ['effect cleanup', /return \(\) => controller\.abort\(\)/u],
+  ['navigation close', /closest(?:<HTMLAnchorElement>)?\('a\[href\]'\)[\s\S]*hidePopover\(\)/u],
+  ['effect cleanup', /return \(\) => \{[\s\S]*cancelAnimationFrame\(arrivalFrame\)[\s\S]*controller\.abort\(\)/u],
   ['same-route rebind', /\[pathname, search\]/u],
 ]
 

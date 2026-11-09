@@ -9,6 +9,10 @@
   },
   "scripts": {
     "visual:check": "node scripts/check-visual.mjs",
+    "visual:contact": "node scripts/check-contact-flow.mjs",
+    "visual:language-loading": "node scripts/check-interface-language-loading.mjs",
+    "visual:language": "node scripts/check-interface-language.mjs",
+    "visual:specialists": "node scripts/check-featured-specialists.mjs",
     "visual:journey-quality": "node scripts/check-journey-quality.mjs",
     "visual:cross-browser": "node scripts/check-motion-cross-browser.mjs",
     "visual:hero": "node scripts/check-home-hero.mjs",
@@ -26,6 +30,7 @@
     "visual:signature": "node scripts/check-signature-scenes.mjs",
     "visual:care-continuity": "node scripts/check-care-continuity.mjs",
     "visual:appointment": "node scripts/check-appointment-usability.mjs",
+    "visual:help": "node scripts/check-help.mjs",
     "visual:quality": "node scripts/check-site-quality.mjs",
     "visual:usability": "node scripts/check-usability-refinements.mjs",
     "visual:journeys": "node scripts/check-intentional-design.mjs",
@@ -69,6 +74,7 @@
     "local-db-isolation:check": "pnpm --dir apps/web local-db-isolation:check",
     "foundations:smoke": "node scripts/check-rendered-foundations.mjs",
     "care-journeys:check": "pnpm --dir apps/web care-journeys:check",
+    "care-selection:check": "pnpm --dir apps/web care-selection:check",
     "care-journeys:smoke": "pnpm --dir apps/web care-journeys:smoke",
     "health-finder:check": "pnpm --dir apps/web health-finder:check",
     "home:check": "pnpm --dir apps/web home:check",
@@ -136,22 +142,25 @@
     "home-enhancement:check": "pnpm --dir apps/web home-enhancement:check",
     "build:demo": "HH_DEMO_MODE=true APP_ENVIRONMENT=staging pnpm build",
     "start:demo": "HH_DEMO_MODE=true APP_ENVIRONMENT=staging pnpm start --hostname 0.0.0.0",
-    "staging:smoke": "node scripts/check-staging-demo.mjs"
+    "staging:smoke": "node scripts/check-staging-demo.mjs",
+    "composition:preview": "node scripts/serve-composition-study.mjs",
+    "visual:colors": "node scripts/check-color-contexts.mjs"
   },
   "pnpm": {
     "overrides": {
       "@esbuild-kit/core-utils>esbuild": "0.25.12",
-      "ajv@8.18.0>fast-uri": "3.1.8",
+      "ajv@8.18.0>fast-uri": "3.1.9",
       "minimatch@3.1.5>brace-expansion": "1.1.21",
-      "minimatch@10.2.6>brace-expansion": "5.0.12",
-      "dompurify": "3.4.16",
-      "payload>undici": "7.29.1",
+      "dompurify": "3.4.17",
+      "payload>undici": "7.30.1",
       "@next/eslint-plugin-next>fast-glob": "npm:tinyglobby@0.2.17",
       "sass": "1.105.1",
-      "source-map-js": "1.2.2"
+      "source-map-js": "1.2.2",
+      "eslint-plugin-react-hooks>zod": "4.6.6",
+      "minimatch@>=7.0.0 <11.0.1": "11.0.1"
     },
     "patchedDependencies": {
-      "@next/eslint-plugin-next@16.3.8": "patches/@next__eslint-plugin-next@16.3.8.patch"
+      "@next/eslint-plugin-next@16.4.1": "patches/@next__eslint-plugin-next@16.4.1.patch"
     }
   }
 }

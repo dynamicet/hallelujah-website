@@ -8,6 +8,8 @@
   --component-context-secondary-background: transparent;
   --component-context-secondary-hover: var(--semantic-color-surface-selected);
   --component-context-link: var(--semantic-color-text-link);
+  --component-context-link-hover: var(--semantic-color-text-link-hover);
+  --component-context-link-active: var(--semantic-color-text-link-active);
   --component-context-boundary: var(--semantic-color-text-link);
   --component-context-focus: var(--semantic-color-focus);
   --component-context-focus-gap: var(--semantic-color-surface-page);
@@ -23,8 +25,22 @@
 
 .surface[data-brand-tone='white'] { background: var(--semantic-color-surface-raised); }
 .surface[data-brand-tone='mist'] { background: var(--semantic-color-surface-subtle); }
-.surface[data-brand-tone='supporting'] { background: var(--semantic-color-surface-supporting); }
-.surface[data-brand-tone='expressive'] { background: var(--semantic-color-surface-expressive); }
+.surface[data-brand-tone='supporting'] {
+  --component-context-heading: var(--semantic-color-accent-supporting-text);
+  background: var(--semantic-color-surface-supporting);
+}
+.surface[data-brand-tone='expressive'] {
+  --component-context-heading: var(--semantic-color-accent-expressive-text);
+  background: var(--semantic-color-surface-expressive);
+}
+.surface[data-brand-tone='assistance'] {
+  --component-context-heading: var(--semantic-color-text-primary);
+  --component-context-muted: var(--semantic-color-text-primary);
+  --component-context-link: var(--semantic-color-text-primary);
+  --component-context-link-hover: var(--semantic-color-text-primary);
+  --component-context-link-active: var(--semantic-color-text-primary);
+  background: var(--semantic-color-surface-highlight);
+}
 
 .surface :where(h2, h3, h4) { color: var(--component-context-heading); }
 .surface :where(p, h2, h3, h4) { margin: 0; }
@@ -33,11 +49,11 @@
 .surface[data-brand-accent='orange'] { --component-context-accent: var(--semantic-color-accent-supporting); }
 .surface[data-brand-accent='magenta'] { --component-context-accent: var(--semantic-color-accent-expressive); }
 .surface:not([data-brand-accent='none'])[data-brand-detail='rule'] {
-  border-inline-start: 4px solid var(--component-context-accent);
+  border-block-start: 1px solid var(--component-context-accent);
 }
 .surface:not([data-brand-accent='none'])[data-brand-detail='frame'] {
   border: 2px solid var(--semantic-color-text-link);
-  border-block-end: 6px solid var(--component-context-accent);
+  border-block-end: 1px solid var(--component-context-accent);
 }
 .surface:not([data-brand-accent='none'])[data-brand-detail='corner']::after {
   content: '';
@@ -46,8 +62,8 @@
   inset-inline-end: 12px;
   inline-size: 24px;
   block-size: 24px;
-  border-block-start: 4px solid var(--component-context-accent);
-  border-inline-end: 4px solid var(--component-context-accent);
+  border-block-start: 1px solid var(--component-context-accent);
+  border-inline-end: 1px solid var(--component-context-accent);
   pointer-events: none;
 }
 
@@ -59,6 +75,8 @@
   --component-context-action-foreground: var(--semantic-color-text-heading);
   --component-context-secondary-hover: var(--semantic-color-action-primary-hover);
   --component-context-link: var(--semantic-color-text-inverse);
+  --component-context-link-hover: var(--semantic-color-text-inverse);
+  --component-context-link-active: var(--semantic-color-text-inverse);
   --component-context-boundary: var(--semantic-color-border-inverse);
   --component-context-focus: var(--semantic-color-text-inverse);
   --component-context-focus-gap: var(--semantic-color-surface-inverse);

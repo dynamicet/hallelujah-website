@@ -8,8 +8,11 @@ const appOutputRoot = path.join(repositoryRoot, 'apps/web/.next/server/app')
 const pages = (await collectFilesUnder(appOutputRoot, (file) => file.endsWith('.html')))
   .filter((file) => !file.includes(`${path.sep}_global-error.html`) && !file.includes(`${path.sep}_not-found.html`))
 const documents = await Promise.all(
-  pages.map(async (page) => ({ html: await readFile(page, 'utf8'), label: repositoryRelative(page) })),
-)
+  pages.map(async (page) => {
+    const metadata = JSON.parse(await readFile(page.replace(/\.html$/u, '.meta'), 'utf8'))
+    return metadata.status === 404 ? null : { html: await readFile(page, 'utf8'), label: repositoryRelative(page) }
+  }),
+).then((entries) => entries.filter(Boolean))
 const failures = []
 
 if (documents.length === 0) {

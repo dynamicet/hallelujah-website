@@ -5,7 +5,8 @@ import type { ClinicianView } from '@/content/clinician-view'
 import type { ServiceView } from '@/content/service-view'
 import data from './data.json'
 import { demoPatientGuide } from './patient-guide'
-import { specialtyServiceExamples } from './specialties'
+import { specialtyServiceExamples, additionalExamples } from './specialties'
+import { careEntry, doctorSpecialties } from './care-model'
 import { hospitalContact } from '@/website/hospital-contact'
 
 // Frozen, fictional presentation data. No credentials, workflow documents, or runtime fixture imports.
@@ -13,6 +14,8 @@ export const clinicians = data.clinicians.map((entry): ClinicianView => ({
   ...entry, locale: 'en', portrait: null, schedule: null,
   details: {
     ...entry.details,
+    specialties: doctorSpecialties(entry.publicId),
+    availabilityGuidance: 'The team will discuss available appointment times with you.',
     languages: entry.publicId === 'pub_101010101010'
       ? [...entry.details.languages, 'French']
       : entry.details.languages,
@@ -20,9 +23,11 @@ export const clinicians = data.clinicians.map((entry): ClinicianView => ({
   appointment: { state: 'withheld', doctorPublicId: entry.publicId },
 }))
 export const clinicianBiographies = new Map(data.clinicians.map((entry) => [entry.publicId, entry.biography]))
-export const services = [...data.services, ...specialtyServiceExamples].map((entry): ServiceView => ({
+export const services = [...data.services, ...specialtyServiceExamples, ...additionalExamples].map((entry): ServiceView => ({
   ...entry, locale: 'en',
-  synonyms: entry.publicId === 'pub_151515151515' ? [...entry.synonyms, 'Heart care', 'Cardiology'] : entry.synonyms,
+  name: careEntry(entry.publicId)?.name ?? entry.name,
+  synonyms: [...new Set([...entry.synonyms, ...(careEntry(entry.publicId)?.synonyms ?? [])])],
+  sections: { ...entry.sections, scope: [careEntry(entry.publicId)?.scope ?? 'Discuss your care needs and prepare your questions before visiting.'] },
   appointment: { state: 'withheld', servicePublicId: entry.publicId },
 }))
 export { data }
@@ -45,6 +50,8 @@ export function demoShell(current: string): Omit<SiteShellProps, 'children'> {
     skipLinkLabel: 'Skip to main content',
     header: {
       contactTargets: { call: hospitalContact.phoneHref },
+      contactHref: current === '/' ? '#home-directions' : '/contact',
+      contactCurrent: current === '/contact',
       brandMark: <HospitalBrandMark />,
       brandName: 'Hallelujah Hospital', homeHref: '/', homeLabel: 'Hallelujah Hospital home',
       identityLanguage: 'en', menuLabel: 'Menu', navigationMode: 'responsive',
@@ -60,20 +67,24 @@ export function demoShell(current: string): Omit<SiteShellProps, 'children'> {
       navigationLabel: 'Footer navigation', groups: [
         { label: 'Find care', links: [
           { href: '/doctors', label: 'Find a doctor' },
-          { href: '/services', label: 'Care & services' },
+          { href: '/services', label: 'Specialties & services' },
           { href: '/appointment', label: 'Request an appointment' },
           { href: '/referrals', label: 'Refer a patient' },
           { href: '/emergency', label: 'Emergency information' },
         ] },
         { label: 'Plan your visit', links: [
           { href: '/patients-visitors', label: 'Patients & visitors' },
-          { href: '/#home-directions', label: 'Contact & directions' },
+          { href: '/contact', label: 'Contact & directions' },
+          { href: '/faq', label: 'Frequently asked questions' },
+          { href: '/patient-rights', label: 'Patient rights & responsibilities' },
+          { href: '/privacy', label: 'Privacy notice' },
         ] },
         { label: 'Our hospital', links: [
           { href: '/about', label: 'About Hallelujah' },
           { href: '/news-resources', label: 'News & resources' },
           { href: '/health-topics', label: 'Health & care topics' },
           { href: '/feedback', label: 'Patient feedback' },
+          { href: '/careers', label: 'Careers' },
         ] },
       ],
     },

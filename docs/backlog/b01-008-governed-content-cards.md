@@ -1,5 +1,7 @@
 # `B01-008` — Governed-Content Cards
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Execution date:** 16 September 2026, Africa/Addis_Ababa
 
 **Scope:** Controlled local and private-repository implementation only
@@ -17,7 +19,7 @@
 | Requirements | `G-014`–`G-015`, `D-003`–`D-006`, `V-005`; vacancy remains under `HR-01`–`HR-03` and `LANG-02` |
 | Target | Local `T0` and private-repository hosted implementation `T1`; no public route or production environment |
 | Allowed scope | Governed card component, neutral media fallback, typed display fields, synthetic fixture, responsive/semantic browser checks, documentation, and sanitized evidence |
-| Evidence | [Local result](evidence/B01-008-governed-content-cards-2026-09-16.md) and [captures](evidence/b01-008-rendered/) |
+| Evidence | [Local result](evidence/B01-008-governed-content-cards-2026-09-16.md) and captures (unavailable archive: `evidence/b01-008-rendered/`) |
 | Repository review | [Issue `#22`](https://github.com/dynamicet/hallelujah-website/issues/22), [pull request `#23`](https://github.com/dynamicet/hallelujah-website/pull/23), [hosted implementation run `35030463614`](https://github.com/dynamicet/hallelujah-website/actions/runs/35030463614), and [documentation-head run `35030914802`](https://github.com/dynamicet/hallelujah-website/actions/runs/35030914802) |
 
 The client's instruction to start the next execution permits this controlled implementation and

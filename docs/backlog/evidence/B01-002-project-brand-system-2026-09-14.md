@@ -1,5 +1,7 @@
 # `B01-002` Project Brand System — Completion Evidence
 
+> Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
+
 **Recorded:** 14 September 2026, Africa/Addis_Ababa
 
 **Result:** Passed for controlled-development project authority
@@ -16,7 +18,7 @@
 | Accessible extension | Primary text `#17323A`/white 13.52:1; secondary `#516A70`/white 5.76:1; teal action `#006A73`/white 6.35:1; focus blue `#075EA8`/white 6.61:1. |
 | Latin typography | Noto Sans 2.015, SIL OFL 1.1, official 400/600/700 files; representative English and numeral shaping passed without missing glyphs. |
 | Ethiopic typography | Noto Sans Ethiopic 2.102, SIL OFL 1.1, official 400/600/700 files; `fc-scan` declares `am`, `gez`, `ti-er`, `ti-et`, `tig`, `byn`, `sid`, and `wal`; representative Amharic/Ethiopic numeral shaping passed without missing glyphs. |
-| Render review | [1440px](../../brand/evidence/b01-002-brand-review-1440.png) and [360px](../../brand/evidence/b01-002-brand-review-360.png) local Chromium renders were visually reviewed for hierarchy, wrapping, glyph rendering, weight differentiation, palette labeling, and reflow. |
+| Render review | 1440px (unavailable archive: `../../brand/evidence/b01-002-brand-review-1440.png`) and 360px (unavailable archive: `../../brand/evidence/b01-002-brand-review-360.png`) local Chromium renders were visually reviewed for hierarchy, wrapping, glyph rendering, weight differentiation, palette labeling, and reflow. |
 | Governance | Voice, claims boundary, authentic imagery, consent/rights, poster/crop behavior, zero pre-intent video, protected contexts, lifecycle, withdrawal, and purge are defined. |
 | Automated policy | `pnpm brand:check` validates identity, source metadata, fingerprints, Noto release records, font weights, Amharic evidence, media safeguards, source-color restrictions, and canonical-token parity. |
 
