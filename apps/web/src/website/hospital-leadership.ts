@@ -1,5 +1,5 @@
 /**
- * Presentation records from https://hallelujahhospital.com/ (retrieved 2026-11-08).
+ * Presentation sources are recorded in about-founder-story.md (retrieved 2026-11-08).
  * Titles and portrait rights require launch review. Founder status for Mrs.
  * Yetnayet was supplied by the client; no other founder status is inferred.
  * Keep this separate from the clinical directory and its demo clinicians.

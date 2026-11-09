@@ -125,7 +125,7 @@ B04-012 and all production/publication gates remain unpromoted.
 
 The client directed “fix the vulnrability”. The scoped override
 `@next/eslint-plugin-next>fast-glob` now resolves to `tinyglobby@0.2.17`. A pinned
-[pnpm compatibility patch](../../../patches/@next__eslint-plugin-next@16.3.8.patch)
+[pnpm compatibility patch](../../../patches/@next__eslint-plugin-next@16.4.1.patch)
 disables implicit directory expansion and preserves absolute and root paths and
 trailing-slash behavior for the plugin's root-directory discovery. `sass@1.105.1`
 replaces the optional older Sass graph, removing its `chokidar@3` dependency on

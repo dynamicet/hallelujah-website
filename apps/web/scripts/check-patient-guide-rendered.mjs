@@ -76,10 +76,10 @@ try {
     await pause(400)
   }
   async function open() {
-    await evaluate("document.querySelector('[data-help-trigger]').click()")
+    await evaluate("document.querySelector('[data-help-trigger]').focus(); document.querySelector('[data-help-trigger]').click()")
     await pause(100)
-    await evaluate("document.querySelector('[data-open-patient-guide]').click()")
-    await until("document.querySelector('[data-patient-guide]').open")
+    await evaluate("document.querySelector('[data-open-patient-guide]').focus(); document.querySelector('[data-open-patient-guide]').click()")
+    await until("document.querySelector('[data-patient-guide]')?.open")
   }
   async function ask(question) {
     const count = await evaluate("document.querySelectorAll('[data-guide-turn]').length")
@@ -223,6 +223,7 @@ try {
     await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 })
     await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 })
     await until("!document.querySelector('[data-patient-guide]').open")
+    await until("document.activeElement.matches('[data-help-trigger]')")
     assert.equal(await evaluate("document.activeElement.matches('[data-help-trigger]')"), true, 'Escape restores focus')
   }
   await navigate('/appointment', 390)

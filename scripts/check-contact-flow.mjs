@@ -107,6 +107,6 @@ await runVisualCheck('contact-polish', base, async ({ browser, output }) => {
   assert.equal(await p.eval(() => document.querySelector('main a[href^="tel:"]').getAttribute('href')), 'tel:+251114704242')
   await p.screenshot({ path: `${output}/native-directions-390.png` })
   await p.close()
-  await writeFile(`${output}/measurements.json`, JSON.stringify(results, null, 2))
+  await writeFile(`${output}/measurements.json`, JSON.stringify(results, null, 2) + '\n')
   console.log('PASS skip navigation, touch shortcut and no-JavaScript directions shortcut/telephone')
 })

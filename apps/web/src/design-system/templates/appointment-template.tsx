@@ -355,7 +355,7 @@ function AppointmentForm({
       </section>
 
       <section aria-labelledby={localSimulation ? undefined : 'appointment-privacy-title'} className={`${styles.formSection} ${styles.privacy}`} data-appointment-section="A5">
-        <p><Link href="/privacy">Read the privacy notice</Link> before adding your details.</p>
+        {localSimulation ? <p><Link href="/privacy">Read the privacy notice</Link> before adding your details.</p> : null}
         {!localSimulation ? <div className={styles.sectionHeading}>
           <h2 id="appointment-privacy-title">Your privacy</h2>
           <div id="privacy-disclosure">{privacyDisclosure}</div>

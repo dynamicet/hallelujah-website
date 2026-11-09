@@ -208,6 +208,7 @@
   .warning,
   .temporary {
     border-style: double;
+    border-width: var(--semantic-border-focus);
   }
 
   .spinner {

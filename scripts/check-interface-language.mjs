@@ -48,7 +48,7 @@ await runVisualCheck('interface-language', baseUrl, async ({ browser, output }) 
         assert.deepEqual(layout.brokenImages, [])
         assert.ok(layout.amharicControls > 5, `${route}: translated controls`)
         if (route === '/') assert.equal(await page.eval(() => document.querySelector('.welcome-call').textContent.trim()), 'ወደ መቀበያ ይደውሉ')
-        if (route === '/services') assert.equal(await page.eval(() => document.querySelector('[data-filter-disclosure] button').textContent.trim()), 'ምድቦችን ተግብር')
+        if (route === '/services') assert.equal(await page.eval(() => document.querySelector('[data-filter-disclosure] button').textContent.trim()), 'ማጣሪያዎችን ተግብር')
         await page.screenshot({ path: path.join(output, `am-${index}-${width}.png`), fullPage: true })
         measurements.push({ route, width, ...layout })
       }

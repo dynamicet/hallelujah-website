@@ -14,7 +14,7 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 | `pnpm visual:language-loading` | On-demand Amharic messages, keyboard selection/focus return, reload persistence, editorial preservation, failed-download recovery and retry at three widths |
 | `pnpm visual:specialists` | Featured homepage specialists: desktop/tablet row controls and directory end panel, compact three-row mobile list, keyboard profile access, resize focus recovery, live reduced motion and native no-JavaScript scrolling |
 | `pnpm visual:hero` | Existing home hero layout, focus, and fallback contracts |
-| `pnpm visual:signature` | Remaining portrait/story image scenes, compact fallback, stop/reverse behavior, stable copy, live resize/reduced motion and doctor-section link; current desktop portrait progress assertion remains unresolved (see homepage-distillation notes) |
+| `pnpm visual:signature` | Settled carousel portraits, story image scroll progress, compact fallback, stop/reverse behavior, stable copy, live resize/reduced motion and doctor-section link; horizontal specialist browsing has its own check |
 | `pnpm visual:choreography` | Full-home reading sequence, reverse/fast scrolling, focus settling, section accents, reduced motion and client navigation |
 | `pnpm visual:interactions` | Care-mode keyboard/query continuity, separate native organization disclosures and retained keyboard focus, menu focus/Escape, reduced motion and no-JavaScript fallback |
 | `pnpm visual:search-feedback` | Doctor/service pending and updated result counts, retained keyboard focus, repeated search/filter submissions, empty results, reduced motion and native GET fallback |

@@ -105,7 +105,7 @@ export function AboutPage() {
       </section>
 
       <section className={styles.purpose} id="mission-and-vision" aria-label="Mission and vision">
-        {/* Edited for readability from https://hallelujahhospital.com/about/. */}
+        {/* Narrative source and editorial scope are recorded in about-founder-story.md. */}
         <div>
           <h2>Our mission</h2>
           <p>To be the first choice for patients seeking high-quality specialist care, offering trusted diagnosis and treatment at competitive prices.</p>

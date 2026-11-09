@@ -67,7 +67,7 @@ await runVisualCheck('journey-quality', base, async ({ browser, output }) => {
     const scroll = { cpuRate: throttled ? 4 : 1, durationMs: 9000, frames: sorted.length,
       frameP95Ms: sorted[Math.floor(sorted.length * .95)], framesOver50ms: sorted.filter(ms => ms > 50).length,
       layoutShiftSum: profile.shifts.reduce((sum, shift) => sum + shift.value, 0), shifts: profile.shifts, longTasks: profile.tasks }
-    await writeFile(`${output}/profile-${width}.json`, JSON.stringify({ initialResources, scroll }, null, 2))
+    await writeFile(`${output}/profile-${width}.json`, JSON.stringify({ initialResources, scroll }, null, 2) + '\n')
     assert.equal(scroll.layoutShiftSum, 0, 'scroll motion must not shift document layout')
     await pause(page)
     const gaps = {}
@@ -105,7 +105,7 @@ await runVisualCheck('journey-quality', base, async ({ browser, output }) => {
     if (height < 600) assert.equal(await page.eval('getComputedStyle(document.querySelector("[class*=readingAside]")).position'), 'static')
     assert.deepEqual(page.consoleErrors, [])
     results.push({ width, height, initialResources, scroll, gaps })
-    await writeFile(`${output}/observations.json`, JSON.stringify(results, null, 2))
+    await writeFile(`${output}/observations.json`, JSON.stringify(results, null, 2) + '\n')
     await page.close()
     console.log(`PASS ${width}×${height}: scroll layout, keyboard landings, reading space, reduced motion; p95 frame ${scroll.frameP95Ms.toFixed(1)}ms at ${scroll.cpuRate}× CPU`)
   }
