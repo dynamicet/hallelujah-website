@@ -8,16 +8,16 @@
   color: inherit;
 }
 .enhanced-home .welcome-appointment {
-  background: var(--semantic-color-action-featured);
-  color: var(--semantic-color-action-featured-foreground);
+  background: var(--semantic-color-surface-supporting);
+  color: var(--semantic-color-accent-supporting-text);
 }
 .enhanced-home .welcome-appointment:hover {
-  background: var(--semantic-color-surface-selected);
-  color: var(--semantic-color-action-featured-foreground);
+  background: var(--semantic-color-surface-raised);
+  color: var(--semantic-color-accent-supporting-text);
 }
 .enhanced-home .welcome-appointment:active {
-  background: var(--semantic-color-surface-subtle);
-  color: var(--semantic-color-action-featured-foreground);
+  background: var(--semantic-color-surface-supporting);
+  color: var(--semantic-color-accent-supporting-text);
 }
 .enhanced-home .care-search-panel select, .enhanced-home .care-query-field {
   background: var(--semantic-color-surface-raised);

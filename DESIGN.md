@@ -47,7 +47,7 @@ collection of decorative accents.
 | Secondary text | `#52636B` | Supporting copy on tested light surfaces |
 | Primary action | `#0078A6` | White-label care and appointment actions |
 | Link / action hover | `#00678D` | Ordinary links; separate semantic roles |
-| Brand cyan | `#15B0E6` | Emblem/artwork and featured hero action |
+| Brand cyan | `#15B0E6` | Emblem/artwork and controlled-template featured action |
 | Preparation ground | `#FFEDDF` | Richer peach chapter or local inset |
 | Preparation ink | `#A8430C` | Complete local headings, disclosures |
 | Story ground | `#FBE4EF` | Richer pink editorial chapter |
@@ -86,7 +86,7 @@ patient groups. Do not place all supporting hues in every component.
 
 ## Interaction character
 
-Stable blue task actions; cyan with dark ink for the featured hero action;
+Stable blue task actions; pale peach with deep-orange ink for the public photographic hero action;
 readable contextual story controls only where specified. A color shift never
 changes an action's meaning. Ordinary text links have dedicated text-state roles.
 Selection includes a check, underline or native mark; errors include explanatory
@@ -95,6 +95,11 @@ words; current navigation includes a visible structural cue.
 Focus uses a contextual high-contrast outline and separation gap. Motion clarifies
 existing transitions and control feedback, keeps content visible by default, and
 respects reduced motion. Task and reading pages stay quieter than the homepage.
+
+On 9 November 2026 the user restored the public hero's warm appointment button:
+supporting-surface fill, supporting-text label/icon, white hover and peach pressed
+state, with the existing white focus outline. This supersedes the specification's
+cyan treatment for this button. The “Call reception” wording remains current.
 
 ## Implementation discipline
 
