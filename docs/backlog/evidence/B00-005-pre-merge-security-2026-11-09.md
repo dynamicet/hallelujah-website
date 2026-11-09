@@ -130,3 +130,13 @@ Final results:
 Automated passes do not establish full WCAG conformance, assistive-technology
 coverage, or physical-device performance. The WebKit, ClamAV, and low-advisory
 limitations above remain explicit.
+
+## Hosted clean-checkout follow-up
+
+[PR run 42576398607](https://github.com/dynamicet/hallelujah-website/actions/runs/42576398607)
+passed installation, CI controls, history scanning, and the dependency audit, then
+found three historical documentation links whose ignored targets existed locally
+but were absent from the clean checkout. Those references now explicitly identify
+unavailable archives, preserving their filenames without claiming retrievable
+evidence. The link checker remains unchanged. A separate archive of the committed
+tree is used to verify the correction without local ignored files.

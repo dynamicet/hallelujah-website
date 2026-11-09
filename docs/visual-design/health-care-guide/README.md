@@ -37,7 +37,7 @@ Phones up to 700px have a dedicated composition:
 - Selecting a result replaces the introduction, modes and search with a focused topic name, summary and care action. Back returns to the previous matches and entry mode, with topic focus restored.
 - Read more opens a viewport-height reading sheet. Its sticky toolbar keeps Close reachable while scrolling, and safe-area padding reserves space at the top and bottom. Closing it returns focus to Read more. Background scrolling is locked while a mobile dialog is open.
 
-Desktop retains the approved heading/search row and complete alphabet. Its initial finder remains 278px tall at 1440px. The mobile-before captures are preserved in [evidence/mobile-before](evidence/mobile-before/).
+Desktop retains the approved heading/search row and complete alphabet. Its initial finder remains 278px tall at 1440px. The mobile-before captures are an unavailable archive reference: `evidence/mobile-before/`; they are not included in a clean checkout.
 
 ## Shared interaction
 
