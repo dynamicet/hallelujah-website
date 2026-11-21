@@ -207,7 +207,6 @@
 .frame[data-care-directory] .results .card { flex: 1; grid-template-rows: auto 1fr auto; }
 @media (min-width: 75rem) {
   .frame[data-care-directory] .resultGroup .results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .frame[data-care-directory] .results > li:only-child { grid-column: 1 / -1; }
 }
 
 .card a {
@@ -411,3 +410,5 @@
     color: CanvasText;
   }
 }
+
+.visualCard { display: flex; width: 100%; min-width: 0; }

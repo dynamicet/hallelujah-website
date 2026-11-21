@@ -24,7 +24,7 @@ main [data-care-directory] [data-clinician-public-id] [data-clinician-monogram] 
 main [data-care-directory] [data-clinician-public-id] [data-directory-card-content] { padding: 24px; gap: 12px; }
 main [data-care-directory] [data-clinician-public-id] h2 { font-family: var(--site-font); font-weight: 700; letter-spacing: -.015em; line-height: 1.35; }
 main [data-care-directory] [data-directory-specialties] li { background: transparent; padding: 0; }
-main [data-care-directory] [data-service-public-id] { padding: 24px; border-radius: var(--site-panel-radius); background: var(--semantic-color-surface-raised); gap: 12px; border: 1px solid var(--semantic-color-border-default); }
+main [data-care-directory] [data-service-public-id][data-ui-part~="card"] { padding: 24px; border-radius: var(--site-panel-radius); background: var(--semantic-color-surface-raised); gap: 12px; border: 1px solid var(--semantic-color-border-default); }
 main [data-care-directory] [data-directory-support] { margin: 48px 0 0; padding: clamp(24px, 3vw, 32px); background: var(--site-pale); border: 0; border-radius: var(--site-control-radius); }
 main [data-care-directory] [data-directory-support] > ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 main [data-care-profile] [data-profile-introduction] { grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr); align-items: center; gap: clamp(32px, 6vw, 88px); padding: clamp(20px, 3vw, 32px); margin-block-end: 48px; background: var(--semantic-color-surface-subtle); border-radius: var(--site-panel-radius); border-block-end-color: var(--semantic-color-border-default); }
@@ -201,5 +201,5 @@ main [data-care-directory] section[aria-labelledby='visit-guides-title'] > ul a 
   flex-shrink: 0;
 }
 @media (max-width: 767px) {
-  main [data-care-directory] [data-service-public-id] { padding: 20px; }
+  main [data-care-directory] [data-service-public-id][data-ui-part~="card"] { padding: 20px; }
 }

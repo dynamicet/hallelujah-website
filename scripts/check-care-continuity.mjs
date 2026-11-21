@@ -37,6 +37,13 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     await waitFor(page, 'location.search.includes("type=synthetic-heart") && document.querySelectorAll("[data-clinician-public-id]").length === 3')
     assert.equal(await page.eval(() => [...document.querySelectorAll('[data-clinician-public-id]')].every(card => card.querySelector('[aria-label="Specialties"]').textContent.includes('Cardiology'))), true)
     await page.goto(base + service)
+    // Generic article-list styles must not change the care-team card spacing.
+    const teamSpacing = await page.eval(() => [...document.querySelectorAll('#care-team ul > li')].map(item => {
+      const style = getComputedStyle(item)
+      return { margin: style.margin, padding: style.padding }
+    }))
+    assert.ok(teamSpacing.length > 0)
+    assert.ok(teamSpacing.every(item => item.margin === '0px' && item.padding === '0px'))
     const profile = await page.eval(() => document.querySelector('#care-team a').getAttribute('href'))
     assert.equal(new URL(profile, base).searchParams.get('service'), 'pub_151515151515')
     await page.goto(base + profile)

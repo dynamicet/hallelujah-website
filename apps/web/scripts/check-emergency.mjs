@@ -190,7 +190,7 @@ assert.doesNotMatch(emergencyCssSource, /@keyframes|animation\s*:|transition\s*:
 assert.doesNotMatch(emergencyCssSource, /(?:#[\da-f]{3,8}\b|\brgba?\()/iu)
 cases++
 
-const appRoot = new URL('../src/app/', import.meta.url)
+const appRoot = new URL('../src/app/(public)/', import.meta.url)
 assert.match(await readFile(new URL('emergency/page.tsx', appRoot), 'utf8'), /requireLocalDemo\(\)/u)
 const appSources = await collectSources(appRoot)
 for (const file of appSources) {

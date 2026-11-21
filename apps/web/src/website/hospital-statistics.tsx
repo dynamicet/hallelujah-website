@@ -1,6 +1,7 @@
 import { StatisticsCountUp } from './statistics-count-up'
 
 type HospitalStatisticsProps = {
+  isPreview?: boolean
   yearsOfService: number
   doctorCount: number
   careAreaCount: number
@@ -9,7 +10,7 @@ type HospitalStatisticsProps = {
 }
 
 export function HospitalStatistics({
-  yearsOfService, doctorCount, careAreaCount, annualPatientCount, reportingYear,
+  isPreview = false, yearsOfService, doctorCount, careAreaCount, annualPatientCount, reportingYear,
 }: HospitalStatisticsProps) {
   const number = new Intl.NumberFormat('en')
   const value = (count: number) => <span className="statistics-count" data-count-to={count}>
@@ -39,6 +40,7 @@ export function HospitalStatistics({
             <dd className="hospital-statistics-value">{value(annualPatientCount)}</dd>
           </div>
         </dl>
+        {isPreview && <p className="hospital-statistics-note">Illustrative figures for this website preview; hospital confirmation is pending.</p>}
         <StatisticsCountUp />
       </div>
     </section>

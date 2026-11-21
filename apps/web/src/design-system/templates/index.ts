@@ -40,3 +40,5 @@ export type {
   ServiceDirectoryTemplateProps,
 } from './service-directory-template'
 export { HydrationReady } from './hydration-ready'
+
+export { ComponentLibraryTemplate } from './component-library-template'

@@ -66,7 +66,7 @@ export function HomeVisitGuidance({ appointmentHref, directionsHref }: { readonl
 
   return (
     <section aria-labelledby="home-visit-title" className={`${styles.section} ${styles.visit}`} data-home-section="H6">
-      <div className={styles.sectionHeading}>
+      <div data-ui-part="section-heading" className={styles.sectionHeading}>
         <h2 id="home-visit-title">A more comfortable visit.</h2>
       </div>
       <div className={styles.visitGrid}>
@@ -87,7 +87,7 @@ export function HomeVisitGuidance({ appointmentHref, directionsHref }: { readonl
 
 export function HomeSupportBand({ href }: { readonly href: string }) {
   return (
-    <section aria-labelledby="home-support-title" className={`${styles.supportBand} ds-support-band`} data-home-section="H9">
+    <section aria-labelledby="home-support-title" data-ui-part="support" className={`${styles.supportBand} ds-support-band`} data-home-section="H9">
       <div>
         <h2 id="home-support-title">Let’s make the first conversation easier.</h2>
         <p>Review contact and arrival information before choosing your next step.</p>
@@ -130,7 +130,7 @@ export function HomeTemplate({
   return (
     <SiteShell {...shell}>
       <div className={styles.frame} data-home-template>
-        <section aria-labelledby="home-title" className={styles.introduction} data-home-section="H1">
+        <section aria-labelledby="home-title" data-ui-part="introduction" className={styles.introduction} data-home-section="H1">
           <div className={`ds-flow ${styles.heroCopy}`}>
             <div className={styles.wayfinding}>
               <ExperienceRegion area="home-hero" requestedLevel={3}>
@@ -155,7 +155,7 @@ export function HomeTemplate({
           ) : null)}
         </section>
 
-        <section aria-labelledby="home-tasks-title" className={`${styles.section} ${styles.taskSection}`} data-home-section="H2">
+        <section aria-labelledby="home-tasks-title" data-ui-part="section" className={`${styles.section} ${styles.taskSection}`} data-home-section="H2">
           <h2 id="home-tasks-title">{tasksHeading}</h2>
           <ul className={styles.tasks}>
             {routineTasks.map(({ link, icon, description }) => (
@@ -167,7 +167,7 @@ export function HomeTemplate({
           </ul>
         </section>
 
-        <section aria-labelledby="home-search-title" className={`${styles.section} ${styles.search}`} data-home-section="H3">
+        <section aria-labelledby="home-search-title" data-ui-part="section" className={`${styles.section} ${styles.search}`} data-home-section="H3">
           <div className={styles.searchIntroduction}>
             <h2 id="home-search-title">{searchHeading}</h2>
             <p>{searchDescription}</p>
@@ -190,13 +190,13 @@ export function HomeTemplate({
         {showJourneyGuidance ? <HomeVisitGuidance appointmentHref={tasks.appointment.href} directionsHref={tasks.directions.href} /> : null}
 
         {contactDetails ? (
-          <section aria-label="Contact and arrival information" className={`${styles.section} ${styles.contact}`} data-home-section="H7" data-experience-level="0">
+          <section aria-label="Contact and arrival information" data-ui-part="section" className={`${styles.section} ${styles.contact}`} data-home-section="H7" data-experience-level="0">
             <div className={styles.contactContent}>{contactDetails}</div>
-            {showArrivalArtwork ? <div aria-hidden="true" className={styles.arrivalPlane} data-home-arrival-artwork>
-              <span className={styles.arrivalRoute} />
-              <span className={`${styles.arrivalStation} ${styles.arrivalStationFirst}`}>Plan</span>
-              <span className={`${styles.arrivalStation} ${styles.arrivalStationSecond}`}>Arrive</span>
-              <span className={`${styles.arrivalStation} ${styles.arrivalStationThird}`}>Ask</span>
+            {showArrivalArtwork ? <div aria-hidden="true" data-ui-part="arrival" className={styles.arrivalPlane} data-home-arrival-artwork>
+              <span data-ui-part="arrival" className={styles.arrivalRoute} />
+              <span data-ui-part="arrival arrival" className={`${styles.arrivalStation} ${styles.arrivalStationFirst}`}>Plan</span>
+              <span data-ui-part="arrival arrival" className={`${styles.arrivalStation} ${styles.arrivalStationSecond}`}>Arrive</span>
+              <span data-ui-part="arrival arrival" className={`${styles.arrivalStation} ${styles.arrivalStationThird}`}>Ask</span>
             </div> : null}
           </section>
         ) : null}
@@ -204,7 +204,7 @@ export function HomeTemplate({
         {institutionalContent}
 
         {media?.placement === 'story' ? (
-          <section aria-label={media.presentation.heading} className={`${styles.section} ${styles.story}`} data-home-section="H8">
+          <section aria-label={media.presentation.heading} data-ui-part="section" className={`${styles.section} ${styles.story}`} data-home-section="H8">
             <div className={styles.media} data-home-media="story">
               <OptInMedia {...media.presentation} />
               <noscript><p>Video playback requires JavaScript. The written still and transcript remain available.</p></noscript>

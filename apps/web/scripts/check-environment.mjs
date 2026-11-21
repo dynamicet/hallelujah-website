@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { randomBytes } from 'node:crypto'
 import { register } from '../src/instrumentation.ts'
-import { loadServerEnvironment } from '../src/server/environment.ts'
+import { isDevelopmentRuntime, isLocalDemo, loadServerEnvironment } from '../src/server/environment.ts'
 
 const secretValue = () => randomBytes(32).toString('base64url')
 const databaseUrl = (deployment) =>
@@ -243,6 +243,18 @@ try {
     if (originalValue === undefined) delete process.env[name]
     else process.env[name] = originalValue
   }
+}
+
+
+// Build-time CSP relaxation must distinguish development from a hosted demo.
+for (const [source, development, demo] of [
+  [{ NODE_ENV: 'development' }, true, true],
+  [{ NODE_ENV: 'production' }, false, false],
+  [{ NODE_ENV: 'production', HH_DEMO_MODE: 'true', APP_ENVIRONMENT: 'staging' }, false, true],
+  [{ NODE_ENV: 'production', HH_DEMO_MODE: 'true', APP_ENVIRONMENT: 'production' }, false, false],
+]) {
+  assert.equal(isDevelopmentRuntime(source), development)
+  assert.equal(isLocalDemo(source), demo)
 }
 
 console.log('Environment contract check passed (valid, missing, cross-scope, gated, redaction, and startup cases).')

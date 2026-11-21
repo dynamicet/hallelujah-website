@@ -96,25 +96,25 @@
 /* Section openings accommodate useful content without requiring introductory copy. */
 .enhanced-home .hospital-film-copy { display: block; }
 .enhanced-home .hospital-film-copy h2 { max-width: none; }
-.enhanced-home [data-health-library] [class*='examples'] { margin-block: 16px 20px; }
+.enhanced-home [data-health-library] [data-ui-part~="examples"] { margin-block: 16px 20px; }
 main [data-care-topics] + [data-health-library] { margin-top: 28px; }
 main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']):not(:has(.care-page-image)) { display: block; margin-bottom: 24px; }
-main [data-care-directory] [class*='introductionCopy'] { gap: 12px; }
+main [data-care-directory] [data-ui-part~="introduction-copy"] { gap: 12px; }
 
 /* Portraits occupy a deliberate frame instead of stretching with long card copy. */
 main [data-care-directory] [data-clinician-public-id] { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
-main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] { height: 210px; padding: 0; align-self: start; }
+main [data-care-directory] [data-clinician-public-id] [data-ui-part~="card-photo"] { height: 210px; padding: 0; align-self: start; }
 main [data-care-directory] [data-clinician-public-id] :is([data-clinician-portrait], [data-clinician-monogram]) { width: 100%; height: 210px; min-height: 0; max-height: none; object-fit: contain; object-position: center bottom; }
-main [data-care-directory] [data-clinician-public-id] [class*='cardContent'] { grid-template-rows: none; align-content: start; gap: 10px; }
-main [data-care-directory] [data-clinician-public-id] [class*='profileAction'] { margin-top: auto; }
-main [data-care-directory] [class*='discoveryWorkspace'] { grid-template-columns: 220px minmax(0, 1fr); gap: 24px; }
-main [data-care-directory] [class*='filterRail'] { position: static; }
+main [data-care-directory] [data-clinician-public-id] [data-ui-part~="card-content"] { grid-template-rows: none; align-content: start; gap: 10px; }
+main [data-care-directory] [data-clinician-public-id] [data-ui-part~="profile-action"] { margin-top: auto; }
+main [data-care-directory] [data-ui-part~="discovery-workspace"] { grid-template-columns: 220px minmax(0, 1fr); gap: 24px; }
+main [data-care-directory] [data-ui-part~="filter-rail"] { position: static; }
 
 /* Separate discovery stages; keep individual results close enough to compare. */
 main [data-care-directory] :is([data-directory-section='D2'], [data-directory-section='S3']) {
   gap: 24px;
 }
-main [data-care-directory] [class*='resultsSection'] {
+main [data-care-directory] [data-ui-part~="results-section"] {
   container-type: inline-size;
 }
 main [data-care-directory] ol[data-directory-section='D4'] {
@@ -130,7 +130,7 @@ main [data-care-directory] ol[data-directory-section='D4'] {
 
 @media (max-width: 1023px) {
   .enhanced-home .home-quick-access-copy > span { display: none; }
-  main [data-care-directory] [class*='discoveryWorkspace'] { grid-template-columns: 1fr; }
+  main [data-care-directory] [data-ui-part~="discovery-workspace"] { grid-template-columns: 1fr; }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .enhanced-home .team-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -147,12 +147,12 @@ main [data-care-directory] ol[data-directory-section='D4'] {
   .enhanced-home .team-person h3 { font-size: 21px; }
   .enhanced-home .team-description { margin-bottom: 8px; }
   main [data-care-directory] [data-clinician-public-id] { grid-template-columns: 72px minmax(0, 1fr); grid-template-rows: auto; }
-  main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] { height: 128px; margin-top: 16px; }
+  main [data-care-directory] [data-clinician-public-id] [data-ui-part~="card-photo"] { height: 128px; margin-top: 16px; }
   main [data-care-directory] [data-clinician-public-id] :is([data-clinician-portrait], [data-clinician-monogram]) { height: 128px; }
 }
 @media (max-width: 359px) {
   main [data-care-directory] [data-clinician-public-id] { grid-template-columns: minmax(0, 1fr); }
-  main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] { margin-top: 0; }
+  main [data-care-directory] [data-clinician-public-id] [data-ui-part~="card-photo"] { margin-top: 0; }
 }
 @media (max-width: 599px) {
   .enhanced-home .team-intro { display: grid; gap: 8px; }
@@ -201,11 +201,11 @@ main [data-care-directory] ol[data-directory-section='D4'] {
 }
 
 /* Missing portraits use a readable identity badge inside the same image frame. */
-main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto']:has([data-clinician-monogram]) {
+main [data-care-directory] [data-clinician-public-id] [data-ui-part~="card-photo"]:has([data-clinician-monogram]) {
   display: grid;
   place-items: center;
 }
-main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] [data-clinician-monogram] {
+main [data-care-directory] [data-clinician-public-id] [data-ui-part~="card-photo"] [data-clinician-monogram] {
   width: 80px;
   height: 80px;
   min-height: 0;
@@ -217,7 +217,7 @@ main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] [data
   letter-spacing: 0;
 }
 @media (max-width: 767px) {
-  main [data-care-directory] [data-clinician-public-id] [class*='cardPhoto'] [data-clinician-monogram] {
+  main [data-care-directory] [data-clinician-public-id] [data-ui-part~="card-photo"] [data-clinician-monogram] {
     width: 48px;
     height: 48px;
     font-size: 20px;

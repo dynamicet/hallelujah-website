@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { InterfaceLink as Link } from '@/website/interface-language'
-import { SiteShell } from '@/design-system/components'
-import { demoShell } from '@/demo/site'
+import { PageContent, PageFrame } from './page-patterns'
 import { hospitalContact } from './hospital-contact'
 import { hospitalFounder, hospitalLeadership } from './hospital-leadership'
 import styles from './about-page.module.css'
@@ -26,10 +25,10 @@ const values = [
 const Arrow = () => <span aria-hidden="true">→</span>
 
 export function AboutPage() {
-  return <SiteShell {...demoShell('/about')} breadcrumbs={{ label: 'Breadcrumb', items: [
-    { href: '/', label: 'Home' }, { href: '/about', label: 'About Hallelujah', current: true },
+  return <PageContent breadcrumbs={{ label: 'Breadcrumb', items: [
+    { href: '/', label: 'Home' }, { href: '/about', label: 'About Us', current: true },
   ] }}>
-    <div className={`page-frame ${styles.page}`}>
+    <PageFrame className={styles.page}>
       <header className={styles.hero}>
         <figure className={styles.scene}>
           <Image src="/editorial/human-care-1600.webp" alt="Two care professionals in conversation in a bright corridor" width={1600} height={1000} sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1440px) calc(100vw - 112px), 1280px" preload />
@@ -37,7 +36,7 @@ export function AboutPage() {
         <div className={styles.opening}>
           <p className={styles.identity}>{hospitalContact.name}<span>Gotera · Addis Ababa, Ethiopia</span></p>
           <div>
-            <h1>About Hallelujah</h1>
+            <h1>About Us</h1>
             <p className={styles.intro}>A general hospital in Addis Ababa, with roots in internal medicine and chest care.</p>
             <Link className="solid-button blue-button" href="/services">Explore our care <Arrow /></Link>
           </div>
@@ -145,6 +144,6 @@ export function AboutPage() {
           </div>
         </div>
       </section>
-    </div>
-  </SiteShell>
+    </PageFrame>
+  </PageContent>
 }

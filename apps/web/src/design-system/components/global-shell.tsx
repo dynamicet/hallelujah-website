@@ -1,13 +1,12 @@
 import { InterfaceCopy, InterfaceLanguageSwitcher, InterfaceLink as Link } from '@/website/interface-language'
 import type { ReactNode } from 'react'
-import type { GuideCatalog } from '@/patient-guide/types'
 
-import { HelpWidget } from './help-widget'
-import { GuideLauncher } from './guide-launcher'
+import { CallWidget } from './call-widget'
 import { HeaderContacts, type HeaderContactTargets } from './header-contacts'
 import { Icon } from './icon'
 import controlledStyles from './global-shell.module.css'
 import publicStyles from './hospital-shell.module.css'
+import footerStyles from './site-footer.module.css'
 import { hospitalContact } from '../../website/hospital-contact'
 
 const styles = controlledStyles
@@ -80,8 +79,9 @@ export interface FooterLinkGroup {
 
 export interface SiteFooterProps {
   readonly publicWebsite?: boolean
-  readonly contact?: { readonly address: string; readonly phone: string; readonly phoneHref: string }
   readonly variant?: 'full' | 'compact'
+  readonly contact?: { readonly address: string; readonly phone: string; readonly phoneHref: string }
+  readonly socialLinks?: readonly { readonly platform: 'facebook' | 'instagram' | 'linkedin' | 'tiktok' | 'telegram'; readonly label: string; readonly href?: string }[]
   readonly brandName: string
   readonly description?: string
   readonly groups: readonly FooterLinkGroup[]
@@ -89,8 +89,7 @@ export interface SiteFooterProps {
 }
 
 export interface SiteShellProps {
-  readonly showHelp?: boolean
-  readonly patientGuide?: GuideCatalog
+  readonly showCallAction?: boolean
   readonly breadcrumbs?: BreadcrumbsProps
   readonly children: ReactNode
   readonly footer: SiteFooterProps
@@ -124,7 +123,7 @@ export function PrimaryNavigation({
           <li key={`${item.href}-${item.label}`}>
             <Link
               aria-current={item.current ? 'page' : undefined}
-              className={styles.navigationLink}
+              data-ui-part="navigation-link" className={styles.navigationLink}
               href={item.href}
             >
               {item.label}
@@ -193,8 +192,7 @@ export function SiteHeader({
   primaryNavigationLabel,
   routineAction,
   searchItem,
-  showGuide = true,
-}: SiteHeaderProps & { readonly showGuide?: boolean }) {
+}: SiteHeaderProps) {
   if (!homeLabel.trim()) throw new Error('SiteHeader homeLabel must not be empty')
   const publicWebsite = homeHref === '/'
   // Native same-page anchors transfer focus after the mobile menu closes.
@@ -212,20 +210,19 @@ export function SiteHeader({
       data-public-shell={publicWebsite || undefined}
     >
       {publicWebsite ? (
-        <div className={styles.utilityBar} data-top-bar>
+        <div data-ui-part="utility-bar" className={styles.utilityBar} data-top-bar>
           <div className={styles.utilityInner}>
             <HeaderContacts targets={contactTargets} />
             <div className={styles.utilityLinks}>
               <div className={styles.utilityContext}>
-                <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link>{showGuide ? <GuideLauncher /> : null}</div>
+                <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link></div>
                 <ContactLink aria-current={contactCurrent ? 'page' : undefined} className={styles.contactDirections} href={contactHref}>Contact & directions</ContactLink>
               </div>
               <div className={styles.utilityEssentials}>
-                <InterfaceLanguageSwitcher fallback={languageSwitcher} enabled={publicWebsite} />
                 {previewEmergencyNumber ? (
                   <div aria-label="Emergency help" className={styles.emergencyActions} role="group">
                     <button aria-disabled="true" aria-label={`Call emergency hotline ${previewEmergencyNumber}. Preview only; not connected.`} className={styles.emergencyCall} title="Mock hotline. Calling is not connected." type="button">
-                      <span className={styles.emergencyLabel}>Emergency <span aria-hidden="true">·</span></span>
+                      <Icon name="phone" />
                       <strong>{previewEmergencyNumber}</strong>
                     </button>
                     <Link aria-label="Emergency information" className={styles.emergencyInfoLink} href="/emergency">Emergency information<span aria-hidden="true"> →</span></Link>
@@ -233,6 +230,7 @@ export function SiteHeader({
                 ) : (
                   <Link className={styles.urgentLink} href="/emergency">Emergency<span className={styles.emergencyDetail}>&nbsp;information</span> <span aria-hidden="true">→</span></Link>
                 )}
+                <InterfaceLanguageSwitcher fallback={languageSwitcher} enabled={publicWebsite} />
               </div>
             </div>
           </div>
@@ -251,7 +249,7 @@ export function SiteHeader({
               {brandMark}
             </span>
           ) : null}
-          <span className={styles.wordmark}>{brandName === 'Hallelujah Hospital' ? <>Hallelujah<span>General Hospital</span></> : brandName}</span>
+          <span data-ui-part="wordmark" className={styles.wordmark}>{brandName === 'Hallelujah Hospital' ? <>Hallelujah<span>General Hospital</span></> : brandName}</span>
         </Link>
 
         <button
@@ -263,7 +261,7 @@ export function SiteHeader({
           popoverTargetAction="toggle"
           type="button"
         >
-          <span aria-hidden="true" className={styles.menuGlyph}>
+          <span aria-hidden="true" data-ui-part="menu-glyph" className={styles.menuGlyph}>
             <span />
             <span />
             <span />
@@ -281,11 +279,10 @@ export function SiteHeader({
         >
           {publicWebsite ? <Link className={styles.mobileAppointment} href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link> : null}
           <PrimaryNavigation items={primaryNavigationItems} label={primaryNavigationLabel} publicWebsite={publicWebsite} />
-          {publicWebsite ? <Link className={styles.aboutLink} href="/#about-hallelujah">About Hallelujah</Link> : null}
           {publicWebsite ? <div className={styles.menuResources}>
             <Link href="/emergency">Emergency information →</Link>
             <Link href="/health-topics">Health &amp; care topics →</Link>
-            {showGuide ? <GuideLauncher /> : null}
+
           </div> : null}
           {!publicWebsite ? <div className={styles.headerUtilities} data-shell-utilities>
             <Link
@@ -310,7 +307,7 @@ export function SiteHeader({
         </div>
 
         <div className={styles.headerEmergency} data-shell-emergency>
-          {publicWebsite ? <Link className={styles.appointmentLink} href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link> : emergencyAction}
+          {publicWebsite ? <Link data-ui-part="appointment-link" className={styles.appointmentLink} href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link> : emergencyAction}
         </div>
       </div>
     </header></InterfaceCopy>
@@ -335,29 +332,39 @@ export function Breadcrumbs({ items, label }: BreadcrumbsProps) {
   )
 }
 
+// Body-only wrapper for routes whose layout already owns the site shell.
+export function SiteContent({ breadcrumbs, children }: {
+  readonly breadcrumbs?: BreadcrumbsProps
+  readonly children: ReactNode
+}) {
+  return <>
+    {breadcrumbs ? <div className={styles.breadcrumbFrame}><Breadcrumbs {...breadcrumbs} /></div> : null}
+    {children}
+  </>
+}
+
 export function SiteFooter({
-  contact,
   publicWebsite = false,
   variant = 'full',
+  contact,
+  socialLinks = [],
   brandName,
   description,
   groups,
   navigationLabel,
 }: SiteFooterProps) {
-  const styles = publicWebsite ? publicStyles : controlledStyles
   const careLinks = groups.flatMap((group) => group.links)
   const careLink = careLinks.find((link) => link.href === '/appointment') ?? careLinks.find((link) => link.href === '/doctors')
   return (
-    <InterfaceCopy><footer className={styles.footer} data-site-footer data-footer-variant={variant}>
-      <div className={styles.footerInner}>
-        {variant === 'full' ? (
-          <div className={styles.footerIdentity}>
-            <h2>Your care.<br />Your visit.</h2>
-            {description ? <p>{description}</p> : null}
-            {careLink ? <Link className={styles.footerAction} href={careLink.href}>{careLink.href === '/appointment' ? 'Request an appointment' : 'Find a doctor'} <span aria-hidden="true">→</span></Link> : null}
-          </div>
-        ) : null}
-        <nav aria-label={navigationLabel} className={styles.footerNavigation}>
+    <InterfaceCopy><footer className={footerStyles.footer} data-site-footer data-footer-variant={variant}>
+      <div className={footerStyles.footerInner}>
+        {variant === 'full' ? <div className={footerStyles.footerIdentity}>
+          <h2>Your care.<br />Your visit.</h2>
+          {description ? <p>{description}</p> : null}
+          {careLink ? <Link className={footerStyles.footerAction} href={careLink.href}>{careLink.href === '/appointment' ? 'Request an appointment' : 'Find a doctor'} <Icon name="arrow-right" /></Link> : null}
+
+        </div> : null}
+        <nav aria-label={navigationLabel} className={footerStyles.footerNavigation}>
           {groups.map((group) => (
             <section aria-labelledby={`footer-${slugify(group.label)}`} key={group.label}>
               <h2 id={`footer-${slugify(group.label)}`}>{group.label}</h2>
@@ -372,28 +379,60 @@ export function SiteFooter({
           ))}
         </nav>
       </div>
-      <div className={styles.footerClose}>
-        {publicWebsite && brandName === 'Hallelujah Hospital' ? (
-          <Link className={styles.footerBrand} href="/" aria-label="Hallelujah General Hospital home">
-            <span className={styles.footerEmblem} aria-hidden="true">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/hallelujah-emblem.png" width="280" height="252" alt="" />
-            </span>
-            <span className={styles.footerBrandCopy}>
-              <strong>Hallelujah<span>General Hospital</span></strong>
-              <span className={styles.footerTagline}>Bringing Quality Care Home</span>
-            </span>
-          </Link>
-        ) : <strong>{variant === 'compact' ? brandName : brandName.replace(' Hospital', '')}</strong>}
+      <div className={footerStyles.footerClose}>
+          {socialLinks.length ? (
+            <ul aria-label="Follow Hallelujah Hospital" className={footerStyles.footerSocial}>
+              {socialLinks.map(({ platform, label, href }) => (
+                <li key={platform}>
+                  {href ? (
+                    <a href={href}>
+                      <SocialIcon platform={platform} />
+                      <span>{label}</span>
+                    </a>
+                  ) : (
+                    <span className={footerStyles.footerSocialPending} aria-label={`${label} — link coming soon`}>
+                      <SocialIcon platform={platform} />
+                      <span>{label} <small>(coming soon)</small></span>
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        {publicWebsite ? <Link className={footerStyles.footerBrand} href="/" aria-label="Hallelujah General Hospital home">
+          <span className={footerStyles.footerEmblem} aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/brand/hallelujah-emblem.png" width="280" height="252" alt="" />
+          </span><span className={footerStyles.footerBrandCopy}><strong>Hallelujah<span>General Hospital</span></strong><span>Bringing Quality Care Home</span></span>
+        </Link> : <strong>{brandName}</strong>}
         <div>
-          {contact ? <address className={styles.footerContact}>
+          {contact ? <address className={footerStyles.footerContact}>
             <span>{contact.address}</span>
             <a href={contact.phoneHref}>{contact.phone}</a>
           </address> : null}
-          {publicWebsite ? <a href="#">Back to top ↑</a> : null}
+          <a href="#site-top">Back to top <span aria-hidden="true">↑</span></a>
         </div>
       </div>
     </footer></InterfaceCopy>
+  )
+}
+
+function SocialIcon({ platform }: { readonly platform: 'facebook' | 'instagram' | 'linkedin' | 'tiktok' | 'telegram' }) {
+  return (
+    <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      {platform === 'tiktok' ? <path d="M16.6 2c.3 2.2 1.5 3.6 3.7 3.8v3.5a8.1 8.1 0 0 1-3.7-1.1v7.2a6.5 6.5 0 1 1-5.6-6.4v3.6a3 3 0 1 0 2.1 2.8V2z" /> : null}
+      {platform === 'telegram' ? <path d="m21.5 3.5-3.2 17c-.2 1-1 1.2-1.8.6l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.3L5.9 13.9l-4.8-1.5c-1-.3-1-1 .2-1.5L20 3.6c.9-.3 1.7.2 1.5-.1z" /> : null}
+      {platform === 'facebook' ? <path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4A24 24 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v8z" /> : null}
+      {platform === 'instagram' ? <>
+        <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+        <circle cx="17.5" cy="6.5" r="1.2" />
+      </> : null}
+      {platform === 'linkedin' ? <>
+        <path d="M3 9h4v12H3zM9 9h4v1.7C14 9.3 15.1 9 16.5 9c3 0 4.5 1.9 4.5 5v7h-4v-6.5c0-1.6-.5-2.5-1.8-2.5-1.4 0-2.2 1-2.2 2.5V21H9z" />
+        <circle cx="5" cy="5" r="2.2" />
+      </> : null}
+    </svg>
   )
 }
 
@@ -404,19 +443,19 @@ export function SiteShell({
   header,
   mainId = 'main-content',
   notice,
-  patientGuide,
-  showHelp = true,
+  showCallAction = true,
   skipLinkLabel,
 }: SiteShellProps) {
   return (
     <>
+      <div id="site-top" tabIndex={-1} />
       <SkipLink label={skipLinkLabel} targetId={mainId} />
       {notice ? (
-        <div className={styles.reviewNotice} data-shell-review-notice>
+        <div data-ui-part="review" className={styles.reviewNotice} data-shell-review-notice>
           <div className={styles.noticeInner}>{notice}</div>
         </div>
       ) : null}
-      <SiteHeader {...header} showGuide={showHelp} />
+      <SiteHeader {...header} />
       {breadcrumbs ? (
         <div className={styles.breadcrumbFrame}>
           <Breadcrumbs {...breadcrumbs} />
@@ -426,7 +465,7 @@ export function SiteShell({
         {children}
       </main>
       <SiteFooter {...footer} publicWebsite={header.homeHref === '/'} />
-      {showHelp && header.homeHref === '/' ? <HelpWidget guide={patientGuide} /> : null}
+      {showCallAction && header.homeHref === '/' ? <CallWidget phoneHref={hospitalContact.hotlineHref} phone={hospitalContact.hotline} /> : null}
     </>
   )
 }

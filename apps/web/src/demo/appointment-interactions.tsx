@@ -158,7 +158,7 @@ export function DemoInteractions() {
       if (action) action.hidden = terminal || next === 'unknown' || next === 'duplicate'
       if (submit) {
         submit.disabled = busy || terminal || next === 'unknown' || next === 'duplicate'
-        submit.textContent = t(busy ? 'Checking details…' : next === 'known-failure' ? 'Try again' : 'Check details')
+        submit.textContent = t(busy ? 'Checking sample details…' : next === 'known-failure' ? 'Try again' : 'Check sample details')
       }
       form.setAttribute('aria-busy', String(busy))
       if (terminal) {
@@ -233,7 +233,7 @@ export function DemoInteractions() {
       if (next) {
         next.hidden = journeyStep === 2
         const unsure = form.querySelector<HTMLInputElement>('input[name="care_route"]:checked')?.value === 'not_sure'
-        next.firstChild!.textContent = t(journeyStep === 0 ? unsure ? 'Continue without choosing ' : 'Continue ' : 'Review request ')
+        next.firstChild!.textContent = t(journeyStep === 0 ? unsure ? 'Continue without choosing ' : 'Continue ' : 'Review sample details ')
       }
       const reviewSummary = form.querySelector<HTMLElement>('[data-journey-review]')
       if (reviewSummary) reviewSummary.hidden = terminal || outcome || journeyStep !== 2

@@ -3,7 +3,7 @@ import { writeFile } from 'node:fs/promises'
 import { runVisualCheck } from './lib/visual-check.mjs'
 
 const base = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
-const routes = ['/', '/doctors', '/services', '/appointment', '/patients-visitors', '/emergency',
+const routes = ['/', '/about', '/doctors', '/services', '/appointment', '/patients-visitors', '/emergency',
   '/referrals', '/feedback', '/health-topics', '/news-resources', '/health-topics/back-pain',
   '/news-resources/make-room-for-your-questions', '/news-resources/a-conversation-about-care',
   '/doctors/synthetic-clinician-121212121212/', '/services/synthetic-service-151515151515/',
@@ -41,6 +41,21 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
         runningAnimations: document.getAnimations().filter(animation => animation.playState === 'running').length }
     })
     inventory.push({ route, ...result })
+    if (route !== '/') {
+      const description = await page.eval('document.querySelector("meta[name=description]")?.content')
+      assert.ok(description?.trim(), `${route}: missing page description`)
+      assert.notEqual(description, 'Find care and visitor information at Hallelujah Hospital.', `${route}: inherited generic description`)
+    }
+    if (route === '/' || route === '/news-resources') {
+      const levels = await page.eval('[...document.querySelectorAll("[data-editorial-card]")].map(card => card.querySelector("h2,h3")?.tagName)')
+      assert.ok(levels.length > 0)
+      assert.ok(levels.every(level => level === (route === '/' ? 'H3' : 'H2')), `${route}: editorial heading context`)
+    }
+    if (route === '/services/synthetic-service-121212121212/') {
+      const actions = await page.eval('[...document.querySelectorAll("#prepare .text-link, #care-options .text-link")].map(link => link.getBoundingClientRect().height)')
+      assert.equal(actions.length, 3)
+      assert.ok(actions.every(height => height >= 44), 'Guide next steps use accessible shared action targets')
+    }
     assert.deepEqual(result.duplicates, [], `${route}: duplicate IDs`)
     assert.deepEqual(result.unnamed, [], `${route}: unnamed visible controls`)
     assert.equal(result.runningAnimations, 0, `${route}: reduced motion`)
@@ -123,10 +138,9 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
     }
     await page.eval(() => document.querySelector('[data-site-footer]').scrollIntoView({ block: 'end', behavior: 'instant' }))
     await settled(page)
-    await activate(page, '[data-help-trigger]')
-    await waitFor(page, 'document.querySelector("[data-help-panel]").matches(":popover-open")')
-    await activate(page, '[aria-label="Close help options"]')
-    assert.equal(await page.eval('document.activeElement.hasAttribute("data-help-trigger")'), true)
+    assert.equal(await page.eval('document.querySelector("[data-call-trigger]").getAttribute("href")'), 'tel:+251114704242')
+    await page.eval(() => document.querySelector('[data-call-trigger]').focus())
+    assert.equal(await page.eval('document.activeElement.hasAttribute("data-call-trigger")'), true)
     assert.equal(await page.eval('document.documentElement.scrollWidth > innerWidth'), false)
     assert.equal(await page.eval('document.getAnimations().filter(animation => animation.playState === "running").length'), 0)
     assert.deepEqual(page.consoleErrors, [])

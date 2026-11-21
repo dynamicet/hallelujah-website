@@ -1,12 +1,11 @@
-import { Icon, SiteShell } from '@/design-system/components'
-import { demoShell } from '@/demo/site'
+import { Icon, SiteContent } from '@/design-system/components'
 import { InterfaceLink as Link } from './interface-language'
 import { hospitalContact } from './hospital-contact'
 import { HospitalLocationMap } from './hospital-location-map'
 import styles from './contact-page.module.css'
 
 export function ContactPage() {
-  return <SiteShell {...demoShell('/contact')}>
+  return <SiteContent>
     <div className={styles.page} data-hospital-contact lang="en">
       <Link className={styles.backLink} href="/#home-directions"><Icon name="arrow-right" />Back to contact overview</Link>
       <header className={styles.introduction}>
@@ -58,5 +57,5 @@ export function ContactPage() {
         <Link href="/emergency">Emergency information <Icon name="arrow-right" /></Link>
       </aside>
     </div>
-  </SiteShell>
+  </SiteContent>
 }

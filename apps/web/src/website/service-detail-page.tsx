@@ -1,8 +1,9 @@
+import { PageActionLink } from './page-patterns'
 import { carePageImages } from '@/website/care-page-image'
 import { visitGuides } from '@/demo/visit-guides'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ClinicianPortrait } from '@/design-system/components'
+import { ServiceCareTeam } from './service-care-team'
 import { demoClinicianPortraits } from '@/demo/clinician-portraits'
 import { serviceDirectoryFromViews, serviceDirectoryUrl } from '@/content/service-directory'
 import { clinicians, data, requireLocalDemo, services, type DemoSearchParams } from '@/demo/site'
@@ -23,7 +24,8 @@ async function resolveService(params: Promise<{ slug: string }>) {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const service = await resolveService(params)
-  return { title: `${visitGuides[service.publicId]?.title ?? service.name} | Hallelujah Hospital` }
+  return { title: `${visitGuides[service.publicId]?.title ?? service.name} | Hallelujah Hospital`,
+    description: service.sections.scope?.join(' ') || `Explore ${service.name.toLowerCase()} information and prepare questions for your visit to Hallelujah Hospital.` }
 }
 
 export default async function ServicePage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: DemoSearchParams }) {
@@ -43,11 +45,11 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
     <PatientSection id="prepare" title="Questions to bring" context="preparation">
       <ul>{serviceVisitQuestions[service.publicId]?.map((question) => <li key={question}>{question}</li>)}</ul>
       <p>Keep your referral, earlier reports and current medicine list together. Follow the preparation instructions provided by your care team and contact reception if you need help planning your arrival.</p>
-      <Link href="/patients-visitors#checklist">Make your visit checklist</Link>
+      <PageActionLink href="/patients-visitors#checklist">Make your visit checklist</PageActionLink>
     </PatientSection>
     <PatientSection id="care-options" title="Find care for your visit" context="assistance">
-      <p><Link href="/services">View specialties &amp; services</Link></p>
-      <p><Link href="/appointment">Help choosing care</Link></p>
+      <p><PageActionLink href="/services">View specialties &amp; services</PageActionLink></p>
+      <p><PageActionLink href="/appointment">Help choosing care</PageActionLink></p>
       <p>Online requests do not provide emergency help. <Link href="/emergency">Read emergency information</Link>.</p>
     </PatientSection>
   </PatientPage>
@@ -101,12 +103,8 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
       <Link className="text-link" href="/patients-visitors#before">Read the visit guide <span aria-hidden="true">→</span></Link>
     </PatientSection>
     <PatientSection id="care-team" title={related.length ? 'Meet the care team' : care?.access === 'contact' ? 'Arrange an assessment' : care?.access === 'referral' ? 'Plan your admission' : 'Your care team'}>
-      {related.length ? <><p>{specialty ? 'Meet doctors in this specialty and explore their areas of care.' : 'These doctors provide this service. View a profile to learn more or carry your care choice into an appointment request.'}</p><ul className={serviceStyles.careTeam}>{related.map((doctor) => <li key={doctor.publicId}>
-        <Link href={`${doctor.canonicalPath}?service=${encodeURIComponent(service.publicId)}`} aria-label={`View profile for ${doctor.details.name}`}>
-          <ClinicianPortrait name={doctor.details.name} src={demoClinicianPortraits[doctor.publicId]} />
-          <span className={serviceStyles.doctorDetails}><strong>{doctor.details.name}</strong><span>{doctor.details.specialties.join(' · ')}</span><span className={serviceStyles.profileAction}>View profile <span aria-hidden="true">→</span></span></span>
-        </Link>
-      </li>)}</ul><h3>Arrange your visit</h3></> : null}
+      {related.length ? <><p>{specialty ? 'Meet doctors in this specialty and explore their areas of care.' : 'These doctors provide this service. View a profile to learn more or carry your care choice into an appointment request.'}</p><ServiceCareTeam doctors={related.map(doctor => ({ publicId: doctor.publicId, name: doctor.details.name, specialties: doctor.details.specialties,
+        portraitSrc: demoClinicianPortraits[doctor.publicId], href: `${doctor.canonicalPath}?service=${encodeURIComponent(service.publicId)}` }))} /><h3>Arrange your visit</h3></> : null}
       <div id="referrals" tabIndex={-1}>
         {(service.sections.referral ?? [!related.length && copy?.team ? copy.team
           : care?.access === 'referral' ? 'Coordinate your planned admission with your referring clinician and the admissions team.'

@@ -259,6 +259,7 @@
 
 /* Component tokens */
 :root {
+  --component-action-font-size: var(--semantic-type-body-size);
   --component-action-target-minimum: var(--semantic-size-touch);
   --component-action-icon-size: var(--semantic-size-icon);
   --component-action-content-gap: var(--semantic-space-compact);
@@ -344,6 +345,7 @@
   --component-shell-footer-foreground: var(--semantic-color-text-inverse);
   --component-shell-footer-muted: var(--semantic-color-text-inverse-muted);
   --component-shell-footer-border: var(--semantic-color-border-strong);
+  --component-search-controls-action-active: var(--semantic-color-action-primary-active);
   --component-search-controls-surface-raised: var(--semantic-color-surface-raised);
   --component-search-controls-surface-subtle: var(--semantic-color-surface-subtle);
   --component-search-controls-text-primary: var(--semantic-color-text-primary);

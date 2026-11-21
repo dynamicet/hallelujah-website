@@ -82,3 +82,11 @@ checklist, two independent native disclosures, keyboard focus and opening/closin
 live reduced motion, computed confirmation-text contrast, full-guide navigation,
 and no-JavaScript fallback at the supported widths. Inspect its collapsed and
 expanded captures separately from the automated results.
+
+### Recovered feedback checks
+
+`pnpm visual:feedback` verifies Emergency appears before language at mobile, tablet
+and desktop widths, preparation guides use shared action links with visible
+keyboard focus, and eleven public routes have distinct page-specific descriptions.
+`pnpm visual:appointment` also checks the dynamic sample-detail labels. Inspect
+the generated screenshots separately from these assertions.

@@ -346,7 +346,7 @@ section.ds-support-band :where(.ds-support-actions a) {
 @media (max-width: 599px) { :root { --site-frame: var(--semantic-presentation-frame-compact); } }
 
 @media print {
-  body:has(#checklist) :is([data-site-header], [data-site-footer], [data-help-widget], [data-shell-review-notice], nav, a[href="#main-content"]) { display: none; }
+  body:has(#checklist) :is([data-site-header], [data-site-footer], [data-call-widget], [data-shell-review-notice], nav, a[href="#main-content"]) { display: none; }
   body:has(#checklist) main { padding: 0; }
 }
 

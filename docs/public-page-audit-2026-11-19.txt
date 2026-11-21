@@ -1,0 +1,308 @@
+HISTORICAL AUDIT — performed on feedback/hospital-revisions, which was based on the older staging branch. This is not evidence for main or the recovery branch. See docs/architecture/feedback-recovery.md.
+
+PUBLIC PAGE AUDIT — 19 NOVEMBER 2026
+
+Scope and verdict
+
+The shared public layout is coherent: pages inherit one header, main landmark,
+skip link and footer. The intentional full homepage / compact interior footer
+variants are appropriate and should stay. About Us, directories, patient guides
+and editorial pages can retain different compositions within that shared shell.
+Implementation integrity needs work in workflow messaging and style ownership;
+the layout itself does not need replacement.
+
+Audited checkout: b6a0a30, feedback/hospital-revisions. Application sources were
+clean when the checks started. Local current development server on port 3000
+(Next reported PID 1078674 in this repository). This report evaluates that local
+preview, not the deployed Vercel build. No application UI was changed.
+
+Provisional technical health score (a prioritization aid, not certification):
+Accessibility             3/4  Strong tested keyboard/focus support; heading gap.
+Performance               3/4  Sized/lazy media foundations; production unmeasured.
+Theming / token ownership 2/4  Consumer validation fails in three shared components.
+Responsive design         3/4  No sampled overflow; action target consistency varies.
+Implementation integrity  2/4  Misleading simulated completion and brittle overrides.
+Total                    13/20 Acceptable; significant targeted work remains.
+
+Findings: 0 P0, 2 P1, 3 P2, 1 P3. No confirmed WCAG violation or production
+performance regression is asserted by these scores.
+
+Coverage
+
+Fresh full-page captures at 390, 768 and 1440px: 17 routes, 51 combinations.
+Home; About Us; doctor directory and a nested profile; service directory,
+clinical service and preparation-guide branches; appointments; emergency;
+patients/visitors; referrals; feedback; health-topic index and detail;
+news/resources archive, resource article and event article.
+
+Additional DOM inventory at 320 and 1440px: 18 routes / 36 samples, including
+the health-topic branch with no linked service (/health-topics/allergies).
+Verified all 41 unique internal path destinations collected from these samples
+returned HTTP 200. Query-specific behavior is covered separately by the search
+and appointment checks; HTTP 200 alone does not prove content correctness.
+Nested content is sampled by template and branch, not every individual slug.
+Careers is not an implemented application route and was not counted as a page.
+
+P1 — Appointment simulation looks like an operational request workflow
+
+Location: apps/web/src/app/(public)/appointment/page.tsx:36
+          apps/web/src/design-system/templates/appointment-template.tsx:158
+          apps/web/src/design-system/templates/appointment-template.tsx:343
+          apps/web/src/design-system/templates/appointment-template.tsx:430
+          scripts/check-appointment-usability.mjs:41
+Category: implementation integrity / workflow clarity.
+Evidence: localSimulation is enabled. The opening hides the unavailable-form
+notice; subsequent steps request name, telephone and permission to contact the
+visitor. Completion displays "Request complete" and reference HH-1042, with
+instructions to contact the hospital to confirm a time. Nothing is sent by the
+local simulation. Fresh complete-390.png confirms that presentation. The browser
+test explicitly asserts absence of several simulation/disclosure phrases.
+Impact: a visitor can mistake a rehearsal for a request received by the hospital.
+Recommendation: explain the preview before data entry; request sample details;
+label its completion/reference as examples and state that nothing was sent.
+Update the test to protect truthful messaging while retaining the tested flow.
+Suggested follow-up: Impeccable clarify, then harden.
+
+P1 — Shared token consumers fail the repository validation gate
+
+Location: apps/web/src/design-system/components/essential-actions.module.css:19
+          apps/web/src/design-system/components/search-controls.module.css:73
+          apps/web/src/design-system/components/search-controls.module.css:95
+          apps/web/src/design-system/components/form-primitives.module.css:227
+Category: theming / implementation integrity.
+Evidence: fresh pnpm tokens:check fails on --site-support and --site-action-active
+and the requirement for --component- aliases. These website variables can resolve
+in the public website, so this is not proof of currently missing visible styles.
+Impact: the validation gate blocks the full suite; reusable components depend on
+website-level tokens instead of the component contract expected by the system.
+Recommendation: map the required sizes/active states into component aliases and
+consume them in these components; retain their intended public appearance.
+Suggested follow-up: Impeccable harden.
+
+P2 — Public styling reaches into CSS Module implementation names
+
+Location: apps/web/src/app/care-pages.css:11, :23, :35
+Category: implementation integrity / maintainability.
+Evidence: global rules match substrings such as [class*='introductionCopy'],
+[class*='cardContent'], [class*='primaryLink'] and [class*='contentLayout'].
+Impact: a private class rename can silently remove public styling. Future
+components inherit the shared shell, but cannot reliably inherit these body
+styles merely by following a documented component API.
+Recommendation: move ownership into component styles and explicit variants, or
+use stable, documented data attributes where a website skin is required. Migrate
+incrementally and preserve the intended custom layouts.
+Suggested follow-up: Impeccable harden.
+
+P2 — Editorial cards assume a heading level that fails in the archive
+
+Location: apps/web/src/website/news-resources.tsx:16
+          apps/web/src/app/(public)/news-resources/page.tsx:30
+Category: accessibility / semantics.
+Evidence: EditorialCard always renders h3. On the homepage its parent section
+has h2, which is appropriate. The archive renders those same cards directly
+under its h1, producing h1 -> h3. Verified in the rendered heading inventory.
+Impact: heading navigation represents the archive structure less clearly.
+Recommendation: let the card accept a restricted heading-level option; use h2
+in the archive and h3 under the homepage section. Preserve visual typography.
+A skipped level alone is not asserted here as a WCAG failure.
+Suggested follow-up: Impeccable harden.
+
+P2 — Preparation-guide action links bypass the shared action treatment
+
+Location: apps/web/src/app/(public)/services/[slug]/page.tsx:44–48
+          apps/web/src/app/website.css:53
+Category: responsive design / component consistency.
+Evidence: the preparation-guide branch uses bare standalone Links for the visit
+checklist, all services and help choosing care. Comparable service-page actions
+use text-link, including a 44px minimum height and a defined hover treatment.
+The narrow DOM inventory reports 21px-high boxes for those bare guide actions;
+their mobile screenshot confirms the different presentation.
+Impact: equivalent next actions receive different feedback and hit areas.
+Recommendation: share a text-action component/pattern for standalone next steps;
+retain normal inline links within sentences. Do not force every content link to
+look like a button. Existing global focus styling still applies.
+These measurements are not a WCAG target-size failure: spacing/inline exceptions
+must be evaluated before claiming one.
+Suggested follow-up: Impeccable adapt / polish.
+
+P3 — Many public pages inherit the generic homepage description
+
+Location: apps/web/src/app/layout.tsx:23
+          apps/web/src/app/(public)/doctors/page.tsx:11
+          apps/web/src/app/(public)/appointment/page.tsx:12
+          other title-only route metadata, including nested services/profiles.
+Category: implementation integrity / metadata consistency.
+Evidence: rendered directory, appointment, emergency, visitor, referral, feedback
+and sampled profile/service pages repeat "Find care and visitor information at
+Hallelujah Hospital." About Us, topic details and editorial pages provide their
+own descriptions.
+Impact: page summaries do not communicate the distinct purpose as well as they
+could. The preview currently has noindex, so this is a preparation issue rather
+than evidence of a live search-ranking problem.
+Recommendation: supply concise page-specific descriptions from the appropriate
+route/content source. Review indexing separately as part of launch readiness.
+Suggested follow-up: Impeccable clarify.
+
+What works and should remain
+
+- Shared navigation/footer ownership, active parent state for nested routes,
+  persistent header on client navigation, and keyboard menu/Escape behavior.
+- One h1, no horizontal overflow, loaded images and no captured browser errors
+  across all 51 responsive samples.
+- Sampled pages have no missing ARIA references or missing image alt attributes.
+  Meaning/quality of every alt description was not independently certified.
+- Tested skip-link focus, feedback review/edit/reset, reader focus/return,
+  help/menu dismissal, directory no-results recovery and reduced-motion behavior.
+- Appointment validation, error focus, retained choices, date limits, review,
+  restart, duplicate/unknown outcomes and no-JavaScript fallback work mechanically.
+- Directory searches, filters, status feedback and native GET fallback pass.
+- Intentional light theme, varied page compositions and the footer variants are
+  not defects. TikTok/Telegram remain visibly unavailable pending supplied URLs.
+
+Detector / contrast screening
+
+The source detector returned 22 style advisories: 20 accent-border findings and
+two Lato findings. Checked against the incumbent code and screenshots: accents
+are used for section structure, state and reading cues; Lato belongs to the
+existing identity. These are not counted as 22 defects or grounds for a redesign.
+
+A limited computed-style text-contrast screen ran across nine routes. Its five
+homepage candidates were not verified violations: three white-text candidates
+sit on a dark decorative background the ancestor-only calculation misses; two
+are video fallback text, not ordinarily rendered child text. Other screened
+routes returned no candidates. This does not cover every state, image background,
+opacity combination or pixel-level contrast; no full contrast-conformance claim.
+
+Separate release-readiness constraints (not accidental layout differences)
+
+The emergency page remains explicit demonstration content with example numbers
+and directions; doctor/service/story material also includes preview records.
+Feedback/referral submission is unavailable. These need approved operational
+content/workflows before a real public launch. Do not remove safeguards just to
+make them look complete. This audit did not verify clinical facts or contacts.
+
+Vercel configuration explicitly enables staging/demo mode. Most inner routes
+still require that mode; root metadata is noindex/nofollow. Production enablement
+and indexing need a deliberate release decision. No gates/configuration changed.
+
+Validation and evidence
+
+PASS pnpm visual:check (17 routes x 3 widths).
+PASS pnpm visual:quality (16 samples, plus interactions at three widths).
+PASS pnpm visual:navigation (21 samples plus persistent client header).
+PASS pnpm visual:appointment (three-width journey and recovery/fallback checks).
+PASS pnpm visual:search-feedback (both directories at three widths + native GET).
+COMPLETE additional 320/1440 DOM inventory and 41 internal path status checks.
+FAIL pnpm tokens:check (finding above).
+No full-suite pass is claimed; the known token gate still fails.
+
+Evidence directories, relative to repository root:
+artifacts/visual-checks/2026-11-19T19-43-04.146Z-responsive-s99YI4
+artifacts/visual-checks/2026-11-19T19-43-02.963Z-site-quality-kBKaGj
+artifacts/visual-checks/2026-11-19T19-43-58.310Z-public-audit-8XCtSz
+artifacts/visual-checks/2026-11-19T19-45-26.904Z-appointment-usability-yRGm5W
+artifacts/visual-checks/2026-11-19T19-45-31.660Z-site-navigation-S1dvy2
+artifacts/visual-checks/2026-11-19T19-47-14.593Z-public-contrast-screen-4LDvwM
+artifacts/visual-checks/2026-11-19T19-48-32.525Z-directory-feedback-9i9uOm
+
+Manual visual review: opened all 17 mobile responsive originals and ten contact
+sheets containing all 34 tablet/desktop captures, reviewed at reduced scale.
+Also opened appointment review-390.png, complete-390.png and errors-1440.png.
+Run-directory notes list the files and findings. Other interaction captures were
+not manually inspected; their aggregate visualInspection stays pending.
+No clipping/overlap observed in the reviewed captures. Automated pass results
+and manual visual observations are separate evidence.
+
+Limits: local Chromium emulation; no physical touch-device, screen-reader,
+Firefox/WebKit, full zoom/text-spacing, optimized-production performance/Core Web
+Vitals, complete contrast, every dynamic content record, or deployed-build audit.
+The audit supports targeted improvements, not accessibility/release certification.
+
+Recommended order
+
+1. Impeccable clarify/harden: truthful appointment-preview messaging and its test.
+2. Impeccable harden: repair token consumers and resume the full test suite.
+3. Impeccable harden: explicit component style contracts and heading context.
+4. Impeccable adapt/clarify: guide actions and route-specific descriptions.
+5. Impeccable polish: visually recheck affected pages after the fixes.
+
+These follow-ups can be requested individually, together or in another order.
+Re-run the audit after fixes. No fixes or commit were performed by this audit.
+
+FOLLOW-UP — REQUESTED PRIORITY FIXES, 19 NOVEMBER 2026
+
+The two P1 findings are now addressed: appointment preview disclosure, sample
+inputs/acknowledgment, action labels and simulated outcomes are explicit; shared
+controls consume registered component aliases. Generated token artifacts updated.
+Token validation (473 tokens), appointment-page/actions/search-controls/form
+contracts, TypeScript and targeted ESLint pass. The updated appointment browser
+check passes keyboard/recovery/reduced-motion/no-JavaScript cases. All nine fresh
+responsive checks pass for /appointment, /doctors and /services; all nine images
+were manually inspected, with no clipping observed. Completion inspected at all
+three widths; notes are in the fresh run directories.
+
+Final evidence:
+artifacts/visual-checks/2026-11-19T20-21-06.545Z-responsive-aJy03N
+artifacts/visual-checks/2026-11-19T20-21-02.351Z-appointment-usability-2OkeJZ
+
+The full pnpm test run passes the repaired token gate and foundation/home checks
+but stops at a separate existing check-home-enhancement.mjs:27 assertion that
+expects an /appointment link in CareSearchPanel. The unchanged component renders
+its Patient Guide action instead. No full-suite pass is claimed, and that test
+mismatch was left outside these two requested fixes. Remaining P2/P3 findings
+are unchanged.
+
+FOLLOW-UP — ARCHITECTURE BOUNDARIES, 19 NOVEMBER 2026
+
+The homepage care-search mismatch was corrected in 3fc81b0. The subsequent 17
+boundary findings have been addressed: shared public exports, component-library
+template/style ownership, a website-owned service care-team composition, central
+development-mode selection, the demo environment inventory and a syntax-aware
+URL policy. Exact approved navigation values remain allowed; negative controls
+reject unknown destinations, remote resources and direct network use of approved
+link literals. Static checking does not replace runtime validation or CSP.
+
+The full pnpm test suite now passes with the repository-pinned font processors
+(ASSET_FORMAT_PYTHON=/tmp/hh-boundary-python/bin/python). System Python lacks
+those optional test prerequisites; a fresh isolated environment was installed
+from scripts/lib/asset-format-requirements.txt with hash verification. No Python
+runtime or package dependency was added to the application.
+
+TypeScript, targeted ESLint, boundary controls and environment tests pass.
+Optimized compilation and runtime smoke pass. Shared-navigation and directory
+search browser checks pass, including keyboard/reduced-motion/native fallback.
+The service-to-doctor-to-appointment check now also protects care-team spacing.
+
+Fresh responsive evidence: 18 combinations in
+artifacts/visual-checks/2026-11-19T20-45-45.560Z-responsive-uEILdO.
+All 18 images were opened; visual review caught care-team spacing affected by
+CSS order. An explicit member class fixes it; all three corrected captures in
+artifacts/visual-checks/2026-11-19T20-48-14.670Z-responsive-4NhxFY were opened
+and show even spacing without clipping. Earlier run visualInspection is failed
+for that regression; the corrective run is passed. This retains the distinction
+between automated passes and inspected visual results.
+
+FOLLOW-UP — PUBLIC STYLE AND PAGE CONTRACTS, 19 NOVEMBER 2026
+
+Addressed the remaining four style/content findings. Global skins now use literal
+data-ui-part contracts instead of matching private CSS Module class names. A
+boundary check rejects class-name attribute selectors in public global styles.
+Component-owned specialty detail spacing replaces accidental filename matching.
+Archive cards use h2 below the page h1; homepage cards retain h3 below section
+h2. Preparation-guide actions share PageActionLink and 44px targets. Public
+routes have specific descriptions, including truthful preview limitations.
+Shared authoring rules are documented in architecture/public-page-patterns.md.
+
+Full pnpm test passes using the pinned isolated Python font processors described
+above. TypeScript, targeted ESLint and optimized build pass. Page-quality checks
+cover 17 routes and protect descriptions, heading levels and guide target size.
+Navigation, directory search, appointment and editorial browser checks pass,
+including relevant keyboard, native fallback and reduced-motion paths.
+
+Fresh responsive checks pass for 33 route/width combinations in
+artifacts/visual-checks/2026-11-19T21-09-03.545Z-responsive-ROCRWe.
+Fresh contact sheets covering all combinations were opened for visual review;
+layout and shared styling remain coherent without observed clipping. This was
+an overview inspection, not a complete contrast or assistive-technology audit.
+Run-specific findings are recorded in inspection-notes.txt. Interaction-only
+runs retain pending visual inspection; their automated results stand separately.

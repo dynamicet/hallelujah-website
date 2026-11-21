@@ -153,7 +153,7 @@ assert.doesNotMatch(templateCss, /(?:#[\da-f]{3,8}\b|\brgba?\()/iu)
 assert.doesNotMatch(templateCss, /@keyframes|animation\s*:/u)
 cases++
 
-const appRoot = new URL('../src/app/', import.meta.url)
+const appRoot = new URL('../src/app/(public)/', import.meta.url)
 assert.match(await readFile(new URL('services/page.tsx', appRoot), 'utf8'), /requireLocalDemo\(\)/u)
 const appSources = await collectSources(appRoot)
 for (const file of appSources) {

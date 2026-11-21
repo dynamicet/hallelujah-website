@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { SiteShell } from '@/design-system/components'
-import { demoShell, requireLocalDemo } from '@/demo/site'
+import { SiteContent } from '@/design-system/components'
+import { requireLocalDemo } from '@/demo/site'
 import { editorialDate, editorialEntries, eventStatus } from '@/demo/editorial'
 import { ArticleReadingGuide } from '@/website/article-reading-guide'
 import styles from '@/website/news-resources.module.css'
@@ -28,7 +28,7 @@ export default async function EditorialPage({ params, searchParams }: { params: 
   const returnHref = `${source}#editorial-${entry.slug}`
   const returnLabel = source === '/' ? 'Back to homepage stories' : 'Back to your stories'
   const chapters = entry.sections.map((section, index) => ({ id: `reading-${index + 1}`, label: section.title }))
-  return <SiteShell {...demoShell(path)} breadcrumbs={{ label: 'Breadcrumb', items: [
+  return <SiteContent breadcrumbs={{ label: 'Breadcrumb', items: [
     { href: '/', label: 'Home' }, { href: '/news-resources', label: 'News, Events & Resources' },
     { href: path, label: entry.title, current: true },
   ] }}>
@@ -57,5 +57,5 @@ export default async function EditorialPage({ params, searchParams }: { params: 
 
       </div>
     </article>
-  </SiteShell>
+  </SiteContent>
 }

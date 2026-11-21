@@ -1,7 +1,10 @@
+import { hospitalContact } from './hospital-contact'
+import { HospitalStatistics } from './hospital-statistics'
+import { hospitalStatistics } from '@/demo/hospital-statistics'
 import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
 
-import { ClinicianPortrait, Icon, SiteShell } from '@/design-system/components'
-import { clinicians, demoShell } from '@/demo/site'
+import { ClinicianPortrait, Icon } from '@/design-system/components'
+import { clinicians } from '@/demo/site'
 import { demoClinicianPortraits } from '@/demo/clinician-portraits'
 import { patientStories } from '@/demo/patient-stories'
 import { EverydayStories } from './everyday-stories'
@@ -30,11 +33,10 @@ const featuredClinicians = featuredClinicianIds.flatMap((publicId) => {
 })
 
 export function WebsiteHome() {
-  const shell = demoShell('/')
-  const receptionTarget = shell.header.contactTargets?.call
+  const receptionTarget = hospitalContact.phoneHref
   const receptionAction = <><Icon name="phone" /><span><InterfaceText>Call reception</InterfaceText></span></>
   return (
-    <SiteShell {...shell}>
+    <>
       <div className="hospital-home enhanced-home">
         <HomeScenes />
         <section className="welcome cinematic-life" aria-labelledby="welcome-title">
@@ -107,6 +109,8 @@ export function WebsiteHome() {
           </div>
         </section>
 
+        <HospitalStatistics {...hospitalStatistics} />
+
         <section className="visit-guide" data-motion-section="visit" aria-labelledby="visit-guide-title" id="visit-guide" tabIndex={-1}>
           <div className="page-frame visit-inner">
             <div className="visit-copy"><h2 data-motion="heading" data-reveal="0" id="visit-guide-title">Plan your visit</h2>
@@ -143,6 +147,6 @@ export function WebsiteHome() {
         {/* The partner showcase reuses a selection of the existing organization artwork. */}
         <Partners partners={partners.slice(0, 10)} billingPartners={partners} />
       </div>
-    </SiteShell>
+    </>
   )
 }

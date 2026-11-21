@@ -47,6 +47,31 @@ relative imports. App files may consume the design system only through `@/design
 The automated application boundary check rejects upward imports, internal-file bypasses, and
 template CSS whose basename does not match its owning template.
 
+Public routes may also compose website-owned patterns and components, as described in
+`public-page-patterns.md`. Those website compositions use the component public API;
+routes do not reach directly into component internals. This supports bespoke page
+design without weakening the design-system import boundaries. The component-library
+preview follows the same route-to-template rule, with its CSS owned by that template.
+
+## Source URL policy
+
+`scripts/check-boundaries.mjs` uses the syntax-aware policy in
+`scripts/lib/boundary-url-policy.mjs` to distinguish executable URL values from
+compile-time contact types and reserved internal URL-parsing bases. Approved map,
+attribution and social destinations are exact values in specific source locations
+and link contexts, with provenance recorded alongside the policy. Changing a
+destination requires reviewing that inventory; approving an origin does not approve
+every path on it. An approved navigation destination used directly in `fetch`, a
+remote image/script, an unknown URL or an interpolated runtime origin is rejected.
+Static namespaces are allowed only in their named discovery declarations.
+
+Positive and negative controls run with the boundary check. This is a static source
+policy, not a complete data-flow or network security analysis; dynamic values still
+need their runtime validation and CSP. Environment reads remain in the server
+environment contract, including development-mode selection used by Next.js CSP.
+The environment inventory includes the optional `HH_DEMO_MODE` switch, whose
+staging-only behavior is tested independently.
+
 ## Bounded component API rules
 
 - Public props express semantic needs and supported variants; arbitrary route records and prototype

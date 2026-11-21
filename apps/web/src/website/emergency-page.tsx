@@ -1,10 +1,9 @@
-import { Icon, SiteShell } from '@/design-system/components'
-import { demoShell } from '@/demo/site'
+import { Icon, SiteContent } from '@/design-system/components'
 import { hospitalContact } from './hospital-contact'
 import styles from './emergency-page.module.css'
 
 export function WebsiteEmergencyPage() {
-  return <SiteShell {...demoShell('/emergency')} showHelp={false}>
+  return <SiteContent>
     <div className={styles.page} data-hospital-emergency lang="en">
       <header className={styles.introduction}>
         <h1>Emergency &amp; ambulance</h1>
@@ -61,5 +60,5 @@ export function WebsiteEmergencyPage() {
         <a href={hospitalContact.emergencyPhoneHref}><Icon name="phone" /><span>Call emergency &amp; ambulance<strong>{hospitalContact.emergencyPhone}</strong></span></a>
       </div>
     </div>
-  </SiteShell>
+  </SiteContent>
 }

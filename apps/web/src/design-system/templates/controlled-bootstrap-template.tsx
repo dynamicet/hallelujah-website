@@ -27,7 +27,7 @@ export function ControlledBootstrapTemplate({
     <div className={styles.frame}>
       <div className={styles.surface}>
         <ContentSurface labelledBy={titleId}>
-          <p className={styles.eyebrow}>{eyebrow}</p>
+          <p data-ui-part="eyebrow" className={styles.eyebrow}>{eyebrow}</p>
           <h1 className={styles.title} id={titleId}>
             {title}
           </h1>

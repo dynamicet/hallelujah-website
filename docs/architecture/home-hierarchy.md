@@ -108,9 +108,8 @@ links → shared teal footer. There is no separate navigator or homepage film tr
 
 `CareSearch` defaults to the doctor directory, retains one query when changing the
 Doctor/Service select, and submits native GET `q` requests. Its no-JavaScript
-fallback also supplies a service GET form. Help choosing care opens the existing
-patient guide and returns keyboard focus to its original launcher. Guide code is
-loaded on request; appointment simulation code belongs to the appointment route.
+fallback also supplies a service GET form. The automated patient guide was retired
+at the hospital’s request. Appointment simulation code belongs to the appointment route.
 The controller's request/state behavior is unchanged.
 
 `CareSpotlight` owns only internal specialty presentation records: stable image ID,
@@ -137,6 +136,6 @@ remain intact. The footer's principal care action now uses the appointment route
 when the supplied navigation includes it.
 
 Run `pnpm home-enhancement:check` for the new SSR/search/asset contract, alongside
-existing home, contact, governed, search, shell, care-journey and patient-guide checks.
+existing home, contact, governed, search, shell and care-journey checks.
 See [visual review and asset notes](../visual-design/home-enhancement.md) for evidence,
 asset provenance and remaining limitations.

@@ -83,9 +83,17 @@ try {
   if (home.status !== 200 || !/<main\b[^>]*\bid="main-content"/u.test(body)) {
     throw new Error('bootstrap page did not return its main content')
   }
-  if (!body.includes('data-home-template') || body.includes('data-foundation-fixture')
+  if (!body.includes('hospital-home enhanced-home') || body.includes('data-foundation-fixture')
     || body.includes('data-review-harness')) {
-    throw new Error('root must render controlled Home without component review specimens')
+    throw new Error('root must render the standard homepage without component review specimens')
+  }
+  for (const scenario of ['partial', 'empty', 'unavailable']) {
+    const response = await fetch(`${origin}/?demo=${scenario}`)
+    const html = await response.text()
+    if (response.status !== 200 || !html.includes('hospital-home enhanced-home')
+      || html.includes('data-home-template')) {
+      throw new Error(`Legacy homepage query selected another template: ${scenario}`)
+    }
   }
   expectHeader(home, 'content-security-policy', "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'")
   expectHeader(home, 'referrer-policy', 'no-referrer')

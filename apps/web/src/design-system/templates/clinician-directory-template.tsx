@@ -1,21 +1,20 @@
+import { TemplateFrame } from './template-frame'
 import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
 
 import type { ReactNode } from 'react'
-import type { SiteShellProps } from '../components'
 import {
   ActiveFilterList,
+  DirectorySearchForm, DirectoryResultCount,
+  ClinicianTransition, clinicianTransitionName, ClinicianProfileLink,
+  type SiteShellProps,
   ClinicianPortrait,
   FilterDisclosure,
   FilterGroup,
   Pagination,
   SearchBox,
-  SiteShell,
   type ActiveFilter,
   type PaginationPage,
 } from '../components'
-import { DirectorySearchForm, DirectoryResultCount } from '../components'
-import { ClinicianTransition, clinicianTransitionName } from '../components'
-import { ClinicianProfileLink } from '../components'
 import {
   clinicianDirectoryQueryMaximum,
   clinicianDirectoryUrl,
@@ -35,7 +34,7 @@ export interface ClinicianDirectoryTemplateProps {
   readonly directory: ClinicianDirectoryView
   readonly profileLinks?: boolean
   readonly pathname: string
-  readonly shell: Omit<SiteShellProps, 'breadcrumbs' | 'children'>
+  readonly shell?: Omit<SiteShellProps, 'breadcrumbs' | 'children'>
   readonly state: ClinicianDirectoryReviewState
 }
 
@@ -82,11 +81,11 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
   const lastResult = Math.min(searchState.page * directory.pageSize, directory.resultCount)
 
   return (
-    <SiteShell {...shell}>
+    <TemplateFrame shell={shell}>
       {profileLinks ? <ClinicianTransition /> : null}
       <div className={styles.frame} data-clinician-directory-state={state} data-clinician-directory-template data-care-directory={profileLinks || undefined}>
         <section aria-labelledby="clinician-directory-title" className={styles.introduction} data-directory-section="D1">
-          <div className={styles.introductionCopy} data-directory-introduction-copy>
+          <div className={styles.introductionCopy} data-ui-part="introduction-copy" data-directory-introduction-copy>
             <h1 data-reveal="0" id="clinician-directory-title">Find a doctor</h1>
             <Link className="ds-touch-target" href="/services">View all services instead</Link>
           </div>
@@ -94,11 +93,11 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
         </section>
 
         <section aria-labelledby="directory-search-title" className={styles.directory} data-directory-section="D2">
-          <div className={styles.directoryHeading} data-directory-heading>
+          <div className={styles.directoryHeading} data-ui-part="heading directory-heading" data-directory-heading>
             <h2 className={styles.visuallyHidden} id="directory-search-title">Search doctors</h2>
           </div>
           <DirectorySearchForm action={pathname} label="Search clinicians" resultKey={currentResultsHref}>
-            <div className={styles.searchPanel} data-directory-search-panel>
+            <div className={styles.searchPanel} data-ui-part="search-panel" data-directory-search-panel>
               <SearchBox
                 clearHref={clinicianDirectoryUrl(pathname, { ...searchState, page: 1, query: '' }, allowedFilters)}
                 hint={expandedSearch ? 'Try “blood sugar” or a service name. Use general terms; do not enter personal details.' : 'Search by name or specialty. Do not enter personal or medical information.'}
@@ -121,8 +120,8 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
               <Link className="ds-touch-target" href="/appointment">Request appointment guidance</Link>
             </details>
 
-            <div className={styles.discoveryWorkspace} data-directory-workspace>
-              <aside aria-label="Clinician filters" className={styles.filterRail} data-directory-filter-rail>
+            <div className={styles.discoveryWorkspace} data-ui-part="workspace discovery-workspace" data-directory-workspace>
+              <aside aria-label="Clinician filters" className={styles.filterRail} data-ui-part="filter-rail" data-directory-filter-rail>
                 <FilterDisclosure label={`Filter clinicians (${activeFilters.length})`} open>
                   <FilterGroup
                     legend="Specialty"
@@ -134,9 +133,9 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                 </FilterDisclosure>
               </aside>
 
-              <section aria-labelledby="directory-results-title" className={styles.resultsSection} data-directory-section="D3">
+              <section aria-labelledby="directory-results-title" data-ui-part="results results-section" className={styles.resultsSection} data-directory-section="D3">
                 <h2 className={styles.visuallyHidden} id="directory-results-title">Clinician results</h2>
-                <div className={styles.resultsToolbar}>
+                <div data-ui-part="results" className={styles.resultsToolbar}>
                   {!unavailable ? (
                     <DirectoryResultCount id="clinician-result-count" resultKey={currentResultsHref}>
                       {directory.resultCount} {directory.resultCount === 1 ? 'clinician' : 'clinicians'}
@@ -174,24 +173,24 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                 ) : (
                   <>
                     {portraitDisclosure ? <p className={styles.portraitDisclosure}>{portraitDisclosure}</p> : null}
-                    <ol aria-labelledby="clinician-result-count" className={styles.results} data-directory-section="D4"
+                    <ol aria-labelledby="clinician-result-count" data-ui-part="results" className={styles.results} data-directory-section="D4"
                       start={(searchState.page - 1) * directory.pageSize + 1}>
                       {directory.results.map((clinician) => (
                         <li key={clinician.publicId}>
                           <article className={styles.card} data-clinician-public-id={clinician.publicId}>
-                            <div className={styles.cardPhoto} data-directory-card-photo><ClinicianPortrait name={clinician.details.name} src={portraits?.[clinician.publicId]} transitionName={clinicianTransitionName(clinician.publicId, 'portrait')} /></div>
-                            <div className={styles.cardContent} data-directory-card-content>
+                            <div className={styles.cardPhoto} data-ui-part="card-photo" data-directory-card-photo><ClinicianPortrait name={clinician.details.name} src={portraits?.[clinician.publicId]} transitionName={clinicianTransitionName(clinician.publicId, 'portrait')} /></div>
+                            <div className={styles.cardContent} data-ui-part="card-content" data-directory-card-content>
                               {clinician.details.professionalTitle ? <p className={styles.professionalTitle}>{clinician.details.professionalTitle}</p> : null}
                               <h2 data-care-transition-name style={{ viewTransitionName: clinicianTransitionName(clinician.publicId, 'name') }}>{clinician.details.name}</h2>
-                              <ul className={styles.specialties} data-directory-specialties aria-label="Specialties">
+                              <ul className={styles.specialties} data-ui-part="specialties" data-directory-specialties aria-label="Specialties">
                                 {clinician.details.specialties.map((specialty) => <li key={specialty}>{specialty}</li>)}
                               </ul>
                               {clinician.details.interests[0] ? <ul className={styles.careInterests} aria-label="Areas of care">{clinician.details.interests.slice(0, 2).map((interest) => <li key={interest}>{interest}</li>)}</ul> : (
-                                <p className={styles.cardSummary} data-directory-card-summary>Areas of care not listed.</p>
+                                <p className={styles.cardSummary} data-ui-part="card-summary" data-directory-card-summary>Areas of care not listed.</p>
                               )}
-                              {directory.matchReasons?.[clinician.publicId] ? <p className={styles.cardMeta}>{directory.matchReasons[clinician.publicId]}</p> : null}
-                              {clinician.details.languages.length ? <p className={styles.cardMeta}>Languages: {clinician.details.languages.join(', ')}</p> : null}
-                              {profileLinks ? <ClinicianProfileLink publicId={clinician.publicId} className={`${styles.profileAction} ds-touch-target`} href={`${clinician.canonicalPath}?from=${encodeURIComponent(currentResultsHref)}`} label={`View profile for ${clinician.details.name}`}><span>View profile</span><span aria-hidden="true">→</span></ClinicianProfileLink> : <span aria-disabled="true" className={styles.disabledAction}>Profile unavailable</span>}
+                              {directory.matchReasons?.[clinician.publicId] ? <p data-ui-part="card" className={styles.cardMeta}>{directory.matchReasons[clinician.publicId]}</p> : null}
+                              {clinician.details.languages.length ? <p data-ui-part="card" className={styles.cardMeta}>Languages: {clinician.details.languages.join(', ')}</p> : null}
+                              {profileLinks ? <ClinicianProfileLink publicId={clinician.publicId} data-ui-part="profile-action" className={`${styles.profileAction} ds-touch-target`} href={`${clinician.canonicalPath}?from=${encodeURIComponent(currentResultsHref)}`} label={`View profile for ${clinician.details.name}`}><span>View profile</span><span aria-hidden="true">→</span></ClinicianProfileLink> : <span aria-disabled="true" className={styles.disabledAction}>Profile unavailable</span>}
                             </div>
                           </article>
                         </li>
@@ -210,12 +209,12 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
           </DirectorySearchForm>
         </section>
 
-        {profileLinks ? <section aria-labelledby="directory-visit-title" className={`${styles.support} ds-support-band`} data-directory-support data-care-band="preparation">
+        {profileLinks ? <section aria-labelledby="directory-visit-title" className={`${styles.support} ds-support-band`} data-ui-part="support" data-directory-support data-care-band="preparation">
           <h2 id="directory-visit-title">Plan your visit</h2>
           <Link className="ds-touch-target" href="/patients-visitors">Read the visit guide</Link>
         </section> : null}
 
-        <section aria-labelledby="directory-support-title" className={`${styles.support} ds-support-band`} data-directory-support data-care-band="assistance" data-directory-section="D6" id="directory-support">
+        <section aria-labelledby="directory-support-title" className={`${styles.support} ds-support-band`} data-ui-part="support" data-directory-support data-care-band="assistance" data-directory-section="D6" id="directory-support">
           <h2 id="directory-support-title">Need help choosing?</h2>
           <div className="ds-support-actions">
             <Link className="ds-touch-target" href="/services">View all services</Link>
@@ -223,6 +222,6 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
           </div>
         </section>
       </div>
-    </SiteShell>
+    </TemplateFrame>
   )
 }

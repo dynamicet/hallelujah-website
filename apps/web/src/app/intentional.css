@@ -16,15 +16,15 @@ body :where(h3,h4) { font-family: var(--site-font); letter-spacing: -.01em; line
 body :where(p) { text-wrap: pretty; }
 body :where(select,textarea):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
 body :where([lang='am']) { font-family: Ethiopic, sans-serif; letter-spacing: normal; line-height: 1.5; }
-[data-site-header] [class*='wordmark'] { font-family: 'Clash Grotesk', sans-serif; letter-spacing: -.035em; }
-[data-site-header] [class*='wordmark'] > span { font-family: var(--site-font); letter-spacing: .01em; }
-[data-site-header] [class*='utilityBar'] { background: var(--site-ground); }
-[data-site-header] [class*='appointmentLink'] {
+[data-site-header] [data-ui-part~="wordmark"] { font-family: 'Clash Grotesk', sans-serif; letter-spacing: -.035em; }
+[data-site-header] [data-ui-part~="wordmark"] > span { font-family: var(--site-font); letter-spacing: .01em; }
+[data-site-header] [data-ui-part~="utility-bar"] { background: var(--site-ground); }
+[data-site-header] [data-ui-part~="appointment-link"] {
   min-height: 48px; padding: 12px 20px; gap: 16px;
   font-size: 16px; font-weight: var(--site-action-weight); line-height: 24px;
 }
-[data-site-header] [class*='appointmentLink']:hover { transform: none; }
-[data-site-header] [class*='navigationLink'], [data-site-header] [class*='aboutLink'] { font-family: var(--site-font); letter-spacing: normal; }
+[data-site-header] [data-ui-part~="appointment-link"]:hover { transform: none; }
+[data-site-header] [data-ui-part~="navigation-link"], [data-site-header] [data-ui-part~="about-link"] { font-family: var(--site-font); letter-spacing: normal; }
 
 .enhanced-home {
   --home-gutter: 40px;
@@ -180,7 +180,7 @@ body :where([lang='am']) { font-family: Ethiopic, sans-serif; letter-spacing: no
 main [data-clinician-public-id] h3 { font-family: var(--site-font); font-weight: 700; font-size: 22px; }
 /* The directories retain a visible page title on small screens. */
 @media (max-width: 767px) {
- main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='directoryHeading'] { position: static; width: auto; height: auto; overflow: visible; clip-path: none; }
+ main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~="directory-heading"] { position: static; width: auto; height: auto; overflow: visible; clip-path: none; }
 }
 @media (max-width: 1023px) {
  :root { --site-frame: calc(100% - 48px); }

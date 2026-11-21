@@ -4,7 +4,7 @@
 .selectionContext p:last-child { margin-bottom: 0; }
 .selectionContext a { display: inline-flex; align-items: center; min-height: 44px; color: var(--semantic-color-text-link); }
 .careTeam.careTeam { display: grid; gap: 16px; list-style: none; padding: 0; margin: 24px 0 0; }
-.careTeam li { margin: 0; padding: 0; min-width: 0; }
+.careTeam .careTeamMember { margin: 0; padding: 0; min-width: 0; }
 .careTeam a {
   display: grid;
   grid-template-columns: 88px minmax(0, 1fr);

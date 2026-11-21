@@ -1,3 +1,4 @@
+import { TemplateFrame } from './template-frame'
 import { InterfaceCopy, InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
 
 import type { ReactNode } from 'react'
@@ -9,7 +10,6 @@ import {
   FormStatus,
   FormSubmitButton,
   SelectField,
-  SiteShell,
   TextField,
   type SelectOption,
   type SiteShellProps,
@@ -47,7 +47,7 @@ export interface AppointmentTemplateProps {
   readonly privacyDisclosure: ReactNode
   readonly recipientLabel: string
   readonly serviceOptions: readonly SelectOption[]
-  readonly shell: Omit<SiteShellProps, 'breadcrumbs' | 'children'>
+  readonly shell?: Omit<SiteShellProps, 'breadcrumbs' | 'children'>
   readonly state: {
     readonly errors?: readonly AppointmentField[]
     readonly interactive?: boolean
@@ -140,8 +140,8 @@ function AppointmentStatePanels({
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="pending">
-        <FormStatus heading="Completing your request…" id="appointment-pending" kind="pending" visible={kind === 'pending'}>
-          <p>Please wait a moment.</p>
+        <FormStatus heading="Completing the preview…" id="appointment-pending" kind="pending" visible={kind === 'pending'}>
+          <p>Please wait a moment. No request is being sent.</p>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="known-failure">
@@ -151,8 +151,8 @@ function AppointmentStatePanels({
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="unknown">
-        <FormStatus announcement="focus" heading="Check your request status" id="appointment-unknown" kind="warning" visible={kind === 'unknown'}>
-          <p>Check for an existing request before trying again.</p>
+        <FormStatus announcement="focus" heading="Example: request status unknown" id="appointment-unknown" kind="warning" visible={kind === 'unknown'}>
+          <p>This demonstrates an uncertain result. No request was sent. You can explore the example recovery options.</p>
           <div className={styles.statusActions}>
             <button data-reconcile="found" type="button"><InterfaceText>View existing request</InterfaceText></button>
             <button data-reconcile="missing" type="button"><InterfaceText>Return to review</InterfaceText></button>
@@ -160,22 +160,22 @@ function AppointmentStatePanels({
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="duplicate">
-        <FormStatus announcement="focus" heading="You already have a request" id="appointment-duplicate" kind="warning" visible={kind === 'duplicate'}>
-          <p>View your existing request to avoid starting another.</p>
+        <FormStatus announcement="focus" heading="Example: request already exists" id="appointment-duplicate" kind="warning" visible={kind === 'duplicate'}>
+          <p>This demonstrates a duplicate result. No request was sent or saved.</p>
           <div className={styles.statusActions}><button data-reconcile="found" type="button"><InterfaceText>View your request</InterfaceText></button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="receipt">
-        <FormStatus announcement="focus" heading="Example request outcome" id="appointment-receipt" kind="warning" visible={kind === 'receipt'}>
-          <p>Example reference: <strong>{specimenReference}</strong>. No request has been sent.</p>
+        <FormStatus announcement="focus" heading="Preview complete" id="appointment-receipt" kind="warning" visible={kind === 'receipt'}>
+          <p>Example reference: <strong>{specimenReference}</strong>. No appointment request was sent or saved.</p>
           <p><Link href="/#home-directions">Contact the hospital</Link> to confirm your appointment time.</p>
-          <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Start a new request</InterfaceText></button></div>
+          <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Try the preview again</InterfaceText></button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="delivery-warning">
-        <FormStatus announcement="focus" heading="Example message outcome" id="appointment-delivery-warning" kind="warning" visible={kind === 'delivery-warning'}>
-          <p>Keep your reference: <strong>{specimenReference}</strong>. <Link href="/#home-directions">Contact the hospital</Link> to check your appointment time.</p>
-          <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Start a new request</InterfaceText></button></div>
+        <FormStatus announcement="focus" heading="Example: message delivery warning" id="appointment-delivery-warning" kind="warning" visible={kind === 'delivery-warning'}>
+          <p>Example reference: <strong>{specimenReference}</strong>. No request was sent or saved. <Link href="/#home-directions">Contact the hospital</Link> to check your appointment time.</p>
+          <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Try the preview again</InterfaceText></button></div>
         </FormStatus>
       </div>
     </div></InterfaceCopy>
@@ -248,9 +248,9 @@ function AppointmentForm({
     <FormPrimitiveForm
       action="/controlled-appointment-submission-disabled"
       busy={state === 'pending'}
-      descriptionId={localSimulation ? undefined : 'appointment-form-boundary'}
+      descriptionId="appointment-form-boundary"
       id="appointment-request-form"
-      label="Appointment request form"
+      label={localSimulation ? 'Appointment preview form' : 'Appointment request form'}
       method="post"
     >
       <div data-appointment-section="A3">
@@ -262,7 +262,7 @@ function AppointmentForm({
       </nav> : null}
 
       <section aria-labelledby="appointment-details-title" className={styles.formSection} data-appointment-section="A4">
-        <div className={styles.sectionHeading}>
+        <div data-ui-part="section section-heading" className={styles.sectionHeading}>
           <h2 data-journey-title id="appointment-details-title" tabIndex={-1}>{localSimulation ? 'Choose your care' : 'Request details'}</h2>
           <p data-journey-description>{localSimulation ? '' : 'Do not enter personal or medical information.'}</p>
         </div>
@@ -297,7 +297,7 @@ function AppointmentForm({
 
           {localSimulation ? <section aria-label="Help choosing care" className={styles.careHelp} data-care-selector="not_sure" hidden={selectedCareRoute !== 'not_sure'}>
             <p>You can continue without choosing a doctor, or explore your options first.</p>
-            <div className={styles.reviewActions}><Link href="/services">Explore services</Link><Link href="/doctors">Browse doctors</Link></div>
+            <div data-ui-part="review" className={styles.reviewActions}><Link href="/services">Explore services</Link><Link href="/doctors">Browse doctors</Link></div>
           </section> : null}
 
           <div className={styles.careSelectors} data-care-selectors>
@@ -313,7 +313,7 @@ function AppointmentForm({
             autoComplete="off"
             defaultValue={state === 'validation' ? 'TEST PATIENT' : undefined}
             error={fieldError('full-name', hasError('full-name'))}
-            hint={localSimulation ? undefined : 'Use TEST PATIENT for this example.'}
+            hint="Use TEST PATIENT for this example; do not enter your real name."
             hintId="full-name-hint"
             id="full-name"
             label="Full name"
@@ -326,7 +326,7 @@ function AppointmentForm({
           <TextField
             autoComplete="off"
             error={fieldError('phone', hasError('phone'))}
-            hint={localSimulation ? 'Include your country code, for example +251.' : 'Use +0 000 000 0000 for this example.'}
+            hint="Use +0 000 000 0000 for this example; do not enter your real telephone number."
             hintId="phone-hint"
             id="phone"
             inputMode="tel"
@@ -356,7 +356,7 @@ function AppointmentForm({
 
       <section aria-labelledby={localSimulation ? undefined : 'appointment-privacy-title'} className={`${styles.formSection} ${styles.privacy}`} data-appointment-section="A5">
         {localSimulation ? <p><Link href="/privacy">Read the privacy notice</Link> before adding your details.</p> : null}
-        {!localSimulation ? <div className={styles.sectionHeading}>
+        {!localSimulation ? <div data-ui-part="section-heading" className={styles.sectionHeading}>
           <h2 id="appointment-privacy-title">Your privacy</h2>
           <div id="privacy-disclosure">{privacyDisclosure}</div>
         </div> : null}
@@ -372,7 +372,7 @@ function AppointmentForm({
             value="true"
           />
           <span>
-            <strong>{localSimulation ? 'I agree to be contacted about this request.' : 'I understand this is a local example, not an appointment request.'}</strong>
+            <strong>I understand this is an example, not an appointment request.</strong>
             {!localSimulation ? <span id="privacy-acknowledged-hint">My sample answers stay in this browser view until I leave or finish the example.</span> : null}
           </span>
         </label>
@@ -382,7 +382,7 @@ function AppointmentForm({
       </section>
 
       <section aria-labelledby="appointment-submit-title" className={styles.formSection} data-appointment-section="A6">
-        <div className={styles.sectionHeading}>
+        <div data-ui-part="section section-heading" className={styles.sectionHeading}>
           <h2 id="appointment-submit-title" tabIndex={-1}>Review your details</h2>
           <p data-journey-review-description>Check your choices and contact details.</p>
         </div>
@@ -401,9 +401,9 @@ function AppointmentForm({
           <FormSubmitButton
             describedBy={localSimulation ? undefined : 'controlled-submit-explanation'}
             disabled={!localSimulation || state === 'pending' || state === 'unknown' || state === 'duplicate' || state === 'receipt' || state === 'delivery-warning'}
-            label="Check details"
+            label={localSimulation ? 'Check sample details' : 'Check details'}
             pending={state === 'pending'}
-            pendingLabel="Completing request…"
+            pendingLabel="Completing preview…"
           />
         </FormActions>
         {!localSimulation ? <p className={styles.fixtureBoundary} id="controlled-submit-explanation">
@@ -445,27 +445,27 @@ export function AppointmentTemplate({
       <p><Link href="/patients-visitors#checklist">Make your visit checklist</Link></p>
       <p><Link href="/faq">Common appointment questions</Link></p>
     </section> : null}
-    <section aria-labelledby="appointment-warning-title" className={`${styles.section} ${styles.warning}`} data-appointment-section="A2">
+    <section aria-labelledby="appointment-warning-title" data-ui-part="section" className={`${styles.section} ${styles.warning}`} data-appointment-section="A2">
       <h2 id="appointment-warning-title">{state.localSimulation ? 'Need urgent help?' : 'Do not use this form for emergency help'}</h2>
       {!state.localSimulation ? <p>{warning}</p> : <Link href="/emergency">Emergency information</Link>}
     </section>
   </aside></InterfaceCopy>
 
   return (
-    <SiteShell {...shell}>
+    <TemplateFrame shell={shell}>
       <div className={styles.frame} data-appointment-outcome={state.outcome} data-appointment-state={state.kind} data-appointment-template data-experience-level="0" data-local-journey={state.localSimulation || undefined}>
-        <section aria-labelledby="appointment-title" className={styles.introduction} data-appointment-section="A1">
+        <section aria-labelledby="appointment-title" data-ui-part="introduction" className={styles.introduction} data-appointment-section="A1">
           <h1 id="appointment-title">{title}</h1>
-          {description ? <p className={styles.description}>{description}</p> : null}
+          {description ? <p data-ui-part="description" className={styles.description}>{description}</p> : null}
           {!state.localSimulation ? <p className={styles.fixtureBoundary}>{eyebrow}</p> : null}
-          {!state.localSimulation ? <p className={styles.fixtureNotice} id="appointment-form-boundary">Online appointment requests are unavailable. Do not enter personal or medical information.</p> : null}
+          <p data-ui-part="fixture-notice" className={styles.fixtureNotice} id="appointment-form-boundary">{state.localSimulation ? <>Try the appointment preview using sample details only. Nothing is sent to the hospital or saved as an appointment request. To arrange care, <Link href="/#home-directions">contact the hospital</Link>.</> : <>Online appointment requests are unavailable. Do not enter personal or medical information.</>}</p>
         </section>
 
-        <div className={styles.workspace}>
+        <div data-ui-part="workspace" className={styles.workspace}>
         {!state.localSimulation ? guidance : null}
 
         {unavailable ? (
-          <section aria-labelledby="appointment-unavailable-title" className={`${styles.section} ${styles.unavailable}`} data-appointment-section="A3">
+          <section aria-labelledby="appointment-unavailable-title" data-ui-part="section" className={`${styles.section} ${styles.unavailable}`} data-appointment-section="A3">
             <h2 id="appointment-unavailable-title">Online appointment requests are unavailable</h2>
             <p>No appointment request can be sent at this time.</p>
           </section>
@@ -497,6 +497,6 @@ export function AppointmentTemplate({
           {state.localSimulation ? <div className="ds-support-actions"><Link className="ds-touch-target" href="/#home-call">Contact information</Link><Link className="ds-touch-target" href="/doctors">Find a doctor</Link></div> : null}
         </section>
       </div>
-    </SiteShell>
+    </TemplateFrame>
   )
 }

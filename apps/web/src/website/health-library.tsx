@@ -59,17 +59,17 @@ export function HealthLibrary({ topics, title = 'Find health topics', standalone
   return <section aria-labelledby="health-library-title" className={`page-frame ${styles.root} ${standalone ? '' : styles.home}`} data-health-library={standalone ? 'standalone' : 'embedded'} data-motion-section={standalone ? undefined : "health"} id="health-library" ref={root}>
     <div className={styles.controls}>
       <div className={`${styles.opening} ${standalone ? styles.standalone : ''}`}>
-        <div className={standalone ? styles.srOnly : styles.titleBlock}><h2 data-reveal={standalone ? undefined : "0"} data-motion="heading" className={styles.title} id="health-library-title">{title}</h2></div>
+        <div data-ui-part="title-block" className={standalone ? styles.srOnly : styles.titleBlock}><h2 data-reveal={standalone ? undefined : "0"} data-motion="heading" className={styles.title} id="health-library-title">{title}</h2></div>
         <InterfaceCopy><form className={styles.searchForm} role="search" aria-label="Health and care topics" onSubmit={(event) => { event.preventDefault(); if (matchMedia('(max-width: 700px)').matches) input.current?.blur() }}>
           <label className={standalone ? undefined : styles.srOnly} htmlFor="health-topic-search">Search topics</label>
-          <div className={styles.searchBox}>
+          <div data-ui-part="search-box" className={styles.searchBox}>
             <svg aria-hidden="true" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 5 5" /></svg>
             <input autoComplete="off" enterKeyHint="search" id="health-topic-search" maxLength={80} onChange={(event) => { setQuery(event.target.value); setLetter(''); setSelected(null); setBrowseAll(false); setVisibleCount(resultBatchSize) }} placeholder={standalone ? 'Try “back pain”' : 'Search health topics'} ref={input} type="search" value={query} />
             {standalone ? <button aria-label="Search health topics" type="submit"><Arrow /></button> : null}
           </div>
         </form></InterfaceCopy>
       </div>
-      {standalone && !active ? <div className={styles.examples} aria-label="Suggested topics"><span>Try:</span>{topics.slice(0, 3).map((topic) => <button key={topic.id} type="button" onClick={() => { setQuery(topic.name); setLetter(''); setBrowseAll(false); setVisibleCount(resultBatchSize) }}>{topic.name}</button>)}</div> : null}
+      {standalone && !active ? <div data-ui-part="examples" className={styles.examples} aria-label="Suggested topics"><span>Try:</span>{topics.slice(0, 3).map((topic) => <button key={topic.id} type="button" onClick={() => { setQuery(topic.name); setLetter(''); setBrowseAll(false); setVisibleCount(resultBatchSize) }}>{topic.name}</button>)}</div> : null}
       {standalone ? <InterfaceCopy><div className={styles.browseHeading}><h3>Browse by first letter</h3><button aria-controls="health-topic-matches" aria-expanded={active} onClick={active ? reset : showAll} type="button">{active ? 'Clear results' : 'View all topics'}</button></div></InterfaceCopy> : null}
       <div aria-label="Find topics by first letter" className={styles.alphabet} role="group">
         {alphabet.map((value) => <button aria-controls="health-topic-matches" aria-label={`Topics beginning with ${value}`} aria-pressed={letter === value} disabled={!topics.some((topic) => topic.name.startsWith(value))} key={value} onClick={() => { setLetter(value); setQuery(''); setSelected(null); setBrowseAll(false); setVisibleCount(resultBatchSize) }} type="button">{value}</button>)}

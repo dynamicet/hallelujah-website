@@ -35,13 +35,7 @@ services are outside this addition. Operational details remain explicitly unveri
 Run `PATIENT_PAGES_ONLY=1 node scripts/check-demo-routes.mjs` against the development
 server for the ten service routes, links, responsive layouts and feedback journey.
 
-The **Help → Chat with our guide** option opens a working patient guide with six
-topic flows, prepared FAQ answers, typed-question matching, doctor/service lookup
-and appointment handoffs. It runs in the browser with no LLM or API keys. Sample
-content comes from the same directory snapshot; unverified operational facts remain
-unavailable. See [Patient Guide](docs/architecture/patient-guide.md) for content
-editing, integration points and verification. Run
-`pnpm --dir apps/web patient-guide:check` for its conversation checks.
+The automated patient guide has been retired at the hospital’s request. The bottom-right call button uses the shared hospital contact number.
 
 The homepage Health & Care finder is available at `/#health-library`, after
 “How can we help?”. Search and the full A–Z selector remain visible together on

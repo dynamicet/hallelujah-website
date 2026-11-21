@@ -4,7 +4,7 @@ import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-// Run against the existing local demo: pnpm dev, then pnpm --dir apps/web patient-guide:smoke.
+// Run against the existing local demo: pnpm dev, then pnpm --dir apps/web care-journeys:smoke.
 const origin = 'http://localhost:3000'
 const capture = path.resolve(process.env.CARE_EVIDENCE_DIR ?? fileURLToPath(new URL('../../../artifacts/care-journeys/', import.meta.url)))
 await mkdir(capture, { recursive: true })
@@ -75,7 +75,7 @@ try {
     console.log(`Checking ${route} at ${width}px`)
     await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: width < 600 })
     await send('Page.navigate', { url: origin + route })
-    await until("document.readyState === 'complete' && !!document.querySelector('[data-open-patient-guide]')")
+    await until("document.readyState === 'complete' && !!document.querySelector('main h1')")
     await pause(1000)
   }
   async function shot(name) {

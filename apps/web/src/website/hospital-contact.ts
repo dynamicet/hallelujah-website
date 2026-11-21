@@ -2,6 +2,8 @@
 // Supporting arrival copy must not imply unconfirmed hours, parking or access facilities.
 export const hospitalContact = {
   name: 'Hallelujah General Hospital',
+  hotline: '9975',
+  hotlineHref: 'tel:9975',
   phone: '+251 11 470 4242',
   phoneHref: 'tel:+251114704242',
   alternatePhone: '+251 11 470 4244',
