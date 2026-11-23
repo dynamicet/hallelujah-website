@@ -48,7 +48,7 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     assert.equal(new URL(profile, base).searchParams.get('service'), 'pub_151515151515')
     await page.goto(base + profile)
     assert.equal(await page.eval(() => document.querySelector('[aria-label="Your service choice"] strong').textContent), 'Cardiology')
-    const appointment = await page.eval(() => document.querySelector('a[aria-label^="Request an appointment with"]').getAttribute('href'))
+    const appointment = await page.eval(() => document.querySelector('[data-profile-primary-action]').getAttribute('href'))
     await page.goto(base + appointment)
     await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
     assert.equal(await page.eval('document.querySelector("input[name=care_route]:checked").value'), 'doctor')

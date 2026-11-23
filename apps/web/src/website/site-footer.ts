@@ -1,5 +1,8 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import type { SiteFooterProps } from '@/design-system/components/global-shell'
 import { hospitalContact } from './hospital-contact'
+
+export const hospitalCollaborationLink = { href: '/partnerships', label: 'Work with us' } as const
 
 // One footer configuration for the public site, including fallback home states.
 export const hospitalFooter = {
@@ -11,7 +14,7 @@ export const hospitalFooter = {
     { label: 'Find care', links: [
       { href: '/doctors', label: 'Find a doctor' },
       { href: '/services', label: 'Care & services' },
-      { href: '/appointment', label: 'Request an appointment' },
+      { href: '/appointment', label: requestAppointmentLabel },
       { href: '/referrals', label: 'Refer a patient' },
       { href: '/emergency', label: 'Emergency information' },
     ] },
@@ -24,7 +27,7 @@ export const hospitalFooter = {
     ] },
     { label: 'Our hospital', links: [
       { href: '/about', label: 'About Us' },
-      { href: '/partnerships', label: 'Work with us' },
+      hospitalCollaborationLink,
       { href: '/news-resources', label: 'News & resources' },
       { href: '/health-topics', label: 'Health & care topics' },
       { href: '/feedback', label: 'Patient feedback' },

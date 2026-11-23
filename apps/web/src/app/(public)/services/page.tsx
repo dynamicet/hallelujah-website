@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { servicePresentation } from '@/website/service-presentation'
 import { visitGuides } from '@/demo/visit-guides'
 import { ServiceDirectoryTemplate } from '@/design-system/templates'
@@ -19,7 +20,7 @@ export default async function ServicesPage({ searchParams }: { searchParams: Dem
     locale: 'en', pageSize: 6, searchParameters: parameters, urgentTerms: ['emergency', 'urgent'] })
   const serviceActions = Object.fromEntries(services.map((service) => {
     const access = careEntry(service.publicId)?.access
-    const action = access === 'appointment' ? { href: appointmentHref({ serviceId: service.publicId }), label: 'Request an appointment' }
+    const action = access === 'appointment' ? { href: appointmentHref({ serviceId: service.publicId }), label: requestAppointmentLabel }
       : access === 'referral' ? { href: '/referrals', label: 'Referral & admission guidance' }
       : access === 'emergency' ? { href: '/emergency', label: 'Emergency information' }
       : { href: '/#home-call', label: 'Contact reception' }

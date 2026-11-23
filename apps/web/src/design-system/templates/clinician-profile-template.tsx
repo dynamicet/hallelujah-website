@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { TemplateFrame } from './template-frame'
 import { InterfaceLink as Link } from '@/website/interface-language'
 import type { SiteShellProps } from '../components'
@@ -94,7 +95,7 @@ export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, related
                 <ul aria-label="Specialties" className={styles.specialties} data-profile-specialties>
                   {clinician.details.specialties.map((specialty) => <li key={specialty}>{specialty}</li>)}
                 </ul>
-                {requestHref ? <Link data-ui-part="primary-link" className={`${styles.primaryLink} ds-touch-target`} data-profile-primary-action href={requestHref} aria-label={`Request an appointment with ${clinician.details.name}`}>Request an appointment</Link> : (
+                {requestHref ? <Link data-ui-part="primary-link" className={`${styles.primaryLink} ds-touch-target`} data-profile-primary-action href={requestHref} aria-label={`${requestAppointmentLabel} with ${clinician.details.name}`}>{requestAppointmentLabel}</Link> : (
                   <span
                     aria-disabled="true"
                     className={styles.disabledAction}
@@ -170,7 +171,7 @@ export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, related
                   {state === 'appointment-unavailable' ? (
                     <p className={styles.stateMessage} role="status">The appointment route is unavailable. No request was started.</p>
                   ) : null}
-                  {requestHref ? <Link data-ui-part="primary-link" className={`${styles.primaryLink} ds-touch-target`} data-profile-primary-action href={requestHref}>Request an appointment</Link> : <span aria-disabled="true" className={styles.disabledAction}>Appointment requests unavailable</span>}
+                  {requestHref ? <Link data-ui-part="primary-link" className={`${styles.primaryLink} ds-touch-target`} data-profile-primary-action href={requestHref}>{requestAppointmentLabel}</Link> : <span aria-disabled="true" className={styles.disabledAction}>Appointment requests unavailable</span>}
                 </section>
               </aside>
             </div>

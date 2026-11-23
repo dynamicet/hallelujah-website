@@ -1,7 +1,7 @@
 import { EmergencyAction, LanguageSwitcher, type SiteShellProps } from '@/design-system/components'
 import type { HomePageTemplateProps } from '@/design-system/templates'
 import { hospitalContact } from './hospital-contact'
-import { hospitalFooter } from './site-footer'
+import { hospitalCollaborationLink, hospitalFooter } from './site-footer'
 
 // All public pages use this configuration.
 export function hospitalShellConfig(current: string): HomePageTemplateProps['shell'] {
@@ -12,6 +12,7 @@ export function hospitalShellConfig(current: string): HomePageTemplateProps['she
     { href: '/appointment', label: 'Appointment' },
     { href: '/patients-visitors', label: 'Patients & Visitors' },
     { href: '/about', label: 'About Us' },
+    { href: '/careers', label: 'Careers' },
   ].map((item) => ({ ...item, current: item.href === current || (item.href !== '/' && current.startsWith(`${item.href}/`)) }))
   return {
     showCallAction: current !== '/emergency',
@@ -20,6 +21,7 @@ export function hospitalShellConfig(current: string): HomePageTemplateProps['she
       contactTargets: { call: hospitalContact.hotlineHref },
       contactHref: current === '/' ? '#home-directions' : '/contact',
       contactCurrent: current === '/contact',
+      collaborationItem: { ...hospitalCollaborationLink, current: current === hospitalCollaborationLink.href },
       brandMark: <HospitalBrandMark />,
       brandName: 'Hallelujah Hospital', homeHref: '/', homeLabel: 'Hallelujah Hospital home',
       identityLanguage: 'en', menuLabel: 'Menu', navigationMode: 'responsive',

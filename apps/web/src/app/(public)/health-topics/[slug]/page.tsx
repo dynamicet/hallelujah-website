@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { healthTopics } from '@/demo/health-topics'
@@ -29,7 +30,7 @@ export default async function HealthTopicPage({ params }: { params: Promise<{ sl
     <PatientSection id="care-options" title="Care options">
       <p>{topic.nextStep}</p>
       {topic.servicePath ? <p><Link className="text-link" href={topic.servicePath}>View {topic.serviceName} details <span aria-hidden="true">→</span></Link></p> : <p>If you are unsure where to start, ask the care team to help you choose.</p>}
-      <Link className="solid-button blue-button" href={topic.appointmentHref ?? '/appointment'}>{topic.appointmentHref ? 'Request an appointment' : 'Ask for help choosing care'} <span aria-hidden="true">→</span></Link>
+      <Link className="solid-button blue-button" href={topic.appointmentHref ?? '/appointment'}>{topic.appointmentHref ? requestAppointmentLabel : 'Ask for help choosing care'} <span aria-hidden="true">→</span></Link>
       <h3>Doctors connected to this care</h3>
       {doctors.length ? <><p>Explore doctors in this specialty and choose who you would like to see.</p>
         <ul className={styles.people}>{doctors.map((doctor) => <li key={doctor.publicId}><Link href={doctor.canonicalPath}><strong>{doctor.details.name}</strong><span>{doctor.details.specialties.join(' · ')} →</span></Link></li>)}</ul></>

@@ -1,5 +1,6 @@
 'use client'
 
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { InterfaceCopy, InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { HealthTopic } from '@/demo/health-topics'
@@ -94,7 +95,7 @@ export function HealthLibrary({ topics, title = 'Find health topics', standalone
       <div className={styles.care}>
         <h4><Arrow /> Your next step</h4>
         <p>{selected.nextStep}</p>
-        <Link className={styles.primary} href={selected.appointmentHref ?? '/appointment'}>{selected.route === 'appointment' ? 'Request an appointment' : 'Request appointment guidance'} <Arrow /></Link>
+        <Link className={styles.primary} href={selected.appointmentHref ?? '/appointment'}>{selected.route === 'appointment' ? requestAppointmentLabel : 'Request appointment guidance'} <Arrow /></Link>
         {selected.route === 'appointment' ? <div className={styles.secondary}><span>Unsure where to start?</span><Link href="/appointment">Request appointment guidance <Arrow /></Link></div> : null}
       </div>
       <Link className={styles.readMore} href={`/health-topics/${selected.id}`}>Prepare for a conversation about {selected.name.toLowerCase()} <Arrow /></Link>

@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { Suspense } from 'react'
 import { DemoInteractions } from '@/demo/appointment-interactions'
 import { demoClinicianPortraits } from '@/demo/clinician-portraits'
@@ -39,7 +40,7 @@ export default async function AppointmentPage({ searchParams }: { searchParams: 
       selectedCareRoute: selected ? 'doctor' : selectedService ? 'service' : 'not_sure',
       selectedDoctorId: selection.doctorId, selectedServiceId: selection.serviceId, selectionNotice: selection.notice,
       errors: scenario === 'validation' ? ['phone', 'privacy-acknowledged'] : [], specimenReference: 'HH-1042' }}
-    title="Request an appointment"
+    title={requestAppointmentLabel}
     warning="Online appointment requests cannot provide emergency help."
   /><Suspense fallback={null}><DemoInteractions /></Suspense></>
 }

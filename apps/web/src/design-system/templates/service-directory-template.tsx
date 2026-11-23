@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { TemplateFrame } from './template-frame'
 import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
 
@@ -193,7 +194,7 @@ export function ServiceDirectoryTemplate({ introVisual, servicePresentations, di
                                 <h3>{serviceDetailLinks ? <Link href={`${service.canonicalPath}?from=${encodeURIComponent(currentResultsHref)}`}>{service.name}</Link> : service.name}</h3>
                                 <p className={styles.cardSummary} data-ui-part="card-summary" data-directory-card-summary>{service.sections.scope?.[0] ?? 'Explore this care area and choose a next step.'}</p>
                                 <div className={styles.cardActions}>
-                                  {serviceActions?.[service.publicId] ? <Link className="ds-touch-target" aria-label={`${serviceActions[service.publicId].label} for ${service.name}`} href={serviceActions[service.publicId].href}>{serviceActions[service.publicId].label}</Link> : serviceRequestLinks ? <Link className="ds-touch-target" aria-label={`Request an appointment for ${service.name}`} href={`/appointment?service=${encodeURIComponent(service.publicId)}`}>Request an appointment</Link> : !serviceDetailLinks ? <span aria-disabled="true" className={styles.disabledAction}>Service details unavailable</span> : null}
+                                  {serviceActions?.[service.publicId] ? <Link className="ds-touch-target" aria-label={`${serviceActions[service.publicId].label} for ${service.name}`} href={serviceActions[service.publicId].href}>{serviceActions[service.publicId].label}</Link> : serviceRequestLinks ? <Link className="ds-touch-target" aria-label={`${requestAppointmentLabel} for ${service.name}`} href={`/appointment?service=${encodeURIComponent(service.publicId)}`}>{requestAppointmentLabel}</Link> : !serviceDetailLinks ? <span aria-disabled="true" className={styles.disabledAction}>Service details unavailable</span> : null}
                                 </div>
                               </article>}
                             </li>

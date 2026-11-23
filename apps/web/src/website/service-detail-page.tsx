@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { PageActionLink } from './page-patterns'
 import { carePageImages } from '@/website/care-page-image'
 import { visitGuides } from '@/demo/visit-guides'
@@ -61,7 +62,7 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
   const selectedDoctor = isRequestableCare(service.publicId) ? related.find((doctor) => doctor.publicId === requestedDoctor) : undefined
   const contextUnavailable = parameters.doctor !== undefined && !selectedDoctor
   const requestHref = appointmentHref({ serviceId: service.publicId, doctorId: selectedDoctor?.publicId })
-  const action = care?.access === 'appointment' ? { href: requestHref, label: 'Request an appointment' }
+  const action = care?.access === 'appointment' ? { href: requestHref, label: requestAppointmentLabel }
     : care?.access === 'referral' ? { href: '/referrals', label: 'Referral & admission guidance' }
     : care?.access === 'emergency' ? { href: '/emergency', label: 'Emergency information' }
     : { href: '/#home-call', label: 'Contact reception' }

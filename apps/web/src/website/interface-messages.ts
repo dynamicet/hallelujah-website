@@ -1,3 +1,5 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
+
 /** Shared UI only. Editorial content and canonical service/doctor names stay English. */
 export type InterfaceLanguage = 'en' | 'am'
 
@@ -72,8 +74,10 @@ export const amharicInterface: Readonly<Record<string, string>> = {
   'Breadcrumbs': 'የገጽ መንገድ',
   'Find a doctor': 'ሐኪም ይፈልጉ',
   'Find care': 'ሕክምና ያግኙ',
+  'Careers': 'የሥራ ዕድሎች',
+  'Work with us': 'ከእኛ ጋር ይስሩ',
   'Care & services': 'ሕክምናና አገልግሎቶች',
-  'Request an appointment': 'ቀጠሮ ይጠይቁ',
+  [requestAppointmentLabel]: 'ቀጠሮ ይጠይቁ',
   'Refer a patient': 'ታካሚ ይላኩ',
   'Referring a patient?': 'ታካሚ እየላኩ ነው?',
   'Emergency': 'ድንገተኛ ሕክምና',
@@ -235,8 +239,8 @@ export function translateInterface(text: string, language: InterfaceLanguage): s
     [/^(\d+) results$/, (n) => `${n} ውጤቶች`],
     [/^Showing (\d+)–(\d+) of (\d+)$/, (first, last, total) => `ከ${total} ውስጥ ${first}–${last} በማሳየት ላይ`],
     [/^View profile for (.+)$/, (name) => `የ${name} መገለጫን ይመልከቱ`],
-    [/^Request an appointment with (.+)$/, (name) => `ከ${name} ጋር ቀጠሮ ይጠይቁ`],
-    [/^Request an appointment for (.+)$/, (name) => `ለ${name} ቀጠሮ ይጠይቁ`],
+    [/^Request appointment with (.+)$/, (name) => `ከ${name} ጋር ቀጠሮ ይጠይቁ`],
+    [/^Request appointment for (.+)$/, (name) => `ለ${name} ቀጠሮ ይጠይቁ`],
     [/^Topics beginning with (.+)$/, (letter) => `በ${letter} የሚጀምሩ ርዕሶች`],
     [/^Page (\d+)$/, (n) => `ገጽ ${n}`],
     [/^Go to page (\d+)$/, (n) => `ወደ ገጽ ${n} ይሂዱ`],

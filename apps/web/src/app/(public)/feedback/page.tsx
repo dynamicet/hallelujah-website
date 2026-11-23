@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import Link from 'next/link'
 import { requireLocalDemo } from '@/demo/site'
 import { PatientPage, PatientSection } from '@/website/patient-page'
@@ -22,7 +23,7 @@ export default function FeedbackPage() {
     </PatientSection>
     <PatientSection id="feedback-help" title="Looking for care?">
       <p>Feedback cannot provide medical advice, arrange an appointment, or respond to an emergency.</p>
-      <p><Link href="/appointment">Request an appointment</Link>, <Link href="/patients-visitors">plan your visit</Link>, or <Link href="/emergency">read emergency information</Link>.</p>
+      <p><Link href="/appointment">{requestAppointmentLabel}</Link>, <Link href="/patients-visitors">plan your visit</Link>, or <Link href="/emergency">read emergency information</Link>.</p>
     </PatientSection>
   </PatientPage>
 }

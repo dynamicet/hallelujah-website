@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { Icon, SiteContent } from '@/design-system/components'
 import { InterfaceLink as Link } from './interface-language'
 import { hospitalContact } from './hospital-contact'
@@ -28,7 +29,7 @@ export function ContactPage() {
             <div><dt>General enquiries</dt><dd><a href={`mailto:${hospitalContact.email}`}>{hospitalContact.email}</a></dd></div>
           </dl>
           <p className={styles.note} data-help-clearance>For time-sensitive questions, please call. Email is not an emergency channel.</p>
-          <Link className="text-link" href="/appointment">Prepare an appointment request <Icon name="arrow-right" /></Link>
+          <Link className="text-link" href="/appointment">{requestAppointmentLabel} <Icon name="arrow-right" /></Link>
         </section>
 
         <section className={styles.location} id="directions" tabIndex={-1} aria-labelledby="contact-location-title">

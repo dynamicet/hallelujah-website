@@ -98,6 +98,10 @@
   .wordmark { font-size: 26px; }
   .brandMark { width: 44px; }
 }
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .primaryNavigation ul { column-gap: 12px; }
+  .primaryNavigation [data-ui-part='navigation-link'] { padding-inline: 8px; font-size: var(--site-small); }
+}
 @media (max-width: 1023px) {
   .headerInner, .noticeInner, .breadcrumbFrame, .utilityInner { width: var(--site-frame); }
   .headerInner { min-height: 88px; gap: 20px; }
@@ -141,7 +145,6 @@
   .emergencyActions { gap: 0; }
   .emergencyCall { padding: 0 8px; }
   .emergencyInfoLink > span { display: none; }
-  .emergencyDetail { display: none; }
   .contactAction { padding-inline: 8px; gap: 8px; font-size: var(--site-small); }
   .contactDetail { display: none; }
   .utilityLinks { flex-wrap: nowrap; justify-content: flex-end; gap: 4px; }
@@ -244,7 +247,7 @@
   .menuResources { display: grid; gap: 4px; padding-top: 12px; }
   .menuResources :is(a, button) { display: flex; align-items: center; gap: 12px; min-height: 44px; border: 0; padding: 8px 0; background: transparent; color: var(--site-link); font: inherit; text-align: start; text-decoration: none; cursor: pointer; }
   .menuResources a:first-child { color: var(--site-urgent); }
-  .menuResources :is(a, button):hover { text-decoration: underline; }
+  .menuResources :is(a, button):hover, .menuResources a[aria-current='page'] { text-decoration: underline; }
 }
 
 .languageOptions > button:not(:disabled) {

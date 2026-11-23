@@ -251,7 +251,7 @@ try {
   await navigate('/')
   await until("document.documentElement.dataset.hydration === 'ready'")
   assert.equal(await evaluate("document.querySelectorAll('.navigator-choice').length"), 4)
-  for (const [label, target] of [['Explore services', '/services'], ['Plan a visit', '/patients-visitors'], ['Request an appointment', '/appointment'], ['Find a doctor', '/doctors']]) {
+  for (const [label, target] of [['Explore services', '/services'], ['Plan a visit', '/patients-visitors'], ['Request appointment', '/appointment'], ['Find a doctor', '/doctors']]) {
     await evaluate(`Array.from(document.querySelectorAll('.navigator-choice')).find(button => button.textContent.includes(${JSON.stringify(label)})).click()`)
     await until(`document.querySelector('.navigator-result a').getAttribute('href') === ${JSON.stringify(target)}`)
     assert.equal(await evaluate("document.querySelectorAll('.navigator-choice[aria-pressed=true]').length"), 1)

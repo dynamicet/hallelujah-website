@@ -12,8 +12,9 @@ const key = async (page, key, code, windowsVirtualKeyCode) => {
 await runVisualCheck('site-navigation', baseUrl, async ({ browser, output }) => {
   let canonical
   const results = []
-  for (const route of ['/', '/about', '/doctors', '/doctors/synthetic-clinician-101010101010/', '/?demo=partial', '/?demo=empty', '/?demo=unavailable', '/emergency']) {
-    for (const width of [390, 768, 1440]) {
+  for (const route of ['/', '/about', '/careers', '/partnerships', '/doctors', '/doctors/synthetic-clinician-101010101010/', '/?demo=partial', '/?demo=empty', '/?demo=unavailable', '/emergency']) {
+    const widths = route === '/' ? [390, 768, 1024, 1200, 1440] : [390, 768, 1440]
+    for (const width of widths) {
       const page = await browser.newPage({ width, height: 1000, mobile: width < 600, reducedMotion: true })
       try {
         await page.goto(new URL(route, baseUrl).href)
@@ -39,8 +40,18 @@ await runVisualCheck('site-navigation', baseUrl, async ({ browser, output }) => 
         canonical ??= links
         assert.deepEqual(links, canonical, 'All page states share the same menu')
         assert.equal(links.find(a => a.label === 'About Us')?.href, '/about')
+        assert.deepEqual(links.at(-1), { label: 'Careers', href: '/careers' })
         assert.equal(await page.eval("document.querySelector('[data-site-footer] a[href=\"/about\"]').textContent"), 'About Us')
-        assert.equal(await page.eval("document.querySelector('[data-primary-navigation] [aria-current=page]')?.getAttribute('href') ?? null"), route === '/about' ? '/about' : route.startsWith('/doctors') ? '/doctors' : null)
+        assert.equal(await page.eval("document.querySelector('[data-site-footer] a[href=\"/partnerships\"]').textContent"), 'Work with us')
+        const headerActions = await page.eval(() => {
+          const label = link => [...link.childNodes].filter(node => node.nodeType === Node.TEXT_NODE).map(node => node.textContent).join('').trim()
+          return [...document.querySelectorAll('[data-site-header] a[href="/appointment"], [data-top-bar] a[href="/emergency"]')].map(label)
+        })
+        assert.deepEqual(headerActions, ['Emergency', 'Request appointment', 'Request appointment'])
+        const currentItem = ['/about', '/careers'].includes(route) ? route : route.startsWith('/doctors') ? '/doctors' : null
+        assert.equal(await page.eval("document.querySelector('[data-primary-navigation] [aria-current=page]')?.getAttribute('href') ?? null"), currentItem)
+        const collaborationLinks = await page.eval(() => [...document.querySelectorAll('[data-site-header] a[href="/partnerships"]')].map(link => link.getAttribute('aria-current')))
+        assert.deepEqual(collaborationLinks, Array(2).fill(route === '/partnerships' ? 'page' : null))
         if (route === '/about') {
           assert.equal(await page.eval('document.querySelector("h1").textContent'), 'About Us')
           assert.equal(await page.eval('document.title'), 'About Us | Hallelujah Hospital')
@@ -52,6 +63,21 @@ await runVisualCheck('site-navigation', baseUrl, async ({ browser, output }) => 
           await delay(200)
           assert.ok(await page.eval("document.querySelector('[data-navigation-panel]').matches(':popover-open')"))
         }
+        const visibleCollaborationLink = await page.eval(() => [...document.querySelectorAll('[data-site-header] a[href="/partnerships"]')]
+          .filter(link => link.getClientRects().length)
+          .map(link => Boolean(link.closest('[data-top-bar]'))))
+        assert.deepEqual(visibleCollaborationLink, [!compact], 'Exactly one Work with us link is visible in the expected header group')
+        if (!compact) {
+          const staysOnOneRow = await page.eval(() => {
+            const appointment = document.querySelector('[data-ui-part="appointment-link"]').getBoundingClientRect()
+            const links = [...document.querySelectorAll('[data-shell-identity], [data-primary-navigation] a')]
+            return links.every(link => {
+              const bounds = link.getBoundingClientRect()
+              return Math.abs((bounds.top + bounds.bottom) - (appointment.top + appointment.bottom)) < 2
+            })
+          })
+          assert.ok(staysOnOneRow, 'The navbar stays on one row with Careers')
+        }
         await key(page, 'Tab', 'Tab', 9)
         await page.eval("document.querySelector('[data-primary-navigation] a[href=\"/about\"]').focus()")
         assert.ok(await page.eval("document.activeElement.matches(':focus-visible')"))
@@ -59,6 +85,7 @@ await runVisualCheck('site-navigation', baseUrl, async ({ browser, output }) => 
         assert.equal(await page.eval("matchMedia('(prefers-reduced-motion: reduce)').matches"), true)
         assert.equal(await page.eval("getComputedStyle(document.activeElement).transitionDuration"), '0s')
         if (route === '/about') await page.screenshot({ path: `${output}/about-menu-${width}.png` })
+        if (route === '/' && [1024, 1200].includes(width)) await page.screenshot({ path: `${output}/desktop-breakpoint-${width}.png` })
         if (compact) {
           await key(page, 'Escape', 'Escape', 27)
           await delay(200)

@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import Link from 'next/link'
 import { requireLocalDemo } from '@/demo/site'
 import { PatientPage, PatientSection, patientPageStyles as styles } from '@/website/patient-page'
@@ -19,7 +20,7 @@ export default function PatientsVisitorsPage() {
     </nav>
     <PatientSection id="before" title="Before your visit">
       <p>Choose your care, add your details, and review your request.</p>
-      <Link className="text-link" href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link>
+      <Link className="text-link" href="/appointment">{requestAppointmentLabel} <span aria-hidden="true">→</span></Link>
       <p><Link href="/faq">Find answers to common questions</Link> about appointments and your visit.</p>
     </PatientSection>
     <PatientSection context="preparation" id="checklist" title="Your visit checklist">

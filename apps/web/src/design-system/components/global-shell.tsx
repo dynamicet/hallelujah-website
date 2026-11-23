@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { InterfaceCopy, InterfaceLanguageSwitcher, InterfaceLink as Link } from '@/website/interface-language'
 import type { ReactNode } from 'react'
 
@@ -53,6 +54,7 @@ export interface SiteHeaderProps {
   readonly contactTargets?: HeaderContactTargets
   readonly contactHref?: string
   readonly contactCurrent?: boolean
+  readonly collaborationItem?: NavigationItem
   readonly previewEmergencyNumber?: string
   readonly emergencyAction: ReactNode
   readonly homeHref: string
@@ -177,6 +179,7 @@ export function LanguageSwitcher({
 export function SiteHeader({
   brandMark,
   brandName,
+  collaborationItem,
   contactTargets,
   contactHref = '/contact',
   contactCurrent = false,
@@ -217,6 +220,7 @@ export function SiteHeader({
               <div className={styles.utilityContext}>
                 <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link></div>
                 <ContactLink aria-current={contactCurrent ? 'page' : undefined} className={styles.contactDirections} href={contactHref}>Contact & directions</ContactLink>
+                {collaborationItem ? <Link aria-current={collaborationItem.current ? 'page' : undefined} href={collaborationItem.href}>{collaborationItem.label}</Link> : null}
               </div>
               <div className={styles.utilityEssentials}>
                 {previewEmergencyNumber ? (
@@ -225,10 +229,10 @@ export function SiteHeader({
                       <Icon name="phone" />
                       <strong>{previewEmergencyNumber}</strong>
                     </button>
-                    <Link aria-label="Emergency information" className={styles.emergencyInfoLink} href="/emergency">Emergency information<span aria-hidden="true"> →</span></Link>
+                    <Link className={styles.emergencyInfoLink} href="/emergency">Emergency<span aria-hidden="true"> →</span></Link>
                   </div>
                 ) : (
-                  <Link className={styles.urgentLink} href="/emergency">Emergency<span className={styles.emergencyDetail}>&nbsp;information</span> <span aria-hidden="true">→</span></Link>
+                  <Link className={styles.urgentLink} href="/emergency">Emergency<span aria-hidden="true">→</span></Link>
                 )}
                 <InterfaceLanguageSwitcher fallback={languageSwitcher} enabled={publicWebsite} />
               </div>
@@ -277,12 +281,12 @@ export function SiteHeader({
           popover="auto"
           tabIndex={-1}
         >
-          {publicWebsite ? <Link className={styles.mobileAppointment} href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link> : null}
+          {publicWebsite ? <Link className={styles.mobileAppointment} href="/appointment">{requestAppointmentLabel} <span aria-hidden="true">→</span></Link> : null}
           <PrimaryNavigation items={primaryNavigationItems} label={primaryNavigationLabel} publicWebsite={publicWebsite} />
           {publicWebsite ? <div className={styles.menuResources}>
             <Link href="/emergency">Emergency information →</Link>
             <Link href="/health-topics">Health &amp; care topics →</Link>
-
+            {collaborationItem ? <Link aria-current={collaborationItem.current ? 'page' : undefined} href={collaborationItem.href}>{collaborationItem.label}<span aria-hidden="true">→</span></Link> : null}
           </div> : null}
           {!publicWebsite ? <div className={styles.headerUtilities} data-shell-utilities>
             <Link
@@ -307,7 +311,7 @@ export function SiteHeader({
         </div>
 
         <div className={styles.headerEmergency} data-shell-emergency>
-          {publicWebsite ? <Link data-ui-part="appointment-link" className={styles.appointmentLink} href="/appointment">Request an appointment <span aria-hidden="true">→</span></Link> : emergencyAction}
+          {publicWebsite ? <Link data-ui-part="appointment-link" className={styles.appointmentLink} href="/appointment">{requestAppointmentLabel} <span aria-hidden="true">→</span></Link> : emergencyAction}
         </div>
       </div>
     </header></InterfaceCopy>
@@ -361,7 +365,7 @@ export function SiteFooter({
         {variant === 'full' ? <div className={footerStyles.footerIdentity}>
           <h2>Your care.<br />Your visit.</h2>
           {description ? <p>{description}</p> : null}
-          {careLink ? <Link className={footerStyles.footerAction} href={careLink.href}>{careLink.href === '/appointment' ? 'Request an appointment' : 'Find a doctor'} <Icon name="arrow-right" /></Link> : null}
+          {careLink ? <Link className={footerStyles.footerAction} href={careLink.href}>{careLink.href === '/appointment' ? requestAppointmentLabel : 'Find a doctor'} <Icon name="arrow-right" /></Link> : null}
 
         </div> : null}
         <nav aria-label={navigationLabel} className={footerStyles.footerNavigation}>

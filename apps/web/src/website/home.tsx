@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { hospitalContact } from './hospital-contact'
 import { HospitalStatistics } from './hospital-statistics'
 import { hospitalStatistics } from '@/demo/hospital-statistics'
@@ -47,7 +48,7 @@ export function WebsiteHome() {
               <h1 id="welcome-title">Care for your whole life.</h1>
               <p>Hallelujah General Hospital</p>
               <div className="welcome-actions">
-                <Link className="welcome-appointment" href="/appointment"><span>Request an appointment</span><HeroArrow /></Link>
+                <Link className="welcome-appointment" href="/appointment"><span>{requestAppointmentLabel}</span><HeroArrow /></Link>
                 <div className="welcome-secondary-links">
                   <Link className="text-link" href="/doctors"><span className="welcome-action-label">Find a doctor</span><HeroArrow /></Link>
                   {receptionTarget ? <a className="welcome-call" href={receptionTarget}>{receptionAction}</a> : (
