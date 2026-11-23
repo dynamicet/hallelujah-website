@@ -90,7 +90,7 @@
 .footerClose > div { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 28px; font-size: var(--site-small); }
 .footerClose a { color: var(--site-ink); min-height: 44px; display: inline-flex; align-items: center; }
 
-@media (max-width: 1199px) {
+@media (max-width: 1359px) {
   .headerInner { gap: 24px; }
   .primaryNavigation ul, .navigationPanel { gap: 20px; }
   .appointmentLink { font-size: var(--site-small); padding-inline: 18px; gap: 16px; }
@@ -98,9 +98,10 @@
   .wordmark { font-size: 26px; }
   .brandMark { width: 44px; }
 }
-@media (min-width: 1024px) and (max-width: 1199px) {
-  .primaryNavigation ul { column-gap: 12px; }
-  .primaryNavigation [data-ui-part='navigation-link'] { padding-inline: 8px; font-size: var(--site-small); }
+@media (min-width: 1024px) and (max-width: 1359px) {
+  .headerInner, .navigationPanel { column-gap: 16px; }
+  .primaryNavigation ul { column-gap: clamp(6px, calc(4vw - 35px), 18px); }
+  .primaryNavigation [data-ui-part='navigation-link'] { padding-inline: clamp(4px, calc(2vw - 16px), 10px); font-size: var(--site-small); }
 }
 @media (max-width: 1023px) {
   .headerInner, .noticeInner, .breadcrumbFrame, .utilityInner { width: var(--site-frame); }

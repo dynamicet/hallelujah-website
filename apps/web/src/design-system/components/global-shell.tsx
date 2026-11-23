@@ -202,7 +202,7 @@ export function SiteHeader({
   const ContactLink = contactHref.startsWith('#') ? 'a' : Link
   const styles = publicWebsite ? publicStyles : controlledStyles
   const primaryNavigationItems = navigationItems
-    .filter((item) => !(publicWebsite ? [searchItem.href, '/', '/appointment'] : [searchItem.href]).includes(item.href))
+    .filter((item) => item.href !== searchItem.href && !(publicWebsite && item.href === '/appointment'))
     .map((item) => publicWebsite ? { ...item, label: ({ Doctors: 'Find a doctor', Directions: 'Your visit' } as Record<string, string>)[item.label] ?? item.label } : item)
 
   return (
