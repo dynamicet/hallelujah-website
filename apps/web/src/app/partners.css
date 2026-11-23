@@ -1,43 +1,219 @@
-.partners { padding-block: 48px; background: var(--site-white); }
-.organizations-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(40px, 6vw, 88px); align-items: start; }
-.organizations-intro h2 { max-width: 16ch; margin: 0; }
-.organizations-intro p { max-width: 40ch; margin: 24px 0 12px; color: var(--site-muted); }
-.organization-group { border-block-end: 1px solid var(--semantic-color-border-default); }
-.organization-group:first-child { border-block-start: 1px solid var(--semantic-color-border-default); }
-.organization-group summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 88px; padding-block: 20px; color: var(--site-ink); font-size: 20px; line-height: 1.4; cursor: pointer; list-style: none; }
-.organization-group summary::-webkit-details-marker { display: none; }
-.organization-group summary small { display: block; margin-top: 6px; font-size: 14px; color: var(--site-muted); }
-.organization-group summary svg { flex: 0 0 20px; color: var(--site-link); }
-.organization-group[open] summary svg { transform: rotate(180deg); }
-.organization-group summary:hover { color: var(--site-link); }
-.organization-group summary:focus-visible, .partners a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
-.organization-content { padding-bottom: 28px; }
-.organization-content > p { margin: 0 0 24px; max-width: 60ch; color: var(--site-muted); }
-.organization-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 0; margin: 0; list-style: none; }
-.partner { min-width: 0; text-align: center; }
-.partner figure { margin: 0; }
-.partners .partner-logo { display: flex; align-items: center; justify-content: center; height: 64px; padding: 8px; }
-.partners .partner-logo img { display: block; width: 100%; height: 48px; object-fit: contain; mix-blend-mode: multiply; transform: scale(var(--partner-logo-scale, 1)); }
-.partner figcaption { margin-top: 8px; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; color: var(--site-ink); }
-/* Optical balance preserves the source artwork and its different white margins. */
-.partner[data-partner='total-energies'] { --partner-logo-scale: 1.2; }
-.partner[data-partner='nib-bank'], .partner[data-partner='ethiopian-airlines'] { --partner-logo-scale: 1.1; }
-.partner[data-partner='msf-holland'] { --partner-logo-scale: 1.08; }
-.partner[data-partner='moha-soft-drink-industries'], .partner[data-partner='dashen-bank'] { --partner-logo-scale: .9; }
-.partner[data-partner='united-states-embassy'], .partner[data-partner='civil-aviation-authority'], .partner[data-partner='ethiopia-investment-holdings'] { --partner-logo-scale: .85; }
-.partner[data-partner='iom'] { --partner-logo-scale: .82; }
-@media (max-width: 899px) {
-  .organizations-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .organizations-intro h2 { max-width: none; }
+.partner-showcase {
+  padding-block: clamp(24px, 3vw, 40px) clamp(40px, 6vw, 80px);
 }
+
+.partner-showcase h2,
+.corporate-agreements .corporate-agreements-heading h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.2;
+}
+
+.partner-motion-control,
+.partner-ribbon-list[aria-hidden="true"] {
+  display: none;
+}
+
+.partner-ribbon-list,
+.organization-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.partner-ribbon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 0;
+}
+
+.organization-mark {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  min-width: 0;
+  padding: 8px;
+  gap: 6px;
+  text-align: center;
+}
+
+.partner-ribbon-list .organization-mark {
+  flex: 0 0 clamp(144px, 12vw, 176px);
+  align-content: center;
+  min-height: clamp(72px, 9vw, 96px);
+}
+
+.organization-mark img {
+  display: block;
+  width: 100%;
+  max-width: 135px;
+  height: clamp(48px, 7vw, 72px);
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transform: scale(var(--partner-logo-scale, 1));
+}
+
+/* Balance the marks optically while preserving their source proportions. */
+.organization-mark[data-partner='total-energies'] { --partner-logo-scale: 1.2; }
+.organization-mark[data-partner='nib-bank'],
+.organization-mark[data-partner='ethiopian-airlines'] { --partner-logo-scale: 1.1; }
+.organization-mark[data-partner='msf-holland'],
+.organization-mark[data-partner='moha-soft-drink-industries'] { --partner-logo-scale: 1.08; }
+.organization-mark[data-partner='dashen-bank'] { --partner-logo-scale: .9; }
+.organization-mark[data-partner='united-states-embassy'],
+.organization-mark[data-partner='civil-aviation-authority'],
+.organization-mark[data-partner='ethiopia-investment-holdings'] { --partner-logo-scale: .85; }
+.organization-mark[data-partner='iom'] { --partner-logo-scale: .82; }
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .partner-ribbon-area {
+    position: relative;
+    max-width: 1320px;
+    margin: 8px auto 0;
+  }
+
+  .partner-motion-control {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .partner-ribbon-area:has(input:focus-visible) {
+    outline: 3px solid var(--semantic-color-focus);
+    outline-offset: 4px;
+  }
+
+  .partner-ribbon[data-loop] {
+    overflow: clip;
+    mask-image: linear-gradient(to right, transparent, black clamp(12px, 4vw, 48px), black calc(100% - clamp(12px, 4vw, 48px)), transparent);
+  }
+
+  .partner-ribbon[data-loop] .partner-ribbon-track {
+    display: flex;
+    width: max-content;
+    background: var(--site-ground);
+    animation: partner-loop 60s linear infinite;
+  }
+
+  .partner-ribbon[data-loop] .partner-ribbon-list {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .partner-ribbon-area:has(input:checked) .partner-ribbon-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes partner-loop {
+    to { transform: translateX(-50%); }
+  }
+}
+
+.corporate-agreements {
+  padding-block: clamp(24px, 3vw, 40px);
+}
+
+.corporate-agreements-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 12px;
+  min-height: 44px;
+}
+
+.corporate-agreements p {
+  max-width: 62ch;
+  margin: 6px 0 18px;
+  color: var(--site-muted);
+}
+
+.corporate-agreements-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.corporate-agreements-controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--semantic-color-border-default);
+  border-radius: 50%;
+  background: var(--site-white);
+  color: var(--site-link);
+  cursor: pointer;
+}
+
+.corporate-agreements-controls button[aria-disabled="true"] {
+  background: transparent;
+  color: var(--site-muted);
+  opacity: .6;
+  cursor: default;
+}
+
+.corporate-agreements-controls button:not([aria-disabled="true"]):hover {
+  background: var(--semantic-color-surface-subtle);
+}
+
+.corporate-agreements-rail {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--semantic-color-border-default) transparent;
+  overscroll-behavior-inline: contain;
+}
+
+.organization-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 60px) / 6);
+  gap: 12px;
+  padding-block-end: 8px;
+}
+
+.organization-list .organization-mark {
+  scroll-snap-align: start;
+  grid-template-rows: 56px auto;
+  gap: 4px;
+  padding: 10px 10px 12px;
+  border: 1px solid var(--semantic-color-border-default);
+  border-radius: 12px;
+  background: var(--site-white);
+  color: var(--site-ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.organization-list .organization-mark img {
+  height: 56px;
+}
+
+.organization-list .organization-mark span {
+  text-wrap: balance;
+}
+
+.corporate-agreements :is(button, .corporate-agreements-rail):focus-visible {
+  outline: 3px solid var(--semantic-color-focus);
+  outline-offset: 4px;
+}
+
+@media (max-width: 950px) {
+  .organization-list { grid-auto-columns: 22%; }
+}
+
 @media (max-width: 599px) {
-  .organization-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
-  .organization-group summary { font-size: 18px; }
+  .organization-list { grid-auto-columns: 42%; }
 }
-@media print {
-  .organization-group > .organization-content { display: block; }
-  .organization-group summary svg { display: none; }
-}
-@media (forced-colors: active) {
-  .organization-group summary:focus-visible, .partners a:focus-visible { outline-color: Highlight; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .corporate-agreements-rail { scroll-behavior: smooth; }
 }

@@ -16,12 +16,12 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 | `pnpm visual:hero` | Existing home hero layout, focus, and fallback contracts |
 | `pnpm visual:signature` | Settled carousel portraits, story image scroll progress, compact fallback, stop/reverse behavior, stable copy, live resize/reduced motion and doctor-section link; horizontal specialist browsing has its own check |
 | `pnpm visual:choreography` | Full-home reading sequence, reverse/fast scrolling, focus settling, section accents, reduced motion and client navigation |
-| `pnpm visual:interactions` | Care-mode keyboard/query continuity, separate native organization disclosures and retained keyboard focus, menu focus/Escape, reduced motion and no-JavaScript fallback |
+| `pnpm visual:interactions` | Care-mode keyboard/query continuity, partner logo loop, pause and reduced-motion fallback, manual corporate-agreement browsing and retained keyboard focus, menu focus/Escape, reduced motion and no-JavaScript fallback |
 | `pnpm visual:search-feedback` | Doctor/service pending and updated result counts, retained keyboard focus, repeated search/filter submissions, empty results, reduced motion and native GET fallback |
 | `pnpm visual:clinician-playback` | Uninterrupted client navigation at three widths and normal/4× CPU, two samples each; records frame intervals and long tasks, asserts a 20ms mean-frame budget and document reuse. Run alone; no screenshots or physical-device/GPU certification |
 | `pnpm visual:clinician-transition` | Directory → profile portrait/name transitions at three widths, paused start/middle/end frames, keyboard activation, filtered browser history, reduced motion (including a live change), and initials/no-JavaScript fallback |
 | `pnpm visual:foundation` | Anchored disclosure controls, intermediate open/close geometry, keyboard and reduced motion at three widths |
-| `node scripts/check-partner-loop.mjs` | Compatibility alias for current component interactions; the automatic partner loop was replaced by native disclosures |
+| `node scripts/check-partner-loop.mjs` | Compatibility alias for component interactions, including the partner logo loop |
 | `pnpm visual:motion` | Existing home motion, live reduced-motion, and static fallback contracts |
 | `pnpm visual:care-continuity` | Specialty filters; care → doctor and doctor → care → appointment; joint selections, compatible editing, invalid context, team-only care, keyboard recovery, reduced motion and four local preparation paths without patient-data delivery/storage at three widths |
 | `pnpm visual:appointment` | Appointment error focus and keyboard recovery, compatible choices, date limits, review validation, local preparation and retained editing, unsure-care guidance, long-script text and synthesized cached-page lifecycle cleanup at three widths; explicit example receipt/retry/unknown/duplicate/delivery-warning states remain separate from normal local preparation |

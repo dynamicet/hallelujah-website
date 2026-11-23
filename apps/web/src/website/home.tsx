@@ -15,7 +15,7 @@ import { SpecialtyGrid } from './specialty-grid'
 import { EquipmentPreview } from './equipment-preview'
 import { HomeHealthTopics } from './home-health-topics'
 import { partners } from '@/demo/partners'
-import { Partners } from './partners'
+import { CorporateAgreements, Partners } from './partners'
 import { NewsResources } from './news-resources'
 import { editorialEntries } from '@/demo/editorial'
 import { ContactDirections } from './contact-directions'
@@ -130,6 +130,8 @@ export function WebsiteHome() {
           </div>
         </section>
 
+        <CorporateAgreements organizations={partners} />
+
         <ContactDirections />
 
         <HomeHealthTopics />
@@ -138,12 +140,11 @@ export function WebsiteHome() {
 
         <HospitalIntroduction />
 
+        <Partners partners={partners.slice(0, 10)} />
+
         <div className="home-stories-room"><EverydayStories stories={patientStories.slice(0, 1)} quotes={[]} /></div>
 
         <NewsResources entries={editorialEntries} />
-
-        {/* The partner showcase reuses a selection of the existing organization artwork. */}
-        <Partners partners={partners.slice(0, 10)} billingPartners={partners} />
       </div>
     </>
   )
