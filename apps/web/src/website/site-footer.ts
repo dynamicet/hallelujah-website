@@ -24,6 +24,7 @@ export const hospitalFooter = {
     ] },
     { label: 'Our hospital', links: [
       { href: '/about', label: 'About Us' },
+      { href: '/partnerships', label: 'Work with us' },
       { href: '/news-resources', label: 'News & resources' },
       { href: '/health-topics', label: 'Health & care topics' },
       { href: '/feedback', label: 'Patient feedback' },
