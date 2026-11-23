@@ -20,34 +20,13 @@
 .enhanced-home .team-care-help:hover { background: transparent; color: var(--semantic-color-text-primary); text-decoration-thickness: 2px; }
 .enhanced-home .team-care-help:active { background: transparent; color: var(--semantic-color-text-primary); }
 .enhanced-home .team-care-help:focus-visible { outline-color: var(--site-ink); box-shadow: none; }
-.enhanced-home .visit-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); }
-.enhanced-home .visit-copy h2 { max-width: none; font-size: var(--site-heading); line-height: 1.16; }
-.enhanced-home .visit-checklist { margin-top: 28px; }
-.enhanced-home .visit-checklist h3 { margin: 0; color: var(--semantic-color-accent-supporting-text); font: 700 18px/1.4 var(--site-font); letter-spacing: normal; }
-.enhanced-home .visit-checklist ul { margin: 12px 0; padding-inline-start: 20px; font-size: var(--site-body); line-height: 1.65; }
-.enhanced-home .visit-checklist li + li { margin-top: 4px; }
-.enhanced-home .visit-checklist p { max-width: 40ch; margin: 0; color: var(--site-muted); font-size: var(--site-support); line-height: 1.6; }
-.enhanced-home .visit-questions { margin-block: 0 20px; }
-.enhanced-home .visit-questions details { padding-block: 20px; }
-.enhanced-home .visit-questions details:first-child { border-top: 1px solid var(--semantic-color-border-strong); }
-.enhanced-home .visit-questions summary { font-size: clamp(18px, 1.4vw, 20px); font-weight: 600; }
-.enhanced-home .visit-questions summary span { width: 32px; height: 32px; flex-basis: 32px; border-radius: 50%; background: var(--site-white); color: var(--site-supporting-text); }
-.enhanced-home .visit-questions details[open] summary span { background: var(--site-supporting-text); color: var(--site-white); }
-.enhanced-home .visit-preparation > .text-link { font-weight: 600; }
-@media (max-width: 899px) {
-  .enhanced-home .visit-inner { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .enhanced-home .visit-copy h2 { max-width: none; }
-}
 @media (max-width: 599px) {
   .enhanced-home .team-next-step { padding: 24px; gap: 8px; align-items: flex-start; }
-  .enhanced-home .visit-copy h2 { font-size: var(--site-heading); }
-  .enhanced-home .visit-questions details { padding-block: 16px; }
 }
 @media (forced-colors: active) {
   .enhanced-home .team-next-step { border: 1px solid CanvasText; }
   .enhanced-home .team-care-help:focus-visible { outline-color: Highlight; }
 }
-.visit-questions ul { margin: 12px 0 0; padding-left: 22px; font-size: var(--site-support); line-height: 1.6; }
 .enhanced-home :is(.hospital-film-copy, .hospital-film-stage, .hospital-film-footer) { max-width: 1120px; }
 .enhanced-home .hospital-film-stage { border: 0; padding: 0; }
 .enhanced-home .hospital-film-copy { margin-bottom: 24px; }
@@ -138,7 +117,6 @@ main [data-care-directory] ol[data-directory-section='D4'] {
 @media (max-width: 767px) {
   .enhanced-home .care-search-panel form { grid-template-columns: 1fr; gap: 16px; }
   .care-search-panel .care-mode-options label { min-height: 44px; }
-  .enhanced-home .visit-inner { grid-template-columns: 1fr; gap: 24px; }
   .enhanced-home .team-list { grid-template-columns: 1fr; gap: 32px; }
   .enhanced-home .team-person { grid-template-columns: 88px minmax(0, 1fr); grid-template-rows: auto; gap: 16px; align-items: start; }
   .enhanced-home .team-portrait-frame { aspect-ratio: 3 / 4; max-height: none; }
@@ -181,15 +159,11 @@ main [data-care-directory] ol[data-directory-section='D4'] {
 /* Reading roles share a rhythm; editorial titles keep their existing voice. */
 .enhanced-home h2 { line-height: 1.16; letter-spacing: -.02em; }
 .enhanced-home .welcome h1 { line-height: 1.08; letter-spacing: -.025em; }
-.enhanced-home .visit-copy h2 { line-height: 1.12; }
 .enhanced-home :is(.team-person h3, #specialized-care .home-care-card h3) {
   font-size: var(--site-label-heading); line-height: 1.3; letter-spacing: -.01em;
 }
 .enhanced-home :is(.team-language, .team-description, .preview-note, .specialty-caption) {
   font-size: var(--site-support); line-height: 1.6;
-}
-.enhanced-home .visit-questions :is(p, ul) {
-  font-size: var(--site-body); line-height: 1.65; max-inline-size: 65ch;
 }
 .enhanced-home .everyday-quote blockquote p { line-height: 1.6; letter-spacing: normal; }
 .enhanced-home .hospital-statistics-list dd { font-variant-numeric: lining-nums tabular-nums; }
@@ -226,5 +200,3 @@ main [data-care-directory] [data-clinician-public-id] [data-ui-part~="card-photo
 /* Supporting colors repeat in content details; action and selection retain their roles. */
 .enhanced-home .team-introduction { min-width: 0; }
 .enhanced-home .everyday-feature-person { max-width: 100%; padding: 0; background: transparent; color: var(--semantic-color-accent-expressive-text); }
-.enhanced-home .visit-questions summary > span { padding: 4px; box-sizing: content-box; background: var(--semantic-color-surface-raised); border-radius: 50%; }
-.enhanced-home .visit-questions li::marker { color: var(--semantic-color-accent-supporting-text); }

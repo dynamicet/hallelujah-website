@@ -206,18 +206,6 @@ body :where(a,button,summary,input,select,textarea):focus-visible { outline: 3px
 @media (max-width: 359px) {
   .team-person { grid-template-columns: 104px minmax(0, 1fr); gap: 16px; }
 }
-.visit-guide { background: var(--site-pale); padding-block: 96px; }
-.visit-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 8%; align-items: start; }
-.visit-copy > p { margin-top: 28px; max-width: 410px; }
-.visit-questions { display: grid; gap: 8px; margin-block: 28px 36px; }
-.visit-questions details { border-radius: var(--site-control-radius); padding: 12px 18px; background: var(--site-white); }
-.visit-questions summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 44px; font-size: var(--site-body); cursor: pointer; list-style: none; }
-.visit-questions summary::-webkit-details-marker { display: none; }
-.visit-questions summary:hover { color: var(--site-link); }
-.visit-questions summary span { font-size: var(--site-lead); transition: transform 220ms ease; }
-.visit-questions details[open] summary span { transform: rotate(45deg); }
-.visit-questions details > p { font-size: var(--site-support); padding-block: 12px; }
-.visit-questions details > a { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--site-support); text-decoration: underline; }
 .visit-arrival { padding: 32px; background: var(--site-white); }
 .visit-arrival > h3 { font-size: var(--site-lead); }
 .arrival-information { display: grid; gap: 24px; margin-top: 28px; }
@@ -324,7 +312,6 @@ main [data-service-public-id][data-ui-part~="card"] { background: var(--site-whi
   .listening-mosaic img { height: 460px; object-position: 44% center; }
   .listening-note { padding: 28px; }
   .listening-note > p { font-size: var(--site-lead); }
-  .visit-inner { grid-template-columns: 1fr; gap: 40px; }
   main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
 }
 @media (min-width: 600px) and (max-width: 699px) {
@@ -379,13 +366,6 @@ main [data-service-public-id][data-ui-part~="card"] { background: var(--site-whi
   .listening-note { padding: 30px; min-height: 330px; border-radius: 0 0 64px 0; gap: 32px; }
   .listening-note > p { font-size: var(--site-label-heading); }
   .hospital-home .imagery-note { font-size: var(--site-support); }
-  .visit-guide { padding-block: 64px; }
-  .visit-inner { grid-template-columns: 1fr; gap: 40px; }
-  .visit-copy > p { margin-top: 24px; }
-  .visit-questions { margin-block: 24px 28px; }
-  .visit-questions details { padding: 12px 16px; }
-  .visit-questions summary { font-size: var(--site-support); }
-  .visit-copy > .solid-button { width: 100%; font-size: var(--site-support); }
   main :is([data-clinician-directory-template], [data-service-directory-template], [data-clinician-profile-template], [data-emergency-template]) { width: var(--site-frame); }
   main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) { margin-top: 0; padding: 28px 24px; border-radius: 0 0 48px 0; gap: 28px; }
   main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) h1 { font-size: var(--site-page-title); }
@@ -438,9 +418,8 @@ main [data-clinician-profile-template] [data-ui-part~="primary-link"], main [dat
   .welcome-copy { width: 100%; min-height: 0; }
   .welcome h1 { color: black; }
   .welcome-media, .welcome-search, .welcome-credit, .navigator-choices { display: none; }
-  .care-start, .care-areas, .listening, .team-guide, .visit-guide, .arrival { padding-block: 32px; }
+  .care-start, .care-areas, .listening, .team-guide, .arrival { padding-block: 32px; }
   .listening, .listening h2 { background: white; color: black; }
-  .visit-questions details > p { display: block; }
 }
 
 /* Retain the established clinical welcome at every width. */

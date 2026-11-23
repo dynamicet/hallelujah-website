@@ -21,12 +21,27 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
       const page = await browser.newPage({ width, height: 1000, mobile: width < 600, reducedMotion })
       try {
         await page.goto(base)
-        assert.equal(await page.eval("document.querySelector('#health-library input') === null"), true)
+        assert.equal(await page.eval("document.querySelector('#visit-guide, #health-library') === null"), true)
+        assert.deepEqual(await page.eval(() => [...document.querySelectorAll('.home-quick-access a')].map(link => link.getAttribute('href'))), ['/services', '#home-directions', '/emergency'])
+        assert.equal(await page.eval("document.querySelector('.home-quick-access a strong').textContent.trim()"), 'Explore services')
         assert.equal(await page.eval("getComputedStyle(document.querySelector('.team-next-step')).backgroundColor"), 'rgb(245, 200, 45)', 'approved X assistance uses a bounded yellow field')
         assert.equal(await page.eval("getComputedStyle(document.querySelector('.team-care-help')).color"), 'rgb(23, 49, 61)', 'yellow assistance destination uses readable ink')
-        await page.eval("document.querySelector('#health-library a').scrollIntoView({block:'center',behavior:'instant'}); document.querySelector('#health-library a').focus({preventScroll:true})")
-        assert.equal(await page.eval("getComputedStyle(document.activeElement).outlineStyle"), 'solid')
-        await page.screenshot({ path: `${output}/health-invitation-${width}-${reducedMotion ? 'reduced' : 'normal'}.png` })
+        await page.eval(() => {
+          document.querySelector('.home-quick-access').scrollIntoView({ block: 'center', behavior: 'instant' })
+          document.querySelector('.home-quick-access a').focus({ preventScroll: true })
+        })
+        assert.equal(await page.eval("document.activeElement.matches(':focus-visible') && getComputedStyle(document.activeElement).outlineStyle === 'solid'"), true)
+        if (reducedMotion) {
+          assert.equal(await page.eval("getComputedStyle(document.activeElement.lastElementChild).transitionDuration"), '0s')
+        }
+        await page.screenshot({ path: `${output}/quick-access-${width}-${reducedMotion ? 'reduced' : 'normal'}.png` })
+        await enter(page)
+        await waitFor(page, "location.pathname === '/services' && Boolean(document.querySelector('[data-service-directory-template]'))")
+        await page.goto(new URL('/patients-visitors', base).href)
+        for (const id of ['checklist', 'visit-times', 'accessibility']) {
+          assert.ok(await page.eval(`Boolean(document.getElementById(${JSON.stringify(id)}))`))
+        }
+        await page.eval("document.querySelector('main a[href=\"/health-topics\"]').focus()")
         await enter(page)
         await waitFor(page, "location.pathname === '/health-topics' && Boolean(document.querySelector('#health-topic-search'))")
         assert.equal(await page.eval("document.querySelectorAll('[aria-label=\"Find topics by first letter\"] button').length"), 26)
@@ -48,14 +63,14 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
         assert.deepEqual(page.consoleErrors, [])
       } finally { await page.close() }
     }
-    console.log(`PASS ${width}: keyboard health-topic entry, focus styling, full topic browser, equipment destination/disclosure, normal/reduced motion`)
+    console.log(`PASS ${width}: services shortcut, visit guidance, full topic browser, equipment destination/disclosure, normal/reduced motion`)
   }
   const page = await browser.newPage({ width: 390, height: 1000, mobile: true, reducedMotion: true })
   try {
     await page.send('Emulation.setScriptExecutionDisabled', { value: true })
     await page.goto(base)
-    assert.equal(await page.eval("document.querySelector('#health-library a').getAttribute('href')"), '/health-topics')
+    assert.equal(await page.eval("document.querySelector('.home-quick-access a').getAttribute('href')"), '/services')
     assert.equal(await page.eval("document.querySelector('#medical-technology a').getAttribute('href')"), '/about#medical-technology')
   } finally { await page.close() }
-  console.log('PASS health-topic destination remains available without JavaScript')
+  console.log('PASS native services and equipment links without JavaScript')
 })

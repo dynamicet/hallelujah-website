@@ -13,7 +13,6 @@ import { HomeScenes } from './home-scenes'
 import { HospitalIntroduction } from './hospital-introduction'
 import { SpecialtyGrid } from './specialty-grid'
 import { EquipmentPreview } from './equipment-preview'
-import { HomeHealthTopics } from './home-health-topics'
 import { partners } from '@/demo/partners'
 import { CorporateAgreements, Partners } from './partners'
 import { NewsResources } from './news-resources'
@@ -22,7 +21,6 @@ import { ContactDirections } from './contact-directions'
 import { FeaturedSpecialists } from './featured-specialists'
 
 const Arrow = () => <span aria-hidden="true">→</span>
-const VisitChevron = () => <span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
 const HeroArrow = () => <span className="welcome-action-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></span>
 
 // Editorial order for the preview, independent of portrait-map insertion order.
@@ -68,9 +66,9 @@ export function WebsiteHome() {
           <CareSearch />
         </section>
 
-        <nav className="home-quick-access" aria-label="Plan your care and visit">
+        <nav className="home-quick-access" aria-label="Quick access">
           <ul className="page-frame home-quick-access-list">
-            <li><a href="#visit-guide"><span className="home-quick-access-icon"><Icon name="calendar" /></span><span className="home-quick-access-copy"><strong><InterfaceText>Plan your visit</InterfaceText></strong></span><Arrow /></a></li>
+            <li><Link href="/services"><span className="home-quick-access-icon"><Icon name="care" /></span><span className="home-quick-access-copy"><strong>Explore services</strong></span><Arrow /></Link></li>
             <li><a href="#home-directions"><span className="home-quick-access-icon"><Icon name="directions" /></span><span className="home-quick-access-copy"><strong><InterfaceText>Contact &amp; directions</InterfaceText></strong></span><Arrow /></a></li>
             <li><Link className="home-quick-access-urgent" href="/emergency"><span className="home-quick-access-icon"><Icon name="emergency" /></span><span className="home-quick-access-copy"><strong>Emergency information</strong><span>Urgent care and ambulance contacts</span></span><Arrow /></Link></li>
           </ul>
@@ -111,30 +109,9 @@ export function WebsiteHome() {
 
         <HospitalStatistics {...hospitalStatistics} />
 
-        <section className="visit-guide" data-motion-section="visit" aria-labelledby="visit-guide-title" id="visit-guide" tabIndex={-1}>
-          <div className="page-frame visit-inner">
-            <div className="visit-copy"><h2 data-motion="heading" data-reveal="0" id="visit-guide-title">Plan your visit</h2>
-              <div className="visit-checklist">
-                <h3>What to bring</h3>
-                <ul><li>Your questions and medicine list</li><li>Referral letter, if you have one</li><li>Relevant previous results</li></ul>
-                <p>Confirm any additional requirements before travelling.</p>
-              </div>
-            </div>
-            <div className="visit-preparation">
-              <div className="visit-questions">
-                <details data-motion-disclosure><summary>Appointments &amp; arrival<VisitChevron /></summary><p>Choose your care, add your contact details, and review your request. Contact the hospital to confirm a time.</p><p>Call to confirm department opening hours, your arrival time, and where to check in. Ask how much time to allow for registration. <Link href="/patients-visitors#visit-times">Hours &amp; arrival guidance</Link></p></details>
-                <details data-motion-disclosure><summary>Companions &amp; extra support<VisitChevron /></summary><p>Ask the hospital about companions and visiting arrangements before your visit.</p><p>Confirm language, mobility, or other support with the hospital before travelling, including step-free access if you need it.</p></details>
-              </div>
-              <Link className="text-link" href="/patients-visitors">Read the full visit guide <Arrow /></Link>
-            </div>
-          </div>
-        </section>
-
         <CorporateAgreements organizations={partners} />
 
         <ContactDirections />
-
-        <HomeHealthTopics />
 
         <EquipmentPreview />
 

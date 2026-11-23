@@ -55,8 +55,6 @@
     }
   }
 }
-/* Avoid competing legacy entrances on the same disclosure. */
-.enhanced-home .visit-questions details[data-motion-disclosure][open] > :not(summary) { animation: none; }
 @media (prefers-reduced-motion: reduce) {
   :root {
     --motion-fast: 0ms;

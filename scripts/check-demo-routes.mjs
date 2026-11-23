@@ -256,8 +256,6 @@ try {
     await until(`document.querySelector('.navigator-result a').getAttribute('href') === ${JSON.stringify(target)}`)
     assert.equal(await evaluate("document.querySelectorAll('.navigator-choice[aria-pressed=true]').length"), 1)
   }
-  await evaluate("document.querySelector('.visit-questions summary').click()")
-  assert.equal(await evaluate("document.querySelector('.visit-questions details').open"), true)
   // Below-fold images intentionally load lazily. Request them before checking asset integrity.
   await evaluate("Array.from(document.images).forEach(image => { image.loading = 'eager' })")
   await until("Array.from(document.images).every(image => image.complete && image.naturalWidth > 0)")
@@ -267,7 +265,7 @@ try {
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 1)
   await navigate('/doctors?q=no-matching-name')
   assert.equal(await evaluate("!!document.querySelector('[data-directory-empty]')"), true)
-  cases.push('Care navigator choices, service/doctor handoff, visit accordion, complete images and zero-result recovery')
+  cases.push('Care navigator choices, service/doctor handoff, complete images and zero-result recovery')
   await navigate('/?demo=empty')
   assert.equal(await evaluate("!!document.querySelector('[data-home-section=H4]')"), false)
   assert.equal(await evaluate("!!document.querySelector('[data-home-section=H8]')"), false)
