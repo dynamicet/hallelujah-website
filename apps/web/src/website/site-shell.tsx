@@ -19,7 +19,6 @@ export function hospitalShellConfig(current: string): HomePageTemplateProps['she
     skipLinkLabel: 'Skip to main content',
     header: {
       contactTargets: { call: hospitalContact.hotlineHref },
-      contactHref: current === '/' ? '#home-directions' : '/contact',
       contactCurrent: current === '/contact',
       collaborationItem: { ...hospitalCollaborationLink, current: current === hospitalCollaborationLink.href },
       brandMark: <HospitalBrandMark />,

@@ -52,7 +52,6 @@ export interface SiteHeaderProps {
   readonly brandMark?: ReactNode
   readonly brandName: string
   readonly contactTargets?: HeaderContactTargets
-  readonly contactHref?: string
   readonly contactCurrent?: boolean
   readonly collaborationItem?: NavigationItem
   readonly previewEmergencyNumber?: string
@@ -181,7 +180,6 @@ export function SiteHeader({
   brandName,
   collaborationItem,
   contactTargets,
-  contactHref = '/contact',
   contactCurrent = false,
   previewEmergencyNumber,
   emergencyAction,
@@ -198,8 +196,6 @@ export function SiteHeader({
 }: SiteHeaderProps) {
   if (!homeLabel.trim()) throw new Error('SiteHeader homeLabel must not be empty')
   const publicWebsite = homeHref === '/'
-  // Native same-page anchors transfer focus after the mobile menu closes.
-  const ContactLink = contactHref.startsWith('#') ? 'a' : Link
   const styles = publicWebsite ? publicStyles : controlledStyles
   const primaryNavigationItems = navigationItems
     .filter((item) => item.href !== searchItem.href && !(publicWebsite && item.href === '/appointment'))
@@ -219,7 +215,7 @@ export function SiteHeader({
             <div className={styles.utilityLinks}>
               <div className={styles.utilityContext}>
                 <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link></div>
-                <ContactLink aria-current={contactCurrent ? 'page' : undefined} className={styles.contactDirections} href={contactHref}>Contact & directions</ContactLink>
+                <Link aria-current={contactCurrent ? 'page' : undefined} className={styles.contactDirections} href="/contact">Contact & directions</Link>
                 {collaborationItem ? <Link aria-current={collaborationItem.current ? 'page' : undefined} href={collaborationItem.href}>{collaborationItem.label}</Link> : null}
               </div>
               <div className={styles.utilityEssentials}>
@@ -301,7 +297,7 @@ export function SiteHeader({
           </div> : null}
           {publicWebsite ? <div className={styles.mobileVisitActions} aria-label="Plan your arrival" role="group">
             <a href={hospitalContact.phoneHref}>Call the hospital <span>{hospitalContact.phone}</span></a>
-            <ContactLink aria-current={contactCurrent ? 'page' : undefined} href={contactHref}>Contact &amp; directions <Icon name="arrow-right" /></ContactLink>
+            <Link aria-current={contactCurrent ? 'page' : undefined} href="/contact">Contact &amp; directions <Icon name="arrow-right" /></Link>
           </div> : null}
           {routineAction ? (
             <div className={styles.headerRoutine} data-shell-routine>
