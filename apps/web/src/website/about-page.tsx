@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { InterfaceLink as Link } from '@/website/interface-language'
 import { PageContent, PageFrame } from './page-patterns'
 import { hospitalContact } from './hospital-contact'
-import { hospitalFounder, hospitalLeadership } from './hospital-leadership'
+import { hospitalFounders, hospitalLeadership } from './hospital-leadership'
 import styles from './about-page.module.css'
 import { EquipmentShowcase } from './equipment-showcase'
 
@@ -45,7 +45,7 @@ export function AboutPage() {
 
       <nav className={styles.chapters} aria-label="Explore About Hallelujah">
         <a href="#our-story">Our story <Arrow /></a>
-        <a href="#founding-vision">Our founder <Arrow /></a>
+        <a href="#founding-vision">Our founders <Arrow /></a>
         <a href="#our-values">Our values <Arrow /></a>
         <a href="#mission-and-vision">Mission &amp; vision <Arrow /></a>
         <a href="#leadership">Leadership <Arrow /></a>
@@ -63,19 +63,20 @@ export function AboutPage() {
         </ol>
       </section>
 
-      <section className={styles.founder} id="founding-vision" aria-labelledby="about-founder-title">
-        <figure className={styles.founderPortrait}>
-          <div className={styles.portraitCrop} data-framing={hospitalFounder.framing}><Image src={hospitalFounder.portrait} alt={hospitalFounder.name} width={hospitalFounder.width} height={hospitalFounder.height} sizes="(max-width: 699px) 123vw, 62vw" /></div>
-          <figcaption>{hospitalFounder.name}<span>Founder &amp; Chief Executive Officer</span></figcaption>
-        </figure>
-        <div className={styles.founderCopy}>
-          <h2 id="about-founder-title">The founding vision</h2>
-          {/* Replaceable editorial draft. No invented first-person quotation or biography. */}
-          <p className={styles.founderLead}>Behind a hospital is a human story.</p>
-          <p>For Hallelujah, that story includes Mrs. Yetnayet Eshetu, founder and Chief Executive Officer. Her place in the hospital’s beginning is a distinct part of the story we share today.</p>
-          <p>From the first specialist center to the hospital it has become, Hallelujah’s journey brings together a founding commitment and the work of many people: clinicians, nurses, colleagues, and the community they serve.</p>
-          <a className="text-link" href="#hospital-film">See Hallelujah in motion <Arrow /></a>
+      <section className={styles.founders} id="founding-vision" aria-labelledby="about-founder-title">
+        <div className={styles.foundersStory}>
+          <h2 id="about-founder-title">Our founders</h2>
+          <p className={styles.foundersIntro}>Hallelujah began in 2006 as a center for internal medicine and chest disease. Its two founders helped shape its growth into a general hospital.</p>
         </div>
+        <ul className={styles.founderPair}>
+          {hospitalFounders.map((person) => <li key={person.name}>
+            <div className={styles.portraitCrop} data-framing={person.framing}>
+              <Image src={person.portrait} alt="" width={person.width} height={person.height} unoptimized={person.framing === 'clinical'} sizes="(max-width: 599px) 100vw, 40vw" />
+            </div>
+            <h3>{person.name}</h3>
+            <p>Co-founder · {person.role}</p>
+          </li>)}
+        </ul>
       </section>
 
       <section className={styles.filmChapter} id="hospital-film" aria-labelledby="about-film-title">
@@ -124,10 +125,9 @@ export function AboutPage() {
         </div>
         <ul className={styles.leaders}>
           {hospitalLeadership.map((person) => <li key={person.name}>
-            <div className={styles.leaderPortrait} data-framing={person.framing}><Image src={person.portrait} alt={person.name} width={person.width} height={person.height} sizes={person === hospitalFounder ? "(max-width: 359px) 142px, (max-width: 599px) 59vw, (max-width: 999px) 60vw, 30vw" : "(max-width: 359px) 104px, (max-width: 599px) 43vw, (max-width: 999px) 44vw, 22vw"} /></div>
+            <div className={styles.leaderPortrait} data-framing={person.framing}><Image src={person.portrait} alt={person.name} width={person.width} height={person.height} unoptimized={person.framing === 'clinical'} sizes={person.framing === 'founder' ? "(max-width: 359px) 142px, (max-width: 599px) 59vw, (max-width: 999px) 60vw, 30vw" : "(max-width: 359px) 104px, (max-width: 599px) 43vw, (max-width: 999px) 44vw, 22vw"} /></div>
             <h3>{person.name}</h3>
             <p>{person.role}</p>
-            {person === hospitalFounder && <a href="#founding-vision">Meet our founder <Arrow /></a>}
           </li>)}
         </ul>
       </section>

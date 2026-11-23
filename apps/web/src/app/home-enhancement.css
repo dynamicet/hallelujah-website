@@ -150,7 +150,6 @@
 }
 
 /* A hospital introduction, an unobscured film, then useful care destinations. */
-.enhanced-home .hospital-film-section { background: var(--site-white); color: var(--site-ink); padding-block: var(--home-space) 48px; }
 .enhanced-home .hospital-film-copy { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10%; align-items: end; margin-bottom: 48px; }
 .enhanced-home .hospital-film-copy h2 { color: inherit; font-size: var(--site-heading); line-height: 1.04; max-width: 9em; }
 .enhanced-home .hospital-film-copy p { max-width: 40ch; font-size: 18px; }
@@ -188,7 +187,6 @@
   .enhanced-home .hospital-film-footer > p { font-size: 22px; }
 }
 @media (max-width: 600px) {
-  .enhanced-home .hospital-film-section { padding-bottom: 40px; }
   .enhanced-home .care-background-film { aspect-ratio: 4/5; }
   .enhanced-home .care-background-film :is(img,video) { object-fit: cover; object-position: center; }
   .enhanced-home .care-film-control { left: 16px; bottom: 16px; min-width: 140px; padding: 12px 16px; }

@@ -10,7 +10,7 @@ import { patientStories } from '@/demo/patient-stories'
 import { EverydayStories } from './everyday-stories'
 import { CareSearch } from './care-search'
 import { HomeScenes } from './home-scenes'
-import { HospitalStoryIntroduction } from './hospital-story-introduction'
+import { HospitalIntroduction } from './hospital-introduction'
 import { SpecialtyGrid } from './specialty-grid'
 import { EquipmentPreview } from './equipment-preview'
 import { HomeHealthTopics } from './home-health-topics'
@@ -136,9 +136,7 @@ export function WebsiteHome() {
 
         <EquipmentPreview />
 
-        <section className="hospital-film-section" id="about-hallelujah" aria-labelledby="hospital-story-title">
-          <HospitalStoryIntroduction />
-        </section>
+        <HospitalIntroduction />
 
         <div className="home-stories-room"><EverydayStories stories={patientStories.slice(0, 1)} quotes={[]} /></div>
 

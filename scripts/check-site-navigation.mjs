@@ -22,7 +22,7 @@ await runVisualCheck('site-navigation', baseUrl, async ({ browser, output }) => 
           assert.equal(await page.eval('document.querySelector("h1").textContent'), 'Care for your whole life.')
           assert.equal(await page.eval("Boolean(document.querySelector('[data-home-template]'))"), false)
           assert.equal(await page.eval("document.querySelectorAll('.team-person').length"), 6, 'Preserve the newer six-doctor browsing section')
-          assert.equal(await page.eval("document.querySelector('#about-hallelujah h2').textContent"), 'The story behind Hallelujah', 'Preserve founder introduction')
+          assert.equal(await page.eval("document.querySelector('#about-hallelujah h2').textContent"), 'From Gotera, caring for Addis Ababa.', 'Show the hospital introduction')
           assert.ok(await page.eval("Boolean(document.querySelector('#health-library a[href=\"/health-topics\"]'))"), 'Preserve the concise health-topic introduction')
           assert.equal(await page.eval("document.querySelectorAll('[data-care-guide], [data-patient-guide], [data-help-widget]').length"), 0)
           assert.equal(await page.eval("document.querySelector('[data-call-widget] a').getAttribute('href')"), 'tel:9975')
