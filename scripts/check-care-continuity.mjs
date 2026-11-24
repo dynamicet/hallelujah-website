@@ -32,7 +32,7 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     assert.equal(await page.eval(() => [...document.querySelectorAll('[data-clinician-public-id]')].every(card => card.querySelector('[aria-label="Specialties"]').textContent.includes('Cardiology'))), true)
     for (const [path, selector, fallback, from, backLabel, viewLabel] of [
       [service, 'main a[href^="/services"]', '/services', '/services', 'Back to service results', 'View all services'],
-      [doctorPath, '[data-profile-introduction] a[href^="/doctors"]', '/doctors', '/doctors?q=Chala', 'Back to doctor results', 'View all doctors'],
+      [doctorPath, '[aria-label="Breadcrumb"] a[href^="/doctors"]', '/doctors', '/doctors?q=Chala', 'Doctor results', 'Doctors'],
     ]) {
       for (const source of ['', from, 'https://example.com' + fallback]) {
         await page.goto(base + path + (source ? '?from=' + encodeURIComponent(source) : ''))
@@ -56,7 +56,7 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     const profile = await page.eval(() => document.querySelector('#care-team a').getAttribute('href'))
     assert.equal(new URL(profile, base).searchParams.get('service'), 'pub_151515151515')
     await page.goto(base + profile)
-    const profileReturn = await page.eval(() => document.querySelector('[data-profile-introduction] a[href$="#care-team"]').getAttribute('href'))
+    const profileReturn = await page.eval(() => document.querySelector('[aria-label="Breadcrumb"] a[href$="#care-team"]').getAttribute('href'))
     assert.equal(new URL(profileReturn, base).searchParams.get('from'), '/services?q=Cardiology')
     assert.equal(new URL(profileReturn, base).searchParams.get('doctor'), doctorId)
     const appointment = await page.eval(() => document.querySelector('[data-profile-primary-action]').getAttribute('href'))
@@ -72,7 +72,7 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     assert.match(await page.eval(() => document.querySelector('[data-appointment-preference]').textContent), /Aster/)
     assert.equal(await page.eval(() => document.querySelector('[data-appointment-preference]').textContent.includes('Cardiology')), false)
     await page.goto(base + '/doctors/synthetic-clinician-101010101010/?service=pub_151515151515')
-    assert.equal(await page.eval(() => document.querySelectorAll('[data-profile-introduction] a[href$="#care-team"]').length), 0)
+    assert.equal(await page.eval(() => document.querySelectorAll('[aria-label="Breadcrumb"] a[href$="#care-team"]').length), 0)
     assert.match(await page.eval(() => document.querySelector('main').innerText), /not listed|not available|unavailable/i)
 
     // Doctor → directly provided service → appointment preserves the care context.

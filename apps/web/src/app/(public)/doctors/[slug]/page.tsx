@@ -55,7 +55,8 @@ export default async function DoctorProfilePage({ params, searchParams }: { para
         canonicalPath: carePathWithDoctor(service, clinician.publicId, serviceResultsHref), name: service.name, publicId: service.publicId,
       })), outcome: 'profile' }}
     breadcrumbs={{ label: 'Breadcrumb', items: [
-      { href: '/', label: 'Home' }, { href: '/doctors', label: 'Doctors' },
+      { href: '/', label: 'Home' }, selectedService ? { href: `${carePathWithDoctor(selectedService, clinician.publicId, serviceResultsHref)}#care-team`, label: selectedService.name }
+        : { href: directoryHref ?? '/doctors', label: directoryHref ? 'Doctor results' : 'Doctors' },
       { href: clinician.canonicalPath, label: clinician.details.name, current: true },
     ] }} state={partial ? 'ready' : scenario} />
 }

@@ -1,3 +1,4 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
 import { TemplateFrame } from './template-frame'
 import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
 
@@ -95,7 +96,7 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
           <div className={styles.directoryHeading} data-ui-part="heading directory-heading" data-directory-heading>
             <h2 className={styles.visuallyHidden} id="directory-search-title">Search doctors</h2>
           </div>
-          <DirectorySearchForm action={pathname} label="Search clinicians" resultKey={currentResultsHref}>
+          <DirectorySearchForm action={pathname} label="Search doctors" resultKey={currentResultsHref}>
             <div className={styles.searchPanel} data-ui-part="search-panel" data-directory-search-panel>
               <SearchBox
                 clearHref={clinicianDirectoryUrl(pathname, { ...searchState, page: 1, query: '' }, allowedFilters)}
@@ -109,14 +110,13 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
               />
             </div>
 
-            <details data-directory-guidance aria-labelledby="directory-guidance-title" className={styles.guidance}>
-              <summary><h2 id="directory-guidance-title">Not sure where to begin?</h2></summary>
-              <Link className="ds-touch-target" href="/appointment">Request appointment guidance</Link>
-            </details>
+            <p data-directory-guidance>You can request an appointment without choosing a doctor.{' '}
+              <Link className="ds-touch-target" href="/appointment">{requestAppointmentLabel}</Link>
+            </p>
 
             <div className={styles.discoveryWorkspace} data-ui-part="workspace discovery-workspace" data-directory-workspace>
-              <aside aria-label="Clinician filters" className={styles.filterRail} data-ui-part="filter-rail" data-directory-filter-rail>
-                <FilterDisclosure label={`Filter clinicians (${activeFilters.length})`} open>
+              <aside aria-label="Doctor filters" className={styles.filterRail} data-ui-part="filter-rail" data-directory-filter-rail>
+                <FilterDisclosure label={`Filter doctors (${activeFilters.length})`} open>
                   <FilterGroup
                     legend="Specialty"
                     options={directory.filters}
@@ -128,11 +128,11 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
               </aside>
 
               <section aria-labelledby="directory-results-title" data-ui-part="results results-section" className={styles.resultsSection} data-directory-section="D3">
-                <h2 className={styles.visuallyHidden} id="directory-results-title">Clinician results</h2>
+                <h2 className={styles.visuallyHidden} id="directory-results-title">Doctor results</h2>
                 <div data-ui-part="results" className={styles.resultsToolbar}>
                   {!unavailable ? (
                     <DirectoryResultCount id="clinician-result-count" resultKey={currentResultsHref}>
-                      {directory.resultCount} {directory.resultCount === 1 ? 'clinician' : 'clinicians'}
+                      {directory.resultCount} {directory.resultCount === 1 ? 'doctor' : 'doctors'}
                     </DirectoryResultCount>
                   ) : <p className={styles.stateLabel}>Directory status</p>}
                   {!unavailable && directory.resultCount > 0 ? <p className={styles.resultRange}>
@@ -157,7 +157,7 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                   </div>
                 ) : noMatches ? (
                   <div className={styles.statePanel} data-directory-section="D5" data-directory-empty>
-                    <h2>No clinicians match</h2>
+                    <h2>No doctors match</h2>
                     <p>Check the spelling, remove a specialty filter, or begin again. You can also explore care by service.</p>
                     <div className={styles.stateActions} data-directory-state-actions>
                       <a className="ds-touch-target" href={pathname}><InterfaceText>Reset search</InterfaceText></a>
@@ -192,7 +192,7 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                       ))}
                     </ol>
                     <Pagination
-                      label="clinician result pages"
+                      label="doctor result pages"
                       next={searchState.page < directory.pageCount ? { ...pages[searchState.page], label: 'Next' } : undefined}
                       pages={pages}
                       previous={searchState.page > 1 ? { ...pages[searchState.page - 2], label: 'Previous' } : undefined}

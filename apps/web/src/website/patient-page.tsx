@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { PageContent, PageIntro } from './page-patterns'
 import styles from './patient-page.module.css'
-import { CarePageImage, type CarePageImageSource } from './care-page-image'
+import Image from 'next/image'
 import { CareBrandArtwork } from './care-brand-artwork'
 
 export { styles as patientPageStyles }
@@ -9,11 +9,10 @@ export { styles as patientPageStyles }
 export type PatientPageVariant = 'care-detail' | 'practical-guide' | 'document' | 'recruitment' | 'task'
 export type PatientSectionContext = 'default' | 'quiet' | 'preparation' | 'story' | 'assistance'
 
-export function PatientPage({ title, description, current, action, secondaryAction, children, variant, image: suppliedImage }: {
-  title: string; description?: string; current: string; image?: CarePageImageSource
+export function PatientPage({ title, description, current, action, secondaryAction, children, variant, imageSrc }: {
+  title: string; description?: string; current: string; imageSrc?: string
   action?: { href: string; label: string }; secondaryAction?: { href: string; label: string }; children: ReactNode; variant: PatientPageVariant
 }) {
-  const image = suppliedImage
   return <PageContent breadcrumbs={{ label: 'Breadcrumb', items: [
     { href: '/', label: 'Home' },
     ...(current.startsWith('/services/') ? [{ href: '/services', label: 'Services' }] : []),
@@ -22,7 +21,9 @@ export function PatientPage({ title, description, current, action, secondaryActi
     <div className={styles.page} data-patient-page={current} data-page-variant={variant}>
       <PageIntro title={title} description={description} action={action} secondaryAction={secondaryAction}
         artwork={variant === 'care-detail' ? <div className={styles.heroArtwork}><CareBrandArtwork /></div> : undefined}
-        visual={image ? <CarePageImage image={image} /> : undefined} />
+        visual={imageSrc ? <figure className="care-page-image" data-reveal="2">
+          <Image src={imageSrc} alt="" width={640} height={480} sizes="(max-width: 599px) 90vw, 40vw" loading="eager" />
+        </figure> : undefined} />
       {children}
     </div>
   </PageContent>

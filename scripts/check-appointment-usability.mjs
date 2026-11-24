@@ -42,9 +42,10 @@ await runVisualCheck('appointment-usability', base, async ({ browser, output }) 
     assert.ok(await page.eval(`document.querySelector('${phone}').checkVisibility()`))
     assert.equal(await page.eval(() => document.querySelector('[data-call-widget]')), null)
     if (width === 390) {
-      await page.eval(() => document.querySelector('a[href="#appointment-call"]').focus())
-      await press(page, 'Enter', 13)
-      await waitFor(page, 'document.activeElement.id === "appointment-call"')
+      const shortcut = 'main header a[href="tel:+251114704242"]'
+      await page.eval(`document.querySelector('${shortcut}').focus()`)
+      assert.ok(await page.eval(`document.activeElement.matches('${shortcut}')`))
+
     }
 
     await submit(page)

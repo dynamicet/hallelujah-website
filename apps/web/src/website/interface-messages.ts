@@ -7,7 +7,7 @@ export const amharicInterface: Readonly<Record<string, string>> = {
   'Do not enter personal or medical information.': 'የግል ወይም የሕክምና መረጃ አያስገቡ።',
   'Active service groups': 'የተመረጡ የአገልግሎት ምድቦች',
   'service result pages': 'የአገልግሎት ውጤት ገጾች',
-  'clinician result pages': 'የሐኪም ውጤት ገጾች',
+  'doctor result pages': 'የሐኪም ውጤት ገጾች',
   'Check the form': 'ቅጹን ያረጋግጡ',
   'Choose one type of care.': 'አንድ የሕክምና ዓይነት ይምረጡ።',
   'Choose a doctor.': 'ሐኪም ይምረጡ።',
@@ -125,8 +125,8 @@ export const amharicInterface: Readonly<Record<string, string>> = {
   'Active specialty filters': 'የተመረጡ የልዩ ሙያ ማጣሪያዎች',
   'Active service filters': 'የተመረጡ የአገልግሎት ማጣሪያዎች',
   'Updating results…': 'ውጤቶችን በማዘመን ላይ…',
-  'clinician': 'ሐኪም',
-  'clinicians': 'ሐኪሞች',
+  'doctor': 'ሐኪም',
+  'doctors': 'ሐኪሞች',
   'service': 'አገልግሎት',
   'services': 'አገልግሎቶች',
   'results': 'ውጤቶች',
@@ -144,7 +144,7 @@ export const amharicInterface: Readonly<Record<string, string>> = {
   'Browse doctors': 'ሐኪሞችን ያስሱ',
   'Request appointment guidance': 'ለቀጠሮ እገዛ ይጠይቁ',
   'Try this search again': 'ይህን ፍለጋ እንደገና ይሞክሩ',
-  'No clinicians match': 'ከፍለጋዎ ጋር የሚዛመድ ሐኪም የለም',
+  'No doctors match': 'ከፍለጋዎ ጋር የሚዛመድ ሐኪም የለም',
   'No services match': 'ከፍለጋዎ ጋር የሚዛመድ አገልግሎት የለም',
   'Required': 'አስፈላጊ',
   'Optional': 'አማራጭ',
@@ -230,7 +230,7 @@ export function translateInterface(text: string, language: InterfaceLanguage): s
   if (direct) return text.replace(copy, direct)
   // Variable UI copy keeps numbers, canonical names and search terms intact.
   const patterns: [RegExp, (...values: string[]) => string][] = [
-    [/^Filter clinicians \((\d+)\)$/, (n) => `ሐኪሞችን አጣራ (${n})`],
+    [/^Filter doctors \((\d+)\)$/, (n) => `ሐኪሞችን አጣራ (${n})`],
     [/^Filter services \((\d+)\)$/, (n) => `አገልግሎቶችን አጣራ (${n})`],
     [/^(\d+) results$/, (n) => `${n} ውጤቶች`],
     [/^Showing (\d+)–(\d+) of (\d+)$/, (first, last, total) => `ከ${total} ውስጥ ${first}–${last} በማሳየት ላይ`],

@@ -11,9 +11,8 @@ const serviceArtwork: Readonly<Record<string, ServiceCardPresentation>> = {
   pub_212121212121: { imageSrc: '/services/follow-up.webp' },
   pub_232323232323: { imageSrc: '/services/brain.webp', specialty: 'Neurology' },
   pub_242424242424: { imageSrc: '/services/kidneys.webp', specialty: 'Nephrology' },
-  // Main's additional care entries reuse the matching approved artwork.
-  pub_262626262626: { imageSrc: '/services/general-medicine.webp' },
-  pub_272727272727: { imageSrc: '/services/heart.webp' },
+  pub_262626262626: { imageSrc: '/editorial/family-care.webp' },
+  pub_272727272727: { imageSrc: '/services/echocardiography.webp' },
   pub_252525252525: { imageSrc: '/services/joints.webp', specialty: 'Orthopedics' },
 }
 

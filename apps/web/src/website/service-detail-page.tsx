@@ -1,5 +1,5 @@
 import { requestAppointmentLabel } from '@/appointment/copy'
-import { carePageImages } from '@/website/care-page-image'
+import { servicePresentation } from './service-presentation'
 import { directoryServices, serviceDirectorySource } from '@/demo/service-directory-return'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -64,7 +64,7 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
   const preparation = service.sections.preparation ?? (copy?.preparation ? [copy.preparation] : [])
   const questions = serviceVisitQuestions[service.publicId] ?? []
   const hasPreparation = preparation.length > 0 || questions.length > 0
-  return <PatientPage variant="care-detail" image={/heart|cardio/i.test(service.name) ? carePageImages.heart : /rehab|physio/i.test(service.name) ? carePageImages.recovery : carePageImages.general} title={service.name} description={service.sections.scope?.join(' ') ?? 'Explore this area of care and prepare for your visit.'}
+  return <PatientPage variant="care-detail" imageSrc={servicePresentation(service.publicId).imageSrc} title={service.name} description={service.sections.scope?.join(' ') ?? 'Explore this area of care and prepare for your visit.'}
     current={service.canonicalPath}
     action={action} secondaryAction={related.length ? { href: '#care-team', label: 'Meet the care team' } : undefined}>
     <Link className={serviceStyles.backLink} href={directoryHref ?? '/services'}>{directoryHref ? <span aria-hidden="true">←</span> : null}{directoryLabel}</Link>

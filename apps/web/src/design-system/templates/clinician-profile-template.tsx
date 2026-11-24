@@ -105,7 +105,7 @@ export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, related
                     Appointment requests unavailable
                   </span>
                 )}
-                {appointmentHref ? <Link className="ds-touch-target" href={serviceContext ? `${serviceContext.href}#care-team` : directoryHref ?? '/doctors'}>{serviceContext ? `Back to ${serviceContext.name}` : directoryLabel}</Link> : null}
+
               </div>
             </section>
 

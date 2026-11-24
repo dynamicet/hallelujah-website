@@ -75,7 +75,7 @@ for (const state of clinicianDirectoryFixtureStates) {
 }
 
 const noMatchHtml = clinicianDirectoryPreviewDocument('controlled', new URLSearchParams({ q: 'no synthetic match' }))
-assert.match(noMatchHtml, /No clinicians match/u)
+assert.match(noMatchHtml, /No doctors match/u)
 assert.equal((noMatchHtml.match(/data-clinician-public-id/gu) ?? []).length, 0)
 assert.deepEqual([...noMatchHtml.matchAll(/data-directory-section="(D\d)"/gu)].map((match) => match[1]),
   ['D1', 'D2', 'D3', 'D5', 'D6'])

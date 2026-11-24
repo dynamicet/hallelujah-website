@@ -203,7 +203,7 @@ function AppointmentRequestForm({
               {preference ? <div className={styles.preferenceDetails} data-appointment-preference>
                 <span>Care preference <small>(optional)</small></span>
                 <strong>{preference.label}</strong>
-                {context && preference.id === initialPreference?.id ? <small>{context}</small> : null}
+                {context && preference.id === initialPreference?.id ? <small>You were viewing {context}. Your request includes your doctor preference.</small> : null}
               </div> : null}
               <div className={styles.preferenceActions}>
                 <button ref={preferenceButton} type="button" className={styles.textButton} aria-controls="appointment-preference-options"
