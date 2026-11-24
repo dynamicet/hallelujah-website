@@ -11,7 +11,7 @@ const milestones = [
   { year: '2006', text: 'Hallelujah Center for Internal Medicine and Chest Disease was established.' },
   { year: '2007', text: 'The center began welcoming patients on Bole Road.' },
   { year: '2010', text: 'The center became Hallelujah Higher Medical Clinic.' },
-  { year: '2017', text: 'Hallelujah General Hospital became fully operational.' },
+  { year: '2017', text: 'Hallelujah General Hospital became fully operational in May.' },
 ]
 
 const values = [
@@ -37,7 +37,7 @@ export function AboutPage() {
           <p className={styles.identity}>{hospitalContact.name}<span>Gotera · Addis Ababa, Ethiopia</span></p>
           <div>
             <h1>About Us</h1>
-            <p className={styles.intro}>A general hospital in Addis Ababa, with roots in internal medicine and chest care.</p>
+            <p className={styles.intro}>In Gotera, our teams care for children and adults through specialist consultations, diagnostic tests and hospital stays.</p>
             <Link className="solid-button blue-button" href="/services">Explore our care <Arrow /></Link>
           </div>
         </div>
@@ -55,8 +55,7 @@ export function AboutPage() {
       <section className={styles.chapter} id="our-story" tabIndex={-1} aria-labelledby="about-story-title">
         <div className={styles.chapterIntro}>
           <h2 id="about-story-title">Our story</h2>
-          <p>From a specialist center to a general hospital, Hallelujah’s story began with internal medicine and chest disease care.</p>
-          <p>Established in 2006, the center grew into a clinic and later a general hospital, opening its doors in May 2017. That specialist beginning remains part of our identity today.</p>
+          <p>Our first patients came to a specialist center on Bole Road. As the practice grew, so did the range of care we could offer under one roof.</p>
         </div>
         <ol className={styles.timeline}>
           {milestones.map((milestone) => <li key={milestone.year}><span className={styles.year}>{milestone.year}</span><p>{milestone.text}</p></li>)}
@@ -66,7 +65,7 @@ export function AboutPage() {
       <section className={styles.founders} id="founding-vision" tabIndex={-1} aria-labelledby="about-founder-title">
         <div className={styles.foundersStory}>
           <h2 id="about-founder-title">Our founders</h2>
-          <p className={styles.foundersIntro}>Hallelujah began in 2006 as a center for internal medicine and chest disease. Its two founders helped shape its growth into a general hospital.</p>
+          <p className={styles.foundersIntro}>Mrs. Yetnayet Eshetu leads the hospital’s strategy and management. Professor Getachew Aderaye brings his experience in respiratory medicine to its clinical leadership. Together they founded Hallelujah.</p>
         </div>
         <ul className={styles.founderPair}>
           {hospitalFounders.map((person) => <li key={person.name}>

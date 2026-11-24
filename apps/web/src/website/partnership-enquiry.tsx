@@ -18,7 +18,7 @@ export function PartnershipEnquiry() {
   }
 
   return <section className={styles.enquiry} aria-labelledby="partnership-enquiry-title">
-    <h2 id="partnership-enquiry-title">Partnership enquiry</h2>
+    <h2 id="partnership-enquiry-title">Tell us how you’d like to work with us</h2>
     <p id="partnership-preview">Try the form using sample details. This preview does not send or save enquiries.</p>
     <noscript><p>Enable JavaScript to try the form preview.</p></noscript>
     <form onSubmit={preview} method="post" onChange={() => setChecked(false)} aria-describedby="partnership-preview">

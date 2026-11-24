@@ -14,9 +14,10 @@ export default function PartnershipsPage() {
   return <div className="page-frame">
     <header className={styles.intro}>
       <h1>Work with Hallelujah</h1>
-      <p>Have an idea for working together? Tell us about your organization and what you’d like to explore.</p>
+      <p>We welcome ideas from organizations interested in community outreach, education and care.</p>
     </header>
     <div className={styles.layout}>
+      <PartnershipEnquiry />
       <section className={styles.context} aria-labelledby="partnership-opportunities">
         <h2 id="partnership-opportunities">Ways we could work together</h2>
         <ul>
@@ -26,7 +27,6 @@ export default function PartnershipsPage() {
         </ul>
         <Link className="text-link" href="/contact">Patient enquiries and directions <span aria-hidden="true">→</span></Link>
       </section>
-      <PartnershipEnquiry />
     </div>
   </div>
 }
