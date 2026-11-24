@@ -38,7 +38,7 @@
   margin-top: 88px;
   padding: clamp(24px, 4vw, 56px);
   border-radius: var(--site-image-radius);
-  background: var(--semantic-color-surface-expressive);
+  background: var(--semantic-color-surface-raised);
 }
 .foundersIntro { margin: 16px 0 0; max-width: 38ch; line-height: 1.65; }
 .founderPair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); list-style: none; margin: 0; padding: 0; }

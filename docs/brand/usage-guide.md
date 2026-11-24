@@ -1,5 +1,7 @@
 # Hallelujah website brand and composition guide
 
+> The first palette refinement uses pale blue for routine help and white for editorial stories. See [DESIGN.md](../../DESIGN.md#color-roles) for the current roles. Older examples below record earlier applications.
+
 > Current application direction: [X implementation specification](../visual-design/x-color-composition-spec.md) and [DESIGN.md](../../DESIGN.md), adopted 9 November 2026. Their component contexts and richer tints supersede conflicting examples below. Historical brand provenance remains unchanged.
 
 > Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.

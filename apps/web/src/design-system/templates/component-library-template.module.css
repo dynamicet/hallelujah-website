@@ -27,7 +27,7 @@
   text-decoration: none;
 }
 .storyAction:hover { background: var(--component-story-media-hover); color: var(--component-story-media-foreground); }
-.storyAction:active { background: var(--component-story-media-active); box-shadow: inset 0 0 0 2px var(--component-story-media-pressed-cue); }
+.storyAction:active { background: var(--component-story-media-active); color: var(--component-story-media-foreground); box-shadow: inset 0 0 0 2px var(--component-story-media-pressed-cue); }
 .storyAction:focus-visible { outline: 3px solid var(--component-story-media-focus); outline-offset: 4px; box-shadow: 0 0 0 4px var(--component-story-media-focus-gap); }
 @media (forced-colors: active) {
   .storyAction { border: 1px solid ButtonText; background: ButtonFace; color: ButtonText; }

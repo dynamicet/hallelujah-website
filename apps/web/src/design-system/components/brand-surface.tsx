@@ -4,7 +4,7 @@ import styles from './brand-surface.module.css'
 
 export const brandSurfaceTones = ['paper', 'white', 'mist', 'inverse', 'supporting', 'expressive', 'assistance'] as const
 export type BrandSurfaceTone = (typeof brandSurfaceTones)[number]
-export type BrandAccent = 'none' | 'blue' | 'orange' | 'magenta'
+export type BrandAccent = 'none' | 'blue' | 'orange'
 export type BrandDetail = 'none' | 'rule' | 'corner' | 'frame'
 
 export interface BrandSurfaceProps {

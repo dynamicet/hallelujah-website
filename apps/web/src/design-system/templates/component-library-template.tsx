@@ -17,8 +17,8 @@ const fields: readonly { tone: BrandSurfaceTone; accent: BrandAccent; title: str
   { tone: 'mist', accent: 'none', title: 'Space to explore care', copy: 'Pale blue groups comparable care information without assigning colors to specialties.' },
   { tone: 'inverse', accent: 'none', title: 'A confident blue field', copy: 'Deep blue supports orientation and closing information. Nested white panels restore their own working context.' },
   { tone: 'supporting', accent: 'none', title: 'Prepare with confidence', copy: 'Richer peach and deep-orange headings identify preparation. Ordinary care actions remain blue.' },
-  { tone: 'expressive', accent: 'none', title: 'The people behind care', copy: 'Richer pink and deep-magenta headings give human stories a recognizable editorial setting.' },
-  { tone: 'assistance', accent: 'none', title: 'Help with your next step', copy: 'Bounded yellow assistance uses ink for every text role and link state.' },
+  { tone: 'expressive', accent: 'none', title: 'The people behind care', copy: 'A white reading surface and deep blue headings frame human stories.' },
+  { tone: 'assistance', accent: 'none', title: 'Help with your next step', copy: 'Pale blue groups related help with standard headings and links.' },
 ]
 
 export function ComponentLibraryTemplate() {
@@ -78,7 +78,7 @@ export function ComponentLibraryTemplate() {
           </BrandCard>
           <BrandCard labelledBy="story-card" tone="expressive">
             <h3 id="story-card">Care, in conversation</h3>
-            <p>A pink reading surface and deep-magenta heading establish a human editorial chapter.</p>
+            <p>A white reading surface and a deep blue heading keep attention on the story.</p>
             <TextLink href="#notice-study" label="Read the example notices" />
           </BrandCard>
           <TaskCard appearance="panel" href="#form-study" icon="care" label="Explore a care task" description="One linked panel, with a clear destination and visible keyboard focus." />

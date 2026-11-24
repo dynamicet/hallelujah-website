@@ -33,10 +33,8 @@
 .section[data-section-context='preparation'] { background: var(--semantic-color-surface-supporting); }
 .section[data-section-context='preparation'] :is(h2,h3,legend) { color: var(--semantic-color-accent-supporting-text); }
 .section[data-section-context='story'] { background: var(--semantic-color-surface-expressive); }
-.section[data-section-context='story'] :is(h2,h3) { color: var(--semantic-color-accent-expressive-text); }
-.section[data-section-context='assistance'] { background: var(--semantic-color-surface-highlight); color: var(--semantic-color-text-primary); }
-.section[data-section-context='assistance'] :is(h2,h3,p,a) { color: var(--semantic-color-text-primary); }
-.section[data-section-context='assistance'] a { text-decoration: underline; }
+.section[data-section-context='assistance'] { background: var(--semantic-color-surface-assistance); color: var(--semantic-color-text-primary); }
+.section[data-section-context='assistance'] a { color: var(--semantic-color-text-link); text-decoration: underline; }
 .page[data-page-variant='document'], .page[data-page-variant='task'] { max-inline-size: 76ch; }
 .page:is([data-page-variant='document'],[data-page-variant='task'],[data-page-variant='recruitment']) .hero { display: block; padding: 24px 0 8px; background: transparent; border-radius: 0; }
 .page:is([data-page-variant='document'],[data-page-variant='task']) .section { display: block; margin-top: 48px; }

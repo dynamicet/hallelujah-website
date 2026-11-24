@@ -92,7 +92,7 @@
   justify-content: space-between;
   gap: 24px;
   padding: 28px 32px;
-  background: var(--semantic-color-surface-highlight);
+  background: var(--semantic-color-surface-assistance);
   color: var(--semantic-color-text-primary);
 }
 .enhanced-home .team-next-step h3 { margin: 0; font-size: 20px; }
@@ -126,24 +126,23 @@
 .enhanced-home .hospital-statistics a:hover { color: var(--semantic-color-text-inverse); text-decoration: underline; }
 .enhanced-home .hospital-statistics-note { color: var(--semantic-color-text-inverse-muted); }
 
-/* The full story chapter carries the expressive context; body reading stays ink. */
+/* The photograph sets the tone for the story chapter. */
 .enhanced-home .home-stories-room { background: var(--semantic-color-surface-expressive); color: var(--semantic-color-text-primary); padding-block: var(--home-space); border: 0; }
 .enhanced-home .home-stories-room .everyday-stories { margin-block: 0; }
-.enhanced-home .everyday-stories-intro h2, .enhanced-home .everyday-feature h3 { color: var(--semantic-color-accent-expressive-text); }
+.enhanced-home .everyday-stories-intro h2, .enhanced-home .everyday-feature h3 { color: var(--semantic-color-text-heading); }
 .enhanced-home .everyday-stories-note { color: var(--semantic-color-text-secondary); }
 .enhanced-home .everyday-feature-image { border-radius: 18px 0 0 0; }
-.enhanced-home .everyday-feature-person { color: var(--semantic-color-accent-expressive-text); }
 .enhanced-home .everyday-feature-copy { margin-top: 16px; }
 .enhanced-home .everyday-film-unavailable { background: var(--semantic-color-surface-subtle); color: var(--semantic-color-text-secondary); border: 1px solid var(--semantic-color-border-default); }
-.enhanced-home .everyday-account > summary { color: var(--semantic-color-accent-expressive-text); }
+.enhanced-home .everyday-account > summary { color: var(--semantic-color-text-link); }
 .enhanced-home .everyday-quotes { border-top: 1px solid var(--semantic-color-border-default); }
 .enhanced-home .everyday-quote { background: var(--semantic-color-surface-subtle); border: 0; border-block-end: 4px solid var(--semantic-color-action-primary); border-radius: 0 18px 0 0; }
-.enhanced-home .everyday-quote:first-child { background: var(--semantic-color-surface-inverse); color: var(--semantic-color-text-inverse); border-block-end-color: var(--semantic-color-accent-expressive); }
+.enhanced-home .everyday-quote:first-child { background: var(--semantic-color-surface-inverse); color: var(--semantic-color-text-inverse); border-block-end-color: var(--semantic-color-text-inverse-accent); }
 .enhanced-home .everyday-quote:last-child { background: var(--semantic-color-surface-supporting); border-block-end-color: var(--semantic-color-accent-supporting); }
-.enhanced-home .everyday-quote-mark { color: var(--semantic-color-accent-expressive-text); }
+.enhanced-home .everyday-quote-mark { color: var(--semantic-color-text-heading); }
 .enhanced-home .everyday-quote:first-child .everyday-quote-mark { color: var(--semantic-color-text-inverse-accent); }
 .enhanced-home .everyday-quote-initials { background: var(--semantic-color-surface-raised); color: var(--semantic-color-text-heading); }
-.enhanced-home .everyday-quote:first-child .everyday-quote-initials { background: var(--semantic-color-surface-expressive); color: var(--semantic-color-accent-expressive-text); }
+.enhanced-home .everyday-quote:first-child .everyday-quote-initials { background: var(--semantic-color-surface-expressive); color: var(--semantic-color-text-heading); }
 
 /* Visit guidance uses an open list and clear disclosure states. */
 

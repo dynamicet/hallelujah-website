@@ -22,15 +22,15 @@ TypeScript kept together.
 **A composed hospital identity, with warmth where people need it.** Deep blue
 holds orientation, reading hierarchy, dependable actions and the closing field.
 Cyan connects the experience to the emblem. Generous people-focused imagery,
-preparation chapters in peach, stories in pink, and bounded yellow assistance
-give the site life.
+preparation chapters in peach, white editorial surfaces, and pale blue guidance
+give the site a clear hierarchy.
 
 The emblem's open, embracing composition informs photographic framing and clear
 paths into care. This is an interpretation of the existing visual identity, not
 a claim about the emblem's historical meaning. Retain its actual artwork.
 
 The characteristic experience is a photographic blue opening, a clear care
-finder, substantial but selective warm chapters, and a useful blue close. Richness
+finder, selective warmth, and a useful blue close. Richness
 comes from relationships between chapters, type and images, rather than a large
 collection of decorative accents.
 
@@ -43,26 +43,24 @@ collection of decorative accents.
 | Blue mist | `#EAF5F9` | Care search, quiet care stages |
 | Selected blue | `#D0EFFA` | Selection with explicit marks/state |
 | Heading / inverse field | `#00445D` | Headings, deep-blue sections, footer |
-| Reading ink | `#17313D` | Body text and labels on cyan/yellow |
+| Reading ink | `#17313D` | Body text and labels on light surfaces |
 | Secondary text | `#52636B` | Supporting copy on tested light surfaces |
 | Primary action | `#0078A6` | White-label care and appointment actions |
 | Link / action hover | `#00678D` | Ordinary links; separate semantic roles |
 | Brand cyan | `#15B0E6` | Emblem/artwork and controlled-template featured action |
 | Preparation ground | `#FFEDDF` | Richer peach chapter or local inset |
 | Preparation ink | `#A8430C` | Complete local headings, disclosures |
-| Story ground | `#FBE4EF` | Richer pink editorial chapter |
-| Story ink | `#A61558` | Complete local headings, editorial emphasis |
-| Assistance ground | `#F5C82D` | One bounded help handoff, dark ink throughout |
-| Raw orange / magenta | `#F65B25` / `#E7277C` | Supplied artwork and decorative details |
+| Story ground | `#FFFFFF` | Photography-led editorial chapters |
+| Assistance ground | `#EAF5F9` | Routine help with deep blue headings and standard links |
+| Artwork orange | `#F65B25` | Detail in supplementary artwork |
 
 Keep the existing success, warning, error and emergency roles independent of
 these brand relationships. The same primitive may support different roles, but
 the semantic names and component treatment must distinguish them.
 
-Use blue/white and paper for most working/reading surfaces. A preparation or story
-chapter can own a substantial color field. There is no mandatory percentage or
-peach → pink → yellow rotation. Do not color-code clinicians, specialties or
-patient groups. Do not place all supporting hues in every component.
+Use blue, white and paper for working and reading surfaces. Preparation can use peach,
+while routine guidance shares a pale blue surface. Keep clinician, specialty and
+patient-group treatments consistent. The hospital emblem retains its supplied colors.
 
 ## Type, frame and materials
 
@@ -70,8 +68,7 @@ patient groups. Do not place all supporting hues in every component.
   body and controls, and Ethiopic/Noto Sans Ethiopic for the language fallback.
   Clash Grotesk remains confined to the established wordmark treatment.
 - Major headings use one face and one color per heading. Remove recurring italic
-  or separately colored accent-word styling. Complete preparation/story headings
-  may use their contextual deep orange/magenta.
+  or separately colored accent-word styling. Preparation headings may use contextual deep orange.
 - Use purposeful role sizes, readable body copy, actual available weights,
   comfortable reading measure, and complete medical names. Avoid squeezing
   essential content to satisfy a line-count preference.
@@ -87,7 +84,7 @@ patient groups. Do not place all supporting hues in every component.
 ## Interaction character
 
 Stable blue task actions; pale peach with deep-orange ink for the public photographic hero action;
-readable contextual story controls only where specified. A color shift never
+blue story controls with a distinct pressed cue. A color shift never
 changes an action's meaning. Ordinary text links have dedicated text-state roles.
 Selection includes a check, underline or native mark; errors include explanatory
 words; current navigation includes a visible structural cue.

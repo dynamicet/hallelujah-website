@@ -162,21 +162,6 @@
 .frame .statePanel a { justify-self: start; }
 
 /* A bounded next-step handoff; recovery messages retain their neutral/status context. */
-.frame .support[data-care-band='assistance'] {
-  background: var(--semantic-color-surface-highlight);
-  color: var(--semantic-color-text-primary);
-}
-.frame .support[data-care-band='assistance'] :is(h2, h3, p, li, small, a) {
-  color: var(--semantic-color-text-primary);
-}
-.frame .support[data-care-band='assistance'] a {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-.frame .support[data-care-band='assistance'] a:is(:hover, :active) {
-  color: var(--semantic-color-text-primary);
-  text-decoration-thickness: 2px;
-}
 .frame .support[data-care-band='assistance'] a:focus-visible {
   outline: 3px solid var(--semantic-color-focus);
   outline-offset: 4px;

@@ -25,9 +25,6 @@
   --site-supporting: var(--semantic-color-accent-supporting);
   --site-supporting-text: var(--semantic-color-accent-supporting-text);
   --site-supporting-surface: var(--semantic-color-surface-supporting);
-  --site-expressive: var(--semantic-color-accent-expressive);
-  --site-expressive-text: var(--semantic-color-accent-expressive-text);
-  --site-expressive-surface: var(--semantic-color-surface-expressive);
   --site-frame: var(--semantic-presentation-frame-wide);
   --site-action-radius: 8px;
   --site-action-duration: 180ms;
@@ -246,6 +243,26 @@ section.ds-support-band {
   min-inline-size: 0;
   min-block-size: 0;
   padding: var(--semantic-space-surface);
+}
+
+section.ds-support-band[data-care-band='assistance'] {
+  background: var(--semantic-color-surface-assistance);
+  border-block-start: 0;
+  color: var(--semantic-color-text-primary);
+}
+
+section.ds-support-band[data-care-band='assistance'] a {
+  color: var(--semantic-color-text-link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+section.ds-support-band[data-care-band='assistance'] a:is(:hover, :active) {
+  text-decoration-thickness: 2px;
+}
+
+section.ds-support-band[data-care-band='assistance'] a:active {
+  color: var(--semantic-color-text-link-active);
 }
 
 section.ds-support-band:last-child {

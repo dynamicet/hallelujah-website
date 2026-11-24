@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { EditorialReturnFocus } from '@/website/editorial-return-focus'
-import { SiteContent } from '@/design-system/components'
+import { PageContent, PageFrame, PageIntro } from '@/website/page-patterns'
 import { requireLocalDemo, type DemoSearchParams } from '@/demo/site'
 import { editorialEntries, latestEditorial } from '@/demo/editorial'
 import { EditorialCard } from '@/website/news-resources'
@@ -18,9 +18,9 @@ export default async function NewsResourcesPage({ searchParams }: { searchParams
   const query = (await searchParams).category
   const selected = categories.find((category) => category.toLowerCase() === query) ?? 'All'
   const entries = latestEditorial(editorialEntries).filter((entry) => selected === 'All' || entry.category === selected)
-  return <SiteContent>
-    <div className={`${styles.archive} page-frame`}><EditorialReturnFocus />
-      <header className={styles.archiveHeader}><h1 data-reveal="0">News &amp; resources</h1></header>
+  return <PageContent>
+    <PageFrame className={styles.archive}><EditorialReturnFocus />
+      <PageIntro title="News & resources" />
       <nav className={styles.filters} aria-label="Story categories">{categories.map((category) => <Link
         aria-current={category === selected ? 'page' : undefined}
         href={category === 'All' ? '/news-resources' : `/news-resources?category=${category.toLowerCase()}`}
@@ -29,6 +29,6 @@ export default async function NewsResourcesPage({ searchParams }: { searchParams
       <p className={styles.resultCount}>{entries.length} {entries.length === 1 ? 'story' : 'stories'} · Newest published first</p>
       {entries.length ? <div className={styles.archiveGrid}>{entries.map((entry) => <EditorialCard headingLevel={2} returnTo={selected === 'All' ? '/news-resources' : `/news-resources?category=${selected.toLowerCase()}`} entry={entry} key={entry.slug} />)}</div>
         : <div className={styles.empty}><h2>More stories soon.</h2><p>There are no published stories in this category yet.</p><Link className="text-link" href="/news-resources">View all stories <span aria-hidden="true">→</span></Link></div>}
-    </div>
-  </SiteContent>
+    </PageFrame>
+  </PageContent>
 }
