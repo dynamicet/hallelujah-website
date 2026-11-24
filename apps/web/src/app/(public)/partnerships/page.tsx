@@ -5,7 +5,7 @@ import styles from '@/website/partnerships.module.css'
 
 export const metadata = {
   title: 'Work with Hallelujah | Hallelujah Hospital',
-  description: 'Explore ways for organizations to collaborate with Hallelujah General Hospital in Gotera, Addis Ababa.',
+  description: 'Explore ways to collaborate with Hallelujah General Hospital in Gotera, Addis Ababa.',
 }
 
 export default function PartnershipsPage() {
@@ -14,7 +14,7 @@ export default function PartnershipsPage() {
   return <div className="page-frame">
     <header className={styles.intro}>
       <h1>Work with Hallelujah</h1>
-      <p>We welcome ideas from organizations interested in community outreach, education and care.</p>
+      <p>We welcome ideas for community outreach, education and care.</p>
     </header>
     <div className={styles.layout}>
       <PartnershipEnquiry />
