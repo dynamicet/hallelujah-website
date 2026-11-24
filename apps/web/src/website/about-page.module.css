@@ -111,9 +111,9 @@
 @media (max-width: 519px) {
   .leaders { grid-template-columns: minmax(0, 1fr); }
   .leaders li { display: grid; grid-template-columns: 104px minmax(0, 1fr); align-items: start; gap: 4px 16px; }
-  .leaderPortrait { grid-column: 1; grid-row: 1 / span 3; }
+  .leaderPortrait { grid-column: 1; grid-row: 1 / span 2; }
   .leaders h3 { grid-column: 2; margin: 0; }
-  .leaderRole, .leaderBackground { grid-column: 2; }
-  .leaderBackground { margin-top: 4px; font-size: 15px; }
+  .leaderRole { grid-column: 2; }
+  .leaderBackground { grid-column: 1 / -1; margin-top: 8px; font-size: 15px; }
 }
 @media (forced-colors: active) { .page :is(a, button, section[tabindex='-1']):focus-visible { outline-color: Highlight; } }

@@ -38,7 +38,7 @@ export default function FaqPage() {
         <Question question="Can a family member or companion come with me?"><p>Ask the department about companion and ward visiting arrangements. Tell the team if you need a support person to help with communication or moving around.</p></Question>
         <Question question="Can I get language or accessibility support?"><p>Tell the hospital what support you need before travelling. Ask about language assistance, accessible entrances and help moving between departments so the team can confirm available arrangements.</p></Question>
         <Question question="How can I raise a concern about my care?"><p>Speak with your nurse or treating clinician first. Ask reception for the appropriate contact if you need further help. Read <Link href="/patient-rights">patient rights & responsibilities</Link> and <Link href="/feedback">feedback guidance</Link>.</p></Question>
-        <Question question="What happens to information I enter on the website?"><p>On the appointment page, enter sample details only. Your feedback draft also stays in the browser. Read the <Link href="/privacy">privacy notice</Link> for details about forms, browser preferences and external links.</p></Question>
+        <Question question="What happens to information I enter on the website?"><p>The appointment form does not send or save your details. Your feedback draft also stays in the browser. Read the <Link href="/privacy">privacy notice</Link> for details about forms, browser preferences and external links.</p></Question>
       </div>
       <h3>Still need help?</h3><p>Call <a href={hospitalContact.phoneHref}>{hospitalContact.phone}</a> or <Link href="/contact">view hospital contact information</Link>.</p>
     </PatientSection>

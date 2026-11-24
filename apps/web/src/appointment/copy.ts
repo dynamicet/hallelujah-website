@@ -2,11 +2,11 @@ export const requestAppointmentLabel = 'Request appointment'
 
 export const appointmentCopy = {
   preview: {
-    introduction: 'Try the form with sample details, or call reception to arrange an appointment.',
-    acknowledgment: 'I understand this is a sample request and reception will not contact me.',
-    submit: 'Check sample request',
-    pending: 'Checking sample request…',
-    receipt: 'This preview did not send or save a request.',
+    introduction: 'Call reception to arrange a time. You can request an appointment without choosing a doctor or service.',
+    acknowledgment: 'I understand I need to call reception to arrange my appointment.',
+    submit: 'Review details',
+    pending: 'Checking details…',
+    receipt: 'This form did not send or save your request. Call reception to arrange a time.',
   },
   delivery: {
     introduction: 'Send a request and reception will call you to arrange a time.',

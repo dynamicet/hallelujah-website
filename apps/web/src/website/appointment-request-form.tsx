@@ -171,10 +171,10 @@ function AppointmentRequestForm({
   return <div className={styles.formPanel} data-appointment-request data-appointment-state={state}>
     {received ? <section className={styles.receipt} aria-labelledby="appointment-result-title">
       <h2 id="appointment-result-title" tabIndex={-1} ref={statusRef}>
-        {preview ? 'Preview complete' : 'Request received'}
+        {preview ? 'Details checked' : 'Request received'}
       </h2>
       <p>{copy.receipt}</p>
-      {reference ? <p>{preview ? 'Example reference' : 'Request reference'} <strong>{reference}</strong></p> : null}
+      {reference && !preview ? <p>Request reference <strong>{reference}</strong></p> : null}
       {preview ? <button type="button" className={styles.textButton} onClick={() => {
         focusTarget.current = 'firstField'
         setPreference(initialPreference)
@@ -191,7 +191,7 @@ function AppointmentRequestForm({
         aria-describedby={preview ? 'appointment-preview-note' : undefined} method="post" noValidate onSubmit={submit}>
         {errorItems.length ? <ErrorSummary id="appointment-error-summary" heading="Check your details" items={errorItems} /> : null}
         {failure ? <div className={styles.failure}>
-          <h2 tabIndex={-1} ref={statusRef}>{preview ? 'We couldn’t check the sample request' : state === 'unknown' ? 'We couldn’t verify your request' : 'We couldn’t send your request'}</h2>
+          <h2 tabIndex={-1} ref={statusRef}>{preview ? 'We couldn’t check your details' : state === 'unknown' ? 'We couldn’t verify your request' : 'We couldn’t send your request'}</h2>
           <p>{state === 'unknown' ? 'Try again to check the result, or ' : 'Your details are still here. Try again, or '}<a href={hospitalContact.phoneHref}>call reception</a>.</p>
         </div> : null}
         <fieldset className={styles.fields} disabled={!ready || pending}>

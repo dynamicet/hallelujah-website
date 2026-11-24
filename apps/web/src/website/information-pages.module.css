@@ -12,7 +12,7 @@
 .answer > :last-child { margin-bottom: 0; }
 .jobTitle { display: block; font-size: var(--site-label-heading); }
 .jobMeta { display: block; margin-top: 8px; font-size: var(--site-support); font-weight: 400; color: var(--semantic-color-text-primary); }
-.answer a { display: inline-flex; align-items: center; min-height: 44px; }
+.answer > a { display: inline-flex; align-items: center; min-height: 44px; }
 .contactLinks { display: flex; flex-wrap: wrap; gap: 12px 28px; }
 .contactLinks a { min-height: 44px; display: inline-flex; align-items: center; }
 @media (max-width: 599px) { .disclosure summary { padding-block: 20px; gap: 16px; } }
