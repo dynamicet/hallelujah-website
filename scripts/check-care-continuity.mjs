@@ -36,7 +36,7 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     ]) {
       for (const source of ['', from, 'https://example.com' + fallback]) {
         await page.goto(base + path + (source ? '?from=' + encodeURIComponent(source) : ''))
-        const expected = source === from ? [from, backLabel] : [fallback, viewLabel]
+        const expected = source === from ? [path === doctorPath ? `${from}#doctor-${doctorId}` : from, backLabel] : [fallback, viewLabel]
         assert.ok(await page.eval(`[...document.querySelectorAll(${JSON.stringify(selector)})].some(link =>
           link.getAttribute('href') === ${JSON.stringify(expected[0])} &&
           link.textContent.replace('←', '').trim() === ${JSON.stringify(expected[1])})`), `${path} from ${source || 'direct'}`)

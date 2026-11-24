@@ -34,6 +34,7 @@ export default async function DoctorProfilePage({ params, searchParams }: { para
   const related = services.filter((service) => relatedCareIds(clinician.publicId).includes(service.publicId))
   const selectedService = related.find((service) => service.publicId === parameters.service && isRequestableCare(service.publicId))
   const serviceResultsHref = serviceDirectorySource(parameters.from)
+  let returnCard = false
   let directoryHref: string | undefined
   if (typeof parameters.from === 'string' && parameters.from.startsWith('/doctors')) {
     const source = new URL(parameters.from, 'https://local.invalid')
@@ -41,12 +42,12 @@ export default async function DoctorProfilePage({ params, searchParams }: { para
       const directory = clinicianDirectoryFromViews({ entries: clinicians, filters: clinicianFilters, locale: 'en',
         searchTerms: doctorSearchTerms(source.searchParams.get('q') ?? '', clinicians, services),
         pageSize: 12, searchParameters: source.searchParams })
+      returnCard = directory.results.some(result => result.publicId === clinician.publicId)
       directoryHref = clinicianDirectoryUrl('/doctors', directory.state, clinicianFilters.map((filter) => filter.value))
     }
   }
   return <ClinicianProfileTemplate relatedSpecialtyIds={related.filter((service) => careEntry(service.publicId)?.kind === 'specialty').map((service) => service.publicId)}
     selectionNotice={parameters.service && !selectedService ? 'Your previous care choice is not available with this doctor. You can request this doctor or choose from the related care below.' : undefined} portraitSrc={demoClinicianPortraits[clinician.publicId]} appointmentHref={appointmentHref({ doctorId: clinician.publicId, serviceId: selectedService?.publicId }, serviceResultsHref)}
-    serviceContext={selectedService ? { name: selectedService.name, href: carePathWithDoctor(selectedService, clinician.publicId, serviceResultsHref) } : undefined}
     biography={partial ? undefined : clinicianBiographies.get(clinician.publicId)}
     directoryHref={directoryHref}
     profile={{ clinician: displayedClinician, canonicalPath: clinician.canonicalPath,
@@ -56,7 +57,7 @@ export default async function DoctorProfilePage({ params, searchParams }: { para
       })), outcome: 'profile' }}
     breadcrumbs={{ label: 'Breadcrumb', items: [
       { href: '/', label: 'Home' }, selectedService ? { href: `${carePathWithDoctor(selectedService, clinician.publicId, serviceResultsHref)}#care-team`, label: selectedService.name }
-        : { href: directoryHref ?? '/doctors', label: directoryHref ? 'Doctor results' : 'Doctors' },
+        : { href: returnCard ? `${directoryHref}#doctor-${clinician.publicId}` : directoryHref ?? '/doctors', label: directoryHref ? 'Doctor results' : 'Doctors' },
       { href: clinician.canonicalPath, label: clinician.details.name, current: true },
     ] }} state={partial ? 'ready' : scenario} />
 }

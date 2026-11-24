@@ -172,7 +172,7 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                       start={(searchState.page - 1) * directory.pageSize + 1}>
                       {directory.results.map((clinician) => (
                         <li key={clinician.publicId}>
-                          <article className={styles.card} data-clinician-public-id={clinician.publicId}>
+                          <article className={styles.card} id={`doctor-${clinician.publicId}`} tabIndex={-1} data-clinician-public-id={clinician.publicId}>
                             <div className={styles.cardPhoto} data-ui-part="card-photo" data-directory-card-photo><ClinicianPortrait name={clinician.details.name} src={portraits?.[clinician.publicId]} transitionName={clinicianTransitionName(clinician.publicId, 'portrait')} /></div>
                             <div className={styles.cardContent} data-ui-part="card-content" data-directory-card-content>
                               {clinician.details.professionalTitle ? <p className={styles.professionalTitle}>{clinician.details.professionalTitle}</p> : null}

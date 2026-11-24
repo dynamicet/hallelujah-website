@@ -18,7 +18,6 @@ export type ClinicianProfileReviewState =
 export interface ClinicianProfileTemplateProps {
   readonly selectionNotice?: string
   readonly relatedSpecialtyIds?: readonly string[]
-  readonly serviceContext?: { readonly name: string; readonly href: string }
   readonly portraitSrc?: string
   readonly portraitDisclosure?: string
   readonly appointmentHref?: string
@@ -71,7 +70,7 @@ function UnavailableProfile({ directoryHref, directoryLabel, retryHref, state }:
   )
 }
 
-export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, relatedSpecialtyIds = [], serviceContext, portraitSrc, portraitDisclosure, appointmentHref, biography, directoryHref, profile, shell, state }: ClinicianProfileTemplateProps) {
+export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, relatedSpecialtyIds = [], portraitSrc, portraitDisclosure, appointmentHref, biography, directoryHref, profile, shell, state }: ClinicianProfileTemplateProps) {
   const unavailable = state === 'failure' || state === 'gone' || state === 'unavailable'
   const clinician = profile.clinician
   const hasEditorial = Boolean(biography || clinician?.details.interests.length || clinician?.details.credentials.length || clinician?.details.languages.length)

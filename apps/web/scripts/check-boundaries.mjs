@@ -85,6 +85,8 @@ const urlControlCases = [
   ['src/design-system/components/header-contacts.tsx', 'const contact = `https://wa.me/${number}`', false],
   ['src/app/(public)/doctors/[slug]/page.tsx', "new URL(from, 'https://local.invalid')", true],
   ['src/app/(public)/doctors/[slug]/page.tsx', "fetch('https://local.invalid')", false],
+  ['src/demo/service-directory-return.ts', "source.origin !== 'https://local.invalid'", true],
+  ['src/demo/service-directory-return.ts', "fetch('https://local.invalid')", false],
   ['src/content/governed-discovery.ts', "const schemaContext = 'https://schema.org'", true],
   ['src/content/governed-discovery.ts', "fetch('https://schema.org')", false],
 ]

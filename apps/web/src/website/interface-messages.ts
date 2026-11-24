@@ -158,6 +158,8 @@ export const amharicInterface: Readonly<Record<string, string>> = {
   'Phone number': 'ስልክ ቁጥር',
   'Enter your full name.': 'ሙሉ ስምዎን ያስገቡ።',
   'Enter a phone number reception can call.': 'መቀበያ ሊደውልልዎ የሚችልበትን ስልክ ቁጥር ያስገቡ።',
+  'Check sample request': 'የሙከራ ጥያቄውን ያረጋግጡ',
+  'Checking sample request…': 'የሙከራ ጥያቄው እየተረጋገጠ ነው…',
   'Send appointment request': 'የቀጠሮ ጥያቄ ይላኩ',
   'Telephone': 'ስልክ',
   'Preferred date': 'የሚመርጡት ቀን',

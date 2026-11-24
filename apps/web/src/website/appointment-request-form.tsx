@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react'
+import { appointmentCopy } from '@/appointment/copy'
 import { ErrorSummary, Icon, TextField } from '@/design-system/components'
 import { parseAppointmentSubmission, type AppointmentValidationIssue } from '@/appointment/schema'
 import type { AppointmentRequestInput, SendAppointmentRequest } from '@/appointment/request-form'
@@ -39,7 +40,7 @@ function appointmentErrors(issues: readonly AppointmentValidationIssue[]): Field
   for (const { field } of issues) {
     if (field === 'full_name') errors['full-name'] = 'Enter your full name.'
     if (field === 'phone') errors.phone = 'Enter a phone number reception can call.'
-    if (field === 'privacy_acknowledged') errors['privacy-acknowledged'] = 'Acknowledge how the hospital will use your details.'
+    if (field === 'privacy_acknowledged') errors['privacy-acknowledged'] = 'Please tick the acknowledgement before continuing.'
     if (field === 'doctor_id' || field === 'service_id' || field === 'care_route') {
       errors['care-preference'] = 'Choose another preference or leave it blank.'
     }
@@ -68,13 +69,14 @@ function AppointmentRequestForm({
   preview: boolean
   initialState: RequestState
 }) {
+  const copy = appointmentCopy[preview ? 'preview' : 'delivery']
   const ready = useSyncExternalStore(noSubscription, readySnapshot, serverSnapshot)
   const [preference, setPreference] = useState(initialPreference)
   const [preferenceOpen, setPreferenceOpen] = useState(false)
   const [state, setState] = useState(initialState)
   const [errors, setErrors] = useState<FieldErrors>(initialState === 'validation' ? {
     phone: 'Enter a phone number reception can call.',
-    'privacy-acknowledged': 'Acknowledge how the hospital will use your details.',
+    'privacy-acknowledged': 'Please tick the acknowledgement before continuing.',
   } : {})
   const [reference, setReference] = useState<string | undefined>(preview ? 'HH-1042' : undefined)
   const formRef = useRef<HTMLFormElement>(null)
@@ -171,7 +173,7 @@ function AppointmentRequestForm({
       <h2 id="appointment-result-title" tabIndex={-1} ref={statusRef}>
         {preview ? 'Preview complete' : 'Request received'}
       </h2>
-      <p>{preview ? 'This preview did not send or save a request.' : 'Reception will call you to arrange a time.'}</p>
+      <p>{copy.receipt}</p>
       {reference ? <p>{preview ? 'Example reference' : 'Request reference'} <strong>{reference}</strong></p> : null}
       {preview ? <button type="button" className={styles.textButton} onClick={() => {
         focusTarget.current = 'firstField'
@@ -189,7 +191,7 @@ function AppointmentRequestForm({
         aria-describedby={preview ? 'appointment-preview-note' : undefined} method="post" noValidate onSubmit={submit}>
         {errorItems.length ? <ErrorSummary id="appointment-error-summary" heading="Check your details" items={errorItems} /> : null}
         {failure ? <div className={styles.failure}>
-          <h2 tabIndex={-1} ref={statusRef}>{state === 'unknown' ? 'We couldn’t verify your request' : 'We couldn’t send your request'}</h2>
+          <h2 tabIndex={-1} ref={statusRef}>{preview ? 'We couldn’t check the sample request' : state === 'unknown' ? 'We couldn’t verify your request' : 'We couldn’t send your request'}</h2>
           <p>{state === 'unknown' ? 'Try again to check the result, or ' : 'Your details are still here. Try again, or '}<a href={hospitalContact.phoneHref}>call reception</a>.</p>
         </div> : null}
         <fieldset className={styles.fields} disabled={!ready || pending}>
@@ -238,17 +240,17 @@ function AppointmentRequestForm({
               <input id="privacy-acknowledged" name="privacy_acknowledged" type="checkbox" required
                 aria-invalid={Boolean(errors['privacy-acknowledged']) || undefined}
                 aria-describedby={errors['privacy-acknowledged'] ? 'privacy-acknowledged-error' : undefined} />
-              <span>I understand that reception will use my details to follow up on this request.</span>
+              <span>{copy.acknowledgment}</span>
             </label>
             {errors['privacy-acknowledged'] ? <p className={styles.fieldError} id="privacy-acknowledged-error">{errors['privacy-acknowledged']}</p> : null}
             <Link className="text-link" href="/privacy">Privacy notice</Link>
           </div>
           <button type="submit" className={`solid-button blue-button ${styles.submit}`}>
-            <InterfaceText>{pending ? 'Sending request…' : failure ? 'Try again' : 'Send appointment request'}</InterfaceText>
+            <InterfaceText>{pending ? copy.pending : failure ? 'Try again' : copy.submit}</InterfaceText>
             <Icon name="arrow-right" />
           </button>
         </fieldset>
-        <span role="status" className={styles.srOnly}>{pending ? 'Sending appointment request' : ''}</span>
+        <span role="status" className={styles.srOnly}>{pending ? copy.pending : ''}</span>
       </form>
     </>}
   </div>

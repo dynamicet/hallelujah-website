@@ -7,7 +7,7 @@
 .page a:focus-visible, .page summary:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
 .priority { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 32px; align-items: stretch; }
 .call, .arrival { min-width: 0; padding: clamp(24px, 3vw, 40px); }
-.call { background: var(--site-ink); color: var(--site-white); }
+.call { align-self: start; background: var(--site-ink); color: var(--site-white); }
 .callAction { display: flex; align-items: center; gap: 18px; min-height: 96px; margin-bottom: 16px; padding: 20px; background: var(--site-white); color: var(--site-ink); border-radius: var(--site-action-radius); text-decoration: none; }
 .callAction > svg { flex: 0 0 24px; width: 24px; height: 24px; }
 .callAction > span { display: grid; gap: 6px; min-width: 0; }

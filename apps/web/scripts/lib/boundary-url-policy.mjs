@@ -20,8 +20,7 @@ const namespaces = new Map([
 ])
 const returnRoutes = new Set([
   'src/app/(public)/doctors/[slug]/page.tsx',
-  'src/app/(public)/services/[slug]/page.tsx',
-  'src/website/service-detail-page.tsx',
+  'src/demo/service-directory-return.ts',
 ])
 
 export function findUrlFailures(relativeFile, contents) {
@@ -53,7 +52,7 @@ export function findUrlFailures(relativeFile, contents) {
     if (returnRoutes.has(relativeFile) && node.text === 'https://local.invalid') {
       if (ts.isNewExpression(parent) && parent.expression.getText(source) === 'URL'
         && parent.arguments?.[1] === node) return true
-      if (ts.isBinaryExpression(parent) && parent.operatorToken.kind === ts.SyntaxKind.EqualsEqualsEqualsToken
+      if (ts.isBinaryExpression(parent) && [ts.SyntaxKind.EqualsEqualsEqualsToken, ts.SyntaxKind.ExclamationEqualsEqualsToken].includes(parent.operatorToken.kind)
         && parent.right === node && ts.isPropertyAccessExpression(parent.left)
         && parent.left.name.text === 'origin') return true
     }
