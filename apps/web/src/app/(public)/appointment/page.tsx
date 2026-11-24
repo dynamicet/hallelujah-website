@@ -48,7 +48,7 @@ export default async function AppointmentPage({ searchParams }: { searchParams: 
     <div className={styles.page}>
       <header className={styles.intro}>
         <h1><InterfaceText>{requestAppointmentLabel}</InterfaceText></h1>
-        <p>Send a request and reception will call you to arrange a time.</p>
+        <p>Call reception to arrange a time, or explore the request form below.</p>
         <a href={hospitalContact.phoneHref} className={`text-link ${styles.callShortcut}`}>Call reception <Icon name="phone" /></a>
       </header>
       <div className={styles.layout}>

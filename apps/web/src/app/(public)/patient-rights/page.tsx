@@ -9,7 +9,7 @@ export default function PatientRightsPage() {
   requireLocalDemo()
   return <PatientPage variant="document" title="Patient rights & responsibilities" description="Good care begins with respect, clear communication and decisions you understand."
     current="/patient-rights">
-    <nav className={styles.jumpLinks} aria-label="Patient rights sections"><a href="#your-rights">Your rights</a><a href="#your-part">Your responsibilities</a><a href="#speak-up">Raise a concern</a></nav>
+    <nav className={styles.jumpLinks} aria-label="Patient rights sections"><a href="#your-rights">Your rights</a><a href="#your-part">Your responsibilities</a><Link href="/feedback">Raise a concern</Link></nav>
     <PatientSection id="your-rights" title="Your rights as a patient">
       <h3>Respect & dignity</h3><p>Receive considerate care that respects your dignity, beliefs and personal circumstances. Tell the team about cultural, communication or access needs that affect your care.</p>
       <h3>Understand your care</h3><p>Ask who is caring for you and request an explanation of your condition, proposed treatment, alternatives and expected costs. Ask about benefits and risks before making a decision.</p>
@@ -22,7 +22,7 @@ export default function PatientRightsPage() {
     </PatientSection>
     <PatientSection id="speak-up" title="Speak up about your care">
       <p>If something feels wrong or you need an explanation, speak with your nurse or treating clinician. If the concern remains, ask reception who can help you raise it with the appropriate hospital team.</p>
-      <p>For help finding the right person, call <a href={hospitalContact.phoneHref}>{hospitalContact.phone}</a>. You can also <Link href="/feedback">read the patient feedback guidance</Link>.</p>
+      <p>For help finding the right person, call <a href={hospitalContact.phoneHref}>{hospitalContact.phone}</a>. You can also <Link href="/feedback">find help raising a concern</Link>.</p>
       <p>For urgent care, use <Link href="/emergency">emergency information</Link>.</p>
       <p><Link href="/privacy">Website privacy notice</Link></p>
     </PatientSection>

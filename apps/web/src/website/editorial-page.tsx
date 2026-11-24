@@ -24,9 +24,9 @@ export default async function EditorialPage({ params, searchParams }: { params: 
   const path = `/news-resources/${entry.slug}`
   const { from } = await searchParams
   const sources = ['/', '/news-resources', '/news-resources?category=news', '/news-resources?category=events', '/news-resources?category=resources']
-  const source = from && sources.includes(from) ? from : '/news-resources'
-  const returnHref = `${source}#editorial-${entry.slug}`
-  const returnLabel = source === '/' ? 'Back to homepage stories' : 'Back to your stories'
+  const source = from && sources.includes(from) ? from : undefined
+  const returnHref = source ? `${source}#editorial-${entry.slug}` : '/news-resources'
+  const returnLabel = source === '/' ? 'Back to homepage stories' : source?.includes('?') ? 'Back to filtered stories' : 'News & resources'
   const chapters = entry.sections.map((section, index) => ({ id: `reading-${index + 1}`, label: section.title }))
   return <SiteContent breadcrumbs={{ label: 'Breadcrumb', items: [
     { href: '/', label: 'Home' }, { href: '/news-resources', label: 'News, Events & Resources' },
@@ -52,7 +52,7 @@ export default async function EditorialPage({ params, searchParams }: { params: 
       </figure>}
 
           {entry.sections.map((section, index) => <section data-reading-section id={chapters[index].id} tabIndex={-1} key={section.title}><h2>{section.title}</h2><p>{section.text}</p></section>)}
-          <footer className={styles.readingEnd}><p>Keep exploring</p><Link data-editorial-return className="text-link" href={returnHref}>{returnLabel} <span aria-hidden="true">↗</span></Link><Link className="text-link" href="/news-resources">All news and resources <span aria-hidden="true">→</span></Link></footer>
+          <footer className={styles.readingEnd}><p>Keep exploring</p><Link data-editorial-return className="text-link" href={returnHref}>{returnLabel} <span aria-hidden="true">↗</span></Link>{source && source !== '/news-resources' ? <Link className="text-link" href="/news-resources">All news and resources <span aria-hidden="true">→</span></Link> : null}</footer>
         </div>
 
       </div>

@@ -9,14 +9,14 @@ export { styles as patientPageStyles }
 export type PatientPageVariant = 'care-detail' | 'practical-guide' | 'document' | 'recruitment' | 'task'
 export type PatientSectionContext = 'default' | 'quiet' | 'preparation' | 'story' | 'assistance'
 
-export function PatientPage({ title, description, current, action, secondaryAction, children, variant, imageSrc }: {
-  title: string; description?: string; current: string; imageSrc?: string
+export function PatientPage({ title, description, current, breadcrumbLabel, action, secondaryAction, children, variant, imageSrc }: {
+  title: string; description?: string; current: string; breadcrumbLabel?: string; imageSrc?: string
   action?: { href: string; label: string }; secondaryAction?: { href: string; label: string }; children: ReactNode; variant: PatientPageVariant
 }) {
   return <PageContent breadcrumbs={{ label: 'Breadcrumb', items: [
     { href: '/', label: 'Home' },
     ...(current.startsWith('/services/') ? [{ href: '/services', label: 'Services' }] : []),
-    { href: current, label: title, current: true },
+    { href: current, label: breadcrumbLabel ?? title, current: true },
   ] }}>
     <div className={styles.page} data-patient-page={current} data-page-variant={variant}>
       <PageIntro title={title} description={description} action={action} secondaryAction={secondaryAction}

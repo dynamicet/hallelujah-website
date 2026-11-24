@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } fro
 import { ErrorSummary, Icon, TextField } from '@/design-system/components'
 import { parseAppointmentSubmission, type AppointmentValidationIssue } from '@/appointment/schema'
 import type { AppointmentRequestInput, SendAppointmentRequest } from '@/appointment/request-form'
-import { previewAppointmentRequest, type AppointmentPreviewScenario } from '@/demo/appointment-request-preview'
+import { appointmentPreviewNotice, previewAppointmentRequest, type AppointmentPreviewScenario } from '@/demo/appointment-request-preview'
 import { hospitalContact } from './hospital-contact'
 import { InterfaceLink as Link, InterfaceText } from './interface-language'
 import styles from './appointment-request.module.css'
@@ -183,7 +183,7 @@ function AppointmentRequestForm({
       <h2 id="appointment-unavailable-title">Online requests are unavailable</h2>
       <p>Please <a className="text-link" href={hospitalContact.phoneHref}>call reception</a> to arrange an appointment.</p>
     </section> : <>
-      {preview ? <p className={styles.previewNote} id="appointment-preview-note">Use sample details in this preview. No request is sent.</p> : null}
+      {preview ? <p className={styles.previewNote} id="appointment-preview-note">{appointmentPreviewNotice}</p> : null}
       <noscript><p>Enable JavaScript to use the form or <a href={hospitalContact.phoneHref}>call reception</a>.</p></noscript>
       <form ref={formRef} id="appointment-request-form" aria-label="Appointment request"
         aria-describedby={preview ? 'appointment-preview-note' : undefined} method="post" noValidate onSubmit={submit}>

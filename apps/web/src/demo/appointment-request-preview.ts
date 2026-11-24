@@ -1,5 +1,7 @@
 import type { SendAppointmentRequest } from '@/appointment/request-form'
 
+export const appointmentPreviewNotice = 'Use sample details. This form does not send or save a request.'
+
 export const appointmentPreviewScenarios = [
   'editing', 'validation', 'pending', 'known-failure', 'unknown', 'duplicate', 'receipt', 'delivery-warning', 'workflow-unavailable',
 ] as const
