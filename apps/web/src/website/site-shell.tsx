@@ -14,7 +14,7 @@ export function hospitalShellConfig(current: string): HomePageTemplateProps['she
     { href: '/careers', label: 'Careers' },
   ].map((item) => ({ ...item, current: item.href === current || (item.href !== '/' && current.startsWith(`${item.href}/`)) }))
   return {
-    showCallAction: current !== '/emergency',
+    showCallAction: current !== '/emergency' && current !== '/appointment',
     skipLinkLabel: 'Skip to main content',
     header: {
       contactTargets: { call: hospitalContact.hotlineHref },

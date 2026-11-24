@@ -9,8 +9,8 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 | --- | --- |
 | `pnpm visual:colors` | Rendered text/action rest, hover and pressed contrast; light/inverse focus; nested white panels; field boundaries on peach/pink. Requires local demo component library. |
 | `pnpm visual:check / /doctors` | Fresh full-page captures at 390, 768, and 1440px; basic structure, overflow, image loading, and console errors |
-| `pnpm visual:contact` | Header and homepage paths to Contact at 320/390/768/1440px, appointment link to What to bring, legacy guide bookmark, mobile menu dismissal, keyboard focus, normal/reduced motion, touch and no-JavaScript directions |
-| `pnpm visual:language` | Language selection, header labels, directory navigation, retained form steps/values, feedback text preservation and storage-denied fallback |
+| `pnpm visual:contact` | Header and homepage paths to Contact at 320/390/768/1440px, appointment link to Contact & directions and its What to bring section, legacy guide bookmark, mobile menu dismissal, keyboard focus, normal/reduced motion, touch and no-JavaScript directions |
+| `pnpm visual:language` | Language selection, header labels, directory navigation, retained form state and values, feedback text preservation and storage-denied fallback |
 | `pnpm visual:language-loading` | On-demand Amharic messages, keyboard selection/focus return, reload persistence, editorial preservation, failed-download recovery and retry at three widths |
 | `pnpm visual:specialists` | Featured homepage specialists: desktop/tablet row controls and directory end panel, compact three-row mobile list, keyboard profile access, resize focus recovery, live reduced motion and native no-JavaScript scrolling |
 | `pnpm visual:hero` | Existing home hero layout, focus, and fallback contracts |
@@ -23,8 +23,8 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 | `pnpm visual:foundation` | Anchored disclosure controls, intermediate open/close geometry, keyboard and reduced motion at three widths |
 | `node scripts/check-partner-loop.mjs` | Compatibility alias for component interactions, including the partner logo loop |
 | `pnpm visual:motion` | Existing home motion, live reduced-motion, and static fallback contracts |
-| `pnpm visual:care-continuity` | Specialty filters; care → doctor and doctor → care → appointment; joint selections, compatible editing, invalid context, team-only care, keyboard recovery, reduced motion and four local preparation paths without patient-data delivery/storage at three widths |
-| `pnpm visual:appointment` | Appointment error focus and keyboard recovery, compatible choices, date limits, review validation, local preparation and retained editing, unsure-care guidance, long-script text and synthesized cached-page lifecycle cleanup at three widths; explicit example receipt/retry/unknown/duplicate/delivery-warning states remain separate from normal local preparation |
+| `pnpm visual:care-continuity` | Specialty filters, contextual links across service and doctor pages, appointment preferences, invalid context, team-only care, and local submission across the four entry paths at three widths |
+| `pnpm visual:appointment` | Single-screen appointment submission without a preference, keyboard error recovery, optional preference changes, mobile call shortcut, failure and retry with details retained, no local delivery or storage, and reduced motion at three widths, plus the mobile call option without JavaScript |
 | `pnpm visual:help` | Stable Help anchor and clearance from controls while scrolling home, directory and service pages, keyboard access, two-option menu, guide topics/replies, spelling confirmation and topic clarification, session care follow-ups, contact actions, keyboard dismissal/return, reset/reopen, profile/service appointment context, reduced motion and failed-download retry at phone/tablet/desktop/short viewports |
 | `pnpm visual:quality` | Public-page skip links, control names and fragment targets; keyboard section jumps, feedback recovery, navigation dismissal, hotline focus and search recovery |
 | `pnpm visual:journeys` | Existing six-route responsive checks, service selection, mobile navigation, and reduced motion |
@@ -85,5 +85,4 @@ homepage links without JavaScript.
 `pnpm visual:feedback` verifies Emergency appears before language at mobile, tablet
 and desktop widths, admission and therapy pages have direct actions with visible
 keyboard focus, and eleven public routes have distinct page-specific descriptions.
-`pnpm visual:appointment` also checks the dynamic sample-detail labels. Inspect
-the generated screenshots separately from these assertions.
+`pnpm visual:appointment` also checks the dedicated reception panel and verifies that the floating hotline does not overlap it. Inspect the generated screenshots separately from these assertions.

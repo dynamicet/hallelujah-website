@@ -84,7 +84,7 @@ try {
     const result = await send('Page.captureScreenshot', { format: 'jpeg', quality: 75, fromSurface: false })
     await writeFile(path.join(capture, `${name}.jpg`), Buffer.from(result.data, 'base64'))
   }
-  const ready = "!document.querySelector('[data-appointment-safe-form]')?.hasAttribute('inert')"
+  const ready = "document.querySelector('#full-name') && !document.querySelector('#full-name').matches(':disabled')"
   for (const width of [390, 768, 1440]) {
     for (const route of ['/services/synthetic-service-141414141414', '/contact', '/appointment?service=pub_141414141414', '/doctors?q=blood%20sugar', '/referrals']) {
       await navigate(route, width)
@@ -124,17 +124,11 @@ try {
   await evaluate(`document.querySelector('main a[href="/appointment?service=pub_141414141414"]').click()`)
   await until("location.pathname === '/appointment' && location.search.includes('service=pub_141414141414')")
   await until(ready)
-  assert.equal(await evaluate("document.querySelector('#service-id').value"), 'pub_141414141414')
-  await evaluate("document.querySelector('input[value=\"follow-up\"]').click()")
-  await until("document.querySelector('[data-journey-value=visit]').textContent === 'Follow-up visit'")
-  await evaluate("document.querySelector('[data-journey-next]').click()")
-  await until("document.querySelector('[data-appointment-template]').dataset.journeyStep === '1'")
-  await evaluate("document.querySelector('#full-name').value = 'TEST PATIENT'; document.querySelector('#phone').value = '+0 000 000 0000'; document.querySelector('#privacy-acknowledged').click()")
-  await evaluate("document.querySelector('[data-journey-next]').click()")
-  await until("document.querySelector('[data-appointment-template]').dataset.journeyStep === '2'")
-  assert.equal(await evaluate("document.querySelector('[data-journey-review] [data-journey-value=visit]').textContent"), 'Follow-up visit')
-  assert.equal(await evaluate("document.querySelector('[data-journey-review] [data-journey-value=care]').textContent"), 'Family medicine')
-  await shot('appointment-follow-up-review-390')
+  assert.match(await evaluate("document.querySelector('[data-appointment-preference]').textContent"), /Family medicine/)
+  await evaluate("document.querySelector('#full-name').value = 'TEST PATIENT'; document.querySelector('#phone').value = '+0 000 000 0000'; document.querySelector('#privacy-acknowledged').checked = true; document.querySelector('#appointment-request-form').requestSubmit()")
+  await until("document.querySelector('[data-appointment-request]').dataset.appointmentState === 'receipt'")
+  assert.equal(await evaluate("document.activeElement.id"), 'appointment-result-title')
+  await shot('appointment-receipt-390')
   await navigate('/health-topics/back-pain', 390)
   await until("location.pathname === '/services/synthetic-service-171717171717'")
   assert.ok(await evaluate(`!!document.querySelector('main a[href="/appointment?service=pub_171717171717"]')`))
@@ -163,7 +157,7 @@ try {
   await send('Emulation.setScriptExecutionDisabled', { value: false })
   assert.deepEqual(errors, [], 'no browser errors')
   assert.equal(requests.some((request) => request.method === 'POST'), false, 'preview sends no submissions')
-  console.log(`Care journey browser checks passed: redirects, retired routes, three widths, doctor aliases, reception keyboard access, service-to-appointment handoff, follow-up review, legacy visit links, reduced motion and no-JavaScript redirect. Screenshots: ${capture}`)
+  console.log(`Care journey browser checks passed: redirects, retired routes, three widths, doctor aliases, reception keyboard access, service-to-appointment handoff, preview submission, legacy visit links, reduced motion and no-JavaScript redirect. Screenshots: ${capture}`)
 } catch (error) {
   console.error(browserLog.slice(-4000))
   throw error

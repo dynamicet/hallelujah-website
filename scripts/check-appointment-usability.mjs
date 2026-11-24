@@ -2,12 +2,9 @@ import assert from 'node:assert/strict'
 import { runVisualCheck } from './lib/visual-check.mjs'
 
 const base = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
-const step = page => page.eval('document.querySelector("[data-appointment-template]").dataset.journeyStep')
-const activate = (page, selector) => page.eval(`document.querySelector(${JSON.stringify(selector)}).click()`)
-const enter = async page => {
-  await page.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, text: '\r' })
-  await page.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 })
-}
+const ready = 'document.querySelector("#full-name") && !document.querySelector("#full-name").matches(":disabled")'
+const result = 'document.querySelector("[data-appointment-request]").dataset.appointmentState'
+const submit = page => page.eval(() => document.querySelector('#appointment-request-form').requestSubmit())
 const waitFor = async (page, expression) => {
   for (let attempt = 0; attempt < 100; attempt++) {
     if (await page.eval(expression)) return
@@ -15,205 +12,96 @@ const waitFor = async (page, expression) => {
   }
   throw new Error(`Timed out: ${expression}`)
 }
-const fill = async (page, values) => {
-  await page.eval(`(() => {
-    for (const [id, value] of Object.entries(${JSON.stringify(values)})) {
-      const control = document.getElementById(id)
-      if (typeof value === 'boolean') control.checked = value
-      else control.value = value
-      control.dispatchEvent(new Event('input', { bubbles: true }))
-      control.dispatchEvent(new Event('change', { bubbles: true }))
-    }
-  })()`)
+const press = async (page, key, windowsVirtualKeyCode) => {
+  await page.send('Input.dispatchKeyEvent', { type: 'keyDown', key, code: key, windowsVirtualKeyCode, ...(key === 'Enter' ? { text: '\r' } : {}) })
+  await page.send('Input.dispatchKeyEvent', { type: 'keyUp', key, code: key, windowsVirtualKeyCode })
 }
-const capture = async (page, output, name) => {
-  await page.eval(() => document.querySelector('#appointment-request-form').scrollIntoView({ block: 'start', behavior: 'instant' }))
-  await page.screenshot({ path: `${output}/${name}.png` })
-}
+const fill = page => page.eval(() => {
+  document.querySelector('#full-name').value = 'TEST PATIENT'
+  document.querySelector('#phone').value = '+0 000 000 0000'
+  document.querySelector('#privacy-acknowledged').checked = true
+})
 
 await runVisualCheck('appointment-usability', base, async ({ browser, output }) => {
   for (const width of [390, 768, 1440]) {
-    const page = await browser.newPage({ width, height: 1000, mobile: width < 600, reducedMotion: true })
-    await page.goto(base + '/appointment?doctor=pub_121212121212&demo=known-failure&start=editing')
-    await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
-    assert.equal(await page.eval('document.querySelector("#phone").getAttribute("aria-describedby")'), 'phone-hint')
-    assert.equal(await page.eval('(document.querySelector("#privacy-acknowledged").getAttribute("aria-describedby") || "").includes("privacy-acknowledged-error")'), false)
-    assert.match(await page.eval('document.querySelector("#appointment-form-boundary").innerText'), /sample details only.*Nothing is sent to the hospital/su)
-    assert.equal(await page.eval('!!document.querySelector("#appointment-form-boundary").getClientRects().length'), true)
-    assert.match(await page.eval('document.querySelector("label[for=privacy-acknowledged]").textContent'), /example, not an appointment request/u)
-    assert.equal(await page.eval(() => Boolean(document.querySelector('[data-appointment-safe-form]').compareDocumentPosition(document.querySelector('aside[aria-label="Appointment guidance"]')) & Node.DOCUMENT_POSITION_FOLLOWING)), true)
-    // Check current markup, keyboard-friendly telephone input, and native date limits.
-    assert.match(await page.eval('document.querySelector("#phone-error").textContent'), /7 to 15 digits/)
-    assert.equal(await page.eval('document.querySelector("#phone").inputMode'), 'tel')
-    assert.equal(await page.eval('document.querySelector("#privacy-acknowledged").required'), true)
-    const limits = await page.eval('({ min: document.querySelector("#preferred-date").min, max: document.querySelector("#preferred-date").max })')
-    assert.equal((Date.parse(limits.max) - Date.parse(limits.min)) / 86400000, 365)
-    await activate(page, '[data-care-edit-toggle]')
-    assert.equal(await page.eval('document.querySelector("[data-care-editor]").hidden'), false)
-    // Changing the starting route retains compatible selections in both controls.
-    await activate(page, 'input[name=care_route][value=service]')
-    await fill(page, { 'service-id': 'pub_151515151515' })
-    await activate(page, 'input[name=care_route][value=doctor]')
-    assert.equal(await page.eval('document.querySelector("#doctor-id").value'), 'pub_121212121212')
-    assert.equal(await page.eval('document.querySelector("#service-id").disabled'), false)
-    await activate(page, 'input[name=care_route][value=service]')
-    assert.equal(await page.eval('document.querySelector("#service-id").value'), 'pub_151515151515')
-    await activate(page, 'input[name=care_route][value=doctor]')
-    await activate(page, '[data-journey-next]')
-    assert.equal(await page.eval('document.querySelector("[data-journey-next]").firstChild.textContent.trim()'), 'Review sample details')
-    await activate(page, '[data-journey-next]')
-    assert.equal(await page.eval('document.activeElement.id'), 'appointment-error-summary-heading')
-    assert.equal(await page.eval('document.querySelector("#appointment-error-summary").getAttribute("role")'), 'group')
-    assert.equal(await page.eval('document.querySelector("#phone").getAttribute("aria-describedby")'), 'phone-hint phone-error')
-    await capture(page, output, `errors-${width}`)
-    await page.eval(() => document.querySelector('#appointment-error-summary a[href="#phone"]').focus())
-    assert.equal(await page.eval('document.activeElement.matches(":focus-visible")'), true)
-    await enter(page)
-    assert.equal(await page.eval('document.activeElement.id'), 'phone')
-    await fill(page, { 'full-name': 'TEST PATIENT', phone: '+0 000 000 0000', 'preferred-date': limits.max, 'privacy-acknowledged': true })
-    await activate(page, '[data-journey-next]')
-    assert.equal(await step(page), '2')
-    assert.equal(await page.eval('document.querySelector("[data-form-submit]").textContent.trim()'), 'Check sample details')
-    assert.equal(await page.eval('document.querySelector("#phone").getAttribute("aria-describedby")'), 'phone-hint')
-    await capture(page, output, `review-${width}`)
-    await activate(page, '[data-journey-edit]')
-    assert.equal(await page.eval('document.querySelector("#phone").value'), '+0 000 000 0000')
-    await fill(page, { phone: '123' })
-    // Revisiting Review through the progress control must still validate edited answers.
-    await activate(page, '[data-journey-step="2"]')
-    assert.equal(await step(page), '1')
-    assert.equal(await page.eval('document.activeElement.id'), 'appointment-error-summary-heading')
-    assert.equal(await page.eval('document.querySelector("#phone").getAttribute("aria-invalid")'), 'true')
-    // A native date with a five-digit year must be rejected without disrupting review updates.
-    await fill(page, { phone: '+0 000 000 0000', 'preferred-date': '10000-01-01' })
-    await activate(page, '[data-journey-next]')
-    assert.equal(await page.eval('document.querySelector("#preferred-date").getAttribute("aria-invalid")'), 'true')
-    await fill(page, { 'preferred-date': '2000-01-01' })
-    await activate(page, '[data-journey-next]')
-    assert.equal(await step(page), '1')
-    await fill(page, { 'preferred-date': '' })
-    await activate(page, '[data-journey-next]')
-    assert.equal(await page.eval('document.querySelector("[data-journey-review] [data-journey-value=date]").textContent'), 'No preference')
-    await activate(page, '[data-form-submit]')
-    await waitFor(page, 'document.querySelector("[data-appointment-template]").dataset.appointmentState === "known-failure"')
-    assert.equal(await page.eval('document.activeElement.id'), 'appointment-known-failure-heading')
-    assert.equal(await page.eval('document.querySelector("#appointment-known-failure").getAttribute("role")'), 'group')
-    assert.equal(await page.eval('document.querySelector("#appointment-known-failure").hasAttribute("aria-live")'), false)
-    assert.equal(await page.eval('document.querySelector("#appointment-pending").getAttribute("role")'), 'status')
-    await capture(page, output, `retry-${width}`)
-    await activate(page, '[data-journey-correct]')
-    assert.equal(await step(page), '1')
-    assert.equal(await page.eval('document.querySelector("#full-name").value'), 'TEST PATIENT')
-    await activate(page, '[data-journey-next]')
-    await activate(page, '[data-form-submit]')
-    await waitFor(page, 'document.querySelector("[data-appointment-template]").dataset.appointmentState === "receipt"')
-    assert.equal(await page.eval('document.querySelector("#appointment-receipt-heading").textContent'), 'Preview complete')
-    assert.match(await page.eval('document.querySelector("#appointment-receipt").innerText'), /No appointment request was sent or saved/u)
-    assert.equal(await page.eval('document.querySelector("#appointment-receipt [data-journey-restart]").textContent'), 'Try the preview again')
-    assert.equal(await page.eval('document.activeElement.id'), 'appointment-receipt-heading')
-    assert.equal(await page.eval('document.querySelector("#appointment-receipt").getAttribute("role")'), 'group')
-    assert.equal(await page.eval('document.querySelector("#appointment-receipt").hasAttribute("aria-live")'), false)
-    assert.equal(await page.eval('document.querySelector("#appointment-submit-title").textContent'), 'Your next step')
-    assert.equal(await page.eval('document.querySelector("#phone").value'), '')
-    assert.equal(await page.eval('document.querySelector("#appointment-receipt a").getAttribute("href")'), '/contact#contact-reception')
-    await capture(page, output, `complete-${width}`)
-    await activate(page, '#appointment-receipt a')
-    await waitFor(page, 'location.pathname === "/contact" && location.hash === "#contact-reception" && document.activeElement.id === "contact-reception"')
-    assert.equal(await page.eval('document.documentElement.scrollWidth > innerWidth'), false)
-    assert.equal(await page.eval('document.getAnimations().filter(a => a.playState === "running").length'), 0)
-    assert.deepEqual(page.consoleErrors, [])
-    await page.close()
-    console.log(`PASS ${width}px: validation, keyboard error recovery, retained choices, date limits, review validation, retry editing, completion focus, reduced motion`)
-  }
-  for (const width of [390, 768, 1440]) {
-    const page = await browser.newPage({ width, height: 1000, mobile: width < 600, reducedMotion: width !== 1440 })
+    const page = await browser.newPage({ width, height: 950, mobile: width < 600, reducedMotion: true })
+    // The page stays local across every submission state.
     await page.goto(base + '/appointment')
-    await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
-    assert.equal(await page.eval('document.querySelector("[data-care-selector=not_sure]").hidden'), false)
-    assert.match(await page.eval('document.querySelector("[data-journey-next]").textContent'), /Continue without choosing/)
-    assert.equal(await page.eval('document.querySelector("[data-care-selector=not_sure] a").getAttribute("href")'), '/services')
-    await capture(page, output, `choosing-help-${width}`)
-    // Keyboard activation must advance the actual unsure-care route without a doctor selection.
-    await page.eval(() => document.querySelector('[data-journey-next]').focus())
-    await enter(page)
-    assert.equal(await step(page), '1')
-    assert.equal(await page.eval('document.activeElement.id'), 'appointment-details-title')
-    await fill(page, { 'full-name': 'اختبار '.repeat(12), phone: '+0 000 000 0000', 'privacy-acknowledged': true })
-    await activate(page, '[data-journey-next]')
-    assert.equal(await step(page), '2')
-    assert.equal(await page.eval('document.documentElement.scrollWidth > innerWidth'), false)
-    await capture(page, output, `long-review-${width}`)
-    // Normal submission prepares locally and keeps details editable; it creates no receipt.
-    await page.eval(() => { for (let count = 0; count < 10; count++) document.querySelector('#appointment-request-form').requestSubmit() })
-    await waitFor(page, 'document.querySelector("[data-appointment-template]").dataset.appointmentState === "prepared"')
-    assert.equal(await page.eval('document.querySelector("#privacy-acknowledged").checked'), true)
-    assert.equal(await page.eval('document.activeElement.id'), 'appointment-prepared-heading')
-    assert.equal(await page.eval('document.querySelector("#appointment-receipt").hidden'), true)
-    await page.eval(() => document.querySelector('[data-journey-edit]').focus())
-    await enter(page)
-    assert.equal(await step(page), '1')
-    assert.equal(await page.eval('document.activeElement.id'), 'appointment-details-title')
-    assert.equal(await page.eval('document.querySelector("#full-name").value'), 'اختبار '.repeat(12))
-    await fill(page, { 'privacy-acknowledged': false })
-    await activate(page, '[data-journey-next]')
-    assert.equal(await page.eval('document.querySelector("#privacy-acknowledged").getAttribute("aria-invalid")'), 'true')
-    await fill(page, { 'full-name': 'TEST PATIENT', phone: '+0 000 000 0000', 'privacy-acknowledged': true })
-    await activate(page, '[data-journey-next]')
-    await activate(page, '[data-form-submit]')
-    // Synthesize cache lifecycle events to verify cleanup and recovery on return.
-    // This does not establish whether a particular browser actually admits this page to bfcache.
+    await waitFor(page, ready)
     await page.eval(() => {
-      window.dispatchEvent(new PageTransitionEvent('pagehide', { persisted: true }))
-      window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true }))
+      window.appointmentDeliveryAttempts = 0
+      const fetch = window.fetch
+      window.fetch = function (input, options) {
+        if (String(options?.method ?? input?.method ?? 'GET').toUpperCase() === 'POST') window.appointmentDeliveryAttempts++
+        return fetch.call(this, input, options)
+      }
     })
-    await new Promise(resolve => setTimeout(resolve, 650))
-    assert.equal(await page.eval('document.querySelector("[data-appointment-template]").dataset.appointmentState'), 'editing')
-    assert.equal(await step(page), '0')
-    assert.equal(await page.eval('document.querySelector("#appointment-request-form").getAttribute("aria-busy")'), 'false')
-    assert.equal(await page.eval('document.querySelector("#full-name").value'), '')
-    assert.equal(await page.eval('document.querySelector("#privacy-acknowledged").checked'), false)
-    assert.equal(await page.eval('document.querySelector("[data-journey-review] [data-journey-value=name]").textContent'), 'Not added')
-    await capture(page, output, `restarted-${width}`)
+    assert.equal(await page.eval(() => document.querySelector('#privacy-acknowledged').checked), false)
+    assert.equal(await page.eval(() => document.querySelector('#appointment-preference-options').hidden), true)
+    const phone = '#appointment-call a[href="tel:+251114704242"]'
+    assert.ok(await page.eval(`document.querySelector('${phone}').checkVisibility()`))
+    assert.equal(await page.eval(() => document.querySelector('[data-call-widget]')), null)
+    if (width === 390) {
+      await page.eval(() => document.querySelector('a[href="#appointment-call"]').focus())
+      await press(page, 'Enter', 13)
+      await waitFor(page, 'document.activeElement.id === "appointment-call"')
+    }
+
+    await submit(page)
+    await waitFor(page, 'document.activeElement.id === "appointment-error-summary"')
+    assert.equal(await page.eval(() => document.querySelectorAll('#appointment-error-summary li').length), 3)
+    await page.eval(() => document.querySelector('#appointment-error-summary a[href="#phone"]').focus())
+    await press(page, 'Enter', 13)
+    await waitFor(page, 'document.activeElement.id === "phone"')
+    await fill(page)
+    await submit(page)
+    await waitFor(page, `${result} === "receipt" && document.activeElement.id === "appointment-result-title"`)
+    assert.match(await page.eval(() => document.querySelector('[data-appointment-request]').innerText), /did not send or save/)
+    assert.equal(await page.eval(() => window.appointmentDeliveryAttempts), 0)
+    assert.equal(await page.eval(() => [...Object.values(localStorage), ...Object.values(sessionStorage)].some(value => /TEST PATIENT|000 000/.test(value))), false)
+
+    await page.goto(base + '/appointment?doctor=pub_121212121212&demo=known-failure&start=editing')
+    await waitFor(page, ready)
+    assert.match(await page.eval(() => document.querySelector('[data-appointment-preference]').textContent), /Chala/)
+    await fill(page)
+    await page.eval(() => document.querySelector('button[aria-controls="appointment-preference-options"]').focus())
+    await press(page, 'Enter', 13)
+    await waitFor(page, 'document.activeElement.id === "care-preference"').catch(async (error) => {
+      const state = await page.eval(() => ({
+        active: document.activeElement.outerHTML.slice(0, 240),
+        expanded: document.querySelector('button[aria-controls="appointment-preference-options"]').getAttribute('aria-expanded'),
+      }))
+      throw new Error(`${error.message} (${JSON.stringify(state)})`)
+    })
+    await page.eval(() => {
+      const field = document.querySelector('#care-preference')
+      field.value = 'svc_demo_pub_272727272727'
+      field.dispatchEvent(new Event('change', { bubbles: true }))
+    })
+    await waitFor(page, 'document.querySelector("[data-appointment-preference]").textContent.includes("Echocardiography")')
+    await page.screenshot({ path: `${output}/preference-${width}.png` })
+    await page.eval(() => [...document.querySelectorAll('button')].find(button => button.textContent === 'Remove').click())
+    assert.equal(await page.eval(() => document.querySelector('[data-appointment-preference]')), null)
+    await waitFor(page, 'document.activeElement.textContent.includes("Add a doctor or service preference")')
+    await submit(page)
+    await waitFor(page, `${result} === "known-failure"`)
+    assert.equal(await page.eval(() => document.querySelector('#full-name').value), 'TEST PATIENT')
+    assert.equal(await page.eval(() => document.querySelector('#phone').value), '+0 000 000 0000')
+    assert.match(await page.eval(() => document.activeElement.textContent), /couldn’t send/)
+    await page.screenshot({ path: `${output}/failure-${width}.png` })
+    await submit(page)
+    await waitFor(page, `${result} === "receipt"`)
+    assert.equal(await page.eval(() => document.documentElement.scrollWidth <= innerWidth), true)
+    assert.equal(await page.eval(() => document.querySelector('main').getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length), 0)
+    if (width === 390) {
+      await page.send('Emulation.setScriptExecutionDisabled', { value: true })
+      await page.goto(base + '/appointment')
+      assert.equal(await page.eval(() => document.querySelector('#full-name').matches(':disabled')), true)
+      assert.ok(await page.eval(`document.querySelector('${phone}').checkVisibility()`))
+      assert.match(await page.eval(() => document.querySelector('[data-appointment-request] noscript').textContent), /call reception/)
+    }
     assert.deepEqual(page.consoleErrors, [])
     await page.close()
-    console.log(`PASS ${width}px: unsure-care guidance, keyboard continuation/editing, long-script review, local preparation, consent validation and cached-page lifecycle recovery`)
+    console.log(`PASS ${width}px: call shortcut, keyboard focus, general submission, preference change/removal, retry retention, no delivery and reduced motion`)
   }
-  for (const scenario of ['unknown', 'duplicate', 'delivery-warning']) {
-    const page = await browser.newPage({ width: 390, height: 1000, mobile: true, reducedMotion: true })
-    await page.goto(`${base}/appointment?demo=${scenario}&start=editing`)
-    await waitFor(page, '!document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")')
-    await activate(page, '[data-journey-next]')
-    await fill(page, { 'full-name': 'TEST PATIENT', phone: '+0 000 000 0000', 'privacy-acknowledged': true })
-    await activate(page, '[data-journey-next]')
-    await activate(page, '[data-form-submit]')
-    await waitFor(page, `document.querySelector('[data-appointment-template]').dataset.appointmentState === '${scenario}'`)
-    if (scenario === 'unknown') {
-      await activate(page, '[data-reconcile=missing]')
-      assert.equal(await page.eval('document.querySelector("#full-name").value'), 'TEST PATIENT')
-      await activate(page, '[data-form-submit]')
-    } else if (scenario === 'duplicate') await activate(page, '[data-reconcile=found]')
-    if (scenario !== 'delivery-warning') await waitFor(page, 'document.querySelector("[data-appointment-template]").dataset.appointmentState === "receipt"')
-    await activate(page, `#appointment-${scenario === 'delivery-warning' ? scenario : 'receipt'} [data-journey-restart]`)
-    assert.equal(await step(page), '0')
-    assert.equal(await page.eval('document.querySelector("#phone").value'), '')
-    assert.deepEqual(page.consoleErrors, [])
-    await page.close()
-    console.log(`PASS ${scenario}: recoverable local outcome and clean restart`)
-  }
-  const fallback = await browser.newPage({ width: 390, height: 1000, mobile: true, reducedMotion: true })
-  await fallback.send('Emulation.setScriptExecutionDisabled', { value: true })
-  fallback.scriptsDisabled = true
-  await fallback.goto(base + '/')
-  assert.equal(await fallback.eval('document.querySelector(".team-care-help").getAttribute("href")'), '/services')
-  await fallback.eval(() => document.querySelector('.team-care-help').focus())
-  await enter(fallback)
-  await waitFor(fallback, 'location.pathname === "/services"')
-  await fallback.goto(base + '/appointment')
-  assert.equal(await fallback.eval('document.querySelector("[data-appointment-safe-form]").hasAttribute("inert")'), true)
-  assert.equal(await fallback.eval('document.querySelector("#appointment-support a").getAttribute("href")'), '/contact#contact-reception')
-  assert.equal(await fallback.eval('document.querySelector("[data-appointment-form-controller] noscript a").closest("[inert]")'), null)
-  await fallback.screenshot({ path: `${output}/no-javascript-390.png`, fullPage: true })
-  assert.deepEqual(fallback.consoleErrors, [])
-  await fallback.close()
-  console.log('PASS no JavaScript: native care exploration and accessible contact fallback beside inert simulation')
 })

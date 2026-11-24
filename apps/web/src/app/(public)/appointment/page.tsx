@@ -1,47 +1,78 @@
 import { requestAppointmentLabel } from '@/appointment/copy'
-import { Suspense } from 'react'
-import { DemoInteractions } from '@/demo/appointment-interactions'
-import { demoClinicianPortraits } from '@/demo/clinician-portraits'
-import { AppointmentDoctorIdentity } from '@/website/appointment-doctor-identity'
-import { AppointmentTemplate } from '@/design-system/templates'
-import { clinicians, services, requireLocalDemo, type DemoSearchParams } from '@/demo/site'
-import { demoScenario } from '@/demo/scenarios'
-import { isRequestableCare, resolveCareSelection } from '@/demo/care-model'
-import { AppointmentVisitType } from '@/website/appointment-visit-type'
+import { appointmentPreviewScenarios } from '@/demo/appointment-request-preview'
+import { carePathWithDoctor, isRequestableCare, resolveCareSelection } from '@/demo/care-model'
 import { serviceDirectorySource } from '@/demo/service-directory-return'
+import { demoScenario } from '@/demo/scenarios'
+import { clinicians, requireLocalDemo, services, type DemoSearchParams } from '@/demo/site'
+import { AppointmentRequestPreview, type CarePreference } from '@/website/appointment-request-form'
+import { Icon } from '@/design-system/components'
+import { hospitalContact } from '@/website/hospital-contact'
+import { InterfaceLink as Link, InterfaceText } from '@/website/interface-language'
+import { PageContent } from '@/website/page-patterns'
+import styles from '@/website/appointment-request.module.css'
 
-export const metadata = { title: 'Appointment information | Hallelujah Hospital',
-  description: 'Try the appointment preview with sample details and contact Hallelujah Hospital to arrange care. No request is sent or saved from this preview.'
+export const metadata = {
+  title: 'Request an appointment | Hallelujah Hospital',
+  description: 'Arrange an appointment with Hallelujah Hospital. Share an optional doctor or service preference, or call reception.',
 }
 
 export default async function AppointmentPage({ searchParams }: { searchParams: DemoSearchParams }) {
   requireLocalDemo()
   const parameters = await searchParams
-  const scenario = demoScenario(parameters.demo, ['editing', 'validation', 'pending', 'known-failure',
-    'unknown', 'duplicate', 'receipt', 'delivery-warning', 'workflow-unavailable'] as const, 'editing')
-  const runScenario = parameters.start === 'editing' && ['known-failure', 'unknown', 'duplicate', 'delivery-warning'].includes(scenario)
+  const scenario = demoScenario(parameters.demo, appointmentPreviewScenarios, 'editing')
   const selection = resolveCareSelection({
     doctorId: typeof parameters.doctor === 'string' ? parameters.doctor : undefined,
     serviceId: typeof parameters.service === 'string' ? parameters.service : undefined,
   })
-  const selected = clinicians.find((entry) => entry.publicId === selection.doctorId)
-  const careServices = services.filter((service) => isRequestableCare(service.publicId))
-  const selectedService = careServices.find((entry) => entry.publicId === selection.serviceId)
-  const doctors = clinicians
-  const serviceChoices = careServices
-  return <><AppointmentTemplate
-    doctorIdentity={<AppointmentDoctorIdentity compact doctors={clinicians.map((entry) => ({ publicId: entry.publicId, name: entry.details.name, specialties: entry.details.specialties, portraitSrc: demoClinicianPortraits[entry.publicId] }))} initialDoctorId={selected?.publicId} initialServiceId={selectedService?.publicId} directoryHref={serviceDirectorySource(parameters.from)} services={careServices.map(({ publicId, name, canonicalPath }) => ({ publicId, name, canonicalPath }))} />}
-    visitType={<AppointmentVisitType />}
-    doctorOptions={[{ label: 'No doctor preference', value: '' }, ...doctors.map((entry) => ({ label: entry.details.name, value: entry.publicId }))]}
-    eyebrow="Appointment information"
-    privacyDisclosure={null}
-    recipientLabel="Patient Experience Team"
-    serviceOptions={[{ label: 'No specialty or service preference', value: '' }, ...serviceChoices.map((entry) => ({ label: entry.name, value: entry.publicId }))]}
-    state={{ interactive: true, localSimulation: true, kind: runScenario ? 'editing' : scenario, outcome: runScenario ? scenario : undefined,
-      selectedCareRoute: selected ? 'doctor' : selectedService ? 'service' : 'not_sure',
-      selectedDoctorId: selection.doctorId, selectedServiceId: selection.serviceId, selectionNotice: selection.notice,
-      errors: scenario === 'validation' ? ['phone', 'privacy-acknowledged'] : [], specimenReference: 'HH-1042' }}
-    title={requestAppointmentLabel}
-    warning="Online appointment requests cannot provide emergency help."
-  /><Suspense fallback={null}><DemoInteractions /></Suspense></>
+  const careServices = services.filter(({ publicId }) => isRequestableCare(publicId))
+  const doctor = clinicians.find(({ publicId }) => publicId === selection.doctorId)
+  const service = careServices.find(({ publicId }) => publicId === selection.serviceId)
+
+  // The preview catalogue uses fictional IDs. The form contract uses the same ID shapes as the appointment API.
+  const doctors = clinicians.map(({ publicId, details }): CarePreference => ({
+    kind: 'doctor', id: `doc_demo_${publicId}`, label: details.name,
+  }))
+  const serviceOptions = careServices.map(({ publicId, name }): CarePreference => ({
+    kind: 'service', id: `svc_demo_${publicId}`, label: name,
+  }))
+  const preference = doctor
+    ? doctors.find(({ id }) => id === `doc_demo_${doctor.publicId}`)
+    : serviceOptions.find(({ id }) => id === `svc_demo_${service?.publicId}`)
+  const directoryHref = serviceDirectorySource(parameters.from)
+  const serviceHref = service ? carePathWithDoctor(service, doctor?.publicId, directoryHref) : undefined
+  const returnLink = service && serviceHref
+    ? { href: serviceHref, label: `Back to ${service.name}` }
+    : doctor?.canonicalPath ? { href: doctor.canonicalPath, label: `Back to ${doctor.details.name}` } : undefined
+
+  return <PageContent>
+    <div className={styles.page}>
+      <header className={styles.intro}>
+        <h1><InterfaceText>{requestAppointmentLabel}</InterfaceText></h1>
+        <p>Send a request and reception will call you to arrange a time.</p>
+        <a href="#appointment-call" className={`text-link ${styles.callShortcut}`}>Prefer to call?</a>
+      </header>
+      <div className={styles.layout}>
+        <AppointmentRequestPreview
+          key={JSON.stringify([selection.doctorId, selection.serviceId, selection.notice, scenario, parameters.start])}
+          doctors={doctors}
+          services={serviceOptions}
+          initialPreference={preference}
+          selectionNotice={selection.notice ? 'That preference is unavailable. You can send your request without a preference.' : undefined}
+          context={doctor && service ? service.name : undefined}
+          scenario={scenario}
+          startEditing={parameters.start === 'editing'}
+        />
+        <aside className={styles.callPanel} id="appointment-call" tabIndex={-1} aria-labelledby="appointment-call-title">
+          <h2 id="appointment-call-title">Prefer to call?</h2>
+          <p>Call reception to arrange an appointment or get help choosing care.</p>
+          <a className={styles.phone} href={hospitalContact.phoneHref}><Icon name="phone" />{hospitalContact.phone}</a>
+          <Link className="text-link" href="/contact">Contact &amp; directions <Icon name="arrow-right" /></Link>
+        </aside>
+      </div>
+      <div className={styles.links}>
+        {returnLink ? <Link className="text-link" href={returnLink.href}>{returnLink.label}</Link> : null}
+        <Link className="text-link" href="/emergency">Emergency information <Icon name="arrow-right" /></Link>
+      </div>
+    </div>
+  </PageContent>
 }

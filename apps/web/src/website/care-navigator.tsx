@@ -5,7 +5,7 @@ import { InterfaceLink as Link } from '@/website/interface-language'
 import { useState } from 'react'
 
 const choices = [
-  { id: 'unsure', label: 'I’m unsure where to start', heading: 'Help choosing care.', description: 'You can begin an appointment request without choosing a doctor or service. Choose “Help me choose”. A request is not a confirmed appointment.', action: requestAppointmentLabel, href: '/appointment' },
+  { id: 'unsure', label: 'I’m unsure where to start', heading: 'Help choosing care.', description: 'You can request an appointment without choosing a doctor or service. Reception can help you find where to start.', action: requestAppointmentLabel, href: '/appointment' },
   { id: 'doctor', label: 'I know the doctor', heading: 'Find their profile.', description: 'Use the doctor directory to search by name and check specialties and languages before choosing a clinician.', action: 'Find a doctor', href: '/doctors' },
   { id: 'service', label: 'I know the service', heading: 'Check its scope.', description: 'Use the service directory to read what an area of care covers and what to ask before requesting an appointment.', action: 'View all services', href: '/services' },
 ] as const

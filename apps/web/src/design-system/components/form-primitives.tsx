@@ -503,9 +503,9 @@ function FieldHint({ hint, hintId }: Pick<FieldCopyProps, 'hint' | 'hintId'>) {
 
 function FieldErrorMessage({ error }: Pick<FieldCopyProps, 'error'>) {
   return error ? (
-    <p className={styles.fieldError} data-field-error hidden={!error.visible} id={error.id}>
+    <InterfaceCopy><p className={styles.fieldError} data-field-error hidden={!error.visible} id={error.id}>
       <strong>Error:</strong> {error.message}
-    </p>
+    </p></InterfaceCopy>
   ) : null
 }
 
