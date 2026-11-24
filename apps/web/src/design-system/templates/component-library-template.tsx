@@ -16,7 +16,7 @@ const fields: readonly { tone: BrandSurfaceTone; accent: BrandAccent; title: str
   { tone: 'paper', accent: 'none', title: 'A quiet foundation', copy: 'Paper makes room for reading, with blue destinations and a clear action hierarchy.' },
   { tone: 'mist', accent: 'none', title: 'Space to explore care', copy: 'Pale blue groups comparable care information without assigning colors to specialties.' },
   { tone: 'inverse', accent: 'none', title: 'A confident blue field', copy: 'Deep blue supports orientation and closing information. Nested white panels restore their own working context.' },
-  { tone: 'supporting', accent: 'none', title: 'Prepare with confidence', copy: 'Richer peach and deep-orange headings identify preparation. Ordinary care actions remain blue.' },
+  { tone: 'supporting', accent: 'none', title: 'Prepare with confidence', copy: 'Pale blue groups supporting information. Ordinary care actions remain blue.' },
   { tone: 'expressive', accent: 'none', title: 'The people behind care', copy: 'A white reading surface and deep blue headings frame human stories.' },
   { tone: 'assistance', accent: 'none', title: 'Help with your next step', copy: 'Pale blue groups related help with standard headings and links.' },
 ]

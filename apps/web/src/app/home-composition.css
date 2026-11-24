@@ -8,17 +8,11 @@
   color: inherit;
 }
 .enhanced-home .welcome-appointment {
-  background: var(--semantic-color-surface-supporting);
-  color: var(--semantic-color-accent-supporting-text);
+  background: var(--site-white);
+  color: var(--site-ink);
 }
-.enhanced-home .welcome-appointment:hover {
-  background: var(--semantic-color-surface-raised);
-  color: var(--semantic-color-accent-supporting-text);
-}
-.enhanced-home .welcome-appointment:active {
-  background: var(--semantic-color-surface-supporting);
-  color: var(--semantic-color-accent-supporting-text);
-}
+.enhanced-home .welcome-appointment:hover { background: var(--site-pale); }
+.enhanced-home .welcome-appointment:active { background: var(--site-selection); }
 .enhanced-home .care-search-panel select, .enhanced-home .care-query-field {
   background: var(--semantic-color-surface-raised);
   border: 1px solid var(--semantic-color-border-strong);

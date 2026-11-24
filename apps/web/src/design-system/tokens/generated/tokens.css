@@ -142,9 +142,10 @@
   --semantic-color-surface-error: var(--primitive-color-red-050);
   --semantic-color-surface-inverse: var(--primitive-color-blue-800);
   --semantic-color-surface-selected: var(--primitive-color-blue-100);
-  --semantic-color-surface-supporting: var(--primitive-color-orange-100);
+  --semantic-color-surface-supporting: var(--primitive-color-blue-050);
   --semantic-color-surface-expressive: var(--primitive-color-white);
   --semantic-color-surface-assistance: var(--primitive-color-blue-050);
+  --semantic-color-surface-arrival: var(--primitive-color-orange-100);
   --semantic-color-brand-cool: var(--primitive-color-brand-cyan);
   --semantic-color-brand-warm: var(--primitive-color-orange-600);
   --semantic-color-brand-navy: var(--primitive-color-blue-800);
@@ -176,8 +177,8 @@
   --semantic-color-action-featured: var(--primitive-color-brand-cyan);
   --semantic-color-action-featured-foreground: var(--primitive-color-mineral-900);
   --semantic-color-focus: var(--primitive-color-blue-800);
-  --semantic-color-accent-supporting: var(--primitive-color-orange-600);
-  --semantic-color-accent-supporting-text: var(--primitive-color-orange-800);
+  --semantic-color-accent-supporting: var(--primitive-color-blue-600);
+  --semantic-color-accent-supporting-text: var(--primitive-color-blue-800);
   --semantic-color-artwork-cyan: var(--primitive-color-brand-cyan);
   --semantic-color-artwork-orange: var(--primitive-color-brand-orange);
   --semantic-color-artwork-deep-blue: var(--primitive-color-blue-800);

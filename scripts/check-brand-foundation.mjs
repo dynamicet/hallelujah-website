@@ -70,7 +70,7 @@ const current = brand.colors.currentDirection
 expect(current?.status === 'adopted-in-application-tokens-and-homepage', 'current color adoption status is required')
 const adoptedRoles = {
   surfacePage: 'surface.page', surfaceRaised: 'surface.raised', surfaceSubtle: 'surface.subtle',
-  surfaceSelected: 'surface.selected', surfaceInverse: 'surface.inverse',
+  surfaceArrival: 'surface.arrival', surfaceSelected: 'surface.selected', surfaceInverse: 'surface.inverse',
   textPrimary: 'text.primary', textSecondary: 'text.secondary', textHeading: 'text.heading',
   actionPrimary: 'action.primary', actionHover: 'action.primary-hover', actionActive: 'action.primary-active',
   textLink: 'text.link', borderSubtle: 'border.default', borderControl: 'border.strong', focus: 'focus',

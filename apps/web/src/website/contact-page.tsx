@@ -55,7 +55,7 @@ export function ContactPage() {
         </div>
       </section>
 
-      <section className={styles.preparation} aria-labelledby="contact-partnerships-title">
+      <section className={styles.partnerships} aria-labelledby="contact-partnerships-title">
         <h2 id="contact-partnerships-title">Partnership enquiries</h2>
         <p>For organizations interested in collaborating with the hospital or proposing community outreach.</p>
         <Link className="text-link" href="/partnerships">Work with Hallelujah <Icon name="arrow-right" /></Link>
