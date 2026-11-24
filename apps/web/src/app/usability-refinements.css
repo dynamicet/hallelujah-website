@@ -198,3 +198,7 @@ main [data-care-directory] [data-clinician-public-id] [data-ui-part~="card-photo
 /* Supporting colors repeat in content details; action and selection retain their roles. */
 .enhanced-home .team-introduction { min-width: 0; }
 .enhanced-home .everyday-feature-person { max-width: 100%; padding: 0; background: transparent; color: var(--semantic-color-text-secondary); }
+
+@media (max-width: 767px) {
+  .enhanced-home .team-intro .team-directory { display: none; }
+}

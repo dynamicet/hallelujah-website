@@ -12,7 +12,7 @@
 .specialty { color: var(--semantic-color-text-secondary); }
 .summary { color: var(--semantic-color-text-primary); }
 .action { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; margin-top: auto; color: var(--semantic-color-text-link); font-size: 16px; font-weight: 600; }
-.action > span { font-size: 24px; line-height: 1; }
+.action > [aria-hidden] { font-size: 24px; line-height: 1; }
 .card:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
 .card:focus-visible .action { text-decoration: underline; text-underline-offset: 4px; }
 @media (hover: hover) and (pointer: fine) {
@@ -26,3 +26,12 @@
 }
 @media (forced-colors: active) { .card { outline: 1px solid LinkText; } .card:focus-visible { outline: 3px solid Highlight; } }
 @media print { .card { break-inside: avoid; } }
+
+@media (max-width: 599px) {
+  .card[data-compact-mobile] .content { position: relative; padding: 12px 0; gap: 4px; }
+  .card[data-compact-mobile] h3 { font-size: 18px; padding-inline-end: 20px; }
+  .card[data-compact-mobile] .specialty { font-size: 14px; }
+  .card[data-compact-mobile] .action { position: absolute; inset: 12px 0 auto auto; padding: 0; }
+  .card[data-compact-mobile] .actionLabel { display: none; }
+  .card[data-compact-mobile] .action > [aria-hidden] { font-size: 18px; }
+}

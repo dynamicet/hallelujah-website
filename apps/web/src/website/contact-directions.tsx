@@ -21,29 +21,13 @@ export function ContactDirections() {
           </address>
           <div className={styles.locationActions}>
             <a className="solid-button" href={hospitalContact.directionsHref}><InterfaceText>Get directions</InterfaceText> <Icon name="directions" /></a>
-            <a className={styles.callAction} href={hospitalContact.phoneHref}><InterfaceText>Call the hospital</InterfaceText> <Icon name="phone" /></a>
           </div>
-          <HospitalLocationMap />
+          <div id="home-call" tabIndex={-1}>
+            <h3>Reception</h3>
+            <a className={styles.phone} href={hospitalContact.phoneHref}>{hospitalContact.phone}</a>
+          </div>
         </section>
-        <section className={styles.contact} id="home-call" tabIndex={-1} aria-labelledby="contact-phone-title">
-          <h3 id="contact-phone-title">Call the hospital</h3>
-          <a className={styles.phone} href={hospitalContact.phoneHref}>{hospitalContact.phone}</a>
-          <dl className={styles.otherContacts}>
-            <div><dt>Alternative number</dt><dd><a href={hospitalContact.alternatePhoneHref}>{hospitalContact.alternatePhone}</a></dd></div>
-            <div><dt>General enquiries</dt><dd><a href={`mailto:${hospitalContact.email}`}>{hospitalContact.email}</a></dd></div>
-          </dl>
-          <p className={styles.emailNote} data-help-clearance>For time-sensitive questions, please call. Email is not an emergency channel.</p>
-        </section>
-      </div>
-      <div className={styles.support}>
-        <div className={styles.arrivalAdvice}>
-          <p>Confirm your department, entrance and access needs before travelling.</p>
-          <Link className="text-link" href="/contact#before-you-travel">Arrival guidance <Icon name="arrow-right" /></Link>
-        </div>
-        <aside className={styles.urgent} aria-label="Urgent help">
-          <p>Need urgent help?</p>
-          <Link href="/emergency">Emergency information <Icon name="arrow-right" /></Link>
-        </aside>
+        <HospitalLocationMap />
       </div>
     </div>
   </section>

@@ -15,7 +15,7 @@ export function SpecialtyGrid() {
         {featuredSpecialties.flatMap((care, index) => {
           const service = services.find((entry) => entry.publicId === care.servicePublicId)
           return service ? [<li data-reveal={index} data-motion="card" key={care.servicePublicId}>
-            <ServiceCard href={service.canonicalPath} name={care.label} {...servicePresentation(care.servicePublicId)} />
+            <ServiceCard compactOnMobile href={service.canonicalPath} name={care.label} {...servicePresentation(care.servicePublicId)} />
           </li>] : []
         })}
       </ul>

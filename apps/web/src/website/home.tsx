@@ -50,7 +50,6 @@ export function WebsiteHome() {
               <div className="welcome-actions">
                 <Link className="welcome-appointment" href="/appointment"><span>{requestAppointmentLabel}</span><HeroArrow /></Link>
                 <div className="welcome-secondary-links">
-                  <Link className="text-link" href="/doctors"><span className="welcome-action-label">Find a doctor</span><HeroArrow /></Link>
                   {receptionTarget ? <a className="welcome-call" href={receptionTarget}>{receptionAction}</a> : (
                     <button aria-disabled="true" aria-label="Call reception. Preview only; not connected." className="welcome-call" title="Reception number is not connected." type="button">{receptionAction}</button>
                   )}
@@ -95,7 +94,6 @@ export function WebsiteHome() {
                     <div className="team-person-heading"><h3 id={`team-name-${clinician.publicId}`}>{clinician.details.name}</h3></div>
                     <p className="team-specialty">{clinician.details.specialties.join(' · ')}</p>
                     {clinician.details.languages.length > 0 && <p className="team-language">Languages: {clinician.details.languages.map((language, languageIndex) => <span className="team-language-item" key={language}>{language}{languageIndex < clinician.details.languages.length - 1 ? ' · ' : ''}</span>)}</p>}
-                    {clinician.details.interests[0] && <p className="team-description">{clinician.details.interests[0]}</p>}
                     <span className="team-profile text-link"><span id={`team-profile-${clinician.publicId}`}>View profile</span><Arrow /></span>
                   </div>
                 </Link>
@@ -103,7 +101,7 @@ export function WebsiteHome() {
             </FeaturedSpecialists>
             <div className="team-next-step">
               <h3>Not sure who to see?</h3>
-              <Link className="team-care-help" href="/services">Explore care options <Arrow /></Link>
+              <Link className="team-care-help" href="/appointment">{requestAppointmentLabel} <Arrow /></Link>
             </div>
           </div>
         </section>

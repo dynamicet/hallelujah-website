@@ -247,3 +247,13 @@
 @media screen and (max-height: 599px) {
   .readingAside { position: static; }
 }
+
+@media (max-width: 599px) {
+  .section .stories > .card:not(:first-child) { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 16px; align-items: center; }
+  .section .stories > .textOnly:not(:first-child) { grid-template-columns: 1fr; }
+  .section .stories > .card:not(:first-child) .image { aspect-ratio: 1; }
+  .section .stories > .card:not(:first-child) .cardBody { padding: 0; }
+  .section .stories > .card:not(:first-child) .cardTitle { font-size: 20px; }
+  .section .stories > .card:not(:first-child) .meta { margin-top: 4px; }
+  .section .stories > .card:not(:first-child) :is(.cardBody > p, .cardFooter, .meta > span:not(.date)) { display: none; }
+}
