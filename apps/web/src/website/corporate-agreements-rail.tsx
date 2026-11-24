@@ -33,7 +33,7 @@ export function CorporateAgreementsRail({ children }: { children: ReactNode }) {
   return (
     <>
       <div className="corporate-agreements-heading">
-        <h2 id="corporate-agreements-title">Corporate healthcare agreements</h2>
+        <h2 id="corporate-agreements-title"><span className="credit-annotation">Credit</span> agreements for corporate healthcare</h2>
         {(position.previous || position.next) && (
           <div className="corporate-agreements-controls" role="group" aria-label="Browse organizations">
             {([-1, 1] as const).map((direction) => (

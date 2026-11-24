@@ -217,3 +217,17 @@
 @media (prefers-reduced-motion: no-preference) {
   .corporate-agreements-rail { scroll-behavior: smooth; }
 }
+
+.credit-annotation { position: relative; display: inline-block; }
+.credit-annotation::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -.04em;
+  height: .14em;
+  background: var(--semantic-color-action-primary);
+  clip-path: polygon(0 55%, 18% 28%, 57% 5%, 87% 10%, 100% 23%, 94% 48%, 54% 64%, 16% 93%, 2% 100%);
+  pointer-events: none;
+}
+@media (forced-colors: active) {
+  .credit-annotation::after { background: CanvasText; forced-color-adjust: none; }
+}

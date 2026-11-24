@@ -369,3 +369,14 @@ section.ds-support-band :where(.ds-support-actions a) {
 
 @media (max-width: 1023px) { :root { --site-hero: 3rem; } }
 @media (max-width: 599px) { :root { --site-hero: 2.625rem; } }
+
+.editorial-marker {
+  color: inherit;
+  background: linear-gradient(178deg, transparent 37%, var(--semantic-color-surface-editorial-marker) 38% 92%, transparent 93%);
+  border-radius: 14% 8% 16% 6% / 10%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+@media (forced-colors: active) {
+  .editorial-marker { background: Mark; color: MarkText; }
+}

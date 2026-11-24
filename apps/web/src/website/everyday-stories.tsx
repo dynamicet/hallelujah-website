@@ -13,7 +13,7 @@ function storyQuote({ quote, highlightedPhrase }: PatientStory) {
   const start = quote.indexOf(highlightedPhrase)
   if (start < 0) return quote
 
-  return <>{quote.slice(0, start)}<mark>{highlightedPhrase}</mark>{quote.slice(start + highlightedPhrase.length)}</>
+  return <>{quote.slice(0, start)}<mark className="editorial-marker">{highlightedPhrase}</mark>{quote.slice(start + highlightedPhrase.length)}</>
 }
 
 export function EverydayStories({ stories, quotes }: {
