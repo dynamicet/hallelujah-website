@@ -441,8 +441,7 @@ export function AppointmentTemplate({
   const guidance = <InterfaceCopy><aside className={styles.careRail} aria-label="Appointment guidance">
     {state.localSimulation ? <section className={styles.requestSlip} data-section-context="preparation" aria-labelledby="appointment-preparation-title">
       <h2 id="appointment-preparation-title">Prepare for your visit</h2>
-      <p>Keep your previous reports, medicine list and questions together.</p>
-      <p><Link href="/patients-visitors#checklist">Make your visit checklist</Link></p>
+      <p><Link href="/contact#what-to-bring">What to bring</Link></p>
       <p><Link href="/faq">Common appointment questions</Link></p>
     </section> : null}
     <section aria-labelledby="appointment-warning-title" data-ui-part="section" className={`${styles.section} ${styles.warning}`} data-appointment-section="A2">

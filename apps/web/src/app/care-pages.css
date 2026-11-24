@@ -183,23 +183,6 @@ main [data-care-directory] .ds-support-actions {
 main [data-care-directory] .ds-support-actions a {
   padding-inline: 0;
 }
-main [data-care-directory] section[aria-labelledby='visit-guides-title'] > ul {
-  gap: 16px 32px;
-  margin-block: 0;
-}
-main [data-care-directory] section.ds-support-band[aria-labelledby='visit-guides-title'] { background: var(--semantic-color-surface-supporting); }
-main [data-care-directory] section[aria-labelledby='visit-guides-title'] > ul a {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  gap: 12px;
-  padding-inline: 0;
-  text-align: start;
-  font-weight: var(--site-action-weight);
-}
-main [data-care-directory] section[aria-labelledby='visit-guides-title'] > ul a > span {
-  flex-shrink: 0;
-}
 @media (max-width: 767px) {
   main [data-care-directory] [data-service-public-id][data-ui-part~="card"] { padding: 20px; }
 }

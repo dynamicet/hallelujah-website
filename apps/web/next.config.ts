@@ -1,3 +1,4 @@
+import { retiredVisitGuides } from './src/demo/visit-guides.ts'
 import { isDevelopmentRuntime, isLocalDemo } from './src/server/environment.ts'
 import { withPayload } from '@payloadcms/next/withPayload'
 import type { NextConfig } from 'next'
@@ -25,6 +26,12 @@ const nextConfig: NextConfig = {
     useTypeScriptCli: false,
   },
   poweredByHeader: false,
+  async redirects() {
+    return [
+      { source: '/patients-visitors', destination: '/contact#before-you-travel', permanent: true },
+      ...retiredVisitGuides.map(guide => ({ ...guide, permanent: true })),
+    ]
+  },
   async headers() {
     return [{ headers: securityHeaders, source: '/:path*' }]
   },

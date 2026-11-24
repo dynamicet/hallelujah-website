@@ -15,7 +15,7 @@ export function ContactPage() {
         <nav className={styles.shortcuts} aria-label="On this page">
           <a href="#contact-reception">Call the hospital<Icon name="phone" /></a>
           <a href="#directions">Find us in Gotera<Icon name="directions" /></a>
-          <a href="#before-you-travel">Before you travel<Icon name="arrow-right" /></a>
+          <a href="#before-you-travel">Before you arrive<Icon name="arrow-right" /></a>
         </nav>
       </header>
 
@@ -37,19 +37,21 @@ export function ContactPage() {
           <address data-help-clearance><strong>{hospitalContact.name}</strong><span>Around Gotera Condominium</span><span>Addis Ababa, Ethiopia</span></address>
           <a className="solid-button" href={hospitalContact.directionsHref} target="_blank" rel="noopener noreferrer">Get directions <Icon name="directions" /></a>
           <HospitalLocationMap />
-          <p className={styles.note} data-help-clearance>The pin marks the hospital location. Call to confirm your department and entrance before travelling.</p>
         </section>
       </div>
 
       <section className={styles.preparation} id="before-you-travel" tabIndex={-1} aria-labelledby="contact-visit-title">
-        <h2 id="contact-visit-title">Before you travel</h2>
-        <div className={styles.advice}>
-          <h3>Confirm your visit</h3>
-          <div><p data-help-clearance>Ask the team about your department’s opening times, appointment arrangements and any documents to bring.</p><Link className="text-link" href="/patients-visitors#arrival">Read arrival guidance <Icon name="arrow-right" /></Link></div>
-        </div>
-        <div className={styles.advice}>
-          <h3>Plan your arrival</h3>
-          <p data-help-clearance>For step-free access, parking or drop-off guidance, tell the team what support you need and confirm arrangements before setting out.</p>
+        <h2 id="contact-visit-title">Before you arrive</h2>
+        <div className={styles.visitDetails}>
+          <div>
+            <h3>Arrival and visiting</h3>
+            <p>Reception can help with where to check in, ward visiting hours, and step-free access.</p>
+            <a className="text-link" href={hospitalContact.phoneHref}>Call reception <Icon name="phone" /></a>
+          </div>
+          <div id="what-to-bring" tabIndex={-1} role="group" aria-labelledby="what-to-bring-title">
+            <h3 id="what-to-bring-title">What to bring</h3>
+            <p>If you have a referral letter, relevant test results, or a list of your current medicines, bring them with you.</p>
+          </div>
         </div>
       </section>
 

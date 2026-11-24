@@ -34,16 +34,3 @@
   .careTeam a { border-color: CanvasText; }
   .backLink:focus-visible, .careTeam a:focus-visible { outline-color: Highlight; }
 }
-
-.overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 16px 0 32px; border-block: 1px solid var(--semantic-color-border-default); }
-.overview > div { padding: 24px; min-width: 0; }
-.overview > div + div { border-inline-start: 1px solid var(--semantic-color-border-default); }
-.overview dt { color: var(--semantic-color-text-secondary); font-size: 1rem; margin-bottom: 8px; }
-.overview dd { margin: 0; font-size: 1.125rem; font-weight: 600; overflow-wrap: anywhere; }
-.overview a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--semantic-color-text-link); }
-.overview a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
-@media (max-width: 767px) {
-  .overview { grid-template-columns: 1fr; }
-  .overview > div { padding: 16px 0; }
-  .overview > div + div { border-inline-start: 0; border-block-start: 1px solid var(--semantic-color-border-default); }
-}

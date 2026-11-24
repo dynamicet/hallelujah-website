@@ -29,7 +29,6 @@ export type ServiceDirectoryReviewState = 'empty' | 'failure' | 'loading' | 'off
 export interface ServiceDirectoryTemplateProps {
   readonly servicePresentations?: Readonly<Record<string, ServiceCardPresentation>>
   readonly introVisual?: ReactNode
-  readonly preparationGuides?: readonly { href: string; title: string; action: string }[]
   readonly directory: ServiceDirectoryView
   readonly pathname: string
   readonly serviceRequestLinks?: boolean
@@ -54,7 +53,7 @@ function recovery(state: Exclude<ServiceDirectoryReviewState, 'ready' | 'loading
   }
 }
 
-export function ServiceDirectoryTemplate({ introVisual, servicePresentations, directory, pathname, serviceRequestLinks = false, serviceActions, serviceDetailLinks = false, preparationGuides = [], shell, state }: ServiceDirectoryTemplateProps) {
+export function ServiceDirectoryTemplate({ introVisual, servicePresentations, directory, pathname, serviceRequestLinks = false, serviceActions, serviceDetailLinks = false, shell, state }: ServiceDirectoryTemplateProps) {
   const allowedGroups = directory.filters.map((filter) => filter.value)
   const searchState = directory.state
   const activeFilters: ActiveFilter[] = directory.filters
@@ -90,7 +89,7 @@ export function ServiceDirectoryTemplate({ introVisual, servicePresentations, di
           <div className={styles.introductionCopy} data-ui-part="introduction-copy" data-directory-introduction-copy>
             <h1 data-reveal="0" id="service-directory-title">{serviceDetailLinks ? 'Specialties & services' : 'Find a service'}</h1>
             {serviceDetailLinks ? <p>Explore specialist care, tests and treatments. Choose a care option to see the team and how to arrange your visit.</p> : null}
-            <Link className="ds-touch-target" href="/appointment">Need help choosing care?</Link>
+            {!serviceDetailLinks ? <Link className="ds-touch-target" href="/appointment">Need help choosing care?</Link> : null}
           </div>
           {introVisual}
         </section>
@@ -215,19 +214,10 @@ export function ServiceDirectoryTemplate({ introVisual, servicePresentations, di
           </DirectorySearchForm>
         </section>
 
-        {preparationGuides.length ? <section className={`${styles.support} ds-support-band`} data-ui-part="support" data-directory-support data-care-band="preparation" aria-labelledby="visit-guides-title">
-          <h2 id="visit-guides-title">Visit preparation guides</h2>
-          <p>Practical questions to prepare for a stay, day visit or therapy conversation.</p>
-          <ul>{preparationGuides.map((guide) => <li key={guide.href}><Link className="ds-touch-target" href={guide.href}>{guide.title}<span aria-hidden="true"> →</span></Link></li>)}</ul>
-        </section> : null}
         <section aria-labelledby="service-support-title" className={`${styles.support} ds-support-band`} data-ui-part="support" data-directory-support data-care-band="assistance" data-directory-section="S7"
           id="service-directory-support">
           <h2 id="service-support-title">Still not sure?</h2>
-          <div className="ds-support-actions">
-            <Link className="ds-touch-target" href="/doctors">Find a doctor</Link>
-            <Link className="ds-touch-target" href="/appointment">Not sure what to request?</Link>
-            <Link className="ds-touch-target" href="/#home-call">Contact information</Link>
-          </div>
+          <Link className="ds-touch-target" href="/contact#contact-reception">Contact the hospital</Link>
         </section>
       </div>
     </TemplateFrame>

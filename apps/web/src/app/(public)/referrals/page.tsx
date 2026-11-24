@@ -19,7 +19,7 @@ export default function ReferralsPage() {
     <PatientSection id="process" title="How to proceed">
       <p>The appointment preview does not submit clinical referrals.</p>
       <p><Link className="text-link" href="/services">View all services <span aria-hidden="true">→</span></Link></p>
-      <p><Link href="/patients-visitors#checklist">Help your patient prepare for a visit</Link></p>
+      <p><Link href="/contact#contact-reception">Contact the hospital about a referral</Link></p>
       <p>For urgent care, use <Link href="/emergency">emergency information</Link>.</p>
     </PatientSection>
   </PatientPage>

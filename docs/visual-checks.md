@@ -9,7 +9,7 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 | --- | --- |
 | `pnpm visual:colors` | Rendered text/action rest, hover and pressed contrast; light/inverse focus; nested white panels; field boundaries on peach/pink. Requires local demo component library. |
 | `pnpm visual:check / /doctors` | Fresh full-page captures at 390, 768, and 1440px; basic structure, overflow, image loading, and console errors |
-| `pnpm visual:contact` | Header → Contact page and homepage shortcut → contact section at 320/390/768/1440px; mobile menu dismissal, return link, preparation deep link, section shortcuts and header clearance, native contact targets, normal/reduced motion, skip navigation, touch and no-JavaScript directions shortcut |
+| `pnpm visual:contact` | Header and homepage paths to Contact at 320/390/768/1440px, appointment link to What to bring, legacy guide bookmark, mobile menu dismissal, keyboard focus, normal/reduced motion, touch and no-JavaScript directions |
 | `pnpm visual:language` | Language selection, header labels, directory navigation, retained form steps/values, feedback text preservation and storage-denied fallback |
 | `pnpm visual:language-loading` | On-demand Amharic messages, keyboard selection/focus return, reload persistence, editorial preservation, failed-download recovery and retry at three widths |
 | `pnpm visual:specialists` | Featured homepage specialists: desktop/tablet row controls and directory end panel, compact three-row mobile list, keyboard profile access, resize focus recovery, live reduced motion and native no-JavaScript scrolling |
@@ -76,14 +76,14 @@ Run `pnpm visual:media` against the current preview for native About-film contro
 Both commands create the standard unique evidence directory. Open their fresh screenshots and record visual inspection separately. The development-only enhanced homepage and the normal optimized-build fallback are different experiences; identify the preview actually inspected.
 
 `node scripts/check-home-distill.mjs` verifies the homepage shortcut to Services,
-access to visit preparation and the health-topic browser from Patients & Visitors,
+access to the health-topic browser from the footer,
 the About equipment disclosure, keyboard focus, reduced motion and native
 homepage links without JavaScript.
 
 ### Recovered feedback checks
 
 `pnpm visual:feedback` verifies Emergency appears before language at mobile, tablet
-and desktop widths, preparation guides use shared action links with visible
+and desktop widths, admission and therapy pages have direct actions with visible
 keyboard focus, and eleven public routes have distinct page-specific descriptions.
 `pnpm visual:appointment` also checks the dynamic sample-detail labels. Inspect
 the generated screenshots separately from these assertions.

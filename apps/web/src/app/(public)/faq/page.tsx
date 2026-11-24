@@ -28,7 +28,7 @@ export default function FaqPage() {
       <div className={informationStyles.disclosures}>
         <Question question="Where is the hospital?"><p>Hallelujah General Hospital is around Gotera Condominium in Addis Ababa. <Link href="/contact#directions">See the map and directions</Link>, and confirm the correct entrance with the hospital before travelling.</p></Question>
         <Question question="What are the opening and visiting hours?"><p>Department opening times and ward visiting arrangements can differ. Call the hospital to confirm the hours for your specific visit and how early to arrive for registration.</p></Question>
-        <Question question="What should I bring?"><p>Ask which identification and referral documents your visit requires. Bring relevant previous reports, a list of medicines and allergies, and any questions you want to ask. Use the <Link href="/patients-visitors#checklist">visit checklist</Link> to prepare.</p></Question>
+        <Question question="What should I bring?"><p>See <Link href="/contact#what-to-bring">what to bring to the hospital</Link>.</p></Question>
         <Question question="How should I prepare for a test or procedure?"><p>Ask the treating team for instructions specific to your appointment. Confirm preparation, arrival time and whether someone should accompany you. Check with the team before changing medicines or eating and drinking arrangements.</p></Question>
       </div>
     </PatientSection>

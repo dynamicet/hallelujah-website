@@ -3,11 +3,11 @@ import { writeFile } from 'node:fs/promises'
 import { runVisualCheck } from './lib/visual-check.mjs'
 
 const base = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
-const routes = ['/', '/about', '/doctors', '/services', '/appointment', '/patients-visitors', '/emergency',
+const routes = ['/', '/about', '/doctors', '/services', '/appointment', '/contact', '/emergency',
   '/referrals', '/feedback', '/health-topics', '/news-resources', '/health-topics/back-pain',
   '/news-resources/make-room-for-your-questions', '/news-resources/a-conversation-about-care',
   '/doctors/synthetic-clinician-121212121212/', '/services/synthetic-service-151515151515/',
-  '/services/synthetic-service-121212121212/']
+  '/services/synthetic-service-111111111111/']
 const waitFor = async (page, expression) => {
   for (let attempt = 0; attempt < 100; attempt++) {
     if (await page.eval(expression)) return
@@ -51,10 +51,10 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
       assert.ok(levels.length > 0)
       assert.ok(levels.every(level => level === (route === '/' ? 'H3' : 'H2')), `${route}: editorial heading context`)
     }
-    if (route === '/services/synthetic-service-121212121212/') {
-      const actions = await page.eval('[...document.querySelectorAll("#prepare .text-link, #care-options .text-link")].map(link => link.getBoundingClientRect().height)')
+    if (route === '/services/synthetic-service-111111111111/') {
+      const actions = await page.eval('[...document.querySelectorAll("#care-team a, #referrals a")].map(link => link.getBoundingClientRect().height)')
       assert.equal(actions.length, 3)
-      assert.ok(actions.every(height => height >= 44), 'Guide next steps use accessible shared action targets')
+      assert.ok(actions.every(height => height >= 44), 'Admission next steps use accessible shared action targets')
     }
     assert.deepEqual(result.duplicates, [], `${route}: duplicate IDs`)
     assert.deepEqual(result.unnamed, [], `${route}: unnamed visible controls`)
@@ -108,7 +108,7 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
     assert.equal(await page.eval('document.activeElement.value'), '')
 
     await page.goto(base + '/')
-    await activate(page, 'main a[href="/health-topics"]')
+    await activate(page, '[data-site-footer] a[href="/health-topics"]')
     await waitFor(page, 'location.pathname === "/health-topics" && !!document.querySelector("#health-topic-search")')
     for (const route of ['/health-topics']) {
       await page.goto(base + route)
@@ -138,7 +138,7 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
     }
     await page.eval(() => document.querySelector('[data-site-footer]').scrollIntoView({ block: 'end', behavior: 'instant' }))
     await settled(page)
-    assert.equal(await page.eval('document.querySelector("[data-call-trigger]").getAttribute("href")'), 'tel:+251114704242')
+    assert.equal(await page.eval('document.querySelector("[data-call-trigger]").getAttribute("href")'), 'tel:9975')
     await page.eval(() => document.querySelector('[data-call-trigger]').focus())
     assert.equal(await page.eval('document.activeElement.hasAttribute("data-call-trigger")'), true)
     assert.equal(await page.eval('document.documentElement.scrollWidth > innerWidth'), false)
@@ -157,6 +157,6 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
       assert.deepEqual(page.consoleErrors, [])
     }
     await page.close()
-    console.log(`PASS ${width}px: section jumps, feedback review/edit/reset, health reader focus/return, navigation dismissal, help dismissal, no-results recovery`)
+    console.log(`PASS ${width}px: section jumps, feedback review/edit/reset, health reader focus/return, navigation dismissal, hotline focus, no-results recovery`)
   }
 })

@@ -21,7 +21,6 @@ export interface ClinicianProfileTemplateProps {
   readonly serviceContext?: { readonly name: string; readonly href: string }
   readonly portraitSrc?: string
   readonly portraitDisclosure?: string
-  readonly relatedTopics?: readonly { name: string; href: string }[]
   readonly appointmentHref?: string
   readonly biography?: string
   readonly directoryHref?: string
@@ -71,7 +70,7 @@ function UnavailableProfile({ directoryHref, retryHref, state }: {
   )
 }
 
-export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, relatedSpecialtyIds = [], serviceContext, portraitSrc, portraitDisclosure, relatedTopics = [], appointmentHref, biography, directoryHref = '/doctors', profile, shell, state }: ClinicianProfileTemplateProps) {
+export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, relatedSpecialtyIds = [], serviceContext, portraitSrc, portraitDisclosure, appointmentHref, biography, directoryHref = '/doctors', profile, shell, state }: ClinicianProfileTemplateProps) {
   const unavailable = state === 'failure' || state === 'gone' || state === 'unavailable'
   const clinician = profile.clinician
   const hasEditorial = Boolean(biography || clinician?.details.interests.length || clinician?.details.credentials.length || clinician?.details.languages.length)
@@ -104,14 +103,10 @@ export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, related
                     Appointment requests unavailable
                   </span>
                 )}
-                {appointmentHref ? <Link className="ds-touch-target" href={directoryHref}>Back to doctor results</Link> : null}
+                {appointmentHref ? <Link className="ds-touch-target" href={serviceContext ? `${serviceContext.href}#care-team` : directoryHref}>{serviceContext ? `Back to ${serviceContext.name}` : 'Back to doctor results'}</Link> : null}
               </div>
             </section>
 
-            {serviceContext ? <aside className={styles.serviceContext} aria-label="Your service choice">
-              <div><p>Service you explored</p><strong>{serviceContext.name}</strong></div>
-              <Link className="ds-touch-target" href={`${serviceContext.href}#care-team`}>Back to the service <span aria-hidden="true">→</span></Link>
-            </aside> : null}
             {appointmentHref ? <nav aria-label="On this doctor’s profile" className={styles.profileNavigation}>
               {clinician.details.interests.length ? <a href="#clinician-profile-care-title">Areas of care</a> : null}
               {biography || clinician.details.credentials.length || clinician.details.languages.length ? <a href="#clinician-profile-about-title">About the doctor</a> : null}
@@ -198,19 +193,9 @@ export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, related
               </section>
             ) : null}
 
-            {relatedTopics.length ? <section aria-labelledby="clinician-topics-title" data-ui-part="section" className={styles.section}>
-              <h2 id="clinician-topics-title">Prepare your questions</h2>
-              <p>Explore these topics to prepare questions for your consultation.</p>
-              <ul>{relatedTopics.map((topic) => <li key={topic.href}><Link href={topic.href}>{topic.name}</Link></li>)}</ul>
-            </section> : null}
-            {appointmentHref ? <section aria-labelledby="clinician-profile-review-title" className={styles.reviewNote} data-care-band="preparation" data-profile-section="P6">
-              <h2 id="clinician-profile-review-title">Before your appointment</h2>
-              <p>Bring your previous reports and a current medicine list. The care team will discuss appointment availability and any preparation with you.</p>
-            </section> : null}
-
             <section aria-labelledby="clinician-profile-support-title" className={`${styles.support} ds-support-band`} data-profile-support data-care-band="assistance" data-profile-section="P7" id="profile-support">
               <h2 id="clinician-profile-support-title">Need help choosing?</h2>
-              <div className="ds-support-actions"><Link className="ds-touch-target" href={directoryHref}>Back to doctor results</Link><Link className="ds-touch-target" href="/services">View all services</Link><Link className="ds-touch-target" href="/#home-call">Contact options</Link></div>
+              <Link className="ds-touch-target" href="/contact#contact-reception">Contact the hospital</Link>
             </section>
           </>
         )}

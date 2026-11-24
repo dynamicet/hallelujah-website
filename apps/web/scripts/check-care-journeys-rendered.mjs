@@ -86,7 +86,7 @@ try {
   }
   const ready = "!document.querySelector('[data-appointment-safe-form]')?.hasAttribute('inert')"
   for (const width of [390, 768, 1440]) {
-    for (const route of ['/health-topics/diabetes', '/patients-visitors', '/appointment?service=pub_141414141414', '/doctors?q=blood%20sugar', '/referrals']) {
+    for (const route of ['/health-topics/diabetes', '/contact', '/appointment?service=pub_141414141414', '/doctors?q=blood%20sugar', '/referrals']) {
       await navigate(route, width)
       assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true, `${route} fits ${width}`)
       await shot(`${route.split('?')[0].replaceAll('/', '-').slice(1)}-${width}`)
@@ -103,7 +103,7 @@ try {
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 0)
   assert.ok(await evaluate("document.querySelector('a[href=\"/health-topics/back-pain\"]') !== null"))
   await navigate('/', 390)
-  await evaluate("document.querySelector('#health-library a').click()")
+  await evaluate("document.querySelector('[data-site-footer] a[href=\\\"/health-topics\\\"]').click()")
   await until("location.pathname === '/health-topics' && !!document.querySelector('#health-topic-search')")
   await evaluate("document.querySelector('#health-topic-search').focus()")
   await send('Input.insertText', { text: 'blood sugar' })
@@ -125,29 +125,44 @@ try {
   assert.equal(await evaluate("document.querySelector('[data-journey-review] [data-journey-value=visit]').textContent"), 'Follow-up visit')
   assert.equal(await evaluate("document.querySelector('[data-journey-review] [data-journey-value=care]').textContent"), 'Family medicine')
   await shot('appointment-follow-up-review-390')
-  await navigate('/patients-visitors', 390)
-  const stored = await evaluate('JSON.stringify({local: {...localStorage}, session: {...sessionStorage}})')
-  await evaluate("document.querySelector('#visit-check-0').click()")
-  assert.equal(await evaluate("document.querySelector('#visit-check-0').checked"), true)
-  assert.equal(await evaluate('JSON.stringify({local: {...localStorage}, session: {...sessionStorage}})'), stored)
-  await evaluate("window.__printed = false; window.print = () => { window.__printed = true }; document.querySelector('#checklist button').click()")
-  assert.equal(await evaluate('window.__printed'), true)
-  await send('Emulation.setDeviceMetricsOverride', { width: 794, height: 1123, deviceScaleFactor: 1, mobile: false })
-  await send('Emulation.setEmulatedMedia', { media: 'print' })
-  await shot('visit-checklist-print')
-  const pdf = await send('Page.printToPDF', { printBackground: true, paperWidth: 8.27, paperHeight: 11.69, marginTop: 0.5, marginBottom: 0.5, marginLeft: 0.5, marginRight: 0.5 })
-  await writeFile(path.join(capture, 'visit-checklist.pdf'), Buffer.from(pdf.data, 'base64'))
+  await navigate('/health-topics/headaches', 390)
+  assert.equal(await evaluate("document.querySelector('#care-options .solid-button').getAttribute('href')"), '/contact#contact-reception')
+  assert.equal(await evaluate("document.querySelectorAll('main a[href^=\"/doctors?q=\"]').length"), 0)
+  await navigate('/health-topics', 390)
+  await evaluate("document.querySelector('#health-topic-search').focus()")
+  await send('Input.insertText', { text: 'headaches' })
+  await until("document.querySelector('[data-health-topic=headaches]') !== null")
+  await evaluate("document.querySelector('[data-health-topic=headaches]').click()")
+  await until("!!document.querySelector('#health-topic-reader a[href=\"/contact#contact-reception\"]')")
+  await navigate('/health-topics/back-pain', 390)
+  assert.equal(await evaluate("document.querySelector('#care-options .solid-button').getAttribute('href')"), '/appointment?service=pub_171717171717')
+  assert.equal(await evaluate("document.querySelectorAll('main a[href^=\"/doctors?q=\"]').length"), 0)
+  for (const [id, destination] of [
+    ['121212121212', '/services/synthetic-service-111111111111#care-team'],
+    ['131313131313', '/contact#before-you-travel'],
+    ['191919191919', '/contact#contact-reception'],
+  ]) {
+    const response = await fetch(origin + '/services/synthetic-service-' + id, { redirect: 'manual' })
+    assert.equal(response.status, 308)
+    assert.equal(response.headers.get('location'), destination)
+  }
+  await navigate('/services/synthetic-service-121212121212#prepare', 390)
+  await until("location.pathname === '/services/synthetic-service-111111111111' && location.hash === '#care-team'")
+  await navigate('/patients-visitors#checklist', 390)
+  await until("location.pathname === '/contact' && location.hash === '#before-you-travel'")
+  assert.match(await evaluate("document.querySelector('#what-to-bring').innerText"), /What to bring/)
+  await shot('visit-preparation-390')
   await send('Emulation.setEmulatedMedia', { media: 'screen', features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
   await navigate('/health-topics', 320)
   assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true)
   await shot('health-topics-320')
   await send('Emulation.setScriptExecutionDisabled', { value: true })
   await navigate('/health-topics/diabetes', 390)
-  assert.match(await evaluate('document.body.innerText'), /Prepare for a conversation/)
+  assert.match(await evaluate('document.body.innerText'), /What you can discuss/)
   await send('Emulation.setScriptExecutionDisabled', { value: false })
   assert.deepEqual(errors, [], 'no browser errors')
   assert.equal(requests.some((request) => request.method === 'POST'), false, 'preview sends no submissions')
-  console.log(`Care journey browser checks passed: 12 topic pages, 404, three widths, aliases, missing doctor relationships, homepage-to-topic-to-appointment handoff, follow-up review, checklist, print, reduced motion and no-JavaScript reading. Screenshots: ${capture}`)
+  console.log(`Care journey browser checks passed: 12 topic pages, 404, three widths, aliases, missing doctor relationships, homepage-to-topic-to-appointment handoff, follow-up review, legacy visit guide redirect, reduced motion and no-JavaScript reading. Screenshots: ${capture}`)
 } catch (error) {
   console.error(browserLog.slice(-4000))
   throw error

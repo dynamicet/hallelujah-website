@@ -8,6 +8,7 @@ import { clinicians, services, requireLocalDemo, type DemoSearchParams } from '@
 import { demoScenario } from '@/demo/scenarios'
 import { isRequestableCare, resolveCareSelection } from '@/demo/care-model'
 import { AppointmentVisitType } from '@/website/appointment-visit-type'
+import { serviceDirectoryReturn } from '@/demo/service-directory-return'
 
 export const metadata = { title: 'Appointment information | Hallelujah Hospital',
   description: 'Try the appointment preview with sample details and contact Hallelujah Hospital to arrange care. No request is sent or saved from this preview.'
@@ -29,7 +30,7 @@ export default async function AppointmentPage({ searchParams }: { searchParams: 
   const doctors = clinicians
   const serviceChoices = careServices
   return <><AppointmentTemplate
-    doctorIdentity={<AppointmentDoctorIdentity compact doctors={clinicians.map((entry) => ({ publicId: entry.publicId, name: entry.details.name, specialties: entry.details.specialties, portraitSrc: demoClinicianPortraits[entry.publicId] }))} initialDoctorId={selected?.publicId} services={careServices.map(({ publicId, name, canonicalPath }) => ({ publicId, name, canonicalPath }))} serviceContext={selected && selectedService ? { doctorId: selected.publicId, name: selectedService.name, href: selectedService.canonicalPath } : undefined} />}
+    doctorIdentity={<AppointmentDoctorIdentity compact doctors={clinicians.map((entry) => ({ publicId: entry.publicId, name: entry.details.name, specialties: entry.details.specialties, portraitSrc: demoClinicianPortraits[entry.publicId] }))} initialDoctorId={selected?.publicId} initialServiceId={selectedService?.publicId} directoryHref={serviceDirectoryReturn(parameters.from)} services={careServices.map(({ publicId, name, canonicalPath }) => ({ publicId, name, canonicalPath }))} />}
     visitType={<AppointmentVisitType />}
     doctorOptions={[{ label: 'No doctor preference', value: '' }, ...doctors.map((entry) => ({ label: entry.details.name, value: entry.publicId }))]}
     eyebrow="Appointment information"

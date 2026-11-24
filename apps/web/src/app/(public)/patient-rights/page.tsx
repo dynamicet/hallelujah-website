@@ -24,7 +24,7 @@ export default function PatientRightsPage() {
       <p>If something feels wrong or you need an explanation, speak with your nurse or treating clinician. If the concern remains, ask reception who can help you raise it with the appropriate hospital team.</p>
       <p>For help finding the right person, call <a href={hospitalContact.phoneHref}>{hospitalContact.phone}</a>. You can also <Link href="/feedback">read the patient feedback guidance</Link>.</p>
       <p>For urgent care, use <Link href="/emergency">emergency information</Link>.</p>
-      <p><Link href="/privacy">Website privacy notice</Link> · <Link href="/patients-visitors">Plan your visit</Link></p>
+      <p><Link href="/privacy">Website privacy notice</Link></p>
     </PatientSection>
   </PatientPage>
 }

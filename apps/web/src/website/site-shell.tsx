@@ -10,7 +10,6 @@ export function hospitalShellConfig(current: string): HomePageTemplateProps['she
     { href: '/doctors', label: 'Doctors' },
     { href: '/services', label: 'Services' },
     { href: '/appointment', label: 'Appointment' },
-    { href: '/patients-visitors', label: 'Patients & Visitors' },
     { href: '/about', label: 'About Us' },
     { href: '/careers', label: 'Careers' },
   ].map((item) => ({ ...item, current: item.href === current || (item.href !== '/' && current.startsWith(`${item.href}/`)) }))

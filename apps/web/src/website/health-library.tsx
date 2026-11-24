@@ -84,7 +84,7 @@ export function HealthLibrary({ topics, title = 'Find health topics', standalone
       <div className={styles.matchesHeading}>{letter ? <span aria-hidden="true" className={styles.resultLetter}>{letter}</span> : null}<h3 id="health-matches-title">{letter ? `Topics beginning with ${letter}` : term ? 'Matching topics' : 'All topics'}</h3><p>{matches.length} {matches.length === 1 ? 'topic' : 'topics'}{term ? ` for “${query.trim()}”` : ''}</p></div>
       <div className={styles.results}>
         {results.map(({ topic, explanation }) => <button aria-controls="health-topic-reader" className={styles.topic} data-health-topic={topic.id} data-last-read={lastRead === topic.id || undefined} key={topic.id} onClick={() => { sourceScroll.current = window.scrollY; setLastRead(topic.id); setSelected(topic) }} ref={(element) => { if (element) resultButtons.current.set(topic.id, element); else resultButtons.current.delete(topic.id) }} type="button"><span><span><span className={styles.topicTitle}>{topic.name}</span>{lastRead === topic.id ? <small className={styles.lastRead}>Last opened</small> : null}{explanation ? <small className={styles.matchReason}>{explanation}</small> : null}</span><small>{topic.serviceName ?? routeLabels[topic.route]}</small></span><Arrow /></button>)}
-        {!matches.length ? <div className={styles.empty}><h3>No matching topics</h3><p>Try another word, choose a letter, or <Link href="/appointment">ask for help choosing a service</Link>.</p><button onClick={showAll} type="button"><InterfaceText>View all topics</InterfaceText></button></div> : null}
+        {!matches.length ? <div className={styles.empty}><h3>No matching topics</h3><p>Try another word, choose a letter, or <Link href="/contact#contact-reception">contact the hospital</Link>.</p><button onClick={showAll} type="button"><InterfaceText>View all topics</InterfaceText></button></div> : null}
       </div>
       {matches.length > resultBatchSize ? <div className={styles.pagination}><p>Showing {results.length} of {matches.length} topics</p><button disabled={results.length === matches.length} onClick={() => { expansionFocus.current = matches[visibleCount]?.topic.id ?? null; setVisibleCount((count) => count + resultBatchSize) }} type="button"><InterfaceText>{results.length === matches.length ? 'All topics shown' : 'Show more topics'}</InterfaceText></button></div> : null}
     </div> : null}
@@ -95,14 +95,13 @@ export function HealthLibrary({ topics, title = 'Find health topics', standalone
       <div className={styles.care}>
         <h4><Arrow /> Your next step</h4>
         <p>{selected.nextStep}</p>
-        <Link className={styles.primary} href={selected.appointmentHref ?? '/appointment'}>{selected.route === 'appointment' ? requestAppointmentLabel : 'Request appointment guidance'} <Arrow /></Link>
-        {selected.route === 'appointment' ? <div className={styles.secondary}><span>Unsure where to start?</span><Link href="/appointment">Request appointment guidance <Arrow /></Link></div> : null}
+        <Link className={styles.primary} href={selected.appointmentHref ?? '/contact#contact-reception'}>{selected.appointmentHref ? requestAppointmentLabel : 'Contact the hospital'} <Arrow /></Link>
       </div>
-      <Link className={styles.readMore} href={`/health-topics/${selected.id}`}>Prepare for a conversation about {selected.name.toLowerCase()} <Arrow /></Link>
+      <Link className={styles.readMore} href={`/health-topics/${selected.id}`}>Read more about {selected.name.toLowerCase()} <Arrow /></Link>
       <p className={styles.readerNote}>These guides help you prepare questions; they cannot diagnose a condition.</p>
     </section> : null}
     </div>
-    <noscript><p className={styles.fallback}>You can <Link href="/services">explore hospital services</Link>, <Link href="/appointment">request an appointment</Link> or <Link href="/#home-call">find contact information</Link>.</p></noscript>
+    <noscript><p className={styles.fallback}>You can <Link href="/services">explore hospital services</Link>, <Link href="/appointment">request an appointment</Link> or <Link href="/contact#contact-reception">find contact information</Link>.</p></noscript>
 
   </section>
 }

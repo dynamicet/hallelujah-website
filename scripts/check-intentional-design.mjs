@@ -5,7 +5,7 @@ const baseUrl = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
 
 await runVisualCheck('intentional-design', baseUrl, async ({ browser, output }) => {
  const page = await browser.newPage({ width: 1440, height: 1000 })
- for (const route of ['/', '/doctors', '/services', '/appointment', '/patients-visitors', '/emergency']) {
+ for (const route of ['/', '/doctors', '/services', '/appointment', '/contact', '/emergency']) {
   for (const width of [390, 768, 1440]) {
    await page.setViewport({ width, height: 1000, mobile: width < 600 })
    await page.goto(baseUrl + route)

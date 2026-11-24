@@ -9,9 +9,9 @@ export { styles as patientPageStyles }
 export type PatientPageVariant = 'care-detail' | 'practical-guide' | 'document' | 'recruitment' | 'task'
 export type PatientSectionContext = 'default' | 'quiet' | 'preparation' | 'story' | 'assistance'
 
-export function PatientPage({ title, description, current, action, children, variant, image: suppliedImage }: {
+export function PatientPage({ title, description, current, action, secondaryAction, children, variant, image: suppliedImage }: {
   title: string; description?: string; current: string; image?: CarePageImageSource
-  action?: { href: string; label: string }; children: ReactNode; variant: PatientPageVariant
+  action?: { href: string; label: string }; secondaryAction?: { href: string; label: string }; children: ReactNode; variant: PatientPageVariant
 }) {
   const image = suppliedImage
   return <PageContent breadcrumbs={{ label: 'Breadcrumb', items: [
@@ -21,7 +21,7 @@ export function PatientPage({ title, description, current, action, children, var
     { href: current, label: title, current: true },
   ] }}>
     <div className={styles.page} data-patient-page={current} data-page-variant={variant}>
-      <PageIntro title={title} description={description} action={action}
+      <PageIntro title={title} description={description} action={action} secondaryAction={secondaryAction}
         artwork={variant === 'care-detail' ? <div className={styles.heroArtwork}><CareBrandArtwork /></div> : undefined}
         visual={image ? <CarePageImage image={image} /> : undefined} />
       {children}

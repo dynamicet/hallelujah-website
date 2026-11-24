@@ -12,20 +12,26 @@ export function PageFrame({ children, className }: {
 }
 
 // A standard introduction is optional; bespoke heroes can supply their own markup.
-export function PageIntro({ title, description, action, visual, artwork }: {
+export function PageIntro({ title, description, action, secondaryAction, visual, artwork }: {
   readonly title: string
   readonly description?: string
   readonly action?: { readonly href: string; readonly label: string }
   readonly artwork?: ReactNode
+  readonly secondaryAction?: { readonly href: string; readonly label: string }
   readonly visual?: ReactNode
 }) {
   return <section className={styles.hero} aria-labelledby="patient-page-title">
     <div className={styles.heroCopy}>
       <h1 id="patient-page-title" data-reveal="0">{title}</h1>
       {description ? <p data-reveal="1">{description}</p> : null}
-      {action ? (action.href.startsWith('#')
-        ? <a className="solid-button blue-button" data-reveal="2" href={action.href}>{action.label}<span aria-hidden="true">→</span></a>
-        : <Link className="solid-button blue-button" data-reveal="2" href={action.href}>{action.label}<span aria-hidden="true">→</span></Link>) : null}
+      {action || secondaryAction ? <div className={styles.actions}>
+        {action ? (action.href.startsWith('#')
+          ? <a className="solid-button blue-button" data-reveal="2" href={action.href}>{action.label}<span aria-hidden="true">→</span></a>
+          : <Link className="solid-button blue-button" data-reveal="2" href={action.href}>{action.label}<span aria-hidden="true">→</span></Link>) : null}
+        {secondaryAction ? (secondaryAction.href.startsWith('#')
+          ? <a className="text-link" href={secondaryAction.href}>{secondaryAction.label}</a>
+          : <Link className="text-link" href={secondaryAction.href}>{secondaryAction.label}</Link>) : null}
+      </div> : null}
       {artwork}
     </div>
     {visual}

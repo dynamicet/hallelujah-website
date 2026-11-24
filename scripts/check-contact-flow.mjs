@@ -19,6 +19,9 @@ const activate = async (p, selector) => {
 }
 const landed = (p, id) => wait(p, `document.activeElement.id === ${JSON.stringify(id)} && document.activeElement.getBoundingClientRect().top >= document.querySelector('[data-site-header]').getBoundingClientRect().bottom && document.activeElement.getBoundingClientRect().top < innerHeight`)
 await runVisualCheck('contact-polish', base, async ({ browser, output }) => {
+  const redirect = await fetch(base + '/patients-visitors', { redirect: 'manual' })
+  assert.equal(redirect.status, 308)
+  assert.equal(new URL(redirect.headers.get('location'), base).href, base + '/contact#before-you-travel')
   const results = []
   for (const width of [320, 390, 768, 1440]) {
     const p = await browser.newPage({ width, height: 900, mobile: width < 600, reducedMotion: true })
@@ -52,6 +55,7 @@ await runVisualCheck('contact-polish', base, async ({ browser, output }) => {
     assert.match(targets.directions, /destination=8.9861882%2C38.7590401/)
     assert.deepEqual(targets.shortLinks, [])
     assert.equal(targets.runningAnimations, 0)
+    assert.equal(await p.eval(() => document.querySelectorAll('a[href^="/patients-visitors"], #before-you-travel input, #before-you-travel button').length), 0)
     await p.eval(() => document.querySelector('[data-map-credit]').focus())
     assert.equal(await p.eval('getComputedStyle(document.activeElement).outlineStyle'), 'solid')
     assert.ok(Number.parseFloat(await p.eval('getComputedStyle(document.activeElement).outlineOffset')) < 0, 'Map attribution focus stays inside the clipped map')
@@ -91,7 +95,14 @@ await runVisualCheck('contact-polish', base, async ({ browser, output }) => {
   await p.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [point] })
   await p.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] })
   await landed(p, 'directions')
+  await p.goto(base + '/appointment')
+  await activate(p, 'main a[href="/contact#what-to-bring"]')
+  await wait(p, 'location.pathname === "/contact" && location.hash === "#what-to-bring"')
+  await landed(p, 'what-to-bring')
   await p.send('Emulation.setScriptExecutionDisabled', { value: true })
+  await p.goto(base + '/patients-visitors#checklist')
+  await wait(p, 'location.pathname === "/contact" && location.hash === "#before-you-travel"')
+  assert.equal(await p.eval(() => document.querySelector('#what-to-bring-title').textContent), 'What to bring')
   await p.goto(base + '/contact')
   await activate(p, 'nav[aria-label="On this page"] a[href="#directions"]')
   await landed(p, 'directions')
@@ -99,5 +110,5 @@ await runVisualCheck('contact-polish', base, async ({ browser, output }) => {
   await p.screenshot({ path: `${output}/native-directions-390.png` })
   await p.close()
   await writeFile(`${output}/measurements.json`, JSON.stringify(results, null, 2) + '\n')
-  console.log('PASS skip navigation, touch shortcut and no-JavaScript directions shortcut/telephone')
+  console.log('PASS skip navigation, touch shortcut, appointment preparation deep link, legacy bookmark and no-JavaScript directions')
 })

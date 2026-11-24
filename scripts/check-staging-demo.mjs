@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 
 const origin = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
-const routes = ['/', '/doctors', '/services', '/appointment', '/patients-visitors',
+const routes = ['/', '/doctors', '/services', '/appointment', '/contact',
   '/emergency', '/about', '/feedback', '/referrals', '/health-topics', '/news-resources']
 
 for (const route of routes) {

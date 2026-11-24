@@ -209,16 +209,11 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
           </DirectorySearchForm>
         </section>
 
-        {profileLinks ? <section aria-labelledby="directory-visit-title" className={`${styles.support} ds-support-band`} data-ui-part="support" data-directory-support data-care-band="preparation">
-          <h2 id="directory-visit-title">Plan your visit</h2>
-          <Link className="ds-touch-target" href="/patients-visitors">Read the visit guide</Link>
-        </section> : null}
-
         <section aria-labelledby="directory-support-title" className={`${styles.support} ds-support-band`} data-ui-part="support" data-directory-support data-care-band="assistance" data-directory-section="D6" id="directory-support">
           <h2 id="directory-support-title">Need help choosing?</h2>
           <div className="ds-support-actions">
             <Link className="ds-touch-target" href="/services">View all services</Link>
-            <Link className="ds-touch-target" href="/#home-call">Contact information</Link>
+            <Link className="ds-touch-target" href="/contact">Contact &amp; directions</Link>
           </div>
         </section>
       </div>

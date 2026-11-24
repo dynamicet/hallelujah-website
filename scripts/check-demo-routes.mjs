@@ -129,7 +129,7 @@ try {
   }
   const demoData = JSON.parse(await readFile(new URL('../apps/web/src/demo/data.json', import.meta.url), 'utf8'))
   const patientPagesOnly = process.env.PATIENT_PAGES_ONLY === '1'
-  const paths = process.env.PATIENT_FEEDBACK_ONLY === '1' ? ['/feedback'] : [...(patientPagesOnly ? [] : ['/', '/doctors', '/services', '/emergency', '/appointment']), '/patients-visitors', '/feedback',
+  const paths = process.env.PATIENT_FEEDBACK_ONLY === '1' ? ['/feedback'] : [...(patientPagesOnly ? [] : ['/', '/doctors', '/services', '/emergency', '/appointment']), '/contact', '/feedback',
     ...demoData.services.map((service) => service.canonicalPath)]
   const checkedDestinations = new Map()
   for (const pathname of paths) {
@@ -170,7 +170,7 @@ try {
       console.log(`Patient responsive layouts passed: ${pathname}`)
     }
     await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
-    await navigate('/patients-visitors', 390)
+    await navigate('/contact', 390)
     assert.equal(await evaluate("document.getAnimations().filter(animation => animation.playState === 'running').length"), 0)
     await send('Emulation.setScriptExecutionDisabled', { value: true })
     noJavaScript = true
@@ -249,18 +249,9 @@ try {
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 1)
   cases.push('Homepage doctor search hands its query to the directory')
   await navigate('/')
-  await until("document.documentElement.dataset.hydration === 'ready'")
-  assert.equal(await evaluate("document.querySelectorAll('.navigator-choice').length"), 4)
-  for (const [label, target] of [['Explore services', '/services'], ['Plan a visit', '/patients-visitors'], ['Request appointment', '/appointment'], ['Find a doctor', '/doctors']]) {
-    await evaluate(`Array.from(document.querySelectorAll('.navigator-choice')).find(button => button.textContent.includes(${JSON.stringify(label)})).click()`)
-    await until(`document.querySelector('.navigator-result a').getAttribute('href') === ${JSON.stringify(target)}`)
-    assert.equal(await evaluate("document.querySelectorAll('.navigator-choice[aria-pressed=true]').length"), 1)
-  }
   // Below-fold images intentionally load lazily. Request them before checking asset integrity.
   await evaluate("Array.from(document.images).forEach(image => { image.loading = 'eager' })")
   await until("Array.from(document.images).every(image => image.complete && image.naturalWidth > 0)")
-  await evaluate("document.querySelector('.navigator-result a').click()")
-  await until("location.pathname === '/doctors' && !!document.querySelector('[data-clinician-public-id]')")
   await navigate('/doctors?q=Aster')
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 1)
   await navigate('/doctors?q=no-matching-name')

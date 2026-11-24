@@ -240,23 +240,6 @@
   margin-block-end: var(--semantic-space-compact);
 }
 
-.reviewNote {
-  background: var(--semantic-color-surface-supporting);
-  border: 0;
-  border-radius: var(--site-panel-radius);
-  color: var(--semantic-color-text-primary);
-  display: grid;
-  gap: var(--semantic-space-compact);
-  max-inline-size: var(--semantic-size-reading);
-  padding: clamp(24px, 3vw, 32px);
-}
-
-.frame .reviewNote h2 {
-  color: var(--semantic-color-accent-supporting-text);
-  font-size: var(--site-lead, 1.75rem);
-  line-height: var(--semantic-type-h3-line);
-}
-
 .review {
   border-color: var(--semantic-color-border-default);
   color: var(--semantic-color-text-secondary);
@@ -384,8 +367,8 @@
 }
 
 @media (forced-colors: active) {
-  .frame .support[data-care-band], .frame .reviewNote,
-  .frame .support[data-care-band] :is(h2, h3, p, li, small, a), .frame .reviewNote h2 { background: Canvas; color: CanvasText; }
+  .frame .support[data-care-band],
+  .frame .support[data-care-band] :is(h2, h3, p, li, small, a) { background: Canvas; color: CanvasText; }
   .frame .support[data-care-band] a:focus-visible { outline-color: Highlight; }
   .fixtureNotice,
   .requestPanel,
@@ -404,8 +387,8 @@
 }
 
 @media print {
-  .frame .support[data-care-band], .frame .reviewNote,
-  .frame .support[data-care-band] :is(h2, h3, p, li, small, a), .frame .reviewNote h2 { background: transparent; color: CanvasText; }
+  .frame .support[data-care-band],
+  .frame .support[data-care-band] :is(h2, h3, p, li, small, a) { background: transparent; color: CanvasText; }
   .frame {
     max-inline-size: none;
     padding: 0;
@@ -438,9 +421,3 @@
 .introduction > [data-clinician-portrait] { display: block; width: 220px; height: 240px; object-fit: contain; object-position: center bottom; background: var(--site-pale); }
 .portraitDisclosure { font-size: var(--site-support, 1rem); line-height: 1.5; }
 @media (max-width: 599px) { .introduction > [data-clinician-portrait] { width: 100px; height: 100px; } }
-
-.serviceContext { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-block: 24px; padding: 24px; border: 1px solid var(--semantic-color-border-default); background: var(--semantic-color-surface-subtle); }
-.serviceContext p { margin: 0; line-height: 1.6; }
-.serviceContext strong { display: block; margin-block: 4px; font-size: 1.25rem; color: var(--semantic-color-text-heading); }
-.serviceContext a { color: var(--semantic-color-text-link); }
-.serviceContext a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }

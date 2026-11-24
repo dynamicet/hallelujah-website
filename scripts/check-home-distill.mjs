@@ -37,11 +37,8 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
         await page.screenshot({ path: `${output}/quick-access-${width}-${reducedMotion ? 'reduced' : 'normal'}.png` })
         await enter(page)
         await waitFor(page, "location.pathname === '/services' && Boolean(document.querySelector('[data-service-directory-template]'))")
-        await page.goto(new URL('/patients-visitors', base).href)
-        for (const id of ['checklist', 'visit-times', 'accessibility']) {
-          assert.ok(await page.eval(`Boolean(document.getElementById(${JSON.stringify(id)}))`))
-        }
-        await page.eval("document.querySelector('main a[href=\"/health-topics\"]').focus()")
+        await page.goto(base)
+        await page.eval("document.querySelector('[data-site-footer] a[href=\"/health-topics\"]').focus()")
         await enter(page)
         await waitFor(page, "location.pathname === '/health-topics' && Boolean(document.querySelector('#health-topic-search'))")
         assert.equal(await page.eval("document.querySelectorAll('[aria-label=\"Find topics by first letter\"] button').length"), 26)
@@ -63,7 +60,7 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
         assert.deepEqual(page.consoleErrors, [])
       } finally { await page.close() }
     }
-    console.log(`PASS ${width}: services shortcut, visit guidance, full topic browser, equipment destination/disclosure, normal/reduced motion`)
+    console.log(`PASS ${width}: services shortcut, full topic browser, equipment destination/disclosure, normal/reduced motion`)
   }
   const page = await browser.newPage({ width: 390, height: 1000, mobile: true, reducedMotion: true })
   try {

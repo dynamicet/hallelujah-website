@@ -19,7 +19,6 @@ export const hospitalFooter = {
       { href: '/emergency', label: 'Emergency information' },
     ] },
     { label: 'Plan your visit', links: [
-      { href: '/patients-visitors', label: 'Patients & visitors' },
       { href: '/contact', label: 'Contact & directions' },
       { href: '/faq', label: 'Frequently asked questions' },
       { href: '/patient-rights', label: 'Patient rights & responsibilities' },

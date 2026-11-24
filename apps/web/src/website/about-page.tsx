@@ -139,8 +139,7 @@ export function AboutPage() {
         <div>
           <address><strong>{hospitalContact.name}</strong><span>{hospitalContact.address}</span></address>
           <div className={styles.actions}>
-            <Link className="solid-button blue-button" href="/patients-visitors">Plan your visit <Arrow /></Link>
-            <Link className="text-link" href="/contact">Contact &amp; directions <Arrow /></Link>
+            <Link className="solid-button blue-button" href="/contact">Contact &amp; directions <Arrow /></Link>
           </div>
         </div>
       </section>

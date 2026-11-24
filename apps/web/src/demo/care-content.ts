@@ -1,10 +1,5 @@
 /** Mock editorial content for the representative frontend care records. */
 export const careContent: Readonly<Record<string, { about: string; preparation: string; team?: string }>> = {
-  pub_111111111111: {
-    about: 'Plan your arrival with the admissions team and your referring clinician. Discuss the documents you need, support during your stay and who to contact with questions.',
-    preparation: 'Keep your referral, identification and earlier reports together. Confirm your arrival arrangements before travelling.',
-    team: 'The admissions team coordinates arrival arrangements with your referring clinician. Use the referral guidance to prepare the information they need.',
-  },
   pub_141414141414: {
     about: 'Family medicine is a starting point for new concerns and continuing care. Discuss everyday health, review ongoing conditions and plan any specialist follow-up you may need.',
     preparation: 'Bring your current medicine list and notes from earlier visits. Write down the concerns you would like to discuss first.',
@@ -19,12 +14,12 @@ export const careContent: Readonly<Record<string, { about: string; preparation: 
   },
   pub_171717171717: {
     about: 'Describe the movements and everyday activities you want to improve. The physiotherapy team will discuss your recovery goals, earlier treatment and the support that may help you work towards them.',
-    preparation: 'Bring your referral and any relevant imaging or therapy notes. Think about the activities that matter most to you and what currently feels difficult.',
+    preparation: 'Earlier imaging or therapy notes can help your physiotherapist understand what has already been tried.',
     team: 'Your visit is coordinated by the physiotherapy team. Request the service without choosing a doctor; the team will discuss the assessment and visit arrangements with you.',
   },
   pub_181818181818: {
     about: 'Discuss speech, language or communication needs and how they affect everyday life. An initial conversation helps the therapy team understand your goals and any previous support.',
-    preparation: 'Bring earlier assessment or therapy reports if you have them. A family member or caregiver can help describe your questions and communication goals.',
+    preparation: 'Earlier speech or language assessments can help explain what support you have already received. A family member or caregiver can help describe your communication goals.',
     team: 'Reception can connect you with the speech and language therapy team. Explain the support you are looking for and ask how to arrange an initial assessment.',
   },
   pub_212121212121: {

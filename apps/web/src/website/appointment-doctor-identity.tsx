@@ -11,14 +11,16 @@ export type AppointmentDoctorIdentity = Readonly<{
 }>
 
 /** The local preview's identity follows the actual form selection, including route changes. */
-export function AppointmentDoctorIdentity({ doctors, initialDoctorId, serviceContext, services = [], compact = false }: {
+export function AppointmentDoctorIdentity({ doctors, initialDoctorId, initialServiceId, directoryHref, serviceContext, services = [], compact = false }: {
   readonly compact?: boolean
   readonly doctors: readonly AppointmentDoctorIdentity[]; readonly initialDoctorId?: string
+  readonly initialServiceId?: string
+  readonly directoryHref?: string
   readonly services?: readonly { publicId: string; name: string; canonicalPath: string }[]
   readonly serviceContext?: { readonly doctorId: string; readonly name: string; readonly href: string }
 }) {
   const [selectedId, setSelectedId] = useState(initialDoctorId)
-  const [serviceId, setServiceId] = useState<string>()
+  const [serviceId, setServiceId] = useState(initialServiceId)
   useEffect(() => {
     const form = document.querySelector<HTMLFormElement>('#appointment-request-form')
     if (!form) return
@@ -33,7 +35,7 @@ export function AppointmentDoctorIdentity({ doctors, initialDoctorId, serviceCon
     return () => { form.removeEventListener('change', sync); form.removeEventListener('appointment-selection-change', sync) }
   }, [])
   const selectedService = services.find((entry) => entry.publicId === serviceId)
-  const context = selectedService ? { doctorId: selectedId, name: selectedService.name, href: carePathWithDoctor(selectedService, selectedId) } : services.length ? undefined : serviceContext
+  const context = selectedService ? { doctorId: selectedId, name: selectedService.name, href: carePathWithDoctor(selectedService, selectedId, directoryHref) } : services.length ? undefined : serviceContext
   const doctor = doctors.find((entry) => entry.publicId === selectedId)
   if (compact) return context ? <div data-appointment-service-context>
     <Link href={`${context.href}#care-team`}>Back to care details</Link>

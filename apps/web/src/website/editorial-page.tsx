@@ -40,7 +40,7 @@ export default async function EditorialPage({ params, searchParams }: { params: 
         <div className={styles.articleMeta}><span>{entry.category} · {entry.readingMinutes} minute read</span><span>Published <time dateTime={entry.publishedAt}>{editorialDate(entry.publishedAt)}</time></span></div>
       </header>
       <div className={styles.articleLayout}>
-        <div className={styles.readingAside}>{chapters.length >= 3 ? <ArticleReadingGuide chapters={chapters} /> : null}<aside className={styles.aside} aria-labelledby="editorial-next-step"><h2 id="editorial-next-step">Visit preparation</h2><Link className="text-link" href="/patients-visitors#checklist">Make a visit checklist <span aria-hidden="true">→</span></Link><Link className="text-link" href="/health-topics">View health & care topics <span aria-hidden="true">→</span></Link></aside></div>
+        {chapters.length >= 3 ? <div className={styles.readingAside}><ArticleReadingGuide chapters={chapters} /></div> : null}
         <div className={styles.articleBody}>
           {entry.event ? <dl className={styles.eventDetails}>
             <dt>{eventStatus(entry.event.startsAt)}</dt><dd><time dateTime={entry.event.startsAt}>{editorialDate(entry.event.startsAt)} · {new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Africa/Addis_Ababa' }).format(new Date(entry.event.startsAt))} (Addis Ababa, UTC+3)</time></dd>

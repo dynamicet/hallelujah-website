@@ -6,7 +6,7 @@ import { clinicianBiographies, clinicians, requireLocalDemo, services, type Demo
 import { demoScenario } from '@/demo/scenarios'
 import { relatedCareIds, carePathWithDoctor, appointmentHref, clinicianFilters, isRequestableCare, careEntry } from '@/demo/care-model'
 import { doctorSearchTerms } from '@/demo/care-discovery'
-import { healthTopics } from '@/demo/health-topics'
+import { serviceDirectoryReturn } from '@/demo/service-directory-return'
 
 async function resolveClinician(params: Promise<{ slug: string }>) {
   requireLocalDemo()
@@ -33,7 +33,7 @@ export default async function DoctorProfilePage({ params, searchParams }: { para
   } } : clinician
   const related = services.filter((service) => relatedCareIds(clinician.publicId).includes(service.publicId))
   const selectedService = related.find((service) => service.publicId === parameters.service && isRequestableCare(service.publicId))
-  const topics = healthTopics.filter((topic) => related.some((service) => topic.servicePublicId === service.publicId))
+  const serviceResultsHref = serviceDirectoryReturn(parameters.from)
   let directoryHref = '/doctors'
   if (typeof parameters.from === 'string' && parameters.from.startsWith('/doctors')) {
     const source = new URL(parameters.from, 'https://local.invalid')
@@ -45,15 +45,14 @@ export default async function DoctorProfilePage({ params, searchParams }: { para
     }
   }
   return <ClinicianProfileTemplate relatedSpecialtyIds={related.filter((service) => careEntry(service.publicId)?.kind === 'specialty').map((service) => service.publicId)}
-    selectionNotice={parameters.service && !selectedService ? 'Your previous care choice is not available with this doctor. You can request this doctor or choose from the related care below.' : undefined} portraitSrc={demoClinicianPortraits[clinician.publicId]} appointmentHref={appointmentHref({ doctorId: clinician.publicId, serviceId: selectedService?.publicId })}
-    serviceContext={selectedService ? { name: selectedService.name, href: carePathWithDoctor(selectedService, clinician.publicId) } : undefined}
+    selectionNotice={parameters.service && !selectedService ? 'Your previous care choice is not available with this doctor. You can request this doctor or choose from the related care below.' : undefined} portraitSrc={demoClinicianPortraits[clinician.publicId]} appointmentHref={appointmentHref({ doctorId: clinician.publicId, serviceId: selectedService?.publicId }, serviceResultsHref)}
+    serviceContext={selectedService ? { name: selectedService.name, href: carePathWithDoctor(selectedService, clinician.publicId, serviceResultsHref) } : undefined}
     biography={partial ? undefined : clinicianBiographies.get(clinician.publicId)}
     directoryHref={directoryHref}
-    relatedTopics={partial ? [] : topics.map((topic) => ({ name: topic.name, href: `/health-topics/${topic.id}` }))}
     profile={{ clinician: displayedClinician, canonicalPath: clinician.canonicalPath,
       locations: partial ? [] : [{ publicId: 'demo-care-desk', title: 'Outpatient care desk' }],
       relatedServices: partial ? [] : related.map((service) => ({
-        canonicalPath: carePathWithDoctor(service, clinician.publicId), name: service.name, publicId: service.publicId,
+        canonicalPath: carePathWithDoctor(service, clinician.publicId, serviceResultsHref), name: service.name, publicId: service.publicId,
       })), outcome: 'profile' }}
     breadcrumbs={{ label: 'Breadcrumb', items: [
       { href: '/', label: 'Home' }, { href: '/doctors', label: 'Doctors' },
