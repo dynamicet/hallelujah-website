@@ -41,3 +41,15 @@
 .connect { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--site-white); text-underline-offset: 5px; }
 .connect:hover { text-decoration-thickness: 2px; }
 .connect:focus-visible { outline: 3px solid var(--site-white); outline-offset: 4px; }
+
+.place { position: relative; }
+.place::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -.04em;
+  height: .055em;
+  background: var(--semantic-color-text-inverse-accent);
+  border-radius: 70% 25% 60% 30%;
+  transform: rotate(-2deg);
+  pointer-events: none;
+}

@@ -198,3 +198,25 @@
 @media (forced-colors: active) {
   .enhanced-home .human-introduction a:focus-visible { outline-color: Highlight; }
 }
+
+.welcome-phrase, .welcome-phrase > span { position: relative; }
+.welcome-phrase { white-space: nowrap; }
+.welcome-phrase::after, .welcome-phrase > span::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: auto 0 -.075em;
+  height: .095em;
+  background: var(--semantic-color-surface-editorial-marker);
+  clip-path: polygon(0 60%, 15% 35%, 42% 12%, 71% 5%, 93% 18%, 100% 36%, 89% 46%, 62% 49%, 30% 72%, 3% 100%);
+}
+.welcome-phrase > span::after { display: none; }
+@media (max-width: 359px) {
+  .welcome-phrase { white-space: normal; }
+  .welcome-phrase::after { display: none; }
+  .welcome-phrase > span::after { display: block; }
+}
+@media screen and (min-width: 360px) and (prefers-reduced-motion: no-preference) {
+  .welcome-phrase::after { animation: welcome-brush 450ms ease-out 120ms backwards; }
+  @keyframes welcome-brush { from { opacity: 0; transform: scaleX(0); transform-origin: left; } to { opacity: 1; transform: scaleX(1); transform-origin: left; } }
+}

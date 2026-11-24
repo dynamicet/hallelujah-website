@@ -145,6 +145,7 @@
   --semantic-color-surface-supporting: var(--primitive-color-blue-050);
   --semantic-color-surface-expressive: var(--primitive-color-white);
   --semantic-color-surface-assistance: var(--primitive-color-blue-050);
+  --semantic-color-surface-editorial-marker: var(--primitive-color-orange-100);
   --semantic-color-surface-arrival: var(--primitive-color-orange-100);
   --semantic-color-brand-cool: var(--primitive-color-brand-cyan);
   --semantic-color-brand-warm: var(--primitive-color-orange-600);

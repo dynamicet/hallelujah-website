@@ -45,7 +45,7 @@ export function WebsiteHome() {
                 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>
                 <span className="welcome-location-text"><span>Gotera Agona <span aria-hidden="true">·</span></span><span className="welcome-location-city">Addis Ababa, Ethiopia</span></span>
               </a>
-              <h1 id="welcome-title">Care for your whole life.</h1>
+              <h1 id="welcome-title">Care for your <span className="welcome-phrase">whole <span>life</span></span>.</h1>
               <p>Hallelujah General Hospital</p>
               <div className="welcome-actions">
                 <Link className="welcome-appointment" href="/appointment"><span>{requestAppointmentLabel}</span><HeroArrow /></Link>

@@ -45,6 +45,7 @@ export function WebsiteMotion() {
         observer.unobserve(element)
         // Focus and essential actions must never wait for an entrance.
         if (reducedMotion.matches || element.matches(':focus-within')) return
+        if (element.hasAttribute('data-record-entry')) element.dataset.entered = 'true'
         const step = Number(element.dataset.reveal) || 0
         element.style.setProperty('--motion-step', String(Math.min(3, Math.max(0, step))))
         element.classList.add('website-entered')

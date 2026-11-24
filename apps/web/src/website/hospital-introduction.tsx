@@ -7,7 +7,7 @@ export function HospitalIntroduction() {
     <div className="page-frame">
       <div className={styles.panel}>
         <div className={styles.copy}>
-          <h2 id="hospital-introduction-title">From Gotera, caring for Addis Ababa.</h2>
+          <h2 id="hospital-introduction-title">From <span className={styles.place}>Gotera</span>, caring for Addis Ababa.</h2>
           <p>Hallelujah General Hospital began as a specialist center for internal medicine and chest disease. Today, we provide general hospital care in Gotera.</p>
           <div className={styles.actions}>
             <Link className={`solid-button ${styles.action}`} href="/about">Learn more about us <span aria-hidden="true">→</span></Link>

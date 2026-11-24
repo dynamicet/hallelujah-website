@@ -10,6 +10,16 @@
 .enhanced-home .everyday-feature-person { margin: 12px 0 0; font-size: 16px; }
 .enhanced-home .everyday-feature h3 { margin: 0; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.2; }
 .enhanced-home .everyday-feature-introduction { max-width: 48ch; margin: 16px 0 24px; font-size: 18px; line-height: 1.55; }
+.everyday-feature-introduction mark {
+  color: inherit;
+  background: linear-gradient(178deg, transparent 37%, var(--semantic-color-surface-editorial-marker) 38% 92%, transparent 93%);
+  border-radius: 14% 8% 16% 6% / 10%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+@media (forced-colors: active) {
+  .everyday-feature-introduction mark { background: Mark; color: MarkText; }
+}
 .everyday-feature-actions { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 12px; }
 .everyday-feature-actions > details { min-width: 0; }
 .everyday-feature-actions summary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; gap: 12px; padding: 10px 0; cursor: pointer; font-size: 16px; font-weight: 600; list-style: none; }

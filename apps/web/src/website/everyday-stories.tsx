@@ -8,6 +8,14 @@ export type PatientQuote = {
   attribution: string
 }
 
+function storyQuote({ quote, highlightedPhrase }: PatientStory) {
+  if (!highlightedPhrase) return quote
+  const start = quote.indexOf(highlightedPhrase)
+  if (start < 0) return quote
+
+  return <>{quote.slice(0, start)}<mark>{highlightedPhrase}</mark>{quote.slice(start + highlightedPhrase.length)}</>
+}
+
 export function EverydayStories({ stories, quotes }: {
   stories: readonly PatientStory[]
   quotes: readonly PatientQuote[]
@@ -42,7 +50,7 @@ export function EverydayStories({ stories, quotes }: {
               <div data-motion="soft" data-reveal={index + 1} className="everyday-feature-copy">
                 <h3 id={`everyday-${story.id}`}>{story.title}</h3>
                 <p className="everyday-feature-person">{story.attribution}’s story</p>
-                <p className="everyday-feature-introduction">{story.quote}</p>
+                <p className="everyday-feature-introduction">{storyQuote(story)}</p>
                 <div className="everyday-feature-actions">
                   {playable && video ? (
                     <details id={`film-${story.id}`} data-motion-disclosure className="everyday-film">
