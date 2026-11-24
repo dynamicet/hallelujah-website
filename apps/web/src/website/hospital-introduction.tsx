@@ -8,9 +8,9 @@ export function HospitalIntroduction() {
       <div className={styles.panel}>
         <div className={styles.copy}>
           <h2 id="hospital-introduction-title" data-reveal="0" data-motion="heading">From <span className={styles.place}>Gotera</span>, caring for Addis Ababa.</h2>
-          <p>Hallelujah General Hospital began as a specialist center for internal medicine and chest disease. Today, we provide general hospital care in Gotera.</p>
+          <p>We welcomed our first patients on Bole Road in 2007. Today, we care for patients here in Gotera.</p>
           <div className={styles.actions}>
-            <Link className={`solid-button ${styles.action}`} href="/about">Learn more about us <span aria-hidden="true">→</span></Link>
+            <Link className={`solid-button ${styles.action}`} href="/about#our-story">Read our story <span aria-hidden="true">→</span></Link>
             <Link className={styles.connect} href="/partnerships">Connect with us <span aria-hidden="true">→</span></Link>
           </div>
         </div>

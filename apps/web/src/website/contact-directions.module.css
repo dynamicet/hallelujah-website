@@ -64,3 +64,20 @@
   .columns { gap: 32px; }
   .section a { color: black; }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .mapPin b { position: relative; }
+  .mapPin b[data-entered]::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 2px solid var(--site-ink);
+    border-radius: 50%;
+    opacity: 0;
+    animation: locateHospital 850ms ease-out;
+  }
+  @keyframes locateHospital {
+    from { opacity: .65; transform: scale(.95); }
+    to { opacity: 0; transform: scale(1.65); }
+  }
+}

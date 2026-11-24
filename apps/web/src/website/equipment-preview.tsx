@@ -12,8 +12,8 @@ export function EquipmentPreview() {
       </figure>
       <div className={styles.copy} data-reveal="0" data-motion="heading">
         <h2 id="equipment-title">Technology behind your care</h2>
-        <p>C-arm imaging, laboratory analysis and panoramic dental imaging.</p>
-        <Link className="text-link" href="/services#medical-technology">Explore technology &amp; preparation <span aria-hidden="true">→</span></Link>
+        <p>See the C in the X-ray machine? Its curved arm helps the team take images from different angles.</p>
+        <Link className="text-link" href="/services#medical-technology">Explore our equipment <span aria-hidden="true">→</span></Link>
       </div>
     </div>
   </section>

@@ -1,5 +1,6 @@
 import { InterfaceLink as Link } from '@/website/interface-language'
 import { requireLocalDemo } from '@/demo/site'
+import { RoleReference } from '@/website/role-reference'
 import { PatientPage, PatientSection } from '@/website/patient-page'
 import { hospitalContact } from '@/website/hospital-contact'
 import informationStyles from '@/website/information-pages.module.css'
@@ -22,7 +23,7 @@ export default function CareersPage() {
       {jobs.length > 0 && <p>Full time · Addis Ababa</p>}
       <div className={informationStyles.disclosures}>{jobs.map((job) => <details className={informationStyles.disclosure} id={job.id} key={job.id}>
         <summary><span><span className={informationStyles.jobTitle}>{job.title}</span><span className={informationStyles.jobMeta}>{job.department}</span></span></summary>
-        <div className={informationStyles.answer}><p>{job.description}</p><h3>What you’ll do</h3><ul>{job.responsibilities.map((responsibility) => <li key={responsibility}>{responsibility}</li>)}</ul><h3>What you’ll bring</h3><p>{job.qualifications}</p><p><strong>Role reference:</strong> {job.reference}</p><a className="text-link" href="#apply">Prepare your application <span aria-hidden="true">→</span></a></div>
+        <div className={informationStyles.answer}><p>{job.description}</p><h3>What you’ll do</h3><ul>{job.responsibilities.map((responsibility) => <li key={responsibility}>{responsibility}</li>)}</ul><h3>What you’ll bring</h3><p>{job.qualifications}</p><RoleReference reference={job.reference} /><a className="text-link" href="#apply">Prepare your application <span aria-hidden="true">→</span></a></div>
       </details>)}</div>
     </PatientSection>
     <PatientSection id="apply" title="How to apply">

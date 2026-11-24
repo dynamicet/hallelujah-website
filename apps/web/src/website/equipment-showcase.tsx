@@ -53,6 +53,9 @@ function EquipmentImage({ item }: { item: Equipment }) {
       <source type="image/avif" srcSet={`/editorial/${item.image}-640.avif 640w, /editorial/${item.image}-1440.avif 1440w`} sizes={sizes} />
       <img src={`/editorial/${item.image}-1440.webp`} srcSet={`/editorial/${item.image}-640.webp 640w, /editorial/${item.image}-1440.webp 1440w`} sizes={sizes} alt={item.alt} width="1440" height="960" loading="lazy" />
     </picture>
+    {item.id === 'c-arm' && <svg className={styles.armTrace} viewBox="0 0 480 320" aria-hidden="true" focusable="false">
+      <path d="M 350 48 C 290 78 294 183 356 205" pathLength="1" />
+    </svg>}
   </figure>
 }
 

@@ -100,7 +100,10 @@ export function WebsiteHome() {
               ))}
             </FeaturedSpecialists>
             <div className="team-next-step">
-              <h3>Not sure who to see?</h3>
+              <div>
+                <h3>Not sure who to see?</h3>
+                <p>You can request an appointment without choosing a doctor or service.</p>
+              </div>
               <Link className="team-care-help" href="/appointment">{requestAppointmentLabel} <Arrow /></Link>
             </div>
           </div>

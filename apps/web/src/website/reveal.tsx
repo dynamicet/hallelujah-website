@@ -51,6 +51,7 @@ export function WebsiteMotion() {
         // Focus and essential actions must never wait for an entrance.
         if (reducedMotion.matches || element.matches(':focus-within')) return
         if (element.hasAttribute('data-record-entry')) element.dataset.entered = 'true'
+        if (!element.matches(revealTarget)) return
         const group = element.parentElement
         let step = Number(element.dataset.reveal) || 0
         if (group?.hasAttribute('data-reveal-group')) {
@@ -69,6 +70,7 @@ export function WebsiteMotion() {
         })
       })
     }, { threshold: .08, rootMargin: '0px 0px -5% 0px' })
+    const observedTarget = revealTarget + ", [data-record-entry]"
     const register = (root: ParentNode) => {
       const chapterElements = [...root.querySelectorAll<HTMLElement>('.enhanced-home [data-motion-chapter]')]
       if (root instanceof HTMLElement && root.matches('.enhanced-home [data-motion-chapter]')) chapterElements.push(root)
@@ -78,8 +80,8 @@ export function WebsiteMotion() {
         element.classList.add('motion-chapter-ready')
         chapterObserver.observe(element)
       })
-      const elements = [...root.querySelectorAll<HTMLElement>(revealTarget)]
-      if (root instanceof HTMLElement && root.matches(revealTarget)) elements.push(root)
+      const elements = [...root.querySelectorAll<HTMLElement>(observedTarget)]
+      if (root instanceof HTMLElement && root.matches(observedTarget)) elements.push(root)
       elements.forEach((element) => {
         if (seen.has(element)) return
         seen.add(element)

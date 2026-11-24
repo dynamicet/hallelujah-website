@@ -17,3 +17,20 @@
 .contactLinks a { min-height: 44px; display: inline-flex; align-items: center; }
 @media (max-width: 599px) { .disclosure summary { padding-block: 20px; gap: 16px; } }
 @media print { .disclosure .answer { display: block !important; } .disclosure summary::after { display: none; } }
+
+.reference { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; margin-block: 1em; }
+.reference button {
+  display: none;
+  min-height: 44px;
+  padding-inline: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--site-link);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+:global(html[data-hydration='ready']) .reference button { display: inline-block; }
+.reference button:focus-visible { outline: 3px solid var(--semantic-color-focus); }
+.reference [role='status'] { font-size: var(--site-support); }

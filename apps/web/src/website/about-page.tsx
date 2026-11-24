@@ -57,7 +57,7 @@ export function AboutPage() {
           <p>Our first patients came to a specialist center on Bole Road. As the practice grew, so did the range of care we could offer under one roof.</p>
         </div>
         <ol className={styles.timeline} data-reveal-group>
-          {milestones.map((milestone) => <li key={milestone.year}><span className={styles.year}>{milestone.year}</span><p>{milestone.text}</p></li>)}
+          {milestones.map((milestone) => <li key={milestone.year} data-record-entry><span className={styles.year}>{milestone.year}</span><p>{milestone.text}</p></li>)}
         </ol>
       </section>
 

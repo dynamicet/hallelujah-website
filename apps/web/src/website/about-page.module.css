@@ -11,8 +11,8 @@
 .page h2 { font-size: clamp(30px, 3vw, 44px); line-height: 1.12; }
 .chapter { margin-top: 88px; }
 .chapterIntro > p { max-width: 33ch; margin: 24px 0 0; font-size: 18px; line-height: 1.65; }
-.timeline { display: grid; gap: 32px; padding: 0; margin: 0; list-style: none; }
-.timeline li { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 24px; align-items: start; }
+.timeline { --milestone-gap: 32px; display: grid; gap: var(--milestone-gap); padding: 0; margin: 0; list-style: none; }
+.timeline li { position: relative; padding-inline-start: 14px; display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 24px; align-items: start; }
 .year { font-family: var(--site-display); font-size: 36px; line-height: 1.15; }
 .timeline p { margin: 0; max-width: 36ch; font-size: 18px; line-height: 1.65; }
 .valuesChapter { padding-block: 48px; }
@@ -93,7 +93,7 @@
   .scene img { height: 250px; object-position: center 30%; }
   .page h1 { font-size: 40px; }
   .page .intro { margin-top: 20px; font-size: 20px; }
-  .timeline { gap: 28px; }
+  .timeline { --milestone-gap: 28px; }
   .timeline li { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
   .year { font-size: 30px; }
   .timeline p, .chapterIntro > p { font-size: 17px; }
@@ -114,3 +114,29 @@
   .leaderBackground { grid-column: 1 / -1; margin-top: 8px; font-size: 15px; }
 }
 @media (forced-colors: active) { .page :is(a, button, section[tabindex='-1']):focus-visible { outline-color: Highlight; } }
+
+.timeline li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 2px;
+  top: 1em;
+  height: calc(100% + var(--milestone-gap));
+  width: 2px;
+  border-radius: 60% 30%;
+  background: color-mix(in srgb, var(--semantic-color-brand-warm) 36%, var(--semantic-color-surface-editorial-marker));
+  transform-origin: top;
+}
+.timeline li::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(1em - 2px);
+  width: 6px;
+  height: 5px;
+  border-radius: 50% 40%;
+  background: var(--semantic-color-brand-warm);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .timeline li[data-entered]::before { animation: milestoneStroke 780ms ease-out backwards; }
+  @keyframes milestoneStroke { from { transform: scaleY(0); } }
+}
