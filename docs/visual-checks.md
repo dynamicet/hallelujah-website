@@ -25,8 +25,8 @@ with the supported Node version. Start the current site with `pnpm dev` first.
 | `pnpm visual:motion` | Existing home motion, live reduced-motion, and static fallback contracts |
 | `pnpm visual:care-continuity` | Specialty filters; care → doctor and doctor → care → appointment; joint selections, compatible editing, invalid context, team-only care, keyboard recovery, reduced motion and four local preparation paths without patient-data delivery/storage at three widths |
 | `pnpm visual:appointment` | Appointment error focus and keyboard recovery, compatible choices, date limits, review validation, local preparation and retained editing, unsure-care guidance, long-script text and synthesized cached-page lifecycle cleanup at three widths; explicit example receipt/retry/unknown/duplicate/delivery-warning states remain separate from normal local preparation |
-| `pnpm visual:help` | Stable Help anchor and clearance from controls while scrolling home/directory/topic pages, keyboard access, two-option menu, guide topics/replies, spelling confirmation and topic clarification, session care follow-ups, contact actions, keyboard dismissal/return, reset/reopen, profile/service appointment context, reduced motion and failed-download retry at phone/tablet/desktop/short viewports |
-| `pnpm visual:quality` | Public-page skip links, control names and fragment targets; keyboard section jumps, feedback recovery, health-reader focus, navigation and help dismissal |
+| `pnpm visual:help` | Stable Help anchor and clearance from controls while scrolling home, directory and service pages, keyboard access, two-option menu, guide topics/replies, spelling confirmation and topic clarification, session care follow-ups, contact actions, keyboard dismissal/return, reset/reopen, profile/service appointment context, reduced motion and failed-download retry at phone/tablet/desktop/short viewports |
+| `pnpm visual:quality` | Public-page skip links, control names and fragment targets; keyboard section jumps, feedback recovery, navigation dismissal, hotline focus and search recovery |
 | `pnpm visual:journeys` | Existing six-route responsive checks, service selection, mobile navigation, and reduced motion |
 
 Use `HH_PREVIEW_URL=http://localhost:3001 pnpm visual:check /` for another preview.
@@ -53,7 +53,7 @@ their asserted page contracts change. Automated passes do not establish aestheti
 quality, assistive-technology behavior, cross-browser parity, or production readiness.
 Old reports and captures remain historical records and cannot validate current work.
 
-D5 reader and disclosure continuity: `pnpm visual:reading` checks keyboard opening/return, original result and scroll restoration, nested transcript closure, reduced motion and the native no-JavaScript story fallback at 390/768/1440px. Inspect its captures separately from the automated result.
+D5 story disclosure continuity: `pnpm visual:reading` checks keyboard opening and focus return, nested transcript closure, reduced motion and the native no-JavaScript story fallback at 390/768/1440px. Inspect its captures separately from the automated result.
 
 D5 full article journeys: `pnpm visual:editorial` checks homepage and filtered archive sources, keyboard chapter links and card focus return, browser Back/Forward, short-article guide omission, reduced motion and no-JavaScript anchors.
 

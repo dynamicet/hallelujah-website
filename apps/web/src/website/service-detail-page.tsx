@@ -9,7 +9,6 @@ import { clinicians, requireLocalDemo, type DemoSearchParams } from '@/demo/site
 import { serviceVisitQuestions } from '@/demo/service-details'
 import { careContent } from '@/demo/care-content'
 import { appointmentHref, careEntry, carePathWithDoctor, isRequestableCare, relatedDoctorIds } from '@/demo/care-model'
-import { healthTopics } from '@/demo/health-topics'
 import { PatientPage, PatientSection, patientPageStyles as styles } from '@/website/patient-page'
 import serviceStyles from '@/website/service-page.module.css'
 
@@ -62,7 +61,6 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
   const connectedCare = directoryServices.filter((entry) => specialty
     ? careEntry(entry.publicId)?.specialtyIds.includes(service.publicId)
     : care?.specialtyIds.includes(entry.publicId))
-  const topics = healthTopics.filter((topic) => topic.servicePublicId === service.publicId)
   const preparation = service.sections.preparation ?? (copy?.preparation ? [copy.preparation] : [])
   const questions = serviceVisitQuestions[service.publicId] ?? []
   const hasPreparation = preparation.length > 0 || questions.length > 0
@@ -104,8 +102,5 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
         <p>Need urgent help? <Link href="/emergency">Read emergency information.</Link></p>
       </div>
     </PatientSection>
-    {topics.length ? <PatientSection id="related-topics" title="Related health topics">
-      <ul>{topics.map(topic => <li key={topic.id}><Link href={`/health-topics/${topic.id}`}>{topic.name}</Link></li>)}</ul>
-    </PatientSection> : null}
   </PatientPage>
 }

@@ -30,7 +30,6 @@ export interface ClinicianDirectoryTemplateProps {
   readonly portraits?: Readonly<Record<string, string>>
   readonly portraitDisclosure?: string
   readonly expandedSearch?: boolean
-  readonly relatedTopics?: readonly { name: string; href: string }[]
   readonly directory: ClinicianDirectoryView
   readonly profileLinks?: boolean
   readonly pathname: string
@@ -53,7 +52,7 @@ function recovery(state: Exclude<ClinicianDirectoryReviewState, 'ready'>) {
   }
 }
 
-export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDisclosure, expandedSearch = false, relatedTopics = [], directory, pathname, profileLinks = false, shell, state }: ClinicianDirectoryTemplateProps) {
+export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDisclosure, expandedSearch = false, directory, pathname, profileLinks = false, shell, state }: ClinicianDirectoryTemplateProps) {
   const allowedFilters = directory.filters.map((filter) => filter.value)
   const searchState = directory.state
   const activeFilters: ActiveFilter[] = directory.filters
@@ -110,11 +109,6 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
               />
             </div>
 
-            {relatedTopics.length ? <section className={styles.guidance} aria-labelledby="related-topics-title">
-              <h2 id="related-topics-title">Health topics for your search</h2>
-              <p>Understand your concern and explore care options. A topic may be available even when no doctor is listed.</p>
-              <ul>{relatedTopics.map((topic) => <li key={topic.href}><Link href={topic.href}>{topic.name}</Link></li>)}</ul>
-            </section> : null}
             <details data-directory-guidance aria-labelledby="directory-guidance-title" className={styles.guidance}>
               <summary><h2 id="directory-guidance-title">Not sure where to begin?</h2></summary>
               <Link className="ds-touch-target" href="/appointment">Request appointment guidance</Link>
@@ -168,6 +162,7 @@ export function ClinicianDirectoryTemplate({ introVisual, portraits, portraitDis
                     <div className={styles.stateActions} data-directory-state-actions>
                       <a className="ds-touch-target" href={pathname}><InterfaceText>Reset search</InterfaceText></a>
                       <Link className="ds-touch-target" href="/services">View all services</Link>
+                      {expandedSearch ? <Link className="ds-touch-target" href="/contact#contact-reception">Contact reception</Link> : null}
                     </div>
                   </div>
                 ) : (

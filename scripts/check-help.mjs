@@ -29,7 +29,7 @@ await runVisualCheck('help-refinement',base,async({browser,output})=>{
  const results=[]
  for(const [width,height] of [[390,844],[768,900],[1440,900],[320,700],[375,400],[844,390]]){
   const p=await browser.newPage({width,height,mobile:width<600,reducedMotion:true})
-  for(const route of ['/','/doctors','/health-topics/diabetes']){
+  for(const route of ['/','/doctors','/services/synthetic-service-141414141414']){
    await p.goto(base+route)
    const inBounds=await p.eval(()=>{const r=document.querySelector('[data-help-trigger]').getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight})
    assert.equal(inBounds,true,`${width} ${route}: Help anchor in bounds`)

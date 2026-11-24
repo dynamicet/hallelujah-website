@@ -28,7 +28,6 @@ export const hospitalFooter = {
       { href: '/about', label: 'About Us' },
       hospitalCollaborationLink,
       { href: '/news-resources', label: 'News & resources' },
-      { href: '/health-topics', label: 'Health & care topics' },
       { href: '/feedback', label: 'Patient feedback' },
       { href: '/careers', label: 'Careers' },
     ] },

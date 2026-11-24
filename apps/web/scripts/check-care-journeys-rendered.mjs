@@ -5,7 +5,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 // Run against the existing local demo: pnpm dev, then pnpm --dir apps/web care-journeys:smoke.
-const origin = 'http://localhost:3000'
+const origin = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
 const capture = path.resolve(process.env.CARE_EVIDENCE_DIR ?? fileURLToPath(new URL('../../../artifacts/care-journeys/', import.meta.url)))
 await mkdir(capture, { recursive: true })
 const profileRoot = process.env.CARE_BROWSER_PROFILE_ROOT ?? fileURLToPath(new URL('../../../tmp/', import.meta.url))
@@ -86,32 +86,42 @@ try {
   }
   const ready = "!document.querySelector('[data-appointment-safe-form]')?.hasAttribute('inert')"
   for (const width of [390, 768, 1440]) {
-    for (const route of ['/health-topics/diabetes', '/contact', '/appointment?service=pub_141414141414', '/doctors?q=blood%20sugar', '/referrals']) {
+    for (const route of ['/services/synthetic-service-141414141414', '/contact', '/appointment?service=pub_141414141414', '/doctors?q=blood%20sugar', '/referrals']) {
       await navigate(route, width)
       assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true, `${route} fits ${width}`)
+      assert.equal(await evaluate(`document.querySelector('a[href^="/health-topics"]') === null`), true)
       await shot(`${route.split('?')[0].replaceAll('/', '-').slice(1)}-${width}`)
     }
   }
-  const topics = ['allergies', 'asthma', 'back-pain', 'diabetes', 'digestive-concerns', 'everyday-wellbeing', 'headaches', 'high-blood-pressure', 'joint-pain', 'sleep-concerns', 'thyroid-concerns', 'vision-concerns']
-  for (const slug of topics) assert.equal((await fetch(`${origin}/health-topics/${slug}`)).status, 200, slug)
-  assert.equal((await fetch(`${origin}/health-topics/not-a-topic`)).status, 404)
+  const serviceRedirects = [
+    ['diabetes', '141414141414'],
+    ['digestive-concerns', '141414141414'],
+    ['high-blood-pressure', '141414141414'],
+    ['thyroid-concerns', '141414141414'],
+    ['back-pain', '171717171717'],
+    ['joint-pain', '171717171717'],
+  ]
+  for (const [slug, id] of serviceRedirects) {
+    const response = await fetch(`${origin}/health-topics/${slug}`, { redirect: 'manual' })
+    assert.equal(response.status, 308, slug)
+    assert.equal(response.headers.get('location'), `/services/synthetic-service-${id}`)
+  }
+  const retiredTopics = ['allergies', 'asthma', 'everyday-wellbeing', 'headaches', 'sleep-concerns', 'vision-concerns', 'not-a-topic']
+  for (const route of ['/health-topics', ...retiredTopics.map(slug => `/health-topics/${slug}`)]) {
+    assert.equal((await fetch(origin + route, { redirect: 'manual' })).status, 404, route)
+  }
   await navigate('/doctors?q=blood%20sugar', 390)
   assert.ok(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length > 0"))
-  assert.ok(await evaluate("document.querySelector('a[href=\"/health-topics/diabetes\"]') !== null"))
   assert.match(await evaluate("document.querySelector('[data-clinician-public-id]').innerText"), /Related care: Family medicine/)
-  await navigate('/doctors?q=backache', 390)
+  await navigate('/doctors?q=headache', 390)
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 0)
-  assert.ok(await evaluate("document.querySelector('a[href=\"/health-topics/back-pain\"]') !== null"))
-  await navigate('/', 390)
-  await evaluate("document.querySelector('[data-site-footer] a[href=\\\"/health-topics\\\"]').click()")
-  await until("location.pathname === '/health-topics' && !!document.querySelector('#health-topic-search')")
-  await evaluate("document.querySelector('#health-topic-search').focus()")
-  await send('Input.insertText', { text: 'blood sugar' })
-  await until("document.querySelector('[data-health-topic=diabetes]') !== null")
-  await evaluate("document.querySelector('[data-health-topic=diabetes]').click()")
-  await evaluate("document.querySelector('#health-topic-reader a[href=\"/health-topics/diabetes\"]').click()")
-  await until("location.pathname === '/health-topics/diabetes'")
-  await evaluate("document.querySelector('#care-options a[href*=\"service=\"]').click()")
+  await evaluate(`document.querySelector('[data-directory-empty] a[href="/contact#contact-reception"]').focus()`)
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, text: '\r' })
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 })
+  await until("location.pathname === '/contact' && document.activeElement.id === 'contact-reception'")
+  await navigate('/health-topics/diabetes', 390)
+  await until("location.pathname === '/services/synthetic-service-141414141414'")
+  await evaluate(`document.querySelector('main a[href="/appointment?service=pub_141414141414"]').click()`)
   await until("location.pathname === '/appointment' && location.search.includes('service=pub_141414141414')")
   await until(ready)
   assert.equal(await evaluate("document.querySelector('#service-id').value"), 'pub_141414141414')
@@ -125,18 +135,9 @@ try {
   assert.equal(await evaluate("document.querySelector('[data-journey-review] [data-journey-value=visit]').textContent"), 'Follow-up visit')
   assert.equal(await evaluate("document.querySelector('[data-journey-review] [data-journey-value=care]').textContent"), 'Family medicine')
   await shot('appointment-follow-up-review-390')
-  await navigate('/health-topics/headaches', 390)
-  assert.equal(await evaluate("document.querySelector('#care-options .solid-button').getAttribute('href')"), '/contact#contact-reception')
-  assert.equal(await evaluate("document.querySelectorAll('main a[href^=\"/doctors?q=\"]').length"), 0)
-  await navigate('/health-topics', 390)
-  await evaluate("document.querySelector('#health-topic-search').focus()")
-  await send('Input.insertText', { text: 'headaches' })
-  await until("document.querySelector('[data-health-topic=headaches]') !== null")
-  await evaluate("document.querySelector('[data-health-topic=headaches]').click()")
-  await until("!!document.querySelector('#health-topic-reader a[href=\"/contact#contact-reception\"]')")
   await navigate('/health-topics/back-pain', 390)
-  assert.equal(await evaluate("document.querySelector('#care-options .solid-button').getAttribute('href')"), '/appointment?service=pub_171717171717')
-  assert.equal(await evaluate("document.querySelectorAll('main a[href^=\"/doctors?q=\"]').length"), 0)
+  await until("location.pathname === '/services/synthetic-service-171717171717'")
+  assert.ok(await evaluate(`!!document.querySelector('main a[href="/appointment?service=pub_171717171717"]')`))
   for (const [id, destination] of [
     ['121212121212', '/services/synthetic-service-111111111111#care-team'],
     ['131313131313', '/contact#before-you-travel'],
@@ -153,16 +154,16 @@ try {
   assert.match(await evaluate("document.querySelector('#what-to-bring').innerText"), /What to bring/)
   await shot('visit-preparation-390')
   await send('Emulation.setEmulatedMedia', { media: 'screen', features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
-  await navigate('/health-topics', 320)
+  await navigate('/doctors?q=headache', 320)
   assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true)
-  await shot('health-topics-320')
+  await shot('doctor-search-empty-320')
   await send('Emulation.setScriptExecutionDisabled', { value: true })
   await navigate('/health-topics/diabetes', 390)
-  assert.match(await evaluate('document.body.innerText'), /What you can discuss/)
+  assert.equal(await evaluate("document.querySelector('main h1').textContent"), 'Family medicine')
   await send('Emulation.setScriptExecutionDisabled', { value: false })
   assert.deepEqual(errors, [], 'no browser errors')
   assert.equal(requests.some((request) => request.method === 'POST'), false, 'preview sends no submissions')
-  console.log(`Care journey browser checks passed: 12 topic pages, 404, three widths, aliases, missing doctor relationships, homepage-to-topic-to-appointment handoff, follow-up review, legacy visit guide redirect, reduced motion and no-JavaScript reading. Screenshots: ${capture}`)
+  console.log(`Care journey browser checks passed: redirects, retired routes, three widths, doctor aliases, reception keyboard access, service-to-appointment handoff, follow-up review, legacy visit links, reduced motion and no-JavaScript redirect. Screenshots: ${capture}`)
 } catch (error) {
   console.error(browserLog.slice(-4000))
   throw error

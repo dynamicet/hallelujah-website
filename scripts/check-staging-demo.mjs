@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 
 const origin = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
 const routes = ['/', '/doctors', '/services', '/appointment', '/contact',
-  '/emergency', '/about', '/feedback', '/referrals', '/health-topics', '/news-resources']
+  '/emergency', '/about', '/feedback', '/referrals', '/news-resources']
 
 for (const route of routes) {
   const response = await fetch(new URL(route, origin), { signal: AbortSignal.timeout(15000) })
@@ -16,7 +16,7 @@ for (const route of routes) {
 const health = await fetch(new URL('/health', origin))
 assert.equal(health.status, 200)
 assert.equal((await health.json()).status, 'ok')
-for (const route of ['/doctors/unknown-doctor', '/services/unknown-service']) {
+for (const route of ['/doctors/unknown-doctor', '/services/unknown-service', '/health-topics', '/health-topics/headaches']) {
   assert.equal((await fetch(new URL(route, origin))).status, 404, route)
 }
 const submission = await fetch(new URL('/api/appointment-requests', origin), {

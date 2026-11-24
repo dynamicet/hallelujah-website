@@ -75,8 +75,6 @@
 /* Section openings accommodate useful content without requiring introductory copy. */
 .enhanced-home .hospital-film-copy { display: block; }
 .enhanced-home .hospital-film-copy h2 { max-width: none; }
-.enhanced-home [data-health-library] [data-ui-part~="examples"] { margin-block: 16px 20px; }
-main [data-care-topics] + [data-health-library] { margin-top: 28px; }
 main [data-care-directory] :is([data-directory-section='D1'], [data-directory-section='S1']):not(:has(.care-page-image)) { display: block; margin-bottom: 24px; }
 main [data-care-directory] [data-ui-part~="introduction-copy"] { gap: 12px; }
 

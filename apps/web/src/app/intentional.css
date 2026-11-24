@@ -172,7 +172,6 @@ body :where([lang='am']) { font-family: Ethiopic, sans-serif; letter-spacing: no
 .enhanced-home .hospital-film-copy h2 { line-height: 1.12; }
 .enhanced-home .human-story summary { font-family: var(--site-font); font-size: 20px; line-height: 1.4; }
 .enhanced-home .human-story blockquote { font-family: var(--site-display); font-size: 26px; line-height: 1.4; }
-.enhanced-home [data-health-library] { margin-block: var(--home-space); }
 /* Appointment steps use the same action language as the route into them. */
 main [data-clinician-public-id] h3 { font-family: var(--site-font); font-weight: 700; font-size: 22px; }
 /* The directories retain a visible page title on small screens. */

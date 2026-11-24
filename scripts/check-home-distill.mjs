@@ -38,12 +38,7 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
         await enter(page)
         await waitFor(page, "location.pathname === '/services' && Boolean(document.querySelector('[data-service-directory-template]'))")
         await page.goto(base)
-        await page.eval("document.querySelector('[data-site-footer] a[href=\"/health-topics\"]').focus()")
-        await enter(page)
-        await waitFor(page, "location.pathname === '/health-topics' && Boolean(document.querySelector('#health-topic-search'))")
-        assert.equal(await page.eval("document.querySelectorAll('[aria-label=\"Find topics by first letter\"] button').length"), 26)
-        assert.equal(await page.eval('document.documentElement.scrollWidth > innerWidth'), false)
-        await page.goto(base)
+        assert.equal(await page.eval(() => document.querySelector('a[href^="/health-topics"]')), null)
         await page.eval("document.querySelector('#medical-technology a').scrollIntoView({block:'center',behavior:'instant'}); document.querySelector('#medical-technology a').focus({preventScroll:true})")
         await enter(page)
         await waitFor(page, "location.pathname === '/about' && location.hash === '#medical-technology' && document.querySelectorAll('#medical-technology article').length === 3")
@@ -75,7 +70,7 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
         assert.deepEqual(page.consoleErrors, [])
       } finally { await page.close() }
     }
-    console.log(`PASS ${width}: services shortcut, topic browser, equipment disclosure, About section focus, normal/reduced motion`)
+    console.log(`PASS ${width}: services shortcut, retired topic links, equipment disclosure, About section focus, normal/reduced motion`)
   }
   const page = await browser.newPage({ width: 390, height: 1000, mobile: true, reducedMotion: true })
   try {

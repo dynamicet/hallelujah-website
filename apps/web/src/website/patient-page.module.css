@@ -60,10 +60,6 @@
 .reviewActions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
 .reviewActions button:global(.text-link) { background: transparent; }
 .reviewActions button:disabled { background: var(--site-pale); color: var(--site-ink); cursor: not-allowed; padding: 16px; }
-.topicOpening { padding-block: 32px 0; }
-.topicOpening h1 { margin: 0; color: var(--semantic-color-text-heading); font-size: var(--site-page-title); line-height: 1.08; }
-.topicOpening p { max-width: 58ch; margin: 24px 0 0; font-size: var(--site-page-intro); }
-.page:has(.topicOpening) { padding-bottom: 0; }
 .topicIndex { margin-top: 48px; }
 .visitType { margin-bottom: 0; }
 .visitType fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }

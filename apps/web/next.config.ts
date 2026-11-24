@@ -29,6 +29,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: '/patients-visitors', destination: '/contact#before-you-travel', permanent: true },
+      ...['diabetes', 'digestive-concerns', 'high-blood-pressure', 'thyroid-concerns'].map(slug => ({
+        source: `/health-topics/${slug}`, destination: '/services/synthetic-service-141414141414', permanent: true,
+      })),
+      ...['back-pain', 'joint-pain'].map(slug => ({
+        source: `/health-topics/${slug}`, destination: '/services/synthetic-service-171717171717', permanent: true,
+      })),
       ...retiredVisitGuides.map(guide => ({ ...guide, permanent: true })),
     ]
   },

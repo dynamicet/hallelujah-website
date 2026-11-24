@@ -36,6 +36,7 @@ await runVisualCheck('site-navigation', baseUrl, async ({ browser, output }) => 
         assert.equal(await page.eval("document.querySelectorAll('[data-skip-link]').length"), 1, 'One skip link')
         assert.equal(await page.eval("document.querySelector('[data-site-footer]').dataset.footerVariant"), route === '/' || route.startsWith('/?') ? 'full' : 'compact')
         if (route === '/emergency') assert.equal(await page.eval("document.querySelectorAll('[data-call-widget]').length"), 0, 'Emergency retains its dedicated call action')
+        assert.equal(await page.eval(() => document.querySelector('a[href^="/health-topics"]')), null)
         const links = await page.eval(() => [...document.querySelectorAll('[data-primary-navigation] a')].map(a => ({ label: a.textContent.trim(), href: a.getAttribute('href') })))
         canonical ??= links
         assert.deepEqual(links, canonical, 'All page states share the same menu')

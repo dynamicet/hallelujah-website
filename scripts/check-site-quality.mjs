@@ -4,7 +4,7 @@ import { runVisualCheck } from './lib/visual-check.mjs'
 
 const base = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
 const routes = ['/', '/about', '/doctors', '/services', '/appointment', '/contact', '/emergency',
-  '/referrals', '/feedback', '/health-topics', '/news-resources', '/health-topics/back-pain',
+  '/referrals', '/feedback', '/news-resources', '/services/synthetic-service-171717171717',
   '/news-resources/make-room-for-your-questions', '/news-resources/a-conversation-about-care',
   '/doctors/synthetic-clinician-121212121212/', '/services/synthetic-service-151515151515/',
   '/services/synthetic-service-111111111111/']
@@ -108,27 +108,7 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
     assert.equal(await page.eval('document.activeElement.value'), '')
 
     await page.goto(base + '/')
-    await activate(page, '[data-site-footer] a[href="/health-topics"]')
-    await waitFor(page, 'location.pathname === "/health-topics" && !!document.querySelector("#health-topic-search")')
-    for (const route of ['/health-topics']) {
-      await page.goto(base + route)
-      await activate(page, '[aria-controls="health-topic-matches"]')
-      await waitFor(page, '!!document.querySelector("[data-health-topic]")')
-      const selected = await page.eval('document.querySelector("[data-health-topic]").dataset.healthTopic')
-      await activate(page, '[data-health-topic]')
-      await waitFor(page, 'document.activeElement.id === "health-topic-reader"')
-      assert.equal(await page.eval('getComputedStyle(document.activeElement).outlineStyle'), 'solid')
-      await page.eval(() => document.activeElement.scrollIntoView({ block: 'center', behavior: 'instant' }))
-      await page.screenshot({ path: `${output}/${route === '/' ? 'home' : 'health'}-reader-${width}.png` })
-      await activate(page, '#health-topic-reader button')
-      assert.equal(await page.eval('document.activeElement.dataset.healthTopic'), selected)
-    }
-    await page.eval(() => document.querySelector('#health-topic-search').focus())
-    await page.send('Input.insertText', { text: 'zzzznomatch' })
-    await waitFor(page, 'document.querySelector("#health-topic-matches h3")?.textContent === "Matching topics" && !!document.querySelector("#health-topic-matches button")')
-    assert.equal(await page.eval('document.querySelectorAll("[data-health-topic]").length'), 0)
-    await activate(page, '#health-topic-matches button')
-    await waitFor(page, 'document.querySelectorAll("[data-health-topic]").length > 0')
+    assert.equal(await page.eval(() => document.querySelector('a[href^="/health-topics"]')), null)
     if (width < 1024) {
       await activate(page, '[data-menu-trigger]')
       await waitFor(page, 'document.querySelector("[data-navigation-panel]").matches(":popover-open")')
@@ -157,6 +137,6 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
       assert.deepEqual(page.consoleErrors, [])
     }
     await page.close()
-    console.log(`PASS ${width}px: section jumps, feedback review/edit/reset, health reader focus/return, navigation dismissal, hotline focus, no-results recovery`)
+    console.log(`PASS ${width}px: section jumps, feedback review/edit/reset, navigation dismissal, hotline focus, no-results recovery`)
   }
 })

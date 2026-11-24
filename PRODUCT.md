@@ -83,7 +83,7 @@ accreditation, outcome claim, or competitive ranking has been confirmed here.
 
 - Current surfaces include the homepage, doctor directory and profiles, service
   directory and details, appointment preview, emergency information,
-  patients-and-visitors guidance, referrals, hospital information, health topics,
+  Contact & directions with arrival guidance, referrals, hospital information,
   news/resources, and feedback preview.
 - Care discovery includes search, specialty filtering, and related information.
   The patient guide matches questions to prepared website answers; it is not a

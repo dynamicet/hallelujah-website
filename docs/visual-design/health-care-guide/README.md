@@ -2,15 +2,17 @@
 
 > Evidence availability (8 November 2026): some historical captures referenced below are absent from this checkout. Their filenames are retained as archive references, not current verification evidence. Rerun the documented checks for fresh evidence.
 
-## Website integration — current direction (6 November 2026)
+## Historical website integration (6 November 2026)
+
+The public Health Topics library and its article pages have since been retired.
 
 The homepage finder at `/#health-library`, after Contact & directions, combines one heading, **“Find health topics”**, a prominent search field and the complete A–Z including disabled letters. Introductory/helper paragraphs, example chips and repeated browse headings are omitted. All 26 letters stay visible; disabled letters automatically become available when a matching topic is supplied.
 
-The homepage uses quiet letter styling with 44px targets. Search and heading share a desktop row, with search above the index on smaller screens. Clear results appears after interaction. Search aliases, inline results, pagination, reading, focus/scroll return and reduced motion are retained. The dedicated `/health-topics` page keeps its existing search/examples/browse controls in the shared [React component](../../../apps/web/src/website/health-library.tsx) and [scoped styles](../../../apps/web/src/website/health-library.module.css).
+The homepage uses quiet letter styling with 44px targets. Search and heading share a desktop row, with search above the index on smaller screens. Clear results appears after interaction. Search aliases, inline results, pagination, reading, focus/scroll return and reduced motion are retained. The dedicated `/health-topics` page keeps its existing search/examples/browse controls in the shared finder component.
 
-Current validation: TypeScript and targeted ESLint passed. Fresh responsive checks passed both routes at 390/768/1440px. Focused browser checks passed search aliases/empty results, letter selection, keyboard reader return, clear-to-search focus and reduced motion at 320/390/768/1280/1440px. Initial mobile/tablet/desktop layouts and focused/search states were visually accepted separately in `2026-11-06T19-53-20.979Z-health-search-index-3uTmw6`.
+Validation at the time: TypeScript and targeted ESLint passed. Fresh responsive checks passed both routes at 390/768/1440px. Focused browser checks passed search aliases/empty results, letter selection, keyboard reader return, clear-to-search focus and reduced motion at 320/390/768/1280/1440px. Initial mobile/tablet/desktop layouts and focused/search states were visually accepted separately in `2026-11-06T19-53-20.979Z-health-search-index-3uTmw6`.
 
-Earlier evidence and prototype descriptions below are historical; they do not establish that the current implementation passes. Fresh validation is recorded in unique directories under `artifacts/visual-checks/` with automated and visual results reported separately.
+The evidence and prototype descriptions below document the retired feature.
 
 ## Standalone design study
 

@@ -6,7 +6,7 @@ const base = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
 await runVisualCheck('feedback-completion', base, async ({ browser, output }) => {
   const metadata = []
   const page = await browser.newPage({ width: 1440, height: 1000, reducedMotion: true })
-  for (const route of ['/appointment', '/doctors', '/services', '/emergency', '/feedback', '/contact', '/referrals', '/health-topics',
+  for (const route of ['/appointment', '/doctors', '/services', '/emergency', '/feedback', '/contact', '/referrals',
     '/doctors/synthetic-clinician-101010101010/', '/services/synthetic-service-151515151515/', '/services/synthetic-service-111111111111/']) {
     await page.goto(new URL(route, base).href)
     const description = await page.eval('document.querySelector("meta[name=description]")?.content')

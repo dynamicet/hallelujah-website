@@ -214,7 +214,6 @@ export function SiteHeader({
             <HeaderContacts targets={contactTargets} />
             <div className={styles.utilityLinks}>
               <div className={styles.utilityContext}>
-                <div className={styles.utilityResources}><Link href="/health-topics">Health topics</Link></div>
                 <Link aria-current={contactCurrent ? 'page' : undefined} className={styles.contactDirections} href="/contact">Contact & directions</Link>
                 {collaborationItem ? <Link aria-current={collaborationItem.current ? 'page' : undefined} href={collaborationItem.href}>{collaborationItem.label}</Link> : null}
               </div>
@@ -281,7 +280,6 @@ export function SiteHeader({
           <PrimaryNavigation items={primaryNavigationItems} label={primaryNavigationLabel} publicWebsite={publicWebsite} />
           {publicWebsite ? <div className={styles.menuResources}>
             <Link href="/emergency">Emergency information →</Link>
-            <Link href="/health-topics">Health &amp; care topics →</Link>
             {collaborationItem ? <Link aria-current={collaborationItem.current ? 'page' : undefined} href={collaborationItem.href}>{collaborationItem.label}<span aria-hidden="true">→</span></Link> : null}
           </div> : null}
           {!publicWebsite ? <div className={styles.headerUtilities} data-shell-utilities>

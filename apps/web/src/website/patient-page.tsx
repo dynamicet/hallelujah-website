@@ -17,7 +17,6 @@ export function PatientPage({ title, description, current, action, secondaryActi
   return <PageContent breadcrumbs={{ label: 'Breadcrumb', items: [
     { href: '/', label: 'Home' },
     ...(current.startsWith('/services/') ? [{ href: '/services', label: 'Services' }] : []),
-    ...(current.startsWith('/health-topics/') ? [{ href: '/health-topics', label: 'Health & care topics' }] : []),
     { href: current, label: title, current: true },
   ] }}>
     <div className={styles.page} data-patient-page={current} data-page-variant={variant}>
