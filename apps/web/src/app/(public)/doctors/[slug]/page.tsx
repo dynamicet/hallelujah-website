@@ -27,7 +27,7 @@ export default async function DoctorProfilePage({ params, searchParams }: { para
   const parameters = await searchParams
   const scenario = demoScenario(parameters.demo,
     ['ready', 'partial', 'failure', 'gone', 'unavailable', 'appointment-unavailable'] as const, 'ready')
-  const partial = scenario === 'partial' || (scenario === 'ready' && clinician.details.interests.length === 0)
+  const partial = scenario === 'partial'
   const displayedClinician = partial ? { ...clinician, details: {
     ...clinician.details, credentials: [], interests: [], languages: [], availabilityGuidance: null,
   } } : clinician
@@ -51,7 +51,7 @@ export default async function DoctorProfilePage({ params, searchParams }: { para
     biography={partial ? undefined : clinicianBiographies.get(clinician.publicId)}
     directoryHref={directoryHref}
     profile={{ clinician: displayedClinician, canonicalPath: clinician.canonicalPath,
-      locations: partial ? [] : [{ publicId: 'demo-care-desk', title: 'Outpatient care desk' }],
+      locations: [],
       relatedServices: partial ? [] : related.map((service) => ({
         canonicalPath: carePathWithDoctor(service, clinician.publicId, serviceResultsHref), name: service.name, publicId: service.publicId,
       })), outcome: 'profile' }}

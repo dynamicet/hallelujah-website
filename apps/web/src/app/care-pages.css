@@ -29,6 +29,7 @@ main [data-care-directory] [data-directory-support] { margin: 48px 0 0; padding:
 main [data-care-directory] [data-directory-support] > ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 main [data-care-profile] [data-profile-introduction] { grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr); align-items: center; gap: clamp(32px, 6vw, 88px); padding: clamp(20px, 3vw, 32px); margin-block-end: 48px; background: var(--semantic-color-surface-subtle); border-radius: var(--site-panel-radius); border-block-end-color: var(--semantic-color-border-default); }
 main [data-care-profile] [data-profile-introduction] > :is([data-clinician-portrait], [data-clinician-monogram]) { width: 100%; height: 440px; object-fit: contain; object-position: center bottom; background: var(--semantic-color-surface-raised); border-radius: var(--site-image-radius); }
+main [data-care-profile] [data-profile-introduction] > [data-clinician-monogram] { color: var(--semantic-color-text-heading); }
 main [data-care-profile] h1 { font-size: var(--site-page-title); }
 main [data-care-profile] [data-profile-specialties] li { background: transparent; padding: 0; }
 main [data-care-profile] [data-profile-specialties] li + li::before { content: "·" / ""; margin-inline-end: .4em; }

@@ -61,10 +61,13 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
   const connectedCare = directoryServices.filter((entry) => specialty
     ? careEntry(entry.publicId)?.specialtyIds.includes(service.publicId)
     : care?.specialtyIds.includes(entry.publicId))
+  const introduction = service.sections.scope?.join(' ') || 'Explore this area of care and prepare for your visit.'
+  const overview = [copy?.about, ...(service.sections['common-needs'] ?? [])]
+    .filter((text): text is string => Boolean(text?.trim()) && text?.trim() !== introduction.trim())
   const preparation = service.sections.preparation ?? (copy?.preparation ? [copy.preparation] : [])
   const questions = serviceVisitQuestions[service.publicId] ?? []
   const hasPreparation = preparation.length > 0 || questions.length > 0
-  return <PatientPage variant="care-detail" imageSrc={servicePresentation(service.publicId).imageSrc} title={service.name} description={service.sections.scope?.join(' ') ?? 'Explore this area of care and prepare for your visit.'}
+  return <PatientPage variant="care-detail" imageSrc={servicePresentation(service.publicId).imageSrc} title={service.name} description={introduction}
     current={service.canonicalPath}
     action={action} secondaryAction={related.length ? { href: '#care-team', label: 'Meet the care team' } : undefined}>
     <Link className={serviceStyles.backLink} href={directoryHref ?? '/services'}>{directoryHref ? <span aria-hidden="true">←</span> : null}{directoryLabel}</Link>
@@ -72,12 +75,11 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
       <p>Exploring {service.name} with <strong>{selectedDoctor.details.name}</strong>. Your doctor preference will continue into the appointment request.</p>
       <Link href={carePathWithDoctor(service, undefined, directoryHref)}>Explore without a doctor preference</Link>
     </aside> : contextUnavailable ? <aside className={serviceStyles.selectionContext} aria-label="Doctor preference unavailable">
-      <p>That doctor preference does not apply to this care. Explore the care team below or continue with this care option.</p>
+      <p>That doctor preference does not apply to this care. {related.length ? <Link href="#care-team">Meet the care team</Link> : <Link href={action.href}>{action.label}</Link>}.</p>
     </aside> : null}
-    <PatientSection id="your-care" title={specialty ? 'Your consultation' : 'About your care'}>
-      <p>{copy?.about ?? service.sections.scope?.join(' ')}</p>
-      {service.sections['common-needs']?.map((text) => <p key={text}>{text}</p>)}
-    </PatientSection>
+    {overview.length > 0 && <PatientSection id="your-care" title={specialty ? 'Your consultation' : 'About your care'}>
+      {overview.map(text => <p key={text}>{text}</p>)}
+    </PatientSection>}
     {connectedCare.length ? <PatientSection id="related-care" title={specialty ? 'Tests & treatments' : 'Related specialties'}>
       <p>{specialty ? 'Your doctor may discuss these services as part of your care plan. Each has its own team and arrangements.' : 'Explore the specialties connected with this service.'}</p>
       <ul>{connectedCare.map((entry) => <li key={entry.publicId}><Link href={carePathWithDoctor(entry, selectedDoctor?.publicId, directoryHref)}>{entry.name}</Link></li>)}</ul>

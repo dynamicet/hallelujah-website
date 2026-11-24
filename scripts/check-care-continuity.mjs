@@ -89,7 +89,9 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     await page.screenshot({ path: `${output}/selected-care-${width}.png` })
 
     // Team-delivered care has no inferred doctor; contact and referral choices are excluded.
-    await page.goto(base + '/services/synthetic-service-171717171717/')
+    await page.goto(base + '/services/synthetic-service-171717171717/?doctor=missing')
+    assert.equal(await page.eval(() => document.querySelector('[aria-label="Doctor preference unavailable"] a').getAttribute('href')),
+      await page.eval(() => document.querySelector('#referrals a').getAttribute('href')))
     assert.equal(await page.eval(() => document.querySelectorAll('#care-team a[href*="/doctors/"]').length), 0)
     for (const query of ['doctor=missing', 'service=pub_111111111111', 'service=pub_181818181818']) {
       await page.goto(base + '/appointment?' + query)
