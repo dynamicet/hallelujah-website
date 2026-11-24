@@ -35,7 +35,7 @@ export function ContactPage() {
         <section className={styles.location} id="directions" tabIndex={-1} aria-labelledby="contact-location-title">
           <h2 id="contact-location-title">Find us in Gotera</h2>
           <address data-help-clearance><strong>{hospitalContact.name}</strong><span>Around Gotera Condominium</span><span>Addis Ababa, Ethiopia</span></address>
-          <a className="solid-button" href={hospitalContact.directionsHref} target="_blank" rel="noopener noreferrer">Get directions <Icon name="directions" /></a>
+          <a className="solid-button" href={hospitalContact.directionsHref}>Get directions <Icon name="directions" /></a>
           <HospitalLocationMap />
         </section>
       </div>
@@ -56,9 +56,9 @@ export function ContactPage() {
       </section>
 
       <section className={styles.partnerships} aria-labelledby="contact-partnerships-title">
-        <h2 id="contact-partnerships-title">Partnership enquiries</h2>
-        <p>For organizations interested in collaborating with the hospital or proposing community outreach.</p>
-        <Link className="text-link" href="/partnerships">Work with Hallelujah <Icon name="arrow-right" /></Link>
+        <h2 id="contact-partnerships-title">Work with us</h2>
+        <p>Have an idea for community outreach, education, or care? We’d like to hear it.</p>
+        <Link className="text-link" href="/partnerships">Discuss your idea <Icon name="arrow-right" /></Link>
       </section>
 
       <aside className={styles.urgent} aria-labelledby="contact-urgent-title">

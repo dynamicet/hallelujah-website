@@ -20,7 +20,7 @@ export function ContactDirections() {
             <span>Addis Ababa, Ethiopia</span>
           </address>
           <div className={styles.locationActions}>
-            <a className="solid-button" href={hospitalContact.directionsHref} target="_blank" rel="noopener noreferrer"><InterfaceText>Get directions</InterfaceText> <Icon name="directions" /></a>
+            <a className="solid-button" href={hospitalContact.directionsHref}><InterfaceText>Get directions</InterfaceText> <Icon name="directions" /></a>
             <a className={styles.callAction} href={hospitalContact.phoneHref}><InterfaceText>Call the hospital</InterfaceText> <Icon name="phone" /></a>
           </div>
           <HospitalLocationMap />
