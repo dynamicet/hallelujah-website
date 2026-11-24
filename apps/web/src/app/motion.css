@@ -4,6 +4,8 @@
   --motion-change: 240ms;
   --motion-enter: 480ms;
   --motion-image: 620ms;
+  --motion-card: 480ms;
+  --motion-heading: 420ms;
   --motion-stagger: 70ms;
   --motion-distance: 12px;
   --motion-ease: cubic-bezier(.22, 1, .36, 1);
@@ -13,6 +15,8 @@
   :root {
     --motion-enter: 380ms;
     --motion-image: 480ms;
+    --motion-card: 400ms;
+    --motion-heading: 360ms;
     --motion-stagger: 45ms;
     --motion-distance: 8px;
   }
@@ -85,13 +89,25 @@
   --motion-heading: 460ms;
   --motion-image: 720ms;
 }
+@media (prefers-reduced-motion: no-preference) {
+  .home-quick-access-list {
+    --motion-card: 350ms;
+    --motion-stagger: 50ms;
+  }
+}
+@media (max-width: 599px) and (prefers-reduced-motion: no-preference) {
+  .home-quick-access-list {
+    --motion-card: 320ms;
+    --motion-stagger: 40ms;
+  }
+}
 @keyframes website-heading-enter {
-  from { opacity: .85; transform: translateY(var(--motion-distance)); }
-  to { opacity: 1; transform: none; }
+  from { opacity: .72; translate: 0 var(--motion-distance); }
+  to { opacity: 1; translate: none; }
 }
 @keyframes website-card-enter {
-  from { opacity: .85; transform: translateY(calc(var(--motion-distance) * 1.5)); }
-  to { opacity: 1; transform: none; }
+  from { opacity: .65; translate: 0 calc(var(--motion-distance) * 1.5); }
+  to { opacity: 1; translate: none; }
 }
 @keyframes website-soft-enter {
   from { opacity: .7; }
@@ -115,15 +131,16 @@
   inset-block-start: -24px;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .enhanced-home .website-entered[data-motion="heading"] {
+  .website-entered[data-motion="heading"] {
     animation-name: website-heading-enter;
     animation-duration: var(--motion-heading);
   }
-  .enhanced-home .website-entered[data-motion="card"] {
+  :where([data-reveal-group]) > .website-entered:where(:not([data-motion])),
+  .website-entered[data-motion="card"] {
     animation-name: website-card-enter;
     animation-duration: var(--motion-card);
   }
-  .enhanced-home .website-entered[data-motion="soft"] {
+  .website-entered[data-motion="soft"] {
     animation-name: website-soft-enter;
     animation-duration: var(--motion-enter);
   }
@@ -140,8 +157,7 @@
     --motion-card: 400ms;
     --motion-heading: 360ms;
     --motion-image: 480ms;
-    /* Stacked items enter individually; do not accumulate desktop row delays. */
-    --motion-stagger: 0ms;
+    --motion-stagger: 45ms;
   }
 }
 @media (prefers-reduced-motion: reduce), print {

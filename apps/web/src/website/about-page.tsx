@@ -56,7 +56,7 @@ export function AboutPage() {
           <h2 id="about-story-title">Our story</h2>
           <p>Our first patients came to a specialist center on Bole Road. As the practice grew, so did the range of care we could offer under one roof.</p>
         </div>
-        <ol className={styles.timeline}>
+        <ol className={styles.timeline} data-reveal-group>
           {milestones.map((milestone) => <li key={milestone.year}><span className={styles.year}>{milestone.year}</span><p>{milestone.text}</p></li>)}
         </ol>
       </section>
@@ -66,7 +66,7 @@ export function AboutPage() {
           <h2 id="about-founder-title">Our founders</h2>
           <p className={styles.foundersIntro}>Mrs. Yetnayet Eshetu leads the hospital’s strategy and management. Professor Getachew Aderaye brings his experience in respiratory medicine to its clinical leadership. Together they founded Hallelujah.</p>
         </div>
-        <ul className={styles.founderPair}>
+        <ul className={styles.founderPair} data-reveal-group>
           {hospitalFounders.map((person) => <li key={person.name}>
             <div className={styles.portraitCrop} data-framing={person.framing}>
               <Image src={person.portrait} alt="" width={person.width} height={person.height} unoptimized={person.framing === 'clinical'} sizes="(max-width: 599px) 100vw, 40vw" />
@@ -121,7 +121,7 @@ export function AboutPage() {
           <h2 id="about-leadership-title">Leadership today</h2>
           <p>The people leading Hallelujah’s management and clinical teams.</p>
         </div>
-        <ul className={styles.leaders}>
+        <ul className={styles.leaders} data-reveal-group>
           {hospitalLeadership.map((person) => <li key={person.name}>
             <div className={styles.leaderPortrait} data-framing={person.framing}><Image src={person.portrait} alt="" width={person.width} height={person.height} unoptimized={person.framing === 'clinical'} sizes={person.framing === 'founder' ? "(max-width: 519px) 142px, (max-width: 999px) 60vw, 30vw" : "(max-width: 519px) 104px, (max-width: 999px) 44vw, 22vw"} /></div>
             <h3>{person.name}</h3>

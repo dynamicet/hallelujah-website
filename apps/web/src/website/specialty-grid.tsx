@@ -11,10 +11,10 @@ export function SpecialtyGrid() {
       <div className={styles.introduction}>
         <h2 data-record-entry data-reveal="0" data-motion="heading" id="care-areas-title">Specialized care, close to you</h2>
       </div>
-      <ul data-ui-part="grid" className={styles.grid}>
-        {featuredSpecialties.flatMap((care, index) => {
+      <ul data-reveal-group data-ui-part="grid" className={styles.grid}>
+        {featuredSpecialties.flatMap((care) => {
           const service = services.find((entry) => entry.publicId === care.servicePublicId)
-          return service ? [<li data-reveal={index} data-motion="card" key={care.servicePublicId}>
+          return service ? [<li data-motion="card" key={care.servicePublicId}>
             <ServiceCard compactOnMobile href={service.canonicalPath} name={care.label} {...servicePresentation(care.servicePublicId)} />
           </li>] : []
         })}

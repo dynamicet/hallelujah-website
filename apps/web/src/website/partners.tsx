@@ -38,9 +38,9 @@ export function Partners({ partners }: { partners: readonly Partner[] }) {
   const canLoop = organizations.length >= 10
 
   return (
-    <section className="partner-showcase page-frame" id="partners" aria-labelledby="hospital-partners">
-      <h2 id="hospital-partners">Our partners</h2>
-      <div className="partner-ribbon-area">
+    <section className="partner-showcase page-frame" id="partners" data-motion-section="partners" aria-labelledby="hospital-partners">
+      <h2 id="hospital-partners" data-reveal="0" data-motion="heading">Our partners</h2>
+      <div className="partner-ribbon-area" data-reveal="1" data-motion="soft">
         <div className="partner-ribbon" data-loop={canLoop || undefined}>
           <div className="partner-ribbon-track">
             <OrganizationList organizations={organizations} variant="ribbon" />
@@ -58,7 +58,7 @@ export function CorporateAgreements({ organizations }: { organizations: readonly
   if (!examples.length) return null
 
   return (
-    <section className="page-frame corporate-agreements" id="corporate-agreements" aria-labelledby="corporate-agreements-title">
+    <section className="page-frame corporate-agreements" id="corporate-agreements" data-motion-section="credit" aria-labelledby="corporate-agreements-title">
       <CorporateAgreementsRail>
         <OrganizationList organizations={examples} variant="directory" />
       </CorporateAgreementsRail>

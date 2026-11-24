@@ -21,7 +21,7 @@ export function HospitalStatistics({
     <section className="hospital-statistics" data-motion-section="numbers" data-count-state="static" aria-labelledby="hospital-statistics-title">
       <div className="page-frame">
         <h2 data-motion="soft" data-reveal="0" id="hospital-statistics-title">Hallelujah in numbers</h2>
-        <dl className="hospital-statistics-list">
+        <dl className="hospital-statistics-list" data-reveal-group>
           <div>
             <dt>Years of care</dt>
             <dd className="hospital-statistics-value">{value(yearsOfService)}</dd>

@@ -3,6 +3,8 @@
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
+const revealTarget = '[data-reveal], [data-reveal-group] > *'
+
 export function WebsiteMotion() {
   const pathname = usePathname()
   useEffect(() => {
@@ -39,6 +41,9 @@ export function WebsiteMotion() {
       })
     }, { rootMargin: '-10% 0px -20% 0px' })
     const observer = new IntersectionObserver((entries) => {
+      // Only siblings entering together share a delay. A stacked card that
+      // arrives on its own responds immediately at any viewport width.
+      const groupSteps = new Map<HTMLElement, number>()
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return
         const element = entry.target as HTMLElement
@@ -46,7 +51,12 @@ export function WebsiteMotion() {
         // Focus and essential actions must never wait for an entrance.
         if (reducedMotion.matches || element.matches(':focus-within')) return
         if (element.hasAttribute('data-record-entry')) element.dataset.entered = 'true'
-        const step = Number(element.dataset.reveal) || 0
+        const group = element.parentElement
+        let step = Number(element.dataset.reveal) || 0
+        if (group?.hasAttribute('data-reveal-group')) {
+          step = groupSteps.get(group) ?? 0
+          groupSteps.set(group, step + 1)
+        }
         element.style.setProperty('--motion-step', String(Math.min(3, Math.max(0, step))))
         element.classList.add('website-entered')
         const entrances = element.getAnimations().filter((animation) =>
@@ -68,8 +78,8 @@ export function WebsiteMotion() {
         element.classList.add('motion-chapter-ready')
         chapterObserver.observe(element)
       })
-      const elements = [...root.querySelectorAll<HTMLElement>('[data-reveal]')]
-      if (root instanceof HTMLElement && root.matches('[data-reveal]')) elements.push(root)
+      const elements = [...root.querySelectorAll<HTMLElement>(revealTarget)]
+      if (root instanceof HTMLElement && root.matches(revealTarget)) elements.push(root)
       elements.forEach((element) => {
         if (seen.has(element)) return
         seen.add(element)

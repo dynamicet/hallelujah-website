@@ -16,3 +16,19 @@
 @media (forced-colors: active) {
   .copy a:focus-visible { outline-color: Highlight; }
 }
+
+/* Desktop shares the equipment scene with the signature motion stylesheet. */
+@media screen and (max-width: 899px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) and (animation-range: entry 0% entry 100%) {
+    .image { view-timeline: --equipment-preview block; view-timeline-inset: 0; }
+    .image picture {
+      animation: frameEquipment linear both;
+      animation-timeline: --equipment-preview;
+      animation-range: entry 0% entry 90%;
+    }
+  }
+}
+@keyframes frameEquipment {
+  from { transform: scale(.90); }
+  to { transform: scale(1); }
+}

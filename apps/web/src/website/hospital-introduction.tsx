@@ -3,11 +3,11 @@ import { InterfaceLink as Link } from './interface-language'
 import styles from './hospital-introduction.module.css'
 
 export function HospitalIntroduction() {
-  return <section className={styles.section} id="about-hallelujah" aria-labelledby="hospital-introduction-title">
+  return <section className={styles.section} id="about-hallelujah" data-motion-section="introduction" aria-labelledby="hospital-introduction-title">
     <div className="page-frame">
       <div className={styles.panel}>
         <div className={styles.copy}>
-          <h2 id="hospital-introduction-title">From <span className={styles.place}>Gotera</span>, caring for Addis Ababa.</h2>
+          <h2 id="hospital-introduction-title" data-reveal="0" data-motion="heading">From <span className={styles.place}>Gotera</span>, caring for Addis Ababa.</h2>
           <p>Hallelujah General Hospital began as a specialist center for internal medicine and chest disease. Today, we provide general hospital care in Gotera.</p>
           <div className={styles.actions}>
             <Link className={`solid-button ${styles.action}`} href="/about">Learn more about us <span aria-hidden="true">→</span></Link>

@@ -67,7 +67,7 @@ export function WebsiteHome() {
         </section>
 
         <nav className="home-quick-access" aria-label="Quick access">
-          <ul className="page-frame home-quick-access-list">
+          <ul className="page-frame home-quick-access-list" data-reveal-group>
             <li><Link href="/services"><span className="home-quick-access-icon"><Icon name="care" /></span><span className="home-quick-access-copy"><strong>Explore services</strong></span><Arrow /></Link></li>
             <li><a href="#home-directions"><span className="home-quick-access-icon"><Icon name="directions" /></span><span className="home-quick-access-copy"><strong><InterfaceText>Contact &amp; directions</InterfaceText></strong></span><Arrow /></a></li>
             <li><Link className="home-quick-access-urgent" href="/emergency"><span className="home-quick-access-icon"><Icon name="emergency" /></span><span className="home-quick-access-copy"><strong>Emergency information</strong><span>Urgent care and ambulance contacts</span></span><Arrow /></Link></li>

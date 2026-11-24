@@ -81,8 +81,8 @@ export function EquipmentShowcase({ embedded = false }: { embedded?: boolean }) 
         <h2 id="equipment-title" data-motion="heading" data-reveal="0">Technology behind your care</h2>
         {!embedded && <EquipmentChapterNav chapters={equipment.map((item) => ({ id: `equipment-${item.id}-scene`, label: item.navigationLabel, name: item.name, device: item.id }))} />}
       </div>
-      <div data-ui-part="support" className={`${styles.supporting} equipment-chapters`}>
-        {equipment.map((item, index) => <article id={`equipment-${item.id}-scene`} tabIndex={-1} data-equipment-stop data-motion="card" data-reveal={index} className={`${styles.product} equipment-chapter`} key={item.id} aria-labelledby={`equipment-${item.id}`}>
+      <div data-reveal-group data-ui-part="support" className={`${styles.supporting} equipment-chapters`}>
+        {equipment.map((item) => <article id={`equipment-${item.id}-scene`} tabIndex={-1} data-equipment-stop data-motion="card" className={`${styles.product} equipment-chapter`} key={item.id} aria-labelledby={`equipment-${item.id}`}>
           <EquipmentImage item={item} />
           <div className={`${styles.productCopy} equipment-chapter-copy`}><h3 id={`equipment-${item.id}`}>{item.name}</h3><p className={styles.productDescription}>{item.description}</p><Link className={styles.serviceLink} href={careLinks[item.id].href}>{careLinks[item.id].label} <span aria-hidden="true">→</span></Link></div>
           <CloserLook item={item} />

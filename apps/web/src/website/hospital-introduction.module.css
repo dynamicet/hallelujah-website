@@ -52,3 +52,36 @@
   transform: rotate(-2deg);
   pointer-events: none;
 }
+
+/* Separate timelines let the underline and portrait arrive at their own
+   reading positions when the introduction stacks on a phone. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) and (animation-range: entry 0% entry 100%) {
+    .copy { view-timeline: --introduction-copy block; view-timeline-inset: 0; }
+    .place::after {
+      transform-origin: left center;
+      animation: drawPlace linear both;
+      animation-timeline: --introduction-copy;
+      animation-range: entry 5% entry 75%;
+    }
+    .panel { overflow: clip; }
+    .still {
+      overflow: clip;
+      view-timeline: --reception-photo block;
+      view-timeline-inset: 0;
+    }
+    .still img {
+      animation: openReception linear both;
+      animation-timeline: --reception-photo;
+      animation-range: entry 0% entry 95%;
+    }
+  }
+}
+@keyframes drawPlace {
+  from { transform: rotate(-2deg) scaleX(.08); }
+  to { transform: rotate(-2deg) scaleX(1); }
+}
+@keyframes openReception {
+  from { clip-path: inset(7% 19% 7% 7% round var(--site-image-radius)); scale: 1.07; }
+  to { clip-path: inset(0 round 0px); scale: 1; }
+}

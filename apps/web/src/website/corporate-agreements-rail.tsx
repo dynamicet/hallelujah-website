@@ -33,7 +33,7 @@ export function CorporateAgreementsRail({ children }: { children: ReactNode }) {
   return (
     <>
       <div className="corporate-agreements-heading">
-        <h2 id="corporate-agreements-title"><span className="credit-annotation">Credit</span> agreements for corporate healthcare</h2>
+        <h2 id="corporate-agreements-title" data-reveal="0" data-motion="heading"><span className="credit-annotation">Credit</span> agreements for corporate healthcare</h2>
         {(position.previous || position.next) && (
           <div className="corporate-agreements-controls" role="group" aria-label="Browse organizations">
             {([-1, 1] as const).map((direction) => (
@@ -50,7 +50,7 @@ export function CorporateAgreementsRail({ children }: { children: ReactNode }) {
         )}
       </div>
       <p>Check with your employer or the hospital before your visit to confirm eligibility.</p>
-      <div className="corporate-agreements-rail" id="corporate-organizations" ref={rail}
+      <div className="corporate-agreements-rail" id="corporate-organizations" data-reveal="1" data-motion="card" ref={rail}
         tabIndex={0} role="region" aria-label="Organizations">
         {children}
       </div>

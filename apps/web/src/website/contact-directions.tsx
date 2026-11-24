@@ -12,7 +12,7 @@ export function ContactDirections() {
         <h2 id="contact-directions-title">Contact &amp; directions</h2>
         <Link className={styles.pageLink} href="/contact">All contact details <Icon name="arrow-right" /></Link>
       </div>
-      <div className={styles.columns}>
+      <div className={styles.columns} data-reveal-group>
         <section className={styles.location} aria-label="Hospital location">
           <address className={styles.address} data-help-clearance>
             <strong>{hospitalContact.name}</strong>
