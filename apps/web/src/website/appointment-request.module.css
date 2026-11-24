@@ -183,3 +183,13 @@
   .submit { width: 100%; }
   .links a:last-child { margin-inline-start: 0; }
 }
+
+.picker { position: relative; display: grid; gap: 6px; }
+.pickerControl { position: relative; }
+.pickerControl input { padding-inline-end: 36px; }
+.chevron { position: absolute; inset-inline-end: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+.pickerList:not([hidden]) { position: absolute; z-index: 5; inset: 100% 0 auto; max-height: min(250px, 38vh); overflow-y: auto; background: var(--site-white); border: 1px solid var(--component-form-border-strong); border-radius: var(--component-form-radius); }
+.pickerList strong { display: block; padding: 8px 12px 2px; font-size: var(--site-support); color: var(--site-muted); }
+.pickerOption { padding: 10px 12px; min-height: 44px; cursor: pointer; }
+.pickerOption:hover, .pickerOption[data-active='true'] { background: var(--site-pale); }
+.pickerOption[aria-selected='true'] { font-weight: 700; }

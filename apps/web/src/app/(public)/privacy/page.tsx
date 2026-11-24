@@ -1,4 +1,3 @@
-import { appointmentPreviewNotice } from '@/demo/appointment-request-preview'
 import { InterfaceLink as Link } from '@/website/interface-language'
 import { requireLocalDemo } from '@/demo/site'
 import { PatientPage, PatientSection, patientPageStyles as styles } from '@/website/patient-page'
@@ -13,7 +12,7 @@ export default function PrivacyPage() {
     <nav className={styles.jumpLinks} aria-label="Privacy notice sections"><a href="#website-information">Website forms</a><a href="#preferences">Preferences & links</a><a href="#privacy-help">Ask a question</a></nav>
     <PatientSection id="website-information" title="Information you enter">
       <h3>Appointment information</h3>
-      <p>The <Link href="/appointment">appointment form</Link> asks for a name and phone number. A doctor or service preference is optional. {appointmentPreviewNotice}</p>
+      <p>The <Link href="/appointment">appointment form</Link> asks for a name and phone number. A doctor or service preference is optional.</p>
       <p>To arrange care, <a href={hospitalContact.phoneHref}>call reception</a>. Please leave medical histories and test results out of the form.</p>
       <h3>Feedback</h3>
       <p>The feedback composer holds your category and message in the current page’s memory so you can review them. It does not send feedback. Clear the message or reload the page to remove it from the composer.</p>

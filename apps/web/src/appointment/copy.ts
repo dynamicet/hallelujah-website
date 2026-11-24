@@ -6,7 +6,7 @@ export const appointmentCopy = {
     acknowledgment: 'I understand I need to call reception to arrange my appointment.',
     submit: 'Review details',
     pending: 'Checking details…',
-    receipt: 'This form did not send or save your request. Call reception to arrange a time.',
+    receipt: 'Call reception to arrange your appointment time.',
   },
   delivery: {
     introduction: 'Send a request and reception will call you to arrange a time.',

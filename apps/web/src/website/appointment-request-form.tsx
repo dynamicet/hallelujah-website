@@ -5,9 +5,10 @@ import { appointmentCopy } from '@/appointment/copy'
 import { ErrorSummary, Icon, TextField } from '@/design-system/components'
 import { parseAppointmentSubmission, type AppointmentValidationIssue } from '@/appointment/schema'
 import type { AppointmentRequestInput, SendAppointmentRequest } from '@/appointment/request-form'
-import { appointmentPreviewNotice, previewAppointmentRequest, type AppointmentPreviewScenario } from '@/demo/appointment-request-preview'
+import { previewAppointmentRequest, type AppointmentPreviewScenario } from '@/demo/appointment-request-preview'
 import { hospitalContact } from './hospital-contact'
 import { InterfaceLink as Link, InterfaceText } from './interface-language'
+import { CarePreferencePicker } from './care-preference-picker'
 import styles from './appointment-request.module.css'
 
 export type CarePreference = Readonly<{ kind: 'doctor' | 'service'; id: string; label: string }>
@@ -72,10 +73,6 @@ function AppointmentRequestForm({
   const copy = appointmentCopy[preview ? 'preview' : 'delivery']
   const ready = useSyncExternalStore(noSubscription, readySnapshot, serverSnapshot)
   const [preference, setPreference] = useState(initialPreference)
-  const [search, setSearch] = useState('')
-  const matches = (option: CarePreference) => option.label.toLowerCase().includes(search.trim().toLowerCase())
-  const visibleDoctors = doctors.filter(matches)
-  const visibleServices = services.filter(matches)
   const [state, setState] = useState(initialState)
   const [errors, setErrors] = useState<FieldErrors>(initialState === 'validation' ? {
     phone: 'Enter a phone number reception can call.',
@@ -169,17 +166,15 @@ function AppointmentRequestForm({
       {preview ? <button type="button" className={styles.textButton} onClick={() => {
         focusTarget.current = 'firstField'
         setPreference(initialPreference)
-        setSearch('')
         setState('editing')
       }}>Try again</button> : null}
     </section> : state === 'workflow-unavailable' ? <section aria-labelledby="appointment-unavailable-title">
       <h2 id="appointment-unavailable-title">Online requests are unavailable</h2>
       <p>Please <a className="text-link" href={hospitalContact.phoneHref}>call reception</a> to arrange an appointment.</p>
     </section> : <>
-      {preview ? <p className={styles.previewNote} id="appointment-preview-note">{appointmentPreviewNotice}</p> : null}
       <noscript><p>Enable JavaScript to use the form or <a href={hospitalContact.phoneHref}>call reception</a>.</p></noscript>
       <form ref={formRef} id="appointment-request-form" aria-label="Appointment request"
-        aria-describedby={preview ? 'appointment-preview-note' : undefined} method="post" noValidate onSubmit={submit}>
+        method="post" noValidate onSubmit={submit}>
         {errorItems.length ? <ErrorSummary id="appointment-error-summary" heading="Check your details" items={errorItems} /> : null}
         {failure ? <div className={styles.failure}>
           <h2 tabIndex={-1} ref={statusRef}>{preview ? 'We couldn’t check your details' : state === 'unknown' ? 'We couldn’t verify your request' : 'We couldn’t send your request'}</h2>
@@ -193,23 +188,11 @@ function AppointmentRequestForm({
           <div className={styles.preference}>
             {selectionNotice && !preference ? <p>{selectionNotice}</p> : null}
             <div className={styles.options} id="appointment-preference-options">
-              <label htmlFor="preference-search">Search doctors and services <small>(optional)</small></label>
-              <input type="search" id="preference-search" value={search} onChange={event => setSearch(event.target.value)} />
-              <label htmlFor="care-preference">Doctor or service <small>(optional)</small></label>
-              <select id="care-preference" value={preference?.id ?? ''}
-                aria-invalid={Boolean(errors['care-preference']) || undefined}
-                aria-describedby={errors['care-preference'] ? 'care-preference-error' : undefined}
-                onChange={(event) => {
-                  setSearch('')
-                  setPreference([...doctors, ...services].find(({ id }) => id === event.target.value))
+              <CarePreferencePicker doctors={doctors} services={services} value={preference} error={errors['care-preference']}
+                onChange={next => {
+                  setPreference(next)
                   if (errors['care-preference']) setErrors({ ...errors, 'care-preference': undefined })
-                }}>
-                <option value="">No preference</option>
-                {preference && !matches(preference) && <optgroup label="Current preference"><option value={preference.id}>{preference.label}</option></optgroup>}
-                <optgroup label="Doctors">{visibleDoctors.map(({ id, label }) => <option key={id} value={id}>{label}</option>)}</optgroup>
-                <optgroup label="Services">{visibleServices.map(({ id, label }) => <option key={id} value={id}>{label}</option>)}</optgroup>
-              </select>
-              {search.trim() && !visibleDoctors.length && !visibleServices.length && <small role="status">No matches. Try another name.</small>}
+                }} />
               {context && preference && preference.id === initialPreference?.id && <small>You were viewing {context}. Your request includes your doctor preference.</small>}
               {errors['care-preference'] ? <p className={styles.fieldError} id="care-preference-error">{errors['care-preference']}</p> : null}
             </div>

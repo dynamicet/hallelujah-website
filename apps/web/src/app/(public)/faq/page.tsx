@@ -1,4 +1,3 @@
-import { appointmentPreviewNotice } from '@/demo/appointment-request-preview'
 import { InterfaceLink as Link } from '@/website/interface-language'
 import { requireLocalDemo } from '@/demo/site'
 import { PatientPage, PatientSection, patientPageStyles as styles } from '@/website/patient-page'
@@ -19,7 +18,7 @@ export default function FaqPage() {
     <nav className={styles.jumpLinks} aria-label="Frequently asked question categories"><a href="#appointments">Appointments</a><a href="#your-visit">Your visit</a><a href="#support">Support & questions</a></nav>
     <PatientSection id="appointments" title="Appointments & finding care">
       <div className={informationStyles.disclosures}>
-        <Question question="How do I arrange an appointment?"><p>Call <a href={hospitalContact.phoneHref}>{hospitalContact.phone}</a> to arrange a time with reception. You can call without choosing a doctor or service first.</p><p>You can also <Link href="/appointment">explore the appointment form</Link>. {appointmentPreviewNotice}</p></Question>
+        <Question question="How do I arrange an appointment?"><p>Call <a href={hospitalContact.phoneHref}>{hospitalContact.phone}</a> to arrange a time with reception. You can call without choosing a doctor or service first.</p><p>You can also <Link href="/appointment">explore the appointment form</Link>.</p></Question>
         <Question question="Can I come without an appointment?"><p>Call before travelling to check whether the relevant department can see walk-in patients and what registration arrangements apply. For urgent care, use <Link href="/emergency">emergency information</Link>.</p></Question>
         <Question question="How do I choose a doctor or service?"><p>Browse <Link href="/doctors">our doctors</Link> or <Link href="/services">specialties & services</Link>. If you are unsure where to start, call the hospital and describe the kind of appointment you are looking for.</p></Question>
         <Question question="How do I change an appointment?"><p>Contact the hospital with your appointment details and ask the team to confirm the change. Changing details on the website does not change an existing booking.</p></Question>

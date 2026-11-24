@@ -61,7 +61,7 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     assert.equal(new URL(profileReturn, base).searchParams.get('doctor'), doctorId)
     const appointment = await page.eval(() => document.querySelector('[data-profile-primary-action]').getAttribute('href'))
     await page.goto(base + appointment)
-    assert.match(await page.eval(() => document.querySelector('#care-preference').selectedOptions[0].textContent + (document.querySelector('#care-preference ~ small')?.textContent ?? '')), /Chala.*Cardiology/s)
+    assert.match(await page.eval(() => document.querySelector('#care-preference').value + (document.querySelector('#appointment-preference-options > small')?.textContent ?? '')), /Chala.*Cardiology/s)
     const appointmentReturn = await page.eval(() => document.querySelector('main a[href^="/services/synthetic-service-"]').getAttribute('href'))
     assert.equal(new URL(appointmentReturn, base).searchParams.get('from'), '/services?q=Cardiology')
     assert.equal(new URL(appointmentReturn, base).searchParams.get('doctor'), doctorId)
@@ -69,8 +69,8 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     assert.equal(await page.eval(() => document.querySelector('main a[href^="/services?q="]').getAttribute('href')), '/services?q=Cardiology')
 
     await page.goto(base + '/appointment?doctor=pub_101010101010&service=pub_151515151515')
-    assert.match(await page.eval(() => document.querySelector('#care-preference').selectedOptions[0].textContent), /Aster/)
-    assert.equal(await page.eval(() => document.querySelector('#care-preference').selectedOptions[0].textContent.includes('Cardiology')), false)
+    assert.match(await page.eval(() => document.querySelector('#care-preference').value), /Aster/)
+    assert.equal(await page.eval(() => document.querySelector('#care-preference').value.includes('Cardiology')), false)
     await page.goto(base + '/doctors/synthetic-clinician-101010101010/?service=pub_151515151515')
     assert.equal(await page.eval(() => document.querySelectorAll('[aria-label="Breadcrumb"] a[href$="#care-team"]').length), 0)
     assert.match(await page.eval(() => document.querySelector('main').innerText), /not listed|not available|unavailable/i)
@@ -85,7 +85,7 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     assert.equal(new URL(jointRequest, base).searchParams.get('service'), echoId)
     assert.equal(new URL(jointRequest, base).searchParams.get('doctor'), doctorId)
     await page.goto(base + jointRequest)
-    assert.match(await page.eval(() => document.querySelector('#care-preference').selectedOptions[0].textContent + (document.querySelector('#care-preference ~ small')?.textContent ?? '')), /Chala.*Echocardiography/s)
+    assert.match(await page.eval(() => document.querySelector('#care-preference').value + (document.querySelector('#appointment-preference-options > small')?.textContent ?? '')), /Chala.*Echocardiography/s)
     await page.screenshot({ path: `${output}/selected-care-${width}.png` })
 
     // Team-delivered care has no inferred doctor; contact and referral choices are excluded.
@@ -110,7 +110,7 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
       })
       await waitFor(page, 'document.querySelector("[data-appointment-request]").dataset.appointmentState === "receipt"')
       assert.equal(await page.eval(() => document.activeElement.id), 'appointment-result-title')
-      assert.match(await page.eval(() => document.querySelector('[data-appointment-request]').textContent), /did not send or save/)
+      assert.match(await page.eval(() => document.querySelector('[data-appointment-request]').textContent), /Call reception to arrange your appointment time/)
       assert.equal(await page.eval(() => [...Object.values(localStorage), ...Object.values(sessionStorage)].some(value => /TEST PATIENT/.test(value))), false)
     }
     assert.equal(await page.eval(() => document.documentElement.scrollWidth > innerWidth), false)
