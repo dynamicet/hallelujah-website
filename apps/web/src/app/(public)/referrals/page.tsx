@@ -1,26 +1,23 @@
+import { hospitalContact } from '@/website/hospital-contact'
 import Link from 'next/link'
 import { requireLocalDemo } from '@/demo/site'
-import { PatientPage, PatientSection, patientPageStyles as styles } from '@/website/patient-page'
+import { PatientPage, PatientSection } from '@/website/patient-page'
 
 export const metadata = { title: 'Refer a patient | Hallelujah Hospital',
-  description: 'Prepare referral questions and identify what to confirm with Hallelujah Hospital. Online referral submission is unavailable in this preview.'
+  description: 'Contact reception to reach the receiving team and arrange a patient referral.'
 }
 
 export default function ReferralsPage() {
   requireLocalDemo()
-  return <PatientPage variant="document" title="Refer a patient" description="Referral submission is unavailable in this preview."
-    current="/referrals">
-    <nav className={styles.jumpLinks} aria-label="Referral guide sections"><a href="#prepare">Prepare a referral</a><a href="#process">How to proceed</a></nav>
-    <PatientSection context="preparation" id="prepare" title="Before referring">
-      <p>A referral recipient, secure submission channel and response times have not yet been verified. This preview does not accept referrals or medical documents.</p>
-      <p>Confirm the required service and receiving team before referring.</p>
-      <ul><li>Identify the relevant service and reason for referral.</li><li>Ask which referral letter, relevant results and earlier care notes the receiving team requires.</li><li>Confirm how the patient will be contacted and how an appointment will be confirmed.</li><li>Ask the hospital for its approved secure method before sharing patient information.</li></ul>
+  return <PatientPage variant="document" title="Refer a patient" description="Call reception and ask for the team that handles referrals for the service your patient needs."
+    current="/referrals" action={{ href: hospitalContact.phoneHref, label: `Call reception · ${hospitalContact.phone}` }}
+    secondaryAction={{ href: '/services', label: 'Find a service' }}>
+    <PatientSection context="preparation" id="prepare" title="When you call">
+      <p>Tell reception which service you need. The receiving team can explain which documents to share, how to send them securely and how the patient’s appointment will be confirmed.</p>
     </PatientSection>
-    <PatientSection id="process" title="How to proceed">
-      <p>The appointment preview does not submit clinical referrals.</p>
-      <p><Link className="text-link" href="/services">View all services <span aria-hidden="true">→</span></Link></p>
-      <p><Link href="/contact#contact-reception">Contact the hospital about a referral</Link></p>
-      <p>For urgent care, use <Link href="/emergency">emergency information</Link>.</p>
+    <PatientSection id="process" title="Other ways to reach us">
+      <p><Link href="/contact">Contact &amp; directions</Link></p>
+      <p>For urgent care, use the <Link href="/emergency">emergency and ambulance number</Link>.</p>
     </PatientSection>
   </PatientPage>
 }

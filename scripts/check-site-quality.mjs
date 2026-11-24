@@ -77,7 +77,7 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
 
   for (const width of [390, 768, 1440]) {
     const page = await browser.newPage({ width, height: 1000, mobile: width < 600, reducedMotion: true })
-    for (const [route, target] of [['/referrals', 'prepare']]) {
+    for (const [route, target] of [['/contact', 'before-you-travel']]) {
       await page.goto(base + route)
       await activate(page, `main a[href="#${target}"]`)
       await settled(page)
@@ -85,9 +85,12 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
       assert.equal(await page.eval('getComputedStyle(document.activeElement).outlineStyle'), 'solid')
       assert.equal(await page.eval('document.activeElement.getBoundingClientRect().top >= document.querySelector("[data-site-header]").getBoundingClientRect().bottom'), true)
     }
+    await page.goto(base + '/referrals')
+    assert.equal(await page.eval(() => document.querySelector('main a.solid-button').getAttribute('href')), 'tel:+251114704242')
     await page.goto(base + '/feedback')
     assert.equal(await page.eval('document.querySelector("[data-page-variant=task] h1").textContent'), 'Patient feedback')
-    assert.equal(await page.eval('Boolean(document.querySelector("#share form"))'), true, 'feedback opens directly into its task')
+    assert.equal(await page.eval(() => document.querySelector('main a.solid-button').getAttribute('href')), '/contact')
+    await activate(page, '#share summary')
     await page.eval('document.querySelector("#share select").focus()')
     assert.equal(await page.eval('document.activeElement.closest("section").id'), 'share', 'feedback form is keyboard reachable')
     await waitFor(page, '!document.querySelector("#feedback-message").disabled')

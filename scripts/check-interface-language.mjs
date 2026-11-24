@@ -73,6 +73,7 @@ await runVisualCheck('interface-language', baseUrl, async ({ browser, output }) 
       await pause(150)
       assert.equal(await page.eval(() => document.querySelector('label[for="full-name"] span').textContent), 'ሙሉ ስም')
       await page.goto(`${baseUrl}/feedback`)
+      await page.eval(() => document.querySelector('#share summary').click())
       await page.eval(() => {
         const input = document.querySelector('#feedback-message')
         Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set.call(input, 'Search')

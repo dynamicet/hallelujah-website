@@ -35,17 +35,14 @@ await runVisualCheck('contact-polish', base, async ({ browser, output }) => {
     await wait(p, 'location.pathname === "/contact" && !!document.querySelector("[data-hospital-contact]")')
     await wait(p, '!document.querySelector("[data-navigation-panel]").matches(":popover-open")')
     assert.equal(await p.eval(() => !!document.querySelector('[data-site-header] a[href="/contact"][aria-current="page"]')), true)
-    for (const id of ['directions', 'contact-reception', 'before-you-travel']) {
-      await activate(p, `[aria-label="On this page"] a[href="#${id}"]`)
-      await landed(p, id)
-      assert.equal(await p.eval('getComputedStyle(document.activeElement).outlineStyle'), 'solid')
-      await p.screenshot({ path: `${output}/${id}-focus-${width}.png` })
-    }
+    await activate(p, 'main nav a[href="#before-you-travel"]')
+    await landed(p, 'before-you-travel')
+    assert.equal(await p.eval('getComputedStyle(document.activeElement).outlineStyle'), 'solid')
     const targets = await p.eval(() => ({
       overflow: document.documentElement.scrollWidth > innerWidth,
-      phone: document.querySelector('main a[href^="tel:"]').getAttribute('href'),
+      phone: document.querySelector('[data-hospital-contact] nav a[href^="tel:"]').getAttribute('href'),
       email: document.querySelector('main a[href^="mailto:"]').getAttribute('href'),
-      directions: document.querySelector('main a[href*="/maps/dir/"]').getAttribute('href'),
+      directions: document.querySelector('[data-hospital-contact] nav a[href*="/maps/dir/"]').getAttribute('href'),
       shortLinks: [...document.querySelectorAll('main a')].filter(a => a.getBoundingClientRect().height < 44).map(a => a.textContent),
       runningAnimations: document.getAnimations().filter(a => a.playState === 'running').length,
     }))
@@ -75,8 +72,8 @@ await runVisualCheck('contact-polish', base, async ({ browser, output }) => {
     await wait(p, 'location.pathname === "/contact" && !!document.querySelector("#before-you-travel")')
     await landed(p, 'before-you-travel')
     await p.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'no-preference' }] })
-    await activate(p, '[aria-label="On this page"] a[href="#directions"]')
-    await landed(p, 'directions')
+    await activate(p, 'main nav a[href="#before-you-travel"]')
+    await landed(p, 'before-you-travel')
     assert.deepEqual(p.consoleErrors, [])
     results.push({ width, ...targets, headerToContact: 'passed', homepageShortcut: 'passed', preparationDeepLink: 'passed', normalMotion: 'passed' })
     await p.close()
@@ -89,12 +86,12 @@ await runVisualCheck('contact-polish', base, async ({ browser, output }) => {
   await key(p, 'Enter')
   assert.equal(await p.eval('document.activeElement.id'), 'main-content')
   const point = await p.eval(() => {
-    const r = document.querySelector('nav[aria-label="On this page"] a[href="#directions"]').getBoundingClientRect()
+    const r = document.querySelector('main nav a[href="#before-you-travel"]').getBoundingClientRect()
     return { x: r.x + r.width / 2, y: r.y + r.height / 2 }
   })
   await p.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [point] })
   await p.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] })
-  await landed(p, 'directions')
+  await landed(p, 'before-you-travel')
   await p.goto(base + '/appointment')
   await activate(p, '#appointment-call a[href="/contact"]')
   await wait(p, 'location.pathname === "/contact" && !!document.querySelector("#what-to-bring")')
@@ -104,9 +101,9 @@ await runVisualCheck('contact-polish', base, async ({ browser, output }) => {
   await wait(p, 'location.pathname === "/contact" && location.hash === "#before-you-travel"')
   assert.equal(await p.eval(() => document.querySelector('#what-to-bring-title').textContent), 'What to bring')
   await p.goto(base + '/contact')
-  await activate(p, 'nav[aria-label="On this page"] a[href="#directions"]')
-  await landed(p, 'directions')
-  assert.equal(await p.eval(() => document.querySelector('main a[href^="tel:"]').getAttribute('href')), 'tel:+251114704242')
+  await activate(p, 'main nav a[href="#before-you-travel"]')
+  await landed(p, 'before-you-travel')
+  assert.equal(await p.eval(() => document.querySelector('[data-hospital-contact] nav a[href^="tel:"]').getAttribute('href')), 'tel:+251114704242')
   await p.screenshot({ path: `${output}/native-directions-390.png` })
   await p.close()
   await writeFile(`${output}/measurements.json`, JSON.stringify(results, null, 2) + '\n')

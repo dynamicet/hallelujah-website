@@ -183,6 +183,7 @@ try {
   assert.equal((await fetch(server.origin + '/services/unknown-service')).status, 404, 'unknown service returns 404')
   await navigate('/feedback', 390)
   await until("!document.querySelector('#feedback-message').disabled")
+  await evaluate("document.querySelector('#share summary').click()")
   const beforeFeedbackRequests = requests.length
   await evaluate(`(() => {
     const field = document.querySelector('#feedback-message');

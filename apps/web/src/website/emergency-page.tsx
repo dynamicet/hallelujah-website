@@ -5,21 +5,17 @@ import styles from './emergency-page.module.css'
 export function WebsiteEmergencyPage() {
   return <SiteContent>
     <div className={styles.page} data-hospital-emergency lang="en">
-      <header className={styles.introduction}>
+      <header>
         <h1>Emergency &amp; ambulance</h1>
-        <p>Call the hospital for emergency or ambulance assistance.</p>
       </header>
 
       <div className={styles.priority}>
-        <section className={styles.call} aria-labelledby="emergency-call-title">
-          <h2 id="emergency-call-title">Speak to the hospital</h2>
-          <p>One number for emergency and ambulance enquiries.</p>
+        <section className={styles.call} aria-label="Emergency telephone">
           <a className={styles.callAction} href={hospitalContact.emergencyPhoneHref}>
             <Icon name="phone" />
             <span><span className={styles.actionLabel}>Call emergency &amp; ambulance</span><strong>{hospitalContact.emergencyPhone}</strong></span>
           </a>
-          <p className={styles.callNote}>If this device cannot make calls, dial the number from a phone.</p>
-          <p className={styles.warning}><strong>Call for urgent help.</strong> Email, online messages and appointment requests are not emergency channels.</p>
+          <p className={styles.callNote}>For urgent help, call this number directly.</p>
         </section>
 
         <section className={styles.arrival} aria-labelledby="emergency-arrival-title" id="emergency-arrival" tabIndex={-1}>

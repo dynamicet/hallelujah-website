@@ -5,21 +5,16 @@
 .page p, .page li { font-size: 17px; line-height: 1.65; }
 .page a, .page summary { transition: none; }
 .page a:focus-visible, .page summary:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
-.introduction > p { margin-top: 16px; max-width: 60ch; font-size: 19px; }
 .priority { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 32px; align-items: stretch; }
 .call, .arrival { min-width: 0; padding: clamp(24px, 3vw, 40px); }
 .call { background: var(--site-ink); color: var(--site-white); }
-.call h2 { color: inherit; }
-.call > p:first-of-type { margin-top: 12px; }
-.callAction { display: flex; align-items: center; gap: 18px; min-height: 96px; margin-block: 24px 16px; padding: 20px; background: var(--site-white); color: var(--site-ink); border-radius: var(--site-action-radius); text-decoration: none; }
+.callAction { display: flex; align-items: center; gap: 18px; min-height: 96px; margin-bottom: 16px; padding: 20px; background: var(--site-white); color: var(--site-ink); border-radius: var(--site-action-radius); text-decoration: none; }
 .callAction > svg { flex: 0 0 24px; width: 24px; height: 24px; }
 .callAction > span { display: grid; gap: 6px; min-width: 0; }
 .actionLabel { font-size: 15px; font-weight: 600; line-height: 1.4; }
 .callAction strong { font-size: clamp(24px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; letter-spacing: -.025em; white-space: nowrap; }
 .callAction:hover, .callAction:active { background: var(--site-pale); color: var(--site-ink); }
 .page .callNote { font-size: 15px; line-height: 1.55; }
-.page .warning { margin-top: 24px; padding-top: 20px; border-top: 1px solid currentColor; font-size: 15px; line-height: 1.65; }
-.warning strong { display: block; }
 .arrival { background: var(--site-pale); color: var(--site-ink); }
 .arrival address { display: grid; margin-top: 20px; font-style: normal; font-size: 17px; line-height: 1.65; }
 .arrival address strong { margin-bottom: 4px; font-weight: 600; }
@@ -53,11 +48,10 @@
 @media (max-width: 699px) {
   .page { padding-block: 28px 36px; }
   .page h1 { font-size: clamp(32px, 9vw, 40px); max-width: 16ch; }
-  .introduction > p { margin-top: 12px; font-size: 17px; }
   .priority { grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 24px; }
   .call, .arrival { padding: 24px 20px; }
   .page h2 { font-size: 27px; }
-  .callAction { margin-top: 20px; gap: 12px; padding: 16px 14px; }
+  .callAction { gap: 12px; padding: 16px 14px; }
   .callAction > svg { width: 20px; height: 20px; flex-basis: 20px; }
   .actionLabel { font-size: 13px; }
   .callAction strong { font-size: clamp(22px, 6.2vw, 28px); }

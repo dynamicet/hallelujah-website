@@ -12,9 +12,9 @@ export function ContactPage() {
       <header className={styles.introduction}>
         <h1>Contact &amp; directions</h1>
         <p>Speak with our team or plan your visit to Hallelujah General Hospital in Gotera, Addis Ababa.</p>
-        <nav className={styles.shortcuts} aria-label="On this page">
-          <a href="#contact-reception">Call the hospital<Icon name="phone" /></a>
-          <a href="#directions">Find us in Gotera<Icon name="directions" /></a>
+        <nav className={styles.shortcuts} aria-label="Contact and arrival options">
+          <a href={hospitalContact.phoneHref}>Call the hospital<Icon name="phone" /></a>
+          <a href={hospitalContact.directionsHref}>Get directions<Icon name="directions" /></a>
           <a href="#before-you-travel">Before you arrive<Icon name="arrow-right" /></a>
         </nav>
       </header>

@@ -39,7 +39,7 @@
 .page:is([data-page-variant='document'],[data-page-variant='task'],[data-page-variant='recruitment']) .hero { display: block; padding: 24px 0 8px; background: transparent; border-radius: 0; }
 .page:is([data-page-variant='document'],[data-page-variant='task']) .section { display: block; margin-top: 48px; }
 .page:is([data-page-variant='document'],[data-page-variant='task']) .section h2 { max-width: none; margin-bottom: 24px; font-size: var(--site-subheading); }
-.page[data-page-variant='task'] .heroCopy > p { margin-bottom: 0; }
+.page[data-page-variant='task'] .heroCopy > p:last-child { margin-bottom: 0; }
 .page[data-page-variant='task'] .section:first-of-type { margin-top: 32px; }
 .section:focus-visible, .page :is(a,button,summary):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; box-shadow: 0 0 0 4px var(--semantic-color-surface-raised); }
 .form { display: grid; gap: 24px; }
