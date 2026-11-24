@@ -64,9 +64,9 @@
 .leaders { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
 .leaderPortrait { aspect-ratio: 4 / 5; overflow: hidden; background: var(--site-pale); }
 .leaders h3 { margin: 22px 0 8px; max-width: 22ch; font-size: 20px; line-height: 1.35; font-weight: 600; }
-.leaders p { margin: 0; font-size: 16px; line-height: 1.5; }
-.leaders a { display: inline-flex; align-items: center; gap: 12px; margin-top: 14px; min-height: 44px; color: var(--site-ink); font-size: 15px; text-underline-offset: 5px; }
-.chapters a:hover, .leaders a:hover { text-decoration-thickness: 2px; }
+.leaderRole { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.5; }
+.leaderBackground { margin: 10px 0 0; max-width: 42ch; color: var(--site-muted); font-size: 16px; line-height: 1.55; }
+.chapters a:hover { text-decoration-thickness: 2px; }
 @media (max-width: 999px) {
   .founders { grid-template-columns: minmax(0, 1fr); }
   .leaders { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; }
@@ -105,16 +105,15 @@
   .chapters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 20px; }
   .chapters a { justify-content: space-between; gap: 12px; font-size: 15px; }
   .founders, .filmChapter, .leadership { margin-top: 64px; }
-  .leaders { gap: 32px 16px; }
-  .leaders h3 { font-size: 16px; margin-top: 16px; min-height: 2.7em; text-wrap: balance; }
-  .leaders p { min-height: 3em; font-size: 14px; }
-  .leaders a { font-size: 14px; }
+  .leaders { gap: 32px 20px; }
+  .leaders h3 { font-size: 18px; margin-top: 16px; }
 }
-@media (max-width: 359px) {
+@media (max-width: 519px) {
   .leaders { grid-template-columns: minmax(0, 1fr); }
-  .leaders li { display: grid; grid-template-columns: 104px minmax(0, 1fr); align-content: start; gap: 8px 18px; }
-  .leaderPortrait { grid-column: 1; grid-row: 1 / 4; }
-  .leaders h3 { grid-column: 2; margin: 0; min-height: 0; text-wrap: initial; }
-  .leaders p, .leaders a { grid-column: 2; min-height: 0; margin: 0; }
+  .leaders li { display: grid; grid-template-columns: 104px minmax(0, 1fr); align-items: start; gap: 4px 16px; }
+  .leaderPortrait { grid-column: 1; grid-row: 1 / span 3; }
+  .leaders h3 { grid-column: 2; margin: 0; }
+  .leaderRole, .leaderBackground { grid-column: 2; }
+  .leaderBackground { margin-top: 4px; font-size: 15px; }
 }
 @media (forced-colors: active) { .page :is(a, button, section[tabindex='-1']):focus-visible { outline-color: Highlight; } }

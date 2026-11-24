@@ -125,9 +125,10 @@ export function AboutPage() {
         </div>
         <ul className={styles.leaders}>
           {hospitalLeadership.map((person) => <li key={person.name}>
-            <div className={styles.leaderPortrait} data-framing={person.framing}><Image src={person.portrait} alt={person.name} width={person.width} height={person.height} unoptimized={person.framing === 'clinical'} sizes={person.framing === 'founder' ? "(max-width: 359px) 142px, (max-width: 599px) 59vw, (max-width: 999px) 60vw, 30vw" : "(max-width: 359px) 104px, (max-width: 599px) 43vw, (max-width: 999px) 44vw, 22vw"} /></div>
+            <div className={styles.leaderPortrait} data-framing={person.framing}><Image src={person.portrait} alt="" width={person.width} height={person.height} unoptimized={person.framing === 'clinical'} sizes={person.framing === 'founder' ? "(max-width: 519px) 142px, (max-width: 999px) 60vw, 30vw" : "(max-width: 519px) 104px, (max-width: 999px) 44vw, 22vw"} /></div>
             <h3>{person.name}</h3>
-            <p>{person.role}</p>
+            <p className={styles.leaderRole}>{person.role}</p>
+            <p className={styles.leaderBackground}>{person.background}</p>
           </li>)}
         </ul>
       </section>
