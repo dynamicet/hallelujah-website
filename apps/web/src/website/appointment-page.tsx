@@ -64,7 +64,7 @@ export default async function AppointmentPage({ searchParams }: { searchParams: 
         />
         <aside className={styles.callPanel} id="appointment-call" tabIndex={-1} aria-labelledby="appointment-call-title">
           <h2 id="appointment-call-title">Prefer to call?</h2>
-          <p>Call reception to arrange an appointment or get help choosing care.</p>
+          <p>Reception can help you choose a doctor or service.</p>
           <a className={styles.phone} href={hospitalContact.phoneHref}><Icon name="phone" />{hospitalContact.phone}</a>
           <Link className="text-link" href="/contact">Contact &amp; directions <Icon name="arrow-right" /></Link>
         </aside>

@@ -5,8 +5,6 @@
 .page h2 { font-size: clamp(26px, 2.5vw, 34px); line-height: 1.2; letter-spacing: -.025em; }
 .page h3 { font-size: 22px; line-height: 1.3; font-weight: 500; }
 .page svg { width: 20px; height: 20px; flex-shrink: 0; }
-.backLink { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; margin-bottom: 20px; color: var(--site-link); font-size: var(--site-support); }
-.backLink svg { transform: rotate(180deg); }
 .page p { font-size: 17px; line-height: 1.65; }
 .introduction > p { max-width: 58ch; margin-top: 24px; font-size: 20px; }
 .shortcuts { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 24px; }
@@ -52,7 +50,6 @@
   .page { padding-block: 28px 40px; }
   .page h1 { font-size: clamp(36px, 10vw, 44px); max-width: 16ch; }
   .introduction > p { margin-top: 20px; font-size: 18px; }
-  .backLink { margin-bottom: 16px; }
   .shortcuts { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 20px; }
   .shortcuts a { justify-content: flex-start; gap: 12px; }
   .shortcuts svg { order: -1; }

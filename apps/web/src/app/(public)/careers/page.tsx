@@ -19,17 +19,15 @@ export default function CareersPage() {
     current="/careers">
     <PatientSection id="open-roles" title={`Open roles (${jobs.length})`}>
       {jobs.length === 0 && <p>There are no open roles at the moment.</p>}
+      {jobs.length > 0 && <p>Full time · Addis Ababa</p>}
       <div className={informationStyles.disclosures}>{jobs.map((job) => <details className={informationStyles.disclosure} id={job.id} key={job.id}>
-        <summary><span><span className={informationStyles.jobTitle}>{job.title}</span><span className={informationStyles.jobMeta}>{job.department} · Full time · Addis Ababa</span></span></summary>
+        <summary><span><span className={informationStyles.jobTitle}>{job.title}</span><span className={informationStyles.jobMeta}>{job.department}</span></span></summary>
         <div className={informationStyles.answer}><p>{job.description}</p><h3>What you’ll do</h3><ul>{job.responsibilities.map((responsibility) => <li key={responsibility}>{responsibility}</li>)}</ul><h3>What you’ll bring</h3><p>{job.qualifications}</p><p><strong>Role reference:</strong> {job.reference}</p><a className="text-link" href="#apply">Prepare your application <span aria-hidden="true">→</span></a></div>
       </details>)}</div>
     </PatientSection>
     <PatientSection id="apply" title="How to apply">
       <p>When you contact the hospital, mention the role title and reference. Reception can help you confirm where to send your CV, which documents to include and the closing date.</p>
       <div className={informationStyles.contactLinks}><a className="text-link" href={hospitalContact.phoneHref}>Call about applications <span aria-hidden="true">→</span></a><Link href="/contact">Contact & directions</Link></div>
-    </PatientSection>
-    <PatientSection id="working-together" title="Working at Hallelujah">
-      <p>A patient’s visit brings several teams together. Reception helps families find their way, laboratory staff prepare results, and nurses share updates with the next care team. We value colleagues who listen carefully and keep one another informed.</p>
     </PatientSection>
   </PatientPage>
 }

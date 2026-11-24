@@ -14,19 +14,11 @@ export default function PartnershipsPage() {
   return <div className="page-frame">
     <header className={styles.intro}>
       <h1>Work with Hallelujah</h1>
-      <p>We welcome ideas for community outreach, education and care.</p>
+      <p>Have an idea for a community event, staff training, or a collaboration with your organization?</p>
     </header>
     <div className={styles.layout}>
       <PartnershipEnquiry />
-      <section className={styles.context} aria-labelledby="partnership-opportunities">
-        <h2 id="partnership-opportunities">Ways we could work together</h2>
-        <ul>
-          <li><strong>Organizational partnerships</strong><span>Explore a collaboration with your company or institution.</span></li>
-          <li><strong>Community outreach</strong><span>Share an idea for a program or event that supports the community.</span></li>
-          <li><strong>Education and training</strong><span>Tell us about an opportunity to learn or share expertise together.</span></li>
-        </ul>
-        <Link className="text-link" href="/contact">Patient enquiries and directions <span aria-hidden="true">→</span></Link>
-      </section>
+      <Link className="text-link" href="/contact">Patient enquiries and directions <span aria-hidden="true">→</span></Link>
     </div>
   </div>
 }

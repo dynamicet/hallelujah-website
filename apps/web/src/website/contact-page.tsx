@@ -8,7 +8,6 @@ import styles from './contact-page.module.css'
 export function ContactPage() {
   return <SiteContent>
     <div className={styles.page} data-hospital-contact lang="en">
-      <Link className={styles.backLink} href="/#home-directions"><Icon name="arrow-right" />Back to contact overview</Link>
       <header className={styles.introduction}>
         <h1>Contact &amp; directions</h1>
         <p>Speak with our team or plan your visit to Hallelujah General Hospital in Gotera, Addis Ababa.</p>
