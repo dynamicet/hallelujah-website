@@ -56,11 +56,26 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
         await page.screenshot({ path: `${output}/equipment-details-${width}-${reducedMotion ? 'reduced' : 'normal'}.png` })
         await enter(page)
         assert.equal(await page.eval("document.querySelector('#medical-technology details').open"), false)
+        for (const id of ['our-story', 'founding-vision', 'our-values', 'mission-and-vision', 'leadership']) {
+          await page.eval(`(() => {
+            const link = document.querySelector('main a[href="#${id}"]')
+            link.scrollIntoView({ block: 'center', behavior: 'instant' })
+            link.focus({ preventScroll: true })
+          })()`)
+          await enter(page)
+          await waitFor(page, `location.hash === "#${id}" && document.activeElement.id === "${id}"`)
+          await waitFor(page, `(() => {
+            const top = document.activeElement.getBoundingClientRect().top
+            return top > document.querySelector('[data-site-header]').getBoundingClientRect().bottom && top < innerHeight
+          })()`)
+          assert.equal(await page.eval('getComputedStyle(document.activeElement).outlineStyle'), 'solid')
+        }
+        await page.screenshot({ path: `${output}/about-focus-${width}-${reducedMotion ? 'reduced' : 'normal'}.png` })
         assert.equal(await page.eval('document.documentElement.scrollWidth > innerWidth'), false)
         assert.deepEqual(page.consoleErrors, [])
       } finally { await page.close() }
     }
-    console.log(`PASS ${width}: services shortcut, full topic browser, equipment destination/disclosure, normal/reduced motion`)
+    console.log(`PASS ${width}: services shortcut, topic browser, equipment disclosure, About section focus, normal/reduced motion`)
   }
   const page = await browser.newPage({ width: 390, height: 1000, mobile: true, reducedMotion: true })
   try {

@@ -26,7 +26,7 @@
 .visit address strong { font-weight: 600; }
 .visit address span { margin-top: 8px; }
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 28px; margin-top: 28px; }
-.page :is(a, button):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
+.page :is(a, button, section[tabindex='-1']):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
 .chapters { display: flex; flex-wrap: wrap; gap: 16px 40px; margin-top: -24px; }
 .chapters a { display: inline-flex; align-items: center; gap: 24px; min-height: 44px; color: var(--site-ink); text-underline-offset: 6px; }
 .page section[id] { scroll-margin-top: 140px; }
@@ -117,4 +117,4 @@
   .leaders h3 { grid-column: 2; margin: 0; min-height: 0; text-wrap: initial; }
   .leaders p, .leaders a { grid-column: 2; min-height: 0; margin: 0; }
 }
-@media (forced-colors: active) { .page :is(a, button):focus-visible { outline-color: Highlight; } }
+@media (forced-colors: active) { .page :is(a, button, section[tabindex='-1']):focus-visible { outline-color: Highlight; } }

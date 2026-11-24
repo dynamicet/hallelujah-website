@@ -6,7 +6,7 @@ import { clinicianBiographies, clinicians, requireLocalDemo, services, type Demo
 import { demoScenario } from '@/demo/scenarios'
 import { relatedCareIds, carePathWithDoctor, appointmentHref, clinicianFilters, isRequestableCare, careEntry } from '@/demo/care-model'
 import { doctorSearchTerms } from '@/demo/care-discovery'
-import { serviceDirectoryReturn } from '@/demo/service-directory-return'
+import { serviceDirectorySource } from '@/demo/service-directory-return'
 
 async function resolveClinician(params: Promise<{ slug: string }>) {
   requireLocalDemo()
@@ -33,8 +33,8 @@ export default async function DoctorProfilePage({ params, searchParams }: { para
   } } : clinician
   const related = services.filter((service) => relatedCareIds(clinician.publicId).includes(service.publicId))
   const selectedService = related.find((service) => service.publicId === parameters.service && isRequestableCare(service.publicId))
-  const serviceResultsHref = serviceDirectoryReturn(parameters.from)
-  let directoryHref = '/doctors'
+  const serviceResultsHref = serviceDirectorySource(parameters.from)
+  let directoryHref: string | undefined
   if (typeof parameters.from === 'string' && parameters.from.startsWith('/doctors')) {
     const source = new URL(parameters.from, 'https://local.invalid')
     if (source.origin === 'https://local.invalid' && source.pathname === '/doctors') {

@@ -48,8 +48,9 @@ const unavailableCopy: Readonly<Record<Exclude<ClinicianProfileReviewState, 'app
   },
 }
 
-function UnavailableProfile({ directoryHref, retryHref, state }: {
+function UnavailableProfile({ directoryHref, directoryLabel, retryHref, state }: {
   readonly directoryHref: string
+  readonly directoryLabel: string
   readonly retryHref?: string
   readonly state: Exclude<ClinicianProfileReviewState, 'appointment-unavailable' | 'ready'>
 }) {
@@ -64,16 +65,17 @@ function UnavailableProfile({ directoryHref, retryHref, state }: {
       <section aria-labelledby="clinician-profile-recovery-title" className={`${styles.support} ds-support-band`} data-profile-support data-care-band="recovery" data-profile-section="P7" id="profile-support">
         <h2 id="clinician-profile-recovery-title">Continue browsing</h2>
         <p>Search other clinicians or explore services while this profile is unavailable.</p>
-        <div className="ds-support-actions"><Link className="ds-touch-target" href={directoryHref}>Back to doctor results</Link><Link className="ds-touch-target" href="/services">View all services</Link><Link className="ds-touch-target" href="/">Home</Link></div>
+        <div className="ds-support-actions"><Link className="ds-touch-target" href={directoryHref}>{directoryLabel}</Link><Link className="ds-touch-target" href="/services">View all services</Link><Link className="ds-touch-target" href="/">Home</Link></div>
       </section>
     </>
   )
 }
 
-export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, relatedSpecialtyIds = [], serviceContext, portraitSrc, portraitDisclosure, appointmentHref, biography, directoryHref = '/doctors', profile, shell, state }: ClinicianProfileTemplateProps) {
+export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, relatedSpecialtyIds = [], serviceContext, portraitSrc, portraitDisclosure, appointmentHref, biography, directoryHref, profile, shell, state }: ClinicianProfileTemplateProps) {
   const unavailable = state === 'failure' || state === 'gone' || state === 'unavailable'
   const clinician = profile.clinician
   const hasEditorial = Boolean(biography || clinician?.details.interests.length || clinician?.details.credentials.length || clinician?.details.languages.length)
+  const directoryLabel = directoryHref ? 'Back to doctor results' : 'View all doctors'
   const requestHref = state === 'appointment-unavailable' ? undefined : appointmentHref
 
   return (
@@ -81,7 +83,7 @@ export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, related
       {!unavailable && clinician ? <ClinicianTransition /> : null}
       <article className={styles.frame} data-clinician-profile-state={state} data-clinician-profile-template data-care-profile={appointmentHref ? true : undefined} data-clinician-identity-id={unavailable ? undefined : clinician?.publicId} data-profile-section="P0">
         {unavailable || !clinician ? (
-          <UnavailableProfile directoryHref={directoryHref} retryHref={appointmentHref ? profile.canonicalPath ?? undefined : undefined}
+          <UnavailableProfile directoryHref={directoryHref ?? '/doctors'} directoryLabel={directoryLabel} retryHref={appointmentHref ? profile.canonicalPath ?? undefined : undefined}
             state={unavailable ? state : 'unavailable'} />
         ) : (
           <>
@@ -103,7 +105,7 @@ export function ClinicianProfileTemplate({ breadcrumbs, selectionNotice, related
                     Appointment requests unavailable
                   </span>
                 )}
-                {appointmentHref ? <Link className="ds-touch-target" href={serviceContext ? `${serviceContext.href}#care-team` : directoryHref}>{serviceContext ? `Back to ${serviceContext.name}` : 'Back to doctor results'}</Link> : null}
+                {appointmentHref ? <Link className="ds-touch-target" href={serviceContext ? `${serviceContext.href}#care-team` : directoryHref ?? '/doctors'}>{serviceContext ? `Back to ${serviceContext.name}` : directoryLabel}</Link> : null}
               </div>
             </section>
 

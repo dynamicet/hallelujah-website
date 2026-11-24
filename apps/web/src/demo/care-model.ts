@@ -67,12 +67,12 @@ export function appointmentHref(selection: CareSelection, directoryHref?: string
   const params = new URLSearchParams()
   if (valid.doctorId) params.set('doctor', valid.doctorId)
   if (valid.serviceId) params.set('service', valid.serviceId)
-  if (directoryHref && directoryHref !== '/services') params.set('from', directoryHref)
+  if (directoryHref) params.set('from', directoryHref)
   return `/appointment${params.size ? `?${params}` : ''}`
 }
 export function carePathWithDoctor(service: { publicId: string; canonicalPath: string }, doctorId?: string, directoryHref?: string): string {
   const params = new URLSearchParams()
   if (doctorId && isCompatibleCare(doctorId, service.publicId)) params.set('doctor', doctorId)
-  if (directoryHref && directoryHref !== '/services') params.set('from', directoryHref)
+  if (directoryHref) params.set('from', directoryHref)
   return `${service.canonicalPath}${params.size ? `?${params}` : ''}`
 }

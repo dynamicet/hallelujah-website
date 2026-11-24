@@ -36,6 +36,18 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
     })
     await waitFor(page, 'location.search.includes("type=synthetic-heart") && document.querySelectorAll("[data-clinician-public-id]").length === 3')
     assert.equal(await page.eval(() => [...document.querySelectorAll('[data-clinician-public-id]')].every(card => card.querySelector('[aria-label="Specialties"]').textContent.includes('Cardiology'))), true)
+    for (const [path, selector, fallback, from, backLabel, viewLabel] of [
+      [service, 'main a[href^="/services"]', '/services', '/services', 'Back to service results', 'View all services'],
+      [doctorPath, '[data-profile-introduction] a[href^="/doctors"]', '/doctors', '/doctors?q=Chala', 'Back to doctor results', 'View all doctors'],
+    ]) {
+      for (const source of ['', from, 'https://example.com' + fallback]) {
+        await page.goto(base + path + (source ? '?from=' + encodeURIComponent(source) : ''))
+        const expected = source === from ? [from, backLabel] : [fallback, viewLabel]
+        assert.ok(await page.eval(`[...document.querySelectorAll(${JSON.stringify(selector)})].some(link =>
+          link.getAttribute('href') === ${JSON.stringify(expected[0])} &&
+          link.textContent.replace('←', '').trim() === ${JSON.stringify(expected[1])})`), `${path} from ${source || 'direct'}`)
+      }
+    }
     await page.goto(base + service + "?from=%2Fservices%3Fq%3DCardiology")
     await page.eval(() => document.querySelector('main a[href="#care-team"]').focus())
     await enter(page)

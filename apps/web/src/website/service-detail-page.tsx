@@ -1,6 +1,6 @@
 import { requestAppointmentLabel } from '@/appointment/copy'
 import { carePageImages } from '@/website/care-page-image'
-import { directoryServices, serviceDirectoryReturn } from '@/demo/service-directory-return'
+import { directoryServices, serviceDirectorySource } from '@/demo/service-directory-return'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ServiceCareTeam } from './service-care-team'
@@ -30,10 +30,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ServicePage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: DemoSearchParams }) {
   const service = await resolveService(params)
   const parameters = await searchParams
-  const directoryHref = serviceDirectoryReturn(parameters.from)
+  const directoryHref = serviceDirectorySource(parameters.from)
+  const directoryLabel = directoryHref ? 'Back to service results' : 'View all services'
   if (service.publicId === 'pub_111111111111') {
     return <PatientPage variant="document" title="Admission guidance" description="Information for patients and families arranging a planned hospital stay." current={service.canonicalPath}>
-      <Link className={serviceStyles.backLink} href={directoryHref}><span aria-hidden="true">←</span> Back to service results</Link>
+      <Link className={serviceStyles.backLink} href={directoryHref ?? '/services'}>{directoryHref ? <span aria-hidden="true">←</span> : null}{directoryLabel}</Link>
       <PatientSection id="care-team" title="Arranging a hospital stay">
         <p>Reception can connect you with the admissions team for questions about check-in and visits from family. If you already have admission instructions, follow the arrangements from your care team.</p>
         <div className={styles.actions}>
@@ -68,7 +69,7 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
   return <PatientPage variant="care-detail" image={/heart|cardio/i.test(service.name) ? carePageImages.heart : /rehab|physio/i.test(service.name) ? carePageImages.recovery : carePageImages.general} title={service.name} description={service.sections.scope?.join(' ') ?? 'Explore this area of care and prepare for your visit.'}
     current={service.canonicalPath}
     action={action} secondaryAction={related.length ? { href: '#care-team', label: 'Meet the care team' } : undefined}>
-    <Link className={serviceStyles.backLink} href={directoryHref}><span aria-hidden="true">←</span> Back to service results</Link>
+    <Link className={serviceStyles.backLink} href={directoryHref ?? '/services'}>{directoryHref ? <span aria-hidden="true">←</span> : null}{directoryLabel}</Link>
     {selectedDoctor ? <aside className={serviceStyles.selectionContext} aria-label="Doctor preference">
       <p>Exploring {service.name} with <strong>{selectedDoctor.details.name}</strong>. Your doctor preference will continue into the appointment request.</p>
       <Link href={carePathWithDoctor(service, undefined, directoryHref)}>Explore without a doctor preference</Link>
@@ -91,7 +92,7 @@ export default async function ServicePage({ params, searchParams }: { params: Pr
       {related.length ? <><p>{specialty ? 'Meet doctors in this specialty and explore their areas of care.' : 'These doctors provide this service. View a profile to learn more or carry your care choice into an appointment request.'}</p><ServiceCareTeam doctors={related.map(doctor => ({ publicId: doctor.publicId, name: doctor.details.name, specialties: doctor.details.specialties,
         portraitSrc: demoClinicianPortraits[doctor.publicId], href: `${doctor.canonicalPath}?${new URLSearchParams({
           service: service.publicId,
-          ...(directoryHref === '/services' ? {} : { from: directoryHref }),
+          ...(directoryHref ? { from: directoryHref } : {}),
         })}` }))} /><h3>Arrange your visit</h3></> : null}
       <div id="referrals" tabIndex={-1}>
         {(service.sections.referral ?? [!related.length && copy?.team ? copy.team

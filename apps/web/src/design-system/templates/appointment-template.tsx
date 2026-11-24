@@ -17,6 +17,8 @@ import {
 
 import styles from './appointment-template.module.css'
 
+const receptionHref = '/contact#contact-reception'
+
 export type AppointmentReviewStateKind =
   | 'delivery-warning'
   | 'duplicate'
@@ -135,7 +137,7 @@ function AppointmentStatePanels({
     <InterfaceCopy><div className={styles.stateStack} data-appointment-state-panels>
       <div className={styles.statePanel} data-appointment-state-panel="prepared">
         <FormStatus announcement="focus" heading="Your details are ready" id="appointment-prepared" kind="warning" visible={kind === 'prepared'}>
-          <p>Your choices have been checked. <Link href="/#home-directions">Contact the hospital</Link> to arrange your appointment request.</p>
+          <p>Your choices have been checked. <Link href={receptionHref}>Contact the hospital</Link> to arrange your appointment request.</p>
           <p>No request has been sent. You can still edit your details here.</p>
         </FormStatus>
       </div>
@@ -168,13 +170,13 @@ function AppointmentStatePanels({
       <div className={styles.statePanel} data-appointment-state-panel="receipt">
         <FormStatus announcement="focus" heading="Preview complete" id="appointment-receipt" kind="warning" visible={kind === 'receipt'}>
           <p>Example reference: <strong>{specimenReference}</strong>. No appointment request was sent or saved.</p>
-          <p><Link href="/#home-directions">Contact the hospital</Link> to confirm your appointment time.</p>
+          <p><Link href={receptionHref}>Contact the hospital</Link> to confirm your appointment time.</p>
           <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Try the preview again</InterfaceText></button></div>
         </FormStatus>
       </div>
       <div className={styles.statePanel} data-appointment-state-panel="delivery-warning">
         <FormStatus announcement="focus" heading="Example: message delivery warning" id="appointment-delivery-warning" kind="warning" visible={kind === 'delivery-warning'}>
-          <p>Example reference: <strong>{specimenReference}</strong>. No request was sent or saved. <Link href="/#home-directions">Contact the hospital</Link> to check your appointment time.</p>
+          <p>Example reference: <strong>{specimenReference}</strong>. No request was sent or saved. <Link href={receptionHref}>Contact the hospital</Link> to check your appointment time.</p>
           <div className={styles.statusActions}><button data-journey-restart type="button"><InterfaceText>Try the preview again</InterfaceText></button></div>
         </FormStatus>
       </div>
@@ -243,7 +245,7 @@ function AppointmentForm({
           </div>)
   return (
     <InterfaceCopy><>
-    {localSimulation ? <noscript><p className={styles.noScriptBoundary}>Enable JavaScript to use this form, or <Link href="/#home-directions">contact the hospital</Link>.</p></noscript> : null}
+    {localSimulation ? <noscript><p className={styles.noScriptBoundary}>Enable JavaScript to use this form, or <Link href={receptionHref}>contact the hospital</Link>.</p></noscript> : null}
     <div data-appointment-safe-form inert={localSimulation || undefined}>
     <FormPrimitiveForm
       action="/controlled-appointment-submission-disabled"
@@ -457,7 +459,7 @@ export function AppointmentTemplate({
           <h1 id="appointment-title">{title}</h1>
           {description ? <p data-ui-part="description" className={styles.description}>{description}</p> : null}
           {!state.localSimulation ? <p className={styles.fixtureBoundary}>{eyebrow}</p> : null}
-          <p data-ui-part="fixture-notice" className={styles.fixtureNotice} id="appointment-form-boundary">{state.localSimulation ? <>Try the appointment preview using sample details only. Nothing is sent to the hospital or saved as an appointment request. To arrange care, <Link href="/#home-directions">contact the hospital</Link>.</> : <>Online appointment requests are unavailable. Do not enter personal or medical information.</>}</p>
+          <p data-ui-part="fixture-notice" className={styles.fixtureNotice} id="appointment-form-boundary">{state.localSimulation ? <>Try the appointment preview using sample details only. Nothing is sent to the hospital or saved as an appointment request. To arrange care, <Link href={receptionHref}>contact the hospital</Link>.</> : <>Online appointment requests are unavailable. Do not enter personal or medical information.</>}</p>
         </section>
 
         <div data-ui-part="workspace" className={styles.workspace}>
@@ -493,7 +495,7 @@ export function AppointmentTemplate({
         <section aria-labelledby="appointment-support-title" className={`${styles.section} ${styles.support} ds-support-band`} data-appointment-section="A7" data-section-context={state.localSimulation ? 'assistance' : undefined} id="appointment-support">
           <h2 id="appointment-support-title">{state.localSimulation ? 'Need help choosing care?' : recipientLabel}</h2>
           {!state.localSimulation ? <p>Review the illustrative contact details or return to care discovery before deciding what to request.</p> : null}
-          {state.localSimulation ? <div className="ds-support-actions"><Link className="ds-touch-target" href="/#home-call">Contact information</Link><Link className="ds-touch-target" href="/doctors">Find a doctor</Link></div> : null}
+          {state.localSimulation ? <div className="ds-support-actions"><Link className="ds-touch-target" href={receptionHref}>Contact information</Link><Link className="ds-touch-target" href="/doctors">Find a doctor</Link></div> : null}
         </section>
       </div>
     </TemplateFrame>

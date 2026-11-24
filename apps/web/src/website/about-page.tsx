@@ -52,7 +52,7 @@ export function AboutPage() {
         <a href="#medical-technology">Medical technology <Arrow /></a>
       </nav>
 
-      <section className={styles.chapter} id="our-story" aria-labelledby="about-story-title">
+      <section className={styles.chapter} id="our-story" tabIndex={-1} aria-labelledby="about-story-title">
         <div className={styles.chapterIntro}>
           <h2 id="about-story-title">Our story</h2>
           <p>From a specialist center to a general hospital, Hallelujah’s story began with internal medicine and chest disease care.</p>
@@ -63,7 +63,7 @@ export function AboutPage() {
         </ol>
       </section>
 
-      <section className={styles.founders} id="founding-vision" aria-labelledby="about-founder-title">
+      <section className={styles.founders} id="founding-vision" tabIndex={-1} aria-labelledby="about-founder-title">
         <div className={styles.foundersStory}>
           <h2 id="about-founder-title">Our founders</h2>
           <p className={styles.foundersIntro}>Hallelujah began in 2006 as a center for internal medicine and chest disease. Its two founders helped shape its growth into a general hospital.</p>
@@ -94,7 +94,7 @@ export function AboutPage() {
         </video>
       </section>
 
-      <section className={`${styles.chapter} ${styles.valuesChapter}`} id="our-values" aria-labelledby="about-values-title">
+      <section className={`${styles.chapter} ${styles.valuesChapter}`} id="our-values" tabIndex={-1} aria-labelledby="about-values-title">
         <div className={styles.chapterIntro}>
           <h2 id="about-values-title">What guides our care</h2>
           <p>These values shape how we care for patients, support our people and serve our community.</p>
@@ -104,7 +104,7 @@ export function AboutPage() {
         </dl>
       </section>
 
-      <section className={styles.purpose} id="mission-and-vision" aria-label="Mission and vision">
+      <section className={styles.purpose} id="mission-and-vision" tabIndex={-1} aria-label="Mission and vision">
         {/* Narrative source and editorial scope are recorded in about-founder-story.md. */}
         <div>
           <h2>Our mission</h2>
@@ -118,7 +118,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className={styles.leadership} id="leadership" aria-labelledby="about-leadership-title">
+      <section className={styles.leadership} id="leadership" tabIndex={-1} aria-labelledby="about-leadership-title">
         <div className={styles.leadershipIntro}>
           <h2 id="about-leadership-title">Leadership today</h2>
           <p>The people leading Hallelujah’s management and clinical teams.</p>
