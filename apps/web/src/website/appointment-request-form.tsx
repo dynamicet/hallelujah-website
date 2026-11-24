@@ -72,7 +72,10 @@ function AppointmentRequestForm({
   const copy = appointmentCopy[preview ? 'preview' : 'delivery']
   const ready = useSyncExternalStore(noSubscription, readySnapshot, serverSnapshot)
   const [preference, setPreference] = useState(initialPreference)
-  const [preferenceOpen, setPreferenceOpen] = useState(false)
+  const [search, setSearch] = useState('')
+  const matches = (option: CarePreference) => option.label.toLowerCase().includes(search.trim().toLowerCase())
+  const visibleDoctors = doctors.filter(matches)
+  const visibleServices = services.filter(matches)
   const [state, setState] = useState(initialState)
   const [errors, setErrors] = useState<FieldErrors>(initialState === 'validation' ? {
     phone: 'Enter a phone number reception can call.',
@@ -81,9 +84,7 @@ function AppointmentRequestForm({
   const [reference, setReference] = useState<string | undefined>(preview ? 'HH-1042' : undefined)
   const formRef = useRef<HTMLFormElement>(null)
   const statusRef = useRef<HTMLHeadingElement>(null)
-  const preferenceSelect = useRef<HTMLSelectElement>(null)
-  const preferenceButton = useRef<HTMLButtonElement>(null)
-  const focusTarget = useRef<'error' | 'status' | 'preference' | 'toggle' | 'firstField' | null>(null)
+  const focusTarget = useRef<'error' | 'status' | 'firstField' | null>(null)
   const submitting = useRef(false)
   const received = state === 'receipt' || state === 'duplicate' || state === 'delivery-warning'
   const failure = state === 'known-failure' || state === 'unknown'
@@ -93,19 +94,11 @@ function AppointmentRequestForm({
     switch (focusTarget.current) {
       case 'error': formRef.current?.querySelector<HTMLElement>('#appointment-error-summary')?.focus(); break
       case 'status': statusRef.current?.focus(); break
-      case 'preference': preferenceSelect.current?.focus(); break
-      case 'toggle': preferenceButton.current?.focus(); break
       case 'firstField': formRef.current?.querySelector<HTMLElement>('#full-name')?.focus(); break
     }
     focusTarget.current = null
   })
 
-  function updatePreference(next: CarePreference | undefined) {
-    focusTarget.current = 'toggle'
-    setPreference(next)
-    setPreferenceOpen(false)
-    if (errors['care-preference']) setErrors({ ...errors, 'care-preference': undefined })
-  }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -124,7 +117,6 @@ function AppointmentRequestForm({
     const validated = parseAppointmentSubmission(input)
     if (!validated.ok) {
       const next = appointmentErrors(validated.issues)
-      if (next['care-preference']) setPreferenceOpen(true)
       focusTarget.current = 'error'
       setErrors(next)
       setState('validation')
@@ -138,7 +130,6 @@ function AppointmentRequestForm({
       const result = await sendRequest(input)
       if (result.status === 'rejected') {
         const next = appointmentErrors(result.issues)
-        if (next['care-preference']) setPreferenceOpen(true)
         if (Object.keys(next).length) {
           focusTarget.current = 'error'
           setErrors(next)
@@ -178,7 +169,7 @@ function AppointmentRequestForm({
       {preview ? <button type="button" className={styles.textButton} onClick={() => {
         focusTarget.current = 'firstField'
         setPreference(initialPreference)
-        setPreferenceOpen(false)
+        setSearch('')
         setState('editing')
       }}>Try again</button> : null}
     </section> : state === 'workflow-unavailable' ? <section aria-labelledby="appointment-unavailable-title">
@@ -201,37 +192,25 @@ function AppointmentRequestForm({
             maximumLength={32} error={error('phone')} />
           <div className={styles.preference}>
             {selectionNotice && !preference ? <p>{selectionNotice}</p> : null}
-            <div className={styles.preferenceRow}>
-              {preference ? <div className={styles.preferenceDetails} data-appointment-preference>
-                <span>Care preference <small>(optional)</small></span>
-                <strong>{preference.label}</strong>
-                {context && preference.id === initialPreference?.id ? <small>You were viewing {context}. Your request includes your doctor preference.</small> : null}
-              </div> : null}
-              <div className={styles.preferenceActions}>
-                <button ref={preferenceButton} type="button" className={styles.textButton} aria-controls="appointment-preference-options"
-                  aria-expanded={preferenceOpen} onClick={() => {
-                    if (!preferenceOpen) focusTarget.current = 'preference'
-                    setPreferenceOpen(!preferenceOpen)
-                  }}>
-                  {preferenceOpen ? 'Hide preferences' : preference ? 'Change' : 'Add a doctor or service preference'}
-                  {!preference && !preferenceOpen ? <small> (optional)</small> : null}
-                </button>
-                {preference ? <button type="button" className={styles.textButton} onClick={() => updatePreference(undefined)}>Remove</button> : null}
-              </div>
-            </div>
-            <div className={styles.options} id="appointment-preference-options" hidden={!preferenceOpen}>
-              <label htmlFor="care-preference">Doctor or service preference</label>
-              <select ref={preferenceSelect} id="care-preference" value={preference?.id ?? ''}
+            <div className={styles.options} id="appointment-preference-options">
+              <label htmlFor="preference-search">Search doctors and services <small>(optional)</small></label>
+              <input type="search" id="preference-search" value={search} onChange={event => setSearch(event.target.value)} />
+              <label htmlFor="care-preference">Doctor or service <small>(optional)</small></label>
+              <select id="care-preference" value={preference?.id ?? ''}
                 aria-invalid={Boolean(errors['care-preference']) || undefined}
                 aria-describedby={errors['care-preference'] ? 'care-preference-error' : undefined}
                 onChange={(event) => {
+                  setSearch('')
                   setPreference([...doctors, ...services].find(({ id }) => id === event.target.value))
                   if (errors['care-preference']) setErrors({ ...errors, 'care-preference': undefined })
                 }}>
                 <option value="">No preference</option>
-                <optgroup label="Doctors">{doctors.map(({ id, label }) => <option key={id} value={id}>{label}</option>)}</optgroup>
-                <optgroup label="Services">{services.map(({ id, label }) => <option key={id} value={id}>{label}</option>)}</optgroup>
+                {preference && !matches(preference) && <optgroup label="Current preference"><option value={preference.id}>{preference.label}</option></optgroup>}
+                <optgroup label="Doctors">{visibleDoctors.map(({ id, label }) => <option key={id} value={id}>{label}</option>)}</optgroup>
+                <optgroup label="Services">{visibleServices.map(({ id, label }) => <option key={id} value={id}>{label}</option>)}</optgroup>
               </select>
+              {search.trim() && !visibleDoctors.length && !visibleServices.length && <small role="status">No matches. Try another name.</small>}
+              {context && preference && preference.id === initialPreference?.id && <small>You were viewing {context}. Your request includes your doctor preference.</small>}
               {errors['care-preference'] ? <p className={styles.fieldError} id="care-preference-error">{errors['care-preference']}</p> : null}
             </div>
           </div>

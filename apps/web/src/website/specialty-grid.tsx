@@ -3,7 +3,6 @@ import { servicePresentation } from './service-presentation'
 import { InterfaceLink as Link } from '@/website/interface-language'
 import { featuredSpecialties } from '@/demo/specialties'
 import { services } from '@/demo/site'
-import { CareBrandArtwork } from './care-brand-artwork'
 import styles from './specialty-grid.module.css'
 
 export function SpecialtyGrid() {
@@ -11,7 +10,6 @@ export function SpecialtyGrid() {
     <div className="page-frame">
       <div className={styles.introduction}>
         <h2 data-record-entry data-reveal="0" data-motion="heading" id="care-areas-title">Specialized care, close to you</h2>
-        <div className={styles.artwork}><CareBrandArtwork /></div>
       </div>
       <ul data-ui-part="grid" className={styles.grid}>
         {featuredSpecialties.flatMap((care, index) => {

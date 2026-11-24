@@ -4,7 +4,6 @@ import { PageContent, PageFrame } from './page-patterns'
 import { hospitalContact } from './hospital-contact'
 import { hospitalFounders, hospitalLeadership } from './hospital-leadership'
 import styles from './about-page.module.css'
-import { EquipmentShowcase } from './equipment-showcase'
 
 // Institutional copy condensed from docs/content-reconciliation/sources/hospital-profile.json.
 const milestones = [
@@ -43,13 +42,13 @@ export function AboutPage() {
         </div>
       </header>
 
-      <nav className={styles.chapters} aria-label="Explore About Hallelujah">
-        <a href="#our-story">Our story <Arrow /></a>
-        <a href="#founding-vision">Our founders <Arrow /></a>
-        <a href="#our-values">Our values <Arrow /></a>
-        <a href="#mission-and-vision">Mission &amp; vision <Arrow /></a>
-        <a href="#leadership">Leadership <Arrow /></a>
-        <a href="#medical-technology">Medical technology <Arrow /></a>
+      <nav className={styles.chapters} aria-label="On this page">
+        <strong>On this page</strong>
+        <a href="#our-story">Our story</a>
+        <a href="#founding-vision">Our founders</a>
+        <a href="#our-values">Our values</a>
+        <a href="#mission-and-vision">Mission &amp; vision</a>
+        <a href="#leadership">Leadership</a>
       </nav>
 
       <section className={styles.chapter} id="our-story" tabIndex={-1} aria-labelledby="about-story-title">
@@ -132,14 +131,12 @@ export function AboutPage() {
         </ul>
       </section>
 
-      <EquipmentShowcase embedded />
-
-      <section className={`${styles.chapter} ${styles.visit}`} aria-labelledby="about-visit-title">
-        <h2 id="about-visit-title">Visit Hallelujah</h2>
+      <section className={styles.chapter} aria-labelledby="about-collaboration-title">
+        <h2 id="about-collaboration-title">Work with us</h2>
         <div>
-          <address><strong>{hospitalContact.name}</strong><span>{hospitalContact.address}</span></address>
+          <p>For enquiries about corporate healthcare agreements, institutional partnerships, or community outreach, contact Hallelujah General Hospital.</p>
           <div className={styles.actions}>
-            <Link className="solid-button blue-button" href="/contact">Contact &amp; directions <Arrow /></Link>
+            <Link className="solid-button blue-button" href="/partnerships">Contact our team <Arrow /></Link>
           </div>
         </div>
       </section>

@@ -41,7 +41,7 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
         assert.equal(await page.eval(() => document.querySelector('a[href^="/health-topics"]')), null)
         await page.eval("document.querySelector('#medical-technology a').scrollIntoView({block:'center',behavior:'instant'}); document.querySelector('#medical-technology a').focus({preventScroll:true})")
         await enter(page)
-        await waitFor(page, "location.pathname === '/about' && location.hash === '#medical-technology' && document.querySelectorAll('#medical-technology article').length === 3")
+        await waitFor(page, "location.pathname === '/services' && location.hash === '#medical-technology' && document.querySelectorAll('#medical-technology article').length === 3")
         await waitFor(page, "document.activeElement.id === 'medical-technology'")
         await page.eval("document.querySelector('#medical-technology summary').focus()")
         await enter(page)
@@ -77,7 +77,7 @@ await runVisualCheck('home-distill', base, async ({ browser, output }) => {
     await page.send('Emulation.setScriptExecutionDisabled', { value: true })
     await page.goto(base)
     assert.equal(await page.eval("document.querySelector('.home-quick-access a').getAttribute('href')"), '/services')
-    assert.equal(await page.eval("document.querySelector('#medical-technology a').getAttribute('href')"), '/about#medical-technology')
+    assert.equal(await page.eval("document.querySelector('#medical-technology a').getAttribute('href')"), '/services#medical-technology')
   } finally { await page.close() }
   console.log('PASS native services and equipment links without JavaScript')
 })

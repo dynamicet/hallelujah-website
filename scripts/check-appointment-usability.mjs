@@ -37,7 +37,7 @@ await runVisualCheck('appointment-usability', base, async ({ browser, output }) 
       }
     })
     assert.equal(await page.eval(() => document.querySelector('#privacy-acknowledged').checked), false)
-    assert.equal(await page.eval(() => document.querySelector('#appointment-preference-options').hidden), true)
+    assert.equal(await page.eval(() => document.querySelector('#appointment-preference-options').hidden), false)
     assert.equal(await page.eval(() => document.querySelector('#appointment-request-form button[type=submit]').textContent.trim()), 'Review details')
     assert.match(await page.eval(() => document.querySelector('#privacy-acknowledged').labels[0].textContent), /need to call reception to arrange my appointment/)
     const phone = '#appointment-call a[href="tel:+251114704242"]'
@@ -65,27 +65,26 @@ await runVisualCheck('appointment-usability', base, async ({ browser, output }) 
 
     await page.goto(base + '/appointment?doctor=pub_121212121212&demo=known-failure&start=editing')
     await waitFor(page, ready)
-    assert.match(await page.eval(() => document.querySelector('[data-appointment-preference]').textContent), /Chala/)
+    assert.match(await page.eval(() => document.querySelector('#care-preference').selectedOptions[0].textContent), /Chala/)
     await fill(page)
-    await page.eval(() => document.querySelector('button[aria-controls="appointment-preference-options"]').focus())
-    await press(page, 'Enter', 13)
-    await waitFor(page, 'document.activeElement.id === "care-preference"').catch(async (error) => {
-      const state = await page.eval(() => ({
-        active: document.activeElement.outerHTML.slice(0, 240),
-        expanded: document.querySelector('button[aria-controls="appointment-preference-options"]').getAttribute('aria-expanded'),
-      }))
-      throw new Error(`${error.message} (${JSON.stringify(state)})`)
-    })
+    await page.eval(() => document.querySelector('#preference-search').focus())
+    await page.send('Input.insertText', { text: 'echo' })
+    await waitFor(page, 'document.querySelectorAll("#care-preference optgroup[label=Services] option").length === 1')
+    await press(page, 'Tab', 9)
+    await waitFor(page, 'document.activeElement.id === "care-preference"')
     await page.eval(() => {
       const field = document.querySelector('#care-preference')
       field.value = 'svc_demo_pub_272727272727'
       field.dispatchEvent(new Event('change', { bubbles: true }))
     })
-    await waitFor(page, 'document.querySelector("[data-appointment-preference]").textContent.includes("Echocardiography")')
+    await waitFor(page, 'document.querySelector("#care-preference").selectedOptions[0].textContent.includes("Echocardiography")')
     await page.screenshot({ path: `${output}/preference-${width}.png` })
-    await page.eval(() => [...document.querySelectorAll('button')].find(button => button.textContent === 'Remove').click())
-    assert.equal(await page.eval(() => document.querySelector('[data-appointment-preference]')), null)
-    await waitFor(page, 'document.activeElement.textContent.includes("Add a doctor or service preference")')
+    await page.eval(() => {
+      const field = document.querySelector('#care-preference')
+      field.value = ''
+      field.dispatchEvent(new Event('change', { bubbles: true }))
+    })
+    await waitFor(page, 'document.querySelector("#care-preference").value === ""')
     await submit(page)
     await waitFor(page, `${result} === "known-failure"`)
     assert.equal(await page.eval(() => document.querySelector('#full-name').value), 'TEST PATIENT')

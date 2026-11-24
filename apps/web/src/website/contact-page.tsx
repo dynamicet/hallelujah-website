@@ -56,8 +56,8 @@ export function ContactPage() {
 
       <section className={styles.partnerships} aria-labelledby="contact-partnerships-title">
         <h2 id="contact-partnerships-title">Work with us</h2>
-        <p>Have an idea for community outreach, education, or care? We’d like to hear it.</p>
-        <Link className="text-link" href="/partnerships">Discuss your idea <Icon name="arrow-right" /></Link>
+        <p>For enquiries about corporate healthcare agreements, institutional partnerships, or community outreach, contact Hallelujah General Hospital.</p>
+        <Link className="text-link" href="/partnerships">Contact our team <Icon name="arrow-right" /></Link>
       </section>
 
       <aside className={styles.urgent} aria-labelledby="contact-urgent-title">

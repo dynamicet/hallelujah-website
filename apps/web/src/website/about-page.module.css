@@ -21,13 +21,10 @@
 .values dd { max-width: 48ch; margin: 8px 0 0; font-size: 16px; line-height: 1.65; }
 .purpose { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(40px, 6vw, 88px); margin-top: 88px; }
 .purpose p { max-width: 48ch; margin: 24px 0 0; font-size: 18px; line-height: 1.65; }
-.visit address { font-style: normal; font-size: 18px; line-height: 1.6; }
-.visit address strong, .visit address span { display: block; }
-.visit address strong { font-weight: 600; }
-.visit address span { margin-top: 8px; }
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 28px; margin-top: 28px; }
 .page :is(a, button, section[tabindex='-1']):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 5px; }
-.chapters { display: flex; flex-wrap: wrap; gap: 16px 40px; margin-top: -24px; }
+.chapters strong { flex-basis: 100%; grid-column: 1 / -1; }
+.chapters { border-block: 1px solid var(--component-form-border-strong); padding-block: 16px; display: flex; flex-wrap: wrap; gap: 0 28px; margin-top: -24px; }
 .chapters a { display: inline-flex; align-items: center; gap: 24px; min-height: 44px; color: var(--site-ink); text-underline-offset: 6px; }
 .page section[id] { scroll-margin-top: 140px; }
 .founders {

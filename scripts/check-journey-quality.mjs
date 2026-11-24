@@ -85,7 +85,7 @@ await runVisualCheck('journey-quality', base, async ({ browser, output }) => {
     await page.screenshot({ path: `${output}/transcript-${width}.png` })
     await page.eval("document.querySelector('.story-cinema[open]').close()")
     await page.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
-    await page.goto(base + '/about#medical-technology')
+    await page.goto(base + '/services#medical-technology')
     gaps.equipment = await page.eval("document.querySelector('#medical-technology').getBoundingClientRect().top")
     await enter(page, '#medical-technology summary')
     assert.equal(await page.eval("document.querySelector('#medical-technology details').open"), true)

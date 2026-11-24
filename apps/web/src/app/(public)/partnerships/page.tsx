@@ -14,7 +14,7 @@ export default function PartnershipsPage() {
   return <div className="page-frame">
     <header className={styles.intro}>
       <h1>Work with Hallelujah</h1>
-      <p>Have an idea for a community event, staff training, or a collaboration with your organization?</p>
+      <p>We welcome enquiries from employers, healthcare providers, academic institutions, and community organizations.</p>
     </header>
     <div className={styles.layout}>
       <PartnershipEnquiry />

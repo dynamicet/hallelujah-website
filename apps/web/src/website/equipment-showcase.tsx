@@ -76,7 +76,7 @@ export function EquipmentShowcase({ embedded = false }: { embedded?: boolean }) 
     dental: { href: '/appointment', label: 'Ask about dental care' },
   }
   return <section data-ui-part="section" className={`${styles.section} ${embedded ? styles.embedded : ''}`} aria-labelledby="equipment-title" id="medical-technology" tabIndex={-1} data-signature-scene="equipment" data-motion-section="technology">
-    <div className={embedded ? undefined : 'page-frame'}>
+    <div className="page-frame">
       <div data-ui-part="introduction" className={styles.introduction}>
         <h2 id="equipment-title" data-motion="heading" data-reveal="0">Technology behind your care</h2>
         {!embedded && <EquipmentChapterNav chapters={equipment.map((item) => ({ id: `equipment-${item.id}-scene`, label: item.navigationLabel, name: item.name, device: item.id }))} />}
@@ -88,9 +88,9 @@ export function EquipmentShowcase({ embedded = false }: { embedded?: boolean }) 
           <CloserLook item={item} />
         </article>)}
       </div>
-      <div data-ui-part="footer" className={styles.footer}>
+      {!embedded && <div data-ui-part="footer" className={styles.footer}>
         <Link href="/services">Explore services<span aria-hidden="true">→</span></Link>
-      </div>
+      </div>}
     </div>
   </section>
 }

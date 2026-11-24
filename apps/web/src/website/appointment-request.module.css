@@ -85,7 +85,7 @@
   border: 0;
 }
 
-.fields [data-form-control], .options select { font: inherit; }
+.fields [data-form-control], .options :is(select, input) { font: inherit; }
 
 .preference { border-top: 1px solid var(--semantic-color-border-default); padding-top: 4px; }
 .preference p { margin: 6px 0 0; font-size: var(--site-support); }
@@ -120,10 +120,10 @@
 .textButton:hover, .phone:hover { text-decoration-thickness: 2px; }
 .textButton:disabled { cursor: not-allowed; }
 .options { display: grid; gap: 6px; margin: 4px 0 8px; }
-.options[hidden] { display: none; }
+.options label:not(:first-child) { margin-top: 6px; }
 .options label { font-weight: 600; }
 
-.options select {
+.options :is(select, input) {
   width: 100%;
   min-width: 0;
   min-height: 44px;

@@ -29,7 +29,6 @@ export function PartnershipEnquiry() {
     const organization = String(data.get('organization') ?? '').trim()
     setCopyStatus('')
     setDraft([
-      String(data.get('interest')),
       String(data.get('message')).trim(),
       [data.get('name'), organization].filter(Boolean).join(', '),
       String(data.get(replyMethod)),
@@ -48,23 +47,14 @@ export function PartnershipEnquiry() {
   }
 
   return <section className={styles.enquiry} aria-labelledby="partnership-enquiry-title">
-    <h2 id="partnership-enquiry-title">Talk to us about your idea</h2>
-    <p><a className="text-link" href={hospitalContact.phoneHref}>Call reception about collaboration · {hospitalContact.phone}</a></p>
+    <h2 id="partnership-enquiry-title">Institutional enquiry</h2>
+    <p><a className="text-link" href={hospitalContact.phoneHref}>Call reception · {hospitalContact.phone}</a></p>
     <p id="partnership-draft-note">Online submission is unavailable. You can prepare an enquiry here and copy it for your conversation with reception.</p>
     <noscript><p>Enable JavaScript to prepare a draft.</p></noscript>
     <form hidden={Boolean(draft)} onSubmit={review} method="post" aria-describedby="partnership-draft-note">
       <fieldset className={styles.fields} disabled={!ready}>
         <label>Full name<input ref={nameInput} name="name" required maxLength={100} autoComplete="off" /></label>
         <label>Organization (optional)<input name="organization" maxLength={120} autoComplete="off" /></label>
-        <label>What would you like to work on?
-          <select name="interest" required defaultValue="">
-            <option value="" disabled>Choose an area</option>
-            <option>Organizational partnership</option>
-            <option>Community outreach</option>
-            <option>Education and training</option>
-            <option>Something else</option>
-          </select>
-        </label>
         <fieldset className={styles.reply}>
           <legend>Preferred contact method</legend>
           <label><input type="radio" name="replyMethod" value="email" checked={replyMethod === 'email'} onChange={() => setReplyMethod('email')} /> Email</label>
@@ -76,7 +66,7 @@ export function PartnershipEnquiry() {
         <label hidden={replyMethod !== 'phone'}>Phone number
           <input name="phone" type="tel" maxLength={30} autoComplete="off" disabled={replyMethod !== 'phone'} required={replyMethod === 'phone'} pattern={String.raw`[+]?(?:[ \(\).\-]*[0-9]){7,15}[ \(\).\-]*`} title="Enter 7 to 15 digits. Spaces, parentheses, and hyphens are allowed." />
         </label>
-        <label>Tell us about your idea
+        <label>Enquiry details
           <textarea name="message" required rows={4} maxLength={1500} aria-describedby="partnership-message-hint" />
         </label>
         <p id="partnership-message-hint" className={styles.hint}>Please leave out patient information.</p>

@@ -1,3 +1,4 @@
+import { EquipmentShowcase } from '@/website/equipment-showcase'
 import { requestAppointmentLabel } from '@/appointment/copy'
 import { servicePresentation } from '@/website/service-presentation'
 import { directoryServices } from '@/demo/service-directory-return'
@@ -26,5 +27,8 @@ export default async function ServicesPage({ searchParams }: { searchParams: Dem
       : { href: '/contact#contact-reception', label: 'Contact reception' }
     return [service.publicId, action]
   }))
-  return <ServiceDirectoryTemplate directory={directory} servicePresentations={Object.fromEntries(directoryServices.map(service => [service.publicId, servicePresentation(service.publicId)]))} pathname="/services" serviceActions={serviceActions} serviceDetailLinks state={state} />
+  return <>
+    <ServiceDirectoryTemplate directory={directory} servicePresentations={Object.fromEntries(directoryServices.map(service => [service.publicId, servicePresentation(service.publicId)]))} pathname="/services" serviceActions={serviceActions} serviceDetailLinks state={state} />
+    {state === 'ready' && <EquipmentShowcase embedded />}
+  </>
 }

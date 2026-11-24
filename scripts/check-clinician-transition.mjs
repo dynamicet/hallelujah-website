@@ -76,7 +76,7 @@ await runVisualCheck('clinician-transition', baseUrl, async ({ browser, output }
         await until(page, 'document.readyState === "complete" && document.documentElement.dataset.hydration !== "pending"')
         await page.eval('document.fonts.ready')
         assert.equal(await page.eval('document.documentElement.scrollWidth > innerWidth'), false)
-        assert.equal(await page.eval('document.querySelector("#clinician-profile-title").textContent'), 'Dr Aster')
+        assert.equal(await page.eval('document.querySelector("#clinician-profile-title").textContent'), 'Dr. Aster')
         if (!reducedMotion) {
           assert.equal(await page.eval('document.activeElement.id'), 'clinician-profile-title')
           assert.equal(await page.eval('scrollY'), 0, 'Profile arrival should begin at the top')

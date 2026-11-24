@@ -27,7 +27,6 @@
 .copy .action:focus-visible { outline: 3px solid var(--site-white); outline-offset: 4px; }
 .panel > .still { position: relative; min-inline-size: 0; margin: 0; }
 .still img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
-.caption { position: absolute; inset-inline-start: 12px; bottom: 12px; padding: 4px 8px; background: var(--site-surface-inverse); color: var(--site-white); font-size: .75rem; }
 @media (max-width: 699px) {
   .panel { grid-template-columns: minmax(0, 1fr); }
   .still { aspect-ratio: 16 / 9; }

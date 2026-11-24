@@ -16,7 +16,6 @@ export function HospitalIntroduction() {
         </div>
         <figure className={styles.still}>
           <Image src="/editorial/hallelujah-reception-illustration.webp" alt="" width={1200} height={900} sizes="(max-width: 699px) 100vw, (max-width: 1440px) 40vw, 512px" />
-          <figcaption className={styles.caption}>Illustrative image</figcaption>
         </figure>
       </div>
     </div>
