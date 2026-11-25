@@ -1,7 +1,7 @@
 .page { padding-block: 24px 80px; color: var(--site-ink); }
 .hero { margin-bottom: 88px; }
 .scene { margin: 0 0 40px; overflow: hidden; background: var(--site-pale); }
-.scene img { display: block; width: 100%; height: clamp(280px, 30vw, 420px); object-fit: cover; object-position: center 30%; }
+.scene img { display: block; width: 100%; height: clamp(280px, 30vw, 420px); object-fit: cover; object-position: center 8%; }
 .opening, .chapter { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 88px); }
 .identity { margin: 8px 0 0; max-width: 28ch; font-size: 16px; line-height: 1.6; }
 .identity span { display: block; margin-top: 8px; color: var(--site-muted); }

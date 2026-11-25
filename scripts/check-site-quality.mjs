@@ -130,6 +130,18 @@ await runVisualCheck('site-quality', base, async ({ browser, output }) => {
     if (width === 390) {
       await page.eval(() => document.querySelector('[data-site-footer]').scrollIntoView({ block: 'end', behavior: 'instant' }))
       await page.screenshot({ path: `${output}/home-footer-390.png` })
+      for (const [route, selector] of [['/careers', '#apply p'], ['/partnerships', 'main textarea']]) {
+        await page.goto(base + route)
+        await page.eval(`(() => {
+          const target = document.querySelector('${selector}').getBoundingClientRect()
+          const call = document.querySelector('[data-call-trigger]').getBoundingClientRect()
+          scrollBy({ top: target.top + target.height / 2 - call.top - call.height / 2, behavior: 'instant' })
+        })()`)
+        await waitFor(page, 'getComputedStyle(document.querySelector("[data-call-trigger]")).pointerEvents === "none"')
+        await page.screenshot({ path: `${output}/clear-${route.slice(1)}-390.png` })
+        await page.eval("scrollTo({top: document.documentElement.scrollHeight, behavior: 'instant'})")
+        await waitFor(page, 'getComputedStyle(document.querySelector("[data-call-trigger]")).opacity === "1"')
+      }
     }
     for (const directory of ['doctors', 'services']) {
       await page.goto(`${base}/${directory}?q=zzzznomatch`)

@@ -12,11 +12,10 @@ export function PageFrame({ children, className }: {
 }
 
 // A standard introduction is optional; bespoke heroes can supply their own markup.
-export function PageIntro({ title, description, action, secondaryAction, visual, artwork }: {
+export function PageIntro({ title, description, action, secondaryAction, visual }: {
   readonly title: string
   readonly description?: string
   readonly action?: { readonly href: string; readonly label: string }
-  readonly artwork?: ReactNode
   readonly secondaryAction?: { readonly href: string; readonly label: string }
   readonly visual?: ReactNode
 }) {
@@ -32,7 +31,6 @@ export function PageIntro({ title, description, action, secondaryAction, visual,
           ? <a className="text-link" href={secondaryAction.href}>{secondaryAction.label}</a>
           : <Link className="text-link" href={secondaryAction.href}>{secondaryAction.label}</Link>) : null}
       </div> : null}
-      {artwork}
     </div>
     {visual}
   </section>

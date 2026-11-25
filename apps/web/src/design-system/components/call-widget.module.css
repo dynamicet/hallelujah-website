@@ -50,6 +50,16 @@
 .widget[data-call-hidden] .trigger { visibility: hidden; }
 .widget[data-call-hidden] .trigger:focus-visible { visibility: visible; }
 
+@media (max-width: 899px) {
+  .widget { --call-edge: 12px; }
+  .trigger { inline-size: 48px; block-size: 48px; }
+  .trigger svg { inline-size: 24px; block-size: 24px; }
+  .widget[data-call-obscures-content] .trigger:not(:focus-visible) {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
 /* Without collision detection, leave the call action in the footer flow. */
 :global(html[data-hydration='pending']) .trigger { position: static; transform: none; margin: 20px; }
 

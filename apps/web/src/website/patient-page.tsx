@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 import { PageContent, PageIntro } from './page-patterns'
 import styles from './patient-page.module.css'
 import Image from 'next/image'
-import { CareBrandArtwork } from './care-brand-artwork'
 
 export { styles as patientPageStyles }
 
@@ -20,7 +19,6 @@ export function PatientPage({ title, description, current, breadcrumbLabel, acti
   ] }}>
     <div className={styles.page} data-patient-page={current} data-page-variant={variant}>
       <PageIntro title={title} description={description} action={action} secondaryAction={secondaryAction}
-        artwork={variant === 'care-detail' ? <div className={styles.heroArtwork}><CareBrandArtwork /></div> : undefined}
         visual={imageSrc ? <figure className="care-page-image" data-reveal="2">
           <Image src={imageSrc} alt="" width={640} height={480} sizes="(max-width: 599px) 90vw, 40vw" loading="eager" />
         </figure> : undefined} />

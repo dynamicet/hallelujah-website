@@ -10,8 +10,6 @@
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
 .actions a:global(.text-link) { min-height: 44px; }
 .heroCopy > a { text-decoration: none; }
-.heroArtwork { inline-size: 112px; block-size: 48px; overflow: hidden; margin-block-start: 24px; }
-.heroArtwork > svg { transform: translateY(-12px); }
 .hero :global(.care-page-image) { aspect-ratio: 4 / 3; }
 .jumpLinks { display: flex; flex-wrap: wrap; gap: 8px 28px; padding-block: 20px; }
 .jumpLinks a { min-height: 44px; display: inline-flex; align-items: center; color: var(--site-link); font-weight: 700; }
@@ -76,12 +74,10 @@
 }
 @media (min-width: 600px) and (max-width: 899px) {
  .page[data-page-variant='care-detail'] .hero { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
- .heroArtwork { display: none; }
 }
 @media (max-width: 599px) {
  .page { padding-bottom: 56px; }
  .hero { padding: 24px 20px; gap: 20px; }
- .heroArtwork { display: none; }
  .hero :global(.care-page-image) { aspect-ratio: 16 / 9; }
  .hero h1 { font-size: var(--site-page-title); }
  .heroCopy > p { margin-block: 20px; }
@@ -90,7 +86,6 @@
  .review { padding: 20px; }
 }
 @media (forced-colors: active) {
- .heroArtwork { display: none; }
  .section:focus-visible, .page :is(a,button,summary):focus-visible { outline-color: Highlight; box-shadow: none; }
  .section[data-section-context] { background: Canvas; color: CanvasText; }
  .section[data-section-context] :is(h2,h3,p,a,legend) { color: CanvasText; }
@@ -99,7 +94,7 @@
  .page { width: 100%; max-inline-size: none; padding: 0; font-size: 12pt; color: black; }
  .hero, .section { display: block; padding: 0; background: white; }
  .hero h1 { max-width: none; font-size: 28pt; }
- .heroArtwork, .hero :global(.care-page-image), .jumpLinks, .sectionBody > :global(.care-page-image) { display: none; }
+ .hero :global(.care-page-image), .jumpLinks, .sectionBody > :global(.care-page-image) { display: none; }
  .section { margin-top: 24pt; break-inside: avoid; }
  .section[data-section-context] { padding: 0; background: white; }
  .section h2 { max-width: none; font-size: 20pt; margin-bottom: 12pt; }
