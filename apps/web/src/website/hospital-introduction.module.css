@@ -53,17 +53,12 @@
   pointer-events: none;
 }
 
-/* Separate timelines let the underline and portrait arrive at their own
-   reading positions when the introduction stacks on a phone. */
 @media screen and (prefers-reduced-motion: no-preference) {
+  .copy h2:global(.website-entered) .place::after {
+    transform-origin: left center;
+    animation: drawPlace var(--motion-heading) var(--motion-ease) backwards;
+  }
   @supports (animation-timeline: view()) and (animation-range: entry 0% entry 100%) {
-    .copy { view-timeline: --introduction-copy block; view-timeline-inset: 0; }
-    .place::after {
-      transform-origin: left center;
-      animation: drawPlace linear both;
-      animation-timeline: --introduction-copy;
-      animation-range: entry 5% entry 75%;
-    }
     .panel { overflow: clip; }
     .still {
       overflow: clip;

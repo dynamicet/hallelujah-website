@@ -1,5 +1,6 @@
 'use client'
 
+import { browseCardRow } from './browse-card-row'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 
 export function CorporateAgreementsRail({ children }: { children: ReactNode }) {
@@ -27,7 +28,7 @@ export function CorporateAgreementsRail({ children }: { children: ReactNode }) {
   const browse = (direction: -1 | 1) => {
     if (direction === -1 ? !position.previous : !position.next) return
     const viewport = rail.current
-    if (viewport) viewport.scrollBy({ left: direction * viewport.clientWidth * .85 })
+    if (viewport) browseCardRow(viewport, viewport.querySelector('li'), direction)
   }
 
   return (
@@ -35,7 +36,7 @@ export function CorporateAgreementsRail({ children }: { children: ReactNode }) {
       <div className="corporate-agreements-heading">
         <h2 id="corporate-agreements-title" data-reveal="0" data-motion="heading"><span className="credit-annotation">Credit</span> agreements for corporate healthcare</h2>
         {(position.previous || position.next) && (
-          <div className="corporate-agreements-controls" role="group" aria-label="Browse organizations">
+          <div className="corporate-agreements-controls" data-card-row-controls role="group" aria-label="Browse organizations">
             {([-1, 1] as const).map((direction) => (
               <button key={direction} type="button" aria-controls="corporate-organizations"
                 aria-label={direction === -1 ? 'Previous organizations' : 'Next organizations'}

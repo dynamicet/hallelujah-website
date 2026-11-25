@@ -1,5 +1,6 @@
 'use client'
 
+import { browseCardRow } from './browse-card-row'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { InterfaceLink as Link } from './interface-language'
 import styles from './featured-specialists.module.css'
@@ -49,11 +50,7 @@ export function FeaturedSpecialists({ children }: { children: ReactNode }) {
   const browse = (direction: -1 | 1) => {
     const viewport = rail.current
     if (!viewport || (direction < 0 ? !navigation.previous : !navigation.next)) return
-    const first = viewport.firstElementChild
-    const second = first?.nextElementSibling
-    if (!first || !second) return
-    const step = second.getBoundingClientRect().left - first.getBoundingClientRect().left
-    viewport.scrollBy({ left: direction * step * 3, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+    browseCardRow(viewport, viewport.firstElementChild, direction)
   }
 
   return <div className={styles.browser}>
@@ -63,7 +60,7 @@ export function FeaturedSpecialists({ children }: { children: ReactNode }) {
         <Link className={styles.directoryLink} href="/doctors"><span>View all doctors</span><span className={styles.directoryArrow} aria-hidden="true">→</span></Link>
       </div>
     </div>
-    {navigation.visible && <div className={styles.controls} role="group" aria-label="Browse featured specialists">
+    {navigation.visible && <div className={styles.controls} data-card-row-controls role="group" aria-label="Browse featured specialists">
       <button className={styles.control} type="button" aria-label="Previous specialists" aria-controls="featured-specialists" aria-disabled={!navigation.previous} onClick={() => browse(-1)}><span aria-hidden="true">‹</span></button>
       <button className={styles.control} type="button" aria-label="Next specialists" aria-controls="featured-specialists" aria-disabled={!navigation.next} onClick={() => browse(1)}><span aria-hidden="true">›</span></button>
     </div>}
