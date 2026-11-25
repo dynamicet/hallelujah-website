@@ -13,6 +13,9 @@ registerHooks({
     if (specifier === './corporate-agreements-rail' && context.parentURL?.endsWith('/website/partners.tsx')) {
       return nextResolve(specifier + '.tsx', context)
     }
+    if (specifier === './browse-card-row' && context.parentURL?.endsWith('/website/corporate-agreements-rail.tsx')) {
+      return nextResolve(specifier + '.ts', context)
+    }
     return nextResolve(specifier, context)
   },
   load(url, context, nextLoad) {
