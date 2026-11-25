@@ -11,7 +11,7 @@ export type AppointmentRequestInput = Readonly<{
 )
 
 export type AppointmentRequestResult =
-  | Readonly<{ status: 'accepted' | 'reconciled'; reference?: string }>
+  | Readonly<{ status: 'accepted' | 'reconciled'; reference: string }>
   | Readonly<{ status: 'rejected'; issues: readonly AppointmentValidationIssue[] }>
   | Readonly<{ status: 'unavailable' | 'unknown' }>
 

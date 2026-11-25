@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react'
-import { appointmentCopy } from '@/appointment/copy'
+import { appointmentCopy as copy } from '@/appointment/copy'
 import { ErrorSummary, Icon, TextField } from '@/design-system/components'
 import { parseAppointmentSubmission, type AppointmentValidationIssue } from '@/appointment/schema'
 import type { AppointmentRequestInput, SendAppointmentRequest } from '@/appointment/request-form'
@@ -13,7 +13,7 @@ import styles from './appointment-request.module.css'
 
 export type CarePreference = Readonly<{ kind: 'doctor' | 'service'; id: string; label: string }>
 
-type ErrorField = 'full-name' | 'phone' | 'privacy-acknowledged' | 'care-preference'
+type ErrorField = 'full-name' | 'phone' | 'care-preference'
 type FieldErrors = Partial<Record<ErrorField, string>>
 type RequestState = AppointmentPreviewScenario
 
@@ -28,7 +28,6 @@ type FormProps = Readonly<{
 const fieldLabels: Record<ErrorField, string> = {
   'full-name': 'Full name',
   phone: 'Phone number',
-  'privacy-acknowledged': 'Privacy acknowledgment',
   'care-preference': 'Doctor or service preference',
 }
 const fieldOrder = Object.keys(fieldLabels) as ErrorField[]
@@ -41,7 +40,6 @@ function appointmentErrors(issues: readonly AppointmentValidationIssue[]): Field
   for (const { field } of issues) {
     if (field === 'full_name') errors['full-name'] = 'Enter your full name.'
     if (field === 'phone') errors.phone = 'Enter a phone number reception can call.'
-    if (field === 'privacy_acknowledged') errors['privacy-acknowledged'] = 'Please tick the acknowledgement before continuing.'
     if (field === 'doctor_id' || field === 'service_id' || field === 'care_route') {
       errors['care-preference'] = 'Choose another preference or leave it blank.'
     }
@@ -54,7 +52,7 @@ export function AppointmentRequestPreview({ scenario, startEditing, ...props }: 
   startEditing: boolean
 }) {
   const attempt = useRef(0)
-  return <AppointmentRequestForm {...props} preview initialState={startEditing ? 'editing' : scenario}
+  return <AppointmentRequestForm {...props} initialState={startEditing ? 'editing' : scenario}
     sendRequest={(input) => {
       const firstAttempt = startEditing && attempt.current++ === 0
       const outcome = firstAttempt || scenario === 'duplicate'
@@ -64,24 +62,21 @@ export function AppointmentRequestPreview({ scenario, startEditing, ...props }: 
 }
 
 function AppointmentRequestForm({
-  doctors, services, initialPreference, selectionNotice, context, sendRequest, preview, initialState,
+  doctors, services, initialPreference, selectionNotice, context, sendRequest, initialState,
 }: FormProps & {
   sendRequest: SendAppointmentRequest
-  preview: boolean
   initialState: RequestState
 }) {
-  const copy = appointmentCopy[preview ? 'preview' : 'delivery']
   const ready = useSyncExternalStore(noSubscription, readySnapshot, serverSnapshot)
   const [preference, setPreference] = useState(initialPreference)
   const [state, setState] = useState(initialState)
   const [errors, setErrors] = useState<FieldErrors>(initialState === 'validation' ? {
     phone: 'Enter a phone number reception can call.',
-    'privacy-acknowledged': 'Please tick the acknowledgement before continuing.',
   } : {})
-  const [reference, setReference] = useState<string | undefined>(preview ? 'HH-1042' : undefined)
+  const [reference, setReference] = useState('HH-1042')
   const formRef = useRef<HTMLFormElement>(null)
   const statusRef = useRef<HTMLHeadingElement>(null)
-  const focusTarget = useRef<'error' | 'status' | 'firstField' | null>(null)
+  const focusTarget = useRef<'error' | 'status' | null>(null)
   const submitting = useRef(false)
   const received = state === 'receipt' || state === 'duplicate' || state === 'delivery-warning'
   const failure = state === 'known-failure' || state === 'unknown'
@@ -91,7 +86,6 @@ function AppointmentRequestForm({
     switch (focusTarget.current) {
       case 'error': formRef.current?.querySelector<HTMLElement>('#appointment-error-summary')?.focus(); break
       case 'status': statusRef.current?.focus(); break
-      case 'firstField': formRef.current?.querySelector<HTMLElement>('#full-name')?.focus(); break
     }
     focusTarget.current = null
   })
@@ -105,7 +99,8 @@ function AppointmentRequestForm({
     const fields = {
       full_name: String(data.get('full_name') ?? ''),
       phone: String(data.get('phone') ?? ''),
-      privacy_acknowledged: data.get('privacy_acknowledged') === 'on',
+      // The submit action acknowledges the contact notice displayed directly above it.
+      privacy_acknowledged: true,
     }
     const input: AppointmentRequestInput = preference?.kind === 'doctor'
       ? { ...fields, care_route: 'doctor', doctor_id: preference.id }
@@ -159,15 +154,10 @@ function AppointmentRequestForm({
   return <div className={styles.formPanel} data-appointment-request data-appointment-state={state}>
     {received ? <section className={styles.receipt} aria-labelledby="appointment-result-title">
       <h2 id="appointment-result-title" tabIndex={-1} ref={statusRef}>
-        {preview ? 'Details checked' : 'Request received'}
+        <InterfaceText>{copy.confirmation}</InterfaceText>
       </h2>
-      <p>{copy.receipt}</p>
-      {reference && !preview ? <p>Request reference <strong>{reference}</strong></p> : null}
-      {preview ? <button type="button" className={styles.textButton} onClick={() => {
-        focusTarget.current = 'firstField'
-        setPreference(initialPreference)
-        setState('editing')
-      }}>Try again</button> : null}
+      <p><InterfaceText>Request reference</InterfaceText> <strong>{reference}</strong></p>
+      <p><InterfaceText>{copy.receipt}</InterfaceText></p>
     </section> : state === 'workflow-unavailable' ? <section aria-labelledby="appointment-unavailable-title">
       <h2 id="appointment-unavailable-title">Online requests are unavailable</h2>
       <p>Please <a className="text-link" href={hospitalContact.phoneHref}>call reception</a> to arrange an appointment.</p>
@@ -177,13 +167,13 @@ function AppointmentRequestForm({
         method="post" noValidate onSubmit={submit}>
         {errorItems.length ? <ErrorSummary id="appointment-error-summary" heading="Check your details" items={errorItems} /> : null}
         {failure ? <div className={styles.failure}>
-          <h2 tabIndex={-1} ref={statusRef}>{preview ? 'We couldn’t check your details' : state === 'unknown' ? 'We couldn’t verify your request' : 'We couldn’t send your request'}</h2>
+          <h2 tabIndex={-1} ref={statusRef}>{state === 'unknown' ? 'We couldn’t verify your request' : 'We couldn’t send your request'}</h2>
           <p>{state === 'unknown' ? 'Try again to check the result, or ' : 'Your details are still here. Try again, or '}<a href={hospitalContact.phoneHref}>call reception</a>.</p>
         </div> : null}
         <fieldset className={styles.fields} disabled={!ready || pending}>
-          <TextField id="full-name" name="full_name" label="Full name" required autoComplete={preview ? 'off' : 'name'}
+          <TextField id="full-name" name="full_name" label="Full name" required autoComplete="name"
             maximumLength={120} error={error('full-name')} />
-          <TextField id="phone" name="phone" label="Phone number" type="tel" required autoComplete={preview ? 'off' : 'tel'}
+          <TextField id="phone" name="phone" label="Phone number" type="tel" required autoComplete="tel"
             maximumLength={32} error={error('phone')} />
           <div className={styles.preference}>
             {selectionNotice && !preference ? <p>{selectionNotice}</p> : null}
@@ -198,13 +188,7 @@ function AppointmentRequestForm({
             </div>
           </div>
           <div className={styles.privacy}>
-            <label>
-              <input id="privacy-acknowledged" name="privacy_acknowledged" type="checkbox" required
-                aria-invalid={Boolean(errors['privacy-acknowledged']) || undefined}
-                aria-describedby={errors['privacy-acknowledged'] ? 'privacy-acknowledged-error' : undefined} />
-              <span>{copy.acknowledgment}</span>
-            </label>
-            {errors['privacy-acknowledged'] ? <p className={styles.fieldError} id="privacy-acknowledged-error">{errors['privacy-acknowledged']}</p> : null}
+            <InterfaceText>{copy.acknowledgment}</InterfaceText>{' '}
             <Link className="text-link" href="/privacy">Privacy notice</Link>
           </div>
           <button type="submit" className={`solid-button blue-button ${styles.submit}`}>

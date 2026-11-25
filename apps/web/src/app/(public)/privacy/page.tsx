@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <PatientSection id="website-information" title="Information you enter">
       <h3>Appointment information</h3>
       <p>The <Link href="/appointment">appointment form</Link> asks for a name and phone number. A doctor or service preference is optional.</p>
-      <p>To arrange care, <a href={hospitalContact.phoneHref}>call reception</a>. Please leave medical histories and test results out of the form.</p>
+      <p>Please leave medical histories and test results out of the form.</p>
       <h3>Feedback</h3>
       <p>The feedback composer holds your category and message in the current page’s memory so you can review them. It does not send feedback. Clear the message or reload the page to remove it from the composer.</p>
       <p>When drafting feedback, leave out names, patient numbers, contact details or medical information.</p>

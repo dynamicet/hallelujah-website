@@ -11,6 +11,7 @@ export function previewAppointmentRequest(scenario: AppointmentPreviewScenario):
   return async () => {
     if (scenario === 'known-failure' || scenario === 'workflow-unavailable') return { status: 'unavailable' }
     if (scenario === 'unknown') return { status: 'unknown' }
-    return { status: scenario === 'duplicate' ? 'reconciled' : 'accepted', reference: 'HH-1042' }
+    const parts = Array.from(crypto.getRandomValues(new Uint32Array(2)), value => value.toString(16).padStart(8, '0').toUpperCase())
+    return { status: scenario === 'duplicate' ? 'reconciled' : 'accepted', reference: `HH-${parts.join('-')}` }
   }
 }

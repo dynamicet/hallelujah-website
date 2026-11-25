@@ -342,18 +342,17 @@ try {
   const fillRequest = () => evaluate(`(() => {
     document.querySelector('#full-name').value = 'TEST PATIENT';
     document.querySelector('#phone').value = '+0 000 000 0000';
-    document.querySelector('#privacy-acknowledged').checked = true;
   })()`)
   await navigate('/appointment', 390)
   await until(formReady)
   assert.equal(await evaluate("document.querySelector('#appointment-preference-options').hidden"), false)
   await submitRequest()
   await until("document.activeElement.id === 'appointment-error-summary'")
-  assert.equal(await evaluate("document.querySelectorAll('#appointment-error-summary li').length"), 3)
+  assert.equal(await evaluate("document.querySelectorAll('#appointment-error-summary li').length"), 2)
   await fillRequest()
   await submitRequest()
   await until(formState + " === 'receipt' && document.activeElement.id === 'appointment-result-title'")
-  assert.match(await evaluate("document.querySelector('[data-appointment-request]').textContent"), /Call reception to arrange your appointment time/)
+  assert.match(await evaluate("document.querySelector('[data-appointment-request]').textContent"), /Our team will call you to arrange a time/)
   assert.equal(await evaluate("document.querySelector('#full-name') === null"), true)
   cases.push('single-screen request without a preference, validation, focus and receipt cleanup')
 

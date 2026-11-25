@@ -125,7 +125,7 @@ try {
   await until("location.pathname === '/appointment' && location.search.includes('service=pub_141414141414')")
   await until(ready)
   assert.match(await evaluate("document.querySelector('[data-appointment-preference]').textContent"), /Family medicine/)
-  await evaluate("document.querySelector('#full-name').value = 'TEST PATIENT'; document.querySelector('#phone').value = '+0 000 000 0000'; document.querySelector('#privacy-acknowledged').checked = true; document.querySelector('#appointment-request-form').requestSubmit()")
+  await evaluate("document.querySelector('#full-name').value = 'TEST PATIENT'; document.querySelector('#phone').value = '+0 000 000 0000'; document.querySelector('#appointment-request-form').requestSubmit()")
   await until("document.querySelector('[data-appointment-request]').dataset.appointmentState === 'receipt'")
   assert.equal(await evaluate("document.activeElement.id"), 'appointment-result-title')
   await shot('appointment-receipt-390')

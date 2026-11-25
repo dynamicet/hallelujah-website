@@ -105,12 +105,11 @@ await runVisualCheck('care-continuity', base, async ({ browser, output }) => {
       await page.eval(() => {
         document.querySelector('#full-name').value = 'TEST PATIENT'
         document.querySelector('#phone').value = '+0 000 000 0000'
-        document.querySelector('#privacy-acknowledged').checked = true
         document.querySelector('#appointment-request-form').requestSubmit()
       })
       await waitFor(page, 'document.querySelector("[data-appointment-request]").dataset.appointmentState === "receipt"')
       assert.equal(await page.eval(() => document.activeElement.id), 'appointment-result-title')
-      assert.match(await page.eval(() => document.querySelector('[data-appointment-request]').textContent), /Call reception to arrange your appointment time/)
+      assert.match(await page.eval(() => document.querySelector('[data-appointment-request]').textContent), /Our team will call you to arrange a time/)
       assert.equal(await page.eval(() => [...Object.values(localStorage), ...Object.values(sessionStorage)].some(value => /TEST PATIENT/.test(value))), false)
     }
     assert.equal(await page.eval(() => document.documentElement.scrollWidth > innerWidth), false)

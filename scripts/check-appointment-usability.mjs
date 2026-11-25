@@ -19,7 +19,6 @@ const press = async (page, key, windowsVirtualKeyCode) => {
 const fill = page => page.eval(() => {
   document.querySelector('#full-name').value = 'TEST PATIENT'
   document.querySelector('#phone').value = '+0 000 000 0000'
-  document.querySelector('#privacy-acknowledged').checked = true
 })
 
 await runVisualCheck('appointment-usability', base, async ({ browser, output }) => {
@@ -36,10 +35,8 @@ await runVisualCheck('appointment-usability', base, async ({ browser, output }) 
         return fetch.call(this, input, options)
       }
     })
-    assert.equal(await page.eval(() => document.querySelector('#privacy-acknowledged').checked), false)
     assert.equal(await page.eval(() => document.querySelector('#appointment-preference-options').hidden), false)
-    assert.equal(await page.eval(() => document.querySelector('#appointment-request-form button[type=submit]').textContent.trim()), 'Review details')
-    assert.match(await page.eval(() => document.querySelector('#privacy-acknowledged').labels[0].textContent), /need to call reception to arrange my appointment/)
+    assert.equal(await page.eval(() => document.querySelector('#appointment-request-form button[type=submit]').textContent.trim()), 'Send appointment request')
     const phone = '#appointment-call a[href="tel:+251114704242"]'
     assert.ok(await page.eval(`document.querySelector('${phone}').checkVisibility()`))
     assert.equal(await page.eval(() => document.querySelector('[data-call-widget]')), null)
@@ -52,14 +49,23 @@ await runVisualCheck('appointment-usability', base, async ({ browser, output }) 
 
     await submit(page)
     await waitFor(page, 'document.activeElement.id === "appointment-error-summary"')
-    assert.equal(await page.eval(() => document.querySelectorAll('#appointment-error-summary li').length), 3)
+    assert.equal(await page.eval(() => document.querySelectorAll('#appointment-error-summary li').length), 2)
     await page.eval(() => document.querySelector('#appointment-error-summary a[href="#phone"]').focus())
     await press(page, 'Enter', 13)
     await waitFor(page, 'document.activeElement.id === "phone"')
     await fill(page)
-    await submit(page)
+    await page.eval(() => {
+      const form = document.querySelector('#appointment-request-form')
+      form.requestSubmit()
+      form.requestSubmit()
+    })
     await waitFor(page, `${result} === "receipt" && document.activeElement.id === "appointment-result-title"`)
-    assert.match(await page.eval(() => document.querySelector('[data-appointment-request]').innerText), /Call reception to arrange your appointment time/)
+    assert.match(await page.eval(() => document.querySelector('[data-appointment-request]').innerText), /Our team will call you to arrange a time/)
+    assert.equal(await page.eval(() => document.querySelector('#appointment-result-title').textContent), 'Appointment request submitted')
+    const reference = () => page.eval(() => document.querySelector('[data-appointment-request] strong').textContent)
+    const firstReference = await reference()
+    assert.match(firstReference, /^HH-[0-9A-F]{8}-[0-9A-F]{8}$/u)
+    await page.screenshot({ path: `${output}/receipt-${width}.png` })
     assert.equal(await page.eval(() => window.appointmentDeliveryAttempts), 0)
     assert.equal(await page.eval(() => [...Object.values(localStorage), ...Object.values(sessionStorage)].some(value => /TEST PATIENT|000 000/.test(value))), false)
 
@@ -83,10 +89,11 @@ await runVisualCheck('appointment-usability', base, async ({ browser, output }) 
     await waitFor(page, `${result} === "known-failure"`)
     assert.equal(await page.eval(() => document.querySelector('#full-name').value), 'TEST PATIENT')
     assert.equal(await page.eval(() => document.querySelector('#phone').value), '+0 000 000 0000')
-    assert.match(await page.eval(() => document.activeElement.textContent), /couldn’t check your details/)
+    assert.match(await page.eval(() => document.activeElement.textContent), /couldn’t send your request/)
     await page.screenshot({ path: `${output}/failure-${width}.png` })
     await submit(page)
     await waitFor(page, `${result} === "receipt"`)
+    assert.notEqual(await reference(), firstReference)
     assert.equal(await page.eval(() => document.documentElement.scrollWidth <= innerWidth), true)
     assert.equal(await page.eval(() => document.querySelector('main').getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length), 0)
     if (width === 390) {

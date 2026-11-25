@@ -135,15 +135,7 @@
 }
 
 .privacy { font-size: var(--site-support); }
-.privacy label { display: flex; align-items: flex-start; gap: 8px; min-height: 44px; cursor: pointer; }
-.privacy input {
-  flex: none;
-  width: 18px;
-  height: 18px;
-  margin: 2px 0 0;
-  accent-color: var(--component-form-action);
-}
-.privacy a { margin-inline-start: 26px; min-height: 32px; }
+.privacy a { text-underline-offset: .15em; }
 .fieldError { margin: 4px 0; color: var(--component-form-text-error); font-size: var(--site-support); }
 .fields [aria-invalid='true'] { border-color: var(--component-form-text-error); }
 
@@ -163,8 +155,7 @@
   outline-offset: 4px;
 }
 
-.receipt .textButton { margin-top: 8px; }
-.receipt strong { margin-inline-start: 4px; }
+.receipt strong { display: block; width: fit-content; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; user-select: all; }
 .srOnly {
   position: absolute;
   width: 1px;
