@@ -1,8 +1,9 @@
+import { execFileSync } from 'node:child_process'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
 import {
-  collectRepositoryFiles,
+  repositoryRoot,
   repositoryRelative,
 } from './lib/repository-files.mjs'
 
@@ -21,15 +22,23 @@ const textExtensions = new Set([
   '.yml',
 ])
 const textNames = new Set(['.gitignore', '.npmrc', '.nvmrc'])
-const files = await collectRepositoryFiles({
-  include: (file) => (textExtensions.has(path.extname(file)) || textNames.has(path.basename(file)))
-    && !file.endsWith(path.join('apps', 'web', 'src', 'payload-types.ts')),
-})
+// Apply source formatting to tracked files and new, non-ignored work.
+const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], {
+  cwd: repositoryRoot, encoding: 'utf8',
+}).split('\0').filter(Boolean).map((file) => path.join(repositoryRoot, file))
+  .filter((file) => (textExtensions.has(path.extname(file)) || textNames.has(path.basename(file)))
+    && !file.endsWith(path.join('apps', 'web', 'src', 'payload-types.ts')))
 const failures = []
 
 for (const file of files) {
   const relative = repositoryRelative(file)
-  const contents = await readFile(file, 'utf8')
+  let contents
+  try {
+    contents = await readFile(file, 'utf8')
+  } catch (error) {
+    if (error.code === 'ENOENT') continue // Tracked deletion in the working tree.
+    throw error
+  }
 
   if (contents.startsWith('\uFEFF')) failures.push(`${relative}: UTF-8 byte-order mark is not allowed`)
   if (contents.includes('\r')) failures.push(`${relative}: use LF line endings`)

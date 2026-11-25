@@ -1,4 +1,5 @@
-import { EmergencyAction, LanguageSwitcher, type SiteShellProps } from '@/design-system/components'
+import { EmergencyAction } from '@/design-system/components/essential-actions'
+import { LanguageSwitcher, type SiteShellProps } from '@/design-system/components/global-shell'
 import type { HomePageTemplateProps } from '@/design-system/templates'
 import { hospitalContact } from './hospital-contact'
 import { hospitalCollaborationLink, hospitalFooter } from './site-footer'

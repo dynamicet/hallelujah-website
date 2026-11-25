@@ -87,7 +87,7 @@
     "@payloadcms/db-postgres": "3.90.0",
     "@payloadcms/next": "3.90.0",
     "graphql": "16.11.0",
-    "next": "16.4.1",
+    "next": "16.4.5",
     "payload": "3.90.0",
     "pg": "8.20.0",
     "react": "19.2.6",
@@ -100,7 +100,7 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.4.1",
+    "eslint-config-next": "16.4.5",
     "typescript": "5.9.3"
   }
 }

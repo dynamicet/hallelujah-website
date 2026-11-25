@@ -1,8 +1,12 @@
-import Image from 'next/image'
+import { getImageProps } from 'next/image'
 import { InterfaceLink as Link } from './interface-language'
 import styles from './hospital-introduction.module.css'
 
 export function HospitalIntroduction() {
+  const { props: image } = getImageProps({
+    src: '/editorial/hallelujah-reception-illustration.webp', alt: '', width: 1200, height: 900,
+    sizes: '(max-width: 699px) 100vw, (max-width: 1440px) 40vw, 512px',
+  })
   return <section className={styles.section} id="about-hallelujah" data-motion-section="introduction" aria-labelledby="hospital-introduction-title">
     <div className="page-frame">
       <div className={styles.panel}>
@@ -15,7 +19,8 @@ export function HospitalIntroduction() {
           </div>
         </div>
         <figure className={styles.still}>
-          <Image src="/editorial/hallelujah-reception-illustration.webp" alt="" width={1200} height={900} sizes="(max-width: 699px) 100vw, (max-width: 1440px) 40vw, 512px" />
+          {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text -- Optimized responsive attributes and alt are generated on the server. */}
+          <img {...image} />
         </figure>
       </div>
     </div>

@@ -68,7 +68,9 @@ const browser = spawn(findBrowser(), ['--headless=new', '--no-sandbox', '--disab
   `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, 'about:blank'], { stdio: ['ignore', 'ignore', 'pipe'] })
 let browserOutput = ''
 browser.stderr.on('data', (chunk) => { browserOutput += chunk.toString() })
-const captures = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../../docs/backlog/evidence/b02-009-rendered')
+const captures = process.argv.includes('--capture')
+  ? path.resolve(import.meta.dirname, '../../../docs/backlog/evidence/b02-009-rendered')
+  : path.join(profile, 'captures')
 await mkdir(captures, { recursive: true })
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 let client

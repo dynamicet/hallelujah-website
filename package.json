@@ -162,7 +162,7 @@
       "minimatch@>=7.0.0 <11.0.1": "11.0.1"
     },
     "patchedDependencies": {
-      "@next/eslint-plugin-next@16.4.1": "patches/@next__eslint-plugin-next@16.4.1.patch"
+      "@next/eslint-plugin-next@16.4.5": "patches/@next__eslint-plugin-next@16.4.5.patch"
     }
   }
 }

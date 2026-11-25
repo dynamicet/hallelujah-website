@@ -1,4 +1,4 @@
-import { ServiceCard } from '@/design-system/components'
+import { ServiceCard } from '@/design-system/components/service-card'
 import { servicePresentation } from './service-presentation'
 import { InterfaceLink as Link } from '@/website/interface-language'
 import { featuredSpecialties } from '@/demo/specialties'

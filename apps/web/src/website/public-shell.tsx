@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
-import { SiteShell } from '@/design-system/components'
+import { SiteShell } from '@/design-system/components/global-shell'
 import { hospitalShell } from './site-shell'
 
 // Only the chrome reads the live pathname. Page bodies remain server components.

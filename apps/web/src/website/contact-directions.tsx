@@ -1,5 +1,5 @@
 import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
-import { Icon } from '@/design-system/components'
+import { Icon } from '@/design-system/components/icon'
 
 import { hospitalContact } from './hospital-contact'
 import { HospitalLocationMap } from './hospital-location-map'
