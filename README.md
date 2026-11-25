@@ -35,28 +35,13 @@ services are outside this addition. Operational details remain explicitly unveri
 Run `PATIENT_PAGES_ONLY=1 node scripts/check-demo-routes.mjs` against the development
 server for the ten service routes, links, responsive layouts and feedback journey.
 
-The **Help → Chat with our guide** option opens a working patient guide with six
-topic flows, prepared FAQ answers, typed-question matching, doctor/service lookup
-and appointment handoffs. It runs in the browser with no LLM or API keys. Sample
-content comes from the same directory snapshot; unverified operational facts remain
-unavailable. See [Patient Guide](docs/architecture/patient-guide.md) for content
-editing, integration points and verification. Run
-`pnpm --dir apps/web patient-guide:check` for its conversation checks.
+The automated patient guide has been retired at the hospital’s request. The bottom-right call button uses the shared hospital contact number.
 
-The homepage Health & Care finder is available at `/#health-library`, after
-“How can we help?”. Search and the full A–Z selector remain visible together on
-desktop and mobile. Topic care actions connect to existing appointment requests
-with a selected sample service or to the contact section. The topic vocabulary
-and care mappings are illustrative; reviewed clinical articles and self-care
-guidance remain unavailable. Health searches stay in browser memory rather than
-URLs or storage.
-
-Search ranks curated topic names and patient-language aliases across all letters;
-multiword queries must match within one name or alias. Alias matches explain their
-connection. Each topic has its own navigation summary, next step and preparation
-questions. Topics without a service mapping, including unreviewed self-care,
-offer contact guidance. Empty searches also offer a contact path. Validate with
-`node apps/web/scripts/check-health-finder.mjs`.
+The Health Topics library has been retired. Six old article URLs redirect to
+the related Family medicine or Physiotherapy service. The library and articles
+without a corresponding service return 404. The doctor directory still matches
+curated condition and service terms through existing care affiliations. Run
+`pnpm care-journeys:check` to verify search matching.
 
 These additional routes require development mode or the explicit hosted staging
 demo mode. Normal production deployments still return 404 for demo-only routes.

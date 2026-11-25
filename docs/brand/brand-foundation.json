@@ -66,7 +66,8 @@
         "surfaceRaised": "#FFFFFF",
         "surfaceSubtle": "#EAF5F9",
         "surfaceSelected": "#D0EFFA",
-        "surfaceHighlight": "#F5C82D",
+        "surfaceAssistance": "#EAF5F9",
+        "surfaceEditorial": "#FFFFFF",
         "decorativeBlue": "#A8D3E4",
         "textPrimary": "#17313D",
         "textSecondary": "#52636B",
@@ -80,12 +81,10 @@
         "borderSubtle": "#CBD8DE",
         "borderControl": "#718892",
         "focus": "#00445D",
-        "accentSupporting": "#F65B25",
-        "accentSupportingTint": "#FFEDDF",
-        "accentSupportingText": "#A8430C",
-        "accentExpressive": "#E7277C",
-        "accentExpressiveTint": "#FBE4EF",
-        "accentExpressiveText": "#A61558",
+        "accentSupporting": "#0078A6",
+        "surfaceArrival": "#FFEDDF",
+        "accentSupportingTint": "#EAF5F9",
+        "accentSupportingText": "#00445D",
         "statusSuccess": "#24634B",
         "statusSuccessTint": "#EEF7F1",
         "statusWarning": "#80530C",
@@ -97,13 +96,13 @@
         "statusInfoTint": "#EAF5F9"
       },
       "rules": [
-        "Deep blue provides orientation and care actions; cyan retains identity and the featured hero action.",
-        "Richer peach supports preparation, pink supports human stories, and bounded yellow supports assistance; neutral task and reading surfaces retain clarity.",
+        "Deep blue provides orientation and care actions; the dark homepage hero uses a white appointment action.",
+        "Peach marks the arrival panel on Contact, white frames editorial stories, and pale blue groups routine care guidance.",
         "Use whole contextual headings, natural imagery and chapter composition rather than decorative accent words, card rules or arbitrary specialty colors.",
-        "Original logo artwork remains unchanged; yellow also highlights bounded care-navigation help with dark ink and no warning meaning",
+        "Original logo artwork remains unchanged; the supplied yellow and magenta values are kept as identity references.",
         "Ordinary links use strong blue on approved light surfaces; dark surfaces require inverse links",
         "White fields use control edge; quiet edge is decorative",
-        "Use deep orange on pale orange for normal accent text; avoid normal white text on orange and primary-blue text on mist",
+        "Use deep blue headings on peach; avoid normal white text on orange and primary-blue text on mist",
         "Keep urgent and error aliases and wording separate despite their shared red primitive",
         "Current Lato/FreeSerif/Ethiopic editorial presentation and task-specific responsive layouts are documented in the usage guide",
         "Keep photographs naturally colored and evaluate scrims separately for legibility"
@@ -123,7 +122,7 @@
         "magenta": "#E7277C",
         "yellow": "#F5C82D"
       },
-      "usage": "All four bright colors appear in supplementary geometry. Cyan also fills the homepage appointment link with dark ink; yellow highlights bounded care-navigation help. Orange supports visit preparation and magenta patient stories. Preserve dark structural fields and raster artwork."
+      "usage": "The supplied palette is retained as brand provenance. Current interface roles are defined separately. Preserve the hospital emblem and raster artwork."
     },
     "sourceIdentityStatus": "Historical client-supplied logo-derived palette from 2026-10-21; preserved for provenance, superseded for current interface roles by currentDirection",
     "interfaceStatus": "Earlier foundation values retained as history; currentDirection governs implemented local website roles",

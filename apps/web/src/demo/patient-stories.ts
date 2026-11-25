@@ -10,6 +10,7 @@ export const patientStories: readonly PatientStory[] = [
     status: 'published',
     title: 'Back to the little things.',
     attribution: 'Mekdes',
+    highlightedPhrase: 'The small moments',
     quote: 'I looked forward to sitting with my daughter again. The small moments became something to work towards.',
     account: [
       'At first, recovery felt like a long way from the life I knew. I missed our afternoons together: a quiet seat outside, a conversation, time without watching the clock.',

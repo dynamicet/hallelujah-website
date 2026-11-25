@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict'
+import { findUrlFailures } from './lib/boundary-url-policy.mjs'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -6,7 +8,6 @@ const applicationRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)
 const inspectedRoots = ['src', 'next.config.ts']
 const allowedExtensions = new Set(['.css', '.js', '.mjs', '.ts', '.tsx'])
 const prohibited = [
-  { label: 'external URL', pattern: /https?:\/\//u },
   { label: 'prototype runtime reference', pattern: /docs\/visual-design|prototype\.js|PROTO-ONLY/u },
   { label: 'reviewer control', pattern: /reviewer[-_ ]?(?:toolbar|control)/iu },
   { label: 'fixture query control', pattern: /fixture[-_ ]?query|query[-_ ]?fixture/iu },
@@ -54,20 +55,13 @@ for (const file of files) {
   const relativeFile = path.relative(applicationRoot, file)
 
   for (const rule of prohibited) {
-    // Only the three exact static namespace declarations are exempted, never URL prefixes.
-    const namespaces = new Set([
-      "const schemaContext = 'https://schema.org'",
-      "const sitemapNamespace = 'http://www.sitemaps.org/schemas/sitemap/0.9'",
-      "const alternateNamespace = 'http://www.w3.org/1999/xhtml'",
-    ])
-    const inspected = rule.label === 'external URL'
-      && relativeFile === path.join('src', 'content', 'governed-discovery.ts')
-      ? contents.split('\n').filter((line) => !namespaces.has(line)).join('\n') : contents
-    if (rule.pattern.test(rule.label === 'external URL' ? withoutApprovedUrls(relativeFile, inspected) : inspected)) {
+    if (rule.pattern.test(contents)) {
       failures.push(`${relativeFile}: ${rule.label}`)
     }
   }
 
+  failures.push(...findPrivateStyleSelectors(relativeFile, contents))
+  failures.push(...findUrlFailures(relativeFile, contents))
   failures.push(...findArchitectureFailures(relativeFile, contents))
 
   const environmentReaders = new Set([
@@ -79,11 +73,26 @@ for (const file of files) {
   }
 }
 
-if (!/https?:\/\//u.test(withoutApprovedUrls('src/website/hospital-contact.ts', "'https://unapproved.invalid'"))) failures.push('external URL control regression')
-for (const file of ['src/website/hospital-location-map.tsx', 'src/website/about-page.tsx', 'src/website/hospital-leadership.ts']) {
-  if (!/https?:\/\//u.test(withoutApprovedUrls(file, "'https://unapproved.invalid'"))) failures.push(`${file}: external URL control regression`)
+// Negative controls protect the distinction between navigation, types and I/O.
+const urlControlCases = [
+  ['src/website/site-footer.ts', "const link = { platform: 'facebook', href: 'https://www.facebook.com/hallelujah.hospital' }", true],
+  ['src/website/site-footer.ts', "fetch('https://www.facebook.com/hallelujah.hospital')", false],
+  ['src/website/site-footer.ts', "const link = { platform: 'facebook', href: 'https://www.facebook.com/another-account' }", false],
+  ['src/website/other.tsx', '<img src="https://www.facebook.com/hallelujah.hospital" />', false],
+  ['src/website/other.tsx', '<script src="https://unknown.invalid/code.js" />', false],
+  ['src/website/other.css', '.hero { background: url(https://unknown.invalid/image.png) }', false],
+  ['src/design-system/components/header-contacts.tsx', 'type Contact = `https://wa.me/${string}`', true],
+  ['src/design-system/components/header-contacts.tsx', 'const contact = `https://wa.me/${number}`', false],
+  ['src/app/(public)/doctors/[slug]/page.tsx', "new URL(from, 'https://local.invalid')", true],
+  ['src/app/(public)/doctors/[slug]/page.tsx', "fetch('https://local.invalid')", false],
+  ['src/demo/service-directory-return.ts', "source.origin !== 'https://local.invalid'", true],
+  ['src/demo/service-directory-return.ts', "fetch('https://local.invalid')", false],
+  ['src/content/governed-discovery.ts', "const schemaContext = 'https://schema.org'", true],
+  ['src/content/governed-discovery.ts', "fetch('https://schema.org')", false],
+]
+for (const [file, source, allowed] of urlControlCases) {
+  assert.equal(findUrlFailures(file, source).length === 0, allowed, `URL policy control: ${source}`)
 }
-if (!/https?:\/\//u.test(withoutApprovedUrls('src/website/hospital-location-map.tsx', "'https://www.openstreetmap.org/copyright/unapproved'"))) failures.push('map attribution URL control regression')
 
 const architectureControlCases = [
   {
@@ -151,6 +160,15 @@ const requiredEnvironmentNames = [
 
 const exampleNames = exampleAssignments.map((assignment) => assignment.slice(0, -1))
 assertSameMembers(exampleNames, requiredEnvironmentNames, '.env.example')
+
+// Public skins use explicit parts; CSS Module class names remain implementation details.
+function findPrivateStyleSelectors(file, source) {
+  return file.startsWith(path.join('src', 'app') + path.sep) && file.endsWith('.css')
+    && /\[class\s*[*^$~|]?=/u.test(source)
+    ? [`${file}: public styles must use explicit UI parts, not private class-name selectors`] : []
+}
+assert.equal(findPrivateStyleSelectors(path.join('src', 'app', 'control.css'), "[class*='card'] { color: red }").length, 1)
+assert.equal(findPrivateStyleSelectors(path.join('src', 'app', 'control.css'), "[data-ui-part~='card'] { color: red }").length, 0)
 
 if (failures.length > 0) {
   console.error('Bootstrap boundary check failed:')
@@ -254,16 +272,4 @@ function findLayer(relativePath) {
 
 function isWithin(candidate, root) {
   return candidate === root || candidate.startsWith(`${root}${path.sep}`)
-}
-
-function withoutApprovedUrls(file, source) {
-  const approved = {
-    'src/app/doctors/[slug]/page.tsx': ['https://local.invalid'],
-    'src/website/service-detail-page.tsx': ['https://local.invalid'],
-    'src/design-system/components/header-contacts.tsx': ['https://wa.me/${string}', 'https://t.me/${string}'],
-    'src/website/contact-directions.tsx': ['https://www.openstreetmap.org/copyright'],
-    'src/website/hospital-location-map.tsx': ['https://www.openstreetmap.org/copyright'],
-    'src/website/hospital-contact.ts': ['https://maps.app.goo.gl/VQMCJFfeZX1MtXUN7', 'https://www.google.com/maps/dir/?api=1&destination=8.9861882%2C38.7590401'],
-  }
-  return source.replace(/https?:\/\/[^\s"'`<>]+/gu, (url) => approved[file]?.includes(url) ? '' : url)
 }

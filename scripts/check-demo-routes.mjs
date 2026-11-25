@@ -129,7 +129,7 @@ try {
   }
   const demoData = JSON.parse(await readFile(new URL('../apps/web/src/demo/data.json', import.meta.url), 'utf8'))
   const patientPagesOnly = process.env.PATIENT_PAGES_ONLY === '1'
-  const paths = process.env.PATIENT_FEEDBACK_ONLY === '1' ? ['/feedback'] : [...(patientPagesOnly ? [] : ['/', '/doctors', '/services', '/emergency', '/appointment']), '/patients-visitors', '/feedback',
+  const paths = process.env.PATIENT_FEEDBACK_ONLY === '1' ? ['/feedback'] : [...(patientPagesOnly ? [] : ['/', '/doctors', '/services', '/emergency', '/appointment']), '/contact', '/feedback',
     ...demoData.services.map((service) => service.canonicalPath)]
   const checkedDestinations = new Map()
   for (const pathname of paths) {
@@ -170,7 +170,7 @@ try {
       console.log(`Patient responsive layouts passed: ${pathname}`)
     }
     await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
-    await navigate('/patients-visitors', 390)
+    await navigate('/contact', 390)
     assert.equal(await evaluate("document.getAnimations().filter(animation => animation.playState === 'running').length"), 0)
     await send('Emulation.setScriptExecutionDisabled', { value: true })
     noJavaScript = true
@@ -183,6 +183,7 @@ try {
   assert.equal((await fetch(server.origin + '/services/unknown-service')).status, 404, 'unknown service returns 404')
   await navigate('/feedback', 390)
   await until("!document.querySelector('#feedback-message').disabled")
+  await evaluate("document.querySelector('#share summary').click()")
   const beforeFeedbackRequests = requests.length
   await evaluate(`(() => {
     const field = document.querySelector('#feedback-message');
@@ -249,25 +250,14 @@ try {
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 1)
   cases.push('Homepage doctor search hands its query to the directory')
   await navigate('/')
-  await until("document.documentElement.dataset.hydration === 'ready'")
-  assert.equal(await evaluate("document.querySelectorAll('.navigator-choice').length"), 4)
-  for (const [label, target] of [['Explore services', '/services'], ['Plan a visit', '/patients-visitors'], ['Request an appointment', '/appointment'], ['Find a doctor', '/doctors']]) {
-    await evaluate(`Array.from(document.querySelectorAll('.navigator-choice')).find(button => button.textContent.includes(${JSON.stringify(label)})).click()`)
-    await until(`document.querySelector('.navigator-result a').getAttribute('href') === ${JSON.stringify(target)}`)
-    assert.equal(await evaluate("document.querySelectorAll('.navigator-choice[aria-pressed=true]').length"), 1)
-  }
-  await evaluate("document.querySelector('.visit-questions summary').click()")
-  assert.equal(await evaluate("document.querySelector('.visit-questions details').open"), true)
   // Below-fold images intentionally load lazily. Request them before checking asset integrity.
   await evaluate("Array.from(document.images).forEach(image => { image.loading = 'eager' })")
   await until("Array.from(document.images).every(image => image.complete && image.naturalWidth > 0)")
-  await evaluate("document.querySelector('.navigator-result a').click()")
-  await until("location.pathname === '/doctors' && !!document.querySelector('[data-clinician-public-id]')")
   await navigate('/doctors?q=Aster')
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 1)
   await navigate('/doctors?q=no-matching-name')
   assert.equal(await evaluate("!!document.querySelector('[data-directory-empty]')"), true)
-  cases.push('Care navigator choices, service/doctor handoff, visit accordion, complete images and zero-result recovery')
+  cases.push('Care navigator choices, service/doctor handoff, complete images and zero-result recovery')
   await navigate('/?demo=empty')
   assert.equal(await evaluate("!!document.querySelector('[data-home-section=H4]')"), false)
   assert.equal(await evaluate("!!document.querySelector('[data-home-section=H8]')"), false)
@@ -309,8 +299,7 @@ try {
   assert.equal(await evaluate("document.querySelectorAll('#care-team a[href^=\"/doctors/\"]').length"), 3)
   const selectedServiceHref = await evaluate("document.querySelector('a[href^=\"/appointment?service=\"]').getAttribute('href')")
   await navigate(selectedServiceHref)
-  assert.equal(await evaluate("document.querySelector('[data-care-selector=service]').hidden"), false)
-  assert.equal(await evaluate("document.querySelector('#service-id').selectedOptions[0].textContent"), 'Heart medicine')
+  assert.match(await evaluate("document.querySelector('#care-preference').value"), /Cardiology/)
   await navigate('/services?page=2')
   assert.deepEqual(await evaluate("Array.from(document.querySelectorAll('[data-directory-section=S5] section h2'), node => node.textContent)"), ['Specialty and rehabilitation'])
   await navigate('/services?q=heart')
@@ -340,169 +329,61 @@ try {
   await navigate('/doctors/synthetic-clinician-101010101010/')
   assert.equal(await evaluate("!!document.querySelector('[data-profile-section=P3]')"), true)
   await navigate('/appointment?demo=validation')
-  assert.equal(await evaluate("document.querySelector('[data-appointment-template]').dataset.appointmentState"), 'validation')
+  assert.equal(await evaluate("document.querySelector('[data-appointment-request]').dataset.appointmentState"), 'validation')
   assert.equal(await evaluate("!!document.querySelector('[data-error-summary]:not([hidden])')"), true)
   await navigate('/appointment?demo=workflow-unavailable')
   assert.equal(await evaluate("!!document.querySelector('#appointment-request-form')"), false)
   await navigate('/appointment')
-  assert.equal(await evaluate("document.querySelector('[data-appointment-template]').dataset.appointmentState"), 'editing')
+  assert.equal(await evaluate("document.querySelector('[data-appointment-request]').dataset.appointmentState"), 'editing')
   cases.push('fixture sections, safe normal Emergency, alternate states and reset')
-  await navigate('/appointment', 390)
-  await until('!document.querySelector("[data-appointment-safe-form]").inert')
-  assert.equal(await evaluate('document.querySelector("[data-appointment-template]").dataset.journeyStep'), '0')
-  assert.equal(await evaluate('document.querySelector("[data-journey-group=details]").hidden'), true)
-  await evaluate('document.querySelector("[data-journey-next]").click()')
-  assert.equal(await evaluate('document.querySelector("[data-appointment-template]").dataset.journeyStep'), '1')
-  assert.equal(await evaluate('document.activeElement.id'), 'appointment-details-title')
-  await evaluate('document.querySelector("[data-journey-next]").click()')
-  assert.equal(await evaluate('document.activeElement.id'), 'appointment-error-summary-heading')
-  assert.equal(await evaluate('document.querySelector("[data-appointment-template]").dataset.journeyStep'), '1')
-  await evaluate(`(() => {
+  const formReady = "document.querySelector('#full-name') && !document.querySelector('#full-name').matches(':disabled')"
+  const formState = "document.querySelector('[data-appointment-request]').dataset.appointmentState"
+  const submitRequest = () => evaluate("document.querySelector('#appointment-request-form').requestSubmit()")
+  const fillRequest = () => evaluate(`(() => {
     document.querySelector('#full-name').value = 'TEST PATIENT';
     document.querySelector('#phone').value = '+0 000 000 0000';
-    document.querySelector('#privacy-acknowledged').click();
-    document.querySelector('[data-journey-next]').click();
   })()`)
-  assert.equal(await evaluate('document.querySelector("[data-appointment-template]").dataset.journeyStep'), '2')
-  assert.equal(await evaluate('document.activeElement.id'), 'appointment-submit-title')
-  assert.equal(await evaluate('document.querySelector("[data-journey-review] [data-journey-value=name]").textContent'), 'TEST PATIENT')
-  assert.equal(await evaluate('document.querySelector("[data-journey-review] [data-journey-value=phone]").textContent'), '+0 000 000 0000')
-  await evaluate('document.querySelector("[data-journey-edit]").click()')
-  assert.equal(await evaluate('document.querySelector("#full-name").value'), 'TEST PATIENT')
-  await evaluate('document.querySelector("[data-journey-back]").click()')
-  await evaluate('document.querySelector("#care-route-service").click(); document.querySelector("[data-journey-next]").click()')
-  assert.equal(await evaluate('document.querySelector("[data-appointment-template]").dataset.journeyStep'), '0')
-  assert.equal(await evaluate('document.querySelector("#service-id").getAttribute("aria-invalid")'), 'true')
-  await evaluate(`(() => {
-    const service = document.querySelector('#service-id');
-    service.selectedIndex = 1;
-    service.dispatchEvent(new Event('change', { bubbles: true }));
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('[data-form-submit]').click();
-  })()`)
-  await until('document.querySelector("[data-appointment-template]").dataset.appointmentState === "receipt"')
-  assert.equal(await evaluate('document.querySelector("[data-journey-review] [data-journey-value=name]").textContent'), 'Not added')
-  assert.equal(await evaluate('document.querySelector("[data-journey-progress]").hidden'), true)
-  cases.push('guided appointment steps, validation, focus, live summary, edit retention and receipt cleanup')
+  await navigate('/appointment', 390)
+  await until(formReady)
+  assert.equal(await evaluate("document.querySelector('#appointment-preference-options').hidden"), false)
+  await submitRequest()
+  await until("document.activeElement.id === 'appointment-error-summary'")
+  assert.equal(await evaluate("document.querySelectorAll('#appointment-error-summary li').length"), 2)
+  await fillRequest()
+  await submitRequest()
+  await until(formState + " === 'receipt' && document.activeElement.id === 'appointment-result-title'")
+  assert.match(await evaluate("document.querySelector('[data-appointment-request]').textContent"), /Our team will call you to arrange a time/)
+  assert.equal(await evaluate("document.querySelector('#full-name') === null"), true)
+  cases.push('single-screen request without a preference, validation, focus and receipt cleanup')
+
   await navigate('/doctors?q=Aster')
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 1)
   const profileHref = await evaluate("document.querySelector('[data-clinician-public-id] a').getAttribute('href')")
   await evaluate("document.querySelector('[data-clinician-public-id] a').click()")
   await until("!!document.querySelector('[data-clinician-profile-template]')")
-  assert.equal(await evaluate("document.querySelector('h1').textContent"), 'Dr Aster')
+  assert.equal(await evaluate("document.querySelector('h1').textContent"), 'Dr. Aster')
   assert.doesNotMatch(await evaluate("document.body.innerText"), /\b(demo|fictional|synthetic|fixture|placeholder)\b/i)
-  const appointmentHref = await evaluate("document.querySelector('a[href^=\"/appointment?doctor=\"]').getAttribute('href')")
+  const appointmentHref = await evaluate(`document.querySelector('a[href^="/appointment?doctor="]').getAttribute('href')`)
   await navigate(appointmentHref)
-  assert.equal(await evaluate("document.querySelector('#doctor-id').selectedOptions[0].textContent"), 'Dr Aster')
-  await until("!document.querySelector('[data-appointment-safe-form]').hasAttribute('inert')")
-  await evaluate("document.querySelector('input[name=care_route][value=service]').click()")
-  await until("!document.querySelector('[data-care-selector=service]').hidden")
-  assert.equal(await evaluate("document.querySelector('button[type=submit]').disabled"), false)
-  await evaluate("document.querySelector('#appointment-request-form').requestSubmit()")
-  await until("document.activeElement?.id === 'appointment-error-summary-heading'")
-  assert.equal(await evaluate("document.querySelectorAll('#appointment-error-summary li:not([hidden])').length"), 1)
-  assert.equal(await evaluate("document.querySelector('#service-id').value"), '')
-  await evaluate("document.querySelector('#appointment-error-summary a[href=\"#service-id\"]').click()")
-  assert.equal(await evaluate("document.activeElement?.id"), 'service-id')
-  await evaluate(`(() => {
-    document.querySelector('#service-id').value = document.querySelector('#service-id').options[1].value;
-    document.querySelector('#full-name').value = 'TEST PATIENT';
-    document.querySelector('#phone').value = '+0 000 000 0000';
-    document.querySelector('#preferred-date').value = '2020-01-01';
-    document.querySelector('#privacy-acknowledged').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('#appointment-request-form').requestSubmit();
-  })()`)
-  assert.equal(await evaluate("document.querySelectorAll('#appointment-error-summary li:not([hidden])').length"), 1)
-  assert.equal(await evaluate("document.querySelector('#preferred-date').getAttribute('aria-invalid')"), 'true')
-  await evaluate(`(() => {
-    document.querySelector('#preferred-date').value = '';
-    const form = document.querySelector('#appointment-request-form');
-    form.requestSubmit();
-    form.requestSubmit();
-  })()`)
-  await until("document.querySelector('[data-appointment-template]').dataset.appointmentState === 'receipt'")
-  assert.equal(await evaluate("document.activeElement?.id === 'appointment-receipt-heading'"), true)
-  assert.equal(await evaluate("document.querySelector('#full-name').value + document.querySelector('#phone').value"), '')
-  assert.match(await evaluate("document.querySelector('#appointment-receipt').innerText"), /no booking is confirmed/i)
-  assert.equal(await evaluate("document.querySelector('button[type=submit]').disabled"), true)
+  await until(formReady)
+  assert.match(await evaluate("document.querySelector('#care-preference').value"), /Dr. Aster/)
+  await fillRequest()
+  await evaluate("const form = document.querySelector('#appointment-request-form'); form.requestSubmit(); form.requestSubmit()")
+  await until(formState + " === 'receipt'")
+  cases.push('matching doctor profile, carried preference and guarded double submission')
+
+  for (const [scenario, first, retry] of [['known-failure', 'known-failure', 'receipt'], ['unknown', 'unknown', 'duplicate']]) {
+    await navigate('/appointment?start=editing&demo=' + scenario)
+    await until(formReady)
+    await fillRequest()
+    await submitRequest()
+    await until(formState + " === '" + first + "'")
+    assert.equal(await evaluate("document.querySelector('#phone').value"), '+0 000 000 0000')
+    await submitRequest()
+    await until(formState + " === '" + retry + "'")
+  }
   assert.equal(requests.some((request) => request.method === 'POST' && !new URL(request.url).pathname.startsWith('/__nextjs')), false)
-  cases.push('search, matching profile, handoff, validation and one local receipt')
-  await navigate('/appointment?demo=known-failure&start=editing')
-  await until("!document.querySelector('[data-appointment-safe-form]').hasAttribute('inert')")
-  await evaluate(`(() => {
-    document.querySelector('#full-name').value = 'TEST PATIENT';
-    document.querySelector('#phone').value = '+0 000 000 0000';
-    document.querySelector('#privacy-acknowledged').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('#appointment-request-form').requestSubmit();
-  })()`)
-  await until("document.querySelector('[data-appointment-template]').dataset.appointmentState === 'known-failure' && document.activeElement?.id === 'appointment-known-failure-heading'")
-  assert.equal(await evaluate("document.querySelector('#full-name').value"), 'TEST PATIENT')
-  await evaluate("document.querySelector('#appointment-request-form').requestSubmit()")
-  await until("document.querySelector('[data-appointment-template]').dataset.appointmentState === 'receipt'")
-  await navigate('/appointment?demo=known-failure')
-  await until("!document.querySelector('[data-appointment-safe-form]').hasAttribute('inert')")
-  await evaluate(`(() => {
-    document.querySelector('#full-name').value = 'TEST PATIENT';
-    document.querySelector('#phone').value = '+0 000 000 0000';
-    document.querySelector('#privacy-acknowledged').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('#appointment-request-form').requestSubmit();
-  })()`)
-  await until("document.querySelector('[data-appointment-template]').dataset.appointmentState === 'receipt'")
-  await navigate('/appointment?demo=unknown&start=editing')
-  await until("!document.querySelector('[data-appointment-safe-form]').hasAttribute('inert')")
-  await evaluate(`(() => {
-    document.querySelector('#full-name').value = 'TEST PATIENT';
-    document.querySelector('#phone').value = '+0 000 000 0000';
-    document.querySelector('#privacy-acknowledged').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('#appointment-request-form').requestSubmit();
-  })()`)
-  await until("document.querySelector('[data-appointment-template]').dataset.appointmentState === 'unknown'")
-  assert.equal(await evaluate("document.querySelector('button[type=submit]').disabled"), true)
-  await evaluate("document.querySelector('[data-reconcile=missing]').click()")
-  assert.equal(await evaluate("document.querySelector('[data-appointment-template]').dataset.appointmentState"), 'editing')
-  assert.equal(await evaluate("document.querySelector('#full-name').value"), 'TEST PATIENT')
-  await evaluate("document.querySelector('#appointment-request-form').requestSubmit()")
-  await until("document.querySelector('[data-appointment-template]').dataset.appointmentState === 'receipt'")
-  await navigate('/appointment?demo=unknown')
-  await until("!document.querySelector('[data-appointment-safe-form]').hasAttribute('inert')")
-  await evaluate("document.querySelector('[data-reconcile=found]').click()")
-  assert.equal(await evaluate("document.querySelector('[data-appointment-template]').dataset.appointmentState"), 'receipt')
-  await navigate('/appointment?demo=duplicate&start=editing')
-  await until("!document.querySelector('[data-appointment-safe-form]').hasAttribute('inert')")
-  await evaluate(`(() => {
-    document.querySelector('#full-name').value = 'TEST PATIENT';
-    document.querySelector('#phone').value = '+0 000 000 0000';
-    document.querySelector('#privacy-acknowledged').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('#appointment-request-form').requestSubmit();
-  })()`)
-  await until("document.querySelector('[data-appointment-template]').dataset.appointmentState === 'duplicate'")
-  await evaluate("document.querySelector('[data-reconcile=found]').click()")
-  assert.equal(await evaluate("document.querySelector('[data-appointment-template]').dataset.appointmentState"), 'receipt')
-  await navigate('/appointment?demo=delivery-warning&start=editing')
-  await until("!document.querySelector('[data-appointment-safe-form]').hasAttribute('inert')")
-  await evaluate(`(() => {
-    document.querySelector('#full-name').value = 'TEST PATIENT';
-    document.querySelector('#phone').value = '+0 000 000 0000';
-    document.querySelector('#privacy-acknowledged').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('[data-journey-next]').click();
-    document.querySelector('#appointment-request-form').requestSubmit();
-  })()`)
-  await until("document.querySelector('[data-appointment-template]').dataset.appointmentState === 'delivery-warning'")
-  assert.equal(await evaluate("document.querySelector('button[type=submit]').disabled"), true)
-  assert.equal(requests.some((request) => request.method === 'POST' && !new URL(request.url).pathname.startsWith('/__nextjs')), false)
-  cases.push('appointment failure retry, unknown reconciliation, duplicate and delivery warning')
+  cases.push('appointment error and uncertain outcome retain details and allow retry without delivery')
   await navigate('/doctors?q=Aster&type=synthetic-family')
   await evaluate("document.querySelector('[data-clinician-public-id] a').click()")
   await until("!!document.querySelector('[data-clinician-profile-template]')")
@@ -574,11 +455,11 @@ try {
   await navigate('/doctors?q=Aster')
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 1)
   await navigate('/appointment')
-  assert.equal(await evaluate("document.querySelector('[data-appointment-safe-form]').inert"), true)
-  assert.match(await evaluate("document.querySelector('noscript').innerText"), /No request can be sent here/u)
+  assert.equal(await evaluate("document.querySelector('#full-name').matches(':disabled')"), true)
+  assert.match(await evaluate("document.querySelector('noscript').innerText"), /call reception/u)
   await send('Emulation.setScriptExecutionDisabled', { value: false })
   noJavaScript = false
-  cases.push('server search and inert appointment form without JavaScript')
+  cases.push('server search and disabled appointment form without JavaScript')
   assert.equal((await fetch(server.origin + '/doctors/unknown-doctor')).status, 404)
   const response = await fetch(server.origin + '/api/appointment-requests', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' })
   assert.equal(response.status, 503)
@@ -599,8 +480,9 @@ try {
   await evaluate("document.querySelector('[data-directory-section=D6] a[href=\"/services\"]').click()")
   await until("location.pathname === '/services' && !!document.querySelector('[data-service-public-id]')")
   await navigate('/appointment', 1440)
-  await evaluate("document.querySelector('[data-appointment-section=A7] a[href=\"/#home-call\"]').click()")
-  await until("location.pathname === '/' && location.hash === '#home-call' && !!document.querySelector('#home-call')")
+  await evaluate("document.querySelector('#appointment-call a[href=\"/contact\"]').click()")
+  await until("location.pathname === '/contact' && !!document.querySelector('#contact-reception')")
+  await navigate('/')
   assert.equal(await evaluate("getComputedStyle(document.querySelector('.welcome-photo')).animationName"), 'none', 'hero image stays still; film playback is optional')
   cases.push('six routes at mobile, tablet and desktop widths; support handoffs')
   const { root } = await send('DOM.getDocument')

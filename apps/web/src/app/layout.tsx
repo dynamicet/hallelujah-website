@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Suspense, type ReactNode } from 'react'
 
-import { HydrationReady } from '@/design-system/templates'
+import { HydrationReady } from '@/website/hydration-ready'
 import { MotionMediaInteractions, ShellInteractions } from '@/demo/interactions'
 import { WebsiteMotion } from '@/website/reveal'
 

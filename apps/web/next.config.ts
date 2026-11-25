@@ -1,4 +1,5 @@
-import { isDevelopment, isLocalDemo } from './src/server/environment.ts'
+import { retiredVisitGuides } from './src/demo/visit-guides.ts'
+import { isDevelopmentRuntime, isLocalDemo } from './src/server/environment.ts'
 import { withPayload } from '@payloadcms/next/withPayload'
 import type { NextConfig } from 'next'
 import path from 'node:path'
@@ -7,12 +8,10 @@ import { fileURLToPath } from 'node:url'
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url))
 const workspaceRoot = path.resolve(currentDirectory, '../..')
 
-const homeExperience = isLocalDemo() ? './src/demo/home-experience.tsx' : './src/demo/disabled-home-experience.tsx'
-
 const developmentScripts = isLocalDemo()
-  ? "; script-src 'self' 'unsafe-inline'" + (isDevelopment() ? " 'unsafe-eval'" : '')
+  ? "; script-src 'self' 'unsafe-inline'" + (isDevelopmentRuntime() ? " 'unsafe-eval'" : '')
     + "; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'"
-    + (isDevelopment() ? ' ws://localhost:* ws://127.0.0.1:*' : '')
+    + (isDevelopmentRuntime() ? ' ws://localhost:* ws://127.0.0.1:*' : '')
   : ''
 
 const securityHeaders = [
@@ -27,15 +26,25 @@ const nextConfig: NextConfig = {
     useTypeScriptCli: false,
   },
   poweredByHeader: false,
+  async redirects() {
+    return [
+      { source: '/patients-visitors', destination: '/contact#before-you-travel', permanent: true },
+      ...['diabetes', 'digestive-concerns', 'high-blood-pressure', 'thyroid-concerns'].map(slug => ({
+        source: `/health-topics/${slug}`, destination: '/services/synthetic-service-141414141414', permanent: true,
+      })),
+      ...['back-pain', 'joint-pain'].map(slug => ({
+        source: `/health-topics/${slug}`, destination: '/services/synthetic-service-171717171717', permanent: true,
+      })),
+      ...retiredVisitGuides.map(guide => ({ ...guide, permanent: true })),
+    ]
+  },
   async headers() {
     return [{ headers: securityHeaders, source: '/:path*' }]
   },
   turbopack: {
     root: workspaceRoot,
-    resolveAlias: { '@home-experience': homeExperience },
   },
   webpack(webpackConfig) {
-    webpackConfig.resolve.alias['@home-experience'] = path.join(currentDirectory, homeExperience)
     webpackConfig.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
       '.js': ['.ts', '.tsx', '.js', '.jsx'],

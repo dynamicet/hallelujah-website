@@ -1,7 +1,8 @@
+import { TemplateFrame } from './template-frame'
 import { InterfaceLink as Link } from '@/website/interface-language'
 import type { ReactNode } from 'react'
 
-import { SiteShell, type SiteShellProps } from '../components'
+import { type SiteShellProps } from '../components'
 
 import styles from './emergency-template.module.css'
 
@@ -23,7 +24,7 @@ type EmergencyReadyStateKind =
 
 interface EmergencyTemplateBaseProps {
   readonly eyebrow: string
-  readonly shell: Omit<SiteShellProps, 'breadcrumbs' | 'children'>
+  readonly shell?: Omit<SiteShellProps, 'breadcrumbs' | 'children'>
   readonly title: string
 }
 
@@ -88,7 +89,7 @@ function InertRouteChoice({
   const descriptionId = `emergency-choice-${choice.label.toLowerCase().replaceAll(/[^a-z0-9]+/gu, '-')}`
 
   return (
-    <article className={styles.callCard} data-inert-call-choice>
+    <article data-ui-part="call-card" className={styles.callCard} data-inert-call-choice>
       <h2>{choice.label}</h2>
       <p id={descriptionId}>{choice.purpose}</p>
       <div
@@ -99,7 +100,7 @@ function InertRouteChoice({
         <span>{handoffUnsupported ? 'Automatic handoff unsupported' : action ? 'Illustrative contact value' : 'Calling unavailable'}</span>
         <strong>{choice.displayValue}</strong>
       </div>
-      {action ? <div className={styles.demoAction}>{action}</div> : null}
+      {action ? <div data-ui-part="demo-action" className={styles.demoAction}>{action}</div> : null}
       <p className={styles.fixtureBoundary}>Do not call this number or use it for care.</p>
     </article>
   )
@@ -146,7 +147,7 @@ function UnavailableEmergencyTemplate({
   title,
 }: EmergencyUnavailableTemplateProps) {
   return (
-    <SiteShell {...shell}>
+    <TemplateFrame shell={shell}>
       <div
         className={styles.frame}
         data-emergency-state={state.kind}
@@ -156,13 +157,13 @@ function UnavailableEmergencyTemplate({
       >
         <section
           aria-labelledby="emergency-title"
-          className={styles.introduction}
+          data-ui-part="introduction" className={styles.introduction}
           data-emergency-section="E1"
         >
           <div className={styles.introCopy}>
-            <p className={styles.eyebrow}>{eyebrow}</p>
+            <p data-ui-part="eyebrow" className={styles.eyebrow}>{eyebrow}</p>
             <h1 id="emergency-title">{title}</h1>
-            <p className={styles.fixtureNotice}>
+            <p data-ui-part="fixture-notice" className={styles.fixtureNotice}>
               Emergency contact and arrival information is unavailable.
             </p>
           </div>
@@ -177,7 +178,7 @@ function UnavailableEmergencyTemplate({
 
         <section
           aria-labelledby="support-title"
-          className={`${styles.section} ${styles.support} ds-support-band`}
+          data-ui-part="section support" className={`${styles.section} ${styles.support} ds-support-band`}
           data-emergency-section="E8"
           id="non-emergency-support"
           tabIndex={-1}
@@ -189,7 +190,7 @@ function UnavailableEmergencyTemplate({
           <div className="ds-support-actions">{state.recoveryHref ? <Link className="ds-touch-target" href={state.recoveryHref}>Contact information</Link> : null}<Link className="ds-touch-target" href="/doctors">Find a doctor</Link><Link className="ds-touch-target" href="/services">View all services</Link></div>
         </section>
       </div>
-    </SiteShell>
+    </TemplateFrame>
   )
 }
 
@@ -224,7 +225,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
   const handoffUnsupported = state.kind === 'call-handoff-unsupported'
 
   return (
-    <SiteShell {...shell}>
+    <TemplateFrame shell={shell}>
       <div
         className={styles.frame}
         data-demo-emergency={demoActions ? '' : undefined}
@@ -234,14 +235,14 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
       >
         <section
           aria-labelledby="emergency-title"
-          className={styles.introduction}
+          data-ui-part="introduction" className={styles.introduction}
           data-emergency-section="E1"
         >
           <div className={styles.introCopy}>
-            <p className={styles.eyebrow}>{eyebrow}</p>
+            <p data-ui-part="eyebrow" className={styles.eyebrow}>{eyebrow}</p>
             <h1 id="emergency-title">{title}</h1>
-            <p className={styles.description}>{description}</p>
-            <p className={styles.fixtureNotice}>
+            <p data-ui-part="description" className={styles.description}>{description}</p>
+            <p data-ui-part="fixture-notice" className={styles.fixtureNotice}>
               Do not use the contact or arrival details on this page for emergency care.
             </p>
           </div>
@@ -253,7 +254,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
           ) : null}
           <div
             aria-label="Emergency contacts"
-            className={styles.callGrid}
+            data-ui-part="call-grid" className={styles.callGrid}
             data-route-choice-group
             role="group"
           >
@@ -262,10 +263,10 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
           </div>
         </section>
 
-        <div className={styles.pairedSections}>
+        <div data-ui-part="paired-sections" className={styles.pairedSections}>
           <section
             aria-labelledby="route-difference-title"
-            className={styles.section}
+            data-ui-part="section" className={styles.section}
             data-emergency-section="E2"
           >
             <h2 id="route-difference-title">How the routes differ</h2>
@@ -277,7 +278,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
 
           <section
             aria-labelledby="online-warning-title"
-            className={`${styles.section} ${styles.warning}`}
+            data-ui-part="section" className={`${styles.section} ${styles.warning}`}
             data-emergency-section="E3"
           >
             <h2 id="online-warning-title">Do not use online contact for emergencies</h2>
@@ -287,12 +288,12 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
 
         <section
           aria-labelledby="hospital-scope-title"
-          className={`${styles.section} ${styles.reading} ${styles.scope}`}
+          data-ui-part="section scope" className={`${styles.section} ${styles.reading} ${styles.scope}`}
           data-emergency-section="E4"
         >
           <h2 id="hospital-scope-title">Emergency care at this hospital</h2>
           <p>{scope.summary}</p>
-          <dl className={styles.scopeFacts}>
+          <dl data-ui-part="scope" className={styles.scopeFacts}>
             <div><dt>Availability</dt><dd>{scope.availability}</dd></div>
             <div><dt>Limitations</dt><dd>{scope.limitations}</dd></div>
             <div><dt>Information status</dt><dd>{scope.reviewedLabel}</dd></div>
@@ -301,10 +302,10 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
           </dl>
         </section>
 
-        <div className={styles.arrivalGrid}>
+        <div data-ui-part="arrival arrival-grid" className={styles.arrivalGrid}>
           <section
             aria-labelledby="where-to-go-title"
-            className={`${styles.section} ${styles.arrivalCard}`}
+            data-ui-part="section arrival" className={`${styles.section} ${styles.arrivalCard}`}
             data-emergency-section="E5"
           >
             <h2 id="where-to-go-title">Where to go</h2>
@@ -316,13 +317,13 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
             <ol className={styles.directionSteps}>
               {arrival.steps.map((step) => <li key={step}>{step}</li>)}
             </ol>
-            {demoActions ? <div className={styles.demoAction}>{demoActions.directions}</div>
+            {demoActions ? <div data-ui-part="demo-action" className={styles.demoAction}>{demoActions.directions}</div>
               : <p className={styles.fixtureBoundary}>Text is selectable. Copy and navigation actions are disabled.</p>}
           </section>
 
           <section
             aria-labelledby="arriving-safely-title"
-            className={`${styles.section} ${styles.arrivalCard}`}
+            data-ui-part="section arrival" className={`${styles.section} ${styles.arrivalCard}`}
             data-emergency-section="E6"
           >
             <h2 id="arriving-safely-title">Arriving safely</h2>
@@ -336,7 +337,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
 
         <section
           aria-labelledby="map-title"
-          className={`${styles.section} ${styles.mapPanel}`}
+          data-ui-part="section" className={`${styles.section} ${styles.mapPanel}`}
           data-emergency-section="E7"
           data-map-state={state.kind === 'map-failed' || state.kind === 'map-blocked' ? state.kind : 'disabled'}
         >
@@ -347,7 +348,7 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
 
         <section
           aria-labelledby="support-title"
-          className={`${styles.section} ${styles.support} ds-support-band`}
+          data-ui-part="section support" className={`${styles.section} ${styles.support} ds-support-band`}
           data-emergency-section="E8"
           id="non-emergency-support"
           tabIndex={-1}
@@ -356,6 +357,6 @@ export function EmergencyTemplate(props: EmergencyTemplateProps) {
           {support}
         </section>
       </div>
-    </SiteShell>
+    </TemplateFrame>
   )
 }

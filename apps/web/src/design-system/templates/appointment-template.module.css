@@ -564,7 +564,7 @@
 .frame[data-local-journey] [data-form-control][aria-invalid='true'] { border: 2px solid var(--semantic-color-text-error); }
 .frame[data-local-journey] .privacy { background: transparent; border: 0; padding: 0; }
 .frame[data-local-journey] .reviewSummary { background: var(--semantic-color-surface-subtle); border: 0; }
-.frame[data-local-journey] .support { border: 0; border-radius: var(--site-panel-radius); padding: var(--semantic-space-page); background: var(--semantic-color-surface-highlight); color: var(--semantic-color-text-primary); }
+.frame[data-local-journey] .support { border: 0; border-radius: var(--site-panel-radius); padding: var(--semantic-space-page); background: var(--semantic-color-surface-assistance); color: var(--semantic-color-text-primary); }
 .frame[data-local-journey] .support :is(h2,p,a) { color: var(--semantic-color-text-primary); }
 .frame[data-local-journey] .support a { text-decoration: underline; text-underline-offset: 5px; }
 .frame[data-local-journey] .support h2 { font-size: var(--site-label-heading); }

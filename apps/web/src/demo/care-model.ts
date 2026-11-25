@@ -62,13 +62,17 @@ export function resolveCareSelection(input: CareSelection): CareSelection & { no
   if (doctorId && serviceId && !isCompatibleCare(doctorId, serviceId)) return { doctorId, notice: 'This doctor is not listed for that specialty or service. Choose another care option or continue with the doctor.' }
   return { doctorId, serviceId, ...((input.doctorId && !doctorId) || (input.serviceId && !serviceId) ? { notice: 'That care option is unavailable for online requests. Choose another option or ask us to help you choose.' } : {}) }
 }
-export function appointmentHref(selection: CareSelection): string {
+export function appointmentHref(selection: CareSelection, directoryHref?: string): string {
   const valid = resolveCareSelection(selection)
   const params = new URLSearchParams()
   if (valid.doctorId) params.set('doctor', valid.doctorId)
   if (valid.serviceId) params.set('service', valid.serviceId)
+  if (directoryHref) params.set('from', directoryHref)
   return `/appointment${params.size ? `?${params}` : ''}`
 }
-export function carePathWithDoctor(service: { publicId: string; canonicalPath: string }, doctorId?: string): string {
-  return doctorId && isCompatibleCare(doctorId, service.publicId) ? `${service.canonicalPath}?doctor=${encodeURIComponent(doctorId)}` : service.canonicalPath
+export function carePathWithDoctor(service: { publicId: string; canonicalPath: string }, doctorId?: string, directoryHref?: string): string {
+  const params = new URLSearchParams()
+  if (doctorId && isCompatibleCare(doctorId, service.publicId)) params.set('doctor', doctorId)
+  if (directoryHref) params.set('from', directoryHref)
+  return `${service.canonicalPath}${params.size ? `?${params}` : ''}`
 }

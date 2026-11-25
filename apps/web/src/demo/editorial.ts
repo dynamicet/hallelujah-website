@@ -43,12 +43,12 @@ export const editorialEntries: readonly EditorialEntry[] = [
   {
     slug: 'a-conversation-about-care', category: 'Events',
     title: 'Let’s talk about care.',
-    summary: 'A sample community conversation about preparing for a visit and asking your care team questions.',
+    summary: 'A community conversation about preparing for a visit and asking your care team questions.',
     publishedAt: '2026-10-22', readingMinutes: 2,
     image: { src: '/editorial/community-conversation.webp', width: 1200, height: 800,
       alt: 'Illustration of Ethiopian adults discussing care with a health educator in a community room',
       caption: 'AI-generated illustration of a community conversation; no actual event is depicted.' },
-    event: { startsAt: '2026-11-14T10:00:00+03:00', location: 'Sample venue · hospital confirmation pending' },
+    event: { startsAt: '2026-11-14T10:00:00+03:00', location: 'Venue to be confirmed' },
     sections: [
       { title: 'About the conversation', text: 'The discussion covers preparing questions, organising visit information, and finding practical support.' },
       { title: 'Before making plans', text: 'The date, time, location, programme, and attendance arrangements are illustrative. No event has been confirmed and registration is not open. Confirm all details with the hospital before travelling.' },

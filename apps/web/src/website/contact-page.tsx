@@ -1,21 +1,20 @@
-import { Icon, SiteShell } from '@/design-system/components'
-import { demoShell } from '@/demo/site'
+import { requestAppointmentLabel } from '@/appointment/copy'
+import { Icon, SiteContent } from '@/design-system/components'
 import { InterfaceLink as Link } from './interface-language'
 import { hospitalContact } from './hospital-contact'
 import { HospitalLocationMap } from './hospital-location-map'
 import styles from './contact-page.module.css'
 
 export function ContactPage() {
-  return <SiteShell {...demoShell('/contact')}>
+  return <SiteContent>
     <div className={styles.page} data-hospital-contact lang="en">
-      <Link className={styles.backLink} href="/#home-directions"><Icon name="arrow-right" />Back to contact overview</Link>
       <header className={styles.introduction}>
         <h1>Contact &amp; directions</h1>
         <p>Speak with our team or plan your visit to Hallelujah General Hospital in Gotera, Addis Ababa.</p>
-        <nav className={styles.shortcuts} aria-label="On this page">
-          <a href="#contact-reception">Call the hospital<Icon name="phone" /></a>
-          <a href="#directions">Find us in Gotera<Icon name="directions" /></a>
-          <a href="#before-you-travel">Before you travel<Icon name="arrow-right" /></a>
+        <nav className={styles.shortcuts} aria-label="Contact and arrival options">
+          <a href={hospitalContact.phoneHref}>Call the hospital<Icon name="phone" /></a>
+          <a href={hospitalContact.directionsHref}>Get directions<Icon name="directions" /></a>
+          <a href="#before-you-travel">Before you arrive<Icon name="arrow-right" /></a>
         </nav>
       </header>
 
@@ -29,28 +28,36 @@ export function ContactPage() {
             <div><dt>General enquiries</dt><dd><a href={`mailto:${hospitalContact.email}`}>{hospitalContact.email}</a></dd></div>
           </dl>
           <p className={styles.note} data-help-clearance>For time-sensitive questions, please call. Email is not an emergency channel.</p>
-          <Link className="text-link" href="/appointment">Prepare an appointment request <Icon name="arrow-right" /></Link>
+          <Link className="text-link" href="/appointment">{requestAppointmentLabel} <Icon name="arrow-right" /></Link>
         </section>
 
         <section className={styles.location} id="directions" tabIndex={-1} aria-labelledby="contact-location-title">
           <h2 id="contact-location-title">Find us in Gotera</h2>
           <address data-help-clearance><strong>{hospitalContact.name}</strong><span>Around Gotera Condominium</span><span>Addis Ababa, Ethiopia</span></address>
-          <a className="solid-button" href={hospitalContact.directionsHref} target="_blank" rel="noopener noreferrer">Get directions <Icon name="directions" /></a>
+          <a className="solid-button" href={hospitalContact.directionsHref}>Get directions <Icon name="directions" /></a>
           <HospitalLocationMap />
-          <p className={styles.note} data-help-clearance>The pin marks the hospital location. Call to confirm your department and entrance before travelling.</p>
         </section>
       </div>
 
       <section className={styles.preparation} id="before-you-travel" tabIndex={-1} aria-labelledby="contact-visit-title">
-        <h2 id="contact-visit-title">Before you travel</h2>
-        <div className={styles.advice}>
-          <h3>Confirm your visit</h3>
-          <div><p data-help-clearance>Ask the team about your department’s opening times, appointment arrangements and any documents to bring.</p><Link className="text-link" href="/patients-visitors#arrival">Read arrival guidance <Icon name="arrow-right" /></Link></div>
+        <h2 id="contact-visit-title">Before you arrive</h2>
+        <div className={styles.visitDetails}>
+          <div>
+            <h3>Arrival and visiting</h3>
+            <p>Reception can help with where to check in, ward visiting hours, and step-free access.</p>
+            <a className="text-link" href={hospitalContact.phoneHref}>Call reception <Icon name="phone" /></a>
+          </div>
+          <div id="what-to-bring" tabIndex={-1} role="group" aria-labelledby="what-to-bring-title">
+            <h3 id="what-to-bring-title">What to bring</h3>
+            <p>If you have a referral letter, relevant test results, or a list of your current medicines, bring them with you.</p>
+          </div>
         </div>
-        <div className={styles.advice}>
-          <h3>Plan your arrival</h3>
-          <p data-help-clearance>For step-free access, parking or drop-off guidance, tell the team what support you need and confirm arrangements before setting out.</p>
-        </div>
+      </section>
+
+      <section className={styles.partnerships} aria-labelledby="contact-partnerships-title">
+        <h2 id="contact-partnerships-title">Work with us</h2>
+        <p>For enquiries about corporate healthcare agreements, institutional partnerships, or community outreach, contact Hallelujah General Hospital.</p>
+        <Link className="text-link" href="/partnerships">Contact our team <Icon name="arrow-right" /></Link>
       </section>
 
       <aside className={styles.urgent} aria-labelledby="contact-urgent-title">
@@ -58,5 +65,5 @@ export function ContactPage() {
         <Link href="/emergency">Emergency information <Icon name="arrow-right" /></Link>
       </aside>
     </div>
-  </SiteShell>
+  </SiteContent>
 }

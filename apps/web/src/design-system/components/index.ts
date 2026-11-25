@@ -48,6 +48,7 @@ export {
   Breadcrumbs,
   LanguageSwitcher,
   PrimaryNavigation,
+  SiteContent,
   SiteFooter,
   SiteHeader,
   SiteShell,
@@ -153,3 +154,5 @@ export type { BrandAccent, BrandDetail, BrandSurfaceProps, BrandSurfaceTone } fr
 export { DirectorySearchForm, DirectoryResultCount } from './directory-search'
 export { ClinicianTransition, clinicianTransitionName } from './clinician-transition'
 export { ClinicianProfileLink } from './clinician-profile-link'
+
+export { ServiceCard, type ServiceCardPresentation } from './service-card'

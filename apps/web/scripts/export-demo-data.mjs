@@ -8,7 +8,7 @@ import { controlledServiceIndex } from '../src/content/service-view.ts'
 import { clinicianExamples, emergencyExample, homeExample, serviceExamples, serviceSourceNames } from './lib/demo-presentation-content.mjs'
 
 // Presentation labels only; retain stable internal IDs and fixture isolation.
-const cleanLabel = (value) => value.replace(/Synthetic /gu, '').replace(/^./u, (letter) => letter.toUpperCase())
+const cleanLabel = (value) => value.replace(/Synthetic /gu, '').replace(/^Dr /u, 'Dr. ').replace(/^./u, (letter) => letter.toUpperCase())
 
 const doctors = clinicianDirectoryFixture()
 const services = serviceDirectoryFixture()

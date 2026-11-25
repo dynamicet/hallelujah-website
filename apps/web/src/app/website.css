@@ -206,18 +206,6 @@ body :where(a,button,summary,input,select,textarea):focus-visible { outline: 3px
 @media (max-width: 359px) {
   .team-person { grid-template-columns: 104px minmax(0, 1fr); gap: 16px; }
 }
-.visit-guide { background: var(--site-pale); padding-block: 96px; }
-.visit-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 8%; align-items: start; }
-.visit-copy > p { margin-top: 28px; max-width: 410px; }
-.visit-questions { display: grid; gap: 8px; margin-block: 28px 36px; }
-.visit-questions details { border-radius: var(--site-control-radius); padding: 12px 18px; background: var(--site-white); }
-.visit-questions summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 44px; font-size: var(--site-body); cursor: pointer; list-style: none; }
-.visit-questions summary::-webkit-details-marker { display: none; }
-.visit-questions summary:hover { color: var(--site-link); }
-.visit-questions summary span { font-size: var(--site-lead); transition: transform 220ms ease; }
-.visit-questions details[open] summary span { transform: rotate(45deg); }
-.visit-questions details > p { font-size: var(--site-support); padding-block: 12px; }
-.visit-questions details > a { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--site-support); text-decoration: underline; }
 .visit-arrival { padding: 32px; background: var(--site-white); }
 .visit-arrival > h3 { font-size: var(--site-lead); }
 .arrival-information { display: grid; gap: 24px; margin-top: 28px; }
@@ -233,42 +221,42 @@ body :where(a,button,summary,input,select,textarea):focus-visible { outline: 3px
 
 
 main [data-clinician-directory-template], main [data-service-directory-template], main [data-clinician-profile-template] { padding-top: 24px; }
-main :is([class*='introductionCopy'], [class*='sectionHeading']) > [class*='eyebrow'], main [data-appointment-template] > section > [class*='eyebrow'] { display: none; }
+main :is([data-ui-part~="introduction-copy"], [data-ui-part~="section-heading"]) > [data-ui-part~="eyebrow"], main [data-appointment-template] > section > [data-ui-part~="eyebrow"] { display: none; }
 main :is([data-clinician-directory-template], [data-service-directory-template], [data-clinician-profile-template]) :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) { padding-block: 40px 64px; }
-main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='directoryHeading'] h2 { font-size: var(--site-subheading); }
+main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~="directory-heading"] h2 { font-size: var(--site-subheading); }
 main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D2'], [data-directory-section='S3']) { border: 0; }
-main :is([data-clinician-directory-template], [data-service-directory-template]) :is([class*='searchPanel'], [class*='filterRail'], [class*='card']) { border: 0; }
-main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='cardContent'] { padding: 28px; }
-main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='cardLabel'] { text-transform: none; letter-spacing: 0; }
+main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-ui-part~='search-panel'], [data-ui-part~='filter-rail'], [data-ui-part~='card']) { border: 0; }
+main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~='card-content'] { padding: 28px; }
+main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~='card-label'] { text-transform: none; letter-spacing: 0; }
 main :is([data-clinician-directory-template], [data-service-directory-template], [data-clinician-profile-template], [data-emergency-template]) { width: var(--site-frame); max-width: none; padding-inline: 0; }
 main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D2'], [data-directory-section='S3']) { margin-inline: 0; }
-main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='directoryHeading'] > p { display: none; }
+main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~="directory-heading"] > p { display: none; }
 main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) { grid-template-columns: 1fr; gap: 32px; align-items: start; }
-main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='introductionCopy'] > a { border: 0; padding-inline: 0; text-decoration: underline; }
+main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~="introduction-copy"] > a { border: 0; padding-inline: 0; text-decoration: underline; }
 main [data-clinician-directory-template] ol[data-directory-section=D4] { grid-template-columns: 1fr; }
 main [data-clinician-public-id] { display: grid; grid-template-columns: 104px 1fr; gap: 0; }
-main [data-clinician-public-id] [class*='cardPhoto'] { padding: 28px 0 28px 24px; }
-main [data-clinician-public-id] [class*='cardContent'] { padding: 28px 32px; grid-template-rows: auto; }
-main [data-clinician-public-id] [class*='cardLabel'] { display: none; }
+main [data-clinician-public-id] [data-ui-part~='card-photo'] { padding: 28px 0 28px 24px; }
+main [data-clinician-public-id] [data-ui-part~='card-content'] { padding: 28px 32px; grid-template-rows: auto; }
+main [data-clinician-public-id] [data-ui-part~='card-label'] { display: none; }
 main [data-clinician-monogram] { display: flex; width: 80px; height: 80px; align-items: center; justify-content: center; background: var(--site-pale); color: var(--site-ink); font-size: var(--site-lead); letter-spacing: -.04em; }
-main [data-clinician-public-id] [class*='cardContent'] > a { border: 0; margin-top: 4px; }
-main [data-service-directory-template] [class*='resultGroup'] > h2 { font-size: var(--site-content-heading); }
-main [data-service-directory-template] [class*='results'] { grid-template-columns: 1fr; }
-main [data-service-public-id] { padding: 28px; }
-main [data-service-public-id] [class*='cardLabel'] { display: none; }
+main [data-clinician-public-id] [data-ui-part~='card-content'] > a { border: 0; margin-top: 4px; }
+main [data-service-directory-template] [data-ui-part~='result-group'] > h2 { font-size: var(--site-content-heading); }
+main [data-service-directory-template] [data-ui-part~='results']:not([data-visual-service-results]) { grid-template-columns: 1fr; }
+main [data-service-public-id][data-ui-part~="card"] { padding: 28px; }
+main [data-service-public-id] [data-ui-part~='card-label'] { display: none; }
 main [data-service-public-id] h3 { font-size: var(--site-lead); }
 main [data-service-public-id] > a { justify-self: start; border: 0; padding-inline: 0; }
-main [data-clinician-profile-template] [class*='eyebrow'], main [data-emergency-template] [class*='eyebrow'] { display: none; }
+main [data-clinician-profile-template] [data-ui-part~="eyebrow"], main [data-emergency-template] [data-ui-part~="eyebrow"] { display: none; }
 main [data-clinician-profile-template] :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) { grid-template-columns: 220px 1fr; gap: 48px; align-items: start; border: 0; }
 main [data-clinician-profile-template] [data-clinician-monogram] { width: 220px; height: 240px; font-size: 76px; background: var(--site-ink); color: var(--site-white); }
-main [data-clinician-profile-template] :is([class*='section'], [class*='review'], [class*='support']) { border: 0; }
-main [data-clinician-profile-template] [class*='requestRail'] { background: var(--site-pale); padding: 28px; }
-main [data-clinician-profile-template] [class*='requestRail'] h2 { font-size: var(--site-lead); }
-main [data-clinician-profile-template] [class*='requestRail'] section { padding-block: 0; }
-main :is([data-clinician-profile-template], [data-clinician-directory-template], [data-service-directory-template]) [class*='support'] h2 { font-size: var(--site-content-heading); }
-main [data-emergency-template] :is([class*='choice'], [class*='comparison'], [class*='arrival'], [class*='access'], [class*='support']) { border: 0; background: var(--site-pale); }
+main [data-clinician-profile-template] :is([data-ui-part~='section'], [data-ui-part~='review'], [data-ui-part~='support']) { border: 0; }
+main [data-clinician-profile-template] [data-ui-part~='request-rail'] { background: var(--site-pale); padding: 28px; }
+main [data-clinician-profile-template] [data-ui-part~='request-rail'] h2 { font-size: var(--site-lead); }
+main [data-clinician-profile-template] [data-ui-part~='request-rail'] section { padding-block: 0; }
+main :is([data-clinician-profile-template], [data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~='support'] h2 { font-size: var(--site-content-heading); }
+main [data-emergency-template] :is([data-ui-part~='choice'], [data-ui-part~='comparison'], [data-ui-part~='arrival'], [data-ui-part~='access'], [data-ui-part~='support']) { border: 0; background: var(--site-pale); }
 main [data-emergency-template] h2 { font-size: clamp(30px, 3.3vw, 46px); }
-main [data-emergency-template] [class*='scope'] { border: 0; }
+main [data-emergency-template] [data-ui-part~='scope'] { border: 0; }
 main [data-emergency-template] :is(dt, dd) { border: 0; }
 
 /* The same open-corner visual language carries into the functional directories. */
@@ -279,7 +267,7 @@ main :is([data-clinician-directory-template], [data-service-directory-template])
 main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D2'], [data-directory-section='S3']) { border-radius: 0 60px 0 0; padding: 32px; }
 main [data-clinician-monogram] { border-radius: 28px 0 28px 0; }
 main [data-clinician-public-id] { border-radius: 0 40px 0 0; }
-main [data-service-public-id] { background: var(--site-white); border-radius: 0 32px 0 0; }
+main [data-service-public-id][data-ui-part~="card"] { background: var(--site-white); border-radius: 0 32px 0 0; }
 
 @media (max-width: 1199px) {
   .welcome-copy { padding-inline: 32px; min-height: 520px; }
@@ -324,7 +312,6 @@ main [data-service-public-id] { background: var(--site-white); border-radius: 0 
   .listening-mosaic img { height: 460px; object-position: 44% center; }
   .listening-note { padding: 28px; }
   .listening-note > p { font-size: var(--site-lead); }
-  .visit-inner { grid-template-columns: 1fr; gap: 40px; }
   main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
 }
 @media (min-width: 600px) and (max-width: 699px) {
@@ -379,20 +366,13 @@ main [data-service-public-id] { background: var(--site-white); border-radius: 0 
   .listening-note { padding: 30px; min-height: 330px; border-radius: 0 0 64px 0; gap: 32px; }
   .listening-note > p { font-size: var(--site-label-heading); }
   .hospital-home .imagery-note { font-size: var(--site-support); }
-  .visit-guide { padding-block: 64px; }
-  .visit-inner { grid-template-columns: 1fr; gap: 40px; }
-  .visit-copy > p { margin-top: 24px; }
-  .visit-questions { margin-block: 24px 28px; }
-  .visit-questions details { padding: 12px 16px; }
-  .visit-questions summary { font-size: var(--site-support); }
-  .visit-copy > .solid-button { width: 100%; font-size: var(--site-support); }
   main :is([data-clinician-directory-template], [data-service-directory-template], [data-clinician-profile-template], [data-emergency-template]) { width: var(--site-frame); }
   main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) { margin-top: 0; padding: 28px 24px; border-radius: 0 0 48px 0; gap: 28px; }
   main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) h1 { font-size: var(--site-page-title); }
   main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D2'], [data-directory-section='S3']) { padding: 20px; border-radius: 0 40px 0 0; }
   main [data-clinician-public-id] { grid-template-columns: 64px 1fr; }
-  main [data-clinician-public-id] [class*='cardPhoto'] { padding: 24px 0 0 16px; }
-  main [data-clinician-public-id] [class*='cardContent'] { padding: 24px 16px; }
+  main [data-clinician-public-id] [data-ui-part~='card-photo'] { padding: 24px 0 0 16px; }
+  main [data-clinician-public-id] [data-ui-part~='card-content'] { padding: 24px 16px; }
   main [data-clinician-monogram] { width: 48px; height: 58px; font-size: var(--site-label-heading); border-radius: 18px 0 18px 0; }
   main [data-clinician-profile-template] :is([data-directory-section='D1'], [data-directory-section='S1'], [data-profile-introduction]) { grid-template-columns: 1fr; gap: 24px; }
   main [data-clinician-profile-template] [data-clinician-monogram] { width: 100px; height: 100px; font-size: 38px; }
@@ -405,15 +385,15 @@ main :is([data-clinician-directory-template], [data-service-directory-template])
 main :is([data-clinician-directory-template], [data-service-directory-template]) [data-directory-guidance] summary h2 { display: inline; font-size: var(--site-intro); color: var(--site-ink); letter-spacing: -.02em; }
 main :is([data-clinician-directory-template], [data-service-directory-template]) [data-directory-guidance] > p { max-inline-size: 60ch; margin-block: 12px; }
 main :is([data-clinician-directory-template], [data-service-directory-template]) [data-directory-guidance] > a { color: var(--site-link); }
-main :is([data-clinician-directory-template], [data-service-directory-template], [data-clinician-profile-template]) [class*='support'] { border: 0; }
+main :is([data-clinician-directory-template], [data-service-directory-template], [data-clinician-profile-template]) [data-ui-part~='support'] { border: 0; }
 main [data-clinician-profile-template] { padding-top: 0; }
 main [data-clinician-profile-template] [data-profile-introduction] { padding-block: 24px 32px; }
-main [data-clinician-profile-template] [class*='editorialColumn'] > section { padding-block: 24px; border: 0; }
-main [data-clinician-profile-template] [class*='selectedDoctor'], main [data-clinician-profile-template] [class*='serviceList'] li { border: 0; }
-main [data-clinician-profile-template] [class*='primaryLink'], main [data-emergency-template] [class*='demoAction'] button { min-height: 52px; padding: 14px 20px; border-radius: var(--site-action-radius); }
+main [data-clinician-profile-template] [data-ui-part~="editorial-column"] > section { padding-block: 24px; border: 0; }
+main [data-clinician-profile-template] [data-ui-part~="selected-doctor"], main [data-clinician-profile-template] [data-ui-part~="service-list"] li { border: 0; }
+main [data-clinician-profile-template] [data-ui-part~="primary-link"], main [data-emergency-template] [data-ui-part~="demo-action"] button { min-height: 52px; padding: 14px 20px; border-radius: var(--site-action-radius); }
 @media (max-width: 1023px) {
   .page-frame { width: var(--site-frame); }
-  main [data-emergency-template] :is([class*='callGrid'], [class*='pairedSections'], [class*='arrivalGrid']) { grid-template-columns: minmax(0, 1fr); }
+  main [data-emergency-template] :is([data-ui-part~='call-grid'], [data-ui-part~='paired-sections'], [data-ui-part~='arrival-grid']) { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 599px) {
   main [data-clinician-profile-template] [data-profile-introduction] { padding-block: 12px 20px; }
@@ -438,9 +418,8 @@ main [data-clinician-profile-template] [class*='primaryLink'], main [data-emerge
   .welcome-copy { width: 100%; min-height: 0; }
   .welcome h1 { color: black; }
   .welcome-media, .welcome-search, .welcome-credit, .navigator-choices { display: none; }
-  .care-start, .care-areas, .listening, .team-guide, .visit-guide, .arrival { padding-block: 32px; }
+  .care-start, .care-areas, .listening, .team-guide, .arrival { padding-block: 32px; }
   .listening, .listening h2 { background: white; color: black; }
-  .visit-questions details > p { display: block; }
 }
 
 /* Retain the established clinical welcome at every width. */
@@ -464,26 +443,26 @@ main [data-clinician-profile-template] [class*='primaryLink'], main [data-emerge
 
 /* H3: compact comparison rows retain readable text and 44px actions. */
 main [data-clinician-public-id] { grid-template-columns: 80px minmax(0, 1fr); }
-main [data-clinician-public-id] [class*='cardPhoto'] { padding: 20px 0 20px 20px; }
-main [data-clinician-public-id] [class*='cardContent'] { padding: 20px 24px; gap: 8px; }
-main [data-clinician-public-id] [class*='cardContent'] > a { margin-top: 0; }
+main [data-clinician-public-id] [data-ui-part~='card-photo'] { padding: 20px 0 20px 20px; }
+main [data-clinician-public-id] [data-ui-part~='card-content'] { padding: 20px 24px; gap: 8px; }
+main [data-clinician-public-id] [data-ui-part~='card-content'] > a { margin-top: 0; }
 main [data-clinician-public-id] [data-clinician-monogram] { width: 56px; height: 56px; font-size: var(--site-label-heading); }
-main [data-service-public-id] { padding: 20px 24px; gap: 8px; grid-template-rows: auto; }
+main [data-service-public-id][data-ui-part~="card"] { padding: 20px 24px; gap: 8px; grid-template-rows: auto; }
 main [data-service-public-id] h3 a { font-weight: 600; }
 main [data-service-public-id] > a { font-size: var(--site-support); }
 @media (max-width: 767px) {
   main :is([data-clinician-directory-template], [data-service-directory-template]) :is([data-directory-section='D1'], [data-directory-section='S1']) { padding: 16px 20px; margin-bottom: 16px; }
-  main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='introductionCopy'] { gap: 8px; }
-  main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='description'] { font-size: var(--site-support); line-height: 1.5; }
-  main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='searchPanel'] { padding: 12px; }
+  main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~='introduction-copy'] { gap: 8px; }
+  main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~='description'] { font-size: var(--site-support); line-height: 1.5; }
+  main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~='search-panel'] { padding: 12px; }
   main [data-clinician-public-id] { grid-template-columns: 56px minmax(0, 1fr); }
-  main [data-clinician-public-id] [class*='cardPhoto'] { padding: 16px 0 0 12px; }
-  main [data-clinician-public-id] [class*='cardContent'] { padding: 16px 12px; }
+  main [data-clinician-public-id] [data-ui-part~='card-photo'] { padding: 16px 0 0 12px; }
+  main [data-clinician-public-id] [data-ui-part~='card-content'] { padding: 16px 12px; }
   main [data-clinician-public-id] [data-clinician-monogram] { width: 40px; height: 48px; font-size: var(--site-intro); }
-  main [data-service-public-id] { padding: 16px; }
+  main [data-service-public-id][data-ui-part~="card"] { padding: 16px; }
 }
 @media (max-width: 767px) {
-  main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='directoryHeading'] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~='directory-heading'] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   main :is([data-clinician-directory-template], [data-service-directory-template]) form { gap: 12px; }
-  main :is([data-clinician-directory-template], [data-service-directory-template]) [class*='discoveryWorkspace'] { gap: 12px; }
+  main :is([data-clinician-directory-template], [data-service-directory-template]) [data-ui-part~='discovery-workspace'] { gap: 12px; }
 }

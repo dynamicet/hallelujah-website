@@ -8,17 +8,11 @@
   color: inherit;
 }
 .enhanced-home .welcome-appointment {
-  background: var(--semantic-color-surface-supporting);
-  color: var(--semantic-color-accent-supporting-text);
+  background: var(--site-white);
+  color: var(--site-ink);
 }
-.enhanced-home .welcome-appointment:hover {
-  background: var(--semantic-color-surface-raised);
-  color: var(--semantic-color-accent-supporting-text);
-}
-.enhanced-home .welcome-appointment:active {
-  background: var(--semantic-color-surface-supporting);
-  color: var(--semantic-color-accent-supporting-text);
-}
+.enhanced-home .welcome-appointment:hover { background: var(--site-pale); }
+.enhanced-home .welcome-appointment:active { background: var(--site-selection); }
 .enhanced-home .care-search-panel select, .enhanced-home .care-query-field {
   background: var(--semantic-color-surface-raised);
   border: 1px solid var(--semantic-color-border-strong);
@@ -92,7 +86,7 @@
   justify-content: space-between;
   gap: 24px;
   padding: 28px 32px;
-  background: var(--semantic-color-surface-highlight);
+  background: var(--semantic-color-surface-assistance);
   color: var(--semantic-color-text-primary);
 }
 .enhanced-home .team-next-step h3 { margin: 0; font-size: 20px; }
@@ -126,38 +120,25 @@
 .enhanced-home .hospital-statistics a:hover { color: var(--semantic-color-text-inverse); text-decoration: underline; }
 .enhanced-home .hospital-statistics-note { color: var(--semantic-color-text-inverse-muted); }
 
-/* The full story chapter carries the expressive context; body reading stays ink. */
+/* The photograph sets the tone for the story chapter. */
 .enhanced-home .home-stories-room { background: var(--semantic-color-surface-expressive); color: var(--semantic-color-text-primary); padding-block: var(--home-space); border: 0; }
 .enhanced-home .home-stories-room .everyday-stories { margin-block: 0; }
-.enhanced-home .everyday-stories-intro h2, .enhanced-home .everyday-feature h3 { color: var(--semantic-color-accent-expressive-text); }
+.enhanced-home .everyday-stories-intro h2, .enhanced-home .everyday-feature h3 { color: var(--semantic-color-text-heading); }
 .enhanced-home .everyday-stories-note { color: var(--semantic-color-text-secondary); }
 .enhanced-home .everyday-feature-image { border-radius: 18px 0 0 0; }
-.enhanced-home .everyday-feature-person { color: var(--semantic-color-accent-expressive-text); }
 .enhanced-home .everyday-feature-copy { margin-top: 16px; }
 .enhanced-home .everyday-film-unavailable { background: var(--semantic-color-surface-subtle); color: var(--semantic-color-text-secondary); border: 1px solid var(--semantic-color-border-default); }
-.enhanced-home .everyday-account > summary { color: var(--semantic-color-accent-expressive-text); }
+.enhanced-home .everyday-account > summary { color: var(--semantic-color-text-link); }
 .enhanced-home .everyday-quotes { border-top: 1px solid var(--semantic-color-border-default); }
 .enhanced-home .everyday-quote { background: var(--semantic-color-surface-subtle); border: 0; border-block-end: 4px solid var(--semantic-color-action-primary); border-radius: 0 18px 0 0; }
-.enhanced-home .everyday-quote:first-child { background: var(--semantic-color-surface-inverse); color: var(--semantic-color-text-inverse); border-block-end-color: var(--semantic-color-accent-expressive); }
+.enhanced-home .everyday-quote:first-child { background: var(--semantic-color-surface-inverse); color: var(--semantic-color-text-inverse); border-block-end-color: var(--semantic-color-text-inverse-accent); }
 .enhanced-home .everyday-quote:last-child { background: var(--semantic-color-surface-supporting); border-block-end-color: var(--semantic-color-accent-supporting); }
-.enhanced-home .everyday-quote-mark { color: var(--semantic-color-accent-expressive-text); }
+.enhanced-home .everyday-quote-mark { color: var(--semantic-color-text-heading); }
 .enhanced-home .everyday-quote:first-child .everyday-quote-mark { color: var(--semantic-color-text-inverse-accent); }
 .enhanced-home .everyday-quote-initials { background: var(--semantic-color-surface-raised); color: var(--semantic-color-text-heading); }
-.enhanced-home .everyday-quote:first-child .everyday-quote-initials { background: var(--semantic-color-surface-expressive); color: var(--semantic-color-accent-expressive-text); }
+.enhanced-home .everyday-quote:first-child .everyday-quote-initials { background: var(--semantic-color-surface-expressive); color: var(--semantic-color-text-heading); }
 
 /* Visit guidance uses an open list and clear disclosure states. */
-.enhanced-home .visit-guide { background: var(--semantic-color-surface-supporting); border: 0; }
-.enhanced-home .visit-copy h2 { color: var(--semantic-color-accent-supporting-text); max-width: 8em; font-size: var(--site-heading); }
-.enhanced-home .visit-preparation { margin: 0; padding: 0; background: transparent; border: 0; border-radius: 0; }
-.enhanced-home .visit-preparation .visit-questions { gap: 0; margin-bottom: 24px; }
-.enhanced-home .visit-questions details { background: transparent; border-radius: 0; border: 0; border-bottom: 1px solid var(--semantic-color-border-default); padding: 14px 0; }
-.enhanced-home .visit-questions summary { color: var(--semantic-color-accent-supporting-text); gap: 16px; }
-.enhanced-home .visit-questions summary:hover { color: var(--semantic-color-accent-supporting-text); text-decoration: underline; text-underline-offset: .2em; }
-.enhanced-home .visit-questions summary span { display: grid; place-items: center; flex: 0 0 24px; inline-size: 24px; block-size: 24px; color: var(--semantic-color-text-link); }
-.enhanced-home .visit-questions details[open] { border-bottom-color: var(--semantic-color-accent-supporting-text); }
-.enhanced-home .visit-questions details[open] summary span { transform: rotate(180deg); }
-.enhanced-home .visit-questions details > p { margin: 0; padding: 12px 0 4px; color: var(--semantic-color-text-primary); }
-.enhanced-home .visit-preparation > .text-link { color: var(--semantic-color-text-link); }
 
 /* Partner identities keep their own artwork and a quiet, consistent frame. */
 .enhanced-home .partners { background: var(--semantic-color-surface-raised); border: 0; }
@@ -183,7 +164,6 @@
   .enhanced-home .home-quick-access-list a > span:last-child { display: inline; }
   .enhanced-home .home-quick-access-copy { flex-basis: auto; }
   .enhanced-home #specialized-care h2 { font-size: var(--site-heading); }
-  .enhanced-home .visit-copy h2 { font-size: var(--site-heading); }
   .enhanced-home .hospital-film-stage { padding-inline-start: 8px; }
 }
 @media (forced-colors: active) {
@@ -191,7 +171,6 @@
   .enhanced-home .home-quick-access-list a:focus-visible { outline-color: Highlight; }
   .enhanced-home #specialized-care .home-care-card { border: 1px solid LinkText; }
   .enhanced-home #specialized-care a:focus-visible, .enhanced-home .welcome-copy :is(a, button):focus-visible { outline-color: Highlight; box-shadow: none; }
-  .enhanced-home .visit-questions summary span { color: ButtonText; border: 1px solid ButtonText; }
 }
 @media print {
   .enhanced-home #specialized-care, .enhanced-home .home-stories-room, .enhanced-home .hospital-statistics { background: Canvas; color: CanvasText; }
@@ -199,9 +178,6 @@
 }
 
 /* Preparation and arrival follow care discovery, before the hospital showcase. */
-.enhanced-home #visit-guide { scroll-margin-block-start: 24px; }
-.enhanced-home .visit-preparation .visit-questions { margin-block-start: 0; }
-.enhanced-home .visit-questions summary:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
 
 /* One editorial composition gives the people story a quieter scale. */
 .enhanced-home .human-introduction { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
@@ -220,5 +196,27 @@
   .enhanced-home .human-introduction .human-image { aspect-ratio: 16 / 10; }
 }
 @media (forced-colors: active) {
-  .enhanced-home .visit-questions summary:focus-visible, .enhanced-home .human-introduction a:focus-visible { outline-color: Highlight; }
+  .enhanced-home .human-introduction a:focus-visible { outline-color: Highlight; }
+}
+
+.welcome-phrase, .welcome-phrase > span { position: relative; }
+.welcome-phrase { white-space: nowrap; }
+.welcome-phrase::after, .welcome-phrase > span::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: auto 0 -.075em;
+  height: .095em;
+  background: var(--semantic-color-surface-editorial-marker);
+  clip-path: polygon(0 60%, 15% 35%, 42% 12%, 71% 5%, 93% 18%, 100% 36%, 89% 46%, 62% 49%, 30% 72%, 3% 100%);
+}
+.welcome-phrase > span::after { display: none; }
+@media (max-width: 359px) {
+  .welcome-phrase { white-space: normal; }
+  .welcome-phrase::after { display: none; }
+  .welcome-phrase > span::after { display: block; }
+}
+@media screen and (min-width: 360px) and (prefers-reduced-motion: no-preference) {
+  .welcome-phrase::after { animation: welcome-brush 450ms ease-out 120ms backwards; }
+  @keyframes welcome-brush { from { opacity: 0; transform: scaleX(0); transform-origin: left; } to { opacity: 1; transform: scaleX(1); transform-origin: left; } }
 }

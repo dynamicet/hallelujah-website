@@ -136,7 +136,7 @@ assert.doesNotMatch(unavailableAppointment, /href="[^"]*appointments|<form\b|<in
 assert.match(unavailableAppointment, /data-appointment-doctor-public-id="pub_09090909090901"/u)
 cases++
 
-const appRoot = new URL('../src/app/', import.meta.url)
+const appRoot = new URL('../src/app/(public)/', import.meta.url)
 assert.match(await readFile(new URL('doctors/[slug]/page.tsx', appRoot), 'utf8'), /requireLocalDemo\(\)/u)
 cases++
 

@@ -1,25 +1,28 @@
+import { requestAppointmentLabel } from '@/appointment/copy'
+import { hospitalContact } from './hospital-contact'
+import { HospitalStatistics } from './hospital-statistics'
+import { hospitalStatistics } from '@/demo/hospital-statistics'
 import { InterfaceText, InterfaceLink as Link } from '@/website/interface-language'
 
-import { ClinicianPortrait, Icon, SiteShell } from '@/design-system/components'
-import { clinicians, demoShell } from '@/demo/site'
+import { ClinicianPortrait } from '@/design-system/components/clinician-portrait'
+import { Icon } from '@/design-system/components/icon'
+import { clinicians } from '@/demo/site'
 import { demoClinicianPortraits } from '@/demo/clinician-portraits'
 import { patientStories } from '@/demo/patient-stories'
 import { EverydayStories } from './everyday-stories'
 import { CareSearch } from './care-search'
 import { HomeScenes } from './home-scenes'
-import { HospitalStoryIntroduction } from './hospital-story-introduction'
+import { HospitalIntroduction } from './hospital-introduction'
 import { SpecialtyGrid } from './specialty-grid'
 import { EquipmentPreview } from './equipment-preview'
-import { HomeHealthTopics } from './home-health-topics'
 import { partners } from '@/demo/partners'
-import { Partners } from './partners'
+import { CorporateAgreements, Partners } from './partners'
 import { NewsResources } from './news-resources'
 import { editorialEntries } from '@/demo/editorial'
 import { ContactDirections } from './contact-directions'
 import { FeaturedSpecialists } from './featured-specialists'
 
 const Arrow = () => <span aria-hidden="true">→</span>
-const VisitChevron = () => <span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>
 const HeroArrow = () => <span className="welcome-action-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></span>
 
 // Editorial order for the preview, independent of portrait-map insertion order.
@@ -30,11 +33,10 @@ const featuredClinicians = featuredClinicianIds.flatMap((publicId) => {
 })
 
 export function WebsiteHome() {
-  const shell = demoShell('/')
-  const receptionTarget = shell.header.contactTargets?.call
+  const receptionTarget = hospitalContact.phoneHref
   const receptionAction = <><Icon name="phone" /><span><InterfaceText>Call reception</InterfaceText></span></>
   return (
-    <SiteShell {...shell}>
+    <>
       <div className="hospital-home enhanced-home">
         <HomeScenes />
         <section className="welcome cinematic-life" aria-labelledby="welcome-title">
@@ -44,12 +46,11 @@ export function WebsiteHome() {
                 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>
                 <span className="welcome-location-text"><span>Gotera Agona <span aria-hidden="true">·</span></span><span className="welcome-location-city">Addis Ababa, Ethiopia</span></span>
               </a>
-              <h1 id="welcome-title">Care for your whole life.</h1>
+              <h1 id="welcome-title">Care for your <span className="welcome-phrase">whole <span>life</span></span>.</h1>
               <p>Hallelujah General Hospital</p>
               <div className="welcome-actions">
-                <Link className="welcome-appointment" href="/appointment"><span>Request an appointment</span><HeroArrow /></Link>
+                <Link className="welcome-appointment" href="/appointment"><span>{requestAppointmentLabel}</span><HeroArrow /></Link>
                 <div className="welcome-secondary-links">
-                  <Link className="text-link" href="/doctors"><span className="welcome-action-label">Find a doctor</span><HeroArrow /></Link>
                   {receptionTarget ? <a className="welcome-call" href={receptionTarget}>{receptionAction}</a> : (
                     <button aria-disabled="true" aria-label="Call reception. Preview only; not connected." className="welcome-call" title="Reception number is not connected." type="button">{receptionAction}</button>
                   )}
@@ -66,9 +67,9 @@ export function WebsiteHome() {
           <CareSearch />
         </section>
 
-        <nav className="home-quick-access" aria-label="Plan your care and visit">
-          <ul className="page-frame home-quick-access-list">
-            <li><a href="#visit-guide"><span className="home-quick-access-icon"><Icon name="calendar" /></span><span className="home-quick-access-copy"><strong><InterfaceText>Plan your visit</InterfaceText></strong></span><Arrow /></a></li>
+        <nav className="home-quick-access" aria-label="Quick access">
+          <ul className="page-frame home-quick-access-list" data-reveal-group>
+            <li><Link href="/services"><span className="home-quick-access-icon"><Icon name="care" /></span><span className="home-quick-access-copy"><strong>Explore services</strong></span><Arrow /></Link></li>
             <li><a href="#home-directions"><span className="home-quick-access-icon"><Icon name="directions" /></span><span className="home-quick-access-copy"><strong><InterfaceText>Contact &amp; directions</InterfaceText></strong></span><Arrow /></a></li>
             <li><Link className="home-quick-access-urgent" href="/emergency"><span className="home-quick-access-icon"><Icon name="emergency" /></span><span className="home-quick-access-copy"><strong>Emergency information</strong><span>Urgent care and ambulance contacts</span></span><Arrow /></Link></li>
           </ul>
@@ -94,55 +95,37 @@ export function WebsiteHome() {
                     <div className="team-person-heading"><h3 id={`team-name-${clinician.publicId}`}>{clinician.details.name}</h3></div>
                     <p className="team-specialty">{clinician.details.specialties.join(' · ')}</p>
                     {clinician.details.languages.length > 0 && <p className="team-language">Languages: {clinician.details.languages.map((language, languageIndex) => <span className="team-language-item" key={language}>{language}{languageIndex < clinician.details.languages.length - 1 ? ' · ' : ''}</span>)}</p>}
-                    {clinician.details.interests[0] && <p className="team-description">{clinician.details.interests[0]}</p>}
                     <span className="team-profile text-link"><span id={`team-profile-${clinician.publicId}`}>View profile</span><Arrow /></span>
                   </div>
                 </Link>
               ))}
             </FeaturedSpecialists>
             <div className="team-next-step">
-              <h3>Not sure who to see?</h3>
-              <Link className="team-care-help" href="/services">Explore care options <Arrow /></Link>
+              <div>
+                <h3>Not sure who to see?</h3>
+                <p>You can request an appointment without choosing a doctor or service.</p>
+              </div>
+              <Link className="team-care-help" href="/appointment">{requestAppointmentLabel} <Arrow /></Link>
             </div>
           </div>
         </section>
 
-        <section className="visit-guide" data-motion-section="visit" aria-labelledby="visit-guide-title" id="visit-guide" tabIndex={-1}>
-          <div className="page-frame visit-inner">
-            <div className="visit-copy"><h2 data-motion="heading" data-reveal="0" id="visit-guide-title">Plan your visit</h2>
-              <div className="visit-checklist">
-                <h3>What to bring</h3>
-                <ul><li>Your questions and medicine list</li><li>Referral letter, if you have one</li><li>Relevant previous results</li></ul>
-                <p>Confirm any additional requirements before travelling.</p>
-              </div>
-            </div>
-            <div className="visit-preparation">
-              <div className="visit-questions">
-                <details data-motion-disclosure><summary>Appointments &amp; arrival<VisitChevron /></summary><p>Choose your care, add your contact details, and review your request. Contact the hospital to confirm a time.</p><p>Call to confirm department opening hours, your arrival time, and where to check in. Ask how much time to allow for registration. <Link href="/patients-visitors#visit-times">Hours &amp; arrival guidance</Link></p></details>
-                <details data-motion-disclosure><summary>Companions &amp; extra support<VisitChevron /></summary><p>Ask the hospital about companions and visiting arrangements before your visit.</p><p>Confirm language, mobility, or other support with the hospital before travelling, including step-free access if you need it.</p></details>
-              </div>
-              <Link className="text-link" href="/patients-visitors">Read the full visit guide <Arrow /></Link>
-            </div>
-          </div>
-        </section>
+        <HospitalStatistics {...hospitalStatistics} />
+
+        <CorporateAgreements organizations={partners} />
 
         <ContactDirections />
 
-        <HomeHealthTopics />
-
         <EquipmentPreview />
 
-        <section className="hospital-film-section" id="about-hallelujah" aria-labelledby="hospital-story-title">
-          <HospitalStoryIntroduction />
-        </section>
+        <HospitalIntroduction />
+
+        <Partners partners={partners.slice(0, 10)} />
 
         <div className="home-stories-room"><EverydayStories stories={patientStories.slice(0, 1)} quotes={[]} /></div>
 
         <NewsResources entries={editorialEntries} />
-
-        {/* The partner showcase reuses a selection of the existing organization artwork. */}
-        <Partners partners={partners.slice(0, 10)} billingPartners={partners} />
       </div>
-    </SiteShell>
+    </>
   )
 }

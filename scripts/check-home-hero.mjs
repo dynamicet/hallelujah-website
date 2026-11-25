@@ -44,7 +44,7 @@ await runVisualCheck('home-hero', baseUrl, async ({ browser, output }) => {
   assert.equal(layout.clipped, false)
   assert.equal(layout.overflow, false)
   assert.equal(layout.photoReady, true)
-  assert.deepEqual(layout.links, ['/appointment', '/doctors', hospitalContact.phoneHref])
+  assert.deepEqual(layout.links, ['/appointment', hospitalContact.phoneHref])
   assert.equal(layout.callHref, hospitalContact.phoneHref, 'reception uses the published hospital contact')
   assert.ok(layout.actionBottom <= height, 'primary action visible in the first screen')
   if (width === 320) assert.ok(layout.lastActionBottom <= height, 'small-phone reception action visible in the first screen')

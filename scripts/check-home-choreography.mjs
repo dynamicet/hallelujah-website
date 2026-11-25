@@ -12,10 +12,20 @@ await runVisualCheck('home-choreography', baseUrl, async ({ browser, output }) =
   const records = []
   for (const width of [390, 768, 1440]) {
     const page = await browser.newPage({ width, height: 1000, mobile: width < 600 })
+    await page.send('Page.addScriptToEvaluateOnNewDocument', { source: `
+      window.observedEntrances = new Set()
+      window.placeDraws = 0
+      document.addEventListener('animationstart', event => {
+        if (event.pseudoElement === '::after' && event.target.closest('#hospital-introduction-title') && event.animationName.endsWith('drawPlace')) window.placeDraws++
+        const section = event.target.closest('[data-motion-section]')
+        if (section && event.animationName.startsWith('website-')) {
+          window.observedEntrances.add(section.dataset.motionSection)
+        }
+      })
+    ` })
     await page.goto(baseUrl)
     const sections = await page.eval(`[...document.querySelectorAll('[data-motion-section]')].map(e=>e.dataset.motionSection)`)
-    assert.ok(sections.includes('care') && sections.includes('specialists') && sections.includes('stories'), 'core care and story sections retain motion allocation')
-    assert.ok(!sections.includes('technology') && !sections.includes('film'), 'equipment invitation and hospital introduction stay static')
+    assert.deepEqual(sections, ['care', 'specialists', 'numbers', 'credit', 'arrival', 'technology', 'introduction', 'partners', 'stories', 'updates'])
     const journey = []
     for (const name of sections) {
       await scrollToSection(page, name)
@@ -34,19 +44,21 @@ await runVisualCheck('home-choreography', baseUrl, async ({ browser, output }) =
       assert.equal(state.overflow, false)
       assert.equal(state.readable, true)
       assert.equal(state.nestedReveals, 0, 'do not animate nested layers independently')
-      if (['care', 'technology', 'stories'].includes(name)) {
+      if (['care', 'numbers', 'technology', 'introduction', 'stories'].includes(name)) {
         await page.screenshot({ path: `${output}/${name}-entering-${width}.png` })
       }
       await pause(page, 950)
       assert.equal(await page.eval(`${entrances}.length`), 0, 'entrances settle when reading stops')
       journey.push(state)
     }
+    assert.deepEqual(await page.eval('[...window.observedEntrances].sort()'), [...sections].sort(), 'each homepage content section played an entrance')
     // Reversing through the page must not replay text/card entrances.
     for (const name of [...sections].reverse()) {
       await scrollToSection(page, name)
       await frame(page)
       assert.equal(await page.eval(`${entrances}.length`), 0)
     }
+    assert.equal(await page.eval('window.placeDraws'), 1, 'Gotera underline draws once, including reverse scrolling')
     // The selected composition keeps the care chapter boundary static.
     await page.eval(`scrollTo({top:0,behavior:'instant'})`)
     await pause(page, 800)

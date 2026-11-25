@@ -331,10 +331,14 @@ export function loadServerEnvironment(
   })
 }
 
+export function isDevelopmentRuntime(source: NodeJS.ProcessEnv = process.env): boolean {
+  return source.NODE_ENV === 'development'
+}
+
 // Hosted demo deployments explicitly opt in; normal production remains closed.
-export function isLocalDemo(): boolean {
-  return process.env.NODE_ENV === 'development'
-    || (process.env.HH_DEMO_MODE === 'true' && process.env.APP_ENVIRONMENT === 'staging')
+export function isLocalDemo(source: NodeJS.ProcessEnv = process.env): boolean {
+  return isDevelopmentRuntime(source)
+    || (source.HH_DEMO_MODE === 'true' && source.APP_ENVIRONMENT === 'staging')
 }
 
 export function isDevelopment(): boolean {

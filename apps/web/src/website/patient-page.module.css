@@ -7,9 +7,9 @@
 .hero:has(:global(.care-page-image)) h1 { max-width: 16ch; }
 .heroCopy > p { max-width: 58ch; font-size: var(--site-page-intro); margin: 24px 0; }
 .heroCopy > :last-child { margin-bottom: 0; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+.actions a:global(.text-link) { min-height: 44px; }
 .heroCopy > a { text-decoration: none; }
-.heroArtwork { inline-size: 112px; block-size: 48px; overflow: hidden; margin-block-start: 24px; }
-.heroArtwork > svg { transform: translateY(-12px); }
 .hero :global(.care-page-image) { aspect-ratio: 4 / 3; }
 .jumpLinks { display: flex; flex-wrap: wrap; gap: 8px 28px; padding-block: 20px; }
 .jumpLinks a { min-height: 44px; display: inline-flex; align-items: center; color: var(--site-link); font-weight: 700; }
@@ -20,6 +20,7 @@
 .sectionBody > :first-child { margin-top: 0; }
 .sectionBody > :last-child { margin-bottom: 0; }
 .sectionBody p { max-width: 68ch; }
+.sectionBody > .actions:not(:first-child) { margin-block-start: 16px; }
 .sectionBody ul { padding-left: 22px; margin: 24px 0; }
 .sectionBody li { padding-left: 6px; margin: 12px 0; }
 .sectionBody li::marker { color: var(--semantic-color-text-link); }
@@ -30,26 +31,15 @@
 .section[data-section-context='preparation'] { background: var(--semantic-color-surface-supporting); }
 .section[data-section-context='preparation'] :is(h2,h3,legend) { color: var(--semantic-color-accent-supporting-text); }
 .section[data-section-context='story'] { background: var(--semantic-color-surface-expressive); }
-.section[data-section-context='story'] :is(h2,h3) { color: var(--semantic-color-accent-expressive-text); }
-.section[data-section-context='assistance'] { background: var(--semantic-color-surface-highlight); color: var(--semantic-color-text-primary); }
-.section[data-section-context='assistance'] :is(h2,h3,p,a) { color: var(--semantic-color-text-primary); }
-.section[data-section-context='assistance'] a { text-decoration: underline; }
+.section[data-section-context='assistance'] { background: var(--semantic-color-surface-assistance); color: var(--semantic-color-text-primary); }
+.section[data-section-context='assistance'] a { color: var(--semantic-color-text-link); text-decoration: underline; }
 .page[data-page-variant='document'], .page[data-page-variant='task'] { max-inline-size: 76ch; }
 .page:is([data-page-variant='document'],[data-page-variant='task'],[data-page-variant='recruitment']) .hero { display: block; padding: 24px 0 8px; background: transparent; border-radius: 0; }
 .page:is([data-page-variant='document'],[data-page-variant='task']) .section { display: block; margin-top: 48px; }
 .page:is([data-page-variant='document'],[data-page-variant='task']) .section h2 { max-width: none; margin-bottom: 24px; font-size: var(--site-subheading); }
-.page[data-page-variant='task'] .heroCopy > p { margin-bottom: 0; }
+.page[data-page-variant='task'] .heroCopy > p:last-child { margin-bottom: 0; }
 .page[data-page-variant='task'] .section:first-of-type { margin-top: 32px; }
-.arrivalTimes { display: grid; gap: 20px; margin-block: 24px; }
-.arrivalTimes div { padding-block-start: 16px; }
-.arrivalTimes dt { font-weight: 700; color: var(--semantic-color-text-heading); }
-.arrivalTimes dd { margin: 8px 0 0; }
 .section:focus-visible, .page :is(a,button,summary):focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; box-shadow: 0 0 0 4px var(--semantic-color-surface-raised); }
-.people { list-style: none; padding: 0 !important; margin-top: 0 !important; }
-.people li { margin: 0; padding: 0; }
-.people a { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding: 20px 0; color: var(--site-link); }
-.people strong { color: var(--semantic-color-text-heading); }
-.people span { color: var(--semantic-color-text-primary); }
 .form { display: grid; gap: 24px; }
 .form[hidden] { display: none; }
 .field { display: grid; gap: 10px; }
@@ -66,29 +56,7 @@
 .reviewActions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
 .reviewActions button:global(.text-link) { background: transparent; }
 .reviewActions button:disabled { background: var(--site-pale); color: var(--site-ink); cursor: not-allowed; padding: 16px; }
-.topicOpening { padding-block: 32px 0; }
-.topicOpening h1 { margin: 0; color: var(--semantic-color-text-heading); font-size: var(--site-page-title); line-height: 1.08; }
-.topicOpening p { max-width: 58ch; margin: 24px 0 0; font-size: var(--site-page-intro); }
-.page:has(.topicOpening) { padding-bottom: 0; }
 .topicIndex { margin-top: 48px; }
-.printButton { display: inline-flex; align-items: center; gap: 16px; min-height: 48px; padding: 12px 20px; border: 1px solid var(--site-link); border-radius: var(--site-action-radius); background: transparent; color: var(--site-link); font: inherit; font-size: var(--site-support); font-weight: var(--site-action-weight); cursor: pointer; }
-.printButton:hover { background: var(--site-white); }
-.printButton:active { background: var(--site-selection); }
-.printButton:focus-visible { outline: 3px solid var(--site-ink); outline-offset: 4px; }
-.checklist fieldset { border: 0; margin: 20px 0 24px; padding: 0; }
-.checklist legend { font-size: var(--site-label-heading); font-weight: 700; margin-bottom: 16px; }
-.checklist label { display: flex; align-items: flex-start; gap: 16px; padding: 14px 0; cursor: pointer; }
-.checklist input { flex-shrink: 0; width: 24px; height: 24px; min-block-size: 0; margin-top: 3px; accent-color: var(--site-link); }
-.checklist label:has(input:checked) span { text-decoration: line-through; }
-.checklist label:focus-within { outline: 3px solid var(--semantic-color-focus); outline-offset: 3px; }
-.checklistProgress { margin-block: 24px; color: var(--semantic-color-text-heading); }
-.checklistProgress p { margin: 0 0 16px; }
-.checklistProgress strong { display: block; font-variant-numeric: tabular-nums; }
-.checklistProgress p > span { display: block; margin-block-start: 4px; }
-.checklistSteps { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 6px; }
-.checklistSteps > span { height: 6px; background: var(--semantic-color-border-default); }
-.checklistSteps > span[data-checked='true'] { background: var(--site-link); }
-.checklistProgress[data-complete='true'] .checklistSteps > span { background: var(--semantic-color-text-heading); }
 .visitType { margin-bottom: 0; }
 .visitType fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }
 .visitType legend { font-size: var(--site-label-heading); font-weight: 700; margin-bottom: 16px; color: var(--semantic-color-text-heading); }
@@ -104,9 +72,13 @@
  .section[data-section-context]:not([data-section-context='default']) { padding: 24px; }
  .jumpLinks { gap: 4px 24px; }
 }
+@media (min-width: 600px) and (max-width: 899px) {
+ .page[data-page-variant='care-detail'] .hero { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+}
 @media (max-width: 599px) {
  .page { padding-bottom: 56px; }
- .hero { padding: 24px 20px; }
+ .hero { padding: 24px 20px; gap: 20px; }
+ .hero :global(.care-page-image) { aspect-ratio: 16 / 9; }
  .hero h1 { font-size: var(--site-page-title); }
  .heroCopy > p { margin-block: 20px; }
  .section, .page:is([data-page-variant='document'],[data-page-variant='task']) .section { margin-top: 40px; gap: 16px; }
@@ -114,7 +86,6 @@
  .review { padding: 20px; }
 }
 @media (forced-colors: active) {
- .heroArtwork { display: none; }
  .section:focus-visible, .page :is(a,button,summary):focus-visible { outline-color: Highlight; box-shadow: none; }
  .section[data-section-context] { background: Canvas; color: CanvasText; }
  .section[data-section-context] :is(h2,h3,p,a,legend) { color: CanvasText; }
@@ -123,13 +94,9 @@
  .page { width: 100%; max-inline-size: none; padding: 0; font-size: 12pt; color: black; }
  .hero, .section { display: block; padding: 0; background: white; }
  .hero h1 { max-width: none; font-size: 28pt; }
- .heroArtwork, .hero :global(.care-page-image), .jumpLinks, .printButton, .sectionBody > :global(.care-page-image) { display: none; }
+ .hero :global(.care-page-image), .jumpLinks, .sectionBody > :global(.care-page-image) { display: none; }
  .section { margin-top: 24pt; break-inside: avoid; }
  .section[data-section-context] { padding: 0; background: white; }
  .section h2 { max-width: none; font-size: 20pt; margin-bottom: 12pt; }
- .page:has(.checklist) .hero, .page:has(.checklist) .section:not(:has(.checklist)) { display: none; }
- .checklist label { break-inside: avoid; }
- .checklistProgress { display: none; }
- .checklist label:has(input:checked) span { text-decoration: none; }
  .page [data-reveal] { opacity: 1 !important; transform: none !important; }
 }

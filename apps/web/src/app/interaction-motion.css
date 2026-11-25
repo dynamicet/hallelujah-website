@@ -49,16 +49,16 @@
 }
 @media (max-width: 1023px) {
   /* Stable glyph geometry allows the three strokes to become a close mark. */
-  [data-public-shell] [data-menu-trigger] [class*="menuGlyph"] { position: relative; width: 22px; height: 22px; display: block; }
-  [data-public-shell] [data-menu-trigger] [class*="menuGlyph"] span { position: absolute; left: 0; top: 10px; width: 22px; display: block; }
-  [data-public-shell] [data-menu-trigger] [class*="menuGlyph"] span:first-child { transform: translateY(-6px); }
-  [data-public-shell] [data-menu-trigger] [class*="menuGlyph"] span:last-child { transform: translateY(6px); }
-  [data-public-shell]:has(:popover-open) [data-menu-trigger] [class*="menuGlyph"] span:first-child { transform: rotate(45deg); }
-  [data-public-shell]:has(:popover-open) [data-menu-trigger] [class*="menuGlyph"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  [data-public-shell]:has(:popover-open) [data-menu-trigger] [class*="menuGlyph"] span:last-child { transform: rotate(-45deg); }
+  [data-public-shell] [data-menu-trigger] [data-ui-part~='menu-glyph'] { position: relative; width: 22px; height: 22px; display: block; }
+  [data-public-shell] [data-menu-trigger] [data-ui-part~='menu-glyph'] span { position: absolute; left: 0; top: 10px; width: 22px; display: block; }
+  [data-public-shell] [data-menu-trigger] [data-ui-part~='menu-glyph'] span:first-child { transform: translateY(-6px); }
+  [data-public-shell] [data-menu-trigger] [data-ui-part~='menu-glyph'] span:last-child { transform: translateY(6px); }
+  [data-public-shell]:has(:popover-open) [data-menu-trigger] [data-ui-part~='menu-glyph'] span:first-child { transform: rotate(45deg); }
+  [data-public-shell]:has(:popover-open) [data-menu-trigger] [data-ui-part~='menu-glyph'] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  [data-public-shell]:has(:popover-open) [data-menu-trigger] [data-ui-part~='menu-glyph'] span:last-child { transform: rotate(-45deg); }
   [data-public-shell] [data-navigation-panel] { animation: none; }
   @media (prefers-reduced-motion: no-preference) {
-    [data-public-shell] [class*="menuGlyph"] span { transition: transform var(--motion-change) var(--motion-ease), opacity var(--motion-fast); }
+    [data-public-shell] [data-ui-part~='menu-glyph'] span { transition: transform var(--motion-change) var(--motion-ease), opacity var(--motion-fast); }
     /* Animate ordinary navigation only; the emergency resource stays stationary. */
     [data-public-shell] [data-navigation-panel] [data-primary-navigation] a {
       opacity: .75; translate: 0 6px;

@@ -189,7 +189,7 @@ try {
   cases.push({ capability: 'no-js', state: 'searched-filtered', width: 360 })
 
   await navigate('controlled', 'default', 360, '?q=no-match')
-  assert.match(await evaluate("document.body.innerText"), /No clinicians match/u)
+  assert.match(await evaluate("document.body.innerText"), /No doctors match/u)
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 0)
   cases.push({ capability: 'default', state: 'no-match', width: 360 })
 

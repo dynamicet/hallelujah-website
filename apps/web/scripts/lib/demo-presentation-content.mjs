@@ -1,15 +1,15 @@
 // Local presentation copy only. These values describe fictional examples, not hospital facts.
 // The export script is the sole writer of src/demo/data.json.
 export const clinicianExamples = [
-  { sourceName: 'Dr Aster', biography: 'Dr Aster discusses everyday family-care concerns and follow-up care.', interests: ['Everyday health concerns and continuity of care', 'Planning a follow-up conversation'], languages: ['English', 'Amharic'] },
-  { sourceName: 'Dr Bekele', biography: 'Dr Bekele discusses routine child-care questions with children and caregivers.', interests: ['Questions about a child’s routine care', 'Helping families prepare for a visit'], languages: ['English'] },
-  { sourceName: 'Dr Chala', biography: 'Dr Chala discusses heart-care referrals and follow-up questions.', interests: ['Understanding a heart-care referral', 'Discussing the next step after a visit'], languages: ['English', 'Amharic'] },
-  { sourceName: 'Dr Desta', biography: 'Dr Desta focuses on ongoing family care and reviewing earlier care plans.', interests: ['Ongoing family care', 'Reviewing a care plan with a visitor'], languages: ['English'] },
-  { sourceName: 'Dr Eden', biography: 'Dr Eden discusses child-care questions and visit preparation with caregivers.', interests: ['Child-care conversations', 'Helping caregivers find the right service'], languages: ['English'] },
-  { sourceName: 'Dr Fikru', biography: 'Dr Fikru discusses heart-care questions and consultation preparation.', interests: ['Heart-care conversations', 'Preparing questions for a consultation'], languages: ['English'] },
-  { sourceName: 'Dr Genet', biography: 'Dr Genet discusses ongoing family care and follow-up options.', interests: ['Family care across visits', 'Explaining follow-up options in plain language'], languages: ['Amharic', 'English'] },
-  { sourceName: 'Dr Hana', biography: '', interests: [], languages: [] }, // Intentional partial-profile scenario.
-  { sourceName: 'Dr Imani', name: 'Dr Imani Alemu Tesfaye-Mekonnen', biography: 'Dr Imani discusses referrals, first consultations and follow-up care, including questions about earlier visits and care plans.', interests: [
+  { sourceName: 'Dr. Aster', biography: 'Dr. Aster discusses everyday family-care concerns and follow-up care.', interests: ['Everyday health concerns and continuity of care', 'Planning a follow-up conversation'], languages: ['English', 'Amharic'] },
+  { sourceName: 'Dr. Bekele', biography: 'Dr. Bekele discusses routine child-care questions with children and caregivers.', interests: ['Questions about a child’s routine care', 'Helping families prepare for a visit'], languages: ['English'] },
+  { sourceName: 'Dr. Chala', biography: 'Dr. Chala discusses heart-care referrals and follow-up questions.', interests: ['Understanding a heart-care referral', 'Discussing the next step after a visit'], languages: ['English', 'Amharic'] },
+  { sourceName: 'Dr. Desta', biography: 'Dr. Desta focuses on ongoing family care and reviewing earlier care plans.', interests: ['Ongoing family care', 'Reviewing a care plan with a visitor'], languages: ['English'] },
+  { sourceName: 'Dr. Eden', biography: 'Dr. Eden discusses child-care questions and visit preparation with caregivers.', interests: ['Child-care conversations', 'Helping caregivers find the right service'], languages: ['English'] },
+  { sourceName: 'Dr. Fikru', biography: 'Dr. Fikru discusses heart-care questions and consultation preparation.', interests: ['Heart-care conversations', 'Preparing questions for a consultation'], languages: ['English'] },
+  { sourceName: 'Dr. Genet', biography: 'Dr. Genet discusses ongoing family care and follow-up options.', interests: ['Family care across visits', 'Explaining follow-up options in plain language'], languages: ['Amharic', 'English'] },
+  { sourceName: 'Dr. Hana', biography: '', interests: [], languages: [] }, // Intentional partial-profile scenario.
+  { sourceName: 'Dr. Imani', name: 'Dr. Imani Alemu Tesfaye-Mekonnen', biography: 'Dr. Imani discusses referrals, first consultations and follow-up care, including questions about earlier visits and care plans.', interests: [
     'Referrals, first consultations and follow-up care',
     'Questions about earlier visits and care plans',
   ], languages: ['English', 'Amharic'] }, // Long-name example; layout stress cases live in the profile fixtures.

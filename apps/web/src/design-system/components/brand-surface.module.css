@@ -30,16 +30,10 @@
   background: var(--semantic-color-surface-supporting);
 }
 .surface[data-brand-tone='expressive'] {
-  --component-context-heading: var(--semantic-color-accent-expressive-text);
   background: var(--semantic-color-surface-expressive);
 }
 .surface[data-brand-tone='assistance'] {
-  --component-context-heading: var(--semantic-color-text-primary);
-  --component-context-muted: var(--semantic-color-text-primary);
-  --component-context-link: var(--semantic-color-text-primary);
-  --component-context-link-hover: var(--semantic-color-text-primary);
-  --component-context-link-active: var(--semantic-color-text-primary);
-  background: var(--semantic-color-surface-highlight);
+  background: var(--semantic-color-surface-assistance);
 }
 
 .surface :where(h2, h3, h4) { color: var(--component-context-heading); }
@@ -47,7 +41,6 @@
 .surface > :where(a, button) { justify-self: start; }
 
 .surface[data-brand-accent='orange'] { --component-context-accent: var(--semantic-color-accent-supporting); }
-.surface[data-brand-accent='magenta'] { --component-context-accent: var(--semantic-color-accent-expressive); }
 .surface:not([data-brand-accent='none'])[data-brand-detail='rule'] {
   border-block-start: 1px solid var(--component-context-accent);
 }

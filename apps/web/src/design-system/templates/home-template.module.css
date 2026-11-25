@@ -89,7 +89,7 @@
 .story .media {
   max-inline-size: var(--semantic-size-reading);
 }
-.story .media > [data-media-heading] > figcaption > strong { color: var(--semantic-color-accent-expressive-text); }
+.story .media > [data-media-heading] > figcaption > strong { color: var(--semantic-color-text-heading); }
 
 .contact {
   background: var(--semantic-color-surface-information);
@@ -240,7 +240,7 @@
 .stage { text-transform: none; color: var(--semantic-color-accent-supporting-text); }
 .contact { background: var(--semantic-color-surface-raised); border: 0; padding: 2.5rem; margin-block: 0 3rem; }
 .arrivalPlane { background: var(--semantic-color-surface-page); }
-.supportBand.supportBand { --component-context-link: var(--semantic-color-text-primary); --component-context-link-hover: var(--semantic-color-text-primary); --component-context-link-active: var(--semantic-color-text-primary); --component-context-secondary-background: transparent; --component-context-secondary-hover: transparent; background: var(--semantic-color-surface-highlight); border: 0; border-radius: var(--site-control-radius); padding: 2rem; margin-block: 0; gap: 2rem; }
+.supportBand.supportBand { --component-context-secondary-background: transparent; --component-context-secondary-hover: transparent; background: var(--semantic-color-surface-assistance); border: 0; border-radius: var(--site-control-radius); padding: 2rem; margin-block: 0; gap: 2rem; }
 .supportBand.supportBand h2, .supportBand.supportBand p { color: var(--semantic-color-text-primary); }
 .supportBand h2 { max-inline-size: 20ch; margin-block-end: 1rem; }
 .supportBand a { background: transparent; color: var(--semantic-color-text-primary); }

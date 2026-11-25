@@ -11,10 +11,9 @@ of About. The patient-facing homepage opening and care journeys stay intact.
 
 About follows: hospital introduction, chapter navigation, institutional history,
 founder feature, film, values, mission and vision, current leadership, and visit information. Founding
-contribution and current responsibility are separate editorial purposes. Yetnayet
-appears as founder in her own feature and as CEO in the management list. No founder
-status has been inferred for another member of management. Add other founders with
-their respective contributions once the hospital supplies that information.
+contribution and current responsibility are separate editorial purposes. The hospital
+identified Yetnayet Eshetu and Getachew Aderaye as co-founders. Both appear in the
+founders section and in the management list.
 
 The founder feature uses a dominant portrait, personal identification, and a distinct
 pale-blue field. Management uses four consistent portrait entries, without making
@@ -29,6 +28,12 @@ founder status and the published institutional timeline. It contains no invented
 personal history, achievements, or attributed quotation. Replace it with her
 interview-derived account before launch. The four management titles are historical
 published records and need current confirmation.
+
+Leadership background copy draws on the [hospital’s published roles](https://hallelujahhospital.com/)
+and the founder information supplied by the hospital. Professor Aderaye’s research
+background is supported by his [published tuberculosis research](https://doi.org/10.3389/fimmu.2023.1296501).
+Ask the hospital to confirm the role summaries and provide additional career
+history for the deputy CEO and medical director before launch.
 
 The actual founder interview does not yet exist. Both pages retain the 18-second
 silent concept montage; neither labels it as her interview. The future main film

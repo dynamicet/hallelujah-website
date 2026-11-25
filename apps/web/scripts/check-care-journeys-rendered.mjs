@@ -4,8 +4,8 @@ import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-// Run against the existing local demo: pnpm dev, then pnpm --dir apps/web patient-guide:smoke.
-const origin = 'http://localhost:3000'
+// Run against the existing local demo: pnpm dev, then pnpm --dir apps/web care-journeys:smoke.
+const origin = process.env.HH_PREVIEW_URL || 'http://localhost:3000'
 const capture = path.resolve(process.env.CARE_EVIDENCE_DIR ?? fileURLToPath(new URL('../../../artifacts/care-journeys/', import.meta.url)))
 await mkdir(capture, { recursive: true })
 const profileRoot = process.env.CARE_BROWSER_PROFILE_ROOT ?? fileURLToPath(new URL('../../../tmp/', import.meta.url))
@@ -75,7 +75,7 @@ try {
     console.log(`Checking ${route} at ${width}px`)
     await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: width < 600 })
     await send('Page.navigate', { url: origin + route })
-    await until("document.readyState === 'complete' && !!document.querySelector('[data-open-patient-guide]')")
+    await until("document.readyState === 'complete' && !!document.querySelector('main h1')")
     await pause(1000)
   }
   async function shot(name) {
@@ -84,70 +84,80 @@ try {
     const result = await send('Page.captureScreenshot', { format: 'jpeg', quality: 75, fromSurface: false })
     await writeFile(path.join(capture, `${name}.jpg`), Buffer.from(result.data, 'base64'))
   }
-  const ready = "!document.querySelector('[data-appointment-safe-form]')?.hasAttribute('inert')"
+  const ready = "document.querySelector('#full-name') && !document.querySelector('#full-name').matches(':disabled')"
   for (const width of [390, 768, 1440]) {
-    for (const route of ['/health-topics/diabetes', '/patients-visitors', '/appointment?service=pub_141414141414', '/doctors?q=blood%20sugar', '/referrals']) {
+    for (const route of ['/services/synthetic-service-141414141414', '/contact', '/appointment?service=pub_141414141414', '/doctors?q=blood%20sugar', '/referrals']) {
       await navigate(route, width)
       assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true, `${route} fits ${width}`)
+      assert.equal(await evaluate(`document.querySelector('a[href^="/health-topics"]') === null`), true)
       await shot(`${route.split('?')[0].replaceAll('/', '-').slice(1)}-${width}`)
     }
   }
-  const topics = ['allergies', 'asthma', 'back-pain', 'diabetes', 'digestive-concerns', 'everyday-wellbeing', 'headaches', 'high-blood-pressure', 'joint-pain', 'sleep-concerns', 'thyroid-concerns', 'vision-concerns']
-  for (const slug of topics) assert.equal((await fetch(`${origin}/health-topics/${slug}`)).status, 200, slug)
-  assert.equal((await fetch(`${origin}/health-topics/not-a-topic`)).status, 404)
+  const serviceRedirects = [
+    ['diabetes', '141414141414'],
+    ['digestive-concerns', '141414141414'],
+    ['high-blood-pressure', '141414141414'],
+    ['thyroid-concerns', '141414141414'],
+    ['back-pain', '171717171717'],
+    ['joint-pain', '171717171717'],
+  ]
+  for (const [slug, id] of serviceRedirects) {
+    const response = await fetch(`${origin}/health-topics/${slug}`, { redirect: 'manual' })
+    assert.equal(response.status, 308, slug)
+    assert.equal(response.headers.get('location'), `/services/synthetic-service-${id}`)
+  }
+  const retiredTopics = ['allergies', 'asthma', 'everyday-wellbeing', 'headaches', 'sleep-concerns', 'vision-concerns', 'not-a-topic']
+  for (const route of ['/health-topics', ...retiredTopics.map(slug => `/health-topics/${slug}`)]) {
+    assert.equal((await fetch(origin + route, { redirect: 'manual' })).status, 404, route)
+  }
   await navigate('/doctors?q=blood%20sugar', 390)
   assert.ok(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length > 0"))
-  assert.ok(await evaluate("document.querySelector('a[href=\"/health-topics/diabetes\"]') !== null"))
   assert.match(await evaluate("document.querySelector('[data-clinician-public-id]').innerText"), /Related care: Family medicine/)
-  await navigate('/doctors?q=backache', 390)
+  await navigate('/doctors?q=headache', 390)
   assert.equal(await evaluate("document.querySelectorAll('[data-clinician-public-id]').length"), 0)
-  assert.ok(await evaluate("document.querySelector('a[href=\"/health-topics/back-pain\"]') !== null"))
-  await navigate('/', 390)
-  await evaluate("document.querySelector('#health-library a').click()")
-  await until("location.pathname === '/health-topics' && !!document.querySelector('#health-topic-search')")
-  await evaluate("document.querySelector('#health-topic-search').focus()")
-  await send('Input.insertText', { text: 'blood sugar' })
-  await until("document.querySelector('[data-health-topic=diabetes]') !== null")
-  await evaluate("document.querySelector('[data-health-topic=diabetes]').click()")
-  await evaluate("document.querySelector('#health-topic-reader a[href=\"/health-topics/diabetes\"]').click()")
-  await until("location.pathname === '/health-topics/diabetes'")
-  await evaluate("document.querySelector('#care-options a[href*=\"service=\"]').click()")
+  await evaluate(`document.querySelector('[data-directory-empty] a[href="/contact#contact-reception"]').focus()`)
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, text: '\r' })
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 })
+  await until("location.pathname === '/contact' && document.activeElement.id === 'contact-reception'")
+  await navigate('/health-topics/diabetes', 390)
+  await until("location.pathname === '/services/synthetic-service-141414141414'")
+  await evaluate(`document.querySelector('main a[href="/appointment?service=pub_141414141414"]').click()`)
   await until("location.pathname === '/appointment' && location.search.includes('service=pub_141414141414')")
   await until(ready)
-  assert.equal(await evaluate("document.querySelector('#service-id').value"), 'pub_141414141414')
-  await evaluate("document.querySelector('input[value=\"follow-up\"]').click()")
-  await until("document.querySelector('[data-journey-value=visit]').textContent === 'Follow-up visit'")
-  await evaluate("document.querySelector('[data-journey-next]').click()")
-  await until("document.querySelector('[data-appointment-template]').dataset.journeyStep === '1'")
-  await evaluate("document.querySelector('#full-name').value = 'TEST PATIENT'; document.querySelector('#phone').value = '+0 000 000 0000'; document.querySelector('#privacy-acknowledged').click()")
-  await evaluate("document.querySelector('[data-journey-next]').click()")
-  await until("document.querySelector('[data-appointment-template]').dataset.journeyStep === '2'")
-  assert.equal(await evaluate("document.querySelector('[data-journey-review] [data-journey-value=visit]').textContent"), 'Follow-up visit')
-  assert.equal(await evaluate("document.querySelector('[data-journey-review] [data-journey-value=care]').textContent"), 'Family medicine')
-  await shot('appointment-follow-up-review-390')
-  await navigate('/patients-visitors', 390)
-  const stored = await evaluate('JSON.stringify({local: {...localStorage}, session: {...sessionStorage}})')
-  await evaluate("document.querySelector('#visit-check-0').click()")
-  assert.equal(await evaluate("document.querySelector('#visit-check-0').checked"), true)
-  assert.equal(await evaluate('JSON.stringify({local: {...localStorage}, session: {...sessionStorage}})'), stored)
-  await evaluate("window.__printed = false; window.print = () => { window.__printed = true }; document.querySelector('#checklist button').click()")
-  assert.equal(await evaluate('window.__printed'), true)
-  await send('Emulation.setDeviceMetricsOverride', { width: 794, height: 1123, deviceScaleFactor: 1, mobile: false })
-  await send('Emulation.setEmulatedMedia', { media: 'print' })
-  await shot('visit-checklist-print')
-  const pdf = await send('Page.printToPDF', { printBackground: true, paperWidth: 8.27, paperHeight: 11.69, marginTop: 0.5, marginBottom: 0.5, marginLeft: 0.5, marginRight: 0.5 })
-  await writeFile(path.join(capture, 'visit-checklist.pdf'), Buffer.from(pdf.data, 'base64'))
+  assert.match(await evaluate("document.querySelector('[data-appointment-preference]').textContent"), /Family medicine/)
+  await evaluate("document.querySelector('#full-name').value = 'TEST PATIENT'; document.querySelector('#phone').value = '+0 000 000 0000'; document.querySelector('#appointment-request-form').requestSubmit()")
+  await until("document.querySelector('[data-appointment-request]').dataset.appointmentState === 'receipt'")
+  assert.equal(await evaluate("document.activeElement.id"), 'appointment-result-title')
+  await shot('appointment-receipt-390')
+  await navigate('/health-topics/back-pain', 390)
+  await until("location.pathname === '/services/synthetic-service-171717171717'")
+  assert.ok(await evaluate(`!!document.querySelector('main a[href="/appointment?service=pub_171717171717"]')`))
+  for (const [id, destination] of [
+    ['121212121212', '/services/synthetic-service-111111111111#care-team'],
+    ['131313131313', '/contact#before-you-travel'],
+    ['191919191919', '/contact#contact-reception'],
+  ]) {
+    const response = await fetch(origin + '/services/synthetic-service-' + id, { redirect: 'manual' })
+    assert.equal(response.status, 308)
+    assert.equal(response.headers.get('location'), destination)
+  }
+  await navigate('/services/synthetic-service-121212121212#prepare', 390)
+  await until("location.pathname === '/services/synthetic-service-111111111111' && location.hash === '#care-team'")
+  await navigate('/patients-visitors#checklist', 390)
+  await until("location.pathname === '/contact' && location.hash === '#before-you-travel'")
+  assert.match(await evaluate("document.querySelector('#what-to-bring').innerText"), /What to bring/)
+  await shot('visit-preparation-390')
   await send('Emulation.setEmulatedMedia', { media: 'screen', features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
-  await navigate('/health-topics', 320)
+  await navigate('/doctors?q=headache', 320)
   assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true)
-  await shot('health-topics-320')
+  await shot('doctor-search-empty-320')
   await send('Emulation.setScriptExecutionDisabled', { value: true })
   await navigate('/health-topics/diabetes', 390)
-  assert.match(await evaluate('document.body.innerText'), /Prepare for a conversation/)
+  assert.equal(await evaluate("document.querySelector('main h1').textContent"), 'Family medicine')
   await send('Emulation.setScriptExecutionDisabled', { value: false })
   assert.deepEqual(errors, [], 'no browser errors')
   assert.equal(requests.some((request) => request.method === 'POST'), false, 'preview sends no submissions')
-  console.log(`Care journey browser checks passed: 12 topic pages, 404, three widths, aliases, missing doctor relationships, homepage-to-topic-to-appointment handoff, follow-up review, checklist, print, reduced motion and no-JavaScript reading. Screenshots: ${capture}`)
+  console.log(`Care journey browser checks passed: redirects, retired routes, three widths, doctor aliases, reception keyboard access, service-to-appointment handoff, preview submission, legacy visit links, reduced motion and no-JavaScript redirect. Screenshots: ${capture}`)
 } catch (error) {
   console.error(browserLog.slice(-4000))
   throw error

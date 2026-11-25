@@ -87,7 +87,7 @@ await runVisualCheck('color-contexts', base, async ({ browser, output }) => {
       await page.eval(`document.querySelector(${JSON.stringify(selector)}).focus()`)
       const pair = await colors(page, selector)
       const ground = await colors(page, "[data-brand-tone='expressive']:not(article) > h2")
-      assert.ok(contrast(pair.outline, ground.background) >= 3, 'story focus contrasts with pink')
+      assert.ok(contrast(pair.outline, ground.background) >= 3, 'story focus contrasts with the editorial surface')
       assert.deepEqual(page.consoleErrors, [])
       console.log(`PASS ${width}: rendered context text/action states, nested white panels, field edges and focus`)
     } finally { await page.close() }

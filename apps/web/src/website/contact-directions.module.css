@@ -7,7 +7,7 @@
 .section .pageLink:active { background: var(--site-action-active); color: var(--site-white); }
 .section a:focus-visible { outline: 3px solid var(--semantic-color-focus); outline-offset: 4px; }
 .section svg { width: 20px; height: 20px; flex-shrink: 0; }
-.columns { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; gap: clamp(32px, 4.5vw, 64px); margin-top: 36px; }
+.columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); align-items: start; gap: clamp(32px, 4.5vw, 64px); margin-top: 36px; }
 .contact, .location { min-width: 0; }
 .section h3 { margin: 0 0 20px; font-family: var(--site-font); font-size: 24px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; }
 .address { display: grid; gap: 0; margin: 0; font-style: normal; font-size: 18px; line-height: 1.6; }
@@ -63,4 +63,21 @@
   .section { padding-block: 32px; background: white; color: black; }
   .columns { gap: 32px; }
   .section a { color: black; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mapPin b { position: relative; }
+  .mapPin b[data-entered]::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 2px solid var(--site-ink);
+    border-radius: 50%;
+    opacity: 0;
+    animation: locateHospital 850ms ease-out;
+  }
+  @keyframes locateHospital {
+    from { opacity: .65; transform: scale(.95); }
+    to { opacity: 0; transform: scale(1.65); }
+  }
 }

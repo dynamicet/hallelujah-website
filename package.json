@@ -8,6 +8,9 @@
     "pnpm": "10.27.0"
   },
   "scripts": {
+    "visual:feedback": "node scripts/check-feedback-completion.mjs",
+    "visual:services": "node scripts/check-service-cards.mjs",
+    "visual:navigation": "node scripts/check-site-navigation.mjs",
     "visual:check": "node scripts/check-visual.mjs",
     "visual:contact": "node scripts/check-contact-flow.mjs",
     "visual:language-loading": "node scripts/check-interface-language-loading.mjs",
@@ -76,7 +79,6 @@
     "care-journeys:check": "pnpm --dir apps/web care-journeys:check",
     "care-selection:check": "pnpm --dir apps/web care-selection:check",
     "care-journeys:smoke": "pnpm --dir apps/web care-journeys:smoke",
-    "health-finder:check": "pnpm --dir apps/web health-finder:check",
     "home:check": "pnpm --dir apps/web home:check",
     "home:preview": "pnpm --dir apps/web home:preview",
     "home:smoke": "pnpm --dir apps/web home:smoke",
@@ -160,7 +162,7 @@
       "minimatch@>=7.0.0 <11.0.1": "11.0.1"
     },
     "patchedDependencies": {
-      "@next/eslint-plugin-next@16.4.1": "patches/@next__eslint-plugin-next@16.4.1.patch"
+      "@next/eslint-plugin-next@16.4.5": "patches/@next__eslint-plugin-next@16.4.5.patch"
     }
   }
 }

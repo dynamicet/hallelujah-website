@@ -48,20 +48,23 @@ type Equipment = typeof equipment[number]
 
 function EquipmentImage({ item }: { item: Equipment }) {
   const sizes = '(min-width: 900px) 55vw, (min-width: 700px) 40vw, 100vw'
-  return <figure className={styles.image} data-signature-frame="equipment">
+  return <figure data-ui-part="image" className={styles.image} data-signature-frame="equipment">
     <picture>
       <source type="image/avif" srcSet={`/editorial/${item.image}-640.avif 640w, /editorial/${item.image}-1440.avif 1440w`} sizes={sizes} />
       <img src={`/editorial/${item.image}-1440.webp`} srcSet={`/editorial/${item.image}-640.webp 640w, /editorial/${item.image}-1440.webp 1440w`} sizes={sizes} alt={item.alt} width="1440" height="960" loading="lazy" />
     </picture>
+    {item.id === 'c-arm' && <svg className={styles.armTrace} viewBox="0 0 480 320" aria-hidden="true" focusable="false">
+      <path d="M 350 48 C 290 78 294 183 356 205" pathLength="1" />
+    </svg>}
   </figure>
 }
 
 function CloserLook({ item }: { item: Equipment }) {
   return <details className={styles.details}>
-    <summary>Uses & preparation<span aria-hidden="true" className={styles.plus}>+</span></summary>
+    <summary>Uses & preparation<span aria-hidden="true" data-ui-part="plus" className={styles.plus}>+</span></summary>
     <div className={styles.expanded}>
       <p>{item.capability}</p>
-      <div className={styles.audiences}>
+      <div data-ui-part="audiences" className={styles.audiences}>
         <div><h4>For patients</h4><p>{item.preparation}</p><Link href="/appointment">Plan your care<span aria-hidden="true">→</span></Link></div>
         <div><h4>For referring clinicians</h4><p>{item.referral}</p><Link href="/referrals">Referral information<span aria-hidden="true">→</span></Link></div>
       </div>
@@ -75,22 +78,22 @@ export function EquipmentShowcase({ embedded = false }: { embedded?: boolean }) 
     laboratory: { href: '/services/synthetic-service-141414141414/', label: 'Explore general medicine' },
     dental: { href: '/appointment', label: 'Ask about dental care' },
   }
-  return <section className={`${styles.section} ${embedded ? styles.embedded : ''}`} aria-labelledby="equipment-title" id="medical-technology" tabIndex={-1} data-signature-scene="equipment" data-motion-section="technology">
-    <div className={embedded ? undefined : 'page-frame'}>
-      <div className={styles.introduction}>
+  return <section data-ui-part="section" className={`${styles.section} ${embedded ? styles.embedded : ''}`} aria-labelledby="equipment-title" id="medical-technology" tabIndex={-1} data-signature-scene="equipment" data-motion-section="technology">
+    <div className="page-frame">
+      <div data-ui-part="introduction" className={styles.introduction}>
         <h2 id="equipment-title" data-motion="heading" data-reveal="0">Technology behind your care</h2>
         {!embedded && <EquipmentChapterNav chapters={equipment.map((item) => ({ id: `equipment-${item.id}-scene`, label: item.navigationLabel, name: item.name, device: item.id }))} />}
       </div>
-      <div className={`${styles.supporting} equipment-chapters`}>
-        {equipment.map((item, index) => <article id={`equipment-${item.id}-scene`} tabIndex={-1} data-equipment-stop data-motion="card" data-reveal={index} className={`${styles.product} equipment-chapter`} key={item.id} aria-labelledby={`equipment-${item.id}`}>
+      <div data-reveal-group data-ui-part="support" className={`${styles.supporting} equipment-chapters`}>
+        {equipment.map((item) => <article id={`equipment-${item.id}-scene`} tabIndex={-1} data-equipment-stop data-motion="card" className={`${styles.product} equipment-chapter`} key={item.id} aria-labelledby={`equipment-${item.id}`}>
           <EquipmentImage item={item} />
           <div className={`${styles.productCopy} equipment-chapter-copy`}><h3 id={`equipment-${item.id}`}>{item.name}</h3><p className={styles.productDescription}>{item.description}</p><Link className={styles.serviceLink} href={careLinks[item.id].href}>{careLinks[item.id].label} <span aria-hidden="true">→</span></Link></div>
           <CloserLook item={item} />
         </article>)}
       </div>
-      <div className={styles.footer}>
+      {!embedded && <div data-ui-part="footer" className={styles.footer}>
         <Link href="/services">Explore services<span aria-hidden="true">→</span></Link>
-      </div>
+      </div>}
     </div>
   </section>
 }

@@ -4,6 +4,7 @@ export type PatientStory = {
   title: string
   attribution: string
   quote: string
+  highlightedPhrase?: string
   account: readonly string[]
   photograph: { src: string; alt: string; width: number; height: number }
   video?: {

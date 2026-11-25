@@ -24,5 +24,6 @@ export const standaloneReviews = [
   { components: ['BrandCard', 'BrandSurface'], check: 'scripts/check-brand-foundation.mjs' },
   { components: ['DirectoryBrowse', 'DirectorySearchForm', 'DirectoryResultCount'], check: 'scripts/check-directory-feedback.mjs' },
   { components: ['ClinicianPortrait', 'ClinicianMonogram', 'ClinicianPhotoPlaceholder', 'ClinicianTransition', 'ClinicianProfileLink'], check: 'scripts/check-clinician-transition.mjs' },
-  { components: ['PatientGuide', 'HelpWidget', 'GuideLauncher', 'HeaderContacts'], check: 'scripts/check-help.mjs' },
+  { components: ['CallWidget', 'HeaderContacts', 'SiteContent'], check: 'scripts/check-site-navigation.mjs' },
+  { components: ['ServiceCard'], check: 'scripts/check-service-cards.mjs' },
 ]

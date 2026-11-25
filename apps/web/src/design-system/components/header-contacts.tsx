@@ -3,14 +3,14 @@ import { Icon } from './icon'
 import styles from './hospital-shell.module.css'
 
 export interface HeaderContactTargets {
-  readonly call?: `tel:+${string}`
+  readonly call?: `tel:${string}`
   readonly previewNumber?: string
   readonly whatsapp?: `https://wa.me/${string}`
   readonly telegram?: `https://t.me/${string}`
 }
 
 const channels = [
-  { key: 'call', label: 'Hotline 9975', detail: '', description: 'Call hotline 9975', unavailable: 'Hotline number' },
+  { key: 'call', label: '9975', detail: '', description: 'Call hotline 9975', unavailable: 'Hotline number' },
   { key: 'whatsapp', label: 'WhatsApp', detail: '', description: 'Message the hospital on WhatsApp', unavailable: 'WhatsApp conversation' },
   { key: 'telegram', label: 'Telegram', detail: '', description: 'Message the hospital on Telegram', unavailable: 'Telegram conversation' },
 ] as const
@@ -19,7 +19,7 @@ export function HeaderContacts({ targets = {} }: { readonly targets?: HeaderCont
   return (
     <InterfaceCopy><div aria-label="Contact the hospital" className={styles.contactActions} data-header-contacts role="group">
       {channels.map(({ key, label, detail, description, unavailable }) => {
-        const href = key === 'call' ? 'tel:9975' : targets[key]
+        const href = targets[key]
         const content = <>
           <span aria-hidden="true" className={styles.contactIcon}>
             {key === 'call' ? <Icon name="phone" /> : (

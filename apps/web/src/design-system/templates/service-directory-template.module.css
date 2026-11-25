@@ -207,7 +207,6 @@
 .frame[data-care-directory] .results .card { flex: 1; grid-template-rows: auto 1fr auto; }
 @media (min-width: 75rem) {
   .frame[data-care-directory] .resultGroup .results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .frame[data-care-directory] .results > li:only-child { grid-column: 1 / -1; }
 }
 
 .card a {
@@ -276,21 +275,6 @@
 }
 .frame .support[data-care-band='preparation'] h2 {
   color: var(--semantic-color-accent-supporting-text);
-}
-.frame .support[data-care-band='assistance'] {
-  background: var(--semantic-color-surface-highlight);
-  color: var(--semantic-color-text-primary);
-}
-.frame .support[data-care-band='assistance'] :is(h2, h3, p, li, small, a) {
-  color: var(--semantic-color-text-primary);
-}
-.frame .support[data-care-band='assistance'] a {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-.frame .support[data-care-band='assistance'] a:is(:hover, :active) {
-  color: var(--semantic-color-text-primary);
-  text-decoration-thickness: 2px;
 }
 .frame .support[data-care-band] :is(a, button):focus-visible {
   outline: 3px solid var(--semantic-color-focus);
@@ -411,3 +395,5 @@
     color: CanvasText;
   }
 }
+
+.visualCard { display: flex; width: 100%; min-width: 0; }

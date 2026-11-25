@@ -106,14 +106,15 @@ export function clinicianDirectoryFromViews(input: Readonly<{
   const selected = [...new Set(values(input.searchParameters, 'type'))]
     .filter((value) => allowed.has(value))
   const normalizedQuery = query(input.searchParameters)
-  const needle = normalizedQuery.toLocaleLowerCase(input.locale)
+  const searchText = (value: string) => value.normalize('NFC').toLocaleLowerCase(input.locale).replace(/\bdr\.(?=\s|$)/gu, 'dr')
+  const needle = searchText(normalizedQuery)
+  const directMatch = (clinician: ClinicianView) => searchText([clinician.details.name, ...clinician.details.specialties].join(' ')).includes(needle)
   const indexed = [...input.entries]
     .sort((left, right) => left.details.name.localeCompare(right.details.name, input.locale))
   const relatedMatches = new Map((input.searchTerms ?? []).map((entry) => [entry.clinicianPublicId, entry]))
   const matchingQuery = indexed.filter((clinician) => !needle
-    || relatedMatches.get(clinician.publicId)?.terms.some((term) => term.normalize('NFC').toLocaleLowerCase(input.locale).includes(needle))
-    || [clinician.details.name, ...clinician.details.specialties]
-      .join(' ').normalize('NFC').toLocaleLowerCase(input.locale).includes(needle))
+    || relatedMatches.get(clinician.publicId)?.terms.some((term) => searchText(term).includes(needle))
+    || directMatch(clinician))
   const selectedSpecialties = new Set(filters
     .filter((filter) => selected.includes(filter.value))
     .map((filter) => filter.specialty.toLocaleLowerCase(input.locale)))
@@ -137,7 +138,7 @@ export function clinicianDirectoryFromViews(input: Readonly<{
     pageSize,
     ...(input.searchTerms ? { matchReasons: Object.fromEntries(matchingQuery.flatMap((clinician) => {
       const relation = relatedMatches.get(clinician.publicId)
-      const direct = [clinician.details.name, ...clinician.details.specialties].join(' ').toLocaleLowerCase(input.locale).includes(needle)
+      const direct = directMatch(clinician)
       return needle && relation && !direct ? [[clinician.publicId, relation.explanation]] : []
     })) } : {}),
     resultCount: matching.length,

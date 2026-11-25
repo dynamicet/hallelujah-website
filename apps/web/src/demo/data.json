@@ -22,7 +22,7 @@
       "canonicalPath": "/doctors/synthetic-clinician-101010101010/",
       "locale": "en",
       "details": {
-        "name": "Dr Aster",
+        "name": "Dr. Aster",
         "professionalTitle": null,
         "credentials": [],
         "specialties": [
@@ -46,14 +46,14 @@
         "state": "withheld",
         "doctorPublicId": "pub_101010101010"
       },
-      "biography": "Dr Aster discusses everyday family-care concerns and follow-up care."
+      "biography": "Dr. Aster discusses everyday family-care concerns and follow-up care."
     },
     {
       "publicId": "pub_111111111111",
       "canonicalPath": "/doctors/synthetic-clinician-111111111111/",
       "locale": "en",
       "details": {
-        "name": "Dr Bekele",
+        "name": "Dr. Bekele",
         "professionalTitle": null,
         "credentials": [],
         "specialties": [
@@ -76,14 +76,14 @@
         "state": "withheld",
         "doctorPublicId": "pub_111111111111"
       },
-      "biography": "Dr Bekele discusses routine child-care questions with children and caregivers."
+      "biography": "Dr. Bekele discusses routine child-care questions with children and caregivers."
     },
     {
       "publicId": "pub_121212121212",
       "canonicalPath": "/doctors/synthetic-clinician-121212121212/",
       "locale": "en",
       "details": {
-        "name": "Dr Chala",
+        "name": "Dr. Chala",
         "professionalTitle": null,
         "credentials": [],
         "specialties": [
@@ -107,14 +107,14 @@
         "state": "withheld",
         "doctorPublicId": "pub_121212121212"
       },
-      "biography": "Dr Chala discusses heart-care referrals and follow-up questions."
+      "biography": "Dr. Chala discusses heart-care referrals and follow-up questions."
     },
     {
       "publicId": "pub_131313131313",
       "canonicalPath": "/doctors/synthetic-clinician-131313131313/",
       "locale": "en",
       "details": {
-        "name": "Dr Desta",
+        "name": "Dr. Desta",
         "professionalTitle": null,
         "credentials": [],
         "specialties": [
@@ -137,14 +137,14 @@
         "state": "withheld",
         "doctorPublicId": "pub_131313131313"
       },
-      "biography": "Dr Desta focuses on ongoing family care and reviewing earlier care plans."
+      "biography": "Dr. Desta focuses on ongoing family care and reviewing earlier care plans."
     },
     {
       "publicId": "pub_141414141414",
       "canonicalPath": "/doctors/synthetic-clinician-141414141414/",
       "locale": "en",
       "details": {
-        "name": "Dr Eden",
+        "name": "Dr. Eden",
         "professionalTitle": null,
         "credentials": [],
         "specialties": [
@@ -167,14 +167,14 @@
         "state": "withheld",
         "doctorPublicId": "pub_141414141414"
       },
-      "biography": "Dr Eden discusses child-care questions and visit preparation with caregivers."
+      "biography": "Dr. Eden discusses child-care questions and visit preparation with caregivers."
     },
     {
       "publicId": "pub_151515151515",
       "canonicalPath": "/doctors/synthetic-clinician-151515151515/",
       "locale": "en",
       "details": {
-        "name": "Dr Fikru",
+        "name": "Dr. Fikru",
         "professionalTitle": null,
         "credentials": [],
         "specialties": [
@@ -197,14 +197,14 @@
         "state": "withheld",
         "doctorPublicId": "pub_151515151515"
       },
-      "biography": "Dr Fikru discusses heart-care questions and consultation preparation."
+      "biography": "Dr. Fikru discusses heart-care questions and consultation preparation."
     },
     {
       "publicId": "pub_161616161616",
       "canonicalPath": "/doctors/synthetic-clinician-161616161616/",
       "locale": "en",
       "details": {
-        "name": "Dr Genet",
+        "name": "Dr. Genet",
         "professionalTitle": null,
         "credentials": [],
         "specialties": [
@@ -228,14 +228,14 @@
         "state": "withheld",
         "doctorPublicId": "pub_161616161616"
       },
-      "biography": "Dr Genet discusses ongoing family care and follow-up options."
+      "biography": "Dr. Genet discusses ongoing family care and follow-up options."
     },
     {
       "publicId": "pub_171717171717",
       "canonicalPath": "/doctors/synthetic-clinician-171717171717/",
       "locale": "en",
       "details": {
-        "name": "Dr Hana",
+        "name": "Dr. Hana",
         "professionalTitle": null,
         "credentials": [],
         "specialties": [
@@ -260,7 +260,7 @@
       "canonicalPath": "/doctors/synthetic-clinician-181818181818/",
       "locale": "en",
       "details": {
-        "name": "Dr Imani Alemu Tesfaye-Mekonnen",
+        "name": "Dr. Imani Alemu Tesfaye-Mekonnen",
         "professionalTitle": null,
         "credentials": [],
         "specialties": [
@@ -284,7 +284,7 @@
         "state": "withheld",
         "doctorPublicId": "pub_181818181818"
       },
-      "biography": "Dr Imani discusses referrals, first consultations and follow-up care, including questions about earlier visits and care plans."
+      "biography": "Dr. Imani discusses referrals, first consultations and follow-up care, including questions about earlier visits and care plans."
     }
   ],
   "serviceFilters": [
